@@ -67,8 +67,8 @@ venv() {
     .venv/bin/pip install --no-cache-dir -q "torch==$TORCH" --index-url https://download.pytorch.org/whl/cu128
     .venv/bin/pip install --no-cache-dir -q -e '.[kraken,dev]'
   fi
-  .venv/bin/python -c "import kraken, torch, numpy; print('kraken', kraken.__version__, '| torch', torch.__version__, '| cuda', torch.cuda.is_available(), '| numpy', numpy.__version__)"
-  .venv/bin/python -c "import kraken; assert kraken.__version__.startswith('7.0.'), kraken.__version__" \
+  .venv/bin/python -c "import torch, numpy; from importlib.metadata import version as v; print('kraken', v('kraken'), '| torch', torch.__version__, '| cuda', torch.cuda.is_available(), '| numpy', numpy.__version__)"
+  .venv/bin/python -c "from importlib.metadata import version as v; assert v('kraken').startswith('7.0.'), v('kraken')" \
     || die "kraken is not 7.0.x — the serving loader (load_any, CoreML) is 7.0.2; fix the pin before going on"
   mkdir -p docs && .venv/bin/pip freeze > docs/ENV_ASTERAIX.txt
 }

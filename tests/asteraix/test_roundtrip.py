@@ -5,6 +5,7 @@ WSP_PRACTICE (a jsonl of {"key","text","image"} line crops, train side only).
 """
 import json
 import os
+from importlib.metadata import version
 from pathlib import Path
 
 import pytest
@@ -24,7 +25,7 @@ def practice():
 
 
 def test_kraken_version_is_what_the_serving_loader_reads():
-    assert kraken.__version__.startswith("7.0."), kraken.__version__
+    assert version("kraken").startswith("7.0."), version("kraken")  # kraken 7 has no __version__ attribute
 
 
 def test_noop_roundtrip(tmp_path, practice):
