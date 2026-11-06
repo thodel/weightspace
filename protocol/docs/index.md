@@ -6,7 +6,7 @@ components do, edits the weights in code — **without gradient descent** — an
 measures the result against held-out data and against the cheapest
 alternatives (weight averaging, interpolation, a short retrain).
 
-The method follows R. Tanaka, ["Weight-space programming"](https://rikiyat.github.io/blog/weight-space-programming/)
+The method follows R. Takehi, J. Teoh, A. Zhang and O. Khattab, ["Sparks of Weight-Space Programming"](https://rikiyat.github.io/blog/weight-space-programming/)
 (2 Nov 2026), which applied it to MLPs and small language models. This project
 transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
