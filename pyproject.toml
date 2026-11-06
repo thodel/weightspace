@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wsp"
+version = "0.0.1"
+description = "Weight-space programming harness for ATR models (kraken pilot, LoRA adapters next)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+# asteraix: kraken pinned to what the serving loader reads (CoreML, load_any 7.0.2)
+kraken = ["kraken==7.0.2", "torch>=2.2", "pyarrow"]
+lora = ["safetensors>=0.4", "torch>=2.2"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["wsp*"]
