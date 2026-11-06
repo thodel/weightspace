@@ -162,12 +162,15 @@ class PageXMLSource:
     def image(self, c: Candidate):
         from PIL import Image
         project, stem = c.page.split("/", 1)
-        d = next(p for p in self.dirs if p.name == project)
-        xml_text = (d / "page" / f"{stem}.xml").read_text(encoding="utf-8")
-        line = next(l for l in page_lines(xml_text) if l["id"] == c.line_id)
-        m = re.search(r'imageFilename="([^"]+)"', xml_text)
-        im = Image.open(d / (m.group(1) if m else f"{stem}.jpg"))
-        return cut_line(im, line)
+        if c.page not in self._xml:          # one parse per page, not per line
+            d = next(p for p in self.dirs if p.name == project)
+            xml_text = (d / "page" / f"{stem}.xml").read_text(encoding="utf-8")
+            m = re.search(r'imageFilename="([^"]+)"', xml_text)
+            self._xml[c.page] = (d / (m.group(1) if m else f"{stem}.jpg"),
+                                 {l["id"]: l for l in page_lines(xml_text)})
+        img_path, lines = self._xml[c.page]
+        im = Image.open(img_path)
+        return cut_line(im, lines[c.line_id])
 
     def describe(self) -> dict:
         return {"kind": "pagexml", "dirs": [str(d) for d in self.dirs],
@@ -240,11 +243,16 @@ def sample_lines(source: str, n: int, seed: int, set_name: str,
     out_dir.mkdir(parents=True, exist_ok=True)
     list_root.mkdir(parents=True, exist_ok=True)
     rows = []
+    skipped = []
     for c in chosen:
         safe = re.sub(r"[^A-Za-z0-9._-]+", "_", c.key)
         img = out_dir / f"{safe}.png"
         if not img.exists():
-            src.image(c).save(img)
+            try:
+                src.image(c).save(img)
+            except ValueError as e:           # kraken refuses degenerate geometry (baseline < 5 px)
+                skipped.append({"key": c.key, "reason": str(e)})
+                continue
         rows.append({"key": c.key, "text": c.text, "image": str(img), "doc": c.doc,
                      "image_sha256": sha256_file(img)})   # the list hash then identifies the pixels too
     lst = list_root / f"{set_name}.jsonl"
@@ -253,6 +261,7 @@ def sample_lines(source: str, n: int, seed: int, set_name: str,
     meta = {"set": set_name, "source": source, "source_info": src.describe(), "n": len(rows), "seed": seed,
             "candidates": len(cands), "sha256": digest,
             "documents": sorted({r["doc"] for r in rows if r["doc"]}),
+            "skipped": skipped,
             "selection": ("random.Random(seed).sample over all candidate lines in source order" if n
                           else "every candidate line in source order (no sampling)")}
     (list_root / f"{set_name}.meta.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
