@@ -23,6 +23,8 @@ On the train side (phase 0, `docs/PHASE0_REPORT.md` §3) the same holds: hertwig
 
 Who is affected: every job that downloaded the dataset after 25.10 16:03 UTC and used the Hertwig project. Known: `kraken-bern-combined-v1` (job `20261025T160407Z`, started 35 s after the push; the trainer records `revision: null`). `kraken-bern-schlussredaktion-v1` trained on the 24.10 Schlussredaktion export and is not affected. Still open: which export the trainer's held-out numbers in `docs/MODELS.md` (16.7 %, 28.8 %) were scored on; they match neither column above exactly.
 
+**Schlussredaktion checked, 06.11.2026 evening.** The two Schlussredaktion shards on `main` (`20261025_170131`, from `c2aa325b`) were compared with those of the 24.10 export (`20261024_220124`, `326bcd18`): the files are byte-identical (train sha256 `19d7ddce…`, 118 pages; test `0f8f970d…`, 8 pages), so every page has the same XML and the same image. The 25.10 re-export only renamed them. The dataset on `main` (`dda578ea`) is now correctly paired for both projects, and `bern-eval`'s 8 Schlussredaktion test pages are the pages schlussredaktion-v1 was evaluated on.
+
 ## The fix (run by hand, not from a session)
 
 `scripts/fix_hertwig_hf.py` replaces the two Hertwig shards on `main` by the 22.10 files (byte-identical, one commit, Schlussredaktion untouched) and verifies the result. It needs a Hugging Face token that may write to `dh-unibe`. From the weightspace checkout on asteraix:
