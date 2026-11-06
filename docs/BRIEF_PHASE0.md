@@ -13,6 +13,11 @@ is "spent" against a budget.**
 - Card 1 (`ATR_TRAIN_GPU=1`) is the trainer's. Export
   `CUDA_VISIBLE_DEVICES=0` in every shell, and run `nvidia-smi` first: card 0
   may host the neighbours' workers. Everything in phase 0 also works on CPU.
+  Stale since 22.10.2026: the trainer allocates either card per job
+  (`ATR_TRAIN_GPUS=0,1`, training-atr-models#12) and gates only on free VRAM,
+  so card 0 may be the trainer's and card 1 idle. Until the cooperative rule
+  of training-atr-models#396 exists, the rule stays: card 0 or CPU, and a
+  pass starts only when `nvidia-smi` shows 12 GB free on card 0.
 - The research share is read-only for this work. The only writes are under
   `~/Repo/weightspace/` and `~/atr-cache/wsp/`.
 - The trainer's venvs (`~/Repo/training-atr-models/.venvs/*`) are services;
