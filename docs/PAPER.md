@@ -25,6 +25,10 @@ reading and patching kraken CTC models and QLoRA adapters without gradients.*
 
 ## Related work to position against (to verify and cite properly)
 
+First literature pass on analysis and explainability of text-recognition
+networks: [RELATED_WORK.md](RELATED_WORK.md) (24 verified references, BibTeX in
+`refs/wsp_related_work.bib`, Zotero collection of the same name).
+
 - Takehi, Teoh, Zhang, Khattab, "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights" (blog, 2 Nov 2026); Karpathy, Software 2.0.
 - Model merging: task arithmetic (Ilharco et al. 2023), TIES-merging (Yadav
   et al. 2023), DARE (Yu et al. 2024), model soups (Wortsman et al. 2022),
