@@ -58,3 +58,16 @@ First budgeted session (docs/PHASE1_REPORT.md). Subject `kraken-german-xix-blb-v
 | parent `xix-v1` (C1) | 0.3039 | 0.3196 | 455 |
 
 Not a gain. The blank-bias, space-bias and frequent-row hypotheses of docs/READINGS.md each reduce the deletions they target and add insertions or substitutions of the same size; the 12 typographic rows are inert (a measured null). The deletions are decided below the output layer.
+
+## R3 — session `20261106-bern-combined-v1-b10-1`: label-noise damage is not removable by transplant (06.11.2026)
+
+Target 1 re-framed (docs/HERTWIG_REVISIONS.md, docs/PHASE3_REPORT.md). Subject `kraken-bern-combined-v1` (trained on the 25.10 export with 44 of 50 Hertwig images swapped), donors `hertwig-v2` (parent) and `schlussredaktion-v1` (clean sibling), practice `bern-train-300` (sha256 `474414e3…`), held-out `bern-eval` (545 lines, sha256 `f7b024e0…`), budget 10, 9 passes, 8 edits, 1 kept (output layer from the parent).
+
+| | practice CER | held-out CER | held-out Hertwig | held-out Schlussred. |
+|---|---:|---:|---:|---:|
+| before (C0) | 0.1456 | 0.1933 | 0.2669 | 0.1348 |
+| after (frozen) | 0.1414 | 0.1948 | 0.2639 | 0.1399 |
+| Δ, 95 % interval (points) | −0.42 [−0.85, −0.04] | **+0.15 [−0.10, +0.42]** | −0.30 [−0.72, +0.13] | +0.51 [+0.21, +0.82] |
+| parent / sibling, held-out all | | 0.2749 / 0.2036 | | |
+
+Not a gain: the kept edit's practice gain came from the parent's own training lines. On correctly paired pages the subject is already the best family-1 model; no block of the clean sibling improves it.

@@ -1,0 +1,32 @@
+{
+  "set": "bern-train-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet,/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_train/20261025_170131-0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet",
+    "pages": 168,
+    "projects": [
+      "A_V_1443_Hertwig_train",
+      "A_V_1447_Schlussredaktion_train"
+    ],
+    "sha256": "566f5bd10313eef956a1e86961daf45a4532810b4020f16cee5483c96651897c",
+    "paths": [
+      "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet",
+      "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_train/20261025_170131-0000.parquet"
+    ],
+    "sha256s": [
+      "566f5bd10313eef956a1e86961daf45a4532810b4020f16cee5483c96651897c",
+      "19d7ddceebfff92139b2637c0b68b2c89ff7955e305ce80f9920c9679bd27181"
+    ]
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 5441,
+  "sha256": "474414e3be95787da5f08f4bdcfc04adcfc024d8518b72cab8e885367977343f",
+  "documents": [
+    "13922499",
+    "13922579"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

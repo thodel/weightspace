@@ -1,0 +1,32 @@
+{
+  "set": "bern-eval",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_test/20261022_114935-0000.parquet,/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_test/20261025_170131-0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_test/20261022_114935-0000.parquet",
+    "pages": 14,
+    "projects": [
+      "A_V_1443_Hertwig_test",
+      "A_V_1447_Schlussredaktion_test"
+    ],
+    "sha256": "0397cddd3761c93f7ed1076d2dcbb2dff8129785fec34c43e8d6565a85ee7e96",
+    "paths": [
+      "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_test/20261022_114935-0000.parquet",
+      "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_test/20261025_170131-0000.parquet"
+    ],
+    "sha256s": [
+      "0397cddd3761c93f7ed1076d2dcbb2dff8129785fec34c43e8d6565a85ee7e96",
+      "0f8f970dabb8032603e07d5fd6bb8e703ccd6b3291b39fd5e666f34f443f1ff3"
+    ]
+  },
+  "n": 545,
+  "seed": 20261106,
+  "candidates": 545,
+  "sha256": "f7b024e0fab59ae928cb7b0f28fe5a90d01823073ff3111d7d96f1b136d83227",
+  "documents": [
+    "13922499",
+    "13922579"
+  ],
+  "skipped": [],
+  "selection": "every candidate line in source order (no sampling)"
+}

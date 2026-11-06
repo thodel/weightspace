@@ -25,6 +25,9 @@ BLB_EXPORT = Path("/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/export.json")
 HELDOUT_CONFIG = Path.home() / "Repo/training-atr-models/config/heldout_eval_documents.json"
 HERTWIG_DOC = "13922499"
 HERTWIG_EVAL_PAGES = {8, 17, 26, 39, 48, 55}
+#: Schlussredaktion (A_V_1447): the 8 pages of `A_V_1447_Schlussredaktion_test` (24.10 = 25.10 export)
+SCHLUSS_DOC = "13922579"
+SCHLUSS_EVAL_PAGES = {12, 30, 49, 69, 89, 105, 125, 142}
 
 
 def norm_id(s: str) -> str:
@@ -64,12 +67,15 @@ def audit_set(lst: Path, ids: dict) -> dict:
     hits = [d for d in docs if norm_id(d) in blb_eval_norm]
     if hits:
         report["findings"].append({"kind": "blb_eval_object_in_practice", "documents": hits})
-    if HERTWIG_DOC in docs:
-        pages = sorted({p for p in (_hertwig_page(r["key"]) for r in rows) if p is not None})
-        bad = sorted(set(pages) & HERTWIG_EVAL_PAGES)
-        report["hertwig_pages"] = pages
+    for name, doc, eval_pages in (("hertwig", HERTWIG_DOC, HERTWIG_EVAL_PAGES), ("schlussredaktion", SCHLUSS_DOC, SCHLUSS_EVAL_PAGES)):
+        if doc not in docs:
+            continue
+        # pages of *this* document only: page numbers repeat across volumes
+        pages = sorted({p for p in (_hertwig_page(r["key"]) for r in rows if r.get("doc") == doc) if p is not None})
+        bad = sorted(set(pages) & eval_pages)
+        report[f"{name}_pages"] = pages
         if bad:
-            report["findings"].append({"kind": "hertwig_eval_page_in_practice", "pages": bad})
+            report["findings"].append({"kind": f"{name}_eval_page_in_practice", "pages": bad})
     for name, s in ids["medieval"].items():
         tdocs = set(s["test_documents"]); vdocs = set(s["val_documents"])
         t_hits = [d for d in docs if d in tdocs]
@@ -98,16 +104,32 @@ def audit_heldout(lst: Path, practice: list[Path], ids: dict) -> dict:
               "documents": docs, "findings": [], "against": []}
     if not docs:
         report["findings"].append({"kind": "no_document_ids"})
-    not_heldout = [d for d in docs if norm_id(d) not in blb_eval_norm]
-    if not_heldout:
-        report["findings"].append({"kind": "document_not_a_blb_eval_object", "documents": not_heldout})
+    # Two kinds of held-out identity. BLB: the object (shelfmark) is the unit, split at object level.
+    # Transkribus exports (Bern 1528): one document per volume, split at *page* level into a
+    # `<project>_test` project; the unit is (document, page) and the row's project must be a test project.
+    def page_of(r):
+        parts = r["key"].split("/")
+        return (r.get("doc"), parts[1] if len(parts) > 2 else None)
+    blb_docs = [d for d in docs if norm_id(d) in blb_eval_norm]
+    tk_rows = [r for r in rows if r.get("doc") and norm_id(r["doc"]) not in blb_eval_norm]
+    not_test = sorted({r["key"].split("/")[0] for r in tk_rows if not r["key"].split("/")[0].endswith("_test")})
+    if not_test:
+        report["findings"].append({"kind": "rows_neither_blb_eval_object_nor_test_project", "projects": not_test})
+    report["identity"] = {"blb_objects": blb_docs,
+                          "test_pages": sorted({f"{d}/{p}" for d, p in (page_of(r) for r in tk_rows)})}
+    held_pages = {page_of(r) for r in tk_rows}
     for p in practice:
         prows = [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
         pdocs = {norm_id(r["doc"]) for r in prows if r.get("doc")}
-        shared = [d for d in docs if norm_id(d) in pdocs]
-        report["against"].append({"practice": p.stem, "documents": len(pdocs), "shared": shared})
+        shared = [d for d in blb_docs if norm_id(d) in pdocs]
+        ppages = {page_of(r) for r in prows if r.get("doc")}
+        shared_pages = sorted(f"{d}/{pg}" for d, pg in held_pages & ppages)
+        report["against"].append({"practice": p.stem, "documents": len(pdocs), "shared": shared,
+                                  "shared_pages": shared_pages})
         if shared:
             report["findings"].append({"kind": "document_shared_with_practice", "practice": p.stem, "documents": shared})
+        if shared_pages:
+            report["findings"].append({"kind": "page_shared_with_practice", "practice": p.stem, "pages": shared_pages})
     report["clean"] = not report["findings"]
     return report
 

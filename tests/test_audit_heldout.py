@@ -32,4 +32,24 @@ def test_heldout_audit(tmp_path):
     r = audit_heldout(held, [prac_ok, prac_bad], IDS)
     assert not r["clean"] and r["findings"][0]["documents"] == ["K2911,17"]
     stray = _write(tmp_path, "stray", [{"key": "s", "doc": "K9999", "text": "x"}])
-    assert audit_heldout(stray, [], IDS)["findings"][0]["kind"] == "document_not_a_blb_eval_object"
+    assert audit_heldout(stray, [], IDS)["findings"][0]["kind"] == "rows_neither_blb_eval_object_nor_test_project"
+
+
+def test_heldout_audit_transkribus_pages(tmp_path):
+    held = _write(tmp_path, "bern", [{"key": "A_V_1443_Hertwig_test/p0008/l1", "doc": "13922499", "text": "x"}])
+    prac = _write(tmp_path, "pr", [{"key": "A_V_1443_Hertwig_train/p0006/l1", "doc": "13922499", "text": "y"}])
+    r = audit_heldout(held, [prac], IDS)
+    assert r["clean"], r["findings"]                     # same volume, different page: fine
+    clash = _write(tmp_path, "clash", [{"key": "A_V_1443_Hertwig_train/p0008/l9", "doc": "13922499", "text": "y"}])
+    assert audit_heldout(held, [clash], IDS)["findings"][0]["kind"] == "page_shared_with_practice"
+    wrong = _write(tmp_path, "wrong", [{"key": "A_V_1443_Hertwig_train/p0010/l1", "doc": "13922499", "text": "x"}])
+    assert audit_heldout(wrong, [], IDS)["findings"][0]["kind"] == "rows_neither_blb_eval_object_nor_test_project"
+
+
+def test_practice_audit_pages_are_per_document(tmp_path):
+    # Schlussredaktion train page p0008 is not Hertwig eval page 8
+    p = _write(tmp_path, "mix", [{"key": "A_V_1447_Schlussredaktion_train/p0008/l1", "doc": "13922579", "text": "x"},
+                                 {"key": "A_V_1443_Hertwig_train/p0006/l1", "doc": "13922499", "text": "y"}])
+    assert audit_set(p, IDS)["clean"]
+    q = _write(tmp_path, "bad", [{"key": "A_V_1447_Schlussredaktion_train/p0012/l1", "doc": "13922579", "text": "x"}])
+    assert audit_set(q, IDS)["findings"][0]["kind"] == "schlussredaktion_eval_page_in_practice"

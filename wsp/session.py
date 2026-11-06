@@ -79,13 +79,26 @@ class Session:
     def note(self, text: str) -> None:
         self._event("note", text=text)
 
-    def edit(self, op: str, names: Sequence[str], hypothesis: int | None = None, **kwargs) -> int:
+    def edit(self, op: str, names: Sequence[str], hypothesis: int | None = None,
+             per_tensor: dict[str, dict] | None = None, **kwargs) -> int:
+        """One edit = one op over the named tensors, decided on as a whole. ``per_tensor``
+        gives arguments that differ by tensor (a block transplant needs one donor array
+        per tensor); they are merged over the shared ``kwargs``."""
         if self._last_edit is not None:
             raise RuntimeError("decide on the previous edit (keep/revert) first")
+        per_tensor = per_tensor or {}
+        unknown = set(per_tensor) - set(names)
+        if unknown:
+            raise KeyError(f"per_tensor names not in names: {sorted(unknown)}")
         self._pre_edit_tensors = {n: self.subject.tensors()[n].copy() for n in names}
-        self.subject.apply(op, names, **kwargs)
+        if per_tensor:
+            for n in names:
+                self.subject.apply(op, [n], **{**kwargs, **per_tensor.get(n, {})})
+        else:
+            self.subject.apply(op, names, **kwargs)
         self._last_edit = self._event("edit", op=op, names=list(names), hypothesis=hypothesis,
                                       args={k: _summ(v) for k, v in kwargs.items()},
+                                      per_tensor={n: {k: _summ(v) for k, v in a.items()} for n, a in per_tensor.items()} or None,
                                       digest=self.subject.digest())
         self._measured_since_edit = False
         return len(self._log) - 1

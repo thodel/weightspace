@@ -19,3 +19,6 @@ runs/*/readings/
 __pycache__/
 .venv/
 !models/DIGESTS.md
+
+# built protocol site
+protocol/site/
