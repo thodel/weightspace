@@ -1,5 +1,5 @@
 # weights and data never go into git (16 MB per model, images are archival)
-models/
+models/*
 data/
 runs/*/readings/
 *.mlmodel
@@ -8,3 +8,4 @@ runs/*/readings/
 *.parquet
 __pycache__/
 .venv/
+!models/DIGESTS.md
