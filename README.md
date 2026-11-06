@@ -5,7 +5,7 @@ diagnose, patch, measure — and compare the result with ordinary merging and
 retraining. Private repo. Plan in [PLAN.md](PLAN.md), model inventory in
 [docs/MODELS.md](docs/MODELS.md).
 
-Method source: R. Tanaka, "Weight-space programming" (blog, 2 Nov 2026),
+Method source: R. Takehi, J. Teoh, A. Zhang, O. Khattab, "Sparks of Weight-Space Programming" (blog, 2 Nov 2026),
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 

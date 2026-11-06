@@ -38,7 +38,7 @@ edit is fully described by `(op, tensor names, args)` and can be replayed.
 | `scale` | `factor` | `W ← factor·W` |
 | `add` | `delta` (array or name of another tensor) | `W ← W + delta` |
 | `set_rows` / `set_cols` | `index`, `values` | overwrite rows/columns (codec rows, `B` rows) |
-| `project_out` | `direction`, `axis`, optional `index` | remove the component along a unit direction from the selected columns — Tanaka's Exp-8 edit |
+| `project_out` | `direction`, `axis`, optional `index` | remove the component along a unit direction from the selected columns — the Exp-8 edit of Takehi et al. |
 | `interpolate` | `other`, `alpha` | `W ← (1−α)W + α·other` |
 | `transplant` | `donor tensor` | copy a whole tensor from a sibling |
 | `drop_padding_rows` | `keep` | for the kraken+ `Cr255,1,85` kernel: keep the centre row, drop the 254 rows that only ever saw padding |
@@ -63,7 +63,7 @@ Session(subject, practice_set, budget=25, seed=…)
 `{"t": …, "kind": "hypothesis|edit|pass|decision|note", "budget_used": n, …}`.
 A pass records the full metrics; a decision records `kept: bool` and the
 metric delta it was based on. `freeze()` writes `diff.safetensors` (sparse:
-names, indices, values against the starting digest, like Tanaka's published
+names, indices, values against the starting digest, like the published
 Exp-8 diffs) and `summary.json`. The budget counter is in-process **and** in a
 file in the run folder, so a restarted sandbox cannot forget it.
 

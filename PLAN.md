@@ -12,7 +12,7 @@ a reproducible paper ([docs/PROTOCOL.md](docs/PROTOCOL.md),
 
 ## 0. What the method is, and what it is not
 
-Tanaka's post (02.11.2026) describes an LLM that **reads a network's weights and
+The Takehi et al. post (02.11.2026) describes an LLM that **reads a network's weights and
 edits them in code, without gradient descent**, inside a sandbox with a small
 budget of forward passes on practice data. Loop:
 
@@ -69,7 +69,7 @@ few tens of MB of `lora_A` / `lora_B` pairs per target module — the same order
 of size as a kraken model, and the natural unit of weight-space reading:
 `ΔW = B·A` per module is low-rank by construction, so its directions are
 enumerable, and a defect direction (looping, truncation, the token-limit hits
-the trainer already counts) is a candidate for exactly Tanaka's Exp-8 edit.
+the trainer already counts) is a candidate for exactly the Exp-8 edit of Takehi et al..
 The forward pass is then a vLLM batch on asteraix's free card and costs
 minutes, which is why the budget is defined in passes, not seconds.
 
@@ -123,7 +123,7 @@ prediction, edit, result and keep/revert decision goes to
 ### Track B — the family read across models, and merging as the comparator
 
 1. **Lineage diffs** (reading only): per-layer L2 and cosine between parent
-   and child, which rows moved, which codec classes were added. Tanaka's Exp 7
+   and child, which rows moved, which codec classes were added. Exp 7 of Takehi et al.
    says weights alone can miss behavioural differences, so each diff is paired
    with the two models' confusion matrices on the same practice lines.
 2. **Baselines the edits must beat:** uniform averaging of siblings and
@@ -132,7 +132,7 @@ prediction, edit, result and keep/revert decision goes to
    matched by character, never by index. For adapters: averaging and
    per-module α of sibling adapters of one base.
 3. **Programmed merge:** per-layer choice of donor, justified from the
-   readings — the merging Tanaka leaves for future work, done by hand under the
+   readings — the merging Takehi et al. leave for future work, done by hand under the
    same budget rule.
 4. **Retraining comparator:** one short fine-tune of the target (same data,
    5 epochs, lrate 1e-5) through `kraken_train` / `train_spec`, so a weight

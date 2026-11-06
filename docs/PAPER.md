@@ -7,7 +7,7 @@ reading and patching kraken CTC models and QLoRA adapters without gradients.*
 
 1. Can an LLM, reading only the weights and a budget of forward passes,
    identify defects in small HTR recognisers (CTC collapse, unlearned classes,
-   damaged layers) and repair them, as Tanaka reports for MLPs and small LMs?
+   damaged layers) and repair them, as Takehi et al. report for MLPs and small LMs?
 2. How do such edits compare with weight averaging, delta scaling and a short
    retrain on the same held-out sets?
 3. Does the result transfer from a 4 M-parameter CNN-BiLSTM-CTC model to
@@ -25,7 +25,7 @@ reading and patching kraken CTC models and QLoRA adapters without gradients.*
 
 ## Related work to position against (to verify and cite properly)
 
-- Tanaka, weight-space programming (blog, 2026); Karpathy, Software 2.0.
+- Takehi, Teoh, Zhang, Khattab, "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights" (blog, 2 Nov 2026); Karpathy, Software 2.0.
 - Model merging: task arithmetic (Ilharco et al. 2023), TIES-merging (Yadav
   et al. 2023), DARE (Yu et al. 2024), model soups (Wortsman et al. 2022),
   evolutionary model merge (Akiba et al. 2024).
