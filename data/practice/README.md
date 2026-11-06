@@ -6,6 +6,7 @@ Built by `python -m wsp.data build` with seed 20261106 (docs/BRIEF_PHASE0.md §4
 |---|---:|---:|---:|---|
 | bern-hertwig-train-300-export1025 | 300 | 1984 | 1 | `6123747416ae5e4a45114ad1dcb237f67d2526c430ad956c34212ffe61f15b12` |
 | bern-hertwig-train-300 | 300 | 1984 | 1 | `bd4e5a8a4957ac59d2c9126adae1c2006d860543f2b4a9fb94cbc5953a7fe25e` |
+| bern-train-300 | 300 | 5441 | 2 | `474414e3be95787da5f08f4bdcfc04adcfc024d8518b72cab8e885367977343f` |
 | blb-train-300 | 300 | 38724 | 114 | `4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b` |
 | medieval-train-300 | 300 | 236778 | — | `a2160d4ef170a31e7ab0f3b96d631272347e281a1cbc7f65423f5d0dd8f5dd3d` |
 | medieval-val-300-archive | 300 | 20535 | — | `7e3f6eebc08e717e444e3f644b38075152a4abe71550723fad12bba34b9b1290` |
@@ -26,6 +27,14 @@ HF `dh-unibe/image-text_bern-disputation-1528`, project `A_V_1443_Hertwig_train`
 Selection: `random.Random(20261106).sample` over 1984 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet`.
 
 Documents: `13922499`
+
+## bern-train-300
+
+HF `dh-unibe/image-text_bern-disputation-1528`, both training projects as `combined-v1` saw them, but with the correct images: `A_V_1443_Hertwig_train` from the **22.10** export (`28a16d55`) and `A_V_1447_Schlussredaktion_train` (24.10 = 25.10, byte-identical). Lines cut from the Transkribus polygons. The practice set for target 1 (docs/HERTWIG_REVISIONS.md): a Hertwig-only set would reward turning combined-v1 back into hertwig-v2, which was trained on exactly those lines.
+
+Selection: `random.Random(20261106).sample` over 5441 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet,/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_train/20261025_170131-0000.parquet`.
+
+Documents: `13922499`, `13922579`
 
 ## blb-train-300
 

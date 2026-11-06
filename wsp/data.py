@@ -288,6 +288,11 @@ SOURCE_NOTES = {
                               "Transkribus polygons with `extract_polygons`. Eval pages 8/17/26/39/48/55 are not in this project.",
     "bern-hertwig-train-300-export1025": "same lines (same keys, same seed) from the **25.10.2026** export (`59ec6c64`), "
                                          "kept only to document the image mismatch; not a practice set for sessions.",
+    "bern-train-300": "HF `dh-unibe/image-text_bern-disputation-1528`, both training projects as `combined-v1` saw them, "
+                      "but with the correct images: `A_V_1443_Hertwig_train` from the **22.10** export (`28a16d55`) and "
+                      "`A_V_1447_Schlussredaktion_train` (24.10 = 25.10, byte-identical). Lines cut from the Transkribus "
+                      "polygons. The practice set for target 1 (docs/HERTWIG_REVISIONS.md): a Hertwig-only set would "
+                      "reward turning combined-v1 back into hertwig-v2, which was trained on exactly those lines.",
     "blb-train-300": "`/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/{lassberg,korrespondenten,unbestimmt,manuskripte}` "
                      "(the four *train* projects; `_eval` projects and `drucke` excluded), PAGE XML rectangles with "
                      "bottom-edge baselines, cut with `extract_polygons`. Document = BLB shelfmark.",

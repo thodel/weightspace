@@ -25,6 +25,9 @@ BLB_EXPORT = Path("/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/export.json")
 HELDOUT_CONFIG = Path.home() / "Repo/training-atr-models/config/heldout_eval_documents.json"
 HERTWIG_DOC = "13922499"
 HERTWIG_EVAL_PAGES = {8, 17, 26, 39, 48, 55}
+#: Schlussredaktion (A_V_1447): the 8 pages of `A_V_1447_Schlussredaktion_test` (24.10 = 25.10 export)
+SCHLUSS_DOC = "13922579"
+SCHLUSS_EVAL_PAGES = {12, 30, 49, 69, 89, 105, 125, 142}
 
 
 def norm_id(s: str) -> str:
@@ -64,12 +67,15 @@ def audit_set(lst: Path, ids: dict) -> dict:
     hits = [d for d in docs if norm_id(d) in blb_eval_norm]
     if hits:
         report["findings"].append({"kind": "blb_eval_object_in_practice", "documents": hits})
-    if HERTWIG_DOC in docs:
-        pages = sorted({p for p in (_hertwig_page(r["key"]) for r in rows) if p is not None})
-        bad = sorted(set(pages) & HERTWIG_EVAL_PAGES)
-        report["hertwig_pages"] = pages
+    for name, doc, eval_pages in (("hertwig", HERTWIG_DOC, HERTWIG_EVAL_PAGES), ("schlussredaktion", SCHLUSS_DOC, SCHLUSS_EVAL_PAGES)):
+        if doc not in docs:
+            continue
+        # pages of *this* document only: page numbers repeat across volumes
+        pages = sorted({p for p in (_hertwig_page(r["key"]) for r in rows if r.get("doc") == doc) if p is not None})
+        bad = sorted(set(pages) & eval_pages)
+        report[f"{name}_pages"] = pages
         if bad:
-            report["findings"].append({"kind": "hertwig_eval_page_in_practice", "pages": bad})
+            report["findings"].append({"kind": f"{name}_eval_page_in_practice", "pages": bad})
     for name, s in ids["medieval"].items():
         tdocs = set(s["test_documents"]); vdocs = set(s["val_documents"])
         t_hits = [d for d in docs if d in tdocs]

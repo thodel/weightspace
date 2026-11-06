@@ -106,3 +106,17 @@ def test_keep_refused_when_cer_rises(tmp_path):
     assert s.keep() is False
     dec = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()][-1]
     assert dec["reason"] == "CER rose" and subj.tensors()["gain"][0] == 2.0
+
+
+def test_edit_per_tensor_arguments_and_revert(tmp_path):
+    import numpy as np
+    from wsp.session import Session
+    from wsp.subject import ArraySubject
+    t = {"a": np.zeros((2, 3)), "b": np.zeros(4)}
+    s = ArraySubject(t, forward=lambda ten, items: ["x" for _ in items])
+    sess = Session(s, [{"key": "k", "text": "x"}], tmp_path, budget=3)
+    sess.measure("C0")
+    sess.edit("transplant", ["a", "b"], per_tensor={"a": {"donor": np.ones((2, 3))}, "b": {"donor": np.full(4, 2.0)}})
+    assert (s.tensors()["a"] == 1).all() and (s.tensors()["b"] == 2).all()
+    sess.revert("test")
+    assert (s.tensors()["a"] == 0).all() and (s.tensors()["b"] == 0).all()

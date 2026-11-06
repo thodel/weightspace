@@ -35,6 +35,10 @@ cd ~/Repo/weightspace
 
 The dry run was checked on 06.11.2026: 50/50 and 6/6 identical XML, 6/50 and 1/6 identical images, 22.10 sha256 `566f5bd1…` (train) and `0397cddd…` (test). After the fix the trainer should pin the new commit for family-1 jobs.
 
+## What the correct pages say about combined-v1 (measured after the decision)
+
+On `bern-eval` (545 lines) combined-v1 reads 19.3 % CER overall, hertwig-v2 27.5 %, schlussredaktion-v1 20.4 %: combined-v1 is the best of the three; its noise damage is about 3 points on the Hertwig pages (26.7 % against the parent's 23.6 %). The first session on it (docs/PHASE3_REPORT.md, R3) found no edit that removes that damage on held-out pages.
+
 ## Target 1, kept and re-framed
 
 PLAN.md target 1 was "a fine-tune that got worse: read the diff, the damage should be localised". It stays a target, with a sharper question: **combined-v1 was trained on 168 pages of which 44 had the wrong image. Can a weight-space edit undo training on label noise, and how close does it get to a retrain on the corrected data?**

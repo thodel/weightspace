@@ -111,9 +111,14 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
 class RunSession(Session):
     """A Session that persists the edited weights next to its log."""
 
-    def keep(self, reason: str = "") -> None:
-        super().keep(reason)
-        self.subject.save(self.run_dir / "current.mlmodel")
+    def keep(self, reason: str = "") -> bool:
+        """The harness's keep rule decides (Session.keep); only a kept state is persisted.
+        Until 06.11.2026 this wrapper returned None, so a programmer reading the return value
+        saw every keep as refused (session 20261106-bern-combined-v1-b10-1, deviations)."""
+        kept = super().keep(reason)
+        if kept:
+            self.subject.save(self.run_dir / "current.mlmodel")
+        return kept
 
     def freeze(self) -> dict:
         summary = super().freeze()
