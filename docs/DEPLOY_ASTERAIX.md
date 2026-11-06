@@ -13,7 +13,22 @@ From the laptop:
 ssh asteraix
 ```
 
-On asteraix:
+On asteraix, once: a key for this repository (the account there has none
+GitHub knows; `git@github.com: Permission denied (publickey)` on 06.11.2026).
+
+```bash
+ssh-keygen -t ed25519 -N '' -C "asteraix weightspace deploy key" -f ~/.ssh/id_ed25519_weightspace && printf 'Host github.com\n  IdentityFile ~/.ssh/id_ed25519_weightspace\n  IdentitiesOnly yes\n' >> ~/.ssh/config && chmod 600 ~/.ssh/config && cat ~/.ssh/id_ed25519_weightspace.pub
+```
+
+Paste the printed public key at
+https://github.com/thodel/weightspace/settings/keys → *Add deploy key*, tick
+**Allow write access** (the phase0 branch is pushed from there). Then:
+
+```bash
+ssh -T git@github.com
+```
+
+must answer `Hi thodel/weightspace! You've successfully authenticated…`. Then:
 
 ```bash
 git clone git@github.com:thodel/weightspace.git ~/Repo/weightspace
