@@ -1,0 +1,51 @@
+{
+ "source": "/home/tobias/Repo/weightspace/runs/20261106-german-xix-blb-v1-b10-1",
+ "replay": "/home/tobias/atr-cache/wsp/replay/20261106-german-xix-blb-v1-b10-1",
+ "error": null,
+ "passes": {
+  "original": 8,
+  "replay": 8,
+  "digests_equal": true
+ },
+ "decisions": {
+  "original": [
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true
+  ],
+  "replay": [
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true
+  ],
+  "equal": true
+ },
+ "final_digest": {
+  "original": "78d6b7d5bc49d8987503ee19823b6882b5c6734b27372dafd816d7d2ce90afd0",
+  "replay": "78d6b7d5bc49d8987503ee19823b6882b5c6734b27372dafd816d7d2ce90afd0",
+  "equal": true
+ },
+ "readings": {
+  "passes_compared": 8,
+  "lines_differing_per_pass": {
+   "pass_001": 0,
+   "pass_002": 0,
+   "pass_003": 0,
+   "pass_004": 0,
+   "pass_005": 0,
+   "pass_006": 0,
+   "pass_007": 0,
+   "pass_008": 0
+  },
+  "identical": true
+ },
+ "exact": true
+}

@@ -120,3 +120,31 @@ def test_edit_per_tensor_arguments_and_revert(tmp_path):
     assert (s.tensors()["a"] == 1).all() and (s.tensors()["b"] == 2).all()
     sess.revert("test")
     assert (s.tensors()["a"] == 0).all() and (s.tensors()["b"] == 0).all()
+
+
+def _run_session(tmp_path, name, practice):
+    from wsp.run import RunSession
+    subj = ArraySubject({"gain": np.array([0.5]), "w": np.zeros((2, 2))}, forward=toy_forward)
+    subj.save = lambda path: path            # no artefact for the toy subject
+    return subj, RunSession(subj, practice, tmp_path / name, budget=3)
+
+
+def test_replay_follows_the_logged_decision_not_the_current_rule(tmp_path):
+    """A keep the rule would refuse (no change, interval [0, 0]) is kept when the original log kept it,
+    and a revert where the log kept is a divergence."""
+    practice = [{"key": f"l{i}", "text": r} for i, r in enumerate(REFS)]
+    subj, s = _run_session(tmp_path, "replay", practice)
+    s._replay = [{"kept": True, "reason": "kept under the old rule", "rule": "met"}]
+    s.measure("C0")
+    s.edit("scale", ["w"], factor=1.0)       # a no-op: the current rule refuses it
+    s.measure("no-op")
+    assert s.keep_allowed()[0] is False
+    assert s.keep("as logged") is True
+    dec = [json.loads(l) for l in (tmp_path / "replay" / "log.jsonl").read_text().splitlines()][-1]
+    assert dec["kind"] == "decision" and dec["kept"] and dec["rule"] == "replayed"
+
+    subj2, s2 = _run_session(tmp_path, "diverge", practice)
+    s2._replay = [{"kept": True}]
+    s2.measure("C0"); s2.edit("scale", ["gain"], factor=2.0); s2.measure("edit")
+    with pytest.raises(RuntimeError, match="diverged"):
+        s2.revert("program disagrees")
