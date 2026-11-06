@@ -1,7 +1,7 @@
 """Practice sets: deterministic line samples from the train side, as line crops on local disk.
 
 ``sample_lines(source, n, seed, set_name)`` writes
-``data/practice/<set_name>.jsonl`` with one ``{"key", "text", "image", "doc"}``
+``data/practice/<set_name>.jsonl`` with one ``{"key", "text", "image", "doc", "image_sha256"}``
 per line, the crops under ``~/atr-cache/wsp/practice/<set_name>/``, and the
 list's sha256 next to it. Sources:
 
@@ -241,7 +241,8 @@ def sample_lines(source: str, n: int, seed: int, set_name: str,
         img = out_dir / f"{safe}.png"
         if not img.exists():
             src.image(c).save(img)
-        rows.append({"key": c.key, "text": c.text, "image": str(img), "doc": c.doc})
+        rows.append({"key": c.key, "text": c.text, "image": str(img), "doc": c.doc,
+                     "image_sha256": sha256_file(img)})   # the list hash then identifies the pixels too
     lst = list_root / f"{set_name}.jsonl"
     lst.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
     digest = sha256_file(lst)

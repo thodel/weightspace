@@ -63,7 +63,9 @@ class KrakenSubject(Subject):
         value = np.asarray(value, dtype=np.float32)
         self._state[name] = value
         with self._torch.no_grad():
-            param = dict(self.model.nn.named_parameters()).get(name) or dict(self.model.nn.named_buffers()).get(name)
+            param = dict(self.model.nn.named_parameters()).get(name)
+            if param is None:
+                param = dict(self.model.nn.named_buffers()).get(name)
             if param is None:
                 raise KeyError(name)
             if tuple(param.shape) != value.shape:
@@ -98,9 +100,10 @@ class KrakenSubject(Subject):
         return preds
 
     def logits(self, practice: Sequence[dict]) -> list[np.ndarray]:
-        """Softmaxed CTC output per line (T x classes; class 0 is the blank), for blank
-        share and direction reading. ``TorchSeqRecognizer.forward`` returns
-        ``(probs, lengths)`` with probs already through softmax, not raw logits. Not a counted pass."""
+        """Softmaxed CTC output per line as (frames x classes; class 0 is the blank), for
+        blank share and direction reading. ``TorchSeqRecognizer.forward`` returns
+        ``(probs, lengths)`` with probs of shape (N, classes, frames), already through
+        softmax, not raw logits (its docstring says (N, W, C); it is not). Not a counted pass."""
         from kraken.lib.models import TorchSeqRecognizer
         from kraken.lib.dataset import ImageInputTransforms
         from PIL import Image
@@ -116,7 +119,7 @@ class KrakenSubject(Subject):
             with self._torch.no_grad():
                 o = rec.forward(line, lens)
             probs = o[0] if isinstance(o, (list, tuple)) else o
-            out.append(np.asarray(probs)[0])      # (W, C) for the single line
+            out.append(np.asarray(probs)[0].T)    # kraken returns (N, C, W); hand out (W, C)
         return out
 
     def save(self, path: str | Path) -> Path:

@@ -20,9 +20,13 @@ def compare(a: dict[str, np.ndarray], b: dict[str, np.ndarray], row_top: int = 1
             continue
         d = y - x
         l2 = float(np.linalg.norm(d))
-        nx = float(np.linalg.norm(x))
-        cos = float((x * y).sum() / (nx * np.linalg.norm(y))) if nx and np.linalg.norm(y) else float("nan")
-        entry = {"shape": list(x.shape), "l2": l2, "rel_l2": l2 / nx if nx else float("nan"),
+        nx, ny = float(np.linalg.norm(x)), float(np.linalg.norm(y))
+        if nx == 0 and ny == 0:                 # e.g. kraken's all-zero LSTM bias_ih: unchanged, not undefined
+            rel, cos = 0.0, 1.0
+        else:
+            rel = l2 / nx if nx else float("inf")
+            cos = float((x * y).sum() / (nx * ny)) if nx and ny else float("nan")
+        entry = {"shape": list(x.shape), "l2": l2, "rel_l2": rel,
                  "cosine": cos, "changed": int((d != 0).sum()), "numel": int(d.size)}
         if d.ndim >= 2 and d.shape[0] > 1:
             rows = np.linalg.norm(d.reshape(d.shape[0], -1), axis=1)
