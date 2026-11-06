@@ -97,12 +97,22 @@ def lineage_diff(parent, child, row_top: int = 12) -> dict:
     return result
 
 
+def padding_tensor(tensors: dict[str, np.ndarray]) -> str:
+    """The tall (out, in, kH > 100, 1) conv of a Cr255-style spec."""
+    return next(n for n in tensors if n.endswith("co.weight") and tensors[n].ndim == 4 and tensors[n].shape[2] > 100)
+
+
+def kernel_row_l2(w: np.ndarray) -> np.ndarray:
+    """L2 per kernel row (axis 2) of a conv weight."""
+    return np.sqrt((w.astype(np.float64) ** 2).sum(axis=(0, 1, 3)))
+
+
 def padding_rows(subject, keep: int = 127) -> dict:
     """Kernel-row energies of a (out, in, kH, 1) conv: the kept row against the padding rows."""
     t = subject.tensors()
-    name = next(n for n in t if n.endswith("co.weight") and t[n].ndim == 4 and t[n].shape[2] > 100)
-    w = t[name].astype(np.float64)
-    rows = np.sqrt((w ** 2).sum(axis=(0, 1, 3)))      # per kernel row
+    name = padding_tensor(t)
+    w = t[name]
+    rows = kernel_row_l2(w)
     other = np.delete(rows, keep)
     return {"tensor": name, "shape": list(w.shape), "kept_row": keep, "kept_row_l2": float(rows[keep]),
             "padding_rows_l2_mean": float(other.mean()), "padding_rows_l2_std": float(other.std()),
