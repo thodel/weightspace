@@ -19,6 +19,16 @@ characters, about 4 M parameters) fine-tuned on historical German handwriting.
     interval containing 0. Negative and null results are reported here in
     full, as the protocol requires.
 
+## The models
+
+All in-house models share one stack; only the output rows (one per character) differ.
+
+<figure markdown="span">
+  ![The VGSL stack, one rectangle per tensor, width proportional to parameter count; the conv stack (5 % of the parameters) magnified underneath.](figures/architecture.svg#only-light)
+  ![The VGSL stack, one rectangle per tensor, width proportional to parameter count; the conv stack (5 % of the parameters) magnified underneath.](figures/architecture-dark.svg#only-dark)
+  <figcaption>The VGSL stack, one rectangle per tensor, width proportional to parameter count; the conv stack (5 % of the parameters) magnified underneath.</figcaption>
+</figure>
+
 ## How to read this protocol
 
 - **[Method and rules](method.md)** — units, preregistration, keep rule,

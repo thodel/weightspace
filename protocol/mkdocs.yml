@@ -30,6 +30,7 @@ theme:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
   - footnotes
   - tables
   - toc: {permalink: true}
@@ -51,3 +52,4 @@ nav:
       - "2026-11-06 · Keep rule gets a minimum effect": journal/2026-11-06-c-keep-rule.md
       - "2026-11-06 · C3 per-block α-sweep": journal/2026-11-06-d-alpha-sweep.md
   - Results: results.md
+  - Figures: figures/README.md

@@ -10,6 +10,12 @@ Locate where the fine-tune `german-xix-v1 → german-xix-blb-v1` keeps its
 set to parent + α(child − parent), the rest of the network left as the child;
 output rows aligned by character, new rows kept. α ∈ {0.5, 1.5}.
 
+<figure markdown="span">
+  ![german-xix-v1 → german-xix-blb-v1: relative L2 and cosine per tensor.](../figures/drift-xix.svg#only-light)
+  ![german-xix-v1 → german-xix-blb-v1: relative L2 and cosine per tensor.](../figures/drift-xix-dark.svg#only-dark)
+  <figcaption>german-xix-v1 → german-xix-blb-v1: relative L2 and cosine per tensor.</figcaption>
+</figure>
+
 ## Found
 
 Δ CER (points) against the unedited child, paired 95 % interval:
@@ -24,6 +30,12 @@ output rows aligned by character, new rows kept. α ∈ {0.5, 1.5}.
 | L_14 (BiLSTM) | +1.18 [+0.87, +1.51] | +0.37 [+0.09, +0.66] |
 | L_16 (BiLSTM) | **+2.31** [+1.97, +2.67] | **+0.05** [−0.18, +0.28] |
 | O_18 (output) | +0.23 [+0.10, +0.36] | +0.12 [+0.00, +0.25] |
+
+<figure markdown="span">
+  ![ΔCER against the unedited child per block at α = 0.5 and 1.5, paired 95 % intervals (filled: interval excludes 0).](../figures/alpha-sweep-xix-blb-v1.svg#only-light)
+  ![ΔCER against the unedited child per block at α = 0.5 and 1.5, paired 95 % intervals (filled: interval excludes 0).](../figures/alpha-sweep-xix-blb-v1-dark.svg#only-dark)
+  <figcaption>ΔCER against the unedited child per block at α = 0.5 and 1.5, paired 95 % intervals (filled: interval excludes 0).</figcaption>
+</figure>
 
 1. **The gain is held jointly.** Halving any single block costs at most
    2.3 points of a 24-point gain; all eight halvings together about 6.5. Every

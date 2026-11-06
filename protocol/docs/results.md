@@ -16,6 +16,12 @@ and rebuilding the model from the rewritten architecture string:
 | text identical on 300 practice lines | — | 300 / 300 |
 | max \|Δ softmax\| | — | 1.1 × 10⁻⁶ |
 
+<figure markdown="span">
+  ![Kernel-row L2 of the Cr255 conv: row 127 receives gradient, the other 254 stay at their initialisation norm.](figures/padding-cr255.svg#only-light)
+  ![Kernel-row L2 of the Cr255 conv: row 127 receives gradient, the other 254 stay at their initialisation norm.](figures/padding-cr255-dark.svg#only-dark)
+  <figcaption>Kernel-row L2 of the Cr255 conv: row 127 receives gradient, the other 254 stay at their initialisation norm.</figcaption>
+</figure>
+
 The padding rows sit at their initialisation norm (12.045 ± 0.027 against
 12.38 for the live row), as expected for weights that never receive a
 gradient. Source model: a collapsed from-scratch run (CER 0.99 on both sides,
