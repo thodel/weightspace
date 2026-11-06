@@ -1,0 +1,16 @@
+{
+  "set": "medieval-train-300",
+  "source": "arrow:/home/tobias/atr-cache/arrows/sweep_train.arrow",
+  "source_info": {
+    "kind": "arrow",
+    "path": "/home/tobias/atr-cache/arrows/sweep_train.arrow",
+    "rows": 236908,
+    "sha256": "880782e25d449e309e2468023fce45a24460598bdb721b3ecf3b9e6ad1d7ed20"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 236778,
+  "sha256": "a2160d4ef170a31e7ab0f3b96d631272347e281a1cbc7f65423f5d0dd8f5dd3d",
+  "documents": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

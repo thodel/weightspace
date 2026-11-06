@@ -1,0 +1,16 @@
+{
+  "set": "medieval-val-300-archive",
+  "source": "arrow:/mnt/wbkolleg_dh_1/Textrecognition_Training/archive/idhefix-2026-09/arrows/german_val.arrow",
+  "source_info": {
+    "kind": "arrow",
+    "path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/archive/idhefix-2026-09/arrows/german_val.arrow",
+    "rows": 20558,
+    "sha256": "4b2e5d30e10f5d0462aa74bc98aea1351a845e5f212d5f7dc5c5bba4a3a3c1e6"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 20535,
+  "sha256": "7e3f6eebc08e717e444e3f644b38075152a4abe71550723fad12bba34b9b1290",
+  "documents": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

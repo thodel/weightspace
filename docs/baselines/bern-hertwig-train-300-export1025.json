@@ -74,9 +74,9 @@
     "extra": {}
    },
    "blank": {
-    "mean_blank_prob": 0.0038167945013094797,
-    "blank_argmax_share": 0.0017302798982188295,
-    "frames": 78600
+    "mean_blank_prob": 0.7873395068053096,
+    "blank_argmax_share": 0.8227206779817148,
+    "frames": 43423
    },
    "per_line": [
     [
@@ -1280,7 +1280,7 @@
      40
     ]
    ],
-   "wall_s": 16.7,
+   "wall_s": 18.0,
    "device": "cpu"
   },
   {
@@ -1356,9 +1356,9 @@
     "extra": {}
    },
    "blank": {
-    "mean_blank_prob": 0.0037453202942337436,
-    "blank_argmax_share": 0.004244694132334582,
-    "frames": 80100
+    "mean_blank_prob": 0.7693969043618978,
+    "blank_argmax_share": 0.8562973539368537,
+    "frames": 43423
    },
    "per_line": [
     [
@@ -2562,7 +2562,7 @@
      40
     ]
    ],
-   "wall_s": 14.2,
+   "wall_s": 15.1,
    "device": "cpu"
   },
   {
@@ -2638,9 +2638,9 @@
     "extra": {}
    },
    "blank": {
-    "mean_blank_prob": 0.0037453190976760808,
-    "blank_argmax_share": 0.002397003745318352,
-    "frames": 80100
+    "mean_blank_prob": 0.7662217935654771,
+    "blank_argmax_share": 0.8223982681988807,
+    "frames": 43423
    },
    "per_line": [
     [
@@ -3844,7 +3844,7 @@
      40
     ]
    ],
-   "wall_s": 14.1,
+   "wall_s": 14.3,
    "device": "cpu"
   },
   {
@@ -3920,9 +3920,9 @@
     "extra": {}
    },
    "blank": {
-    "mean_blank_prob": 0.003717472629328495,
-    "blank_argmax_share": 0.001573729863692689,
-    "frames": 80700
+    "mean_blank_prob": 0.7948416685807124,
+    "blank_argmax_share": 0.8259447758100545,
+    "frames": 43423
    },
    "per_line": [
     [
@@ -5126,7 +5126,7 @@
      40
     ]
    ],
-   "wall_s": 14.6,
+   "wall_s": 14.3,
    "device": "cpu"
   },
   {
@@ -5202,9 +5202,9 @@
     "extra": {}
    },
    "blank": {
-    "mean_blank_prob": 0.0037037070158087177,
-    "blank_argmax_share": 0.3293333333333333,
-    "frames": 81000
+    "mean_blank_prob": 0.7784794479600986,
+    "blank_argmax_share": 0.9201575202081846,
+    "frames": 43423
    },
    "per_line": [
     [
@@ -6408,7 +6408,7 @@
      40
     ]
    ],
-   "wall_s": 15.7,
+   "wall_s": 15.0,
    "device": "cpu"
   }
  ]

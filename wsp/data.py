@@ -258,6 +258,54 @@ def load(path: str | Path) -> list[dict]:
     return [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
+SOURCE_NOTES = {
+    "bern-hertwig-train-300": "HF `dh-unibe/image-text_bern-disputation-1528`, project `A_V_1443_Hertwig_train`, "
+                              "revision `28a16d55` (export of 22.10.2026 — the one hertwig-v1/v2 were trained on; "
+                              "the 25.10 export pairs 44 of 50 pages with the wrong image), lines cut from the "
+                              "Transkribus polygons with `extract_polygons`. Eval pages 8/17/26/39/48/55 are not in this project.",
+    "bern-hertwig-train-300-export1025": "same lines (same keys, same seed) from the **25.10.2026** export (`59ec6c64`), "
+                                         "kept only to document the image mismatch; not a practice set for sessions.",
+    "blb-train-300": "`/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/{lassberg,korrespondenten,unbestimmt,manuskripte}` "
+                     "(the four *train* projects; `_eval` projects and `drucke` excluded), PAGE XML rectangles with "
+                     "bottom-edge baselines, cut with `extract_polygons`. Document = BLB shelfmark.",
+    "medieval-val-300": "`~/atr-cache/arrows/german_val.arrow` (the 150 *validation* documents of `german-medieval-v1`, "
+                        "compiled 29.09.2026 on asteraix; sha256 in the meta file). Rows carry no document id. "
+                        "Not the test side (`german_test.arrow` untouched).",
+    "medieval-val-300-archive": "the same 300 row indices drawn from the *archived* idhefix copy of the validation arrow "
+                                "(`archive/idhefix-2026-09/arrows/german_val.arrow`, a different compile of the same pages); "
+                                "a diagnostic set only, built to check that the asteraix and idhefix arrows agree.",
+    "medieval-train-300": "`~/atr-cache/arrows/sweep_train.arrow` (train side of `german-medieval-v1`, 236,908 lines, "
+                          "compiled 30.09.2026). Rows carry no document id; held-out documents were removed at compile time "
+                          "by the trainer's held-out boundary.",
+}
+
+
+def write_readme(list_root: Path = LIST_ROOT) -> Path:
+    lines = ["# Practice sets (train side only)", "",
+             "Built by `python -m wsp.data build` with seed 20261106 (docs/BRIEF_PHASE0.md §4). Each list is "
+             "`<set>.jsonl` with `{key, text, image, doc, image_sha256}`; the crops live under "
+             "`~/atr-cache/wsp/practice/<set>/` (git-ignored). The sha256 below is of the list file, which "
+             "includes every crop's sha256, so it identifies the pixels as well as the selection. "
+             "`<set>.meta.json` records source, candidate count and the document ids; "
+             "`overlap.json` is the audit of `python -m wsp.audit overlap`.", "",
+             "| set | lines | candidates | documents | list sha256 |", "|---|---:|---:|---:|---|"]
+    metas = sorted(list_root.glob("*.meta.json"))
+    for m in metas:
+        d = json.loads(m.read_text())
+        lines.append(f"| {d['set']} | {d['n']} | {d['candidates']} | {len(d['documents']) or '—'} | `{d['sha256']}` |")
+    lines.append("")
+    for m in metas:
+        d = json.loads(m.read_text())
+        lines += [f"## {d['set']}", "", SOURCE_NOTES.get(d["set"], ""), "",
+                  f"Selection: `random.Random({d['seed']}).sample` over {d['candidates']} candidate lines in source order "
+                  f"(pages sorted by name, lines in document order; arrow rows by index). Source: `{d['source']}`.", ""]
+        if d["documents"]:
+            lines += ["Documents: " + ", ".join(f"`{x}`" for x in d["documents"]), ""]
+    out = list_root / "README.md"
+    out.write_text("\n".join(lines), encoding="utf-8")
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.data")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -266,11 +314,14 @@ def main(argv=None):
     b.add_argument("--source", required=True)
     b.add_argument("--n", type=int, default=300)
     b.add_argument("--seed", type=int, default=SEED)
+    sub.add_parser("readme", help="write data/practice/README.md from the meta files")
     a = ap.parse_args(argv)
     if a.cmd == "build":
         lst = sample_lines(a.source, a.n, a.seed, a.set)
         meta = json.loads((lst.with_suffix(".meta.json")).read_text())
         print(lst, meta["sha256"], f"{meta['n']} of {meta['candidates']} lines, {len(meta['documents'])} documents")
+    elif a.cmd == "readme":
+        print(write_readme())
 
 
 if __name__ == "__main__":

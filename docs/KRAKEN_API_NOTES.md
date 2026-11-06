@@ -41,9 +41,14 @@ confusion pairing later.
 `kraken.lib.models.TorchSeqRecognizer(nn, decoder=greedy_decoder, temperature=1.0, train=False, device='cpu')`.
 
 - `predict_string(line: Tensor[N,C,H,W], lens: Tensor | None) -> list[str]`
-- `forward(line, lens) -> (probs: ndarray[N, W, C], lengths: ndarray)` — the
-  array is already **softmaxed** (`(logits / temperature).softmax(1)`), not raw
-  logits; blank share is `probs[..., 0]`.
+- `forward(line, lens) -> (probs: ndarray[N, C, W], lengths: ndarray)` — the
+  docstring says `(N, W, C)`; the array is **(N, classes, frames)** (measured:
+  `(1, 102, 517)` for a 101-character codec), and already **softmaxed**
+  (`(logits / temperature).softmax(1)`), not raw logits. `KrakenSubject.logits`
+  hands out `(frames, classes)` per line; blank share is column 0.
+- `predict(line, lens)` is what `rpred` calls (`net.predict(ts_box.unsqueeze(0))`,
+  without `lens`); `predict_string` is the same forward + greedy decode joined
+  to a string. With or without `lens` the text is identical for a single line.
 - `load_any(path)` is what the serving box calls; it wraps the same class and
   checks `'recognition' in nn.model_type` (§5).
 
@@ -103,7 +108,28 @@ available. `load_model` itself does
 layer, so the same constructor call with the rewritten spec and a copied,
 reshaped state dict is the supported route (`wsp/rewrite.py`).
 
-## 7. Odds and ends
+## 7. What the round-trip taught about the *data* (not the API)
+
+The first C0 numbers on the Hertwig practice set were CER 0.76–0.86 for every
+family-1 model, and kraken's own `ketos test -f xml` gave 14 % character
+accuracy for `hertwig-v2` on one of its *training* pages — with the same
+model file the trainer reports at 76.8 % validation accuracy. Neither the
+venv (the trainer's venv with torch 2.8 gives the same output) nor the line
+cutting (`ketos compile` → `ketos test -f binary` gives the same 14 %) was the
+cause. The cause is the dataset: `dh-unibe/image-text_bern-disputation-1528`
+was re-exported on 25.10.2026 (commit `c2aa325b`, "Add new data export"), and
+in that export **44 of the 50 Hertwig train pages carry a different page
+image under the same filename and the same PAGE XML** (p0006's image shows
+other text than its XML). On the 22.10 revision (`28a16d55`, what
+`hertwig-v1/v2` were trained on) `hertwig-v2` reads p0006 at 96.8 %.
+`kraken-bern-combined-v1` was trained from the 25.10 export, 35 s after it was
+pushed. See docs/PHASE0_REPORT.md.
+
+Practical rule for this harness: a practice list records the sha256 of every
+line image (`image_sha256`), so the list hash identifies the pixels, not only
+the keys.
+
+## 8. Odds and ends
 
 - `pip install huggingface_hub` pulled `click 8.5`, which breaks kraken's
   `click<8.3` pin; `huggingface_hub<1.0` (0.36.2) is what the venv now has, and

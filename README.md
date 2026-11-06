@@ -9,7 +9,7 @@ Method source: R. Tanaka, "Weight-space programming" (blog, 2 Nov 2026),
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 
-Status 06.11.2026: plan, design, protocol and the engine-free core of the harness with tests (`python3 -m pytest tests`); nothing run on asteraix yet.
+Status 06.11.2026 (evening): phase 0 executed on asteraix — harness verified against kraken 7.0.2, practice sets built and audited, C0 baselines, the lossless `Cr255 → Cr1` rewrite, the session runner with a no-op smoke session, and the first readings. Report: [docs/PHASE0_REPORT.md](docs/PHASE0_REPORT.md). One data finding changes target 1: the 25.10 re-export of the Hertwig dataset pairs 44 of 50 training pages with the wrong image.
 
 Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first)
 
