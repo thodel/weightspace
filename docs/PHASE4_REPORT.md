@@ -24,7 +24,7 @@ Branch `phase4` from `main` (cb94b44, PRs #1, #2, #4, #5 merged). The task, from
 
 The 428 lines are 7.6 % of the lines and 9 % of the reference characters, and carry 39.8 % of the edits (16,586 of 41,655). Contact sheets of random samples of each kind were inspected by eye; every line in the "short, every model" class was looked at.
 
-**K 2913,17 is not a manuscript.** It is the printed *Regesten des Stiftes Kreuzlingen* (1853) with a few of Laßberg's marks, filed under `manuskripte`. Its 2,825 lines are **half of `blb-eval`** (5,628), and its references are the BLB's own ALTO OCR of the print, not a hand correction: hence the junk lines and garbled headings. All 111 degenerate boxes are in it. The handwriting model reads the print well where the box is right (median CER of its normal lines is low; it is the boxes that fail).
+**K 2913,17 is not a manuscript.** It is the printed *Regesten des Stiftes Kreuzlingen* (1853) with a few of Laßberg's marks, filed under `manuskripte`. Its 2,825 lines are **half of `blb-eval`** (5,628), and its references are the BLB's own ALTO OCR of the print, not a hand correction: hence the junk lines and garbled headings. All 111 degenerate boxes are in it. The handwriting model reads the print well where the box is right: on the 2,641 lines of K 2913,17 outside the defect classes its CER is 7.4 %, against 9.0 % on the 2,701 such lines of all other shelfmarks; it is the boxes that fail.
 
 ## 3. Re-cut: what the model reads when the crop is right (`scripts/recut_blb_eval.py`, `docs/collapse/recut-blb-eval.json`)
 
