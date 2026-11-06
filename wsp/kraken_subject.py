@@ -1,10 +1,8 @@
 """KrakenSubject — a CoreML ``.mlmodel`` recogniser as a Subject.
 
-Runs only where kraken 7.0.2 is installed (asteraix). The API names below are
-those of kraken 7.0.x (``kraken.lib.vgsl.TorchVGSLModel``,
-``kraken.lib.models.TorchSeqRecognizer``, ``kraken.lib.dataset``); the first
-task on asteraix is the no-op round-trip in ``tests/asteraix/test_roundtrip.py``,
-which verifies them against the installed version before anything else runs.
+Runs only where kraken 7.0.2 is installed (asteraix). The API names are those of kraken 7.0.2 as verified on asteraix on
+06.11.2026 (docs/KRAKEN_API_NOTES.md); ``tests/asteraix/test_roundtrip.py`` is
+the no-op round-trip that re-verifies them.
 """
 from __future__ import annotations
 
@@ -38,8 +36,12 @@ class KrakenSubject(Subject):
         n_params = sum(int(np.prod(v.shape)) for v in self._state.values())
         return {
             "kind": "kraken", "path": str(self.path), "spec": self.model.spec,
-            "codec_size": len(codec.c2l) if hasattr(codec, "c2l") else None,
+            "codec_size": len(codec.c2l),            # characters; labels start at 1
+            "output_classes": int(codec.max_label) + 1,  # + the CTC blank at 0
             "blank_index": 0,
+            "input_height": int(self.model.input[2]),
+            "one_channel_mode": self.model.one_channel_mode,
+            "model_type": self.model.model_type,
             "layers": [{"name": k, "shape": list(v.shape), "numel": int(np.prod(v.shape))}
                        for k, v in self._state.items()],
             "parameters": n_params,
@@ -61,7 +63,9 @@ class KrakenSubject(Subject):
         value = np.asarray(value, dtype=np.float32)
         self._state[name] = value
         with self._torch.no_grad():
-            param = dict(self.model.nn.named_parameters()).get(name) or dict(self.model.nn.named_buffers()).get(name)
+            param = dict(self.model.nn.named_parameters()).get(name)
+            if param is None:
+                param = dict(self.model.nn.named_buffers()).get(name)
             if param is None:
                 raise KeyError(name)
             if tuple(param.shape) != value.shape:
@@ -71,7 +75,11 @@ class KrakenSubject(Subject):
         self._recognizer = None
 
     def forward(self, practice: Sequence[dict]) -> list[Prediction]:
-        """practice items: {"key", "text", "image": path to a line crop (grayscale)}."""
+        """practice items: {"key", "text", "image": path to a line crop}.
+
+        Transforms as the trainer and the baseline path of ``rpred`` use them:
+        ``ImageInputTransforms(batch, height, width, channels, (16, 0), valid_norm=False)``
+        (kraken 7.0.2: ``kraken/train/vgsl.py`` l.142, ``kraken/rpred.py`` l.132)."""
         from kraken.lib.models import TorchSeqRecognizer
         from kraken.lib.dataset import ImageInputTransforms
         from PIL import Image
@@ -92,7 +100,10 @@ class KrakenSubject(Subject):
         return preds
 
     def logits(self, practice: Sequence[dict]) -> list[np.ndarray]:
-        """Raw CTC output per line (T x classes), for blank share and direction reading. Not a counted pass."""
+        """Softmaxed CTC output per line as (frames x classes; class 0 is the blank), for
+        blank share and direction reading. ``TorchSeqRecognizer.forward`` returns
+        ``(probs, lengths)`` with probs of shape (N, classes, frames), already through
+        softmax, not raw logits (its docstring says (N, W, C); it is not). Not a counted pass."""
         from kraken.lib.models import TorchSeqRecognizer
         from kraken.lib.dataset import ImageInputTransforms
         from PIL import Image
@@ -107,12 +118,23 @@ class KrakenSubject(Subject):
             lens = self._torch.tensor([line.shape[3]], dtype=self._torch.int64)
             with self._torch.no_grad():
                 o = rec.forward(line, lens)
-            out.append(np.asarray(o[0] if isinstance(o, (list, tuple)) else o).squeeze())
+            probs = o[0] if isinstance(o, (list, tuple)) else o
+            out.append(np.asarray(probs)[0].T)    # kraken returns (N, C, W); hand out (W, C)
         return out
 
     def save(self, path: str | Path) -> Path:
+        """Write CoreML. kraken 7.0.2's ``save_model`` takes ``model_type[0]`` of the
+        metadata; a model loaded from CoreML carries the *string* ``'recognition'``,
+        so a naive save writes ``'r'`` and ``load_any`` (the serving loader) refuses
+        the file. Storing the list form first makes the saved metadata equal to the
+        original's (docs/KRAKEN_API_NOTES.md §5)."""
         path = Path(path)
         if path.suffix != ".mlmodel":
             raise ValueError("the serving loader reads CoreML only; save as .mlmodel")
+        mt = self.model.user_metadata.get("model_type")
+        if isinstance(mt, str):
+            self.model.user_metadata["model_type"] = [mt]
+        if "legacy_polygons" not in self.model.user_metadata:
+            self.model.user_metadata["legacy_polygons"] = bool(self.model.use_legacy_polygons)
         self.model.save_model(str(path))
         return path

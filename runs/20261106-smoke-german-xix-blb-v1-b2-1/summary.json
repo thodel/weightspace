@@ -1,0 +1,142 @@
+{
+  "budget": 2,
+  "used": 2,
+  "seed": 20261106,
+  "practice_lines": 300,
+  "practice_id": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "start_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+  "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+  "edits": 1,
+  "kept": 1,
+  "baseline": {
+    "lines": 300,
+    "cer": 0.06458381907204476,
+    "wer": 0.17113154738104758,
+    "collapsed": 10,
+    "length_ratio": 0.968990440662159,
+    "char_edits": 831,
+    "ref_chars": 12867,
+    "confusions": [
+      [
+        " ",
+        "",
+        103
+      ],
+      [
+        "e",
+        "",
+        40
+      ],
+      [
+        "n",
+        "",
+        35
+      ],
+      [
+        "i",
+        "",
+        22
+      ],
+      [
+        "r",
+        "",
+        21
+      ],
+      [
+        "s",
+        "",
+        18
+      ],
+      [
+        "",
+        " ",
+        18
+      ],
+      [
+        ".",
+        "",
+        17
+      ],
+      [
+        "o",
+        "",
+        13
+      ],
+      [
+        "a",
+        "",
+        12
+      ]
+    ],
+    "extra": {}
+  },
+  "last_pass": {
+    "lines": 300,
+    "cer": 0.06458381907204476,
+    "wer": 0.17113154738104758,
+    "collapsed": 10,
+    "length_ratio": 0.968990440662159,
+    "char_edits": 831,
+    "ref_chars": 12867,
+    "confusions": [
+      [
+        " ",
+        "",
+        103
+      ],
+      [
+        "e",
+        "",
+        40
+      ],
+      [
+        "n",
+        "",
+        35
+      ],
+      [
+        "i",
+        "",
+        22
+      ],
+      [
+        "r",
+        "",
+        21
+      ],
+      [
+        "s",
+        "",
+        18
+      ],
+      [
+        "",
+        " ",
+        18
+      ],
+      [
+        ".",
+        "",
+        17
+      ],
+      [
+        "o",
+        "",
+        13
+      ],
+      [
+        "a",
+        "",
+        12
+      ]
+    ],
+    "extra": {}
+  },
+  "changed_tensors": {},
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "46981e32d0908b9fc30fbfa02cc9b4acf1c9c0ba619dcc1d6c8bbc85bae652fb",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-blb-v1.mlmodel",
+  "name": "20261106-smoke-german-xix-blb-v1-b2-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/runs/20261106-smoke-german-xix-blb-v1-b2-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/runs/20261106-smoke-german-xix-blb-v1-b2-1 TMPDIR=/home/tobias/atr-cache/tmp CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* unshare -Un /home/tobias/Repo/weightspace/.venv/bin/python -I program.py"
+}

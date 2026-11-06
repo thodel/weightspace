@@ -3,7 +3,8 @@
 asteraix = `dhserver03`, 130.92.59.242, SSH alias `asteraix` on the laptop
 (`training-atr-models/docs/INFRASTRUCTURE.md`). Checkouts live under `~/Repo/`.
 Everything below runs as the normal user there, writes only under
-`~/Repo/weightspace` and `~/atr-cache`, and uses card 0 at most.
+`~/Repo/weightspace` and `~/atr-cache`, and uses card 0 at most (the card
+rule and its known staleness: `ASTERAIX_RUNBOOK.md` §6, training-atr-models#396).
 
 ## 1. First time: bootstrap (about 10 minutes, mostly pip)
 

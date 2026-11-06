@@ -1,0 +1,14 @@
+{
+  "name": "20261106-smoke-german-xix-blb-v1-b2-1",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-blb-v1.mlmodel",
+  "subject_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+  "subject_file_sha256": "48caacb4a742b5b5ccd2a92a005a4ca701bdf7cef7859087832b6d726f5f8df4",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 2,
+  "seed": 20261106,
+  "created": "2026-11-06T13:44:46.687140+00:00",
+  "unshare": true,
+  "deviations": []
+}

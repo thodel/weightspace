@@ -1,0 +1,21 @@
+{
+  "set": "bern-hertwig-train-300-export1025",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528/data/train/A_V_1443_Hertwig_train/20261025_170131-0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/bern-disputation-1528/data/train/A_V_1443_Hertwig_train/20261025_170131-0000.parquet",
+    "pages": 50,
+    "projects": [
+      "A_V_1443_Hertwig_train"
+    ],
+    "sha256": "e58c55bc108611d6b24d718b5c420ad609ba1054b2e761bec2e4b4540a24cf0f"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 1984,
+  "sha256": "6123747416ae5e4a45114ad1dcb237f67d2526c430ad956c34212ffe61f15b12",
+  "documents": [
+    "13922499"
+  ],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

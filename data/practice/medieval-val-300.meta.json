@@ -1,0 +1,16 @@
+{
+  "set": "medieval-val-300",
+  "source": "arrow:/home/tobias/atr-cache/arrows/german_val.arrow",
+  "source_info": {
+    "kind": "arrow",
+    "path": "/home/tobias/atr-cache/arrows/german_val.arrow",
+    "rows": 20558,
+    "sha256": "c69e74941589207db714c3a111210d64e596f073073646dd14b1077c12c16d7b"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 20535,
+  "sha256": "a2f0f40006e7a377b92cef13ad0274ed5fcf91691c545a86f4309767775e061f",
+  "documents": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

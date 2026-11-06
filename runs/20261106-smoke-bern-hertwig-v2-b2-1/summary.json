@@ -1,0 +1,142 @@
+{
+  "budget": 2,
+  "used": 2,
+  "seed": 20261106,
+  "practice_lines": 300,
+  "practice_id": "bd4e5a8a4957ac59d2c9126adae1c2006d860543f2b4a9fb94cbc5953a7fe25e",
+  "start_digest": "f216564e4ddcf8f080556683626798cc2574bb90ee0a196b499a5d1ce9831572",
+  "final_digest": "f216564e4ddcf8f080556683626798cc2574bb90ee0a196b499a5d1ce9831572",
+  "edits": 1,
+  "kept": 1,
+  "baseline": {
+    "lines": 300,
+    "cer": 0.08282623394185261,
+    "wer": 0.20537313432835821,
+    "collapsed": 12,
+    "length_ratio": 0.9508677034032004,
+    "char_edits": 735,
+    "ref_chars": 8874,
+    "confusions": [
+      [
+        " ",
+        "",
+        75
+      ],
+      [
+        "n",
+        "",
+        38
+      ],
+      [
+        "e",
+        "",
+        36
+      ],
+      [
+        "s",
+        "",
+        26
+      ],
+      [
+        "t",
+        "",
+        25
+      ],
+      [
+        "i",
+        "",
+        24
+      ],
+      [
+        "r",
+        "",
+        22
+      ],
+      [
+        "",
+        " ",
+        21
+      ],
+      [
+        "h",
+        "",
+        21
+      ],
+      [
+        "d",
+        "",
+        20
+      ]
+    ],
+    "extra": {}
+  },
+  "last_pass": {
+    "lines": 300,
+    "cer": 0.08282623394185261,
+    "wer": 0.20537313432835821,
+    "collapsed": 12,
+    "length_ratio": 0.9508677034032004,
+    "char_edits": 735,
+    "ref_chars": 8874,
+    "confusions": [
+      [
+        " ",
+        "",
+        75
+      ],
+      [
+        "n",
+        "",
+        38
+      ],
+      [
+        "e",
+        "",
+        36
+      ],
+      [
+        "s",
+        "",
+        26
+      ],
+      [
+        "t",
+        "",
+        25
+      ],
+      [
+        "i",
+        "",
+        24
+      ],
+      [
+        "r",
+        "",
+        22
+      ],
+      [
+        "",
+        " ",
+        21
+      ],
+      [
+        "h",
+        "",
+        21
+      ],
+      [
+        "d",
+        "",
+        20
+      ]
+    ],
+    "extra": {}
+  },
+  "changed_tensors": {},
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "9f038a023b2f9284b0184eb4d9a2201555ed82155ff1d25535875e6380c5b384",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel",
+  "name": "20261106-smoke-bern-hertwig-v2-b2-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/runs/20261106-smoke-bern-hertwig-v2-b2-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/runs/20261106-smoke-bern-hertwig-v2-b2-1 TMPDIR=/home/tobias/atr-cache/tmp CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* unshare -Un /home/tobias/Repo/weightspace/.venv/bin/python -I program.py"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "20261106-smoke-bern-hertwig-v2-b2-1",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel",
+  "subject_digest": "f216564e4ddcf8f080556683626798cc2574bb90ee0a196b499a5d1ce9831572",
+  "subject_file_sha256": "479392ab7899b831b3c3872dc0f178a894495757b2df2047f2b695c4a5dcc8f3",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/bern-hertwig-train-300.jsonl",
+  "practice_sha256": "bd4e5a8a4957ac59d2c9126adae1c2006d860543f2b4a9fb94cbc5953a7fe25e",
+  "practice_lines": 300,
+  "budget": 2,
+  "seed": 20261106,
+  "created": "2026-11-06T13:37:10.111618+00:00",
+  "unshare": true,
+  "deviations": []
+}

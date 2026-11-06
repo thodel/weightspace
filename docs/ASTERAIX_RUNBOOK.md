@@ -101,4 +101,17 @@ vLLM is `serving-atr-inference/scripts/merge_loras.py` from the right venv
   diffs and summaries are committed.
 - Nothing in this repo writes to the share except step 5.2 above.
 - `nvidia-smi` before a GPU pass: card 0 may host the neighbours' RAG workers
-  (`gateway_models` → `headroom.theirs`).
+  (`gateway_models` → `headroom.theirs`) or, since 22.10.2026, a trainer job:
+  the service allocates either card per job (`ATR_TRAIN_GPUS=0,1`) and refuses
+  a start only when a card lacks 12 GB (24 GB for VLM). A pass that holds
+  memory on a card therefore queues the next trainer job behind it. The
+  proposal that turns this round, a `waiting` field on the trainer's `/gpu`
+  that a session polls between passes and yields to, is
+  training-atr-models#396 (draft: `docs/issues/`). Until then, keep passes
+  short and start none while a job is queued (`GET /train/jobs` via the MCP
+  `ubelix_queue`/`job_status`, or `journalctl --user -u atr-train`).
+- `gh` lives in `~/.local/bin` (release tarball, no sudo on that box; logged
+  in as thodel with `repo` scope, device flow). Browser-less login: run
+  `gh auth login --web` inside `tmux`, read the code from the pane, and
+  `tmux send-keys Enter` so it polls; the Enter is what the first attempts
+  missed.
