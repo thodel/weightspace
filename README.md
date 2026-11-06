@@ -11,7 +11,7 @@ https://github.com/RikiyaT/lm_understand-logs .
 
 Status 06.11.2026: plan, design, protocol and the engine-free core of the harness with tests (`python3 -m pytest tests`); nothing run on asteraix yet.
 
-Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md)
+Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first)
 
 Layout:
 
