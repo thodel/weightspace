@@ -10,8 +10,8 @@ Sessions use card 0 or the CPU, never card 1.**
 ## 1. Checkout and venv (once)
 
 ```bash
-cd ~/Repo && git clone git@github.com:thodel/kraken-weightspace.git
-cd kraken-weightspace
+cd ~/Repo && git clone git@github.com:thodel/weightspace.git
+cd weightspace
 export TMPDIR=~/atr-cache/tmp            # never the CIFS share
 python3.12 -m venv .venv
 .venv/bin/pip install --no-cache-dir -e '.[kraken]'   # pins kraken==7.0.2, torch as the trainer's

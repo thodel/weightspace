@@ -1,4 +1,4 @@
-# kraken-weightspace
+# weightspace
 
 Weight-space programming for the in-house kraken HTR models: read the weights,
 diagnose, patch, measure — and compare the result with ordinary merging and

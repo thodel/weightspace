@@ -181,7 +181,7 @@ prediction, edit, result and keep/revert decision goes to
 
 ## 7. Decisions taken / open
 
-- Repo: `thodel/kraken-weightspace`, private (taken; remote to be created).
+- Repo: `thodel/weightspace`, private (taken; remote to be created).
 - Runs on asteraix; h1 for planning (taken, 06.11.).
 - Pilot kraken, then QLoRA adapters (taken, 06.11.).
 - Open: first target (proposal `bern-combined-v1`, one week, then xix);
