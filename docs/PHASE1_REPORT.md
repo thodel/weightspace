@@ -19,7 +19,7 @@ The held-out CER of 12.3 % here against the trainer's recorded 8.7 % (docs/MODEL
 
 ## 2. The session (`runs/20261106-german-xix-blb-v1-b10-1`)
 
-Decision rule (PROTOCOL.md §3): keep only if practice CER falls and the collapsed count does not rise; ties revert. Practice: 300 lines, 12,867 reference characters, C0 831 edits.
+Decision rule (PROTOCOL.md §3): keep only if practice CER falls and the collapsed count does not rise; ties revert. This is the rule as it stood before 06.11.2026 evening; the minimum-effect rule now in PROTOCOL.md §3 (interval must exclude 0) was written after this session and would have kept nothing here. Practice: 300 lines, 12,867 reference characters, C0 831 edits.
 
 | pass | hypothesis | edit | practice CER | WER | collapsed | decision |
 |---:|---|---|---:|---:|---:|---|

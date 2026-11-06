@@ -6,7 +6,7 @@ import pytest
 from wsp.session import Session, BudgetExhausted, SessionClosed
 from wsp.subject import ArraySubject
 
-REFS = ["ein kurzer satz", "noch ein satz", "und der dritte"]
+REFS = ["ein kurzer satz", "noch ein satz", "und das dritte"]   # every line holds an "a": the toy edit moves every line
 
 
 def toy_forward(tensors, practice):
@@ -68,7 +68,41 @@ def test_no_second_edit_before_decision_and_closed_after_freeze(tmp_path):
     s.edit("scale", ["gain"], factor=2.0)
     with pytest.raises(RuntimeError):
         s.edit("scale", ["gain"], factor=2.0)
-    s.keep()
+    assert s.keep() is False            # no pass since the edit: refused, undone
     s.freeze()
     with pytest.raises(SessionClosed):
         s.note("too late")
+
+
+def test_keep_refused_when_interval_contains_zero(tmp_path):
+    """The rule of PROTOCOL §3 (06.11.2026): a keep needs the paired 95 % interval of
+    CER(after) − CER(last kept) to exclude 0; a noise-sized edit is refused and undone."""
+    subj, s = make(tmp_path, budget=4)
+    d0 = subj.digest()
+    s.measure("baseline")
+    s.edit("scale", ["w"], factor=2.0)   # w is zeros: the output does not change at all
+    s.measure("after no-op")
+    assert s.keep("looks fine") is False
+    assert subj.digest() == d0           # the refused edit was undone
+    log = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()]
+    dec = [e for e in log if e["kind"] == "decision"][-1]
+    assert dec["kept"] is False and dec["reason"] == "interval contains 0"
+    assert dec["vs_kept"]["resamples"] == 2000 and dec["vs_kept"]["ci95"][0] <= 0 <= dec["vs_kept"]["ci95"][1]
+    # a real improvement passes the same rule, and the kept state moves with it
+    s.edit("scale", ["gain"], factor=2.0)
+    s.measure("after scale")
+    assert s.keep("cer fell") is True
+    assert s._vs_kept["ci95"][1] < 0
+    summary = s.freeze()
+    assert summary["kept"] == 1 and summary["edits"] == 2 and summary["keep_rule"]["min_effect"] == 0.0
+
+
+def test_keep_refused_when_cer_rises(tmp_path):
+    subj, s = make(tmp_path, budget=3)
+    subj.set_tensor("gain", np.array([2.0]))     # start from the clean state
+    s.measure("baseline")
+    s.edit("scale", ["gain"], factor=0.25)       # back below 1: a->o again, CER rises
+    s.measure("worse")
+    assert s.keep() is False
+    dec = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()][-1]
+    assert dec["reason"] == "CER rose" and subj.tensors()["gain"][0] == 2.0
