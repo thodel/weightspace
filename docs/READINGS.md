@@ -139,3 +139,65 @@ highest bias; the frequent letters are the next weakest. The 85-channel
 kraken+ head is a different regime (norms 1–5, biases within ±0.6): the
 bottleneck keeps the classifier small, which is one more reason the
 `Cr255 → Cr1` rewrite changes nothing.
+
+## german-xix-v1 → german-xix-blb-v1: per-block α-sweep (C3, 16 passes, 06.11.2026)
+
+`wsp.alpha_sweep`, `docs/baselines/alpha-xix-blb-v1.json`. One block at a time
+set to `parent + α(child − parent)` with the rest of the network left as the
+child; the output layer with rows aligned by character (225 shared rows
+interpolated, the 72 new rows kept as the child has them). Practice set
+`blb-train-300` only, CPU, 20 s per pass, 321 s in all; the held-out set was
+not touched. Δ is against the C0 reading of the unedited child (CER 0.06458,
+the parent reads 0.30388 on the same lines), paired per-line bootstrap, 2,000
+resamples, seed 20261106. A control, outside any session budget.
+
+| block | rel L2 child−parent | α | CER | Δ vs C0 (pt) | 95 % interval | WER | collapsed |
+|---|---:|---:|---:|---:|---|---:|---:|
+| C_0 | 0.119 | 0.5 | 0.06443 | −0.016 | [−0.125, +0.102] | 0.1699 | 10 |
+| C_0 | 0.119 | 1.5 | 0.06668 | +0.210 | [+0.055, +0.370] | 0.1775 | 10 |
+| C_3 | 0.167 | 0.5 | 0.06614 | +0.155 | [+0.008, +0.302] | 0.1755 | 10 |
+| C_3 | 0.167 | 1.5 | 0.06730 | +0.272 | [+0.142, +0.430] | 0.1795 | 12 |
+| C_6 | 0.256 | 0.5 | 0.06785 | +0.326 | [+0.139, +0.547] | 0.1791 | 9 |
+| C_6 | 0.256 | 1.5 | 0.06699 | +0.241 | [+0.064, +0.424] | 0.1783 | 11 |
+| C_9 | 0.295 | 0.5 | 0.06614 | +0.155 | [−0.008, +0.316] | 0.1775 | 10 |
+| C_9 | 0.295 | 1.5 | 0.06629 | +0.171 | [+0.000, +0.355] | 0.1727 | 10 |
+| L_12 | 0.274 | 0.5 | 0.08362 | +1.904 | [+1.318, +2.589] | 0.2107 | 13 |
+| L_12 | 0.274 | 1.5 | 0.06730 | +0.272 | [+0.008, +0.553] | 0.1799 | 9 |
+| L_14 | 0.260 | 0.5 | 0.07640 | +1.181 | [+0.872, +1.513] | 0.2071 | 11 |
+| L_14 | 0.260 | 1.5 | 0.06831 | +0.373 | [+0.085, +0.664] | 0.1803 | 11 |
+| L_16 | 0.266 | 0.5 | 0.08767 | +2.308 | [+1.971, +2.670] | 0.3191 | 10 |
+| L_16 | 0.266 | 1.5 | 0.06505 | +0.047 | [−0.181, +0.278] | 0.1735 | 11 |
+| O_18 | 0.195 | 0.5 | 0.06684 | +0.225 | [+0.101, +0.363] | 0.1827 | 10 |
+| O_18 | 0.195 | 1.5 | 0.06575 | +0.117 | [+0.000, +0.245] | 0.1727 | 10 |
+
+What it says:
+
+1. **The 24-point gain is not in any one block.** Halving the fine-tune's move
+   on a single block costs at most 2.3 points (L_16), and the eight halvings
+   together add up to about 6.5 points against a 24-point gap: the gain is
+   held jointly, every block depends on the others having moved with it. This
+   is the profile of a healthy fine-tune, as the v1→v2 reading above described
+   for the Bern family, not of a localised repair.
+2. **Of what is localisable, the recurrent stack holds it**: L_16 2.3 points,
+   L_12 1.9, L_14 1.2 at α = 0.5; the four conv blocks and the output layer
+   0.15–0.33 each. The half-moved L_16 reads with the same letters but loses
+   word boundaries (` `→∅ 103 → 263, WER 0.171 → 0.319, length ratio 0.969 →
+   0.953): the last BiLSTM is where the child learnt the Kurrent spacing. The
+   `C_3.co.bias` move that stood out in the weight reading (rel. L2 1.09) is
+   worth 0.16 points, i.e. nothing: a large relative change in a 32-element
+   bias is not a large function change.
+3. **Only L_16 tolerates extrapolation.** At α = 1.5 every other block is
+   worse than C0 with an interval that excludes 0 (C_0 +0.21, C_3 +0.27,
+   C_6 +0.24, L_12 +0.27, L_14 +0.37) or touches it (C_9, O_18); L_16 is
+   +0.05 with interval [−0.18, +0.28], indistinguishable from the child.
+   `C_0` at α = 0.5 is the other indistinguishable point (−0.02): the first
+   conv block hardly matters in either direction, as its small move said.
+4. **For the next session (preregistered hypothesis, budget 10):** target
+   `L_16` (its eight tensors as one block, or `weight_hh`/`weight_ih` forward
+   and reverse separately). The sweep makes α = 1.5 a null and α = 0.5 a
+   2.3-point loss; the preregistered prediction for α ∈ {1.1, 1.25} is
+   therefore a change inside [−0.2, +0.2] points, and under the keep rule of
+   PROTOCOL §3 the session is expected to keep nothing unless a sub-tensor of
+   L_16 extrapolates where the whole block does not. The honest reading is
+   that extrapolating the fine-tune is not where a gain lies on this model;
+   the collapsed lines (phase-1 report §5.3) are the better next question.

@@ -32,8 +32,19 @@ The session's `preregistration.md` states:
 
 - Every hypothesis, edit, pass and decision is logged by the harness; the
   programmer's free text goes into `notes.md` with timestamps.
-- An edit is kept only if the practice CER falls **and** the collapsed-line
-  count does not rise. Ties revert.
+- **Keep rule (as of 06.11.2026, after phase 1):** an edit is kept only if
+  the practice CER falls against the *last kept state* **and** the paired
+  per-line bootstrap 95 % interval of that difference (2,000 resamples, seed
+  20261106, §5) lies entirely below −`min_effect`; `min_effect` is
+  preregistered per session and defaults to 0, i.e. the interval must exclude
+  0. The harness enforces it: `Session.keep()` refuses an edit whose interval
+  contains 0 (or that has no pass since the edit), undoes it and logs a
+  `decision` with `kept: false` and the reason; `revert()` is unchanged. The
+  collapsed-line count must still not rise (checked by the programmer and
+  reported). Session `runs/20261106-german-xix-blb-v1-b10-1` ran under the
+  earlier rule (CER falls and collapsed does not rise, ties revert) and kept
+  two edits with intervals containing 0; under this rule it would have kept
+  none (docs/PHASE1_REPORT.md §4).
 - No held-out data is reachable from the sandbox. The held-out score is
   computed once after `freeze()`; a second held-out evaluation of the same
   session is recorded as such and is not a result.
