@@ -20,7 +20,7 @@ is "spent" against a budget.**
 - `TMPDIR=~/atr-cache/tmp`, never the CIFS share (pip and `shutil` break there).
 - Secrets: `.env` files on that box are mode 600; never print them.
 
-## 1. Checkout and venv
+## 1. Checkout and venv — `bash deploy/asteraix_bootstrap.sh` does §1 and §2 (docs/DEPLOY_ASTERAIX.md)
 
 ```bash
 cd ~/Repo && git clone git@github.com:thodel/weightspace.git && cd weightspace

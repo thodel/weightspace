@@ -7,7 +7,7 @@ Read `training-atr-models/docs/INFRASTRUCTURE.md` first; this runbook only
 adds what this repo needs. **Card 1 is the trainer's (`ATR_TRAIN_GPU=1`).
 Sessions use card 0 or the CPU, never card 1.**
 
-## 1. Checkout and venv (once)
+## 1. Checkout and venv (once) — or run `deploy/asteraix_bootstrap.sh`, which does §1–§2
 
 ```bash
 cd ~/Repo && git clone git@github.com:thodel/weightspace.git
