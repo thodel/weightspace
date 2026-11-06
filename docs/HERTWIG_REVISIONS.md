@@ -33,7 +33,9 @@ cd ~/Repo/weightspace
 .venv/bin/python scripts/fix_hertwig_hf.py --apply    # writes the commit on main and verifies it
 ```
 
-The dry run was checked on 06.11.2026: 50/50 and 6/6 identical XML, 6/50 and 1/6 identical images, 22.10 sha256 `566f5bd1…` (train) and `0397cddd…` (test). After the fix the trainer should pin the new commit for family-1 jobs.
+The dry run was checked on 06.11.2026: 50/50 and 6/6 identical XML, 6/50 and 1/6 identical images, 22.10 sha256 `566f5bd1…` (train) and `0397cddd…` (test).
+
+**Applied 06.11.2026 ~22:05 CET by Tobias Hodel: commit `dda578ea` on `main`** ("Hertwig: restore the 22.10 export"). Verified independently afterwards: `main` lists the two 20261022 Hertwig shards and the two Schlussredaktion shards, and the downloaded Hertwig shards hash to the 22.10 values. Family-1 training jobs should pin `dda578ea` (the trainer records `revision: null` today).
 
 ## What the correct pages say about combined-v1 (measured after the decision)
 

@@ -8,7 +8,7 @@ Branch `phase3` on top of `phase2` (PR thodel/weightspace#4). In PLAN.md's numbe
 
 | decision | done |
 |---|---|
-| Fix the dataset on Hugging Face, run by hand from a terminal | `scripts/fix_hertwig_hf.py`: replaces the two 25.10 Hertwig shards on `main` with the byte-identical 22.10 files in one commit and verifies; dry run by default. Dry-run checked: XML 50/50 and 6/6 identical, images 6/50 and 1/6. **Not applied** (needs a token that may write to `dh-unibe`): `docs/HERTWIG_REVISIONS.md` has the two commands |
+| Fix the dataset on Hugging Face, run by hand from a terminal | `scripts/fix_hertwig_hf.py`: replaces the two 25.10 Hertwig shards on `main` with the byte-identical 22.10 files in one commit and verifies; dry run by default. Dry-run checked: XML 50/50 and 6/6 identical, images 6/50 and 1/6. **Applied by hand the same evening: commit `dda578ea`**, verified |
 | Keep target 1, document it | `docs/HERTWIG_REVISIONS.md`, PLAN.md target 1, docs/MODELS.md: "can a weight-space edit undo training on label noise", C4 = retrain on the corrected data (a trainer job, needs an OK; not run) |
 | Add the 8 Schlussredaktion test pages to the held-out set | `data/heldout/bern-eval.jsonl`: 6 Hertwig test pages (22.10 images) + 8 Schlussredaktion test pages, 545 lines, audited at page level, none among the 168 training pages |
 | Drop the family-3 checkpoints | docs/MODELS.md, PLAN.md target 4: their training and validation arrows were not archived; the Cr255 → Cr1 rewrite (R1) stays |
@@ -66,7 +66,7 @@ Final: one kept edit, the output layer (266 shared character rows and the blank)
 
 ## 5. Open
 
-1. **Apply the dataset fix** (`scripts/fix_hertwig_hf.py --apply`, by hand) and tell the trainer to pin the dataset revision for family-1 jobs.
+1. ~~Apply the dataset fix~~: applied by hand on 06.11.2026, commit `dda578ea` on `main`, verified (docs/HERTWIG_REVISIONS.md). Still open: the trainer should pin that revision for family-1 jobs.
 2. **C4 retrain** of combined-v1 on the corrected 22.10 Hertwig pages + Schlussredaktion, through the trainer on asteraix (needs an OK; a GPU job).
 3. **Protocol:** a donor must not have been trained on the practice lines (or the rule is applied to donor-unseen lines only). Write into PROTOCOL §2 before the next session with a donor.
 4. **Where the trainer's 28.8 % and 16.7 % came from** (which pages, which export): a check on the trainer side.
