@@ -1,0 +1,421 @@
+{
+ "set": "bern-train-300",
+ "readings": "docs/baselines/readings/bern-train-300/kraken-bern-combined-v1.jsonl",
+ "siblings": [
+  "docs/baselines/readings/bern-train-300/kraken-bern-hertwig-v2.jsonl",
+  "docs/baselines/readings/bern-train-300/kraken-bern-schlussredaktion-v1.jsonl"
+ ],
+ "lines": 300,
+ "cer": 0.14562748176193555,
+ "flagged": 29,
+ "collapsed_strict": 29,
+ "cer_without_flagged_data_defects": 0.10573074294640242,
+ "classes": {
+  "vertical": {
+   "lines": 4,
+   "edits": 16,
+   "share_of_edits": 0.010145846544071021,
+   "documents": [
+    [
+     "13922579",
+     4
+    ]
+   ]
+  },
+  "tiny_reference": {
+   "lines": 7,
+   "edits": 14,
+   "share_of_edits": 0.008877615726062143,
+   "documents": [
+    [
+     "13922579",
+     4
+    ],
+    [
+     "13922499",
+     3
+    ]
+   ]
+  },
+  "model_specific": {
+   "lines": 3,
+   "edits": 94,
+   "share_of_edits": 0.05960684844641725,
+   "documents": [
+    [
+     "13922499",
+     2
+    ],
+    [
+     "13922579",
+     1
+    ]
+   ]
+  },
+  "short_all_models": {
+   "lines": 15,
+   "edits": 464,
+   "share_of_edits": 0.2942295497780596,
+   "documents": [
+    [
+     "13922579",
+     10
+    ],
+    [
+     "13922499",
+     5
+    ]
+   ]
+  }
+ },
+ "per_line": [
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0098/tr_2_tl_1",
+   "doc": "13922579",
+   "class": "vertical",
+   "edits": 2,
+   "ref_chars": 2,
+   "hyp_chars": 0,
+   "crop": [
+    148,
+    165
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0058/tr_1_tl_43",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 48,
+   "ref_chars": 48,
+   "hyp_chars": 1,
+   "crop": [
+    114,
+    72
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0050/tr_1_tl_54",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    89,
+    82
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 8,
+   "ref_chars": 8,
+   "hyp_chars": 0,
+   "crop": [
+    321,
+    31
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0058/tr_1_tl_39",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 36,
+   "ref_chars": 39,
+   "hyp_chars": 6,
+   "crop": [
+    261,
+    165
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 6,
+   "ref_chars": 6,
+   "hyp_chars": 0,
+   "crop": [
+    145,
+    99
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 28,
+   "ref_chars": 38,
+   "hyp_chars": 11,
+   "crop": [
+    597,
+    145
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0078/tr_3_tl_28",
+   "doc": "13922579",
+   "class": "tiny_reference",
+   "edits": 2,
+   "ref_chars": 2,
+   "hyp_chars": 0,
+   "crop": [
+    93,
+    80
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0027/tr_1_tl_1",
+   "doc": "13922579",
+   "class": "vertical",
+   "edits": 2,
+   "ref_chars": 2,
+   "hyp_chars": 0,
+   "crop": [
+    82,
+    89
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0041/tr_1_tl_1",
+   "doc": "13922579",
+   "class": "tiny_reference",
+   "edits": 1,
+   "ref_chars": 1,
+   "hyp_chars": 0,
+   "crop": [
+    254,
+    115
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+   "doc": "13922579",
+   "class": "vertical",
+   "edits": 7,
+   "ref_chars": 7,
+   "hyp_chars": 0,
+   "crop": [
+    140,
+    222
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 25,
+   "ref_chars": 43,
+   "hyp_chars": 18,
+   "crop": [
+    627,
+    114
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0045/tr_1_tl_1",
+   "doc": "13922579",
+   "class": "tiny_reference",
+   "edits": 1,
+   "ref_chars": 1,
+   "hyp_chars": 0,
+   "crop": [
+    420,
+    149
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0023/l_7",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 46,
+   "ref_chars": 59,
+   "hyp_chars": 19,
+   "crop": [
+    1698,
+    201
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+   "doc": "13922579",
+   "class": "model_specific",
+   "edits": 27,
+   "ref_chars": 41,
+   "hyp_chars": 17,
+   "crop": [
+    864,
+    79
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 29,
+   "ref_chars": 39,
+   "hyp_chars": 10,
+   "crop": [
+    578,
+    132
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 39,
+   "ref_chars": 62,
+   "hyp_chars": 24,
+   "crop": [
+    1727,
+    165
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0117/l_1",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 4,
+   "ref_chars": 4,
+   "hyp_chars": 0,
+   "crop": [
+    107,
+    32
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 41,
+   "ref_chars": 42,
+   "hyp_chars": 2,
+   "crop": [
+    240,
+    81
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0036/tr_1_tl_26",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    227,
+    74
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 21,
+   "ref_chars": 37,
+   "hyp_chars": 16,
+   "crop": [
+    681,
+    100
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 28,
+   "ref_chars": 40,
+   "hyp_chars": 12,
+   "crop": [
+    1663,
+    125
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 29,
+   "ref_chars": 34,
+   "hyp_chars": 6,
+   "crop": [
+    494,
+    104
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0043/tr_3_tl_33",
+   "doc": "13922579",
+   "class": "tiny_reference",
+   "edits": 1,
+   "ref_chars": 1,
+   "hyp_chars": 0,
+   "crop": [
+    432,
+    143
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_4",
+   "doc": "13922579",
+   "class": "vertical",
+   "edits": 5,
+   "ref_chars": 5,
+   "hyp_chars": 0,
+   "crop": [
+    134,
+    138
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 42,
+   "ref_chars": 53,
+   "hyp_chars": 13,
+   "crop": [
+    1663,
+    126
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 84,
+   "ref_chars": 89,
+   "hyp_chars": 5,
+   "crop": [
+    1542,
+    172
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_train/p0050/tr_1_tl_21",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    191,
+    92
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 17,
+   "ref_chars": 17,
+   "hyp_chars": 0,
+   "crop": [
+    533,
+    31
+   ]
+  }
+ ]
+}
