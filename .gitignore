@@ -6,6 +6,11 @@ data/practice/*
 !data/practice/*.jsonl
 !data/practice/*.json
 !data/practice/README.md
+!data/heldout/
+data/heldout/*
+!data/heldout/*.jsonl
+!data/heldout/*.json
+!data/heldout/README.md
 runs/*/readings/
 *.mlmodel
 *.safetensors

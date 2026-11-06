@@ -37,6 +37,8 @@ from typing import Iterable
 
 PRACTICE_ROOT = Path.home() / "atr-cache" / "wsp" / "practice"
 LIST_ROOT = Path("data/practice")
+HELDOUT_ROOT = Path.home() / "atr-cache" / "wsp" / "heldout"
+HELDOUT_LIST_ROOT = Path("data/heldout")
 SEED = 20261106
 PAGE_NS = "{http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15}"
 
@@ -160,12 +162,15 @@ class PageXMLSource:
     def image(self, c: Candidate):
         from PIL import Image
         project, stem = c.page.split("/", 1)
-        d = next(p for p in self.dirs if p.name == project)
-        xml_text = (d / "page" / f"{stem}.xml").read_text(encoding="utf-8")
-        line = next(l for l in page_lines(xml_text) if l["id"] == c.line_id)
-        m = re.search(r'imageFilename="([^"]+)"', xml_text)
-        im = Image.open(d / (m.group(1) if m else f"{stem}.jpg"))
-        return cut_line(im, line)
+        if c.page not in self._xml:          # one parse per page, not per line
+            d = next(p for p in self.dirs if p.name == project)
+            xml_text = (d / "page" / f"{stem}.xml").read_text(encoding="utf-8")
+            m = re.search(r'imageFilename="([^"]+)"', xml_text)
+            self._xml[c.page] = (d / (m.group(1) if m else f"{stem}.jpg"),
+                                 {l["id"]: l for l in page_lines(xml_text)})
+        img_path, lines = self._xml[c.page]
+        im = Image.open(img_path)
+        return cut_line(im, lines[c.line_id])
 
     def describe(self) -> dict:
         return {"kind": "pagexml", "dirs": [str(d) for d in self.dirs],
@@ -227,29 +232,38 @@ def sha256_file(path: Path) -> str:
 
 def sample_lines(source: str, n: int, seed: int, set_name: str,
                  list_root: Path = LIST_ROOT, image_root: Path = PRACTICE_ROOT) -> Path:
+    """``n == 0`` takes every candidate line in source order (a held-out set is
+    the whole eval side, never a sample; PROTOCOL.md §2.3 wants its identity)."""
     src = open_source(source)
     cands = src.candidates()
-    if len(cands) < n:
+    if n and len(cands) < n:
         raise ValueError(f"{source} has {len(cands)} candidate lines, fewer than {n}")
-    chosen = random.Random(seed).sample(cands, n)
+    chosen = random.Random(seed).sample(cands, n) if n else list(cands)
     out_dir = image_root / set_name
     out_dir.mkdir(parents=True, exist_ok=True)
     list_root.mkdir(parents=True, exist_ok=True)
     rows = []
+    skipped = []
     for c in chosen:
         safe = re.sub(r"[^A-Za-z0-9._-]+", "_", c.key)
         img = out_dir / f"{safe}.png"
         if not img.exists():
-            src.image(c).save(img)
+            try:
+                src.image(c).save(img)
+            except ValueError as e:           # kraken refuses degenerate geometry (baseline < 5 px)
+                skipped.append({"key": c.key, "reason": str(e)})
+                continue
         rows.append({"key": c.key, "text": c.text, "image": str(img), "doc": c.doc,
                      "image_sha256": sha256_file(img)})   # the list hash then identifies the pixels too
     lst = list_root / f"{set_name}.jsonl"
     lst.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
     digest = sha256_file(lst)
-    meta = {"set": set_name, "source": source, "source_info": src.describe(), "n": n, "seed": seed,
+    meta = {"set": set_name, "source": source, "source_info": src.describe(), "n": len(rows), "seed": seed,
             "candidates": len(cands), "sha256": digest,
             "documents": sorted({r["doc"] for r in rows if r["doc"]}),
-            "selection": "random.Random(seed).sample over all candidate lines in source order"}
+            "skipped": skipped,
+            "selection": ("random.Random(seed).sample over all candidate lines in source order" if n
+                          else "every candidate line in source order (no sampling)")}
     (list_root / f"{set_name}.meta.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
     return lst
 
@@ -312,12 +326,15 @@ def main(argv=None):
     b = sub.add_parser("build", help="sample a practice set")
     b.add_argument("--set", required=True)
     b.add_argument("--source", required=True)
-    b.add_argument("--n", type=int, default=300)
+    b.add_argument("--n", type=int, default=300, help="lines to sample; 0 = every line (held-out sets)")
     b.add_argument("--seed", type=int, default=SEED)
+    b.add_argument("--heldout", action="store_true",
+                   help="write under data/heldout/ and ~/atr-cache/wsp/heldout/ instead of the practice roots")
     sub.add_parser("readme", help="write data/practice/README.md from the meta files")
     a = ap.parse_args(argv)
     if a.cmd == "build":
-        lst = sample_lines(a.source, a.n, a.seed, a.set)
+        roots = {"list_root": HELDOUT_LIST_ROOT, "image_root": HELDOUT_ROOT} if a.heldout else {}
+        lst = sample_lines(a.source, a.n, a.seed, a.set, **roots)
         meta = json.loads((lst.with_suffix(".meta.json")).read_text())
         print(lst, meta["sha256"], f"{meta['n']} of {meta['candidates']} lines, {len(meta['documents'])} documents")
     elif a.cmd == "readme":

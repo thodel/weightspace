@@ -1,0 +1,120 @@
+{
+  "set": "blb-eval",
+  "source": "pagexml:/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/lassberg_eval,/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/korrespondenten_eval,/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/unbestimmt_eval,/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/manuskripte_eval",
+  "source_info": {
+    "kind": "pagexml",
+    "dirs": [
+      "/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/lassberg_eval",
+      "/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/korrespondenten_eval",
+      "/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/unbestimmt_eval",
+      "/mnt/wbkolleg_dh_1/tei/datasets/lassberg-blb-gt/manuskripte_eval"
+    ],
+    "pages": 157
+  },
+  "n": 5628,
+  "seed": 20261106,
+  "candidates": 5644,
+  "sha256": "0729b93b1b5d594d40eeea80ae498330118c3efdbd4f4bbf73ed317059c5dab1",
+  "documents": [
+    "K2911,103",
+    "K2911,107",
+    "K2911,108",
+    "K2911,110",
+    "K2911,124",
+    "K2911,125",
+    "K2911,129",
+    "K2911,14",
+    "K2911,17",
+    "K2911,26",
+    "K2911,32",
+    "K2911,39",
+    "K2911,46",
+    "K2911,51",
+    "K2911,58",
+    "K2911,79",
+    "K2911,88",
+    "K2911,9",
+    "K2912,16",
+    "K2912,28",
+    "K2912,31",
+    "K2912,32",
+    "K2912,35",
+    "K2912,37",
+    "K2912,66",
+    "K2912,70",
+    "K2913,16",
+    "K2913,17",
+    "K2913,20",
+    "K2915,3",
+    "K3123,31",
+    "K3123,57",
+    "K3535"
+  ],
+  "skipped": [
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l6",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l7",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l12",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l20",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l22",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l23",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l26",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0002/r1l27",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0010/r1l57",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0011/r1l34",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0011/r1l38",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0012/r1l22",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0013/r1l63",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0031/r1l37",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0035/r1l23",
+      "reason": "Baseline length below minimum 5px"
+    },
+    {
+      "key": "manuskripte_eval/K2913-17_0045/r1l2",
+      "reason": "Baseline length below minimum 5px"
+    }
+  ],
+  "selection": "every candidate line in source order (no sampling)"
+}

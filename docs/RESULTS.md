@@ -45,3 +45,16 @@ function fits the serving box's 16 MB convention. `KRAKEN_PLUS_SPEC` in
 `training-atr-models/src/atr_training/contracts.py` still says `Cr255`;
 changing it to `Cr1` for future runs is a trainer decision, not a
 weight-space one.
+
+## R2 — session `20261106-german-xix-blb-v1-b10-1`: output-layer levers do not move this model (06.11.2026)
+
+First budgeted session (docs/PHASE1_REPORT.md). Subject `kraken-german-xix-blb-v1` (tensor digest `f35e075a…`), practice `blb-train-300` (sha256 `4a803b49…`), held-out `blb-eval` (5,628 lines, sha256 `0729b93b…`, audit clean), budget 10, 8 passes used, 7 edits, 2 kept, one element changed (`O_18.lin.bias[0]` 1.2323 → 0.2323).
+
+| | practice CER | held-out CER | collapsed (held-out) |
+|---|---:|---:|---:|
+| before (C0) | 0.06458 | 0.12335 | 428 |
+| after (frozen) | 0.06435 | 0.12325 | 403 |
+| Δ, 95 % paired interval | −0.023 pt [−0.34, +0.30] | **−0.010 pt [−0.048, +0.026]** | |
+| parent `xix-v1` (C1) | 0.3039 | 0.3196 | 455 |
+
+Not a gain. The blank-bias, space-bias and frequent-row hypotheses of docs/READINGS.md each reduce the deletions they target and add insertions or substitutions of the same size; the 12 typographic rows are inert (a measured null). The deletions are decided below the output layer.

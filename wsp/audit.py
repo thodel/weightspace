@@ -27,6 +27,12 @@ HERTWIG_DOC = "13922499"
 HERTWIG_EVAL_PAGES = {8, 17, 26, 39, 48, 55}
 
 
+def norm_id(s: str) -> str:
+    """One spelling for a BLB shelfmark: the PAGE Comments write ``K2911, 14``,
+    ``export.json`` writes ``K2911-14``. Spaces, commas and hyphens are dropped."""
+    return re.sub(r"[ ,\-]", "", s)
+
+
 def heldout_identities() -> dict:
     out: dict = {"blb_eval_objects": {}, "hertwig": {"doc": HERTWIG_DOC, "eval_pages": sorted(HERTWIG_EVAL_PAGES)},
                  "medieval": {}}
@@ -54,9 +60,8 @@ def audit_set(lst: Path, ids: dict) -> dict:
     docs = sorted({r["doc"] for r in rows if r.get("doc")})
     report = {"set": lst.stem, "lines": len(rows), "sha256": meta.get("sha256"), "source": meta.get("source"),
               "documents": docs, "findings": [], "auditable_by_id": bool(docs)}
-    blb_eval = {o for objs in ids["blb_eval_objects"].values() for o in objs}
-    blb_eval_norm = {o.replace(" ", "") for o in blb_eval}
-    hits = [d for d in docs if d in blb_eval or d.replace(" ", "") in blb_eval_norm]
+    blb_eval_norm = {norm_id(o) for objs in ids["blb_eval_objects"].values() for o in objs}
+    hits = [d for d in docs if norm_id(d) in blb_eval_norm]
     if hits:
         report["findings"].append({"kind": "blb_eval_object_in_practice", "documents": hits})
     if HERTWIG_DOC in docs:
@@ -81,14 +86,52 @@ def audit_set(lst: Path, ids: dict) -> dict:
     return report
 
 
+def audit_heldout(lst: Path, practice: list[Path], ids: dict) -> dict:
+    """A held-out list is sound when every document is a held-out identity and no
+    document appears in any practice list (PROTOCOL.md §2.3)."""
+    rows = [json.loads(l) for l in lst.read_text(encoding="utf-8").splitlines() if l.strip()]
+    meta_path = lst.with_suffix(".meta.json")
+    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    docs = sorted({r["doc"] for r in rows if r.get("doc")})
+    blb_eval_norm = {norm_id(o) for objs in ids["blb_eval_objects"].values() for o in objs}
+    report = {"set": lst.stem, "lines": len(rows), "sha256": meta.get("sha256"), "source": meta.get("source"),
+              "documents": docs, "findings": [], "against": []}
+    if not docs:
+        report["findings"].append({"kind": "no_document_ids"})
+    not_heldout = [d for d in docs if norm_id(d) not in blb_eval_norm]
+    if not_heldout:
+        report["findings"].append({"kind": "document_not_a_blb_eval_object", "documents": not_heldout})
+    for p in practice:
+        prows = [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
+        pdocs = {norm_id(r["doc"]) for r in prows if r.get("doc")}
+        shared = [d for d in docs if norm_id(d) in pdocs]
+        report["against"].append({"practice": p.stem, "documents": len(pdocs), "shared": shared})
+        if shared:
+            report["findings"].append({"kind": "document_shared_with_practice", "practice": p.stem, "documents": shared})
+    report["clean"] = not report["findings"]
+    return report
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.audit")
     sub = ap.add_subparsers(dest="cmd", required=True)
     o = sub.add_parser("overlap")
     o.add_argument("--practice", nargs="+", required=True)
     o.add_argument("--out", default="data/practice/overlap.json")
+    h = sub.add_parser("heldout", help="a held-out list: all documents held-out identities, none shared with practice")
+    h.add_argument("--heldout", required=True)
+    h.add_argument("--practice", nargs="+", required=True)
+    h.add_argument("--out", default="data/heldout/overlap.json")
     a = ap.parse_args(argv)
     ids = heldout_identities()
+    if a.cmd == "heldout":
+        r = audit_heldout(Path(a.heldout), [Path(p) for p in a.practice], ids)
+        Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(a.out).write_text(json.dumps({"heldout_identities": ids, "set": r}, indent=2, ensure_ascii=False))
+        status = "clean" if r["clean"] else "FINDINGS " + json.dumps(r["findings"])
+        print(f"{r['set']}: {r['lines']} lines, {len(r['documents'])} documents, "
+              f"against {[x['practice'] for x in r['against']]}: {status}")
+        return
     reports = [audit_set(Path(p), ids) for p in a.practice]
     result = {"heldout_identities": ids, "sets": reports}
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
