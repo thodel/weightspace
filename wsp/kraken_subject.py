@@ -91,7 +91,11 @@ class KrakenSubject(Subject):
         preds: list[Prediction] = []
         for item in practice:
             im = Image.open(item["image"]).convert("L")
-            line = tf(im).unsqueeze(0).to(self.device)
+            try:
+                line = tf(im).unsqueeze(0).to(self.device)
+            except ValueError as e:      # a sliver the resize cannot scale (e.g. 6 x 1655 px): unreadable, empty text
+                preds.append(Prediction(key=item["key"], text="", extra={"error": str(e), "size": list(im.size)}))
+                continue
             lens = self._torch.tensor([line.shape[3]], dtype=self._torch.int64)
             with self._torch.no_grad():
                 out = self._recognizer.predict_string(line, lens)
@@ -114,7 +118,10 @@ class KrakenSubject(Subject):
         out = []
         for item in practice:
             im = Image.open(item["image"]).convert("L")
-            line = tf(im).unsqueeze(0).to(self.device)
+            try:
+                line = tf(im).unsqueeze(0).to(self.device)
+            except ValueError:
+                continue                 # unreadable sliver: no frames (see forward)
             lens = self._torch.tensor([line.shape[3]], dtype=self._torch.int64)
             with self._torch.no_grad():
                 o = rec.forward(line, lens)
