@@ -124,7 +124,7 @@ summary() {
   say summary
   cd "$REPO"
   echo "repo:    $REPO @ $(git log --oneline -1)"
-  echo "venv:    $(.venv/bin/python -c 'import kraken,torch;print("kraken",kraken.__version__,"torch",torch.__version__)' 2>/dev/null || echo 'not built')"
+  echo "venv:    $(.venv/bin/python -c 'import torch;from importlib.metadata import version as v;print("kraken",v("kraken"),"torch",torch.__version__)' 2>/dev/null || echo 'not built')"
   echo "models:  $(ls models/kraken/*.mlmodel 2>/dev/null | wc -l) files under models/kraken/"
   cat models/DIGESTS.md 2>/dev/null || true
   cat <<TXT
