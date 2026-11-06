@@ -83,6 +83,10 @@ Targets, in order:
    worse. Diff the two; the damage should be localised (output rows for the
    characters the second project adds, or the last LSTM). Edits: revert rows
    or blocks to the parent, rescale, interpolate per layer.
+   *Re-framed 06.11.2026:* combined-v1 was trained on the 25.10 export, in
+   which 44 of 50 Hertwig pages carry the wrong image. The question is now
+   whether a weight-space edit can undo training on label noise, against a
+   retrain on the corrected data as C4 (docs/HERTWIG_REVISIONS.md).
 2. `kraken-bern-hertwig-v2` — 0.37 line-CER with known failure classes.
    Look for a blank-dominant direction in the output layer and the last LSTM
    (the CTC analogue of Qwen's loop direction).
@@ -91,6 +95,9 @@ Targets, in order:
    the best measurement.
 4. kraken+ run: the lossless `Cr255 → Cr1` rewrite, then the 85-channel
    bottleneck (widen by weight surgery, see whether it needs training).
+   *Dropped 06.11.2026* except for the rewrite (done, docs/RESULTS.md R1): the
+   archived checkpoints' training and validation arrows were not kept, so the
+   models cannot be measured on their own data (docs/MODELS.md, family 3).
 5. **First adapter target:** the Qwen3.5-4B Kurrent page adapter, with
    truncation / repetition on long pages as the defect to look for; the
    trainer's `truncated_cer` and `finish_reason` counts are the symptom.

@@ -178,17 +178,22 @@ class PageXMLSource:
 
 
 class ParquetSource:
+    """One or more ``dh-unibe/image-text_*`` shards (``parquet:a.parquet,b.parquet``),
+    read as one table; pages are ordered by (project, file name)."""
+
     def __init__(self, path: str):
+        import pyarrow as pa
         import pyarrow.parquet as pq
-        self.path = Path(path)
-        self.table = pq.read_table(self.path)
+        self.paths = [Path(p) for p in path.split(",")]
+        self.path = self.paths[0]
+        self.table = pa.concat_tables([pq.read_table(p) for p in self.paths])
         self.filenames = self.table.column("filename").to_pylist()
         self.xml = self.table.column("xml_content").to_pylist()
         self.projects = self.table.column("project_name").to_pylist()
 
     def candidates(self) -> list[Candidate]:
         out = []
-        for i in sorted(range(len(self.filenames)), key=lambda j: self.filenames[j]):
+        for i in sorted(range(len(self.filenames)), key=lambda j: (self.projects[j], self.filenames[j])):
             text = self.xml[i]
             doc = page_doc_id(text, Path(self.filenames[i]).stem)
             page = page_nr(text) or Path(self.filenames[i]).stem
@@ -205,8 +210,12 @@ class ParquetSource:
         return cut_line(im, line)
 
     def describe(self) -> dict:
-        return {"kind": "parquet", "path": str(self.path), "pages": len(self.filenames),
-                "projects": sorted(set(self.projects)), "sha256": sha256_file(self.path)}
+        d = {"kind": "parquet", "path": str(self.path), "pages": len(self.filenames),
+             "projects": sorted(set(self.projects)), "sha256": sha256_file(self.path)}
+        if len(self.paths) > 1:
+            d["paths"] = [str(p) for p in self.paths]
+            d["sha256s"] = [sha256_file(p) for p in self.paths]
+        return d
 
 
 def open_source(spec: str):

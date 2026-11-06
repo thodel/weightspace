@@ -16,7 +16,7 @@ kraken 7.0.2.
 | `kraken-bern-hertwig-v1` | `kraken-cursive_inzigkofen` (Zenodo 10.5281/zenodo.18207767, itself a fine-tune of CATMuS Medieval 15030337) | `dh-unibe/image-text_bern-disputation-1528`, Hertwig project, 1,786 lines | trainer test 0.271 | lrate 1e-4, 60 epochs — under-trained (`kraken_train` tool doc) |
 | `kraken-bern-hertwig-v2` | same | same | trainer test **0.233**; line-CER in `pipeline.py eval` 0.371 (41 of 287 GT lines got no text: segmentation) | lrate 5e-4, 150 planned, stopped at 91 |
 | `kraken-bern-schlussredaktion-v1` | `trained:kraken-bern-hertwig-v2` | 1 project, 118 pages, 3,457 lines | held-out 16.7 % | |
-| `kraken-bern-combined-v1` | `trained:kraken-bern-hertwig-v2` | 2 projects, 168 pages, 5,441 lines | held-out 28.8 % | worse than its parent on its own held-out — first candidate for a weight-space reading |
+| `kraken-bern-combined-v1` | `trained:kraken-bern-hertwig-v2` | 2 projects, 168 pages, 5,441 lines, **from the 25.10 export: 44 of the 50 Hertwig pages carry another page's image** | held-out 28.8 % | worse than its parent on its own held-out. Target 1, re-framed as repairing a model trained on label noise (docs/HERTWIG_REVISIONS.md) |
 
 Scratch runs on UBELIX (`20261105T193111Z-kraken-bern-hertwig-scratch-ubelix-v2`, `KRAKEN_PLUS_SPEC` from scratch on the same 1,786 lines) exist as comparators; check `ubelix_record` for their CER.
 
@@ -31,7 +31,10 @@ Both xix models have already read the 276 hand-corrected Transkribus pages
 (run `tk-gt-kraken-blb`) and the four `blb-eval-*` runs (105/22/23/7 pages),
 so `score_ground_truth` gives a per-page baseline without a new batch.
 
-## Family 3 — kraken+ (medieval German, from scratch)
+## Family 3 — kraken+ (medieval German, from scratch) — **dropped as a target (06.11.2026)**
+
+The three archived checkpoints of 01.09.2026 (`kraken-plus-shard00`, `kraken-medieval-shard00-v1`, `kraken-medieval-shard00-std`) cannot be measured against the data they were trained and validated on: their run folders under `archive/idhefix-2026-09/runs/` hold only `train_bin.lst` / `val_bin.lst`, which point at `~/atr-cache/arrows/shard_00.arrow` and `val_clean.arrow` on idhefix, and neither those arrows nor the page list they were compiled from were archived. On the arrows that exist (`german_val`, `sweep_train` of `german-medieval-v1`) they read at 0.62–0.72 CER, worse than the out-of-domain `xix-blb-v1`. Decision: no sessions on these checkpoints. What stays: the lossless `Cr255 → Cr1` rewrite (docs/RESULTS.md R1), which used the collapse-probe checkpoint only as a vehicle. A future family 3 would be a `KRAKEN_PLUS_SPEC` run of the trainer on the current corpus, with its arrows pinned.
+
 
 | id | where | notes |
 |---|---|---|
@@ -57,6 +60,6 @@ lossless weight-space edit and the natural first exercise for the harness.
 |---|---|---|---|
 | `lassberg-blb-gt` `_eval` projects | object-level held-out pages of the BLB set | `datasets:lassberg-blb-gt/<project>_eval` on tei; HF `dh-unibe/image-text_lassberg-blb-gt` (private) | **held-out** for family 2 |
 | 276 Transkribus GT pages (`gt-keys.txt`) | hand-corrected Laßberg pages | `GT_ROOT` on tei; run `tk-gt-kraken-blb` | baseline + practice for family 2 (check overlap with blb-gt train side first) |
-| `bern-disputation-1528` eval pages / 287 GT lines | Hertwig | HF (private); `pipeline.py eval --doc 13922499 --pages 8,17,26,39,48,55` | held-out for family 1 |
+| `bern-disputation-1528` eval pages / 287 GT lines | Hertwig | HF (private); `pipeline.py eval --doc 13922499 --pages 8,17,26,39,48,55`; **only the 22.10 export (`28a16d55`) pairs them correctly** | held-out for family 1, with the 8 Schlussredaktion test pages: `data/heldout/bern-eval.jsonl` |
 | `german-medieval-v1` test (695 pages, 200 documents) | medieval German, 4 corpora | `/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-medieval-v1/`, `~/atr-cache/arrows/german_test.arrow` on asteraix | held-out for family 3 and the CATMuS lineage |
 | `dh-unibe/image-text_*-lines` (public parquet) | line crops + text | HF | cheap **practice** sets that run on CPU anywhere |
