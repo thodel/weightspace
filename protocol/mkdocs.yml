@@ -1,0 +1,53 @@
+site_name: Weight-space programming on HTR models — research protocol
+site_description: >-
+  Dated, preregistered record of reading, editing and measuring the weights of
+  kraken handwritten-text-recognition models without gradient descent.
+site_author: Tobias Hodel
+# site_url and repo_url are set at publication time (protocol/PUBLISHING.md)
+copyright: Text CC BY 4.0 (to be confirmed at publication)
+
+docs_dir: docs
+exclude_docs: |
+  _templates/
+strict: true
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/weather-sunny, name: Light mode}
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex: {generic: true}
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+nav:
+  - Overview: index.md
+  - Method and rules: method.md
+  - Protocol amendments: amendments.md
+  - Journal:
+      - journal/index.md
+      - "2026-11-06 · Phase 0: harness, practice sets, baselines": journal/2026-11-06-a-phase0.md
+      - "2026-11-06 · Phase 1: first budgeted session": journal/2026-11-06-b-phase1.md
+      - "2026-11-06 · Keep rule gets a minimum effect": journal/2026-11-06-c-keep-rule.md
+      - "2026-11-06 · C3 per-block α-sweep": journal/2026-11-06-d-alpha-sweep.md
+  - Results: results.md
