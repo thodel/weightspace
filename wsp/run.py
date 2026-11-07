@@ -37,6 +37,9 @@ REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "runs"
 HELDOUT = REPO / "data" / "heldout"
 SCORES = Path.home() / "atr-cache" / "wsp" / "scores"
+KURRENT = Path("/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-kurrent-xvi-xix-v1")
+#: Adapter held-out sets: frozen trainer draws, scored by the trainer's own evaluate_qlora (PHASE5_PLAN §7.3).
+ADAPTER_HELDOUT = {"kurrent-test": KURRENT / "vlm-pages-test"}
 
 PREREGISTRATION = """# Pre-registration — {name}
 
@@ -57,12 +60,35 @@ Filled in **before the first pass** (PROTOCOL.md §2). Empty fields are a deviat
 """
 
 
-def _subject(path: str | Path, device: str = "cpu"):
+def _is_adapter(path: str | Path) -> bool:
+    return Path(path).is_dir() and (Path(path) / "adapter_config.json").is_file()
+
+
+def _ext(subject) -> str:
+    """What a saved state of this subject is called: a CoreML file or a peft directory."""
+    from wsp.lora_subject import LoraSubject
+    return ".adapter" if isinstance(subject, LoraSubject) else ".mlmodel"
+
+
+def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, run_dir: Path | None = None):
+    """A kraken file, or a peft directory (phase 5). An adapter gets its forward pass only
+    inside a session: the trainer's evaluate_qlora on the session's practice pages."""
     p = Path(path)
     if p.suffix == ".mlmodel":
         from wsp.kraken_subject import KrakenSubject
         return KrakenSubject(p, device=device)
-    raise ValueError(f"no subject for {p.suffix} yet (adapters are phase 5)")
+    if _is_adapter(p):
+        from wsp.lora_subject import LoraSubject, reference_runner
+        fwd = None
+        if meta and run_dir:
+            fwd = reference_runner(meta["practice"], meta["data_root"], run_dir / "passes")
+        return LoraSubject(p, forward=fwd)
+    raise ValueError(f"no subject for {p}")
+
+
+def _file_sha(path: Path) -> str:
+    """sha256 of a file, or of an adapter's weights file."""
+    return sha256_file(path / "adapter_model.safetensors" if path.is_dir() else path)
 
 
 def _unshare_works() -> bool:
@@ -82,7 +108,8 @@ def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
     return "cd " + str(run_dir) + " && " + " ".join(cmd)
 
 
-def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106) -> Path:
+def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106,
+        data_root: str | None = None) -> Path:
     subj_path, prac_path = Path(subject), Path(practice)
     s = _subject(subj_path)
     items = load(prac_path)
@@ -94,10 +121,14 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
     run_dir = RUNS / f"{date}-{stem}-b{budget}-{n}"
     run_dir.mkdir(parents=True)
     meta = {"name": run_dir.name, "subject": str(subj_path.resolve()), "subject_digest": s.digest(),
-            "subject_file_sha256": sha256_file(subj_path), "practice": str(prac_path.resolve()),
+            "subject_file_sha256": _file_sha(subj_path), "practice": str(prac_path.resolve()),
             "practice_sha256": sha256_file(prac_path), "practice_lines": len(items), "budget": budget, "seed": seed,
             "created": datetime.now(timezone.utc).isoformat(), "unshare": _unshare_works(),
             "deviations": [] if _unshare_works() else ["unshare -Un not available: network cut by offline variables only"]}
+    if _is_adapter(subj_path):
+        if not data_root:
+            raise ValueError("an adapter session needs --data-root (where the practice pages' images resolve)")
+        meta.update({"unit": "page", "data_root": str(Path(data_root).resolve())})
     (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
     (run_dir / "preregistration.md").write_text(PREREGISTRATION.format(
         name=run_dir.name, subject=subj_path, digest=meta["subject_digest"], file_sha=meta["subject_file_sha256"],
@@ -121,13 +152,13 @@ class RunSession(Session):
         saw every keep as refused (session 20261106-bern-combined-v1-b10-1, deviations)."""
         kept = super().keep(reason)
         if kept:
-            self.subject.save(self.run_dir / "current.mlmodel")
+            self.subject.save(self.run_dir / f"current{_ext(self.subject)}")
         return kept
 
     def freeze(self) -> dict:
         summary = super().freeze()
-        final = self.subject.save(self.run_dir / "final.mlmodel")
-        summary["final_file_sha256"] = sha256_file(final)
+        final = self.subject.save(self.run_dir / f"final{_ext(self.subject)}")
+        summary["final_file_sha256"] = _file_sha(final)
         meta = json.loads((self.run_dir / "session.json").read_text())
         summary["deviations"] = meta.get("deviations", []) + summary.get("deviations", [])
         summary["subject"] = meta["subject"]; summary["name"] = meta["name"]
@@ -139,12 +170,13 @@ class RunSession(Session):
 def open_session(run_dir: str | Path = ".", device: str = "cpu") -> RunSession:
     run_dir = Path(run_dir).resolve()
     meta = json.loads((run_dir / "session.json").read_text())
-    s = _subject(meta["subject"], device=device)
+    s = _subject(meta["subject"], device=device, meta=meta, run_dir=run_dir)
     if s.digest() != meta["subject_digest"]:
         raise RuntimeError("subject digest differs from session.json; the artefact changed")
     items = load(meta["practice"])
-    sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"])
-    cur = run_dir / "current.mlmodel"
+    sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"],
+                      unit=meta.get("unit", "line"))
+    cur = run_dir / f"current{_ext(s)}"
     if cur.exists():
         edited = _subject(cur, device=device)
         for name, value in edited.tensors().items():
@@ -159,10 +191,50 @@ def freeze(run_dir: str) -> dict:
     return sess.freeze()
 
 
+def heldout_adapter(run_dir: Path, set_name: str) -> dict:
+    """Score a frozen adapter once on a frozen trainer draw with the trainer's own scorer
+    (transformers, greedy, cap 3,072), and with ``wsp.pages`` on the same readings."""
+    from wsp import pages
+    from wsp import vlm_reference
+    summary_path = run_dir / "summary.json"
+    summary = json.loads(summary_path.read_text())
+    final = run_dir / "final.adapter"
+    if not final.is_dir():
+        raise RuntimeError("freeze the session first (no final.adapter)")
+    side = ADAPTER_HELDOUT[set_name]
+    report = run_dir / "readings" / f"heldout_{set_name}.json"
+    report.parent.mkdir(exist_ok=True)
+    t = time.time()
+    if vlm_reference.main(["--adapter", str(final), "--pages", str(side / "pages.jsonl"),
+                           "--data-root", str(side), "--report", str(report)]) != 0:
+        raise RuntimeError("evaluate_qlora failed; nothing recorded")
+    trainer = json.loads(report.read_text())
+    raw = pages.read_reference(report.with_suffix(".raw.jsonl"))
+    rows = load(side / "pages.jsonl")
+    keys = [Path(r["image"]).stem for r in rows]
+    own = pages.score([raw[k]["text"] for k in keys], [r["text"] for r in rows], [raw[k]["at_cap"] for k in keys])
+    result = {"set": set_name, "set_sha256": sha256_file(side / "pages.jsonl"), "pages": len(rows),
+              "trainer": {k: trainer.get(k) for k in ("cer", "wer", "truncated_cer", "length_ratio", "samples", "truncated_at_cap")},
+              "wsp": {k: v for k, v in own.items() if k != "per_page"}, "per_page": own["per_page"],
+              "final_sha256": _file_sha(final), "when": datetime.now(timezone.utc).isoformat(),
+              "wall_s": round(time.time() - t, 1)}
+    if summary.get("heldout") is None:
+        summary["heldout"] = result
+    else:
+        summary.setdefault("heldout_repeats", []).append(result)
+        summary.setdefault("deviations", []).append(f"second held-out evaluation on {set_name}: not a result")
+    summary_path.write_text(json.dumps(summary, indent=2))
+    print(f"held-out {set_name}: trainer CER {result['trainer']['cer']}, truncated {result['trainer']['truncated_cer']}, "
+          f"at cap {result['trainer']['truncated_at_cap']} of {len(rows)}")
+    return result
+
+
 def heldout(run_dir: str, set_name: str) -> dict:
     """Score the frozen artefact once on a held-out set, from outside the sandbox."""
     from wsp.metrics import score, per_line_edits
     run_dir = Path(run_dir).resolve()
+    if set_name in ADAPTER_HELDOUT:
+        return heldout_adapter(run_dir, set_name)
     summary_path = run_dir / "summary.json"
     summary = json.loads(summary_path.read_text())
     final = run_dir / "final.mlmodel"
@@ -274,12 +346,13 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     n = sub.add_parser("new"); n.add_argument("--subject", required=True); n.add_argument("--practice", required=True)
     n.add_argument("--budget", type=int, required=True); n.add_argument("--id"); n.add_argument("--seed", type=int, default=20261106)
+    n.add_argument("--data-root", help="adapters: where the practice pages' images resolve")
     f = sub.add_parser("freeze"); f.add_argument("run")
     h = sub.add_parser("heldout"); h.add_argument("run"); h.add_argument("--set", required=True)
     e = sub.add_parser("export"); e.add_argument("run"); e.add_argument("--as", dest="model_id", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "new":
-        new(a.subject, a.practice, a.budget, a.id, a.seed)
+        new(a.subject, a.practice, a.budget, a.id, a.seed, a.data_root)
     elif a.cmd == "freeze":
         s = freeze(a.run); print(json.dumps({k: s[k] for k in ("name", "used", "edits", "kept", "final_digest")}, indent=1))
     elif a.cmd == "heldout":

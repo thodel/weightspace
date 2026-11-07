@@ -120,3 +120,29 @@ def test_edit_per_tensor_arguments_and_revert(tmp_path):
     assert (s.tensors()["a"] == 1).all() and (s.tensors()["b"] == 2).all()
     sess.revert("test")
     assert (s.tensors()["a"] == 0).all() and (s.tensors()["b"] == 0).all()
+
+
+class CapSubject(ArraySubject):
+    """Pages: the edit that fixes the text also makes every page run to the cap."""
+
+    def forward(self, practice):
+        from wsp.subject import Prediction
+        texts = toy_forward(self._t, practice)
+        cap = bool(self._t["gain"][0] >= 1.0)
+        return [Prediction(key=i["key"], text=t, extra={"at_cap": cap}) for i, t in zip(practice, texts)]
+
+
+def test_page_keep_refused_when_pages_at_cap_rise(tmp_path):
+    subj = CapSubject({"gain": np.array([0.5]), "w": np.zeros((2, 2))})
+    practice = [{"key": f"p{i}", "text": r} for i, r in enumerate(REFS)]
+    s = Session(subj, practice, tmp_path / "run", budget=3, unit="page")
+    s.measure("baseline")
+    h = s.hypothesis("gain fixes a->o", "CER to 0, cap unchanged", "scaling")
+    s.edit("scale", ["gain"], hypothesis=h, factor=2.0)
+    m = s.measure("after scale")
+    assert m.cer == 0
+    assert s.keep_allowed() == (False, "pages at the cap rose (0 -> 3)")
+    assert s.keep("cer fell") is False
+    assert subj.tensors()["gain"][0] == 0.5
+    events = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()]
+    assert events[-2]["page"]["at_cap"] == 3

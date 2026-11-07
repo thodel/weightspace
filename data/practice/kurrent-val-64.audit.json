@@ -1,0 +1,26 @@
+{
+ "practice_docs": 60,
+ "test_docs": 70,
+ "practice\u2229test": [],
+ "v2_train_docs": 1191,
+ "practice\u2229v2_train": [],
+ "v2_val_docs": 195,
+ "practice\u2229v2_val": [
+  "019453",
+  "024322",
+  "027384",
+  "036296",
+  "036547",
+  "114252"
+ ],
+ "practice_pages\u2229v2_val": [
+  "019453_0002_517111",
+  "024322_0001_656686",
+  "027384_0001_771933",
+  "036296_0001_1211427",
+  "036547_0001_1214496",
+  "114252_0001_4179080"
+ ],
+ "practice_pages\u2229v2_train": [],
+ "note": "The trainer withholds reserved documents from training only; six registered val documents sit on the v2 corpus's validation side, which the run scored but never trained on."
+}
