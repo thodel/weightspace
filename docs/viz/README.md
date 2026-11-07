@@ -119,8 +119,66 @@ at blank −1.0. Blank −1.0 also reproduces phase 1's recorded practice CER (0
   lose the blank between them and merge.
 - **The blank bias moves along an almost one-to-one trade.** Deleted spaces fall from 103 to 73 and
   inserted spaces rise from 18 to 31. That is phase 1's null, now with its whole curve.
-- **No output-layer bias is a target on this model.** What remains below the output layer is
-  sub-task 4: the per-line α overlay on `L_16`.
+- **No output-layer bias is a target on this model.** Below the output layer, see the α overlay next.
+
+## Which block's share of the fine-tune does what: the α overlay (07.11.2026)
+
+```bash
+.venv/bin/python -m wsp.alpha_overlay --child models/kraken/kraken-german-xix-blb-v1.mlmodel \
+    --parent models/kraken/kraken-german-xix-v1.mlmodel --practice data/practice/blb-train-300.jsonl \
+    --out docs/viz --check docs/baselines/alpha-xix-blb-v1.json                      # about 9 min
+```
+
+**What it computes.** It repeats the C3 α-sweep, one block at `parent + α(child − parent)` with
+α ∈ {0, 0.5, 1.5} and the output layer's rows paired by character. This time it keeps every line's
+CTC strip and the fate of every reference character. The 16 CERs it shares with the committed
+sweep (`docs/baselines/alpha-xix-blb-v1.json`) are identical. Files:
+- `alpha-overlay-kraken-german-xix-blb-v1__blb-train-300.json`: per block and α, the CER and the
+  edits by kind, plus per line the status string;
+- `alpha-overlay-…svg`: the summary figure;
+- `lines/alpha-…svg`: per-line views (git-ignored).
+
+**Reading it.** α = 0 replaces one block of the child with its parent's, so it isolates that block's
+share of the fine-tune; the rest of the network stays the child. The table counts edits against the
+unedited child. The child itself deletes 354 letters and 103 spaces on these 300 lines, at
+CER 6.46 %.
+
+| block at α = 0 | ΔCER (points) | letters deleted | spaces deleted | substituted | inserted |
+|---|---:|---:|---:|---:|---:|
+| C_0 | +0.27 | +6 | −1 | +30 | +0 |
+| C_3 | +0.45 | +3 | +0 | +47 | +8 |
+| C_6 | +0.80 | +10 | +3 | +52 | +38 |
+| C_9 | +0.65 | +18 | +3 | +47 | +16 |
+| **L_12** | +6.37 | **+366** | +67 | +301 | +86 |
+| **L_14** | +4.05 | +96 | +27 | **+342** | +56 |
+| **L_16** | +5.70 | +100 | **+362** | +270 | +1 |
+| O_18 | +0.68 | +37 | +38 | +26 | −14 |
+
+What the fine-tune from `german-xix-v1` to `german-xix-blb-v1` taught, block by block:
+
+1. **`L_12`: finding the letters.** With its parent version, the child drops 366 more letters and
+   inserts 86 more characters. Its share of the move is what makes letters appear at all on the
+   BLB hands.
+2. **`L_14`: telling the letters apart.** It adds substitutions (+342) and relatively few deletions.
+3. **`L_16`: the word gaps.** It adds 362 deleted spaces, 3.5 times the child's own count, almost
+   no insertions, and comparatively few letter deletions. This confirms the phase-2 reading (half of
+   `L_16`'s move costs 2.3 points, mostly spaces) and pins it down: the fine-tune taught the BLB
+   spacing in the last BiLSTM.
+4. **The conv stack: detail of shape.** Each conv block's share costs 0.3–0.8 points, almost all of
+   it substitutions.
+5. **`O_18`: small and balanced.** Its share adds deletions and removes a few insertions, which is
+   the blank and rare-row shift the phase-0 readings saw.
+
+At α = 1.5 no block improves CER. `L_16` (+0.05) trades 20 fewer substitutions for 28 more letter
+deletions. The corpus null of the sweep hides an exchange, not a dead lever.
+
+**Together with the probes.** Identity forms over `L_12` → `L_16`, emission of word gaps matures
+in the BiLSTMs, and what the fine-tune changed in those blocks is, in order: letters found
+(`L_12`), letters told apart (`L_14`), words separated (`L_16`). This is the answer so far to
+"which part of the recognition process happens where" for this model.
+
+Caveats as for the probes: these are the child's training lines, one model, and one block at a time,
+so interactions between blocks (the α-sweep found the gain is held jointly) are not shown.
 
 ## Epic status (thodel/weightspace#3)
 
@@ -129,7 +187,7 @@ at blank −1.0. Blank −1.0 also reproduces phase 1's recorded practice CER (0
 | activation capture | done: `KrakenSubject.activations` (from PR #10) plus the frame map here |
 | per-frame decision view | done, as static SVG per line: image, conv channel energy, BiLSTM ‖h‖ forward and reverse, CTC posteriors, reference against hypothesis, probes per layer |
 | layer probes | done (this page) |
-| ablation and α overlay per line | open |
+| ablation and α overlay per line | done: `wsp.alpha_overlay` (above), corpus summary plus per-line strips per block and α |
 | output-layer geometry | partly done: `protocol/docs/figures/output-rows-*` |
 | confusion-to-frame index | open (the JSON already holds runs and status per character) |
 | HTML page | open |
