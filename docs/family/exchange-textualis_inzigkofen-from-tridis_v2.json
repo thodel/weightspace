@@ -1,0 +1,4077 @@
+{
+ "specific": "textualis_anna_jaeck",
+ "general": "Tridis_v2_Medieval_EarlyModern",
+ "specific_sha256": "66ac85e1e2cde88d8ea786e083892772daddc71c4bdbdc413783240548f60013",
+ "general_sha256": "69991f3017453577357b44ca5cb52c56bd7fdadfe94d1122a29923c561610a76",
+ "body_cosine": 0.9467749285121927,
+ "sets": [
+  "parzival-300",
+  "bern-train-300",
+  "medieval-val-300"
+ ],
+ "own_set": "parzival-300",
+ "betas": [
+  0.5
+ ],
+ "blocks": [
+  "C_0",
+  "C_3",
+  "C_6",
+  "C_9",
+  "L_12",
+  "L_14",
+  "L_16",
+  "O_18"
+ ],
+ "output_rows_shared": 275,
+ "output_rows_new": 5,
+ "c0": {
+  "parzival-300": {
+   "cer": 0.3349852507374631,
+   "wer": 0.8875077688004972,
+   "collapsed": 2
+  },
+  "bern-train-300": {
+   "cer": 0.7777264752054668,
+   "wer": 1.034296913277805,
+   "collapsed": 165
+  },
+  "medieval-val-300": {
+   "cer": 0.7886257331650457,
+   "wer": 1.038200339558574,
+   "collapsed": 177
+  }
+ },
+ "general_cer": {
+  "parzival-300": 0.12448377581120944,
+  "bern-train-300": 0.3391818265767846,
+  "medieval-val-300": 0.4282426312272626
+ },
+ "rows": [
+  {
+   "block": "C_0",
+   "beta": 0.5,
+   "digest": "a0a9d081b0523c811e47bc0a88e89735310d79cd901733ef61fe710c275bc768",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.3444247787610619,
+     "wer": 0.8906152889993785,
+     "collapsed": 2,
+     "vs_S": {
+      "delta_cer": 0.00943952802359882,
+      "ci95": [
+       0.002832526849994077,
+       0.01630820137083433
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.0071976401179941005,
+       "ci95_share": [
+        0.004334216229231881,
+        0.010083245398053699
+       ],
+       "delta_block_cer": 0.3193717277486911,
+       "ci95_block_cer": [
+        0.18947368421052632,
+        0.4624277456647399
+       ],
+       "errors_before": 368,
+       "errors_after": 429,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.0015339233038348082,
+       "ci95_share": [
+        -0.004488012282980985,
+        0.007598784194528876
+       ],
+       "delta_block_cer": 0.0019826140003050175,
+       "ci95_block_cer": [
+        -0.0057856272838002435,
+        0.009848484848484848
+       ],
+       "errors_before": 1881,
+       "errors_after": 1894,
+       "ref": 6557,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        -0.0010695187165775401,
+        0.0009475304986379249
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        -0.04736842105263158,
+        0.042105263157894736
+       ],
+       "errors_before": 173,
+       "errors_after": 173,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0007079646017699115,
+       "ci95_share": [
+        -0.0014204545454545455,
+        0.0
+       ],
+       "delta_block_cer": -0.42857142857142855,
+       "ci95_block_cer": [
+        -1.2,
+        0.0
+       ],
+       "errors_before": 28,
+       "errors_after": 22,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.0058997050147492625,
+       "ci95_share": [
+        0.003425062005432857,
+        0.008381537008617636
+       ],
+       "delta_block_cer": 0.8771929824561403,
+       "ci95_block_cer": [
+        0.5,
+        1.3518518518518519
+       ],
+       "errors_before": 195,
+       "errors_after": 245,
+       "ref": 57,
+       "excludes_0": true,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.001415929203539823,
+       "ci95_share": [
+        -0.0004780686028445082,
+        0.003395784543325527
+       ],
+       "delta_block_cer": 0.009167303284950344,
+       "ci95_block_cer": [
+        -0.003098373353989156,
+        0.02196078431372549
+       ],
+       "errors_before": 177,
+       "errors_after": 189,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 79.2
+    },
+    "bern-train-300": {
+     "cer": 0.7713546957244436,
+     "wer": 1.0240078392944636,
+     "collapsed": 159,
+     "vs_S": {
+      "delta_cer": -0.006371779481023188,
+      "ci95": [
+       -0.012417685794920086,
+       -0.00028358067870315473
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.0006464124111182935,
+       "ci95_share": [
+        9.1441111923921e-05,
+        0.0012759752096244987
+       ],
+       "delta_block_cer": 0.0457516339869281,
+       "ci95_block_cer": [
+        0.006329113924050633,
+        0.09271523178807947
+       ],
+       "errors_before": 149,
+       "errors_after": 156,
+       "ref": 153,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.007941638193739034,
+       "ci95_share": [
+        -0.01348122866894198,
+        -0.0025777941447247283
+       ],
+       "delta_block_cer": -0.010582010582010581,
+       "ci95_block_cer": [
+        -0.017988252569750368,
+        -0.0034334763948497852
+       ],
+       "errors_before": 6716,
+       "errors_after": 6630,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00046172315079878105,
+       "ci95_share": [
+        -0.0013263855992420653,
+        0.00047085412939071476
+       ],
+       "delta_block_cer": -0.016025641025641024,
+       "ci95_block_cer": [
+        -0.0457516339869281,
+        0.016129032258064516
+       ],
+       "errors_before": 297,
+       "errors_after": 292,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -9.234463015975621e-05,
+       "ci95_share": [
+        -0.0005615348619560131,
+        0.0003803727653100038
+       ],
+       "delta_block_cer": -0.029411764705882353,
+       "ci95_block_cer": [
+        -0.2,
+        0.13157894736842105
+       ],
+       "errors_before": 38,
+       "errors_after": 37,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": 0.0013851694523963432,
+       "ci95_share": [
+        -0.0020537714712471995,
+        0.004902867715078631
+       ],
+       "delta_block_cer": 0.00861573808156232,
+       "ci95_block_cer": [
+        -0.01284296555750146,
+        0.030422535211267605
+       ],
+       "errors_before": 760,
+       "errors_after": 775,
+       "ref": 1741,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 88.1
+    },
+    "medieval-val-300": {
+     "cer": 0.8013957977578142,
+     "wer": 1.0241935483870968,
+     "collapsed": 181,
+     "vs_S": {
+      "delta_cer": 0.012770064592768526,
+      "ci95": [
+       0.0031448895544740063,
+       0.022465310916966463
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00029697824634345533,
+       "ci95_share": [
+        -0.0003875968992248062,
+        0.0010062531445410767
+       ],
+       "delta_block_cer": 0.024242424242424242,
+       "ci95_block_cer": [
+        -0.03184713375796178,
+        0.08383233532934131
+       ],
+       "errors_before": 175,
+       "errors_after": 179,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.007275967035414656,
+       "ci95_share": [
+        -0.001282051282051282,
+        0.015643802647412757
+       ],
+       "delta_block_cer": 0.009322678843226788,
+       "ci95_block_cer": [
+        -0.0016568292430361397,
+        0.02010144655269585
+       ],
+       "errors_before": 8598,
+       "errors_after": 8696,
+       "ref": 10512,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -7.424456158586383e-05,
+       "ci95_share": [
+        -0.0006328112640404999,
+        0.00047768527364542104
+       ],
+       "delta_block_cer": -0.0035087719298245615,
+       "ci95_block_cer": [
+        -0.029411764705882353,
+        0.022900763358778626
+       ],
+       "errors_before": 286,
+       "errors_after": 285,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0002227336847575915,
+       "ci95_share": [
+        -0.0009399855386840202,
+        0.00046591085572293835
+       ],
+       "delta_block_cer": -0.2727272727272727,
+       "ci95_block_cer": [
+        -1.3333333333333333,
+        0.7
+       ],
+       "errors_before": 30,
+       "errors_after": 27,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.0003712228079293192,
+       "ci95_share": [
+        -0.00015235773596404358,
+        0.0008848904948012684
+       ],
+       "delta_block_cer": 0.08064516129032258,
+       "ci95_block_cer": [
+        -0.037037037037037035,
+        0.22727272727272727
+       ],
+       "errors_before": 65,
+       "errors_after": 70,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.00541985299576806,
+       "ci95_share": [
+        0.002005645520725004,
+        0.008732966950237146
+       ],
+       "delta_block_cer": 0.035505836575875485,
+       "ci95_block_cer": [
+        0.013201320132013201,
+        0.05725699067909454
+       ],
+       "errors_before": 1091,
+       "errors_after": 1164,
+       "ref": 2056,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 134.2
+    }
+   }
+  },
+  {
+   "block": "C_3",
+   "beta": 0.5,
+   "digest": "d3fcaa30d45930ac7ba9f0ebcf92b744967fe6062df26a6ae910ca357af41786",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.3339233038348083,
+     "wer": 0.891858297078931,
+     "collapsed": 1,
+     "vs_S": {
+      "delta_cer": -0.00106194690265482,
+      "ci95": [
+       -0.007556382236689141,
+       0.005056444026340534
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.0017699115044247787,
+       "ci95_share": [
+        -0.00424678541937006,
+        0.0006956521739130435
+       ],
+       "delta_block_cer": -0.07853403141361257,
+       "ci95_block_cer": [
+        -0.1881720430107527,
+        0.029239766081871343
+       ],
+       "errors_before": 368,
+       "errors_after": 353,
+       "ref": 191,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.00023598820058997051,
+       "ci95_share": [
+        -0.006302770840765846,
+        0.005992245329573493
+       ],
+       "delta_block_cer": -0.00030501753850846426,
+       "ci95_block_cer": [
+        -0.008155867693701857,
+        0.0077343039126478615
+       ],
+       "errors_before": 1881,
+       "errors_after": 1879,
+       "ref": 6557,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": 0.0005899705014749262,
+       "ci95_share": [
+        -0.00023596035865974517,
+        0.0014177693761814746
+       ],
+       "delta_block_cer": 0.026041666666666668,
+       "ci95_block_cer": [
+        -0.010582010582010581,
+        0.061452513966480445
+       ],
+       "errors_before": 173,
+       "errors_after": 178,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.00035398230088495576,
+       "ci95_share": [
+        -0.001059322033898305,
+        0.0003536067892503536
+       ],
+       "delta_block_cer": -0.21428571428571427,
+       "ci95_block_cer": [
+        -0.8333333333333334,
+        0.21428571428571427
+       ],
+       "errors_before": 28,
+       "errors_after": 25,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.0010619469026548673,
+       "ci95_share": [
+        -0.003021499128413713,
+        0.0008328375966686496
+       ],
+       "delta_block_cer": -0.15789473684210525,
+       "ci95_block_cer": [
+        -0.46938775510204084,
+        0.13559322033898305
+       ],
+       "errors_before": 195,
+       "errors_after": 186,
+       "ref": 57,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.0005899705014749262,
+       "ci95_share": [
+        -0.0009438414346389807,
+        0.0021420921099607284
+       ],
+       "delta_block_cer": 0.0038197097020626434,
+       "ci95_block_cer": [
+        -0.0060882800608828,
+        0.013856812933025405
+       ],
+       "errors_before": 177,
+       "errors_after": 182,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 68.2
+    },
+    "bern-train-300": {
+     "cer": 0.7879767291531997,
+     "wer": 1.0244977951984322,
+     "collapsed": 164,
+     "vs_S": {
+      "delta_cer": 0.010250253947732935,
+      "ci95": [
+       0.004056603773584855,
+       0.016447368421052655
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 9.234463015975621e-05,
+       "ci95_share": [
+        -0.0001895734597156398,
+        0.0004384811014645269
+       ],
+       "delta_block_cer": 0.006535947712418301,
+       "ci95_block_cer": [
+        -0.013888888888888888,
+        0.029411764705882353
+       ],
+       "errors_before": 149,
+       "errors_after": 150,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.004709576138147566,
+       "ci95_share": [
+        -0.00046507301646358477,
+        0.009544787077826725
+       ],
+       "delta_block_cer": 0.006275378368401624,
+       "ci95_block_cer": [
+        -0.0006201165819174004,
+        0.012719189923437886
+       ],
+       "errors_before": 6716,
+       "errors_after": 6767,
+       "ref": 8127,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0006464124111182935,
+       "ci95_share": [
+        -0.0015075850372185057,
+        0.00027775205999444494
+       ],
+       "delta_block_cer": -0.022435897435897436,
+       "ci95_block_cer": [
+        -0.05194805194805195,
+        0.010033444816053512
+       ],
+       "errors_before": 297,
+       "errors_after": 290,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.00018468926031951243,
+       "ci95_share": [
+        -0.0006453992255209294,
+        0.0002759635728083893
+       ],
+       "delta_block_cer": -0.058823529411764705,
+       "ci95_block_cer": [
+        -0.22580645161290322,
+        0.08333333333333333
+       ],
+       "errors_before": 38,
+       "errors_after": 36,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": 0.006279434850863423,
+       "ci95_share": [
+        0.003097345132743363,
+        0.009743875278396437
+       ],
+       "delta_block_cer": 0.039058012636415854,
+       "ci95_block_cer": [
+        0.01936619718309859,
+        0.06050228310502283
+       ],
+       "errors_before": 760,
+       "errors_after": 828,
+       "ref": 1741,
+       "excludes_0": true,
+       "overlay": false
+      }
+     },
+     "wall_s": 76.6
+    },
+    "medieval-val-300": {
+     "cer": 0.7884772440418739,
+     "wer": 1.0254668930390491,
+     "collapsed": 178,
+     "vs_S": {
+      "delta_cer": -0.00014848912317177998,
+      "ci95": [
+       -0.0054894784995425105,
+       0.005476223485373577
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        -0.0006677053193857111,
+        0.0008301260282242849
+       ],
+       "delta_block_cer": 0.006060606060606061,
+       "ci95_block_cer": [
+        -0.05405405405405406,
+        0.06896551724137931
+       ],
+       "errors_before": 175,
+       "errors_after": 176,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.004306184571980102,
+       "ci95_share": [
+        -0.009542943244600702,
+        0.0009411026586150106
+       ],
+       "delta_block_cer": -0.005517503805175038,
+       "ci95_block_cer": [
+        -0.012244474421500466,
+        0.0012033694344163659
+       ],
+       "errors_before": 8598,
+       "errors_after": 8540,
+       "ref": 10512,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00029697824634345533,
+       "ci95_share": [
+        -0.0009357454772301934,
+        0.000297000297000297
+       ],
+       "delta_block_cer": -0.014035087719298246,
+       "ci95_block_cer": [
+        -0.04395604395604396,
+        0.013986013986013986
+       ],
+       "errors_before": 286,
+       "errors_after": 282,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -7.424456158586383e-05,
+       "ci95_share": [
+        -0.0007513148009015778,
+        0.0005902752158193757
+       ],
+       "delta_block_cer": -0.09090909090909091,
+       "ci95_block_cer": [
+        -1.0909090909090908,
+        1.0
+       ],
+       "errors_before": 30,
+       "errors_after": 29,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.00014848912317172767,
+       "ci95_share": [
+        -0.0005894488653109342,
+        0.0002159982720138239
+       ],
+       "delta_block_cer": -0.03225806451612903,
+       "ci95_block_cer": [
+        -0.13043478260869565,
+        0.0625
+       ],
+       "errors_before": 65,
+       "errors_after": 63,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.004380429133565966,
+       "ci95_share": [
+        0.0015069318866787222,
+        0.00741399762752076
+       ],
+       "delta_block_cer": 0.028696498054474707,
+       "ci95_block_cer": [
+        0.009837678307919331,
+        0.04874446085672083
+       ],
+       "errors_before": 1091,
+       "errors_after": 1150,
+       "ref": 2056,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 101.1
+    }
+   }
+  },
+  {
+   "block": "C_6",
+   "beta": 0.5,
+   "digest": "6b3a3860c6cd20c94fda174e5e2a8a50300db49ad6f462e3145ef52db25f2c29",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.32660766961651916,
+     "wer": 0.8763206960845246,
+     "collapsed": 2,
+     "vs_S": {
+      "delta_cer": -0.008377581120943944,
+      "ci95": [
+       -0.01560666510208869,
+       -0.001426363960537247
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.006017699115044248,
+       "ci95_share": [
+        0.003656091520226442,
+        0.008518086347724621
+       ],
+       "delta_block_cer": 0.2670157068062827,
+       "ci95_block_cer": [
+        0.15789473684210525,
+        0.39325842696629215
+       ],
+       "errors_before": 368,
+       "errors_after": 419,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.014867256637168142,
+       "ci95_share": [
+        -0.02106775197510175,
+        -0.008544979824353193
+       ],
+       "delta_block_cer": -0.019216104926033248,
+       "ci95_block_cer": [
+        -0.02727826882048156,
+        -0.011019283746556474
+       ],
+       "errors_before": 1881,
+       "errors_after": 1755,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00023598820058997051,
+       "ci95_share": [
+        -0.001296252651425878,
+        0.0007083825265643448
+       ],
+       "delta_block_cer": -0.010416666666666666,
+       "ci95_block_cer": [
+        -0.05670103092783505,
+        0.030612244897959183
+       ],
+       "errors_before": 173,
+       "errors_after": 171,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0005899705014749262,
+       "ci95_share": [
+        -0.0012792185137806722,
+        0.0
+       ],
+       "delta_block_cer": -0.35714285714285715,
+       "ci95_block_cer": [
+        -1.0,
+        0.0
+       ],
+       "errors_before": 28,
+       "errors_after": 23,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.00495575221238938,
+       "ci95_share": [
+        0.002952988424285377,
+        0.006933834763191914
+       ],
+       "delta_block_cer": 0.7368421052631579,
+       "ci95_block_cer": [
+        0.42857142857142855,
+        1.1296296296296295
+       ],
+       "errors_before": 195,
+       "errors_after": 237,
+       "ref": 57,
+       "excludes_0": true,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.0009439528023598821,
+       "ci95_share": [
+        -0.0008220786846741045,
+        0.0027958993476234857
+       ],
+       "delta_block_cer": 0.006111535523300229,
+       "ci95_block_cer": [
+        -0.00532319391634981,
+        0.017937219730941704
+       ],
+       "errors_before": 177,
+       "errors_after": 185,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 66.0
+    },
+    "bern-train-300": {
+     "cer": 0.7640594699418228,
+     "wer": 1.0240078392944636,
+     "collapsed": 149,
+     "vs_S": {
+      "delta_cer": -0.01366700526364395,
+      "ci95": [
+       -0.02005127266068485,
+       -0.007592800899887564
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00036937852063902485,
+       "ci95_share": [
+        -0.0002670464660850988,
+        0.0010484178421654594
+       ],
+       "delta_block_cer": 0.026143790849673203,
+       "ci95_block_cer": [
+        -0.017341040462427744,
+        0.07547169811320754
+       ],
+       "errors_before": 149,
+       "errors_after": 153,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.012558869701726845,
+       "ci95_share": [
+        -0.01786365293474298,
+        -0.006845461365341335
+       ],
+       "delta_block_cer": -0.016734342315737664,
+       "ci95_block_cer": [
+        -0.023782416192283364,
+        -0.009125662843753853
+       ],
+       "errors_before": 6716,
+       "errors_after": 6580,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00027703389047926865,
+       "ci95_share": [
+        -0.0010105649977032614,
+        0.00047272383473574735
+       ],
+       "delta_block_cer": -0.009615384615384616,
+       "ci95_block_cer": [
+        -0.036065573770491806,
+        0.01718213058419244
+       ],
+       "errors_before": 297,
+       "errors_after": 294,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.00036937852063902485,
+       "ci95_share": [
+        -0.0007453647628808348,
+        -8.979078746520607e-05
+       ],
+       "delta_block_cer": -0.11764705882352941,
+       "ci95_block_cer": [
+        -0.2777777777777778,
+        -0.025
+       ],
+       "errors_before": 38,
+       "errors_after": 34,
+       "ref": 34,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": -0.0008311016714378059,
+       "ci95_share": [
+        -0.004331398027831536,
+        0.002570204664445502
+       ],
+       "delta_block_cer": -0.005169442848937392,
+       "ci95_block_cer": [
+        -0.027110289587184228,
+        0.016148325358851676
+       ],
+       "errors_before": 760,
+       "errors_after": 751,
+       "ref": 1741,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 76.0
+    },
+    "medieval-val-300": {
+     "cer": 0.7788996955972975,
+     "wer": 1.0301358234295417,
+     "collapsed": 174,
+     "vs_S": {
+      "delta_cer": -0.009726037567748147,
+      "ci95": [
+       -0.015533016525994814,
+       -0.003775294472968871
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -7.424456158586383e-05,
+       "ci95_share": [
+        -0.0007937137868084769,
+        0.0005741940775982282
+       ],
+       "delta_block_cer": -0.006060606060606061,
+       "ci95_block_cer": [
+        -0.06451612903225806,
+        0.04918032786885246
+       ],
+       "errors_before": 175,
+       "errors_after": 174,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.008315390897616749,
+       "ci95_share": [
+        -0.013156916672861072,
+        -0.003053554650798622
+       ],
+       "delta_block_cer": -0.0106544901065449,
+       "ci95_block_cer": [
+        -0.016887503247596778,
+        -0.003891419893697798
+       ],
+       "errors_before": 8598,
+       "errors_after": 8486,
+       "ref": 10512,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -7.424456158586383e-05,
+       "ci95_share": [
+        -0.0006613756613756613,
+        0.0005358236374770362
+       ],
+       "delta_block_cer": -0.0035087719298245615,
+       "ci95_block_cer": [
+        -0.032,
+        0.025974025974025976
+       ],
+       "errors_before": 286,
+       "errors_after": 285,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0003712228079293192,
+       "ci95_share": [
+        -0.0010611688016372318,
+        0.0003173797130887394
+       ],
+       "delta_block_cer": -0.45454545454545453,
+       "ci95_block_cer": [
+        -1.6666666666666667,
+        0.46153846153846156
+       ],
+       "errors_before": 30,
+       "errors_after": 25,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        -0.0004879408894465356,
+        0.000429553264604811
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        -0.125,
+        0.1
+       ],
+       "errors_before": 65,
+       "errors_after": 65,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.0010394238622020936,
+       "ci95_share": [
+        -0.004134929270946681,
+        0.001896866657299424
+       ],
+       "delta_block_cer": -0.006809338521400778,
+       "ci95_block_cer": [
+        -0.02688679245283019,
+        0.012307692307692308
+       ],
+       "errors_before": 1091,
+       "errors_after": 1077,
+       "ref": 2056,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 114.9
+    }
+   }
+  },
+  {
+   "block": "C_9",
+   "beta": 0.5,
+   "digest": "458e1617335fbcfd3767ba8c60de050863c0e48f658f71bc0318040c9645c6d3",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.3056047197640118,
+     "wer": 0.855811062771908,
+     "collapsed": 0,
+     "vs_S": {
+      "delta_cer": -0.02938053097345128,
+      "ci95": [
+       -0.036350844277673544,
+       -0.022439585730724965
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.005427728613569322,
+       "ci95_share": [
+        0.0028228652081863093,
+        0.008186024439435283
+       ],
+       "delta_block_cer": 0.24083769633507854,
+       "ci95_block_cer": [
+        0.12371134020618557,
+        0.3854166666666667
+       ],
+       "errors_before": 368,
+       "errors_after": 414,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.035044247787610616,
+       "ci95_share": [
+        -0.0418093775835597,
+        -0.028622327790973873
+       ],
+       "delta_block_cer": -0.04529510446850694,
+       "ci95_block_cer": [
+        -0.05398110661268556,
+        -0.03707692307692308
+       ],
+       "errors_before": 1881,
+       "errors_after": 1584,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00047197640117994103,
+       "ci95_share": [
+        -0.001550202718817076,
+        0.0005863039399624766
+       ],
+       "delta_block_cer": -0.020833333333333332,
+       "ci95_block_cer": [
+        -0.06842105263157895,
+        0.025906735751295335
+       ],
+       "errors_before": 173,
+       "errors_after": 169,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.00011799410029498526,
+       "ci95_share": [
+        -0.0004711425206124853,
+        0.0007123352724682417
+       ],
+       "delta_block_cer": 0.07142857142857142,
+       "ci95_block_cer": [
+        -0.3,
+        0.5384615384615384
+       ],
+       "errors_before": 28,
+       "errors_after": 29,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.00495575221238938,
+       "ci95_share": [
+        0.0027293224160436693,
+        0.007169722614010343
+       ],
+       "delta_block_cer": 0.7368421052631579,
+       "ci95_block_cer": [
+        0.3898305084745763,
+        1.1842105263157894
+       ],
+       "errors_before": 195,
+       "errors_after": 237,
+       "ref": 57,
+       "excludes_0": true,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.00047197640117994103,
+       "ci95_share": [
+        -0.0014097744360902255,
+        0.0024671052631578946
+       ],
+       "delta_block_cer": 0.0030557677616501145,
+       "ci95_block_cer": [
+        -0.009174311926605505,
+        0.01603053435114504
+       ],
+       "errors_before": 177,
+       "errors_after": 181,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 60.1
+    },
+    "bern-train-300": {
+     "cer": 0.755286730076646,
+     "wer": 1.0240078392944636,
+     "collapsed": 145,
+     "vs_S": {
+      "delta_cer": -0.022439745128820743,
+      "ci95": [
+       -0.029425079221367167,
+       -0.015685533402626906
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00046172315079878105,
+       "ci95_share": [
+        -9.269558769002595e-05,
+        0.0011276075925577898
+       ],
+       "delta_block_cer": 0.032679738562091505,
+       "ci95_block_cer": [
+        -0.006578947368421052,
+        0.08
+       ],
+       "errors_before": 149,
+       "errors_after": 154,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.02188567734786222,
+       "ci95_share": [
+        -0.027853324580324485,
+        -0.01607126457893287
+       ],
+       "delta_block_cer": -0.02916205241786637,
+       "ci95_block_cer": [
+        -0.03702773942512866,
+        -0.021404109589041095
+       ],
+       "errors_before": 6716,
+       "errors_after": 6479,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00027703389047926865,
+       "ci95_share": [
+        -0.0011249648448485984,
+        0.0005524861878453039
+       ],
+       "delta_block_cer": -0.009615384615384616,
+       "ci95_block_cer": [
+        -0.03934426229508197,
+        0.01929260450160772
+       ],
+       "errors_before": 297,
+       "errors_after": 294,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 9.234463015975621e-05,
+       "ci95_share": [
+        -0.0003786444528587656,
+        0.0006211180124223603
+       ],
+       "delta_block_cer": 0.029411764705882353,
+       "ci95_block_cer": [
+        -0.13793103448275862,
+        0.20588235294117646
+       ],
+       "errors_before": 38,
+       "errors_after": 39,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": -0.0008311016714378059,
+       "ci95_share": [
+        -0.004355142037018707,
+        0.002579382727030152
+       ],
+       "delta_block_cer": -0.005169442848937392,
+       "ci95_block_cer": [
+        -0.02732558139534884,
+        0.01602747567258157
+       ],
+       "errors_before": 760,
+       "errors_after": 751,
+       "ref": 1741,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 71.5
+    },
+    "medieval-val-300": {
+     "cer": 0.7725146633009132,
+     "wer": 1.0309847198641766,
+     "collapsed": 161,
+     "vs_S": {
+      "delta_cer": -0.016111069864132466,
+      "ci95": [
+       -0.022340582926468455,
+       -0.009879661268756501
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.0005939564926869107,
+       "ci95_share": [
+        -7.8064012490242e-05,
+        0.0012784282061633697
+       ],
+       "delta_block_cer": 0.048484848484848485,
+       "ci95_block_cer": [
+        -0.007692307692307693,
+        0.11382113821138211
+       ],
+       "errors_before": 175,
+       "errors_after": 183,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.00014848912317172767,
+       "ci95_share": [
+        0.0,
+        0.00037647767487388
+       ],
+       "delta_block_cer": 0.02247191011235955,
+       "ci95_block_cer": [
+        0.0,
+        0.056338028169014086
+       ],
+       "errors_before": 87,
+       "errors_after": 89,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.015220135125102086,
+       "ci95_share": [
+        -0.021320394059697104,
+        -0.009481619647159401
+       ],
+       "delta_block_cer": -0.01950152207001522,
+       "ci95_block_cer": [
+        -0.027239939255884586,
+        -0.012203661098329498
+       ],
+       "errors_before": 8598,
+       "errors_after": 8393,
+       "ref": 10512,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -7.424456158586383e-05,
+       "ci95_share": [
+        -0.0006772773450728074,
+        0.0005168340224453633
+       ],
+       "delta_block_cer": -0.0035087719298245615,
+       "ci95_block_cer": [
+        -0.033582089552238806,
+        0.023668639053254437
+       ],
+       "errors_before": 286,
+       "errors_after": 285,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        -0.0005975054148928225,
+        0.0005696788435519476
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        -0.8,
+        1.0
+       ],
+       "errors_before": 30,
+       "errors_after": 30,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.0005197119311010468,
+       "ci95_share": [
+        0.0,
+        0.0011149825783972125
+       ],
+       "delta_block_cer": 0.11290322580645161,
+       "ci95_block_cer": [
+        0.0,
+        0.3
+       ],
+       "errors_before": 65,
+       "errors_after": 72,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.0015591357933031405,
+       "ci95_share": [
+        -0.0044591484464902185,
+        0.0011358473421172195
+       ],
+       "delta_block_cer": -0.010214007782101167,
+       "ci95_block_cer": [
+        -0.02935323383084577,
+        0.007572172266919072
+       ],
+       "errors_before": 1091,
+       "errors_after": 1070,
+       "ref": 2056,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 79.2
+    }
+   }
+  },
+  {
+   "block": "L_12",
+   "beta": 0.5,
+   "digest": "9f6d4610f117a7c2609016c60f441b1066c46c141b594b46621b3018f5918656",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.3099705014749263,
+     "wer": 0.8464885021752642,
+     "collapsed": 1,
+     "vs_S": {
+      "delta_cer": -0.02501474926253683,
+      "ci95": [
+       -0.031693860781781935,
+       -0.018334695784187782
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.0058997050147492625,
+       "ci95_share": [
+        -0.00826739104759655,
+        -0.003544842254519674
+       ],
+       "delta_block_cer": -0.2617801047120419,
+       "ci95_block_cer": [
+        -0.3806818181818182,
+        -0.15384615384615385
+       ],
+       "errors_before": 368,
+       "errors_after": 318,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.01887905604719764,
+       "ci95_share": [
+        -0.025393419170243205,
+        -0.01277543366150961
+       ],
+       "delta_block_cer": -0.02440140308067714,
+       "ci95_block_cer": [
+        -0.03274907749077491,
+        -0.01653140967838894
+       ],
+       "errors_before": 1881,
+       "errors_after": 1721,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00047197640117994103,
+       "ci95_share": [
+        -0.0016521123436393675,
+        0.0007018364721020002
+       ],
+       "delta_block_cer": -0.020833333333333332,
+       "ci95_block_cer": [
+        -0.07329842931937172,
+        0.029850746268656716
+       ],
+       "errors_before": 173,
+       "errors_after": 169,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.00035398230088495576,
+       "ci95_share": [
+        -0.0003526922172584058,
+        0.0010630758327427356
+       ],
+       "delta_block_cer": 0.21428571428571427,
+       "ci95_block_cer": [
+        -0.21428571428571427,
+        0.8571428571428571
+       ],
+       "errors_before": 28,
+       "errors_after": 31,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.0038938053097345134,
+       "ci95_share": [
+        -0.0060084825636192276,
+        -0.0019109040965006568
+       ],
+       "delta_block_cer": -0.5789473684210527,
+       "ci95_block_cer": [
+        -0.9795918367346939,
+        -0.2835820895522388
+       ],
+       "errors_before": 195,
+       "errors_after": 162,
+       "ref": 57,
+       "excludes_0": true,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.00035398230088495576,
+       "ci95_share": [
+        -0.0023784040908550364,
+        0.0016656751933372992
+       ],
+       "delta_block_cer": -0.002291825821237586,
+       "ci95_block_cer": [
+        -0.015396458814472672,
+        0.010769230769230769
+       ],
+       "errors_before": 177,
+       "errors_after": 174,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 39.1
+    },
+    "bern-train-300": {
+     "cer": 0.7562101763782436,
+     "wer": 1.0171484566389024,
+     "collapsed": 163,
+     "vs_S": {
+      "delta_cer": -0.021516298827223168,
+      "ci95": [
+       -0.0279430322696953,
+       -0.015024724229745101
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00018468926031951243,
+       "ci95_share": [
+        -0.0003500481316180975,
+        0.00072007200720072
+       ],
+       "delta_block_cer": 0.013071895424836602,
+       "ci95_block_cer": [
+        -0.023255813953488372,
+        0.051094890510948905
+       ],
+       "errors_before": 149,
+       "errors_after": 151,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.01930002770338905,
+       "ci95_share": [
+        -0.024948607736871613,
+        -0.013789248113295445
+       ],
+       "delta_block_cer": -0.025716746646979205,
+       "ci95_block_cer": [
+        -0.03317882410343986,
+        -0.018404907975460124
+       ],
+       "errors_before": 6716,
+       "errors_after": 6507,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00027703389047926865,
+       "ci95_share": [
+        -0.001114620100315809,
+        0.0005538120731031936
+       ],
+       "delta_block_cer": -0.009615384615384616,
+       "ci95_block_cer": [
+        -0.039568345323741004,
+        0.01904761904761905
+       ],
+       "errors_before": 297,
+       "errors_after": 294,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.00027703389047926865,
+       "ci95_share": [
+        -0.00018733608092918696,
+        0.0007382798080472499
+       ],
+       "delta_block_cer": 0.08823529411764706,
+       "ci95_block_cer": [
+        -0.06451612903225806,
+        0.2631578947368421
+       ],
+       "errors_before": 38,
+       "errors_after": 41,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": -0.0024009603841536613,
+       "ci95_share": [
+        -0.0059219380888290716,
+        0.0009121590805436468
+       ],
+       "delta_block_cer": -0.014933946008041356,
+       "ci95_block_cer": [
+        -0.03686366296079579,
+        0.005701254275940707
+       ],
+       "errors_before": 760,
+       "errors_after": 734,
+       "ref": 1741,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 49.9
+    },
+    "medieval-val-300": {
+     "cer": 0.7581112183532557,
+     "wer": 1.0152801358234296,
+     "collapsed": 170,
+     "vs_S": {
+      "delta_cer": -0.030514514811790017,
+      "ci95": [
+       -0.038646659116647775,
+       -0.022732971165900562
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00014848912317172767,
+       "ci95_share": [
+        -0.0004348456298014205,
+        0.000790627470710846
+       ],
+       "delta_block_cer": 0.012121212121212121,
+       "ci95_block_cer": [
+        -0.037037037037037035,
+        0.06914893617021277
+       ],
+       "errors_before": 175,
+       "errors_after": 177,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.023684015145890563,
+       "ci95_share": [
+        -0.030839715536105032,
+        -0.0163503234520509
+       ],
+       "delta_block_cer": -0.030346270928462708,
+       "ci95_block_cer": [
+        -0.03960762539330002,
+        -0.021083455344070277
+       ],
+       "errors_before": 8598,
+       "errors_after": 8279,
+       "ref": 10512,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00014848912317172767,
+       "ci95_share": [
+        -0.0007496813854112002,
+        0.000375290850409067
+       ],
+       "delta_block_cer": -0.007017543859649123,
+       "ci95_block_cer": [
+        -0.03546099290780142,
+        0.017921146953405017
+       ],
+       "errors_before": 286,
+       "errors_after": 284,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.00014848912317172767,
+       "ci95_share": [
+        -0.0005636184303226716,
+        0.0008224299065420561
+       ],
+       "delta_block_cer": 0.18181818181818182,
+       "ci95_block_cer": [
+        -0.8333333333333334,
+        1.4
+       ],
+       "errors_before": 30,
+       "errors_after": 32,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        -0.000373440884308014,
+        0.0003599971200230398
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        -0.09090909090909091,
+        0.09433962264150944
+       ],
+       "errors_before": 65,
+       "errors_after": 65,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.006830499665899473,
+       "ci95_share": [
+        -0.01022023895206564,
+        -0.0033202069338275036
+       ],
+       "delta_block_cer": -0.04474708171206226,
+       "ci95_block_cer": [
+        -0.06638616175783076,
+        -0.02181987000928505
+       ],
+       "errors_before": 1091,
+       "errors_after": 999,
+       "ref": 2056,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 74.3
+    }
+   }
+  },
+  {
+   "block": "L_14",
+   "beta": 0.5,
+   "digest": "9b566f69cafa592087d1ab94baa0e0f74587e8f68d8282d0b777b8e49c49a537",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.29474926253687317,
+     "wer": 0.834058421379739,
+     "collapsed": 2,
+     "vs_S": {
+      "delta_cer": -0.040235988200589934,
+      "ci95": [
+       -0.047216349541930935,
+       -0.03355145746579413
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.002359882005899705,
+       "ci95_share": [
+        -0.004794760846684599,
+        0.0
+       ],
+       "delta_block_cer": -0.10471204188481675,
+       "ci95_block_cer": [
+        -0.21794871794871795,
+        0.0
+       ],
+       "errors_before": 368,
+       "errors_after": 348,
+       "ref": 191,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.035398230088495575,
+       "ci95_share": [
+        -0.04158767772511848,
+        -0.029139847864248097
+       ],
+       "delta_block_cer": -0.045752630776269634,
+       "ci95_block_cer": [
+        -0.053549571603427173,
+        -0.03762466001813237
+       ],
+       "errors_before": 1881,
+       "errors_after": 1581,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0012979351032448377,
+       "ci95_share": [
+        -0.0022509181376614146,
+        -0.00035604082601471633
+       ],
+       "delta_block_cer": -0.057291666666666664,
+       "ci95_block_cer": [
+        -0.0989010989010989,
+        -0.017341040462427744
+       ],
+       "errors_before": 173,
+       "errors_after": 162,
+       "ref": 192,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        -0.0008180437069066262,
+        0.0008250825082508251
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        -0.5714285714285714,
+        0.5714285714285714
+       ],
+       "errors_before": 28,
+       "errors_after": 28,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.0011799410029498525,
+       "ci95_share": [
+        -0.0033116499112950917,
+        0.0009369875849144999
+       ],
+       "delta_block_cer": -0.17543859649122806,
+       "ci95_block_cer": [
+        -0.5074626865671642,
+        0.13793103448275862
+       ],
+       "errors_before": 195,
+       "errors_after": 185,
+       "ref": 57,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.001415929203539823,
+       "ci95_share": [
+        -0.0031406304524834246,
+        0.0002353494939985879
+       ],
+       "delta_block_cer": -0.009167303284950344,
+       "ci95_block_cer": [
+        -0.02019446522064323,
+        0.001524390243902439
+       ],
+       "errors_before": 177,
+       "errors_after": 165,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 36.7
+    },
+    "bern-train-300": {
+     "cer": 0.7633207129005448,
+     "wer": 1.019108280254777,
+     "collapsed": 171,
+     "vs_S": {
+      "delta_cer": -0.014405762304921965,
+      "ci95": [
+       -0.01993923281428034,
+       -0.00879002601130141
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.00018468926031951243,
+       "ci95_share": [
+        -0.0005689900426742532,
+        0.0001819505094614265
+       ],
+       "delta_block_cer": -0.013071895424836602,
+       "ci95_block_cer": [
+        -0.04225352112676056,
+        0.012738853503184714
+       ],
+       "errors_before": 149,
+       "errors_after": 147,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.015052174716040262,
+       "ci95_share": [
+        -0.019891500904159132,
+        -0.009746937315568274
+       ],
+       "delta_block_cer": -0.02005660145195029,
+       "ci95_block_cer": [
+        -0.02654305308610617,
+        -0.013054514686329023
+       ],
+       "errors_before": 6716,
+       "errors_after": 6553,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0006464124111182935,
+       "ci95_share": [
+        -0.0015159621901194935,
+        0.0002648538889379359
+       ],
+       "delta_block_cer": -0.022435897435897436,
+       "ci95_block_cer": [
+        -0.0529595015576324,
+        0.009036144578313253
+       ],
+       "errors_before": 297,
+       "errors_after": 290,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 9.234463015975621e-05,
+       "ci95_share": [
+        -0.0002869166029074216,
+        0.0004860031104199067
+       ],
+       "delta_block_cer": 0.029411764705882353,
+       "ci95_block_cer": [
+        -0.10714285714285714,
+        0.1724137931034483
+       ],
+       "errors_before": 38,
+       "errors_after": 39,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": 0.001292824822236587,
+       "ci95_share": [
+        -0.0017164107943167732,
+        0.004334593747117956
+       ],
+       "delta_block_cer": 0.0080413555427915,
+       "ci95_block_cer": [
+        -0.010732323232323232,
+        0.027059530968129887
+       ],
+       "errors_before": 760,
+       "errors_after": 774,
+       "ref": 1741,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 48.8
+    },
+    "medieval-val-300": {
+     "cer": 0.7667235874972158,
+     "wer": 1.0148556876061121,
+     "collapsed": 190,
+     "vs_S": {
+      "delta_cer": -0.021902145667829886,
+      "ci95": [
+       -0.027759705053133854,
+       -0.016158960878305262
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.0005197119311010468,
+       "ci95_share": [
+        -0.0010242153778623163,
+        -8.117542008279893e-05
+       ],
+       "delta_block_cer": -0.04242424242424243,
+       "ci95_block_cer": [
+        -0.09036144578313253,
+        -0.008130081300813009
+       ],
+       "errors_before": 175,
+       "errors_after": 168,
+       "ref": 165,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.019080852327567007,
+       "ci95_share": [
+        -0.02410437859354268,
+        -0.01389413274937703
+       ],
+       "delta_block_cer": -0.024448249619482495,
+       "ci95_block_cer": [
+        -0.030934343434343436,
+        -0.017775752051048314
+       ],
+       "errors_before": 8598,
+       "errors_after": 8341,
+       "ref": 10512,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0002227336847575915,
+       "ci95_share": [
+        -0.0007183908045977011,
+        0.00023094688221709007
+       ],
+       "delta_block_cer": -0.010526315789473684,
+       "ci95_block_cer": [
+        -0.034334763948497854,
+        0.011235955056179775
+       ],
+       "errors_before": 286,
+       "errors_after": 283,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0002227336847575915,
+       "ci95_share": [
+        -0.0008213859020310633,
+        0.0003654436485893875
+       ],
+       "delta_block_cer": -0.2727272727272727,
+       "ci95_block_cer": [
+        -1.2,
+        0.5625
+       ],
+       "errors_before": 30,
+       "errors_after": 27,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.00014848912317172767,
+       "ci95_share": [
+        -0.0004761580844840487,
+        0.00014145271942853102
+       ],
+       "delta_block_cer": -0.03225806451612903,
+       "ci95_block_cer": [
+        -0.11320754716981132,
+        0.031746031746031744
+       ],
+       "errors_before": 65,
+       "errors_after": 63,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.0016333803548890043,
+       "ci95_share": [
+        -0.0045303533675626695,
+        0.0010792476102374346
+       ],
+       "delta_block_cer": -0.010700389105058366,
+       "ci95_block_cer": [
+        -0.029644268774703556,
+        0.0070600100857286935
+       ],
+       "errors_before": 1091,
+       "errors_after": 1069,
+       "ref": 2056,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 72.6
+    }
+   }
+  },
+  {
+   "block": "L_16",
+   "beta": 0.5,
+   "digest": "3de2460ed8b7561c23121736308ce2fb5cd8fdf535aa99bb44509ec1f2e80d91",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.30607669616519173,
+     "wer": 0.8110627719080175,
+     "collapsed": 4,
+     "vs_S": {
+      "delta_cer": -0.028908554572271372,
+      "ci95": [
+       -0.036404600972370416,
+       -0.021441334127456857
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.018407079646017697,
+       "ci95_share": [
+        -0.021835103209640855,
+        -0.014874677910517685
+       ],
+       "delta_block_cer": -0.8167539267015707,
+       "ci95_block_cer": [
+        -1.036144578313253,
+        -0.6336633663366337
+       ],
+       "errors_before": 368,
+       "errors_after": 212,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.006017699115044248,
+       "ci95_share": [
+        -0.011675905177497347,
+        -0.00011731581417175035
+       ],
+       "delta_block_cer": -0.007777947231965838,
+       "ci95_block_cer": [
+        -0.015074603907091217,
+        -0.00015165301789505612
+       ],
+       "errors_before": 1881,
+       "errors_after": 1830,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00035398230088495576,
+       "ci95_share": [
+        -0.0013095238095238095,
+        0.0005878203620973431
+       ],
+       "delta_block_cer": -0.015625,
+       "ci95_block_cer": [
+        -0.059113300492610835,
+        0.025906735751295335
+       ],
+       "errors_before": 173,
+       "errors_after": 170,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0012979351032448377,
+       "ci95_share": [
+        -0.0021176470588235292,
+        -0.00047192071731949034
+       ],
+       "delta_block_cer": -0.7857142857142857,
+       "ci95_block_cer": [
+        -1.8571428571428572,
+        -0.2777777777777778
+       ],
+       "errors_before": 28,
+       "errors_after": 17,
+       "ref": 14,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.016047197640117992,
+       "ci95_share": [
+        -0.0189714831165732,
+        -0.013311344092354812
+       ],
+       "delta_block_cer": -2.3859649122807016,
+       "ci95_block_cer": [
+        -3.3,
+        -1.75
+       ],
+       "errors_before": 195,
+       "errors_after": 59,
+       "ref": 57,
+       "excludes_0": true,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.002831858407079646,
+       "ci95_share": [
+        -0.005065975494816211,
+        -0.0006947660954145438
+       ],
+       "delta_block_cer": -0.01833460656990069,
+       "ci95_block_cer": [
+        -0.03295019157088123,
+        -0.004451038575667656
+       ],
+       "errors_before": 177,
+       "errors_after": 153,
+       "ref": 1309,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 37.1
+    },
+    "bern-train-300": {
+     "cer": 0.8829070089574291,
+     "wer": 0.9990200881920627,
+     "collapsed": 294,
+     "vs_S": {
+      "delta_cer": 0.10518053375196235,
+      "ci95": [
+       0.09737620103473754,
+       0.11296767163094812
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.00036937852063902485,
+       "ci95_share": [
+        0.0,
+        0.0008419083255378859
+       ],
+       "delta_block_cer": 0.026143790849673203,
+       "ci95_block_cer": [
+        0.0,
+        0.059602649006622516
+       ],
+       "errors_before": 149,
+       "errors_after": 153,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.061132145165758614,
+       "ci95_share": [
+        0.05579948774240761,
+        0.06663747810858144
+       ],
+       "delta_block_cer": 0.08145687215454657,
+       "ci95_block_cer": [
+        0.07438604816704235,
+        0.08857892226990939
+       ],
+       "errors_before": 6716,
+       "errors_after": 7378,
+       "ref": 8127,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": 0.0009234463015975621,
+       "ci95_share": [
+        0.00026480713213875896,
+        0.0017154293338416087
+       ],
+       "delta_block_cer": 0.03205128205128205,
+       "ci95_block_cer": [
+        0.009202453987730062,
+        0.058823529411764705
+       ],
+       "errors_before": 297,
+       "errors_after": 307,
+       "ref": 312,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.00036937852063902485,
+       "ci95_share": [
+        -0.0007453647628808348,
+        -8.979078746520607e-05
+       ],
+       "delta_block_cer": -0.11764705882352941,
+       "ci95_block_cer": [
+        -0.2777777777777778,
+        -0.025
+       ],
+       "errors_before": 38,
+       "errors_after": 34,
+       "ref": 34,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": 0.04312494228460615,
+       "ci95_share": [
+        0.03866530346686495,
+        0.047486293095437226
+       ],
+       "delta_block_cer": 0.2682366456059736,
+       "ci95_block_cer": [
+        0.24244060475161988,
+        0.29560117302052785
+       ],
+       "errors_before": 760,
+       "errors_after": 1227,
+       "ref": 1741,
+       "excludes_0": true,
+       "overlay": false
+      }
+     },
+     "wall_s": 40.7
+    },
+    "medieval-val-300": {
+     "cer": 0.8581928873710001,
+     "wer": 0.9970288624787776,
+     "collapsed": 272,
+     "vs_S": {
+      "delta_cer": 0.06956715420595438,
+      "ci95": [
+       0.0616504493797817,
+       0.07705253914825116
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.0007424456158586384,
+       "ci95_share": [
+        -0.0013545305482284167,
+        -0.00022779043280182233
+       ],
+       "delta_block_cer": -0.06060606060606061,
+       "ci95_block_cer": [
+        -0.12213740458015267,
+        -0.018072289156626505
+       ],
+       "errors_before": 175,
+       "errors_after": 165,
+       "ref": 165,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.00014848912317172767,
+       "ci95_share": [
+        0.0,
+        0.00037647767487388
+       ],
+       "delta_block_cer": 0.02247191011235955,
+       "ci95_block_cer": [
+        0.0,
+        0.056338028169014086
+       ],
+       "errors_before": 87,
+       "errors_after": 89,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.04796198678446804,
+       "ci95_share": [
+        0.04273566392906461,
+        0.05306461352657005
+       ],
+       "delta_block_cer": 0.061453576864535765,
+       "ci95_block_cer": [
+        0.05460921843687375,
+        0.06813569150478399
+       ],
+       "errors_before": 8598,
+       "errors_after": 9244,
+       "ref": 10512,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00014848912317172767,
+       "ci95_share": [
+        -0.0006198774020249329,
+        0.00030714889042463337
+       ],
+       "delta_block_cer": -0.007017543859649123,
+       "ci95_block_cer": [
+        -0.03007518796992481,
+        0.01444043321299639
+       ],
+       "errors_before": 286,
+       "errors_after": 284,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.0014106466701314128,
+       "ci95_share": [
+        -0.0021454294690062066,
+        -0.000664599025254763
+       ],
+       "delta_block_cer": -1.7272727272727273,
+       "ci95_block_cer": [
+        -4.5,
+        -0.7272727272727273
+       ],
+       "errors_before": 30,
+       "errors_after": 11,
+       "ref": 11,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.0002227336847575915,
+       "ci95_share": [
+        -0.0006480414746543779,
+        7.846214201647705e-05
+       ],
+       "delta_block_cer": -0.04838709677419355,
+       "ci95_block_cer": [
+        -0.19047619047619047,
+        0.01818181818181818
+       ],
+       "errors_before": 65,
+       "errors_after": 62,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.024055237953819884,
+       "ci95_share": [
+        0.019804269091469522,
+        0.028369345561946216
+       ],
+       "delta_block_cer": 0.1575875486381323,
+       "ci95_block_cer": [
+        0.1302127659574468,
+        0.1862884160756501
+       ],
+       "errors_before": 1091,
+       "errors_after": 1415,
+       "ref": 2056,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 58.2
+    }
+   }
+  },
+  {
+   "block": "O_18",
+   "beta": 0.5,
+   "digest": "be2d37998fdbc3512be03e7331f1ca7d79e1140bae408b08e4ec48c57ddf6b6c",
+   "sets": {
+    "parzival-300": {
+     "cer": 0.3320353982300885,
+     "wer": 0.8800497203231821,
+     "collapsed": 2,
+     "vs_S": {
+      "delta_cer": -0.0029498525073746173,
+      "ci95": [
+       -0.0068728522336769515,
+       0.0009391876027236568
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 196,
+       "errors_after": 196,
+       "ref": 196,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": 0.004247787610619469,
+       "ci95_share": [
+        0.0023443910444262105,
+        0.006146800048210196
+       ],
+       "delta_block_cer": 0.18848167539267016,
+       "ci95_block_cer": [
+        0.09954751131221719,
+        0.2840909090909091
+       ],
+       "errors_before": 368,
+       "errors_after": 404,
+       "ref": 191,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": -0.006017699115044248,
+       "ci95_share": [
+        -0.009177592371871275,
+        -0.0030740127689761173
+       ],
+       "delta_block_cer": -0.007777947231965838,
+       "ci95_block_cer": [
+        -0.011841505996660088,
+        -0.003965832824893227
+       ],
+       "errors_before": 1881,
+       "errors_after": 1830,
+       "ref": 6557,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.00035398230088495576,
+       "ci95_share": [
+        -0.00117813383600377,
+        0.00035829451809387314
+       ],
+       "delta_block_cer": -0.015625,
+       "ci95_block_cer": [
+        -0.05188679245283019,
+        0.016853932584269662
+       ],
+       "errors_before": 173,
+       "errors_after": 170,
+       "ref": 192,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.00023598820058997051,
+       "ci95_share": [
+        -0.0005924872615238773,
+        0.0
+       ],
+       "delta_block_cer": -0.14285714285714285,
+       "ci95_block_cer": [
+        -0.5,
+        0.0
+       ],
+       "errors_before": 28,
+       "errors_after": 26,
+       "ref": 14,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": 0.00023598820058997051,
+       "ci95_share": [
+        -0.0009388569416735125,
+        0.001417434443656981
+       ],
+       "delta_block_cer": 0.03508771929824561,
+       "ci95_block_cer": [
+        -0.14285714285714285,
+        0.21568627450980393
+       ],
+       "errors_before": 195,
+       "errors_after": 197,
+       "ref": 57,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": -0.0005899705014749262,
+       "ci95_share": [
+        -0.0017690765420450526,
+        0.0005919261276192731
+       ],
+       "delta_block_cer": -0.0038197097020626434,
+       "ci95_block_cer": [
+        -0.011467889908256881,
+        0.0038197097020626434
+       ],
+       "errors_before": 177,
+       "errors_after": 172,
+       "ref": 1309,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 26.1
+    },
+    "bern-train-300": {
+     "cer": 0.7857604580293656,
+     "wer": 1.020578147966683,
+     "collapsed": 172,
+     "vs_S": {
+      "delta_cer": 0.008033982823898778,
+      "ci95": [
+       0.004820617409845185,
+       0.011215791834903621
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 443,
+       "errors_after": 443,
+       "ref": 443,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.00018468926031951243,
+       "ci95_share": [
+        -0.0005667327854916407,
+        0.00018132366273798732
+       ],
+       "delta_block_cer": -0.013071895424836602,
+       "ci95_block_cer": [
+        -0.0410958904109589,
+        0.012048192771084338
+       ],
+       "errors_before": 149,
+       "errors_after": 147,
+       "ref": 153,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 15,
+       "errors_after": 15,
+       "ref": 15,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.002955028165112199,
+       "ci95_share": [
+        -9.047317470370036e-05,
+        0.005992440306075412
+       ],
+       "delta_block_cer": 0.003937492309585333,
+       "ci95_block_cer": [
+        -0.00012068549360366884,
+        0.008021720350487474
+       ],
+       "errors_before": 6716,
+       "errors_after": 6748,
+       "ref": 8127,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0006464124111182935,
+       "ci95_share": [
+        -0.0013704888076747374,
+        0.0
+       ],
+       "delta_block_cer": -0.022435897435897436,
+       "ci95_block_cer": [
+        -0.04778156996587031,
+        0.0
+       ],
+       "errors_before": 297,
+       "errors_after": 290,
+       "ref": 312,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": 9.234463015975621e-05,
+       "ci95_share": [
+        -0.00018889308651303362,
+        0.00044867193108399136
+       ],
+       "delta_block_cer": 0.029411764705882353,
+       "ci95_block_cer": [
+        -0.07142857142857142,
+        0.15384615384615385
+       ],
+       "errors_before": 38,
+       "errors_after": 39,
+       "ref": 34,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Space": {
+       "delta_share": 0.005817711700064641,
+       "ci95_share": [
+        0.0037839371866427015,
+        0.007980187121629059
+       ],
+       "delta_block_cer": 0.03618609994256174,
+       "ci95_block_cer": [
+        0.02360774818401937,
+        0.04971428571428571
+       ],
+       "errors_before": 760,
+       "errors_after": 823,
+       "ref": 1741,
+       "excludes_0": true,
+       "overlay": false
+      }
+     },
+     "wall_s": 31.4
+    },
+    "medieval-val-300": {
+     "cer": 0.7954562328309451,
+     "wer": 1.0241935483870968,
+     "collapsed": 183,
+     "vs_S": {
+      "delta_cer": 0.006830499665899437,
+      "ci95": [
+       0.004020179725681805,
+       0.009774157719363186
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 300
+     },
+     "blocks_vs_S": {
+      "ASCII punctuation and symbols": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 235,
+       "errors_after": 235,
+       "ref": 235,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Combining Diacritical Marks": {
+       "delta_share": -0.00029697824634345533,
+       "ci95_share": [
+        -0.0007892036934732855,
+        0.00014246028919438707
+       ],
+       "delta_block_cer": -0.024242424242424242,
+       "ci95_block_cer": [
+        -0.06766917293233082,
+        0.010810810810810811
+       ],
+       "errors_before": 175,
+       "errors_after": 171,
+       "ref": 165,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Digits 0-9": {
+       "delta_share": 7.424456158586383e-05,
+       "ci95_share": [
+        0.0,
+        0.00024332873712385432
+       ],
+       "delta_block_cer": 0.011235955056179775,
+       "ci95_block_cer": [
+        0.0,
+        0.036036036036036036
+       ],
+       "errors_before": 87,
+       "errors_after": 88,
+       "ref": 89,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Dingbats": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 72,
+       "errors_after": 72,
+       "ref": 72,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin Extended-D": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 10,
+       "errors_after": 10,
+       "ref": 10,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin lowercase a-z": {
+       "delta_share": 0.0020046031628183237,
+       "ci95_share": [
+        -0.000644652961822219,
+        0.0045034552372078575
+       ],
+       "delta_block_cer": 0.0025684931506849314,
+       "ci95_block_cer": [
+        -0.0008329477093937991,
+        0.005747695966703003
+       ],
+       "errors_before": 8598,
+       "errors_after": 8625,
+       "ref": 10512,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin uppercase A-Z": {
+       "delta_share": -0.0002227336847575915,
+       "ci95_share": [
+        -0.0007196315486470927,
+        0.0002821869488536155
+       ],
+       "delta_block_cer": -0.010526315789473684,
+       "ci95_block_cer": [
+        -0.03355704697986577,
+        0.0136986301369863
+       ],
+       "errors_before": 286,
+       "errors_after": 283,
+       "ref": 285,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "Latin-1 Supplement": {
+       "delta_share": -0.000445467369515183,
+       "ci95_share": [
+        -0.0010435061807673783,
+        6.728569506122998e-05
+       ],
+       "delta_block_cer": -0.5454545454545454,
+       "ci95_block_cer": [
+        -1.6666666666666667,
+        0.0625
+       ],
+       "errors_before": 30,
+       "errors_after": 24,
+       "ref": 11,
+       "excludes_0": false,
+       "overlay": false
+      },
+      "MUFI (CERberus list, overlay)": {
+       "delta_share": -0.00014848912317172767,
+       "ci95_share": [
+        -0.00046522447080716444,
+        0.00014581510644502772
+       ],
+       "delta_block_cer": -0.03225806451612903,
+       "ci95_block_cer": [
+        -0.11320754716981132,
+        0.02857142857142857
+       ],
+       "errors_before": 65,
+       "errors_after": 63,
+       "ref": 62,
+       "excludes_0": false,
+       "overlay": true
+      },
+      "Space": {
+       "delta_share": 0.005939564926869107,
+       "ci95_share": [
+        0.004147157190635451,
+        0.007852634669015118
+       ],
+       "delta_block_cer": 0.038910505836575876,
+       "ci95_block_cer": [
+        0.027214250371103414,
+        0.051269288203086114
+       ],
+       "errors_before": 1091,
+       "errors_after": 1171,
+       "ref": 2056,
+       "excludes_0": true,
+       "overlay": false
+      },
+      "Spacing Modifier Letters": {
+       "delta_share": 0.0,
+       "ci95_share": [
+        0.0,
+        0.0
+       ],
+       "delta_block_cer": 0.0,
+       "ci95_block_cer": [
+        0.0,
+        0.0
+       ],
+       "errors_before": 18,
+       "errors_after": 18,
+       "ref": 18,
+       "excludes_0": false,
+       "overlay": false
+      }
+     },
+     "wall_s": 54.0
+    }
+   }
+  }
+ ],
+ "when": "2026-11-07 15:07"
+}

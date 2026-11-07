@@ -8,9 +8,16 @@ Built by `python -m wsp.data build` with seed 20261106 (docs/BRIEF_PHASE0.md §4
 | bern-hertwig-train-300 | 300 | 1984 | 1 | `bd4e5a8a4957ac59d2c9126adae1c2006d860543f2b4a9fb94cbc5953a7fe25e` |
 | bern-train-300 | 300 | 5441 | 2 | `474414e3be95787da5f08f4bdcfc04adcfc024d8518b72cab8e885367977343f` |
 | blb-train-300 | 300 | 38724 | 114 | `4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b` |
+| gt-fraktur-300 | 300 | 14609 | 12 | `9383aa6261a8950a8e57d75a4bd356035c56f4c20a1db591efd3eb472aa2fcd4` |
+| gt-fraktur-conf-300 | 700 | 14609 | 13 | `f0749b3fb9d75a0605ea85e928d05fe3d5fe26585641b3d3043b5c0af53b385e` |
 | medieval-train-300 | 300 | 236778 | — | `a2160d4ef170a31e7ab0f3b96d631272347e281a1cbc7f65423f5d0dd8f5dd3d` |
 | medieval-val-300-archive | 300 | 20535 | — | `7e3f6eebc08e717e444e3f644b38075152a4abe71550723fad12bba34b9b1290` |
 | medieval-val-300 | 300 | 20535 | — | `a2f0f40006e7a377b92cef13ad0274ed5fcf91691c545a86f4309767775e061f` |
+| newseye-onb-val-300 | 300 | 4810 | 1 | `3b1689bc5e3073399135ae53a48751482005205331393e42f01fe8a37b102626` |
+| newseye-onb-val-conf-300 | 699 | 4810 | 1 | `2235ebf5b073dd9041e29793b3f33fec94e6ce36a9acff19b8d6c2a7658acd36` |
+| parzival-300 | 300 | 410 | 3 | `84783f49af06e23c89fbc6052ef0b5bd6c3edf7cfb1e3699669b80292c569ccf` |
+| reichenau-val-300 | 300 | 2876 | 2 | `d705f423f80062142b2ff1a3ff31a7e1aa79177d33029680d05b2565c82f374d` |
+| reichenau-val-conf-300 | 700 | 2876 | 2 | `bc3feba0613c75ada329660e9f8f1382e8fef4c1b6a07931bff3a8c0107a8f5c` |
 
 ## bern-hertwig-train-300-export1025
 
@@ -44,6 +51,22 @@ Selection: `random.Random(20261106).sample` over 38724 candidate lines in source
 
 Documents: `K2911,100`, `K2911,101`, `K2911,113`, `K2911,120`, `K2911,122`, `K2911,131`, `K2911,15`, `K2911,16`, `K2911,18`, `K2911,23`, `K2911,24`, `K2911,29`, `K2911,3`, `K2911,40`, `K2911,42`, `K2911,45`, `K2911,49`, `K2911,50`, `K2911,57`, `K2911,68`, `K2911,69`, `K2911,70`, `K2911,71`, `K2911,76`, `K2911,8`, `K2911,80`, `K2911,89`, `K2911,90`, `K2911,92`, `K2911,95`, `K2911,97`, `K2911,98`, `K2912,10`, `K2912,14`, `K2912,17`, `K2912,23`, `K2912,24`, `K2912,25`, `K2912,26`, `K2912,27`, `K2912,3`, `K2912,30`, `K2912,38`, `K2912,40`, `K2912,41`, `K2912,43`, `K2912,44`, `K2912,45`, `K2912,46`, `K2912,47`, `K2912,52`, `K2912,57`, `K2912,6`, `K2912,7`, `K2912,72`, `K2912,74`, `K2912,77`, `K2912,8`, `K2912,9`, `K2913,1`, `K2913,11`, `K2913,12`, `K2913,13`, `K2913,14`, `K2913,18`, `K2913,21`, `K2913,22`, `K2913,23`, `K2913,4`, `K2913,5`, `K2913,7`, `K2913,9`, `K2914,22`, `K2915,13`, `K2915,15`, `K2915,5`, `K2915,6`, `K2915,9`, `K3123,10`, `K3123,11`, `K3123,12`, `K3123,15`, `K3123,17`, `K3123,18`, `K3123,19`, `K3123,24`, `K3123,25`, `K3123,26`, `K3123,28`, `K3123,3`, `K3123,36`, `K3123,37`, `K3123,38`, `K3123,4`, `K3123,40`, `K3123,44`, `K3123,45`, `K3123,46`, `K3123,47`, `K3123,50`, `K3123,52`, `K3123,55`, `K3123,56`, `K3123,56,2`, `K3123,56,5`, `K3123,7`, `K3123,9`, `K3525,6`, `K3525,7`, `K3526`, `K3527`, `K3528`, `K3530,1-3`, `K3533`
 
+## gt-fraktur-300
+
+
+
+Selection: `random.Random(20261106).sample` over 14609 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet`.
+
+Documents: `541177`, `541181`, `542279`, `542280`, `543221`, `543222`, `543223`, `543224`, `543314`, `543315`, `543405`, `543407`
+
+## gt-fraktur-conf-300
+
+
+
+Selection: `random.Random(20261108).sample` over 14609 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet`.
+
+Documents: `541177`, `541181`, `542279`, `542280`, `543221`, `543222`, `543223`, `543224`, `543314`, `543315`, `543405`, `543407`, `zpk_1838_01_0033`
+
 ## medieval-train-300
 
 `~/atr-cache/arrows/sweep_train.arrow` (train side of `german-medieval-v1`, 236,908 lines, compiled 30.09.2026). Rows carry no document id; held-out documents were removed at compile time by the trainer's held-out boundary.
@@ -61,3 +84,43 @@ Selection: `random.Random(20261106).sample` over 20535 candidate lines in source
 `~/atr-cache/arrows/german_val.arrow` (the 150 *validation* documents of `german-medieval-v1`, compiled 29.09.2026 on asteraix; sha256 in the meta file). Rows carry no document id. Not the test side (`german_test.arrow` untouched).
 
 Selection: `random.Random(20261106).sample` over 20535 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `arrow:/home/tobias/atr-cache/arrows/german_val.arrow`.
+
+## newseye-onb-val-300
+
+
+
+Selection: `random.Random(20261106).sample` over 4810 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet`.
+
+Documents: `126500`
+
+## newseye-onb-val-conf-300
+
+
+
+Selection: `random.Random(20261108).sample` over 4810 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet`.
+
+Documents: `126500`
+
+## parzival-300
+
+
+
+Selection: `random.Random(20261106).sample` over 410 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-1_M1/20260112_134521-0000.parquet,/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-3_M1/20260112_134521-0000.parquet,/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_StGallen_M4+/20260112_134521-0000.parquet`.
+
+Documents: `116920`, `116966`, `117034`
+
+## reichenau-val-300
+
+
+
+Selection: `random.Random(20261106).sample` over 2876 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/reichenau-inkunabeln/data/validation/reichenau-inkunabeln/0000.parquet`.
+
+Documents: `1895717`, `1896705`
+
+## reichenau-val-conf-300
+
+
+
+Selection: `random.Random(20261108).sample` over 2876 candidate lines in source order (pages sorted by name, lines in document order; arrow rows by index). Source: `parquet:/home/tobias/atr-cache/wsp/hf/reichenau-inkunabeln/data/validation/reichenau-inkunabeln/0000.parquet`.
+
+Documents: `1895717`, `1896705`

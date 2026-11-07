@@ -1,0 +1,23 @@
+{
+  "set": "reichenau-heldout",
+  "source": "parquet:/home/tobias/atr-cache/wsp/heldout/reichenau-train-heldout/pages.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/heldout/reichenau-train-heldout/pages.parquet",
+    "pages": 100,
+    "projects": [
+      "reichenau-inkunabeln"
+    ],
+    "sha256": "b459b131932298dd3dab8ed566134c26631c413428f1cb85e55aff37ecf115fe"
+  },
+  "n": 4374,
+  "seed": 20261106,
+  "candidates": 4374,
+  "sha256": "bc58cb742b97b6a510d41ff5aad0992cc446730a20e84b467e25e16e26950255",
+  "documents": [
+    "1895716",
+    "1896704"
+  ],
+  "skipped": [],
+  "selection": "every candidate line in source order (no sampling)"
+}

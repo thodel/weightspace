@@ -1,0 +1,35 @@
+{
+ "set": "gt-fraktur-conf-300",
+ "source": "parquet:/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet",
+ "source_info": {
+  "kind": "parquet",
+  "path": "/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet",
+  "pages": 207,
+  "projects": [
+   "gt-fraktur"
+  ],
+  "sha256": "3ab40b85005a5eaae8b2d39a17ae9ae781f19b5cfa72ea76acc835f8ae8e758a"
+ },
+ "n": 700,
+ "seed": 20261108,
+ "candidates": 14609,
+ "sha256": "f0749b3fb9d75a0605ea85e928d05fe3d5fe26585641b3d3043b5c0af53b385e",
+ "documents": [
+  "541177",
+  "541181",
+  "542279",
+  "542280",
+  "543221",
+  "543222",
+  "543223",
+  "543224",
+  "543314",
+  "543315",
+  "543405",
+  "543407",
+  "zpk_1838_01_0033"
+ ],
+ "skipped": [],
+ "selection": "confirmation set: 700 lines sampled with seed 20261108, minus the 12 that are in gt-fraktur-300, first 300 kept (disjoint from gt-fraktur-300)",
+ "lines": 300
+}

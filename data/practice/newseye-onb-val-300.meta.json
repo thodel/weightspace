@@ -1,0 +1,22 @@
+{
+  "set": "newseye-onb-val-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet",
+    "pages": 13,
+    "projects": [
+      "newseye-onb"
+    ],
+    "sha256": "836b603d6fa0792f1431613845729c46200f4d433d2ea5d4dba90b76b76542f1"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 4810,
+  "sha256": "3b1689bc5e3073399135ae53a48751482005205331393e42f01fe8a37b102626",
+  "documents": [
+    "126500"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}
