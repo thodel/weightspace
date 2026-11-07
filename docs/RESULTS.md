@@ -71,3 +71,55 @@ Target 1 re-framed (docs/HERTWIG_REVISIONS.md, docs/PHASE3_REPORT.md). Subject `
 | parent / sibling, held-out all | | 0.2749 / 0.2036 | | |
 
 Not a gain: the kept edit's practice gain came from the parent's own training lines. On correctly paired pages the subject is already the best family-1 model; no block of the clean sibling improves it.
+
+### Note to R2 (07.11.2026)
+
+Re-aggregated on `blb-eval-hand` (the handwriting held-out set chosen by data properties, docs/PHASE5_REPORT.md; a re-aggregation of the one held-out reading, not a second evaluation): before 9.553 %, after 9.553 %, Δ −0.001 points [−0.055, +0.053]. The conclusion of R2 is unchanged.
+
+## R4 — `kraken-latin_incunabula-wsp-v1`: a block exchange, held out and through the serving path (07.11.2026)
+
+The first candidate from Track C (docs/MODEL_FAMILY.md, RQ3). No training: kraken-latin_incunabula
+(Zenodo 10.5281/zenodo.11113737, file sha256 of the served model in `docs/family/weights.json`) with
+its first two group norms `Gn_1`, `Gn_3` replaced by those of its base kraken-catmus_print_large and its
+output layer `O_15` moved half-way to the base's (rows paired by character). Chosen on practice lines,
+confirmed on disjoint lines (`docs/family/combine-latin_incunabula-from-catmus_print_large.json`), then
+scored once. Run folder `runs/20261107-latin_incunabula-exchange-1` (session.json, summary.json, diff.json;
+rebuilt from the combination with `wsp.exchange --candidate`, tensor digest `cc15de58…` equal to the
+measured one); file sha256 `d8b9bc07…`; loads with `load_any`.
+
+**Held-out set** `data/heldout/reichenau-heldout.jsonl`: 60 pages of the *train* shard of
+dh-unibe/image-text_reichenau-inkunabeln (30 German, 30 Latin-German, seed 20261109), chosen among pages that
+share neither name nor image with the validation shard the practice and confirmation lines came from; 4,374
+lines on 58 of them; audit (`reichenau-heldout.audit.json`): 0 pages, 0 lines, 0 line crops shared with the
+practice and confirmation sets. latin_incunabula was trained on the Latin sub-collection of the same Zenodo
+ground truth, which dh-unibe's copy does not contain; these pages are the same printers and typefaces, not its
+training pages.
+
+| measurement | unedited | candidate | Δ (points) | 95 % interval |
+|---|---:|---:|---:|---|
+| line level, 4,374 held-out lines (`wsp.run heldout`) | 5.01 % | 4.99 % | −0.03 | [−0.07, +0.02] |
+| serving path, 58 pages through the gateway, median page CER | 4.16 % | 4.05 % | −0.19 (median of page deltas) | [−0.27, −0.10] |
+| serving path, character-weighted | 15.40 % | 15.17 % | −0.23 | [−0.34, −0.13] |
+
+Serving path: registered on the share (`registry/trained/kraken-latin_incunabula-wsp-v1.yaml`, weights under
+`training_folder/trained/`), enabled for the evaluation only, read with `start_batch` (run
+`wsp-reichenau-heldout-v1`, source `datasets:reichenau-incunabula-wsp/reichenau_eval`, smoke run of 3 pages
+first), scored with `score_ground_truth` by page name (report `score-gt-20261107T183547`), then **disabled
+again**: the candidate is registered but not offered to agentic_historian until someone promotes it.
+Per page: better on 40, worse on 17, equal on 1 (`runs/…/serving_path.json`; paired bootstrap over pages,
+2,000 resamples). The weighted CER is far above the line-level one because the gateway segments the pages
+itself and a few pages segment badly (worst 71 %), for both models alike.
+
+**Reading.** On its own collection the candidate is at least as good: within noise on lines cut from the
+ground-truth geometry, slightly but measurably better through the serving path. Its purpose, reading print it
+was not trained for, was measured on practice and confirmation lines only (Fraktur −0.6 / −0.9, NewsEye
+−2.4 / −1.8 points); no held-out Fraktur set was scored. **The block statistics show the price:** on the held-out
+lines the abbreviation signs get worse — MUFI characters 532 → 731 errors (+0.11 points of CER, interval
+excluding 0), combining marks +0.05, Latin Extended-D +0.006 — while lowercase letters get better (−0.08). Moving
+the output layer towards a print model that does not use the Reichenau abbreviation conventions costs exactly
+the characters this model is specialised in; for an edition that keeps abbreviations, that is a regression the
+total CER hides (`runs/…/heldout_paired.json`).
+
+**Data finding on the way:** in dh-unibe/image-text_reichenau-inkunabeln, 39 of the 59 validation pages are
+byte-identical to train pages (the upstream Zenodo record lists them under both its Train Set and Validation Set
+folders). Any training on this dataset that uses its validation split for model selection overfits the selection.

@@ -1,0 +1,9 @@
+{
+ "heldout_lines": 4374,
+ "heldout_pages": 58,
+ "practice_conf_pages": 58,
+ "shared_pages": 0,
+ "shared_line_keys": 0,
+ "shared_line_crops_sha256": 0,
+ "checked": "page ids, line keys and line-crop sha256 against reichenau-val-300 and reichenau-val-conf-300; page selection also excludes every train page whose image equals a validation page"
+}

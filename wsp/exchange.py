@@ -164,17 +164,71 @@ def combine(specific: Path, general: Path, sets: list[str], combos: list[tuple[s
             "general_cer": g0, "rows": rows, "when": time.strftime("%Y-%m-%d %H:%M")}
 
 
+def build_candidate(combine_json: Path, combo: str, run_dir: Path) -> dict:
+    """Rebuild one combination of a ``--combo`` run as a model and write it as a run folder that
+    ``wsp.run heldout`` and ``wsp.run export`` accept: ``final.mlmodel``, ``diff.json``, ``session.json``,
+    ``summary.json``. The weights come from the two artefacts named in the JSON (checked by sha256)."""
+    from wsp import diff as diffmod
+    from wsp.kraken_subject import KrakenSubject
+    from wsp.run import _git_rev
+    e = json.loads(Path(combine_json).read_text())
+    row = next(r for r in e["rows"] if r["combo"] == combo)
+    paths = {}
+    from wsp.family import available
+    for m in available():
+        sha = sha256_file(Path(m["asteraix_path"]))
+        if sha == e["specific_sha256"]: paths["S"] = (m["id"], Path(m["asteraix_path"]))
+        if sha == e["general_sha256"]: paths["G"] = (m["id"], Path(m["asteraix_path"]))
+    S, G = KrakenSubject(paths["S"][1]), KrakenSubject(paths["G"][1])
+    start = {k: v.copy() for k, v in S.tensors().items()}
+    st, gt = S.tensors(), G.tensors()
+    out_al = aligned_parent_output(G, S)
+    for b, beta in row["moves"]:
+        target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b.startswith("O_")
+                  else {n: gt[n] for n in block_names(st, b)})
+        for n in target:
+            S.set_tensor(n, start[n] + beta * (target[n] - start[n]))
+    if S.digest() != row["digest"]:
+        raise RuntimeError(f"rebuilt digest {S.digest()[:12]} is not the measured one {row['digest'][:12]}")
+    run_dir = Path(run_dir); run_dir.mkdir(parents=True, exist_ok=True)
+    final = S.save(run_dir / "final.mlmodel")
+    sparse = diffmod.sparse_diff(start, S.tensors()); diffmod.save_sparse_diff(sparse, run_dir / "diff.json")
+    meta = {"name": run_dir.name, "subject": str(paths["S"][1]), "subject_id": paths["S"][0],
+            "subject_digest": KrakenSubject(paths["S"][1]).digest(), "subject_file_sha256": e["specific_sha256"],
+            "donor": str(paths["G"][1]), "donor_id": paths["G"][0], "donor_file_sha256": e["general_sha256"],
+            "practice": str(REPO / "data" / "practice" / f"{e['own_set']}.jsonl"),
+            "practice_sha256": sha256_file(REPO / "data" / "practice" / f"{e['own_set']}.jsonl"),
+            "method": "block exchange (Track C, docs/MODEL_FAMILY.md): each block S + beta (G - S), output rows paired by character",
+            "moves": row["moves"], "chosen_on": e["sets"], "combine_json": str(combine_json), "code": _git_rev(),
+            "created": time.strftime("%Y-%m-%dT%H:%M:%S")}
+    (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
+    cmp = diffmod.compare(start, S.tensors())
+    summary = {"budget": len(row["moves"]), "used": len(e["rows"]), "edits": len(row["moves"]), "kept": len(row["moves"]),
+               "start_digest": meta["subject_digest"], "final_digest": S.digest(), "final_file_sha256": sha256_file(final),
+               "changed_tensors": {k: v for k, v in cmp.items() if v.get("changed")}, "practice_vs_S": row["sets"],
+               "heldout": None, "deviations": ["not a budgeted session: a combination chosen from the Track C exchange grids, "
+                                               "confirmed on disjoint lines before the held-out score"],
+               "subject": meta["subject"], "name": run_dir.name}
+    (run_dir / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
+    return summary
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.exchange")
-    ap.add_argument("--specific", required=True); ap.add_argument("--general", required=True)
-    ap.add_argument("--sets", nargs="+", required=True, help="practice sets; the first is the specific model's own material")
+    ap.add_argument("--specific"); ap.add_argument("--general")
+    ap.add_argument("--sets", nargs="+", help="practice sets; the first is the specific model's own material")
     ap.add_argument("--blocks", nargs="*", default=None, help="default: every parameter block of the specific model")
     ap.add_argument("--betas", nargs="*", type=float, default=[0.5, 1.0])
     ap.add_argument("--out", required=True)
     ap.add_argument("--allow-unrelated", action="store_true")
+    ap.add_argument("--candidate", nargs=2, metavar=("COMBINE_JSON", "COMBO"),
+                    help="rebuild a measured combination as a run folder at --out (no reading)")
     ap.add_argument("--combo", action="append", help="name=BLOCK:beta,BLOCK:beta (repeatable): read these combinations instead of the per-block grid")
     a = ap.parse_args(argv)
     out = Path(a.out)
+    if a.candidate:
+        summ = build_candidate(Path(a.candidate[0]), a.candidate[1], out)
+        print(out, summ["final_digest"][:12], summ["final_file_sha256"][:12]); return
     if a.combo:
         res = combine(Path(a.specific), Path(a.general), a.sets, [parse_combo(c) for c in a.combo],
                       out.parent / "readings" / out.stem)

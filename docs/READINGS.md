@@ -285,5 +285,5 @@ Expectation, stated in advance:
 - If that is the only question, the same four part-block points can run as an extension of
   control C3 (no budget, like the sweep) instead of as a session. The two must not both be run on
   the same practice set: the control would hand the session its answers.
-- Collapsed lines must not rise: 10 under this branch's detector, 9 under phase 5's stricter one on `main`.
+- Collapsed lines must not rise: 9 under phase 5's detector (10 under the legacy test, which the committed bias and overlay JSON still use).
 - Held-out once, after freeze, on `blb-eval-hand` (child 9.55 %).

@@ -30,3 +30,5 @@ docs/family/readings/
 # per-line decision views carry manuscript crops: regenerate with wsp.layerview, not committed
 docs/viz/lines/
 docs/viz/img/
+paper/build/
+paper/figures/*.png

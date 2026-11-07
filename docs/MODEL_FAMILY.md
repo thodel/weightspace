@@ -208,7 +208,7 @@ test of stabilisation needs out-of-domain sets each model reads at, say, 15–30
 
 **Second grid, 07.11.2026, on the lineages the download added.** Four new practice sets (train or validation
 side, 300 lines each, `wsp.data build`, shards fetched from the dh-unibe datasets on Hugging Face, 210 MB):
-`reichenau-val-300` (Reichenau incunabula, validation shard: latin_incunabula's own material), `gt-fraktur-300`
+`reichenau-val-300` (Reichenau incunabula, validation shard: the collection and typefaces latin_incunabula was trained on — called its *own material* below, with one qualification: dh-unibe's copy holds only the German and Latin-German sub-collections of Zenodo 10.5281/zenodo.11046062, while the Latin model was trained on the Latin one, so these pages are the same printers and typefaces but not its training pages), `gt-fraktur-300`
 and `newseye-onb-val-300` (Fraktur print), `parzival-300` (three 13th-century textualis hands). No Arabic,
 Persian, Ottoman or Vietnamese ground truth exists on asteraix or in dh-unibe, so the OpenITI lineage and
 french_vietnamese's own material stay unmeasured.
@@ -272,6 +272,12 @@ lines, not against document effects). Table: `docs/family/tables.md`; numbers:
 ![Combined moves for latin_incunabula: ΔCER on its own material and two Fraktur sets, practice lines next to fresh confirmation lines.](family/figures/family-combine-latin_incunabula-from-catmus_print_large.svg#only-light)
 ![Combined moves for latin_incunabula: ΔCER on its own material and two Fraktur sets, practice lines next to fresh confirmation lines.](family/figures/family-combine-latin_incunabula-from-catmus_print_large-dark.svg#only-dark)
 
+**The candidate, held out (docs/RESULTS.md R4).** The stabilised latin_incunabula, scored once on 4,374 held-out
+Reichenau lines (60 train-shard pages no practice or confirmation line came from): 4.99 % against 5.01 % unedited,
+within noise; through the serving path (58 pages, gateway segmentation): median page CER 4.05 % against 4.16 %,
+better on 40 pages and worse on 17, −0.19 points, interval excluding 0. The block statistics show what the flat
+total hides: abbreviation signs (MUFI) get worse, lowercase letters better.
+
 **Answer so far:** the shared front end (RQ2) is where exchange can stabilise without cost (RQ3): half-way
 in the default architecture, fully in the group-norm architecture, where the front end is functionally the
 same across all six models (CKA 0.99): for latin_incunabula, two group norms plus the output layer half-way
@@ -285,8 +291,10 @@ trade against its own material — at a poor rate in the in-house fine-tunes, at
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. The stabilised latin_incunabula (`Gn_1` + `Gn_3` + `O_15` half-way) as a candidate: score it once on held-out
-   Reichenau lines and through the serving path (`wsp.run export`, then the gateway), which is a hand step and needs an OK.
+1. ~~The stabilised latin_incunabula as a candidate~~ — done 07.11.2026, docs/RESULTS.md R4: within noise on
+   held-out lines, −0.2 points through the serving path, abbreviation signs worse. Registered on the share,
+   **disabled**; promoting it is a decision for its users (abbreviations). A held-out Fraktur set would test its
+   purpose; a variant without the output-layer move (group norms only) would keep the abbreviations.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
