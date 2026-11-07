@@ -16,8 +16,8 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 | Adapters | sessions on LoRA adapters of vision-language models | branch `adapters`, `docs/ADAPTER_REPORT.md` | **running**; not merged; manuscript 9.3 waits for it |
 | Article | JDMDH manuscript, draft 3 | `paper/manuscript.md`, `paper/STATUS.md`, Nextcloud `Documents/research/atr-research/atr-article-plan.md` | draft 3 complete except TODOs |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/`, Zotero (user library) | done; OpenAlex Q4-Q10 incomplete |
-| Epic: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md` (+ GitHub issue) | proposed, not started |
-| Epic: activation atlas | representation of the whole net, which units respond to which part of a line | not written | feasibility answered in chat; issue not drafted |
+| Epic: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md`, issue thodel/weightspace#12 | proposed, not started |
+| Epic: activation atlas | representation of the whole net, which units respond to which part of a line | `docs/epics/EPIC_ACTIVATION_ATLAS.md`, issue thodel/weightspace#13 | proposed, not started |
 
 ## Findings in one paragraph each
 
