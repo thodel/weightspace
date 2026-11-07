@@ -17,7 +17,7 @@ must be written into the run's `summary.json` under `deviations`.
 The session's `preregistration.md` states:
 
 1. subject id and digest; parent/sibling digests if donors are used;
-2. practice set: source dataset, split side (**train side only**), selection
+2. practice set: source dataset, split side (**train side only** for sessions up to 07.11.2026; see the proposed amendment below), selection
    rule, size, sha256 of the line list;
 3. held-out set: identity (document ids or project names), size, sha256; the
    overlap audit result against the practice set and against every corpus the
@@ -27,6 +27,19 @@ The session's `preregistration.md` states:
 5. the hypotheses the reading produced, each with a **predicted direction and
    magnitude** of CER change and the edit class that would test it;
 6. the controls to be run (§4).
+
+> **PROPOSED AMENDMENT (07.11.2026, not yet adopted; docs/CONTROLS_REPORT.md §3) — donor rule and practice-set side.**
+> 7. **Donor rule.** A *donor* is any other model whose weights an edit copies, transplants, averages or interpolates toward
+>    (parent, sibling, earlier checkpoint). A donor must not have been trained on the lines the keep rule is computed on. The
+>    preregistration lists, for each donor, the training and validation pages of its own job and the practice lines it has seen
+>    (`seen_by` in the practice list). An edit that uses a donor is judged by the keep rule on the practice lines **unseen by that
+>    donor** (`Session.unseen_by(donor)` and `Session.measure(..., rule_mask=...)`); the full-set metrics are still reported. Where the
+>    unseen part is too small to judge, the edit is not tried. Motivation: `runs/20261106-bern-combined-v1-b10-1` kept an output-layer
+>    transplant from `hertwig-v2` because the practice lines were that donor's own training lines (docs/PHASE3_REPORT.md §3).
+> 8. **Practice side.** The practice set should be lines the subject was not trained on (the trainer's validation pages, or eval-side
+>    objects disjoint from the held-out set), not its training lines: on training lines a model has already fitted what an edit can
+>    still gain, and a donor from the same lineage has fitted them too. A practice set from the training side must be labelled so
+>    in the preregistration. `wsp.audit` checks the set against the held-out set at object/page level.
 
 ## 3. During the session
 

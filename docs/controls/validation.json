@@ -1,0 +1,201 @@
+{
+ "xix-blb-v1": {
+  "a1": {
+   "run": "20261107-val-xix-blb-v1-a1-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 0,
+   "refused_by_rule": 7,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.14715447154471545,
+   "practice_vs_baseline_ci": [
+    0.004657464645609288,
+    0.013815901000169523
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "unchanged": true
+  },
+  "a2": {
+   "run": "20261107-val-xix-blb-v1-a2-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 0,
+   "refused_by_rule": 7,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13715447154471544,
+   "practice_vs_baseline_ci": [
+    -0.0023720772619451047,
+    0.0
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "unchanged": true
+  },
+  "a3": {
+   "run": "20261107-val-xix-blb-v1-a3-b10-1",
+   "passes": 6,
+   "edits": 5,
+   "kept": 0,
+   "refused_by_rule": 5,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.138130081300813,
+   "practice_vs_baseline_ci": [
+    -0.0031290544150194555,
+    0.002586134979561172
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "unchanged": true
+  },
+  "replay": {
+   "run": "20261107-val-xix-blb-v1-replay-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 0,
+   "refused_by_rule": 2,
+   "reverted_by_programmer": 6,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13861788617886178,
+   "practice_vs_baseline_ci": [
+    -0.0011311303223721647,
+    0.00182724252491695
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "unchanged": true
+  }
+ },
+ "bern-combined-v1": {
+  "a1": {
+   "run": "20261107-val-bern-combined-v1-a1-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 2,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "blank bias too high: model under-emits",
+    "sibling schlussredaktion shares ancestor; interpolate hidden tensors alpha .25"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12375525240315433,
+   "practice_vs_baseline_ci": [
+    -0.021131522596641486,
+    -0.010125278874206264
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "unchanged": false
+  },
+  "a2": {
+   "run": "20261107-val-bern-combined-v1-a2-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 2,
+   "refused_by_rule": 5,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "blank bias too high: deletions dominate",
+    "sibling shares parent; averaging toward it improves unseen lines"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12352501007310195,
+   "practice_vs_baseline_ci": [
+    -0.021382916908773975,
+    -0.010472718856679997
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "unchanged": false
+  },
+  "a3": {
+   "run": "20261107-val-bern-combined-v1-a3-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 2,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "Blank is over-predicted (deletions dominate, length ratio 0.949); lowering its bias restor",
+    "Fine-tuned siblings of one parent are linearly connected; SR is better on all lines (0.118"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12352501007310195,
+   "practice_vs_baseline_ci": [
+    -0.02137092190519496,
+    -0.010598157807124628
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "unchanged": false
+  },
+  "replay": {
+   "run": "20261107-val-bern-combined-v1-replay-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 1,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 1,
+   "kept_edits": [
+    "the label noise damaged the first BiLSTM; the clean sibling's first BiLSTM (same parent, c"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.121740632015196,
+   "practice_vs_baseline_ci": [
+    -0.02395277557043933,
+    -0.011704665224385638
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.19008763977032336,
+   "delta_pts": -0.32033847083711153,
+   "ci95_pts": [
+    -0.6965419466189976,
+    0.07077558242406523
+   ],
+   "unchanged": false
+  }
+ }
+}

@@ -103,7 +103,15 @@ class Session:
         self._measured_since_edit = False
         return len(self._log) - 1
 
-    def measure(self, label: str = "") -> Metrics:
+    def unseen_by(self, *donors: str) -> list[bool]:
+        """Mask of the practice lines no named donor was trained on (PROTOCOL §2, donor rule). Items carry
+        ``seen_by``: a list of model ids that trained on that line; absent = unknown = treated as seen."""
+        return [all(d not in (it.get("seen_by") if it.get("seen_by") is not None else [d]) for d in donors)
+                for it in self.practice]
+
+    def measure(self, label: str = "", rule_mask: Sequence[bool] | None = None) -> Metrics:
+        """One counted pass over the whole practice set. ``rule_mask`` (donor rule, PROTOCOL §2): the keep
+        rule's paired interval is computed on the masked lines only; the metrics are still those of all lines."""
         if self._used >= self.budget:
             raise BudgetExhausted(f"budget of {self.budget} passes used")
         self._used += 1
@@ -123,7 +131,15 @@ class Session:
             self._kept_lines = lines               # the first pass is the first kept state
         self._last_lines = lines
         self._measured_since_edit = True
-        self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
+        if rule_mask is not None:
+            if len(rule_mask) != len(lines):
+                raise ValueError("rule_mask must have one entry per practice line")
+            sel = [i for i, k in enumerate(rule_mask) if k]
+            self._vs_kept = bootstrap_delta([self._kept_lines[i] for i in sel], [lines[i] for i in sel],
+                                            resamples=self.rule_resamples, seed=self.seed)
+            self._vs_kept["rule_lines"] = len(sel)
+        else:
+            self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
         self._event("pass", label=label, metrics=m.as_dict(), digest=self.subject.digest(),
                     vs_baseline=bootstrap_delta(self._baseline_lines, lines, resamples=500, seed=self.seed),
                     vs_kept=self._vs_kept)
@@ -154,6 +170,13 @@ class Session:
         self._kept_lines = self._last_lines
         self._decide(True, reason, rule="met")
         return True
+
+    def keep_unmeasured(self, reason: str = "") -> None:
+        """Budget 0 only (the blind programmer, PROTOCOL §4 C6): no pass is possible, so no rule can be
+        applied; the edit stands as written. Refused when the session has any budget."""
+        if self.budget != 0:
+            raise RuntimeError("keep_unmeasured is for budget-0 sessions")
+        self._decide(True, reason, rule="unmeasured (budget 0)")
 
     def revert(self, reason: str = "") -> None:
         if self._pre_edit_tensors:

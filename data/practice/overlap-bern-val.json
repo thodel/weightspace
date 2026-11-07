@@ -1,0 +1,15 @@
+{
+  "set": "bern-val",
+  "lines": 513,
+  "unit": "page",
+  "units": 17,
+  "training_job": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/jobs/20261025T160407Z-kraken-bern-combined-v1",
+  "training_pages": 151,
+  "findings": [],
+  "heldout": {
+    "set": "bern-eval",
+    "lines": 545,
+    "units": 14
+  },
+  "clean": true
+}
