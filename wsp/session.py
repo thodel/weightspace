@@ -110,9 +110,12 @@ class Session:
     def measure(self, label: str = "") -> Metrics:
         if self._used >= self.budget:
             raise BudgetExhausted(f"budget of {self.budget} passes used")
+        # Counted once the forward has returned readings: a pass refused before it started
+        # (card 0 full, a trainer job waiting) or one that crashed gave the programmer
+        # nothing. Until 07.11.2026 the count came first (session 20261107-kurrent-page-v2-b10-1).
+        preds = self.subject.forward(self.practice)
         self._used += 1
         (self.run_dir / "budget.json").write_text(json.dumps({"used": self._used, "budget": self.budget}))
-        preds = self.subject.forward(self.practice)
         hyps = [p.text for p in preds]
         refs = [item["text"] for item in self.practice]
         m = score(hyps, refs)

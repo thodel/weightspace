@@ -108,12 +108,26 @@ class LoraSubject(Subject):
         return path
 
 
+def _wait_for_card(wait_s: float, every_s: float = 300.0) -> None:
+    """#396's "pause": wait while card 0 lacks room or a trainer job waits; give up after wait_s."""
+    import time
+    from wsp import card
+    t0 = time.time()
+    while True:
+        ok, why = card.ready()
+        if ok:
+            return
+        if time.time() - t0 > wait_s:
+            raise RuntimeError(f"pass not started after {wait_s / 3600:.1f} h: {why}")
+        print(time.strftime("%H:%M"), "card 0 not ready, waiting:", why, flush=True)
+        time.sleep(every_s)
+
+
 def vllm_runner(render: str | Path, out_dir: str | Path,
-                python: str | Path | None = None) -> Callable:
+                python: str | Path | None = None, wait_s: float = 6 * 3600) -> Callable:
     """A ``forward`` for LoraSubject: one ``wsp.vllm_forward`` process per pass on
     card 0, after ``wsp.card.ready`` (memory, and no trainer job waiting, #396).
     Practice items need only ``key``; the render directory holds images and prompt."""
-    from wsp import card
     from wsp.vlm_reference import HOME
 
     python = python or HOME / ".venvs/vllm/bin/python"
@@ -121,9 +135,7 @@ def vllm_runner(render: str | Path, out_dir: str | Path,
     count = {"n": 0}
 
     def run(adapter: Path, practice: Sequence[dict]) -> list[dict]:
-        ok, why = card.ready()
-        if not ok:
-            raise RuntimeError(f"pass not started: {why}")
+        _wait_for_card(wait_s)
         count["n"] += 1
         keys = out_dir / f"pass-{count['n']:03d}.keys"
         keys.write_text("".join(p["key"] + "\n" for p in practice))
@@ -144,21 +156,18 @@ def vllm_runner(render: str | Path, out_dir: str | Path,
     return run
 
 
-def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: str | Path) -> Callable:
+def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: str | Path,
+                     wait_s: float = 6 * 3600) -> Callable:
     """A ``forward`` for LoraSubject through the trainer's own ``evaluate_qlora``
     (transformers, greedy, cap 3,072): the pass engine since gate G1 failed for
     vLLM (docs/PHASE5_PLAN.md §8). Practice items need ``key``; their draw rows
     (``source``, ``text``) come from ``practice_file``. Card 0 after ``wsp.card.ready``."""
-    from wsp import card
-
     rows = {json.loads(l)["key"]: json.loads(l) for l in Path(practice_file).read_text(encoding="utf-8").splitlines() if l.strip()}
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     count = {"n": 0}
 
     def run(adapter: Path, practice: Sequence[dict]) -> list[dict]:
-        ok, why = card.ready()
-        if not ok:
-            raise RuntimeError(f"pass not started: {why}")
+        _wait_for_card(wait_s)
         count["n"] += 1
         stem = out_dir / f"pass-{count['n']:03d}"
         draw = stem.with_suffix(".draw.jsonl")
