@@ -1,0 +1,734 @@
+[
+ {
+  "id": "party",
+  "engine": "party",
+  "zenodo_id": "10.5281/zenodo.20642057",
+  "base_model": null,
+  "description": "Pretrained multilingual Party base model",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "mul"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": [
+   13,
+   14,
+   15,
+   16
+  ]
+ },
+ {
+  "id": "kraken-fondue_gd_v2",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.21536798",
+  "base_model": null,
+  "description": "FoNDUE-GD",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr",
+   "de",
+   "es",
+   "la",
+   "nl"
+  ],
+  "scripts": [
+   "Latn"
+  ],
+  "centuries": [
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ]
+ },
+ {
+  "id": "kraken-old_norse_am305",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.20529753",
+  "base_model": null,
+  "description": "HTR model for AM 305 fol (Járnsíða/Magnúsbók, Old Norse law, 13th c.)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "non"
+  ],
+  "scripts": [],
+  "centuries": [
+   13
+  ]
+ },
+ {
+  "id": "kraken-prima",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.18220238",
+  "base_model": null,
+  "description": "PRIMA HTR",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "it"
+  ],
+  "scripts": [],
+  "centuries": [
+   16,
+   17,
+   18
+  ]
+ },
+ {
+  "id": "kraken-bastarda_inzigkofen",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.18207779",
+  "base_model": "10.5281/zenodo.15030337",
+  "description": "Bastarda HTR model related to the Augustinian canonesses in Inzigkofen",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de"
+  ],
+  "scripts": [
+   "Bastarda"
+  ],
+  "centuries": [
+   15
+  ]
+ },
+ {
+  "id": "kraken-cursive_inzigkofen",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.18207767",
+  "base_model": "10.5281/zenodo.15030337",
+  "description": "Cursive HTR model related to the Augustinian canonesses in Inzigkofen",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de"
+  ],
+  "scripts": [
+   "Cursive"
+  ],
+  "centuries": [
+   15
+  ]
+ },
+ {
+  "id": "kraken-textualis_inzigkofen",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.18207719",
+  "base_model": "10.5281/zenodo.13862096",
+  "description": "Textualis HTR model related to the Augustinian canonesses in Inzigkofen",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de"
+  ],
+  "scripts": [
+   "Textualis"
+  ],
+  "centuries": [
+   15
+  ]
+ },
+ {
+  "id": "kraken-mendelssohn_letters",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.18207676",
+  "base_model": null,
+  "description": "Fanny loves Wilhelm. HTR Model trained on letters and notes by Fanny Mendelssohn (Fanny Hensel)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de"
+  ],
+  "scripts": [],
+  "centuries": [
+   19
+  ]
+ },
+ {
+  "id": "kraken-french_vietnamese",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.17690418",
+  "base_model": "10.5281/zenodo.10592716",
+  "description": "HTR model for 19th-20th century French-Vietnamese historical documents with Vietnamese tone mark support",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "vi",
+   "fr"
+  ],
+  "scripts": [],
+  "centuries": [
+   19,
+   20
+  ]
+ },
+ {
+  "id": "kraken-bifrost_old_norse",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.15366732",
+  "base_model": "10.5281/zenodo.15030337",
+  "description": "Bifrost: A Handwritten Text Recognition Model for Old Norse",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "non"
+  ],
+  "scripts": [],
+  "centuries": []
+ },
+ {
+  "id": "kraken-catmus_medieval",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.15030337",
+  "base_model": null,
+  "description": "CATMuS Medieval",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fro",
+   "la",
+   "es",
+   "it"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-kuzushiji",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13942714",
+  "base_model": null,
+  "description": "HTR model for (Japanese) Kuzushiji",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "ja"
+  ],
+  "scripts": [
+   "Kuzushiji"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-tridis_v2",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13862096",
+  "base_model": null,
+  "description": "TRIDIS v2 : HTR model for Multilingual Medieval and Early Modern Documentary Manuscripts (11th-16th)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la",
+   "fr",
+   "es"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": [
+   11,
+   12,
+   13,
+   14,
+   15,
+   16
+  ]
+ },
+ {
+  "id": "kraken-samaritan",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13814200",
+  "base_model": null,
+  "description": "Recognition model for historical Samaritan Manuscripts for one column pages, model trained on 13 pentateuchal Samaritan manuscripts",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "sam"
+  ],
+  "scripts": [
+   "Samaritan"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-mccatmus",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13788177",
+  "base_model": null,
+  "description": "McCATMuS - Transcription model for handwritten, printed and typewritten documents from the 16th century to the 21st century",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr",
+   "la",
+   "es",
+   "en",
+   "de",
+   "it",
+   "oc"
+  ],
+  "scripts": [
+   "Latn"
+  ],
+  "centuries": [
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ]
+ },
+ {
+  "id": "kraken-latin_graphematic_11c",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13741957",
+  "base_model": null,
+  "description": "Model trained on 11th century manuscripts to produce graphematic transcription (Latin).",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la"
+  ],
+  "scripts": [],
+  "centuries": [
+   11
+  ]
+ },
+ {
+  "id": "kraken-latin_expanded_11c",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.13736584",
+  "base_model": null,
+  "description": "Model trained on 11th century manuscripts to produce expanded transcription (Latin).",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la"
+  ],
+  "scripts": [],
+  "centuries": [
+   11
+  ]
+ },
+ {
+  "id": "kraken-bohemian_19th",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.11673242",
+  "base_model": null,
+  "description": "Kraken HTR recognition model, Bohemian provenance 19th century",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de",
+   "cs"
+  ],
+  "scripts": [
+   "Kurrent"
+  ],
+  "centuries": [
+   19
+  ]
+ },
+ {
+  "id": "kraken-latin_incunabula",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.11113737",
+  "base_model": "10.5281/zenodo.10592716",
+  "description": "Latin Incunabula and Early Prints",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la"
+  ],
+  "scripts": [
+   "Gothic",
+   "Antiqua"
+  ],
+  "centuries": [
+   15,
+   16
+  ]
+ },
+ {
+  "id": "kraken-manu_mcfondue",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.10886224",
+  "base_model": null,
+  "description": "HTR-United - Manu Mc Fondue (Manuscripts of Modern and Contemporaneous French - Manu McFrench v4)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr",
+   "la",
+   "de"
+  ],
+  "scripts": [],
+  "centuries": [
+   16,
+   17,
+   18,
+   19
+  ]
+ },
+ {
+  "id": "kraken-catmus_gothic_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.10599911",
+  "base_model": "10.5281/zenodo.15030337",
+  "description": "CATMuS Gothic Print",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr",
+   "la"
+  ],
+  "scripts": [
+   "Gothic"
+  ],
+  "centuries": [
+   16
+  ]
+ },
+ {
+  "id": "kraken-catmus_print_large",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.10592716",
+  "base_model": null,
+  "description": "CATMuS-Print [Large]",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr",
+   "es",
+   "de",
+   "en",
+   "it",
+   "la"
+  ],
+  "scripts": [],
+  "centuries": [
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ]
+ },
+ {
+  "id": "kraken-estournelles_typewritten",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.10556673",
+  "base_model": null,
+  "description": "Transcription model for Paul d'Estournelles de Constant French typewritten letters (1914-1924)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr"
+  ],
+  "scripts": [
+   "Typewritten"
+  ],
+  "centuries": [
+   20
+  ]
+ },
+ {
+  "id": "kraken-german_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.10519596",
+  "base_model": null,
+  "description": "OCR model for German prints trained from several datasets",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de",
+   "la"
+  ],
+  "scripts": [
+   "Fraktur",
+   "Antiqua"
+  ],
+  "centuries": [
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ]
+ },
+ {
+  "id": "kraken-peraire_french",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.8193498",
+  "base_model": null,
+  "description": "Transcription model for Lucien Peraire's handwriting (French, 20th century)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr"
+  ],
+  "scripts": [],
+  "centuries": [
+   20
+  ]
+ },
+ {
+  "id": "kraken-austrian_fraktur",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7933402",
+  "base_model": null,
+  "description": "Fraktur model trained from enhanced Austrian Newspapers dataset",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "de"
+  ],
+  "scripts": [
+   "Fraktur"
+  ],
+  "centuries": [
+   19
+  ]
+ },
+ {
+  "id": "kraken-glagolitic_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7755504",
+  "base_model": null,
+  "description": "HTR model for transcribing Glagolitic sources printed in the 16th century Tübingen-Urach printing style into the Latin script",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "cu"
+  ],
+  "scripts": [
+   "Glagolitic"
+  ],
+  "centuries": [
+   16
+  ]
+ },
+ {
+  "id": "kraken-cyrillic_uncial",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7755483",
+  "base_model": null,
+  "description": "Generic HTR model for Old Cyrillic uncial and semi-uncial script styles (11th-16th c.)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "cu"
+  ],
+  "scripts": [
+   "Cyrillic uncial"
+  ],
+  "centuries": [
+   11,
+   12,
+   13,
+   14,
+   15,
+   16
+  ]
+ },
+ {
+  "id": "kraken-cremma_medieval",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7631619",
+  "base_model": null,
+  "description": "Generic CREMMA Model for Medieval Manuscripts (Latin and Old French), 8-15th century",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la",
+   "fro"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ]
+ },
+ {
+  "id": "kraken-medieval_latin_french_abbreviated",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7516310",
+  "base_model": null,
+  "description": "HTR Model - Medieval Latin and French 12th-15th c. with abbreviations (no expansion)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la",
+   "fro"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": [
+   12,
+   13,
+   14,
+   15
+  ]
+ },
+ {
+  "id": "kraken-medieval_latin_french_expanded",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7516057",
+  "base_model": null,
+  "description": "HTR Model - Medieval Latin and French 12th-15th c. expanded (no abbr.)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "la",
+   "fro"
+  ],
+  "scripts": [
+   "Medieval"
+  ],
+  "centuries": [
+   12,
+   13,
+   14,
+   15
+  ]
+ },
+ {
+  "id": "kraken-gallicorpora",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7410529",
+  "base_model": null,
+  "description": "Gallicorpora+",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr"
+  ],
+  "scripts": [],
+  "centuries": [
+   16,
+   17,
+   18,
+   19
+  ]
+ },
+ {
+  "id": "kraken-openiti_persian_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7051644",
+  "base_model": "10.5281/zenodo.7050270",
+  "description": "Printed Persian Base Model Trained on the OpenITI Corpus",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fa"
+  ],
+  "scripts": [
+   "Arabic"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-openiti_ottoman_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7050342",
+  "base_model": "10.5281/zenodo.7050270",
+  "description": "Printed Ottoman Base Model Trained on the OpenITI Corpus",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "ota"
+  ],
+  "scripts": [
+   "Arabic"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-openiti_arabic_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.7050270",
+  "base_model": null,
+  "description": "Printed Arabic-Script Base Model Trained on the OpenITI Corpus",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "ar",
+   "fa",
+   "ur",
+   "ota"
+  ],
+  "scripts": [
+   "Arabic"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-lectaurep_french",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.6542744",
+  "base_model": null,
+  "description": "LECTAUREP Contemporary French Model (Administration)",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "fr"
+  ],
+  "scripts": [],
+  "centuries": [
+   18,
+   19,
+   20
+  ]
+ },
+ {
+  "id": "kraken-hebrew_sephardi",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.5468665",
+  "base_model": null,
+  "description": "Medieval Hebrew manuscripts in Sephardi bookhand version 1.0",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "he"
+  ],
+  "scripts": [
+   "Sephardi bookhand"
+  ],
+  "centuries": []
+ },
+ {
+  "id": "kraken-english_print",
+  "engine": "kraken",
+  "zenodo_id": "10.5281/zenodo.2577813",
+  "base_model": null,
+  "description": "A generalized model for English printed text",
+  "enabled": true,
+  "disabled_reason": null,
+  "languages": [
+   "en"
+  ],
+  "scripts": [],
+  "centuries": []
+ }
+]

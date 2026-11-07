@@ -1,0 +1,467 @@
+{
+ "kraken-fondue_gd_v2": {
+  "doi": "10.5281/zenodo.21536798",
+  "files": [
+   {
+    "name": "FoNDUE-GD_v2.mlmodel",
+    "bytes": 16310798,
+    "sha256": "5e48aa243796ca8cffe0dd42f29641d1ae78ca4ac695e0712e5881e0276b26b5"
+   },
+   {
+    "name": "README.md",
+    "bytes": 12056,
+    "sha256": "c6c40885db89b5a7b9cc0f166a8c3c8b8fcec51cdad63ffa0929162c1fc61e13"
+   }
+  ]
+ },
+ "kraken-old_norse_am305": {
+  "doi": "10.5281/zenodo.20529753",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 1479,
+    "sha256": "9bc4eacd2c3a916e80602de68146fab8b74dedf7b93d2a011b68992f9c55e019"
+   },
+   {
+    "name": "best_0.9735.mlmodel",
+    "bytes": 16426184,
+    "sha256": "f2bb51141f9f3170f324c291d7bb9515c01ba5e7458cec74aa94a3bffb9dcc48"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 3806,
+    "sha256": "ed684daa5cb7d92b868c8b535081fa48ce6f8d168ef153d0772ed0ca7169abd4"
+   }
+  ]
+ },
+ "kraken-prima": {
+  "doi": "10.5281/zenodo.18220238",
+  "files": [
+   {
+    "name": "PRIMA%20HTR.mlmodel",
+    "bytes": 16223933,
+    "sha256": "f17067705c41ea1b609b6a9bd92b152d98cf82e00fe60297e2981c952229ef8b"
+   }
+  ]
+ },
+ "kraken-bastarda_inzigkofen": {
+  "doi": "10.5281/zenodo.18207779",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 1203,
+    "sha256": "68624c429c4988b3ef9affeaad35b931590393bf1161f7c77518adcf01c75e7e"
+   },
+   {
+    "name": "bastarda_jos_von_pfullendorf.mlmodel",
+    "bytes": 16400760,
+    "sha256": "4a5b41b8eeeb1850f53e306c007ef19d98e17557b3e81588e83133971f8afe43"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2984,
+    "sha256": "8e5c314382f28145d0f4ee92587c37ab1e90e7161f79f3c23ac1ac20ba6054c6"
+   }
+  ]
+ },
+ "kraken-cursive_inzigkofen": {
+  "doi": "10.5281/zenodo.18207767",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 1224,
+    "sha256": "0c9e06eec5a6968bd5336d33f21da4277811e65b5c82dcb02d0ca936d5f04cc7"
+   },
+   {
+    "name": "cursive_johannes_jaeck.mlmodel",
+    "bytes": 16406523,
+    "sha256": "4ab19e7b42e66bb70679a3076a61305975746ddcdb0f222d40f1b66f5e0fe039"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 3037,
+    "sha256": "b7614a242f43a58450906ddd9dfe6f4c474614f9f891c16eb16fe4fb7934eb3f"
+   }
+  ]
+ },
+ "kraken-textualis_inzigkofen": {
+  "doi": "10.5281/zenodo.18207719",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 1095,
+    "sha256": "150517fda057be0c28e0112b5946d3d703b7606e6220df9ff2f1e19942acd83f"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 3035,
+    "sha256": "f72785c82319164d13971a13e29c4db7835ff2f94d27dd0fcbba7a1212be7c9a"
+   },
+   {
+    "name": "textualis_anna_jaeck.mlmodel",
+    "bytes": 25079234,
+    "sha256": "66ac85e1e2cde88d8ea786e083892772daddc71c4bdbdc413783240548f60013"
+   }
+  ]
+ },
+ "kraken-mendelssohn_letters": {
+  "doi": "10.5281/zenodo.18207676",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 1616,
+    "sha256": "42910b7e014a12a11638702043c5e4df8cb84927abcf057a3af76c5c36c83d3a"
+   },
+   {
+    "name": "fanny_20250228.mlmodel",
+    "bytes": 16445228,
+    "sha256": "e83549551640f91f026e867a72a8e82c44c16ce570e71812db6d5b69d6d98ea0"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 3735,
+    "sha256": "aa5a79d03f4ec174d14d6993e9c1c2f31ea8a138a61675cea469e10d8a45a1fe"
+   }
+  ]
+ },
+ "kraken-french_vietnamese": {
+  "doi": "10.5281/zenodo.17690418",
+  "files": [
+   {
+    "name": "README.md",
+    "bytes": 7215,
+    "sha256": "d88492090649529a51e8609f0a042ffe1f47902cc8cb0f4fc0af1f7c0f554c2d"
+   },
+   {
+    "name": "kqnbsei_v1.mlmodel",
+    "bytes": 22933576,
+    "sha256": "87932268fbc435bc64f9d9c412c2fd0d9d1ddf7cde2e702fffb4b28dc19a0bff"
+   },
+   {
+    "name": "model_card.md",
+    "bytes": 7660,
+    "sha256": "b5381a6c578889a0e5d3ddfa1fc1d3b550be9a0dcceb5691322de04d4e659db1"
+   }
+  ]
+ },
+ "kraken-bifrost_old_norse": {
+  "doi": "10.5281/zenodo.15366732",
+  "files": [
+   {
+    "name": "bifrost_01.mlmodel",
+    "bytes": 16393153,
+    "sha256": "9ee524c9b26b383dcdc70cd02fbdb78b65dbe54524b5335b05b319abf600da41"
+   }
+  ]
+ },
+ "kraken-catmus_medieval": {
+  "doi": "10.5281/zenodo.15030337",
+  "files": [
+   {
+    "name": "catmus-medieval-1.6.0.mlmodel",
+    "bytes": 16388487,
+    "sha256": "227d10f15a936c2492105b7796a6152647c742f248af117856f417008eadbc9c"
+   }
+  ]
+ },
+ "kraken-kuzushiji": {
+  "doi": "10.5281/zenodo.13942714",
+  "files": [
+   {
+    "name": "kuzushiji-on-chat-version-0.9.mlmodel",
+    "bytes": 43419503,
+    "sha256": "7cbc9a337c23baf0a595f4431532aae375671aebbfb40dc6258a8517cc9ca23e"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 178422,
+    "sha256": "597997f5121d240faf9127f6fa889b2a3db1d5e981b4abd698e1ee5909436875"
+   }
+  ]
+ },
+ "kraken-tridis_v2": {
+  "doi": "10.5281/zenodo.13862096",
+  "files": [
+   {
+    "name": "Tridis_v2_Medieval_EarlyModern.mlmodel",
+    "bytes": 25065541,
+    "sha256": "69991f3017453577357b44ca5cb52c56bd7fdadfe94d1122a29923c561610a76"
+   }
+  ]
+ },
+ "kraken-samaritan": {
+  "doi": "10.5281/zenodo.13814200",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 707,
+    "sha256": "b84b83db9654fd9d1fb962d7b1b42a5be8fabeaa910a24342c92eb22408e1025"
+   },
+   {
+    "name": "sinai_sam_rec_v4_best.mlmodel",
+    "bytes": 16029821,
+    "sha256": "38f24382398e311d0babedab68d064b7eae8323ca9e3a2ed389102e1539926b4"
+   }
+  ]
+ },
+ "kraken-mccatmus": {
+  "doi": "10.5281/zenodo.13788177",
+  "files": [
+   {
+    "name": "McCATMuS_nfd_nofix_V1.mlmodel",
+    "bytes": 16173802,
+    "sha256": "dfb911ba25fd11f93efc1b0c340957162981ecfdaac0ee1e26793d491f770244"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1743,
+    "sha256": "adc19a1f97282d7b43ed7d563d2c934a8cf708e245c5e11729ce7226e5c00771"
+   }
+  ]
+ },
+ "kraken-latin_graphematic_11c": {
+  "doi": "10.5281/zenodo.13741957",
+  "files": [
+   {
+    "name": "bdd-wormser-scriptorium-abbreviated-0.2.mlmodel",
+    "bytes": 16145101,
+    "sha256": "6c5f5129d6e48fb7f923d70e8c5c90fa9a969bf8d815d39eb99c7aa197b22f46"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2792,
+    "sha256": "c62fa936f2882f866cbe9ce87fe3c56be28a4ac3eff1254c2a88226dbd1ddc5f"
+   }
+  ]
+ },
+ "kraken-latin_expanded_11c": {
+  "doi": "10.5281/zenodo.13736584",
+  "files": [
+   {
+    "name": "bdd-wormser-scriptorium-expanded-0.1.mlmodel",
+    "bytes": 16087026,
+    "sha256": "e688ed39acce35a2f92e0c7a8a10517ea629036f9a5e21459060737a4064f91d"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2195,
+    "sha256": "38a9396dde2c416ecdff9b6064a710ede6cf9786874fcee3e1a73d78f285162b"
+   }
+  ]
+ },
+ "kraken-bohemian_19th": {
+  "doi": "10.5281/zenodo.11673242",
+  "files": [
+   {
+    "name": "model.json",
+    "bytes": 2944,
+    "sha256": "2cb9bd897fd623a6439c499d53cfe9855fdbe598f60152f420f69f6aa8abdab7"
+   },
+   {
+    "name": "rec_bohemica.mlmodel",
+    "bytes": 16225101,
+    "sha256": "c16da6b363e9046c7eb6da957bb7a7c9a295c74bf5e9defa8893ef7eb638a8a6"
+   }
+  ]
+ },
+ "kraken-latin_incunabula": {
+  "doi": "10.5281/zenodo.11113737",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 3061,
+    "sha256": "84cca2e98c10a458200c5d214ef0b586ee5b8fd874a8a6b7df87125e3aa5d15e"
+   },
+   {
+    "name": "reichenau_lat_cat_099218.mlmodel",
+    "bytes": 22892687,
+    "sha256": "7ee065528ea904ec6d08c9e42adcdb9e598c85fb574c799a33fabfd4d3a4f43e"
+   }
+  ]
+ },
+ "kraken-manu_mcfondue": {
+  "doi": "10.5281/zenodo.10886224",
+  "files": [
+   {
+    "name": "ManuMcFondue.mlmodel",
+    "bytes": 16377369,
+    "sha256": "96e32e782b6627aa57961a6ed5a84c522174630c6bc9f6ebc83eedce1f5e490e"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2617,
+    "sha256": "df731471caeb87cd0e062effabf38b80885412847452874aac3861627aedcc5e"
+   }
+  ]
+ },
+ "kraken-catmus_gothic_print": {
+  "doi": "10.5281/zenodo.10599911",
+  "files": [
+   {
+    "name": "CATMuS-Gothic-Print-1.0.0.mlmodel",
+    "bytes": 22867328,
+    "sha256": "f088ab5322840273bee686c5275b9b30ea5d6cb188f428af15ea47d0618452e1"
+   },
+   {
+    "name": "metadata-catmus-gothic-print-1.0.0.json",
+    "bytes": 2855,
+    "sha256": "9e21bbc9da80303f20493d314026c001dd2d0522603f08789fdd6e217147d6e8"
+   }
+  ]
+ },
+ "kraken-catmus_print_large": {
+  "doi": "10.5281/zenodo.10592716",
+  "files": [
+   {
+    "name": "catmus-print-fondue-large.mlmodel",
+    "bytes": 22874456,
+    "sha256": "1ed39e732b26ccdd0f14b9abd3edc66c4b04a02e3d827d7f9e96a7fe7b585b64"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2744,
+    "sha256": "143db2643936e60a5efdb64731129ba0d3278f66b6d7690ca133e5012b34db60"
+   }
+  ]
+ },
+ "kraken-estournelles_typewritten": {
+  "doi": "10.5281/zenodo.10556673",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 1419,
+    "sha256": "a24b3435ffb85679fad2fc02382385d7fd902850bc6d032279e084a1651bb30c"
+   },
+   {
+    "name": "model_pec_9789_nfc.mlmodel",
+    "bytes": 17388424,
+    "sha256": "fafe2cdb7b88d2ba287e1a101571ad9bef696dd6c11afb382a16a86d377423fa"
+   }
+  ]
+ },
+ "kraken-german_print": {
+  "doi": "10.5281/zenodo.10519596",
+  "files": [
+   {
+    "name": "german_print.mlmodel",
+    "bytes": 16418585,
+    "sha256": "542970897c3d4d4283e536d3270d86a91708ea2bff9b2bed97a1d5c7f6a569fe"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2878,
+    "sha256": "69fc941765d28b045c99b9499858eae91ba0a466fc5971c13547f7911dc40f2e"
+   }
+  ]
+ },
+ "kraken-peraire_french": {
+  "doi": "10.5281/zenodo.8193498",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 1455,
+    "sha256": "1d7a030b6a8f930dca094b3c29ff9b1accbeaf57d35f74d800748cf0179f9608"
+   },
+   {
+    "name": "peraire2_ft_MMCFR.mlmodel",
+    "bytes": 16154595,
+    "sha256": "87432fbbedfa60be0a05ea8a0444228061ca77fd8af515a4aa64a86006fec2e7"
+   }
+  ]
+ },
+ "kraken-austrian_fraktur": {
+  "doi": "10.5281/zenodo.7933402",
+  "files": [
+   {
+    "name": "austriannewspapers.mlmodel",
+    "bytes": 16263754,
+    "sha256": "376a3aa7af40161913bfbf25a799943ca1497cb9360f2cc18e6f3ea0e7feb069"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1774,
+    "sha256": "c3fe729292af22572d252e10f044a884fc24aca0f25b21562fc774f98bdc306f"
+   }
+  ]
+ },
+ "kraken-glagolitic_print": {
+  "doi": "10.5281/zenodo.7755504",
+  "files": [
+   {
+    "name": "glago01_best.mlmodel",
+    "bytes": 16214891,
+    "sha256": "dc70c48410833f9ef7b4eee0fad28a85e67f224758e05a301f314e8180a23d36"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2328,
+    "sha256": "c7513af3e6d2a203574fd78573616cb01478cc8d934fa1b95ce65c79be010b35"
+   }
+  ]
+ },
+ "kraken-cyrillic_uncial": {
+  "doi": "10.5281/zenodo.7755483",
+  "files": [
+   {
+    "name": "Cyr02full_best.mlmodel",
+    "bytes": 16327306,
+    "sha256": "b7f5093da27b559dde74556badc31e5ac9888c4e0075e4700e6f450f2bead690"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 3456,
+    "sha256": "c57215f04c603ac7d8f15e51a5e50b87b124461dc6da7d89e5b057b8717d539b"
+   }
+  ]
+ },
+ "kraken-cremma_medieval": {
+  "doi": "10.5281/zenodo.7631619",
+  "files": [
+   {
+    "name": "cremma-generic-1.0.1.mlmodel",
+    "bytes": 22769330,
+    "sha256": "d5907340b29d239f01cdef6dd8ed939d7015b7f7159b420c877688668cbd9b3c"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 4113,
+    "sha256": "1466cea5c10d85761c0c3936f35fc06fe3356feba3794a09713b7341e13aeaec"
+   }
+  ]
+ },
+ "kraken-medieval_latin_french_abbreviated": {
+  "doi": "10.5281/zenodo.7516310",
+  "files": [
+   {
+    "name": "frolat_medieval_abbr.mlmodel",
+    "bytes": 22672586,
+    "sha256": "063681eed2500c9badc80e3ed438e0482bf5567fddc0e9b309a64f188d90c30e"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1723,
+    "sha256": "7bfc9a4119c32069988033b6575759136d1f26989b085a2721473fbe01de6887"
+   }
+  ]
+ },
+ "kraken-medieval_latin_french_expanded": {
+  "doi": "10.5281/zenodo.7516057",
+  "files": [
+   {
+    "name": "frolat_medieval_expan.mlmodel",
+    "bytes": 16135400,
+    "sha256": "4cdaac65b9c4332dcee65e49ac8422be77a1f0d0d28d9fd9f53179c2f591da34"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1605,
+    "sha256": "00a8af92d2d2bd5b4b894fd5a4f526d8d619e1b432a3c021e1c6e39f27c37ec4"
+   }
+  ]
+ },
+ "kraken-gallicorpora": {
+  "doi": "10.5281/zenodo.7410529",
+  "files": [],
+  "error": "HTTPError: 429 Client Error: TOO MANY REQUESTS for url: https://zenodo.org/oai2d?identifier=oai%3Azenodo.org%3A7410529&metadataPrefix=dcat&verb=GetRecord"
+ }
+}
