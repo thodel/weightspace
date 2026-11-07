@@ -18,3 +18,10 @@
 | kraken-medieval-shard00-std | e4b288bd1f8ca2099977f4efc7c7771dae6fab68d5e019bdb89ff4f33aeda0b0 | 16121414 | …/runs/kraken-medieval-shard00-std/…/best_0.8226.mlmodel — kraken default h120, val 0.8226 |
 | kraken-medieval-shard00-v1 | a4bdcfeeb0f60b576dcee8ae89b0942f1a31a8c0febc9417feecec786d328bb2 | 16574261 | …/runs/kraken-medieval-shard00-v1/…/best_0.7809.mlmodel — kraken+ without the 85 layer, val 0.7809 |
 | kraken-collapse-probe-131-cr255 | fa74476b7a53146fae32380dd5b89c9d1765953753f0275133b7df99ef028ca1 | 60813907 | ~/atr-cache/checkpoints/20261027T072036Z-kraken-collapse-probe-131/best_0.0083.mlmodel — KRAKEN_PLUS_SPEC with `Cr255,1,85`, from scratch, val acc 0.0083 (collapsed); the only Cr255 checkpoint left |
+
+## Phase 5 adapters (peft directories, 07.11.2026)
+
+| id | `adapter_model.safetensors` sha256 | `adapter_config.json` sha256 | origin |
+|---|---|---|---|
+| qwen3.5-4b-german-kurrent-xvi-xix-page-v2 | 1b70ce4a2b2125bd007bd1c81789bd43c8d72c12ef49e4f50cf8ad9ca3c67897 | 0be75495420eacae0d2f81b9f2d053d6f4376ecf160d916f405904b8a828f0b3 | share `trained-ubelix/…-page-v2`, copied there from UBELIX scratch by hand (Slurm 20544433, job `20261029T133027Z-…`); identical on the share and in `~/atr-cache/wsp/adapters/`. r 64, α 128, peft 0.20.0. First digest on record: the trainer's record stores none |
+| qwen3.5-4b-german-kurrent-xvi-xix-page-v1 | 52f94e105ed204d3d42a98a5992c4e9c100d48134e0b81ea00f0f1ee293dfafb | 0f7d8bcf22c7b6fe65317726f36d4fe25c153d56730fbc905d03536fd24fbc1d | share `trained-ubelix/…-page-v1`. The stand-in for harness tests. Trained on the registered documents, so `crossed` on german-kurrent-xvi-xix-v1 |

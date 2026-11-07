@@ -33,6 +33,8 @@ class Session:
     min_effect: float = 0.0             # PROTOCOL §3 (06.11.2026): keep only if the 95 % interval of
                                         # CER(after) − CER(last kept) lies entirely below −min_effect
     rule_resamples: int = 2000          # resamples for that interval (PROTOCOL §5)
+    unit: str = "line"                  # "page" for VLM subjects: page edits, page metrics and the cap
+                                        # condition (docs/PHASE5_PLAN.md P5.5: at-cap count must not rise)
     _log: list[dict] = field(default_factory=list, init=False)
     _used: int = field(default=0, init=False)
     _closed: bool = field(default=False, init=False)
@@ -45,6 +47,8 @@ class Session:
     _kept_lines: list | None = field(default=None, init=False)      # per-line edits of the last kept state
     _vs_kept: dict | None = field(default=None, init=False)         # bootstrap of the last pass vs that state
     _measured_since_edit: bool = field(default=False, init=False)
+    _kept_at_cap: int | None = field(default=None, init=False)
+    _last_at_cap: int | None = field(default=None, init=False)
 
     def __post_init__(self):
         self.run_dir = Path(self.run_dir)
@@ -112,7 +116,16 @@ class Session:
         hyps = [p.text for p in preds]
         refs = [item["text"] for item in self.practice]
         m = score(hyps, refs)
-        lines = per_line_edits(hyps, refs)
+        page = None
+        if self.unit == "page":
+            from wsp import pages
+            page = pages.score(hyps, refs, [bool((p.extra or {}).get("at_cap")) for p in preds])
+            lines = page.pop("per_page")
+            self._last_at_cap = page["at_cap"]
+            if self._kept_at_cap is None:
+                self._kept_at_cap = page["at_cap"]
+        else:
+            lines = per_line_edits(hyps, refs)
         readings = self.run_dir / "readings"
         readings.mkdir(exist_ok=True)
         (readings / f"pass_{self._used:03d}.jsonl").write_text(
@@ -126,7 +139,7 @@ class Session:
         self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
         self._event("pass", label=label, metrics=m.as_dict(), digest=self.subject.digest(),
                     vs_baseline=bootstrap_delta(self._baseline_lines, lines, resamples=500, seed=self.seed),
-                    vs_kept=self._vs_kept)
+                    vs_kept=self._vs_kept, **({"page": page} if page else {}))
         return m
 
     def keep_allowed(self) -> tuple[bool, str]:
@@ -139,6 +152,8 @@ class Session:
             return False, "CER rose"
         if hi >= -self.min_effect or self._vs_kept["delta_cer"] >= 0:
             return False, "interval contains 0" if self.min_effect == 0 else f"interval reaches -{self.min_effect}"
+        if self.unit == "page" and self._last_at_cap > self._kept_at_cap:
+            return False, f"pages at the cap rose ({self._kept_at_cap} -> {self._last_at_cap})"
         return True, ""
 
     def keep(self, reason: str = "") -> bool:
@@ -152,6 +167,7 @@ class Session:
             self._decide(False, why, requested=reason, rule="refused")
             return False
         self._kept_lines = self._last_lines
+        self._kept_at_cap = self._last_at_cap
         self._decide(True, reason, rule="met")
         return True
 

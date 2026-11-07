@@ -1,0 +1,7336 @@
+{
+ "adapter": "/home/tobias/atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-page-v2",
+ "describe": {
+  "kind": "lora",
+  "dir": "/home/tobias/atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-page-v2",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "r": 64,
+  "lora_alpha": 128,
+  "target_modules": [
+   "down_proj",
+   "gate_proj",
+   "o_proj",
+   "k_proj",
+   "up_proj",
+   "q_proj",
+   "v_proj"
+  ],
+  "modules": 128,
+  "parameters": 84934656
+ },
+ "scale": 2.0,
+ "modules": [
+  {
+   "module": "layers.0.mlp.down_proj",
+   "layer": 0,
+   "kind": "down_proj",
+   "energy": 116.14112313253162,
+   "sv_top": [
+    3.957,
+    3.6894,
+    3.4547,
+    3.3042,
+    3.0682,
+    2.4544,
+    2.2893,
+    2.1798
+   ],
+   "top4_share": 0.4487873058133659,
+   "rank90": 21,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.956982135772705,
+     "watch_z": {
+      "<|im_end|>": 0.52,
+      "<|endoftext|>": 0.8,
+      "\\n": -2.37,
+      "¬": -0.54
+     },
+     "promotes": [
+      "ature",
+      "履",
+      "iros",
+      "iers",
+      "iert",
+      "照",
+      " верх",
+      "殘"
+     ],
+     "suppresses": [
+      "名字叫",
+      "ampus",
+      "有一句",
+      "无虑",
+      "ulik",
+      "想办法",
+      "ونات",
+      "人名"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 3.689448356628418,
+     "watch_z": {
+      "<|im_end|>": 0.84,
+      "<|endoftext|>": 1.36,
+      "\\n": 2.12,
+      "¬": -0.03
+     },
+     "promotes": [
+      "再说",
+      "否",
+      "ayed",
+      "再来",
+      "高明",
+      "际",
+      " bis",
+      " –"
+     ],
+     "suppresses": [
+      "蛮",
+      "ese",
+      "oon",
+      "ceans",
+      ")o",
+      "三宝",
+      "esh",
+      "pes"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 3.4547135829925537,
+     "watch_z": {
+      "<|im_end|>": 1.17,
+      "<|endoftext|>": 2.18,
+      "\\n": 0.85,
+      "¬": -0.27
+     },
+     "promotes": [
+      " Cad",
+      " own",
+      "zh",
+      "自己",
+      "мин",
+      "捷",
+      "fu",
+      "é¢"
+     ],
+     "suppresses": [
+      "iona",
+      "phis",
+      "…」",
+      "quare",
+      "响应",
+      "istar",
+      " reda",
+      "_<"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 3.3042213916778564,
+     "watch_z": {
+      "<|im_end|>": 1.29,
+      "<|endoftext|>": 1.53,
+      "\\n": 4.4,
+      "¬": -2.42
+     },
+     "promotes": [
+      "allon",
+      "PRES",
+      " pres",
+      "sir",
+      "堂的",
+      " ().",
+      "良心",
+      "\\n"
+     ],
+     "suppresses": [
+      "okol",
+      "海内外",
+      " комплекте",
+      "委会",
+      "登记证",
+      "вне",
+      "овательно",
+      "ченное"
+     ]
+    }
+   ],
+   "energy_share": 0.00841305008666473
+  },
+  {
+   "module": "layers.0.mlp.gate_proj",
+   "layer": 0,
+   "kind": "gate_proj",
+   "energy": 272.05916511350864,
+   "sv_top": [
+    9.4594,
+    5.1874,
+    4.7543,
+    3.9296,
+    3.7092,
+    3.0341,
+    2.8025,
+    2.7449
+   ],
+   "top4_share": 0.5676563966319105,
+   "rank90": 22,
+   "energy_share": 0.019707467268284252
+  },
+  {
+   "module": "layers.0.mlp.up_proj",
+   "layer": 0,
+   "kind": "up_proj",
+   "energy": 210.474570465462,
+   "sv_top": [
+    5.529,
+    4.5211,
+    4.2249,
+    4.0005,
+    3.5615,
+    3.2889,
+    2.884,
+    2.8025
+   ],
+   "top4_share": 0.4032017717208748,
+   "rank90": 29,
+   "energy_share": 0.015246392109318142
+  },
+  {
+   "module": "layers.1.mlp.down_proj",
+   "layer": 1,
+   "kind": "down_proj",
+   "energy": 91.91832927061256,
+   "sv_top": [
+    3.3126,
+    2.9346,
+    2.7945,
+    2.5024,
+    2.2914,
+    2.2086,
+    2.1342,
+    1.9626
+   ],
+   "top4_share": 0.3661508596776425,
+   "rank90": 28,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.312608242034912,
+     "watch_z": {
+      "<|im_end|>": 0.84,
+      "<|endoftext|>": -1.75,
+      "\\n": -1.42,
+      "¬": -0.76
+     },
+     "promotes": [
+      " وث",
+      "加拿大的",
+      "阿拉伯",
+      "好文",
+      "书吧",
+      " लगा",
+      " Kej",
+      "коны"
+     ],
+     "suppresses": [
+      "chal",
+      "“",
+      "鲜",
+      "fl",
+      "anness",
+      "loch",
+      "祥",
+      " coordinate"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.934572696685791,
+     "watch_z": {
+      "<|im_end|>": -1.74,
+      "<|endoftext|>": -1.35,
+      "\\n": -1.73,
+      "¬": -2.87
+     },
+     "promotes": [
+      "底层",
+      "版",
+      "阶层",
+      "怪",
+      " والآ",
+      "陈小",
+      "削",
+      "ibur"
+     ],
+     "suppresses": [
+      "ungeons",
+      "บาย",
+      "数目",
+      "amas",
+      "三者",
+      "udi",
+      "按要求",
+      "ument"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.7944564819335938,
+     "watch_z": {
+      "<|im_end|>": -0.97,
+      "<|endoftext|>": 0.2,
+      "\\n": 1.77,
+      "¬": 0.59
+     },
+     "promotes": [
+      "pert",
+      " H",
+      " S",
+      " Same",
+      "horn",
+      " Cl",
+      " Out",
+      " empty"
+     ],
+     "suppresses": [
+      "remen",
+      "%\\",
+      "胜利召开",
+      "大公",
+      "兴国",
+      "全文",
+      "和政策",
+      "ahlen"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.502378463745117,
+     "watch_z": {
+      "<|im_end|>": -0.64,
+      "<|endoftext|>": -0.74,
+      "\\n": 2.26,
+      "¬": 0.02
+     },
+     "promotes": [
+      "еств",
+      "sdk",
+      " برابر",
+      "plates",
+      "退",
+      "ANDLE",
+      "声器",
+      "вли"
+     ],
+     "suppresses": [
+      " inscrire",
+      "ima",
+      "imal",
+      "erot",
+      "角",
+      "faction",
+      "тура",
+      "遴选"
+     ]
+    }
+   ],
+   "energy_share": 0.006658395296847235
+  },
+  {
+   "module": "layers.1.mlp.gate_proj",
+   "layer": 1,
+   "kind": "gate_proj",
+   "energy": 238.88380789058937,
+   "sv_top": [
+    8.1488,
+    4.93,
+    3.6619,
+    3.572,
+    3.2122,
+    3.0075,
+    2.7749,
+    2.6839
+   ],
+   "top4_share": 0.4892612322731799,
+   "rank90": 27,
+   "energy_share": 0.017304305197594447
+  },
+  {
+   "module": "layers.1.mlp.up_proj",
+   "layer": 1,
+   "kind": "up_proj",
+   "energy": 163.7521747062772,
+   "sv_top": [
+    3.7807,
+    3.4271,
+    3.1328,
+    3.0033,
+    2.8238,
+    2.6814,
+    2.6075,
+    2.5389
+   ],
+   "top4_share": 0.27402828390226347,
+   "rank90": 36,
+   "energy_share": 0.011861907397193892
+  },
+  {
+   "module": "layers.10.mlp.down_proj",
+   "layer": 10,
+   "kind": "down_proj",
+   "energy": 60.197641307454134,
+   "sv_top": [
+    2.9402,
+    2.4459,
+    2.3773,
+    2.0928,
+    1.9662,
+    1.8331,
+    1.6087,
+    1.4316
+   ],
+   "top4_share": 0.4096289252063389,
+   "rank90": 27,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.940211772918701,
+     "watch_z": {
+      "<|im_end|>": -0.68,
+      "<|endoftext|>": -0.44,
+      "\\n": -0.49,
+      "¬": 0.86
+     },
+     "promotes": [
+      "全员",
+      "chine",
+      " europé",
+      "nasi",
+      " nenh",
+      " kandid",
+      "淀",
+      "/Gate"
+     ],
+     "suppresses": [
+      "emann",
+      "洒",
+      "aman",
+      "φος",
+      "ubre",
+      "十二条",
+      "ء",
+      " Ses"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.445937395095825,
+     "watch_z": {
+      "<|im_end|>": 0.38,
+      "<|endoftext|>": -0.85,
+      "\\n": -1.39,
+      "¬": 0.83
+     },
+     "promotes": [
+      " Asal",
+      "这个道理",
+      " Econom",
+      "lif",
+      "合理",
+      "服务等",
+      " aray",
+      "島"
+     ],
+     "suppresses": [
+      "aldi",
+      "意图",
+      "口镇",
+      "axed",
+      "kening",
+      "claims",
+      " explor",
+      "汗"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.3773000240325928,
+     "watch_z": {
+      "<|im_end|>": 1.63,
+      "<|endoftext|>": -2.09,
+      "\\n": -0.71,
+      "¬": -3.9
+     },
+     "promotes": [
+      "ajib",
+      " спис",
+      "eman",
+      "avs",
+      "书院",
+      "一句",
+      "对这",
+      "ovn"
+     ],
+     "suppresses": [
+      " automat",
+      "懂得",
+      "otor",
+      "acking",
+      "illion",
+      "alt",
+      "¥",
+      "住"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.0927696228027344,
+     "watch_z": {
+      "<|im_end|>": -0.19,
+      "<|endoftext|>": 0.64,
+      "\\n": -0.63,
+      "¬": 0.1
+     },
+     "promotes": [
+      "Wins",
+      "勝",
+      "opo",
+      "éro",
+      " mou",
+      "到北京",
+      "istrar",
+      "供应信息"
+     ],
+     "suppresses": [
+      "-da",
+      "pra",
+      "parte",
+      "azer",
+      "abus",
+      "增值",
+      "特殊情况",
+      "orns"
+     ]
+    }
+   ],
+   "energy_share": 0.004360606801096379
+  },
+  {
+   "module": "layers.10.mlp.gate_proj",
+   "layer": 10,
+   "kind": "gate_proj",
+   "energy": 141.82239087746106,
+   "sv_top": [
+    4.0357,
+    3.4233,
+    2.9635,
+    2.8008,
+    2.6584,
+    2.5086,
+    2.3935,
+    2.2041
+   ],
+   "top4_share": 0.3147029307857523,
+   "rank90": 39,
+   "energy_share": 0.010273354051355942
+  },
+  {
+   "module": "layers.10.mlp.up_proj",
+   "layer": 10,
+   "kind": "up_proj",
+   "energy": 112.29307740187778,
+   "sv_top": [
+    3.1885,
+    2.6077,
+    2.3452,
+    2.1508,
+    2.09,
+    2.0644,
+    2.0115,
+    1.9924
+   ],
+   "top4_share": 0.241267204080516,
+   "rank90": 42,
+   "energy_share": 0.008134304706952632
+  },
+  {
+   "module": "layers.11.mlp.down_proj",
+   "layer": 11,
+   "kind": "down_proj",
+   "energy": 66.37476618991592,
+   "sv_top": [
+    3.2018,
+    2.5298,
+    2.4885,
+    2.1714,
+    1.9658,
+    1.8655,
+    1.6673,
+    1.5734
+   ],
+   "top4_share": 0.4152013438188269,
+   "rank90": 29,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.2017853260040283,
+     "watch_z": {
+      "<|im_end|>": 0.03,
+      "<|endoftext|>": 0.61,
+      "\\n": 0.59,
+      "¬": -0.86
+     },
+     "promotes": [
+      "同一",
+      "icum",
+      "év",
+      "ต้น",
+      " ent",
+      "양",
+      "qu",
+      " verd"
+     ],
+     "suppresses": [
+      "上述事实",
+      "intang",
+      "gend",
+      "瓶中",
+      "aint",
+      "到会",
+      " العهد",
+      "udiant"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.529784679412842,
+     "watch_z": {
+      "<|im_end|>": 0.09,
+      "<|endoftext|>": -0.15,
+      "\\n": -0.42,
+      "¬": -0.05
+     },
+     "promotes": [
+      "塘镇",
+      "ю",
+      "EQ",
+      "ilde",
+      "抛",
+      " avantage",
+      "¿",
+      " الصعيد"
+     ],
+     "suppresses": [
+      "icket",
+      "天籁",
+      " relent",
+      "لا",
+      "标杆",
+      "的问题是",
+      " Air",
+      "لم"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.4885177612304688,
+     "watch_z": {
+      "<|im_end|>": 0.8,
+      "<|endoftext|>": -0.51,
+      "\\n": 0.29,
+      "¬": 0.18
+     },
+     "promotes": [
+      "IVEN",
+      " (~(",
+      "IVAL",
+      "oons",
+      "»",
+      "舍",
+      "edas",
+      ".call"
+     ],
+     "suppresses": [
+      "yer",
+      " egz",
+      "เทศ",
+      "errupt",
+      "jed",
+      " Ware",
+      "isper",
+      "计分"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.17138934135437,
+     "watch_z": {
+      "<|im_end|>": -0.93,
+      "<|endoftext|>": -2.22,
+      "\\n": -2.22,
+      "¬": 0.29
+     },
+     "promotes": [
+      "旦",
+      " %+",
+      "猜你喜欢",
+      "断桥",
+      "当场",
+      "strup",
+      "arkan",
+      "掉的"
+     ],
+     "suppresses": [
+      "ayah",
+      "sphere",
+      "est",
+      " Stem",
+      " Guer",
+      " Tob",
+      " stems",
+      "而立"
+     ]
+    }
+   ],
+   "energy_share": 0.00480806640563655
+  },
+  {
+   "module": "layers.11.mlp.gate_proj",
+   "layer": 11,
+   "kind": "gate_proj",
+   "energy": 170.78782083369805,
+   "sv_top": [
+    5.3938,
+    3.7093,
+    3.0697,
+    2.851,
+    2.8367,
+    2.6139,
+    2.3614,
+    2.2931
+   ],
+   "top4_share": 0.3536693666770912,
+   "rank90": 38,
+   "energy_share": 0.012371556707150157
+  },
+  {
+   "module": "layers.11.mlp.up_proj",
+   "layer": 11,
+   "kind": "up_proj",
+   "energy": 103.66416354485753,
+   "sv_top": [
+    3.0836,
+    2.3654,
+    2.2755,
+    2.2131,
+    2.1389,
+    1.9697,
+    1.9126,
+    1.81
+   ],
+   "top4_share": 0.24289449555144024,
+   "rank90": 43,
+   "energy_share": 0.007509242002937051
+  },
+  {
+   "module": "layers.11.self_attn.k_proj",
+   "layer": 11,
+   "kind": "k_proj",
+   "energy": 11.063078440798243,
+   "sv_top": [
+    1.198,
+    1.112,
+    0.997,
+    0.9129,
+    0.8117,
+    0.7691,
+    0.6749,
+    0.6122
+   ],
+   "top4_share": 0.4066928568495425,
+   "rank90": 29,
+   "energy_share": 0.0008013891249262931
+  },
+  {
+   "module": "layers.11.self_attn.o_proj",
+   "layer": 11,
+   "kind": "o_proj",
+   "energy": 19.495927562862235,
+   "sv_top": [
+    1.4765,
+    1.3167,
+    1.1993,
+    1.1353,
+    1.0302,
+    0.9387,
+    0.9132,
+    0.8648
+   ],
+   "top4_share": 0.34063874647689424,
+   "rank90": 34,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 1.476493239402771,
+     "watch_z": {
+      "<|im_end|>": 0.28,
+      "<|endoftext|>": 3.12,
+      "\\n": 3.28,
+      "¬": -0.1
+     },
+     "promotes": [
+      "ally",
+      "ow",
+      "朔",
+      "ong",
+      "不免",
+      "res",
+      "ish",
+      "左"
+     ],
+     "suppresses": [
+      "ancode",
+      "ané",
+      "就在这",
+      "ç³",
+      "ekut",
+      "格格",
+      "asuk",
+      ".firebaseio"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.316686749458313,
+     "watch_z": {
+      "<|im_end|>": -0.84,
+      "<|endoftext|>": -0.49,
+      "\\n": 0.59,
+      "¬": 0.4
+     },
+     "promotes": [
+      "ñas",
+      "ding",
+      "länd",
+      "案件适用法律",
+      " kicking",
+      "teras",
+      "ие",
+      "bose"
+     ],
+     "suppresses": [
+      "ummer",
+      " wali",
+      "中环",
+      " Plan",
+      "冲",
+      "IMP",
+      "ezi",
+      "无故"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.1993330717086792,
+     "watch_z": {
+      "<|im_end|>": -0.33,
+      "<|endoftext|>": -0.41,
+      "\\n": 0.19,
+      "¬": -1.72
+     },
+     "promotes": [
+      "iée",
+      ".tw",
+      "pa",
+      "perse",
+      "ama",
+      "pers",
+      "ska",
+      " pers"
+     ],
+     "suppresses": [
+      "endon",
+      "ću",
+      "orton",
+      "acz",
+      "ropy",
+      "ctions",
+      "cción",
+      "ardini"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.1353291273117065,
+     "watch_z": {
+      "<|im_end|>": 0.26,
+      "<|endoftext|>": 0.65,
+      "\\n": -0.02,
+      "¬": 2.17
+     },
+     "promotes": [
+      "odore",
+      "pur",
+      "bound",
+      "roso",
+      "西斯",
+      "和林",
+      "rot",
+      "pu"
+     ],
+     "suppresses": [
+      " Beet",
+      "جب",
+      " Beij",
+      "elos",
+      "الات",
+      "ezi",
+      "enner",
+      " Toil"
+     ]
+    }
+   ],
+   "energy_share": 0.0014122492589053038
+  },
+  {
+   "module": "layers.11.self_attn.q_proj",
+   "layer": 11,
+   "kind": "q_proj",
+   "energy": 103.49668884228952,
+   "sv_top": [
+    3.387,
+    2.8862,
+    2.4939,
+    2.3249,
+    2.2506,
+    2.1506,
+    2.0937,
+    1.919
+   ],
+   "top4_share": 0.3036511596216533,
+   "rank90": 37,
+   "energy_share": 0.007497110442444509
+  },
+  {
+   "module": "layers.11.self_attn.v_proj",
+   "layer": 11,
+   "kind": "v_proj",
+   "energy": 8.067787802100211,
+   "sv_top": [
+    0.9392,
+    0.8039,
+    0.7751,
+    0.7372,
+    0.6336,
+    0.6245,
+    0.6068,
+    0.5669
+   ],
+   "top4_share": 0.3312766785331499,
+   "rank90": 33,
+   "energy_share": 0.000584415761075414
+  },
+  {
+   "module": "layers.12.mlp.down_proj",
+   "layer": 12,
+   "kind": "down_proj",
+   "energy": 64.45386216010785,
+   "sv_top": [
+    2.8044,
+    2.583,
+    2.3816,
+    2.191,
+    2.0071,
+    1.8281,
+    1.6098,
+    1.5353
+   ],
+   "top4_share": 0.3880190076136053,
+   "rank90": 28,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.8044443130493164,
+     "watch_z": {
+      "<|im_end|>": -1.09,
+      "<|endoftext|>": 0.1,
+      "\\n": -0.06,
+      "¬": 0.35
+     },
+     "promotes": [
+      "embali",
+      "жели",
+      "ardo",
+      "ضاء",
+      "edback",
+      "方舟",
+      " Descub",
+      "ół"
+     ],
+     "suppresses": [
+      "stry",
+      "acos",
+      "那道",
+      "而行",
+      "usc",
+      "voj",
+      "ingin",
+      "mh"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.582979202270508,
+     "watch_z": {
+      "<|im_end|>": 0.91,
+      "<|endoftext|>": 0.24,
+      "\\n": -0.43,
+      "¬": -1.16
+     },
+     "promotes": [
+      "illed",
+      "osphere",
+      "egger",
+      "itations",
+      "anh",
+      "比亚",
+      "ationen",
+      "rawer"
+     ],
+     "suppresses": [
+      " faces",
+      "iot",
+      "o",
+      "而复",
+      "astian",
+      " embarrass",
+      "odin",
+      "iday"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.381584405899048,
+     "watch_z": {
+      "<|im_end|>": 0.01,
+      "<|endoftext|>": 2.17,
+      "\\n": 2.33,
+      "¬": 1.19
+     },
+     "promotes": [
+      "Vi",
+      "S",
+      "公",
+      " V",
+      "V",
+      "单",
+      "以上",
+      "尽"
+     ],
+     "suppresses": [
+      "hout",
+      "ght",
+      " lux",
+      " mano",
+      " احت",
+      "合同时",
+      "悯",
+      " Sinatra"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.1910476684570312,
+     "watch_z": {
+      "<|im_end|>": 0.01,
+      "<|endoftext|>": -1.25,
+      "\\n": -0.54,
+      "¬": -1.9
+     },
+     "promotes": [
+      "刹",
+      "ustru",
+      "есь",
+      " incontourn",
+      "仆",
+      "кен",
+      "estin",
+      "冶"
+     ],
+     "suppresses": [
+      "ypo",
+      "cod",
+      "人机",
+      "ively",
+      "ally",
+      "基数",
+      "指纹",
+      "流"
+     ]
+    }
+   ],
+   "energy_share": 0.004668919638509027
+  },
+  {
+   "module": "layers.12.mlp.gate_proj",
+   "layer": 12,
+   "kind": "gate_proj",
+   "energy": 157.72733345380374,
+   "sv_top": [
+    4.7222,
+    3.5725,
+    3.0467,
+    2.9071,
+    2.5282,
+    2.4697,
+    2.4156,
+    2.1924
+   ],
+   "top4_share": 0.33472383768026137,
+   "rank90": 39,
+   "energy_share": 0.011425478939692042
+  },
+  {
+   "module": "layers.12.mlp.up_proj",
+   "layer": 12,
+   "kind": "up_proj",
+   "energy": 103.71491486176103,
+   "sv_top": [
+    3.303,
+    2.5666,
+    2.3124,
+    2.1474,
+    2.1243,
+    2.0509,
+    1.9024,
+    1.8585
+   ],
+   "top4_share": 0.26472909204672657,
+   "rank90": 42,
+   "energy_share": 0.0075129183353123295
+  },
+  {
+   "module": "layers.13.mlp.down_proj",
+   "layer": 13,
+   "kind": "down_proj",
+   "energy": 62.471520708857696,
+   "sv_top": [
+    2.99,
+    2.4023,
+    2.275,
+    1.9851,
+    1.9161,
+    1.6952,
+    1.5759,
+    1.5526
+   ],
+   "top4_share": 0.38141941527678974,
+   "rank90": 29,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.989994525909424,
+     "watch_z": {
+      "<|im_end|>": -1.44,
+      "<|endoftext|>": -0.53,
+      "\\n": 1.39,
+      "¬": 0.97
+     },
+     "promotes": [
+      "ọt",
+      "taki",
+      "ĳĺ",
+      "لد",
+      "ovich",
+      " sustained",
+      "rada",
+      "irmed"
+     ],
+     "suppresses": [
+      "å",
+      "lips",
+      "entifier",
+      "ésie",
+      "mental",
+      "正值",
+      "随行",
+      "pty"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.4023385047912598,
+     "watch_z": {
+      "<|im_end|>": -0.46,
+      "<|endoftext|>": -1.83,
+      "\\n": -2.06,
+      "¬": -0.93
+     },
+     "promotes": [
+      " rien",
+      "orias",
+      "忱",
+      "两级",
+      " prim",
+      " apel",
+      "三期",
+      "年夜"
+     ],
+     "suppresses": [
+      "lead",
+      "umd",
+      "責",
+      ".or",
+      " مقد",
+      "oard",
+      "映",
+      "ъ"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.2750401496887207,
+     "watch_z": {
+      "<|im_end|>": 1.72,
+      "<|endoftext|>": 0.8,
+      "\\n": 1.87,
+      "¬": 0.57
+     },
+     "promotes": [
+      "iment",
+      " ​​",
+      "段的",
+      " extern",
+      "aal",
+      " continuum",
+      "ieger",
+      "ape"
+     ],
+     "suppresses": [
+      "stor",
+      "历",
+      "척",
+      "רון",
+      "weichen",
+      "比起",
+      " esp",
+      " рас"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.9851311445236206,
+     "watch_z": {
+      "<|im_end|>": 0.88,
+      "<|endoftext|>": 1.49,
+      "\\n": 2.06,
+      "¬": -0.24
+     },
+     "promotes": [
+      "assen",
+      "ernal",
+      " sani",
+      "ux",
+      "襄",
+      "arium",
+      "ook",
+      "erate"
+     ],
+     "suppresses": [
+      "jun",
+      "其二",
+      "ourse",
+      " Insomma",
+      "ёд",
+      "andat",
+      "дна",
+      "zio"
+     ]
+    }
+   ],
+   "energy_share": 0.004525322457179826
+  },
+  {
+   "module": "layers.13.mlp.gate_proj",
+   "layer": 13,
+   "kind": "gate_proj",
+   "energy": 148.80741600401404,
+   "sv_top": [
+    4.2012,
+    3.3003,
+    3.1251,
+    2.9524,
+    2.5875,
+    2.4969,
+    2.3351,
+    2.2422
+   ],
+   "top4_share": 0.3160153038416094,
+   "rank90": 39,
+   "energy_share": 0.010779336468791695
+  },
+  {
+   "module": "layers.13.mlp.up_proj",
+   "layer": 13,
+   "kind": "up_proj",
+   "energy": 101.06193759738025,
+   "sv_top": [
+    2.981,
+    2.3853,
+    2.194,
+    2.0739,
+    1.9887,
+    1.956,
+    1.8646,
+    1.837
+   ],
+   "top4_share": 0.23441969322482867,
+   "rank90": 43,
+   "energy_share": 0.007320741524876728
+  },
+  {
+   "module": "layers.14.mlp.down_proj",
+   "layer": 14,
+   "kind": "down_proj",
+   "energy": 50.41392106711915,
+   "sv_top": [
+    2.2877,
+    2.1902,
+    2.001,
+    1.7951,
+    1.647,
+    1.6089,
+    1.4443,
+    1.3759
+   ],
+   "top4_share": 0.34229902541983426,
+   "rank90": 31,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.287719964981079,
+     "watch_z": {
+      "<|im_end|>": -0.2,
+      "<|endoftext|>": 1.43,
+      "\\n": 1.75,
+      "¬": 0.19
+     },
+     "promotes": [
+      "inton",
+      " meres",
+      "低于",
+      "ss",
+      "weis",
+      "身体",
+      "明",
+      "青龙"
+     ],
+     "suppresses": [
+      "AVING",
+      "anty",
+      "azole",
+      "你给我",
+      "(IM",
+      " casse",
+      " obsta",
+      ",GL"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.190183639526367,
+     "watch_z": {
+      "<|im_end|>": 1.92,
+      "<|endoftext|>": 1.88,
+      "\\n": 1.84,
+      "¬": 0.61
+     },
+     "promotes": [
+      "速",
+      "yre",
+      "ypy",
+      " wil",
+      "依法追究",
+      "íg",
+      " re",
+      " pant"
+     ],
+     "suppresses": [
+      "udiant",
+      "往届",
+      "卧",
+      "Ưu",
+      "ogat",
+      "ĵ¨",
+      "SIDE",
+      " Soyez"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.0009610652923584,
+     "watch_z": {
+      "<|im_end|>": -2.67,
+      "<|endoftext|>": -2.78,
+      "\\n": -3.2,
+      "¬": 0.33
+     },
+     "promotes": [
+      "оро",
+      "rž",
+      "生物学",
+      "騰",
+      "职",
+      "olist",
+      "ertain",
+      "oard"
+     ],
+     "suppresses": [
+      "chia",
+      " Av",
+      " impair",
+      "/h",
+      "-pr",
+      "/s",
+      "leave",
+      " Derby"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7950553894042969,
+     "watch_z": {
+      "<|im_end|>": 0.93,
+      "<|endoftext|>": -0.2,
+      "\\n": -1.28,
+      "¬": -0.54
+     },
+     "promotes": [
+      "乏",
+      "apo",
+      " dummy",
+      "Dummy",
+      "قاب",
+      "leness",
+      " competing",
+      "土石"
+     ],
+     "suppresses": [
+      "bourg",
+      "伏",
+      "klad",
+      "的行",
+      "以下",
+      "urger",
+      "起身",
+      " row"
+     ]
+    }
+   ],
+   "energy_share": 0.0036518920392981254
+  },
+  {
+   "module": "layers.14.mlp.gate_proj",
+   "layer": 14,
+   "kind": "gate_proj",
+   "energy": 131.88136685140336,
+   "sv_top": [
+    4.4088,
+    2.8244,
+    2.5994,
+    2.4798,
+    2.3264,
+    2.2478,
+    2.1031,
+    2.044
+   ],
+   "top4_share": 0.3057391581459029,
+   "rank90": 40,
+   "energy_share": 0.009553244491639324
+  },
+  {
+   "module": "layers.14.mlp.up_proj",
+   "layer": 14,
+   "kind": "up_proj",
+   "energy": 102.49324845474654,
+   "sv_top": [
+    2.9174,
+    2.3677,
+    2.2819,
+    2.039,
+    2.0106,
+    1.9058,
+    1.8592,
+    1.7875
+   ],
+   "top4_share": 0.22910215012160376,
+   "rank90": 44,
+   "energy_share": 0.0074244230599594275
+  },
+  {
+   "module": "layers.15.mlp.down_proj",
+   "layer": 15,
+   "kind": "down_proj",
+   "energy": 57.151620907154665,
+   "sv_top": [
+    2.6135,
+    2.4034,
+    2.246,
+    1.8273,
+    1.7956,
+    1.7666,
+    1.5336,
+    1.5065
+   ],
+   "top4_share": 0.3672626322082691,
+   "rank90": 30,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.613483428955078,
+     "watch_z": {
+      "<|im_end|>": 0.43,
+      "<|endoftext|>": 0.92,
+      "\\n": 2.24,
+      "¬": 1.66
+     },
+     "promotes": [
+      "give",
+      " giving",
+      "loch",
+      "给了",
+      "给出",
+      "给出了",
+      "Ĵ",
+      " give"
+     ],
+     "suppresses": [
+      "èĮ",
+      "uar",
+      "工矿",
+      "adio",
+      "梓",
+      " Toujours",
+      "砂",
+      "abit"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.4033501148223877,
+     "watch_z": {
+      "<|im_end|>": -0.38,
+      "<|endoftext|>": 0.04,
+      "\\n": 0.13,
+      "¬": 0.65
+     },
+     "promotes": [
+      "ASK",
+      "p",
+      "你是不是",
+      "ac",
+      "拍打",
+      "asin",
+      "侮",
+      "동"
+     ],
+     "suppresses": [
+      "cape",
+      "eness",
+      "здо",
+      "istem",
+      "umba",
+      "蒸蒸",
+      "老实",
+      "mband"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.2459771633148193,
+     "watch_z": {
+      "<|im_end|>": 0.26,
+      "<|endoftext|>": 0.09,
+      "\\n": 0.7,
+      "¬": 0.52
+     },
+     "promotes": [
+      "olon",
+      "有的是",
+      "rips",
+      "astic",
+      "azi",
+      " reap",
+      "гур",
+      "鑽"
+     ],
+     "suppresses": [
+      "ever",
+      "enu",
+      "ether",
+      "anti",
+      "默",
+      " Kaip",
+      "ień",
+      "odia"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.8272531032562256,
+     "watch_z": {
+      "<|im_end|>": -1.4,
+      "<|endoftext|>": -2.18,
+      "\\n": -2.16,
+      "¬": 0.0
+     },
+     "promotes": [
+      "rink",
+      "当心",
+      ">w",
+      "stry",
+      "&type",
+      "限期",
+      "提醒自己",
+      "zzo"
+     ],
+     "suppresses": [
+      "항",
+      "碼",
+      "对讲",
+      "码",
+      "iaux",
+      "显",
+      " settling",
+      "oden"
+     ]
+    }
+   ],
+   "energy_share": 0.004139958666296794
+  },
+  {
+   "module": "layers.15.mlp.gate_proj",
+   "layer": 15,
+   "kind": "gate_proj",
+   "energy": 149.21774563947915,
+   "sv_top": [
+    4.3854,
+    2.9059,
+    2.8163,
+    2.7095,
+    2.5293,
+    2.455,
+    2.3762,
+    2.2692
+   ],
+   "top4_share": 0.2878304845295842,
+   "rank90": 40,
+   "energy_share": 0.010809059995498695
+  },
+  {
+   "module": "layers.15.mlp.up_proj",
+   "layer": 15,
+   "kind": "up_proj",
+   "energy": 105.82271787993993,
+   "sv_top": [
+    3.0429,
+    2.5639,
+    2.3877,
+    2.1688,
+    2.0903,
+    2.0015,
+    1.8683,
+    1.844
+   ],
+   "top4_share": 0.24794288781113513,
+   "rank90": 43,
+   "energy_share": 0.007665603722593513
+  },
+  {
+   "module": "layers.15.self_attn.k_proj",
+   "layer": 15,
+   "kind": "k_proj",
+   "energy": 9.843626690152629,
+   "sv_top": [
+    1.041,
+    0.9565,
+    0.8205,
+    0.7947,
+    0.7682,
+    0.6797,
+    0.6551,
+    0.6481
+   ],
+   "top4_share": 0.3355858778185999,
+   "rank90": 32,
+   "energy_share": 0.0007130542752215473
+  },
+  {
+   "module": "layers.15.self_attn.o_proj",
+   "layer": 15,
+   "kind": "o_proj",
+   "energy": 19.420876666877316,
+   "sv_top": [
+    1.4093,
+    1.0793,
+    0.9845,
+    0.9784,
+    0.9404,
+    0.8996,
+    0.8845,
+    0.8358
+   ],
+   "top4_share": 0.26144757370826605,
+   "rank90": 37,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 1.4092819690704346,
+     "watch_z": {
+      "<|im_end|>": -1.36,
+      "<|endoftext|>": -1.51,
+      "\\n": -1.69,
+      "¬": -1.04
+     },
+     "promotes": [
+      "anja",
+      "roduced",
+      "ynu",
+      "中山",
+      " المض",
+      "数控机床",
+      "十倍",
+      "ряду"
+     ],
+     "suppresses": [
+      "坚持",
+      "ach",
+      "失",
+      "ivil",
+      " SO",
+      "bound",
+      "ful",
+      "im"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.0792773962020874,
+     "watch_z": {
+      "<|im_end|>": -0.09,
+      "<|endoftext|>": 1.14,
+      "\\n": 1.95,
+      "¬": -0.86
+     },
+     "promotes": [
+      "æħ",
+      "cec",
+      "rent",
+      "زند",
+      "幡",
+      " peg",
+      "ogan",
+      "ilat"
+     ],
+     "suppresses": [
+      " .**",
+      "强者",
+      "onato",
+      "亿人",
+      "olla",
+      "apol",
+      "bage",
+      " ema"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 0.9845167994499207,
+     "watch_z": {
+      "<|im_end|>": 0.31,
+      "<|endoftext|>": 1.03,
+      "\\n": -0.65,
+      "¬": 0.26
+     },
+     "promotes": [
+      "照",
+      "葉",
+      "叶",
+      "PC",
+      "快",
+      "ฤษ",
+      "YT",
+      "四个字"
+     ],
+     "suppresses": [
+      " Cib",
+      "骏",
+      "orough",
+      "иск",
+      "시길",
+      "我不知道",
+      " orderby",
+      "feh"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 0.9784438610076904,
+     "watch_z": {
+      "<|im_end|>": 0.22,
+      "<|endoftext|>": 0.51,
+      "\\n": 0.43,
+      "¬": -1.87
+     },
+     "promotes": [
+      " مش",
+      "zeg",
+      "شت",
+      "浦",
+      "ắt",
+      " gegr",
+      "anc",
+      "æ½"
+     ],
+     "suppresses": [
+      " sponsoring",
+      "olls",
+      " Figu",
+      "速",
+      "alisée",
+      "把一个",
+      "爆",
+      " adopt"
+     ]
+    }
+   ],
+   "energy_share": 0.0014068127095596455
+  },
+  {
+   "module": "layers.15.self_attn.q_proj",
+   "layer": 15,
+   "kind": "q_proj",
+   "energy": 108.24539908978547,
+   "sv_top": [
+    3.0375,
+    2.7743,
+    2.5077,
+    2.4021,
+    2.2328,
+    2.1649,
+    1.9916,
+    1.9515
+   ],
+   "top4_share": 0.26774239493346697,
+   "rank90": 39,
+   "energy_share": 0.007841098308944236
+  },
+  {
+   "module": "layers.15.self_attn.v_proj",
+   "layer": 15,
+   "kind": "v_proj",
+   "energy": 7.41177478965715,
+   "sv_top": [
+    0.8797,
+    0.8154,
+    0.6912,
+    0.6173,
+    0.5948,
+    0.5853,
+    0.5561,
+    0.5443
+   ],
+   "top4_share": 0.3099964357634018,
+   "rank90": 35,
+   "energy_share": 0.000536895380848943
+  },
+  {
+   "module": "layers.16.mlp.down_proj",
+   "layer": 16,
+   "kind": "down_proj",
+   "energy": 53.97139003900748,
+   "sv_top": [
+    2.4456,
+    2.3558,
+    2.0142,
+    1.8531,
+    1.7985,
+    1.6272,
+    1.5569,
+    1.4255
+   ],
+   "top4_share": 0.35243970830196414,
+   "rank90": 31,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.4455697536468506,
+     "watch_z": {
+      "<|im_end|>": -0.64,
+      "<|endoftext|>": -0.7,
+      "\\n": 1.43,
+      "¬": 0.73
+     },
+     "promotes": [
+      "held",
+      "ën",
+      "姓",
+      "unused",
+      "看到这个",
+      "uit",
+      "档",
+      "enic"
+     ],
+     "suppresses": [
+      "禄",
+      "чес",
+      "izion",
+      " себе",
+      "envir",
+      "ngo",
+      "ills",
+      "万古"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.3557841777801514,
+     "watch_z": {
+      "<|im_end|>": 0.75,
+      "<|endoftext|>": 1.13,
+      "\\n": -1.36,
+      "¬": -0.38
+     },
+     "promotes": [
+      "ain",
+      "昔",
+      " None",
+      "发挥出",
+      "かさ",
+      "ùng",
+      " ex",
+      " dips"
+     ],
+     "suppresses": [
+      "able",
+      "opat",
+      "schließ",
+      "erings",
+      "不讲",
+      "講",
+      "imizer",
+      "鶴"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.0142033100128174,
+     "watch_z": {
+      "<|im_end|>": -0.36,
+      "<|endoftext|>": -0.55,
+      "\\n": -0.9,
+      "¬": 0.29
+     },
+     "promotes": [
+      "شو",
+      " соло",
+      "赡",
+      "افی",
+      " ((!",
+      "Carousel",
+      "maal",
+      "оре"
+     ],
+     "suppresses": [
+      "良",
+      "健",
+      "aphael",
+      "़",
+      "柏",
+      " report",
+      " настоя",
+      " Berl"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.853136658668518,
+     "watch_z": {
+      "<|im_end|>": 1.69,
+      "<|endoftext|>": 2.82,
+      "\\n": 3.46,
+      "¬": 0.49
+     },
+     "promotes": [
+      "sp",
+      "oph",
+      " top",
+      " e",
+      "ême",
+      "敌",
+      "eno",
+      " Ph"
+     ],
+     "suppresses": [
+      "لان",
+      "edly",
+      "городе",
+      "orada",
+      "cich",
+      " nutris",
+      "urement",
+      "ровна"
+     ]
+    }
+   ],
+   "energy_share": 0.003909588571198367
+  },
+  {
+   "module": "layers.16.mlp.gate_proj",
+   "layer": 16,
+   "kind": "gate_proj",
+   "energy": 152.80856804254458,
+   "sv_top": [
+    4.3531,
+    3.0404,
+    2.9201,
+    2.798,
+    2.6644,
+    2.4629,
+    2.382,
+    2.2483
+   ],
+   "top4_share": 0.2915309806804584,
+   "rank90": 41,
+   "energy_share": 0.011069172588820479
+  },
+  {
+   "module": "layers.16.mlp.up_proj",
+   "layer": 16,
+   "kind": "up_proj",
+   "energy": 106.67650058484284,
+   "sv_top": [
+    3.0919,
+    2.4734,
+    2.2619,
+    2.2069,
+    2.0798,
+    1.9701,
+    1.8733,
+    1.8202
+   ],
+   "top4_share": 0.24057787865622926,
+   "rank90": 43,
+   "energy_share": 0.007727450176853126
+  },
+  {
+   "module": "layers.17.mlp.down_proj",
+   "layer": 17,
+   "kind": "down_proj",
+   "energy": 49.26881254602202,
+   "sv_top": [
+    2.1836,
+    2.1148,
+    1.9568,
+    1.7709,
+    1.6392,
+    1.569,
+    1.4889,
+    1.3749
+   ],
+   "top4_share": 0.32892457867233443,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.1835873126983643,
+     "watch_z": {
+      "<|im_end|>": 0.99,
+      "<|endoftext|>": 0.69,
+      "\\n": 0.01,
+      "¬": -0.6
+     },
+     "promotes": [
+      "aland",
+      "alic",
+      " fir",
+      "ptic",
+      "规划和",
+      "实体",
+      " pund",
+      "alt"
+     ],
+     "suppresses": [
+      "okon",
+      "沙河",
+      "uya",
+      "南湖",
+      " Morph",
+      "茉莉",
+      "哪些问题",
+      " partagé"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.114781618118286,
+     "watch_z": {
+      "<|im_end|>": -0.27,
+      "<|endoftext|>": 0.45,
+      "\\n": -1.0,
+      "¬": -0.09
+     },
+     "promotes": [
+      "ackle",
+      "issan",
+      "unen",
+      "ané",
+      "SSF",
+      "ൽ",
+      "cline",
+      " แสน"
+     ],
+     "suppresses": [
+      " Gord",
+      "verst",
+      "hr",
+      "loader",
+      "illos",
+      "所指",
+      "irt",
+      " congr"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9568164348602295,
+     "watch_z": {
+      "<|im_end|>": -1.32,
+      "<|endoftext|>": 0.17,
+      "\\n": -1.9,
+      "¬": 0.17
+     },
+     "promotes": [
+      "分许",
+      "守",
+      "乳",
+      "费",
+      "воде",
+      "理会",
+      "合",
+      "背"
+     ],
+     "suppresses": [
+      "挺好的",
+      "风貌",
+      "巡回",
+      "či",
+      "结对",
+      " simul",
+      "esy",
+      "aste"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7709426879882812,
+     "watch_z": {
+      "<|im_end|>": 1.05,
+      "<|endoftext|>": 1.0,
+      "\\n": 1.45,
+      "¬": 1.39
+     },
+     "promotes": [
+      "++",
+      ")",
+      " oppress",
+      "æ¿",
+      "zy",
+      " application",
+      "زد",
+      "لي"
+     ],
+     "suppresses": [
+      "ianto",
+      " درب",
+      "GINE",
+      "羹",
+      " درا",
+      " Resta",
+      "ambo",
+      "envir"
+     ]
+    }
+   ],
+   "energy_share": 0.0035689424768794525
+  },
+  {
+   "module": "layers.17.mlp.gate_proj",
+   "layer": 17,
+   "kind": "gate_proj",
+   "energy": 158.28183209825542,
+   "sv_top": [
+    5.0801,
+    3.2742,
+    2.9896,
+    2.6319,
+    2.6118,
+    2.5632,
+    2.3545,
+    2.2126
+   ],
+   "top4_share": 0.3310082484653492,
+   "rank90": 39,
+   "energy_share": 0.011465645805165146
+  },
+  {
+   "module": "layers.17.mlp.up_proj",
+   "layer": 17,
+   "kind": "up_proj",
+   "energy": 96.02025991587792,
+   "sv_top": [
+    3.4631,
+    2.2602,
+    2.0599,
+    1.9817,
+    1.9145,
+    1.8138,
+    1.7505,
+    1.6792
+   ],
+   "top4_share": 0.2631938460443135,
+   "rank90": 43,
+   "energy_share": 0.006955531634432523
+  },
+  {
+   "module": "layers.18.mlp.down_proj",
+   "layer": 18,
+   "kind": "down_proj",
+   "energy": 41.00407265101599,
+   "sv_top": [
+    1.8176,
+    1.6806,
+    1.6187,
+    1.5755,
+    1.4458,
+    1.408,
+    1.3444,
+    1.2976
+   ],
+   "top4_share": 0.27388722481105365,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 1.8176441192626953,
+     "watch_z": {
+      "<|im_end|>": 0.43,
+      "<|endoftext|>": 0.77,
+      "\\n": 1.21,
+      "¬": 0.62
+     },
+     "promotes": [
+      "ul",
+      "W",
+      "ap",
+      "un",
+      "ß",
+      "am",
+      "w",
+      " W"
+     ],
+     "suppresses": [
+      "ories",
+      "inston",
+      "IBA",
+      "loff",
+      "é¨",
+      "icipal",
+      " lavorativi",
+      "itzar"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.6805527210235596,
+     "watch_z": {
+      "<|im_end|>": -0.66,
+      "<|endoftext|>": 1.42,
+      "\\n": -0.47,
+      "¬": -1.36
+     },
+     "promotes": [
+      "ontos",
+      "过程的",
+      "irman",
+      "uticos",
+      "etet",
+      "大队",
+      "援",
+      "将来的"
+     ],
+     "suppresses": [
+      "erna",
+      "ts",
+      "oeff",
+      "verts",
+      "ern",
+      "oot",
+      "į",
+      "plus"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.6186621189117432,
+     "watch_z": {
+      "<|im_end|>": -0.63,
+      "<|endoftext|>": -0.48,
+      "\\n": 0.47,
+      "¬": 0.6
+     },
+     "promotes": [
+      " perfect",
+      "eya",
+      "ullet",
+      "UY",
+      "ound",
+      " prototype",
+      "agul",
+      " participant"
+     ],
+     "suppresses": [
+      "apor",
+      "orce",
+      "ռ",
+      "卢",
+      "-indent",
+      ":index",
+      "redit",
+      " an"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.5755434036254883,
+     "watch_z": {
+      "<|im_end|>": -0.01,
+      "<|endoftext|>": -1.06,
+      "\\n": -1.84,
+      "¬": -0.8
+     },
+     "promotes": [
+      "اردة",
+      " Carey",
+      "pras",
+      "στα",
+      "иков",
+      "ាល",
+      "LOGGER",
+      " фору"
+     ],
+     "suppresses": [
+      "weet",
+      " retain",
+      " keep",
+      "enant",
+      "iac",
+      "琥珀",
+      "R",
+      "含"
+     ]
+    }
+   ],
+   "energy_share": 0.002970259867184026
+  },
+  {
+   "module": "layers.18.mlp.gate_proj",
+   "layer": 18,
+   "kind": "gate_proj",
+   "energy": 137.8806837040366,
+   "sv_top": [
+    4.2634,
+    3.0175,
+    2.6822,
+    2.4778,
+    2.3372,
+    2.2457,
+    2.1617,
+    2.0185
+   ],
+   "top4_share": 0.2945728540600871,
+   "rank90": 41,
+   "energy_share": 0.009987824008399978
+  },
+  {
+   "module": "layers.18.mlp.up_proj",
+   "layer": 18,
+   "kind": "up_proj",
+   "energy": 98.30185004361743,
+   "sv_top": [
+    3.0177,
+    2.0953,
+    2.0663,
+    1.9845,
+    1.9388,
+    1.8566,
+    1.7871,
+    1.7409
+   ],
+   "top4_share": 0.22079235715235104,
+   "rank90": 45,
+   "energy_share": 0.007120805841398891
+  },
+  {
+   "module": "layers.19.mlp.down_proj",
+   "layer": 19,
+   "kind": "down_proj",
+   "energy": 51.97926310674993,
+   "sv_top": [
+    2.3546,
+    2.0222,
+    1.9381,
+    1.7277,
+    1.6656,
+    1.6029,
+    1.5637,
+    1.5238
+   ],
+   "top4_share": 0.3150220738029981,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.3545875549316406,
+     "watch_z": {
+      "<|im_end|>": -1.03,
+      "<|endoftext|>": -0.12,
+      "\\n": -0.8,
+      "¬": -0.76
+     },
+     "promotes": [
+      "有时间",
+      " underside",
+      "неж",
+      "再生",
+      "ugin",
+      "kın",
+      "记忆力",
+      " Rowe"
+     ],
+     "suppresses": [
+      "oly",
+      "标准",
+      "stadt",
+      "fo",
+      "oi",
+      "oes",
+      "fts",
+      "aces"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.02219295501709,
+     "watch_z": {
+      "<|im_end|>": 0.69,
+      "<|endoftext|>": 0.2,
+      "\\n": 0.17,
+      "¬": -0.28
+     },
+     "promotes": [
+      "惮",
+      "ogens",
+      "ash",
+      "ernt",
+      "邵",
+      "시길",
+      " verdade",
+      "ole"
+     ],
+     "suppresses": [
+      " determined",
+      "iten",
+      "åĨ",
+      "确定",
+      " repeated",
+      "飞扬",
+      " cam",
+      " Cam"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9380944967269897,
+     "watch_z": {
+      "<|im_end|>": 0.75,
+      "<|endoftext|>": -0.55,
+      "\\n": -0.98,
+      "¬": -0.22
+     },
+     "promotes": [
+      "-related",
+      " unrelated",
+      "PFN",
+      "odash",
+      "amment",
+      "ustu",
+      "ocre",
+      " such"
+     ],
+     "suppresses": [
+      "免",
+      "变相",
+      "件",
+      "rit",
+      "arme",
+      "ro",
+      " convict",
+      "umbing"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7277320623397827,
+     "watch_z": {
+      "<|im_end|>": -0.71,
+      "<|endoftext|>": 0.15,
+      "\\n": 0.61,
+      "¬": 0.98
+     },
+     "promotes": [
+      "aton",
+      "elt",
+      " sino",
+      " gesch",
+      "岗",
+      " kad",
+      "ief",
+      "ature"
+     ],
+     "suppresses": [
+      "amas",
+      " Diante",
+      "不远",
+      "hares",
+      "城外",
+      "erecht",
+      "الب",
+      " teb"
+     ]
+    }
+   ],
+   "energy_share": 0.003765282547560629
+  },
+  {
+   "module": "layers.19.mlp.gate_proj",
+   "layer": 19,
+   "kind": "gate_proj",
+   "energy": 186.90735073927704,
+   "sv_top": [
+    5.4566,
+    3.6295,
+    3.2584,
+    2.9629,
+    2.8632,
+    2.7762,
+    2.6369,
+    2.4138
+   ],
+   "top4_share": 0.33355801592083195,
+   "rank90": 38,
+   "energy_share": 0.01353922590830273
+  },
+  {
+   "module": "layers.19.mlp.up_proj",
+   "layer": 19,
+   "kind": "up_proj",
+   "energy": 107.26751331366395,
+   "sv_top": [
+    3.2674,
+    2.3711,
+    2.1246,
+    2.0609,
+    2.014,
+    1.931,
+    1.8459,
+    1.7934
+   ],
+   "top4_share": 0.23361059557169034,
+   "rank90": 43,
+   "energy_share": 0.0077702620556719185
+  },
+  {
+   "module": "layers.19.self_attn.k_proj",
+   "layer": 19,
+   "kind": "k_proj",
+   "energy": 8.43563624985477,
+   "sv_top": [
+    0.882,
+    0.8145,
+    0.6916,
+    0.6726,
+    0.6185,
+    0.6005,
+    0.57,
+    0.5657
+   ],
+   "top4_share": 0.2811961975443824,
+   "rank90": 38,
+   "energy_share": 0.0006110620284076964
+  },
+  {
+   "module": "layers.19.self_attn.o_proj",
+   "layer": 19,
+   "kind": "o_proj",
+   "energy": 29.20051140736797,
+   "sv_top": [
+    1.6532,
+    1.3494,
+    1.2686,
+    1.2069,
+    1.1421,
+    1.1162,
+    1.0606,
+    1.0553
+   ],
+   "top4_share": 0.26095558235838895,
+   "rank90": 38,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 1.653214693069458,
+     "watch_z": {
+      "<|im_end|>": 0.39,
+      "<|endoftext|>": 0.09,
+      "\\n": 1.15,
+      "¬": 0.65
+     },
+     "promotes": [
+      "aming",
+      "ندی",
+      "osome",
+      "细心的",
+      "altar",
+      " mish",
+      "Q",
+      "nu"
+     ],
+     "suppresses": [
+      "åĢ",
+      "こと",
+      "该技术",
+      "技术研究",
+      "眼看",
+      "èĶ",
+      "жат",
+      "UDE"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.349438190460205,
+     "watch_z": {
+      "<|im_end|>": 1.15,
+      "<|endoftext|>": -0.09,
+      "\\n": 2.07,
+      "¬": 1.01
+     },
+     "promotes": [
+      "akens",
+      "äh",
+      "elik",
+      " مجه",
+      " computing",
+      "urv",
+      "inas",
+      "chaft"
+     ],
+     "suppresses": [
+      "不倒",
+      "iting",
+      "ited",
+      "izen",
+      "ARN",
+      " разве",
+      "ấm",
+      "ingen"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.2685809135437012,
+     "watch_z": {
+      "<|im_end|>": -0.07,
+      "<|endoftext|>": -0.14,
+      "\\n": -1.27,
+      "¬": -1.99
+     },
+     "promotes": [
+      "uces",
+      "zew",
+      "不良",
+      "uce",
+      "ulier",
+      "-Semitic",
+      "我们会尽快",
+      "vant"
+     ],
+     "suppresses": [
+      "om",
+      "esome",
+      "emplo",
+      "…",
+      " us",
+      " um",
+      "...",
+      " me"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.2069120407104492,
+     "watch_z": {
+      "<|im_end|>": -0.69,
+      "<|endoftext|>": 1.14,
+      "\\n": 0.02,
+      "¬": 0.03
+     },
+     "promotes": [
+      "s",
+      "自己也",
+      "(s",
+      " such",
+      "辛勤",
+      "了啊",
+      "&(",
+      "clas"
+     ],
+     "suppresses": [
+      " Gud",
+      "adne",
+      " pó",
+      "범",
+      " izb",
+      "هن",
+      "漫",
+      "矮"
+     ]
+    }
+   ],
+   "energy_share": 0.0021152315252374173
+  },
+  {
+   "module": "layers.19.self_attn.q_proj",
+   "layer": 19,
+   "kind": "q_proj",
+   "energy": 111.17821998700735,
+   "sv_top": [
+    3.804,
+    3.0421,
+    2.2451,
+    2.2015,
+    2.1109,
+    2.0713,
+    1.9818,
+    1.9229
+   ],
+   "top4_share": 0.30232352452374045,
+   "rank90": 38,
+   "energy_share": 0.00805354647922229
+  },
+  {
+   "module": "layers.19.self_attn.v_proj",
+   "layer": 19,
+   "kind": "v_proj",
+   "energy": 6.480029529106643,
+   "sv_top": [
+    0.7041,
+    0.6645,
+    0.6375,
+    0.5864,
+    0.5703,
+    0.5305,
+    0.4963,
+    0.4835
+   ],
+   "top4_share": 0.2604370721195537,
+   "rank90": 38,
+   "energy_share": 0.00046940146195443726
+  },
+  {
+   "module": "layers.2.mlp.down_proj",
+   "layer": 2,
+   "kind": "down_proj",
+   "energy": 75.81471362957876,
+   "sv_top": [
+    2.7137,
+    2.3768,
+    2.2928,
+    2.1379,
+    2.002,
+    1.8837,
+    1.7673,
+    1.7062
+   ],
+   "top4_share": 0.3012750394131331,
+   "rank90": 33,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.713723659515381,
+     "watch_z": {
+      "<|im_end|>": -1.86,
+      "<|endoftext|>": -0.76,
+      "\\n": 1.7,
+      "¬": 1.34
+     },
+     "promotes": [
+      "活动等",
+      "uvent",
+      "字第",
+      "ncer",
+      " tranquil",
+      " رف",
+      "活的",
+      "/etc"
+     ],
+     "suppresses": [
+      " Gone",
+      "reed",
+      "usun",
+      "led",
+      "ebi",
+      "ail",
+      "uis",
+      " Fet"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.3767740726470947,
+     "watch_z": {
+      "<|im_end|>": 0.96,
+      "<|endoftext|>": 0.61,
+      "\\n": -0.41,
+      "¬": -1.92
+     },
+     "promotes": [
+      "alenie",
+      " perdana",
+      "zuk",
+      "wal",
+      "andom",
+      "orius",
+      "rol",
+      "hoz"
+     ],
+     "suppresses": [
+      "climate",
+      "terra",
+      "蚌",
+      "bem",
+      "جاب",
+      " ¡",
+      " Goth",
+      "很正常"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.292848587036133,
+     "watch_z": {
+      "<|im_end|>": -0.56,
+      "<|endoftext|>": 1.25,
+      "\\n": -2.45,
+      "¬": -1.03
+     },
+     "promotes": [
+      "rasil",
+      " porsi",
+      "çģ",
+      "这些因素",
+      "拨",
+      "ahir",
+      "挽",
+      "扳"
+     ],
+     "suppresses": [
+      "bling",
+      "оте",
+      "ious",
+      "LY",
+      "от",
+      "体操",
+      "ancia",
+      "ąc"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.137890338897705,
+     "watch_z": {
+      "<|im_end|>": 1.3,
+      "<|endoftext|>": 1.3,
+      "\\n": 2.36,
+      "¬": 0.35
+     },
+     "promotes": [
+      "bur",
+      "骨架",
+      "ory",
+      "wali",
+      "ure",
+      "骨骼",
+      "骨",
+      "顺"
+     ],
+     "suppresses": [
+      "arrass",
+      "oundary",
+      "estern",
+      "_BOUND",
+      "フェイス",
+      " Bind",
+      " Pinh",
+      " Bound"
+     ]
+    }
+   ],
+   "energy_share": 0.0054918788958493335
+  },
+  {
+   "module": "layers.2.mlp.gate_proj",
+   "layer": 2,
+   "kind": "gate_proj",
+   "energy": 213.30076012141055,
+   "sv_top": [
+    6.3075,
+    3.5014,
+    3.3022,
+    3.2076,
+    3.0846,
+    2.8749,
+    2.8172,
+    2.7024
+   ],
+   "top4_share": 0.3433531220750303,
+   "rank90": 36,
+   "energy_share": 0.015451116107920916
+  },
+  {
+   "module": "layers.2.mlp.up_proj",
+   "layer": 2,
+   "kind": "up_proj",
+   "energy": 105.94337134110872,
+   "sv_top": [
+    2.3883,
+    2.3016,
+    2.2394,
+    2.0795,
+    2.0737,
+    1.9682,
+    1.936,
+    1.8785
+   ],
+   "top4_share": 0.19199128309303354,
+   "rank90": 44,
+   "energy_share": 0.007674343638176937
+  },
+  {
+   "module": "layers.20.mlp.down_proj",
+   "layer": 20,
+   "kind": "down_proj",
+   "energy": 58.655671857279124,
+   "sv_top": [
+    2.4051,
+    2.0877,
+    2.007,
+    1.8898,
+    1.7962,
+    1.7223,
+    1.5861,
+    1.4763
+   ],
+   "top4_share": 0.3024858957343636,
+   "rank90": 33,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.4051427841186523,
+     "watch_z": {
+      "<|im_end|>": -0.08,
+      "<|endoftext|>": -0.18,
+      "\\n": -1.43,
+      "¬": 0.04
+     },
+     "promotes": [
+      "com",
+      "dos",
+      "或由",
+      "想",
+      "旁的",
+      " m",
+      " Soleil",
+      "得来的"
+     ],
+     "suppresses": [
+      "ůsob",
+      "馅",
+      "him",
+      "庄村",
+      "etin",
+      "hora",
+      "fragen",
+      "hai"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.0877206325531006,
+     "watch_z": {
+      "<|im_end|>": 1.64,
+      "<|endoftext|>": 0.97,
+      "\\n": -0.13,
+      "¬": 0.11
+     },
+     "promotes": [
+      " *",
+      "份",
+      " thought",
+      " course",
+      " Yard",
+      "少数",
+      "ships",
+      "ег"
+     ],
+     "suppresses": [
+      "upati",
+      "новь",
+      "退票",
+      "celet",
+      " anda",
+      "开后",
+      "efined",
+      " Martina"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.0069901943206787,
+     "watch_z": {
+      "<|im_end|>": 0.36,
+      "<|endoftext|>": 0.81,
+      "\\n": -0.68,
+      "¬": -0.47
+     },
+     "promotes": [
+      "ئ",
+      "asu",
+      ".US",
+      "łoży",
+      " Def",
+      "ظر",
+      "ieger",
+      "견"
+     ],
+     "suppresses": [
+      "时每",
+      "累",
+      " Punta",
+      " Maire",
+      "-caret",
+      " precision",
+      "حداث",
+      "ingos"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.889765739440918,
+     "watch_z": {
+      "<|im_end|>": -0.5,
+      "<|endoftext|>": -0.68,
+      "\\n": -0.49,
+      "¬": -0.23
+     },
+     "promotes": [
+      "不发",
+      "一举",
+      "ijen",
+      " gru",
+      "二要",
+      "owell",
+      "现在有",
+      " destin"
+     ],
+     "suppresses": [
+      "antara",
+      "rep",
+      "قت",
+      "以保持",
+      "لاف",
+      "kamp",
+      "将被",
+      "vit"
+     ]
+    }
+   ],
+   "energy_share": 0.004248909360374837
+  },
+  {
+   "module": "layers.20.mlp.gate_proj",
+   "layer": 20,
+   "kind": "gate_proj",
+   "energy": 197.55360532555744,
+   "sv_top": [
+    5.3724,
+    4.8294,
+    4.005,
+    3.4157,
+    3.0291,
+    2.9295,
+    2.6874,
+    2.5726
+   ],
+   "top4_share": 0.4044139841802944,
+   "rank90": 33,
+   "energy_share": 0.014310421077196985
+  },
+  {
+   "module": "layers.20.mlp.up_proj",
+   "layer": 20,
+   "kind": "up_proj",
+   "energy": 103.71052843340614,
+   "sv_top": [
+    2.8054,
+    2.3919,
+    2.2738,
+    2.121,
+    2.0222,
+    1.964,
+    1.8701,
+    1.776
+   ],
+   "top4_share": 0.22428374616058955,
+   "rank90": 44,
+   "energy_share": 0.00751260059048211
+  },
+  {
+   "module": "layers.21.mlp.down_proj",
+   "layer": 21,
+   "kind": "down_proj",
+   "energy": 61.242063019825,
+   "sv_top": [
+    2.3282,
+    2.0942,
+    1.9187,
+    1.8997,
+    1.7748,
+    1.7254,
+    1.6121,
+    1.5842
+   ],
+   "top4_share": 0.27916136750416304,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.328209638595581,
+     "watch_z": {
+      "<|im_end|>": -0.53,
+      "<|endoftext|>": -0.98,
+      "\\n": -0.83,
+      "¬": -2.71
+     },
+     "promotes": [
+      "esc",
+      "tring",
+      "这些话",
+      "ئ",
+      "these",
+      "gradu",
+      "\"These",
+      "天长"
+     ],
+     "suppresses": [
+      "ancia",
+      " pits",
+      " famed",
+      "amba",
+      " pit",
+      "pro",
+      "俭",
+      "布"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.0941925048828125,
+     "watch_z": {
+      "<|im_end|>": -0.16,
+      "<|endoftext|>": -1.35,
+      "\\n": -1.28,
+      "¬": 0.22
+     },
+     "promotes": [
+      "/unit",
+      "EIF",
+      "peat",
+      "์",
+      "的一组",
+      " manh",
+      "盈",
+      "ünden"
+     ],
+     "suppresses": [
+      "orse",
+      "—",
+      "宛",
+      "念",
+      "__);",
+      "WA",
+      "enny",
+      "æĲ"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9186805486679077,
+     "watch_z": {
+      "<|im_end|>": -0.34,
+      "<|endoftext|>": 0.82,
+      "\\n": -0.37,
+      "¬": 1.18
+     },
+     "promotes": [
+      " FAR",
+      " equip",
+      " far",
+      " Equip",
+      "far",
+      "enter",
+      "_defined",
+      "¤í"
+     ],
+     "suppresses": [
+      "葫芦",
+      "昆仑",
+      "国",
+      "ويات",
+      "ford",
+      "ysel",
+      "很忙",
+      " Trans"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.899705410003662,
+     "watch_z": {
+      "<|im_end|>": -1.11,
+      "<|endoftext|>": -0.69,
+      "\\n": -0.98,
+      "¬": 1.08
+     },
+     "promotes": [
+      "واز",
+      "上当",
+      "EAN",
+      "OAD",
+      " famously",
+      "chet",
+      "之计",
+      "uncture"
+     ],
+     "suppresses": [
+      "ri",
+      "óban",
+      "appe",
+      " intervening",
+      "kli",
+      "ops",
+      "rips",
+      "池"
+     ]
+    }
+   ],
+   "energy_share": 0.004436262795638031
+  },
+  {
+   "module": "layers.21.mlp.gate_proj",
+   "layer": 21,
+   "kind": "gate_proj",
+   "energy": 203.6357149596629,
+   "sv_top": [
+    5.5098,
+    4.4521,
+    3.85,
+    3.3184,
+    3.0255,
+    2.9036,
+    2.6664,
+    2.5926
+   ],
+   "top4_share": 0.37328314278280567,
+   "rank90": 34,
+   "energy_share": 0.01475099795129803
+  },
+  {
+   "module": "layers.21.mlp.up_proj",
+   "layer": 21,
+   "kind": "up_proj",
+   "energy": 110.46526507671237,
+   "sv_top": [
+    2.783,
+    2.4629,
+    2.3627,
+    2.2698,
+    2.1024,
+    1.9728,
+    1.9431,
+    1.8727
+   ],
+   "top4_share": 0.22219710566466516,
+   "rank90": 44,
+   "energy_share": 0.008001901332283247
+  },
+  {
+   "module": "layers.22.mlp.down_proj",
+   "layer": 22,
+   "kind": "down_proj",
+   "energy": 57.04541331533123,
+   "sv_top": [
+    2.6175,
+    2.2666,
+    2.1717,
+    1.7074,
+    1.6706,
+    1.4759,
+    1.4511,
+    1.4192
+   ],
+   "top4_share": 0.3439394275238392,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.617494583129883,
+     "watch_z": {
+      "<|im_end|>": -1.82,
+      "<|endoftext|>": -1.02,
+      "\\n": -0.52,
+      "¬": -2.16
+     },
+     "promotes": [
+      "涉",
+      " Zuletzt",
+      " altid",
+      "渉",
+      "싱",
+      "inting",
+      " płyt",
+      "谁能"
+     ],
+     "suppresses": [
+      " —",
+      "åĨ",
+      "直",
+      "æĳ",
+      " mal",
+      "erson",
+      "evens",
+      "封"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.2665724754333496,
+     "watch_z": {
+      "<|im_end|>": -0.47,
+      "<|endoftext|>": -1.53,
+      "\\n": -0.51,
+      "¬": 0.16
+     },
+     "promotes": [
+      "Ra",
+      "maat",
+      "궁",
+      " (!!",
+      "Ba",
+      "有不同",
+      "干线",
+      "glob"
+     ],
+     "suppresses": [
+      "ober",
+      "告",
+      "umd",
+      "给我们的",
+      "訳",
+      "ianos",
+      "wn",
+      "的强大"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.1716761589050293,
+     "watch_z": {
+      "<|im_end|>": 0.01,
+      "<|endoftext|>": 1.09,
+      "\\n": 2.05,
+      "¬": 0.74
+     },
+     "promotes": [
+      "abal",
+      " devise",
+      " még",
+      "也容易",
+      "uai",
+      "ab",
+      "éĿ",
+      "uli"
+     ],
+     "suppresses": [
+      " har",
+      "rasında",
+      "views",
+      "ноп",
+      "功勋",
+      "大功",
+      "geler",
+      "-random"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7074427604675293,
+     "watch_z": {
+      "<|im_end|>": 1.28,
+      "<|endoftext|>": 0.32,
+      "\\n": 2.54,
+      "¬": 2.45
+     },
+     "promotes": [
+      "org",
+      "ais",
+      "結",
+      "Hel",
+      "our",
+      " Peg",
+      "年生",
+      "结"
+     ],
+     "suppresses": [
+      "ocard",
+      " addTarget",
+      "evat",
+      "려",
+      "unggulan",
+      "kler",
+      "tuu",
+      "esión"
+     ]
+    }
+   ],
+   "energy_share": 0.004132265183011163
+  },
+  {
+   "module": "layers.22.mlp.gate_proj",
+   "layer": 22,
+   "kind": "gate_proj",
+   "energy": 213.9145839882849,
+   "sv_top": [
+    5.9652,
+    4.446,
+    3.7883,
+    3.5515,
+    3.0239,
+    2.9487,
+    2.7774,
+    2.6863
+   ],
+   "top4_share": 0.3848059824495619,
+   "rank90": 34,
+   "energy_share": 0.015495580383770144
+  },
+  {
+   "module": "layers.22.mlp.up_proj",
+   "layer": 22,
+   "kind": "up_proj",
+   "energy": 100.99664801146002,
+   "sv_top": [
+    2.6001,
+    2.4412,
+    2.1849,
+    2.0323,
+    1.9451,
+    1.9151,
+    1.8722,
+    1.7944
+   ],
+   "top4_share": 0.21410546999681554,
+   "rank90": 44,
+   "energy_share": 0.00731601206694082
+  },
+  {
+   "module": "layers.23.mlp.down_proj",
+   "layer": 23,
+   "kind": "down_proj",
+   "energy": 60.26483352360496,
+   "sv_top": [
+    2.584,
+    2.1873,
+    2.0312,
+    1.8174,
+    1.6356,
+    1.56,
+    1.518,
+    1.4617
+   ],
+   "top4_share": 0.3134544714681883,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.5840389728546143,
+     "watch_z": {
+      "<|im_end|>": -0.88,
+      "<|endoftext|>": -0.74,
+      "\\n": -1.51,
+      "¬": 0.51
+     },
+     "promotes": [
+      "季后",
+      "çĳ",
+      "屑",
+      " harapan",
+      "طلبات",
+      "暗沉",
+      "woods",
+      " باد"
+     ],
+     "suppresses": [
+      "еду",
+      "劳动",
+      " fa",
+      "崇",
+      "财",
+      "genommen",
+      "egen",
+      "相"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.187262535095215,
+     "watch_z": {
+      "<|im_end|>": -1.17,
+      "<|endoftext|>": -0.68,
+      "\\n": -2.34,
+      "¬": -2.69
+     },
+     "promotes": [
+      "usern",
+      "orer",
+      " abr",
+      "下角",
+      "écur",
+      "olato",
+      "器",
+      "oraus"
+     ],
+     "suppresses": [
+      "生产者",
+      "isk",
+      " afterward",
+      "asty",
+      "пуск",
+      "igny",
+      "训",
+      "ney"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.031219720840454,
+     "watch_z": {
+      "<|im_end|>": 1.28,
+      "<|endoftext|>": -0.81,
+      "\\n": -1.67,
+      "¬": 0.1
+     },
+     "promotes": [
+      " caval",
+      " comp",
+      "隐",
+      "IS",
+      "牺牲",
+      "是",
+      " licenci",
+      "数"
+     ],
+     "suppresses": [
+      "habitude",
+      "带货",
+      "革",
+      "向中国",
+      "otre",
+      "orne",
+      "系统在",
+      "undo"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.8174303770065308,
+     "watch_z": {
+      "<|im_end|>": -1.52,
+      "<|endoftext|>": -1.66,
+      "\\n": -1.32,
+      "¬": 0.48
+     },
+     "promotes": [
+      "昙",
+      "antum",
+      "emento",
+      "ศ",
+      "شم",
+      "沙盘",
+      "enic",
+      "想到的"
+     ],
+     "suppresses": [
+      " st",
+      " ​​",
+      " b",
+      "清晰地",
+      " destin",
+      "係",
+      " min",
+      "提取"
+     ]
+    }
+   ],
+   "energy_share": 0.004365474082078893
+  },
+  {
+   "module": "layers.23.mlp.gate_proj",
+   "layer": 23,
+   "kind": "gate_proj",
+   "energy": 240.15855351978107,
+   "sv_top": [
+    6.4151,
+    4.6696,
+    4.2105,
+    3.9863,
+    3.5246,
+    3.1147,
+    2.9464,
+    2.7425
+   ],
+   "top4_share": 0.40214001824277135,
+   "rank90": 34,
+   "energy_share": 0.01739664543451388
+  },
+  {
+   "module": "layers.23.mlp.up_proj",
+   "layer": 23,
+   "kind": "up_proj",
+   "energy": 111.67933004961365,
+   "sv_top": [
+    2.777,
+    2.3883,
+    2.2703,
+    2.0906,
+    2.0536,
+    1.9488,
+    1.927,
+    1.8834
+   ],
+   "top4_share": 0.2054149793312701,
+   "rank90": 45,
+   "energy_share": 0.008089845973681524
+  },
+  {
+   "module": "layers.23.self_attn.k_proj",
+   "layer": 23,
+   "kind": "k_proj",
+   "energy": 10.45727706839099,
+   "sv_top": [
+    1.1801,
+    0.9156,
+    0.8158,
+    0.7474,
+    0.7463,
+    0.6944,
+    0.6855,
+    0.622
+   ],
+   "top4_share": 0.33041740412390347,
+   "rank90": 34,
+   "energy_share": 0.0007575059838719695
+  },
+  {
+   "module": "layers.23.self_attn.o_proj",
+   "layer": 23,
+   "kind": "o_proj",
+   "energy": 43.44429877574901,
+   "sv_top": [
+    2.186,
+    2.044,
+    1.87,
+    1.6611,
+    1.5664,
+    1.4966,
+    1.3749,
+    1.2394
+   ],
+   "top4_share": 0.35016480425207896,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.185983419418335,
+     "watch_z": {
+      "<|im_end|>": -0.46,
+      "<|endoftext|>": 0.26,
+      "\\n": 0.22,
+      "¬": -1.16
+     },
+     "promotes": [
+      "筠",
+      "ariat",
+      "ائر",
+      "一个新",
+      "知音",
+      "yb",
+      "any",
+      " fre"
+     ],
+     "suppresses": [
+      "路店",
+      "urop",
+      "foy",
+      "ysz",
+      " fights",
+      " séqu",
+      " oor",
+      "estat"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.044011354446411,
+     "watch_z": {
+      "<|im_end|>": -1.12,
+      "<|endoftext|>": -1.08,
+      "\\n": -1.25,
+      "¬": 0.56
+     },
+     "promotes": [
+      " same",
+      "chsel",
+      " Same",
+      "Same",
+      "mêmes",
+      " Ones",
+      "SAME",
+      "同样是"
+     ],
+     "suppresses": [
+      "untut",
+      "ó",
+      "yy",
+      "away",
+      "achable",
+      "colo",
+      " Maire",
+      "mand"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.8699895143508911,
+     "watch_z": {
+      "<|im_end|>": -1.58,
+      "<|endoftext|>": -1.73,
+      "\\n": 0.85,
+      "¬": -1.67
+     },
+     "promotes": [
+      "しかも",
+      "enko",
+      " saiba",
+      "需要了解",
+      "arity",
+      " discharge",
+      "anche",
+      "了解"
+     ],
+     "suppresses": [
+      "rai",
+      "众",
+      "说是",
+      "ina",
+      " nam",
+      "再接",
+      "vi",
+      "bern"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.6611133813858032,
+     "watch_z": {
+      "<|im_end|>": -0.87,
+      "<|endoftext|>": -1.64,
+      "\\n": -2.85,
+      "¬": -1.6
+     },
+     "promotes": [
+      "avr",
+      "有责",
+      "茜",
+      " favourites",
+      "关心的问题",
+      " invitados",
+      " lupa",
+      "ulta"
+     ],
+     "suppresses": [
+      "रे",
+      " preferred",
+      "pan",
+      "有人认为",
+      "gu",
+      "n",
+      "依",
+      " forth"
+     ]
+    }
+   ],
+   "energy_share": 0.003147025375011427
+  },
+  {
+   "module": "layers.23.self_attn.q_proj",
+   "layer": 23,
+   "kind": "q_proj",
+   "energy": 136.10418613043245,
+   "sv_top": [
+    5.1499,
+    3.9986,
+    3.3565,
+    2.7873,
+    2.5268,
+    2.3417,
+    2.1673,
+    2.0287
+   ],
+   "top4_share": 0.4521933388655998,
+   "rank90": 31,
+   "energy_share": 0.00985913778027977
+  },
+  {
+   "module": "layers.23.self_attn.v_proj",
+   "layer": 23,
+   "kind": "v_proj",
+   "energy": 10.900811951529759,
+   "sv_top": [
+    1.0736,
+    0.9993,
+    0.9393,
+    0.8042,
+    0.7852,
+    0.6969,
+    0.6604,
+    0.6334
+   ],
+   "top4_share": 0.3376054185357225,
+   "rank90": 32,
+   "energy_share": 0.0007896348378591257
+  },
+  {
+   "module": "layers.24.mlp.down_proj",
+   "layer": 24,
+   "kind": "down_proj",
+   "energy": 59.86525230905434,
+   "sv_top": [
+    2.5407,
+    2.1926,
+    1.9357,
+    1.9191,
+    1.7592,
+    1.653,
+    1.5909,
+    1.486
+   ],
+   "top4_share": 0.31224713025749384,
+   "rank90": 34,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.5407397747039795,
+     "watch_z": {
+      "<|im_end|>": -0.5,
+      "<|endoftext|>": -0.41,
+      "\\n": -1.6,
+      "¬": -1.56
+     },
+     "promotes": [
+      "宅",
+      "hsi",
+      "enburg",
+      "ingk",
+      "ництва",
+      " Mediterran",
+      "iten",
+      "大观"
+     ],
+     "suppresses": [
+      "ix",
+      "alias",
+      "tru",
+      "jal",
+      "stral",
+      "分许",
+      "动工",
+      " Joel"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.1926422119140625,
+     "watch_z": {
+      "<|im_end|>": -1.44,
+      "<|endoftext|>": -0.22,
+      "\\n": 0.71,
+      "¬": 1.97
+     },
+     "promotes": [
+      "ris",
+      "odon",
+      "ς",
+      "én",
+      "珍惜",
+      "isc",
+      " statistical",
+      "有人会"
+     ],
+     "suppresses": [
+      "一时",
+      " polec",
+      "综合执法",
+      "clamation",
+      "一时间",
+      "aget",
+      "mico",
+      " nách"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9356932640075684,
+     "watch_z": {
+      "<|im_end|>": 0.31,
+      "<|endoftext|>": 0.75,
+      "\\n": -0.46,
+      "¬": -1.62
+     },
+     "promotes": [
+      " even",
+      "even",
+      "abee",
+      " Even",
+      " даже",
+      "Even",
+      "爱",
+      "我方"
+     ],
+     "suppresses": [
+      "ppo",
+      "zijd",
+      "_priv",
+      " Ordem",
+      " cera",
+      "销",
+      "apu",
+      "頓"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.919063925743103,
+     "watch_z": {
+      "<|im_end|>": -0.32,
+      "<|endoftext|>": -1.3,
+      "\\n": -1.69,
+      "¬": -1.4
+     },
+     "promotes": [
+      "InstanceOf",
+      "一针",
+      "bij",
+      "美",
+      "ToLeft",
+      " ponder",
+      "ges",
+      "爆"
+     ],
+     "suppresses": [
+      "ürt",
+      "stime",
+      "amble",
+      "Rub",
+      "itants",
+      "етен",
+      "の方々",
+      "urkan"
+     ]
+    }
+   ],
+   "energy_share": 0.004336529151282344
+  },
+  {
+   "module": "layers.24.mlp.gate_proj",
+   "layer": 24,
+   "kind": "gate_proj",
+   "energy": 259.81257380260865,
+   "sv_top": [
+    7.1975,
+    4.919,
+    4.593,
+    4.199,
+    3.5133,
+    3.2183,
+    3.1298,
+    3.0736
+   ],
+   "top4_share": 0.44157700864194555,
+   "rank90": 30,
+   "energy_share": 0.01882034664028806
+  },
+  {
+   "module": "layers.24.mlp.up_proj",
+   "layer": 24,
+   "kind": "up_proj",
+   "energy": 107.79257989610059,
+   "sv_top": [
+    2.5741,
+    2.3298,
+    2.2851,
+    2.18,
+    2.0477,
+    2.0111,
+    1.9316,
+    1.8239
+   ],
+   "top4_share": 0.20435692188481805,
+   "rank90": 45,
+   "energy_share": 0.007808296916518171
+  },
+  {
+   "module": "layers.25.mlp.down_proj",
+   "layer": 25,
+   "kind": "down_proj",
+   "energy": 59.205164703385044,
+   "sv_top": [
+    2.7577,
+    2.1347,
+    1.8348,
+    1.7087,
+    1.6639,
+    1.6122,
+    1.5297,
+    1.4725
+   ],
+   "top4_share": 0.31158880176077425,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.75765323638916,
+     "watch_z": {
+      "<|im_end|>": 0.69,
+      "<|endoftext|>": -1.81,
+      "\\n": -1.94,
+      "¬": -0.04
+     },
+     "promotes": [
+      "هاد",
+      "eah",
+      "เปร",
+      "imis",
+      "我的手",
+      ".Save",
+      " abad",
+      "OTA"
+     ],
+     "suppresses": [
+      "战后",
+      "ulan",
+      "孚",
+      "sey",
+      "¸",
+      "话说",
+      "after",
+      "arily"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.1347036361694336,
+     "watch_z": {
+      "<|im_end|>": -0.14,
+      "<|endoftext|>": 0.93,
+      "\\n": -0.38,
+      "¬": -0.86
+     },
+     "promotes": [
+      "人手",
+      "万平米",
+      "artet",
+      "助于",
+      "塾",
+      "锭",
+      "elman",
+      "andainya"
+     ],
+     "suppresses": [
+      "ara",
+      "新时期",
+      "ipped",
+      "大一",
+      "办",
+      "isher",
+      "ipy",
+      "nike"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.834816336631775,
+     "watch_z": {
+      "<|im_end|>": -0.32,
+      "<|endoftext|>": 0.2,
+      "\\n": 0.91,
+      "¬": 0.73
+     },
+     "promotes": [
+      "tek",
+      "iez",
+      " Boom",
+      "ده",
+      "wers",
+      "报酬",
+      "0",
+      "u"
+     ],
+     "suppresses": [
+      "оят",
+      "marca",
+      "audi",
+      "主义的",
+      "laus",
+      "car",
+      "而言之",
+      "rophy"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7086557149887085,
+     "watch_z": {
+      "<|im_end|>": -0.21,
+      "<|endoftext|>": -0.25,
+      "\\n": 0.28,
+      "¬": 1.63
+     },
+     "promotes": [
+      "scopes",
+      "essin",
+      " Auc",
+      "磋",
+      "创",
+      "vu",
+      "icidade",
+      "मत"
+     ],
+     "suppresses": [
+      "佐",
+      "冬",
+      " Rich",
+      "bern",
+      "stand",
+      "orio",
+      "ól",
+      "ständen"
+     ]
+    }
+   ],
+   "energy_share": 0.004288713614990816
+  },
+  {
+   "module": "layers.25.mlp.gate_proj",
+   "layer": 25,
+   "kind": "gate_proj",
+   "energy": 261.55409204581326,
+   "sv_top": [
+    7.6352,
+    4.995,
+    4.6564,
+    4.0474,
+    3.7107,
+    3.3695,
+    2.9849,
+    2.824
+   ],
+   "top4_share": 0.46380386643523824,
+   "rank90": 29,
+   "energy_share": 0.018946499029827132
+  },
+  {
+   "module": "layers.25.mlp.up_proj",
+   "layer": 25,
+   "kind": "up_proj",
+   "energy": 109.07797853489896,
+   "sv_top": [
+    2.6409,
+    2.2996,
+    2.1913,
+    2.1002,
+    2.0,
+    1.9808,
+    1.9655,
+    1.8742
+   ],
+   "top4_share": 0.19687387189867275,
+   "rank90": 44,
+   "energy_share": 0.007901408837927792
+  },
+  {
+   "module": "layers.26.mlp.down_proj",
+   "layer": 26,
+   "kind": "down_proj",
+   "energy": 52.29586073021821,
+   "sv_top": [
+    2.8219,
+    2.2036,
+    1.9387,
+    1.8562,
+    1.6144,
+    1.4745,
+    1.4189,
+    1.4082
+   ],
+   "top4_share": 0.38288624514245817,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.821892023086548,
+     "watch_z": {
+      "<|im_end|>": 0.06,
+      "<|endoftext|>": 1.13,
+      "\\n": 3.08,
+      "¬": -0.9
+     },
+     "promotes": [
+      " кра",
+      "inet",
+      "ASI",
+      " j",
+      "ене",
+      "е",
+      "æ¿",
+      " im"
+     ],
+     "suppresses": [
+      "czo",
+      "adá",
+      "istel",
+      "ADD",
+      " répon",
+      "LLU",
+      "chio",
+      "quip"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.2036473751068115,
+     "watch_z": {
+      "<|im_end|>": -0.81,
+      "<|endoftext|>": 0.72,
+      "\\n": 1.65,
+      "¬": 0.92
+     },
+     "promotes": [
+      "bat",
+      "巴斯",
+      "oszt",
+      " eased",
+      "陈",
+      "按",
+      " põ",
+      "猪"
+     ],
+     "suppresses": [
+      "长腿",
+      "unci",
+      "性病",
+      "agam",
+      "tap",
+      "eme",
+      " remar",
+      "百草"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9387301206588745,
+     "watch_z": {
+      "<|im_end|>": -2.1,
+      "<|endoftext|>": -1.1,
+      "\\n": -2.2,
+      "¬": 1.7
+     },
+     "promotes": [
+      "积",
+      " conlle",
+      "GH",
+      "unge",
+      "ange",
+      " alc",
+      "选调",
+      "us"
+     ],
+     "suppresses": [
+      "斗",
+      "èĿ",
+      "分项",
+      "ساء",
+      "بين",
+      "esia",
+      "dato",
+      "不动"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.8562206029891968,
+     "watch_z": {
+      "<|im_end|>": 0.5,
+      "<|endoftext|>": -0.33,
+      "\\n": 0.24,
+      "¬": -0.05
+     },
+     "promotes": [
+      "aille",
+      "ull",
+      "ovement",
+      " tiếc",
+      "uby",
+      "uly",
+      "iid",
+      "allow"
+     ],
+     "suppresses": [
+      " Grand",
+      "Grand",
+      "urant",
+      "四",
+      "安琪",
+      "switch",
+      " mine",
+      "尝"
+     ]
+    }
+   ],
+   "energy_share": 0.003788216299118362
+  },
+  {
+   "module": "layers.26.mlp.gate_proj",
+   "layer": 26,
+   "kind": "gate_proj",
+   "energy": 246.29376127681198,
+   "sv_top": [
+    8.0474,
+    4.5399,
+    3.9253,
+    3.4145,
+    3.2583,
+    3.1398,
+    2.8636,
+    2.6618
+   ],
+   "top4_share": 0.4565161648097899,
+   "rank90": 31,
+   "energy_share": 0.01784106863931701
+  },
+  {
+   "module": "layers.26.mlp.up_proj",
+   "layer": 26,
+   "kind": "up_proj",
+   "energy": 108.48776344747924,
+   "sv_top": [
+    2.604,
+    2.523,
+    2.3399,
+    2.0966,
+    2.028,
+    1.9802,
+    1.9049,
+    1.8647
+   ],
+   "top4_share": 0.21216091457161673,
+   "rank90": 44,
+   "energy_share": 0.007858654738790133
+  },
+  {
+   "module": "layers.27.mlp.down_proj",
+   "layer": 27,
+   "kind": "down_proj",
+   "energy": 63.61102893185186,
+   "sv_top": [
+    2.6781,
+    2.2675,
+    2.1713,
+    2.0592,
+    1.8182,
+    1.7763,
+    1.6124,
+    1.5206
+   ],
+   "top4_share": 0.3343512025555461,
+   "rank90": 33,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.6780693531036377,
+     "watch_z": {
+      "<|im_end|>": -2.8,
+      "<|endoftext|>": -1.11,
+      "\\n": -0.87,
+      "¬": -1.08
+     },
+     "promotes": [
+      "令和",
+      "chief",
+      "טים",
+      "avail",
+      "čuje",
+      " chief",
+      " nut",
+      "土"
+     ],
+     "suppresses": [
+      "هن",
+      "卷",
+      "alis",
+      "viz",
+      "扩散",
+      "たくない",
+      "OUN",
+      "volu"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.2674570083618164,
+     "watch_z": {
+      "<|im_end|>": 1.29,
+      "<|endoftext|>": 0.6,
+      "\\n": 1.45,
+      "¬": 0.56
+     },
+     "promotes": [
+      "何",
+      "erville",
+      "如何看待",
+      " chw",
+      "但以",
+      "ergic",
+      "ffective",
+      "cu"
+     ],
+     "suppresses": [
+      "vester",
+      "延期",
+      "ilon",
+      "igger",
+      "ensen",
+      "юд",
+      " пропуска",
+      "IOD"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.1713085174560547,
+     "watch_z": {
+      "<|im_end|>": -0.6,
+      "<|endoftext|>": -0.93,
+      "\\n": 0.12,
+      "¬": -0.04
+     },
+     "promotes": [
+      "访",
+      "emu",
+      "meros",
+      "身上",
+      " abbr",
+      " postale",
+      "technolog",
+      "ems"
+     ],
+     "suppresses": [
+      "_then",
+      "(ii",
+      "引人入",
+      " Vers",
+      " lawan",
+      "结",
+      "omar",
+      ".databinding"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.059229612350464,
+     "watch_z": {
+      "<|im_end|>": 0.89,
+      "<|endoftext|>": 1.27,
+      "\\n": 0.89,
+      "¬": 1.03
+     },
+     "promotes": [
+      "زاری",
+      " nos",
+      "aszt",
+      "holt",
+      "宁",
+      "hist",
+      "illar",
+      "ingin"
+     ],
+     "suppresses": [
+      "re",
+      " unintended",
+      " unexpected",
+      "gi",
+      "reiten",
+      "tha",
+      "澤",
+      "aqu"
+     ]
+    }
+   ],
+   "energy_share": 0.00460786634426861
+  },
+  {
+   "module": "layers.27.mlp.gate_proj",
+   "layer": 27,
+   "kind": "gate_proj",
+   "energy": 281.8663269067904,
+   "sv_top": [
+    7.6101,
+    4.7068,
+    4.5613,
+    4.1258,
+    3.8934,
+    3.6017,
+    3.5022,
+    3.2821
+   ],
+   "top4_share": 0.4182660081333395,
+   "rank90": 27,
+   "energy_share": 0.020417880093212354
+  },
+  {
+   "module": "layers.27.mlp.up_proj",
+   "layer": 27,
+   "kind": "up_proj",
+   "energy": 150.451082295689,
+   "sv_top": [
+    3.336,
+    2.9718,
+    2.8977,
+    2.6875,
+    2.5074,
+    2.4398,
+    2.4123,
+    2.3869
+   ],
+   "top4_share": 0.2364911622427976,
+   "rank90": 40,
+   "energy_share": 0.01089840064231311
+  },
+  {
+   "module": "layers.27.self_attn.k_proj",
+   "layer": 27,
+   "kind": "k_proj",
+   "energy": 9.619808482377184,
+   "sv_top": [
+    1.1149,
+    0.9907,
+    0.8038,
+    0.754,
+    0.6581,
+    0.6379,
+    0.5679,
+    0.5657
+   ],
+   "top4_share": 0.35750460501514886,
+   "rank90": 34,
+   "energy_share": 0.0006968412944828161
+  },
+  {
+   "module": "layers.27.self_attn.o_proj",
+   "layer": 27,
+   "kind": "o_proj",
+   "energy": 49.156125142935956,
+   "sv_top": [
+    2.1644,
+    2.0598,
+    1.9798,
+    1.7035,
+    1.6799,
+    1.5774,
+    1.4986,
+    1.4544
+   ],
+   "top4_share": 0.3203872788420531,
+   "rank90": 28,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.1643972396850586,
+     "watch_z": {
+      "<|im_end|>": 1.5,
+      "<|endoftext|>": -0.94,
+      "\\n": -1.81,
+      "¬": 0.07
+     },
+     "promotes": [
+      "ouncy",
+      "/ay",
+      "ATIC",
+      "纏",
+      "adel",
+      "leich",
+      "ибо",
+      "Wrapped"
+     ],
+     "suppresses": [
+      "uten",
+      " cost",
+      "anz",
+      "容",
+      "ez",
+      " extra",
+      "erna",
+      "浑身"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.0598206520080566,
+     "watch_z": {
+      "<|im_end|>": -0.67,
+      "<|endoftext|>": -1.45,
+      "\\n": -1.4,
+      "¬": 0.13
+     },
+     "promotes": [
+      "/close",
+      " évolu",
+      "不入",
+      "次回",
+      " Eventi",
+      " conséqu",
+      "雪峰",
+      "านิ"
+     ],
+     "suppresses": [
+      "王者",
+      " fragment",
+      "ürg",
+      "不利",
+      "碎片",
+      "ube",
+      "玖",
+      "万方"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.97981595993042,
+     "watch_z": {
+      "<|im_end|>": -1.28,
+      "<|endoftext|>": 0.31,
+      "\\n": 1.37,
+      "¬": 0.91
+     },
+     "promotes": [
+      "λί",
+      " ple",
+      " unw",
+      "oten",
+      " bon",
+      "补助金",
+      "一定",
+      "了一定"
+     ],
+     "suppresses": [
+      "ază",
+      "isode",
+      " smarter",
+      "免费送",
+      "中都",
+      "可以看",
+      "ครัว",
+      "ingle"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.7034815549850464,
+     "watch_z": {
+      "<|im_end|>": 1.06,
+      "<|endoftext|>": 0.4,
+      "\\n": 0.17,
+      "¬": -1.54
+     },
+     "promotes": [
+      "ett",
+      "ify",
+      "起见",
+      "ro",
+      "тру",
+      "ables",
+      " yourselves",
+      "ru"
+     ],
+     "suppresses": [
+      " haus",
+      "出人",
+      "手可",
+      "人居",
+      "plen",
+      "adini",
+      "-che",
+      "_organization"
+     ]
+    }
+   ],
+   "energy_share": 0.00356077960794269
+  },
+  {
+   "module": "layers.27.self_attn.q_proj",
+   "layer": 27,
+   "kind": "q_proj",
+   "energy": 187.92800272804837,
+   "sv_top": [
+    8.2448,
+    4.151,
+    3.143,
+    3.0774,
+    2.8146,
+    2.546,
+    2.3365,
+    2.1982
+   ],
+   "top4_share": 0.5563609785647531,
+   "rank90": 25,
+   "energy_share": 0.01361316006763395
+  },
+  {
+   "module": "layers.27.self_attn.v_proj",
+   "layer": 27,
+   "kind": "v_proj",
+   "energy": 10.383117781075375,
+   "sv_top": [
+    1.1548,
+    0.9476,
+    0.8444,
+    0.7979,
+    0.7664,
+    0.7049,
+    0.6632,
+    0.6175
+   ],
+   "top4_share": 0.3448872453563732,
+   "rank90": 31,
+   "energy_share": 0.0007521340210241014
+  },
+  {
+   "module": "layers.28.mlp.down_proj",
+   "layer": 28,
+   "kind": "down_proj",
+   "energy": 61.46490581227968,
+   "sv_top": [
+    2.4028,
+    2.1425,
+    1.9893,
+    1.8107,
+    1.8057,
+    1.7296,
+    1.6856,
+    1.4845
+   ],
+   "top4_share": 0.28633299310216215,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.4027838706970215,
+     "watch_z": {
+      "<|im_end|>": -0.87,
+      "<|endoftext|>": -1.28,
+      "\\n": -3.08,
+      "¬": -1.48
+     },
+     "promotes": [
+      "财险",
+      "zier",
+      "Pal",
+      "vás",
+      "âr",
+      "ماء",
+      "ehme",
+      "妾"
+     ],
+     "suppresses": [
+      "ecessarily",
+      "突出",
+      "确",
+      "atte",
+      "涅",
+      " contact",
+      "YW",
+      "fen"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.142467737197876,
+     "watch_z": {
+      "<|im_end|>": -0.11,
+      "<|endoftext|>": -1.14,
+      "\\n": -2.71,
+      "¬": 2.06
+     },
+     "promotes": [
+      "وام",
+      "ì",
+      "oyer",
+      "üssen",
+      "出不",
+      "ùy",
+      "ELY",
+      "shaw"
+     ],
+     "suppresses": [
+      "iker",
+      "ity",
+      "ei",
+      "adora",
+      "£",
+      "芙蓉",
+      "达克",
+      " \\\""
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.9892935752868652,
+     "watch_z": {
+      "<|im_end|>": 1.07,
+      "<|endoftext|>": -1.15,
+      "\\n": -1.65,
+      "¬": 0.63
+     },
+     "promotes": [
+      "achter",
+      "ッカ",
+      "월까지",
+      "стал",
+      "urias",
+      "``,",
+      "¿",
+      " neighb"
+     ],
+     "suppresses": [
+      "inin",
+      "less",
+      "-copy",
+      "leted",
+      " ملی",
+      "arent",
+      "ly",
+      "ably"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.8106913566589355,
+     "watch_z": {
+      "<|im_end|>": 1.39,
+      "<|endoftext|>": 0.9,
+      "\\n": 0.13,
+      "¬": 0.07
+     },
+     "promotes": [
+      "acin",
+      "ubl",
+      " –",
+      "arger",
+      " gar",
+      "abal",
+      "白石",
+      "azier"
+     ],
+     "suppresses": [
+      "動",
+      "elt",
+      "aped",
+      "chè",
+      "力和",
+      "olds",
+      "落",
+      "holung"
+     ]
+    }
+   ],
+   "energy_share": 0.004452405119078748
+  },
+  {
+   "module": "layers.28.mlp.gate_proj",
+   "layer": 28,
+   "kind": "gate_proj",
+   "energy": 268.65395112437,
+   "sv_top": [
+    7.3724,
+    5.0408,
+    4.4823,
+    3.9788,
+    3.7073,
+    3.4339,
+    3.2611,
+    2.9877
+   ],
+   "top4_share": 0.43060922761036563,
+   "rank90": 29,
+   "energy_share": 0.019460799808268873
+  },
+  {
+   "module": "layers.28.mlp.up_proj",
+   "layer": 28,
+   "kind": "up_proj",
+   "energy": 167.48316689009903,
+   "sv_top": [
+    3.735,
+    3.1844,
+    3.0363,
+    2.9684,
+    2.8204,
+    2.633,
+    2.5789,
+    2.3764
+   ],
+   "top4_share": 0.2514950704747524,
+   "rank90": 40,
+   "energy_share": 0.0121321736325189
+  },
+  {
+   "module": "layers.29.mlp.down_proj",
+   "layer": 29,
+   "kind": "down_proj",
+   "energy": 72.03033535661105,
+   "sv_top": [
+    2.8015,
+    2.3973,
+    2.1786,
+    2.0346,
+    1.9787,
+    1.7769,
+    1.7217,
+    1.65
+   ],
+   "top4_share": 0.31211334182378214,
+   "rank90": 34,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.8015201091766357,
+     "watch_z": {
+      "<|im_end|>": -1.51,
+      "<|endoftext|>": -1.37,
+      "\\n": -4.04,
+      "¬": -3.4
+     },
+     "promotes": [
+      "的配置",
+      "cik",
+      " Convenience",
+      " Niestety",
+      "煌",
+      "ló",
+      "rawn",
+      "銭"
+     ],
+     "suppresses": [
+      "Ë",
+      "âĤ",
+      "Ġâľ",
+      "n",
+      "3",
+      "什么事",
+      "arily",
+      "xyz"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.3973255157470703,
+     "watch_z": {
+      "<|im_end|>": -1.04,
+      "<|endoftext|>": -1.02,
+      "\\n": 2.26,
+      "¬": 0.08
+     },
+     "promotes": [
+      "lebt",
+      "itek",
+      "倡议",
+      "#c",
+      "agar",
+      "bir",
+      "wel",
+      " hiệp"
+     ],
+     "suppresses": [
+      "Ë",
+      " jur",
+      "ปล",
+      "urun",
+      "ielle",
+      "evas",
+      "爱的人",
+      " Tat"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.178586959838867,
+     "watch_z": {
+      "<|im_end|>": 0.03,
+      "<|endoftext|>": 0.97,
+      "\\n": -0.55,
+      "¬": 0.03
+     },
+     "promotes": [
+      "众所周知",
+      "ละ",
+      "alem",
+      "rem",
+      "olut",
+      " Brescia",
+      "-w",
+      "довать"
+     ],
+     "suppresses": [
+      "ersch",
+      "vais",
+      " carto",
+      "ville",
+      "صول",
+      "zo",
+      " vam",
+      "orch"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.034626007080078,
+     "watch_z": {
+      "<|im_end|>": -0.89,
+      "<|endoftext|>": 1.07,
+      "\\n": 1.64,
+      "¬": 1.54
+     },
+     "promotes": [
+      "ê",
+      "Ġê",
+      "tyw",
+      "ärke",
+      "巻",
+      "vertis",
+      "adne",
+      "âĤ"
+     ],
+     "suppresses": [
+      "ieb",
+      "LB",
+      "ագ",
+      "ibri",
+      "ied",
+      "illard",
+      "곳",
+      "ib"
+     ]
+    }
+   ],
+   "energy_share": 0.0052177454700770365
+  },
+  {
+   "module": "layers.29.mlp.gate_proj",
+   "layer": 29,
+   "kind": "gate_proj",
+   "energy": 263.6260907725283,
+   "sv_top": [
+    7.3457,
+    4.7515,
+    3.9161,
+    3.8632,
+    3.6617,
+    3.3357,
+    3.1994,
+    3.0463
+   ],
+   "top4_share": 0.405101217934159,
+   "rank90": 29,
+   "energy_share": 0.019096590819859743
+  },
+  {
+   "module": "layers.29.mlp.up_proj",
+   "layer": 29,
+   "kind": "up_proj",
+   "energy": 172.0403174161537,
+   "sv_top": [
+    4.4605,
+    3.3915,
+    3.1595,
+    2.8713,
+    2.5535,
+    2.5111,
+    2.4155,
+    2.3756
+   ],
+   "top4_share": 0.288450003076816,
+   "rank90": 40,
+   "energy_share": 0.01246228526390392
+  },
+  {
+   "module": "layers.3.mlp.down_proj",
+   "layer": 3,
+   "kind": "down_proj",
+   "energy": 82.44504649080454,
+   "sv_top": [
+    2.6956,
+    2.5947,
+    2.2809,
+    2.187,
+    2.1158,
+    1.9694,
+    1.9181,
+    1.8369
+   ],
+   "top4_share": 0.2909067514375592,
+   "rank90": 34,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.6955790519714355,
+     "watch_z": {
+      "<|im_end|>": -2.48,
+      "<|endoftext|>": -2.8,
+      "\\n": -1.91,
+      "¬": 0.94
+     },
+     "promotes": [
+      " scomparsa",
+      "真的好",
+      "棲",
+      "isku",
+      "RAFT",
+      "ohnt",
+      "inat",
+      "果真"
+     ],
+     "suppresses": [
+      " écl",
+      " Addison",
+      "เ",
+      "内在",
+      " *",
+      "许多",
+      " Hind",
+      "理想"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.5946860313415527,
+     "watch_z": {
+      "<|im_end|>": -0.04,
+      "<|endoftext|>": 1.16,
+      "\\n": 0.24,
+      "¬": 0.82
+     },
+     "promotes": [
+      "é¢",
+      "zep",
+      "нал",
+      " poly",
+      " шах",
+      " materially",
+      " put",
+      " non"
+     ],
+     "suppresses": [
+      "ех",
+      "第四个",
+      "ediator",
+      "aylor",
+      "aglia",
+      "erkers",
+      "icidad",
+      "大丈夫"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.2808926105499268,
+     "watch_z": {
+      "<|im_end|>": -0.24,
+      "<|endoftext|>": 2.64,
+      "\\n": 3.21,
+      "¬": -0.15
+     },
+     "promotes": [
+      " met",
+      "探",
+      " art",
+      " mét",
+      " '",
+      " convict",
+      "met",
+      " Highlight"
+     ],
+     "suppresses": [
+      "etter",
+      "其自然",
+      "pee",
+      "ropp",
+      "上来的",
+      "upe",
+      " напра",
+      "prat"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.1869630813598633,
+     "watch_z": {
+      "<|im_end|>": 1.29,
+      "<|endoftext|>": -0.95,
+      "\\n": -0.12,
+      "¬": -0.41
+     },
+     "promotes": [
+      "amo",
+      "gena",
+      "日消息",
+      "eli",
+      "licate",
+      "الة",
+      "hardt",
+      " trained"
+     ],
+     "suppresses": [
+      "ên",
+      " McCorm",
+      "אה",
+      "醍",
+      "ได",
+      "得",
+      "噌",
+      "avers"
+     ]
+    }
+   ],
+   "energy_share": 0.005972168055694104
+  },
+  {
+   "module": "layers.3.mlp.gate_proj",
+   "layer": 3,
+   "kind": "gate_proj",
+   "energy": 197.89906689054374,
+   "sv_top": [
+    5.2388,
+    3.9833,
+    3.1585,
+    2.9931,
+    2.9832,
+    2.8681,
+    2.6346,
+    2.4569
+   ],
+   "top4_share": 0.3145420754746653,
+   "rank90": 40,
+   "energy_share": 0.014335445679774066
+  },
+  {
+   "module": "layers.3.mlp.up_proj",
+   "layer": 3,
+   "kind": "up_proj",
+   "energy": 118.2501233367672,
+   "sv_top": [
+    3.3598,
+    2.4427,
+    2.3281,
+    2.1977,
+    2.0807,
+    1.9768,
+    1.9305,
+    1.9022
+   ],
+   "top4_share": 0.23259980418831858,
+   "rank90": 44,
+   "energy_share": 0.008565822195909558
+  },
+  {
+   "module": "layers.3.self_attn.k_proj",
+   "layer": 3,
+   "kind": "k_proj",
+   "energy": 16.742941070708667,
+   "sv_top": [
+    2.1977,
+    1.443,
+    1.2603,
+    1.1726,
+    0.9131,
+    0.8727,
+    0.7045,
+    0.6612
+   ],
+   "top4_share": 0.5898173845132156,
+   "rank90": 21,
+   "energy_share": 0.0012128279633150264
+  },
+  {
+   "module": "layers.3.self_attn.o_proj",
+   "layer": 3,
+   "kind": "o_proj",
+   "energy": 31.563666244198362,
+   "sv_top": [
+    2.7531,
+    1.8293,
+    1.6943,
+    1.4067,
+    1.2175,
+    1.1,
+    1.0678,
+    0.9745
+   ],
+   "top4_share": 0.4997909893451455,
+   "rank90": 26,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.7531018257141113,
+     "watch_z": {
+      "<|im_end|>": -1.76,
+      "<|endoftext|>": -1.23,
+      "\\n": 0.2,
+      "¬": -1.15
+     },
+     "promotes": [
+      "رخ",
+      "人类社会",
+      "eltas",
+      "َض",
+      "月出生",
+      " rund",
+      " društ",
+      "รก"
+     ],
+     "suppresses": [
+      " numbering",
+      " opér",
+      "晴",
+      "交替",
+      "参考",
+      " altern",
+      " catalogs",
+      "defin"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.829282283782959,
+     "watch_z": {
+      "<|im_end|>": -1.28,
+      "<|endoftext|>": -0.25,
+      "\\n": 0.9,
+      "¬": -1.34
+     },
+     "promotes": [
+      "estens",
+      " Assault",
+      " Power",
+      "ĸ",
+      "下课",
+      "喜讯",
+      "ómez",
+      "affer"
+     ],
+     "suppresses": [
+      "生生",
+      "期间",
+      "壕",
+      " ع",
+      " cred",
+      "善",
+      "arna",
+      "的林"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.694280982017517,
+     "watch_z": {
+      "<|im_end|>": -0.57,
+      "<|endoftext|>": 1.78,
+      "\\n": 1.62,
+      "¬": 1.17
+     },
+     "promotes": [
+      "脑后",
+      "usnya",
+      "iss",
+      "brook",
+      " Lois",
+      "rec",
+      "leks",
+      "red"
+     ],
+     "suppresses": [
+      "орга",
+      "olé",
+      " mahal",
+      "不失",
+      "attes",
+      "_san",
+      "钦",
+      "型"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.4066998958587646,
+     "watch_z": {
+      "<|im_end|>": -0.67,
+      "<|endoftext|>": -2.11,
+      "\\n": -0.2,
+      "¬": -0.01
+     },
+     "promotes": [
+      "浆",
+      "اب",
+      "æİ",
+      "app",
+      "åķ",
+      "óm",
+      " yourself",
+      "波"
+     ],
+     "suppresses": [
+      "estas",
+      "上来",
+      "Ľ",
+      "veiller",
+      "uken",
+      "四个自信",
+      "част",
+      "кове"
+     ]
+    }
+   ],
+   "energy_share": 0.0022864141302317825
+  },
+  {
+   "module": "layers.3.self_attn.q_proj",
+   "layer": 3,
+   "kind": "q_proj",
+   "energy": 124.04101208351555,
+   "sv_top": [
+    5.2372,
+    3.765,
+    2.6194,
+    2.4952,
+    2.3795,
+    2.2285,
+    2.1366,
+    1.9844
+   ],
+   "top4_share": 0.440908963446992,
+   "rank90": 31,
+   "energy_share": 0.00898530356270418
+  },
+  {
+   "module": "layers.3.self_attn.v_proj",
+   "layer": 3,
+   "kind": "v_proj",
+   "energy": 11.70490864668787,
+   "sv_top": [
+    1.8187,
+    1.0979,
+    1.0281,
+    0.893,
+    0.849,
+    0.7012,
+    0.6714,
+    0.5722
+   ],
+   "top4_share": 0.5440202615942006,
+   "rank90": 22,
+   "energy_share": 0.000847882128641454
+  },
+  {
+   "module": "layers.30.mlp.down_proj",
+   "layer": 30,
+   "kind": "down_proj",
+   "energy": 74.45114199249612,
+   "sv_top": [
+    3.7049,
+    2.4459,
+    2.2502,
+    1.9838,
+    1.8614,
+    1.7818,
+    1.6167,
+    1.5631
+   ],
+   "top4_share": 0.38558849817645247,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.7049152851104736,
+     "watch_z": {
+      "<|im_end|>": 2.85,
+      "<|endoftext|>": 1.42,
+      "\\n": 2.05,
+      "¬": 0.98
+     },
+     "promotes": [
+      "Ë",
+      "Ġâľ",
+      " bù",
+      "âľ",
+      "âĤ",
+      " gelt",
+      "inst",
+      "–"
+     ],
+     "suppresses": [
+      "成药",
+      "iage",
+      "的情怀",
+      "дра",
+      " excer",
+      "lected",
+      "שו",
+      "חות"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.4459176063537598,
+     "watch_z": {
+      "<|im_end|>": -0.67,
+      "<|endoftext|>": -0.31,
+      "\\n": -0.73,
+      "¬": -6.75
+     },
+     "promotes": [
+      " unc",
+      "绝",
+      "也罢",
+      "ije",
+      " Vu",
+      "esh",
+      " obligatory",
+      "(l"
+     ],
+     "suppresses": [
+      "Ë",
+      "¬",
+      "û",
+      "ставку",
+      "urang",
+      "weg",
+      "ùng",
+      " задачу"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.2501513957977295,
+     "watch_z": {
+      "<|im_end|>": 2.27,
+      "<|endoftext|>": 1.04,
+      "\\n": -2.23,
+      "¬": 2.44
+     },
+     "promotes": [
+      "Ë",
+      "闸",
+      "医科大学",
+      "霖",
+      "訳",
+      "选址",
+      "esity",
+      "驯"
+     ],
+     "suppresses": [
+      "每名",
+      "珑",
+      "每项",
+      "Ao",
+      " #",
+      "inh",
+      "yh",
+      "ư"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.9837874174118042,
+     "watch_z": {
+      "<|im_end|>": 0.21,
+      "<|endoftext|>": -0.27,
+      "\\n": -0.82,
+      "¬": 4.1
+     },
+     "promotes": [
+      "ßen",
+      "ß",
+      "ßer",
+      " insomma",
+      "ttp",
+      "GetSize",
+      "angka",
+      "hait"
+     ],
+     "suppresses": [
+      "utility",
+      "fad",
+      "位",
+      "活",
+      "ioc",
+      " Leb",
+      "Sent",
+      " Eis"
+     ]
+    }
+   ],
+   "energy_share": 0.005393104265725937
+  },
+  {
+   "module": "layers.30.mlp.gate_proj",
+   "layer": 30,
+   "kind": "gate_proj",
+   "energy": 238.70021393300638,
+   "sv_top": [
+    6.7641,
+    4.9993,
+    3.9875,
+    3.7168,
+    3.5825,
+    3.1328,
+    3.0344,
+    3.0066
+   ],
+   "top4_share": 0.4208665003829905,
+   "rank90": 30,
+   "energy_share": 0.017291005987813326
+  },
+  {
+   "module": "layers.30.mlp.up_proj",
+   "layer": 30,
+   "kind": "up_proj",
+   "energy": 172.56152056357445,
+   "sv_top": [
+    4.6562,
+    3.2804,
+    2.9733,
+    2.7937,
+    2.5588,
+    2.5272,
+    2.4608,
+    2.3472
+   ],
+   "top4_share": 0.28445715511499264,
+   "rank90": 40,
+   "energy_share": 0.012500040264598845
+  },
+  {
+   "module": "layers.31.mlp.down_proj",
+   "layer": 31,
+   "kind": "down_proj",
+   "energy": 39.228243090591086,
+   "sv_top": [
+    2.6117,
+    1.5581,
+    1.3984,
+    1.3585,
+    1.2976,
+    1.2632,
+    1.2153,
+    1.1271
+   ],
+   "top4_share": 0.3326504092974668,
+   "rank90": 35,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.6116578578948975,
+     "watch_z": {
+      "<|im_end|>": -3.32,
+      "<|endoftext|>": -0.92,
+      "\\n": -1.95,
+      "¬": -0.93
+     },
+     "promotes": [
+      "暴",
+      " الأ",
+      "霍",
+      "å",
+      "恐怖",
+      " ●",
+      "WH",
+      "成药"
+     ],
+     "suppresses": [
+      " diser",
+      " fry",
+      "惯",
+      " hatt",
+      "âĤ",
+      "人心的",
+      " seit",
+      " Ru"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.5580956935882568,
+     "watch_z": {
+      "<|im_end|>": 1.9,
+      "<|endoftext|>": -0.01,
+      "\\n": 0.44,
+      "¬": -1.38
+     },
+     "promotes": [
+      "ieu",
+      "̀",
+      "opat",
+      " sit",
+      "ターン",
+      "enta",
+      "外交",
+      "管理条例"
+     ],
+     "suppresses": [
+      "ùng",
+      "oving",
+      "ichtig",
+      "正大",
+      "ùn",
+      "ằng",
+      "ths",
+      " vest"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.398373007774353,
+     "watch_z": {
+      "<|im_end|>": 0.72,
+      "<|endoftext|>": -0.02,
+      "\\n": -0.06,
+      "¬": -0.93
+     },
+     "promotes": [
+      "iddle",
+      " hind",
+      "套",
+      "igny",
+      "leep",
+      "sm",
+      "ầy",
+      "asca"
+     ],
+     "suppresses": [
+      "avers",
+      "agung",
+      "errs",
+      " „",
+      "ور",
+      "anders",
+      "aur",
+      "рез"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.358464241027832,
+     "watch_z": {
+      "<|im_end|>": -0.68,
+      "<|endoftext|>": -0.5,
+      "\\n": -1.6,
+      "¬": -0.18
+     },
+     "promotes": [
+      "engi",
+      "kowo",
+      "angan",
+      "emp",
+      "ĠÅ",
+      "ounc",
+      "ANGAN",
+      " frü"
+     ],
+     "suppresses": [
+      "断",
+      "letz",
+      "iram",
+      "oug",
+      " ira",
+      "ait",
+      "onde",
+      "äf"
+     ]
+    }
+   ],
+   "energy_share": 0.002841622028714133
+  },
+  {
+   "module": "layers.31.mlp.gate_proj",
+   "layer": 31,
+   "kind": "gate_proj",
+   "energy": 224.3001261341578,
+   "sv_top": [
+    6.57,
+    4.7079,
+    3.8975,
+    3.7033,
+    3.0059,
+    2.9293,
+    2.892,
+    2.7486
+   ],
+   "top4_share": 0.42012238908415916,
+   "rank90": 31,
+   "energy_share": 0.016247890021336604
+  },
+  {
+   "module": "layers.31.mlp.up_proj",
+   "layer": 31,
+   "kind": "up_proj",
+   "energy": 140.66862046354433,
+   "sv_top": [
+    3.6104,
+    2.8209,
+    2.6393,
+    2.4894,
+    2.44,
+    2.3383,
+    2.278,
+    2.2241
+   ],
+   "top4_share": 0.24280884299660127,
+   "rank90": 42,
+   "energy_share": 0.01018977703729765
+  },
+  {
+   "module": "layers.31.self_attn.k_proj",
+   "layer": 31,
+   "kind": "k_proj",
+   "energy": 10.723579068048208,
+   "sv_top": [
+    1.0849,
+    0.9332,
+    0.8493,
+    0.8225,
+    0.7326,
+    0.7191,
+    0.6783,
+    0.6561
+   ],
+   "top4_share": 0.3213222651306332,
+   "rank90": 34,
+   "energy_share": 0.000776796412626809
+  },
+  {
+   "module": "layers.31.self_attn.o_proj",
+   "layer": 31,
+   "kind": "o_proj",
+   "energy": 29.342885980446418,
+   "sv_top": [
+    2.2265,
+    1.5863,
+    1.3973,
+    1.2769,
+    1.2401,
+    1.1667,
+    1.0882,
+    1.0319
+   ],
+   "top4_share": 0.3768029583767396,
+   "rank90": 30,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.226451873779297,
+     "watch_z": {
+      "<|im_end|>": -3.6,
+      "<|endoftext|>": -1.76,
+      "\\n": -5.52,
+      "¬": -8.06
+     },
+     "promotes": [
+      " Nhan",
+      "่ง",
+      "_WH",
+      "unami",
+      " Vej",
+      " пам",
+      "ナン",
+      " Суб"
+     ],
+     "suppresses": [
+      "Ġâľ",
+      "¬",
+      "ù",
+      "âĤ",
+      "Ë",
+      "\\n",
+      "âľ",
+      " dz"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.586319923400879,
+     "watch_z": {
+      "<|im_end|>": 0.46,
+      "<|endoftext|>": 0.26,
+      "\\n": -0.51,
+      "¬": 0.43
+     },
+     "promotes": [
+      " ihr",
+      "indir",
+      " gl",
+      " fürs",
+      "自己不",
+      "länder",
+      "bst",
+      " für"
+     ],
+     "suppresses": [
+      "orns",
+      "اره",
+      "arris",
+      "ellig",
+      "ça",
+      "aggio",
+      "团",
+      "arbre"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.3972784280776978,
+     "watch_z": {
+      "<|im_end|>": -0.18,
+      "<|endoftext|>": -1.78,
+      "\\n": -0.58,
+      "¬": 2.54
+     },
+     "promotes": [
+      "Wür",
+      "瞳",
+      "mals",
+      "øj",
+      "ycz",
+      "榔",
+      "ainer",
+      "kem"
+     ],
+     "suppresses": [
+      "ào",
+      " зах",
+      "热",
+      " esto",
+      "扫",
+      " vt",
+      " vit",
+      "abs"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.2769496440887451,
+     "watch_z": {
+      "<|im_end|>": 1.47,
+      "<|endoftext|>": 1.5,
+      "\\n": 0.91,
+      "¬": -1.65
+     },
+     "promotes": [
+      " iar",
+      "依",
+      " etc",
+      "igt",
+      "争取",
+      "agai",
+      "jung",
+      "IGHT"
+     ],
+     "suppresses": [
+      "inf",
+      " inf",
+      " belie",
+      "ù",
+      "Inf",
+      " fürs",
+      "้าน",
+      "동안"
+     ]
+    }
+   ],
+   "energy_share": 0.0021255448783553273
+  },
+  {
+   "module": "layers.31.self_attn.q_proj",
+   "layer": 31,
+   "kind": "q_proj",
+   "energy": 131.74590044483125,
+   "sv_top": [
+    5.5199,
+    3.2182,
+    2.6908,
+    2.3991,
+    2.2746,
+    2.1578,
+    2.1405,
+    2.0124
+   ],
+   "top4_share": 0.4085316660850714,
+   "rank90": 34,
+   "energy_share": 0.009543431553441274
+  },
+  {
+   "module": "layers.31.self_attn.v_proj",
+   "layer": 31,
+   "kind": "v_proj",
+   "energy": 12.481145723433189,
+   "sv_top": [
+    1.5925,
+    1.0363,
+    0.8704,
+    0.8101,
+    0.7777,
+    0.7475,
+    0.6675,
+    0.6572
+   ],
+   "top4_share": 0.40251565709580933,
+   "rank90": 32,
+   "energy_share": 0.0009041113197293724
+  },
+  {
+   "module": "layers.4.mlp.down_proj",
+   "layer": 4,
+   "kind": "down_proj",
+   "energy": 76.14906915715333,
+   "sv_top": [
+    3.041,
+    2.8741,
+    2.3855,
+    2.1314,
+    1.9153,
+    1.8906,
+    1.8553,
+    1.6968
+   ],
+   "top4_share": 0.3642996009571729,
+   "rank90": 31,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.0409529209136963,
+     "watch_z": {
+      "<|im_end|>": 0.98,
+      "<|endoftext|>": 1.13,
+      "\\n": 0.68,
+      "¬": 1.76
+     },
+     "promotes": [
+      "龙华",
+      "套路",
+      "骷髅",
+      "aren",
+      "鼓楼区",
+      "init",
+      " сал",
+      "amba"
+     ],
+     "suppresses": [
+      "izzi",
+      "这时候",
+      "axes",
+      "吉",
+      "Edited",
+      "衔",
+      " Customize",
+      "和重点"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.874061107635498,
+     "watch_z": {
+      "<|im_end|>": 2.13,
+      "<|endoftext|>": 1.03,
+      "\\n": -0.23,
+      "¬": 0.79
+     },
+     "promotes": [
+      "ipl",
+      "挑",
+      "第三",
+      "\"/></",
+      " tre",
+      "具体问题",
+      "和平",
+      "å"
+     ],
+     "suppresses": [
+      "萤",
+      "之交",
+      "urat",
+      "ًا",
+      "ول",
+      "وری",
+      "Generally",
+      "udios"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.3854689598083496,
+     "watch_z": {
+      "<|im_end|>": -0.18,
+      "<|endoftext|>": -0.33,
+      "\\n": -1.59,
+      "¬": -1.84
+     },
+     "promotes": [
+      "无可",
+      "fte",
+      "IPA",
+      "ffer",
+      "ints",
+      "趁",
+      "yks",
+      "argest"
+     ],
+     "suppresses": [
+      "azol",
+      "稠",
+      "俗",
+      "ầu",
+      "asmus",
+      "份",
+      "ail",
+      "olt"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.131429433822632,
+     "watch_z": {
+      "<|im_end|>": 0.08,
+      "<|endoftext|>": -1.56,
+      "\\n": -0.96,
+      "¬": -3.65
+     },
+     "promotes": [
+      " suscep",
+      "ialized",
+      "resher",
+      "ahead",
+      "zí",
+      "iose",
+      "هران",
+      "toire"
+     ],
+     "suppresses": [
+      "ri",
+      "可谓",
+      "st",
+      "境的",
+      "境",
+      "视",
+      "able",
+      "¿"
+     ]
+    }
+   ],
+   "energy_share": 0.0055160989974323725
+  },
+  {
+   "module": "layers.4.mlp.gate_proj",
+   "layer": 4,
+   "kind": "gate_proj",
+   "energy": 196.44682114171,
+   "sv_top": [
+    5.8039,
+    4.0544,
+    3.3197,
+    3.0797,
+    2.8592,
+    2.6618,
+    2.4727,
+    2.389
+   ],
+   "top4_share": 0.35953279859116155,
+   "rank90": 38,
+   "energy_share": 0.014230247659524664
+  },
+  {
+   "module": "layers.4.mlp.up_proj",
+   "layer": 4,
+   "kind": "up_proj",
+   "energy": 110.35923035576664,
+   "sv_top": [
+    3.1586,
+    2.3298,
+    2.2188,
+    2.1365,
+    2.0439,
+    1.9898,
+    1.9575,
+    1.8447
+   ],
+   "top4_share": 0.22555529205828356,
+   "rank90": 45,
+   "energy_share": 0.007994220371447144
+  },
+  {
+   "module": "layers.5.mlp.down_proj",
+   "layer": 5,
+   "kind": "down_proj",
+   "energy": 68.32012641317844,
+   "sv_top": [
+    3.2767,
+    2.5676,
+    2.078,
+    2.0016,
+    1.9478,
+    1.7459,
+    1.6112,
+    1.5634
+   ],
+   "top4_share": 0.3754913179049031,
+   "rank90": 31,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.2766807079315186,
+     "watch_z": {
+      "<|im_end|>": 1.04,
+      "<|endoftext|>": 0.61,
+      "\\n": -0.08,
+      "¬": 0.43
+     },
+     "promotes": [
+      "载",
+      "مة",
+      "oco",
+      "革",
+      "bev",
+      "wil",
+      " Il",
+      "orp"
+     ],
+     "suppresses": [
+      "燈",
+      "down",
+      "du",
+      "ometri",
+      "umat",
+      " Guz",
+      "um",
+      "educ"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.5676238536834717,
+     "watch_z": {
+      "<|im_end|>": 0.03,
+      "<|endoftext|>": 0.71,
+      "\\n": 1.3,
+      "¬": 0.02
+     },
+     "promotes": [
+      "uch",
+      "ld",
+      "apesh",
+      "iy",
+      "eter",
+      " ",
+      "\\\\",
+      "far"
+     ],
+     "suppresses": [
+      "其中之一",
+      "écu",
+      "acin",
+      "ряда",
+      "atrice",
+      "wajib",
+      " paraz",
+      " denun"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.077981472015381,
+     "watch_z": {
+      "<|im_end|>": 0.7,
+      "<|endoftext|>": 0.08,
+      "\\n": 2.04,
+      "¬": -0.06
+     },
+     "promotes": [
+      "zeh",
+      "形",
+      "里",
+      "丰富了",
+      "aras",
+      "里的",
+      " Daddy",
+      "arie"
+     ],
+     "suppresses": [
+      " lat",
+      "lat",
+      "再加上",
+      "eler",
+      "isphere",
+      "钧",
+      "gun",
+      "acob"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.0015690326690674,
+     "watch_z": {
+      "<|im_end|>": 0.69,
+      "<|endoftext|>": -0.41,
+      "\\n": 0.32,
+      "¬": -0.07
+     },
+     "promotes": [
+      "anz",
+      "行的",
+      " cin",
+      "į",
+      "ily",
+      "pile",
+      "عو",
+      " العص"
+     ],
+     "suppresses": [
+      "刻",
+      "来不及",
+      " ext",
+      "avit",
+      "ară",
+      "经营",
+      "avion",
+      "uting"
+     ]
+    }
+   ],
+   "energy_share": 0.00494898473459258
+  },
+  {
+   "module": "layers.5.mlp.gate_proj",
+   "layer": 5,
+   "kind": "gate_proj",
+   "energy": 192.88473553249403,
+   "sv_top": [
+    6.6823,
+    4.1569,
+    3.5219,
+    2.9547,
+    2.7489,
+    2.5227,
+    2.367,
+    2.3077
+   ],
+   "top4_share": 0.4306557194905912,
+   "rank90": 36,
+   "energy_share": 0.013972216706878164
+  },
+  {
+   "module": "layers.5.mlp.up_proj",
+   "layer": 5,
+   "kind": "up_proj",
+   "energy": 112.48961348637549,
+   "sv_top": [
+    3.2886,
+    2.7184,
+    2.3814,
+    2.2133,
+    2.1265,
+    2.0616,
+    1.9414,
+    1.8433
+   ],
+   "top4_share": 0.2557977928569439,
+   "rank90": 43,
+   "energy_share": 0.008148541420686056
+  },
+  {
+   "module": "layers.6.mlp.down_proj",
+   "layer": 6,
+   "kind": "down_proj",
+   "energy": 61.039274306090554,
+   "sv_top": [
+    3.1168,
+    2.1793,
+    2.0545,
+    1.8973,
+    1.7956,
+    1.7533,
+    1.5826,
+    1.4826
+   ],
+   "top4_share": 0.3650816735093227,
+   "rank90": 30,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.1167829036712646,
+     "watch_z": {
+      "<|im_end|>": 0.01,
+      "<|endoftext|>": 1.3,
+      "\\n": 3.2,
+      "¬": 0.56
+     },
+     "promotes": [
+      " ziem",
+      "zę",
+      "las",
+      "intes",
+      "不换",
+      "elaar",
+      ".jet",
+      " täh"
+     ],
+     "suppresses": [
+      "瘋",
+      ".–",
+      "opter",
+      "가는",
+      "esson",
+      "gica",
+      " bay",
+      " agré"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.1792521476745605,
+     "watch_z": {
+      "<|im_end|>": -0.38,
+      "<|endoftext|>": -0.28,
+      "\\n": -1.2,
+      "¬": -0.61
+     },
+     "promotes": [
+      "ersch",
+      "lv",
+      "hart",
+      " domen",
+      "买卖双方",
+      "理的",
+      "asaki",
+      "erta"
+     ],
+     "suppresses": [
+      "泣",
+      "odus",
+      "未",
+      "外",
+      " '",
+      "尽",
+      "extr",
+      " analy"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.0544848442077637,
+     "watch_z": {
+      "<|im_end|>": -0.78,
+      "<|endoftext|>": -0.08,
+      "\\n": -4.31,
+      "¬": 0.05
+     },
+     "promotes": [
+      "zor",
+      "òng",
+      "四种",
+      "梦想的",
+      "لاب",
+      "!\\",
+      " alred",
+      "AMED"
+     ],
+     "suppresses": [
+      "迎",
+      "仙台",
+      "apan",
+      "eger",
+      "而下",
+      " past",
+      "섭",
+      " Buffer"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.8973499536514282,
+     "watch_z": {
+      "<|im_end|>": -0.83,
+      "<|endoftext|>": -0.31,
+      "\\n": 0.14,
+      "¬": 1.57
+     },
+     "promotes": [
+      "джет",
+      "zc",
+      "eczy",
+      "별",
+      "engeb",
+      "等各",
+      " cog",
+      "yntax"
+     ],
+     "suppresses": [
+      "流",
+      "可喜",
+      "irr",
+      " Mob",
+      " Pruitt",
+      "лес",
+      "alcon",
+      "णी"
+     ]
+    }
+   ],
+   "energy_share": 0.004421573152903034
+  },
+  {
+   "module": "layers.6.mlp.gate_proj",
+   "layer": 6,
+   "kind": "gate_proj",
+   "energy": 165.30919127226537,
+   "sv_top": [
+    5.2275,
+    3.7867,
+    3.3111,
+    2.809,
+    2.611,
+    2.5003,
+    2.2512,
+    2.13
+   ],
+   "top4_share": 0.3661001283961118,
+   "rank90": 39,
+   "energy_share": 0.01197469482340534
+  },
+  {
+   "module": "layers.6.mlp.up_proj",
+   "layer": 6,
+   "kind": "up_proj",
+   "energy": 107.82389365527061,
+   "sv_top": [
+    3.0508,
+    2.4101,
+    2.2354,
+    2.1723,
+    2.0632,
+    2.0521,
+    1.9264,
+    1.9002
+   ],
+   "top4_share": 0.2302934461091621,
+   "rank90": 44,
+   "energy_share": 0.0078105652278379996
+  },
+  {
+   "module": "layers.7.mlp.down_proj",
+   "layer": 7,
+   "kind": "down_proj",
+   "energy": 70.09827427733288,
+   "sv_top": [
+    2.8888,
+    2.6597,
+    2.2859,
+    2.0641,
+    2.0457,
+    1.9183,
+    1.7235,
+    1.5811
+   ],
+   "top4_share": 0.3552883212522019,
+   "rank90": 30,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 2.888817071914673,
+     "watch_z": {
+      "<|im_end|>": -0.13,
+      "<|endoftext|>": 0.13,
+      "\\n": 0.09,
+      "¬": 2.22
+     },
+     "promotes": [
+      " either",
+      "gross",
+      "spur",
+      "mall",
+      " neither",
+      " infiamm",
+      "盘",
+      "either"
+     ],
+     "suppresses": [
+      "oben",
+      "cee",
+      "理念和",
+      " Absol",
+      "人士的",
+      "淮北",
+      "ầm",
+      "ertes"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.6597096920013428,
+     "watch_z": {
+      "<|im_end|>": 0.99,
+      "<|endoftext|>": -0.18,
+      "\\n": -1.61,
+      "¬": -0.8
+     },
+     "promotes": [
+      "ابت",
+      "echa",
+      "middle",
+      "种类的",
+      "ocaust",
+      "变",
+      "adr",
+      "pont"
+     ],
+     "suppresses": [
+      " overall",
+      "ly",
+      "为零",
+      "тесь",
+      "iveness",
+      "的整体",
+      "ves",
+      "overall"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.285858154296875,
+     "watch_z": {
+      "<|im_end|>": -1.72,
+      "<|endoftext|>": 0.06,
+      "\\n": -1.5,
+      "¬": 2.35
+     },
+     "promotes": [
+      "宜",
+      "yst",
+      "aman",
+      " elk",
+      "issippi",
+      "知音",
+      "夷",
+      "isian"
+     ],
+     "suppresses": [
+      "导",
+      "ORI",
+      "nTo",
+      "legt",
+      " Gewalt",
+      "传媒有限公司",
+      " besides",
+      "íguez"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.064129590988159,
+     "watch_z": {
+      "<|im_end|>": -0.08,
+      "<|endoftext|>": -1.06,
+      "\\n": -0.76,
+      "¬": -2.73
+     },
+     "promotes": [
+      "人已",
+      " доказ",
+      "oundation",
+      "设法",
+      "adis",
+      "qui",
+      "isode",
+      " Piso"
+     ],
+     "suppresses": [
+      "lic",
+      "вку",
+      "ुर",
+      "opers",
+      "ienza",
+      "痣",
+      "t",
+      "сут"
+     ]
+    }
+   ],
+   "energy_share": 0.005077790506735461
+  },
+  {
+   "module": "layers.7.mlp.gate_proj",
+   "layer": 7,
+   "kind": "gate_proj",
+   "energy": 183.64744799564562,
+   "sv_top": [
+    5.0137,
+    3.9223,
+    3.3237,
+    2.9305,
+    2.7646,
+    2.6974,
+    2.5693,
+    2.5224
+   ],
+   "top4_share": 0.3275662282953868,
+   "rank90": 38,
+   "energy_share": 0.013303084528573428
+  },
+  {
+   "module": "layers.7.mlp.up_proj",
+   "layer": 7,
+   "kind": "up_proj",
+   "energy": 100.04620345182937,
+   "sv_top": [
+    2.8302,
+    2.345,
+    2.1776,
+    2.0851,
+    1.9907,
+    1.8968,
+    1.8252,
+    1.7781
+   ],
+   "top4_share": 0.22588180278520748,
+   "rank90": 44,
+   "energy_share": 0.007247163605094571
+  },
+  {
+   "module": "layers.7.self_attn.k_proj",
+   "layer": 7,
+   "kind": "k_proj",
+   "energy": 12.865034362874173,
+   "sv_top": [
+    1.5867,
+    1.2216,
+    1.0376,
+    0.9858,
+    0.8708,
+    0.8179,
+    0.7426,
+    0.641
+   ],
+   "top4_share": 0.4708977212881905,
+   "rank90": 27,
+   "energy_share": 0.0009319195091476297
+  },
+  {
+   "module": "layers.7.self_attn.o_proj",
+   "layer": 7,
+   "kind": "o_proj",
+   "energy": 21.49463420998355,
+   "sv_top": [
+    1.547,
+    1.4447,
+    1.3535,
+    1.187,
+    1.1255,
+    1.035,
+    0.9384,
+    0.8926
+   ],
+   "top4_share": 0.3592290905516443,
+   "rank90": 32,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 1.5470280647277832,
+     "watch_z": {
+      "<|im_end|>": -1.62,
+      "<|endoftext|>": -1.15,
+      "\\n": -0.65,
+      "¬": -2.82
+     },
+     "promotes": [
+      "CCC",
+      "غة",
+      "规模的",
+      "襟",
+      "盈",
+      "家",
+      "itra",
+      "INESS"
+     ],
+     "suppresses": [
+      "和解",
+      "ton",
+      "down",
+      ".mon",
+      "monic",
+      "course",
+      "consistent",
+      "alls"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 1.44474196434021,
+     "watch_z": {
+      "<|im_end|>": -0.02,
+      "<|endoftext|>": -2.15,
+      "\\n": -1.99,
+      "¬": 0.05
+     },
+     "promotes": [
+      "koch",
+      "indi",
+      "的前期",
+      "indy",
+      " bast",
+      "前期的",
+      "amaah",
+      "前期"
+     ],
+     "suppresses": [
+      " ato",
+      "diensten",
+      "oto",
+      "m",
+      " Lip",
+      " Put",
+      " Thin",
+      "Thin"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 1.3534715175628662,
+     "watch_z": {
+      "<|im_end|>": 0.64,
+      "<|endoftext|>": 1.46,
+      "\\n": 1.27,
+      "¬": 0.64
+     },
+     "promotes": [
+      "sburg",
+      "arta",
+      "arts",
+      " прото",
+      "与新",
+      "arti",
+      " dir",
+      "utor"
+     ],
+     "suppresses": [
+      "ience",
+      "勢",
+      "عة",
+      " Shepard",
+      "neau",
+      " Trouble",
+      " trouble",
+      " alike"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 1.1870288848876953,
+     "watch_z": {
+      "<|im_end|>": -0.78,
+      "<|endoftext|>": -1.24,
+      "\\n": -2.46,
+      "¬": -0.42
+     },
+     "promotes": [
+      "不散",
+      "echa",
+      "日には",
+      "下一章",
+      "命运的",
+      "ệt",
+      "orte",
+      "一言"
+     ],
+     "suppresses": [
+      "f",
+      "fi",
+      "BAT",
+      "еры",
+      "STD",
+      "~",
+      "浩",
+      "ูด"
+     ]
+    }
+   ],
+   "energy_share": 0.0015570319050279271
+  },
+  {
+   "module": "layers.7.self_attn.q_proj",
+   "layer": 7,
+   "kind": "q_proj",
+   "energy": 118.96171547619582,
+   "sv_top": [
+    4.5235,
+    3.193,
+    2.6506,
+    2.6163,
+    2.2156,
+    2.1729,
+    2.0799,
+    1.9804
+   ],
+   "top4_share": 0.37430635299889564,
+   "rank90": 35,
+   "energy_share": 0.008617368626224841
+  },
+  {
+   "module": "layers.7.self_attn.v_proj",
+   "layer": 7,
+   "kind": "v_proj",
+   "energy": 9.948840698801417,
+   "sv_top": [
+    1.0529,
+    0.8648,
+    0.8329,
+    0.8031,
+    0.7717,
+    0.7166,
+    0.6768,
+    0.6484
+   ],
+   "top4_share": 0.32116155243229266,
+   "rank90": 32,
+   "energy_share": 0.0007206757851631289
+  },
+  {
+   "module": "layers.8.mlp.down_proj",
+   "layer": 8,
+   "kind": "down_proj",
+   "energy": 76.32255820146177,
+   "sv_top": [
+    3.2812,
+    3.0681,
+    2.408,
+    2.207,
+    2.1328,
+    1.9387,
+    1.6874,
+    1.6596
+   ],
+   "top4_share": 0.4041841291354172,
+   "rank90": 29,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.281184434890747,
+     "watch_z": {
+      "<|im_end|>": -2.29,
+      "<|endoftext|>": -1.58,
+      "\\n": -1.16,
+      "¬": 0.42
+     },
+     "promotes": [
+      "emann",
+      "amakan",
+      "伟业",
+      "缘",
+      " cánh",
+      " yên",
+      "人去",
+      "ITU"
+     ],
+     "suppresses": [
+      " Giovan",
+      "星",
+      "живает",
+      "rots",
+      "比较多",
+      "蕾",
+      "_cast",
+      "ouvrez"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 3.0680768489837646,
+     "watch_z": {
+      "<|im_end|>": 1.77,
+      "<|endoftext|>": 0.02,
+      "\\n": 2.26,
+      "¬": -0.08
+     },
+     "promotes": [
+      "ty",
+      " rest",
+      "ract",
+      "ank",
+      "ajos",
+      " čím",
+      "ucc",
+      " spann"
+     ],
+     "suppresses": [
+      "IKE",
+      " sugges",
+      " Fully",
+      "提",
+      "抬",
+      "uber",
+      "涉",
+      "lesi"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.40798282623291,
+     "watch_z": {
+      "<|im_end|>": 1.55,
+      "<|endoftext|>": 2.44,
+      "\\n": 1.33,
+      "¬": 2.68
+     },
+     "promotes": [
+      "-",
+      "ias",
+      "S",
+      "t",
+      "za",
+      "巨",
+      "z",
+      "Ta"
+     ],
+     "suppresses": [
+      "uyu",
+      "vegli",
+      "CLUDING",
+      "덩",
+      "зум",
+      "attiv",
+      "roku",
+      " حالی"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.206970453262329,
+     "watch_z": {
+      "<|im_end|>": -0.48,
+      "<|endoftext|>": -0.48,
+      "\\n": -2.11,
+      "¬": -0.28
+     },
+     "promotes": [
+      "cus",
+      "一望",
+      "相关情况",
+      "有关情况",
+      "孢",
+      "春色",
+      "veda",
+      "引领作用"
+     ],
+     "suppresses": [
+      "аты",
+      "iefer",
+      "è",
+      "arbre",
+      "拥",
+      "iev",
+      "世的",
+      " wire"
+     ]
+    }
+   ],
+   "energy_share": 0.005528666225817007
+  },
+  {
+   "module": "layers.8.mlp.gate_proj",
+   "layer": 8,
+   "kind": "gate_proj",
+   "energy": 188.4412637905229,
+   "sv_top": [
+    4.5077,
+    3.8498,
+    3.436,
+    3.2217,
+    2.9865,
+    2.7906,
+    2.6777,
+    2.5259
+   ],
+   "top4_share": 0.3042087382088411,
+   "rank90": 39,
+   "energy_share": 0.01365033975825228
+  },
+  {
+   "module": "layers.8.mlp.up_proj",
+   "layer": 8,
+   "kind": "up_proj",
+   "energy": 103.18283932521317,
+   "sv_top": [
+    3.0304,
+    2.3734,
+    2.1917,
+    2.1302,
+    2.0688,
+    1.9076,
+    1.8663,
+    1.8446
+   ],
+   "top4_share": 0.2341260501101464,
+   "rank90": 44,
+   "energy_share": 0.007474375758676851
+  },
+  {
+   "module": "layers.9.mlp.down_proj",
+   "layer": 9,
+   "kind": "down_proj",
+   "energy": 75.15085960390019,
+   "sv_top": [
+    3.8046,
+    2.804,
+    2.5388,
+    2.1696,
+    1.9862,
+    1.7273,
+    1.6369,
+    1.5692
+   ],
+   "top4_share": 0.44563769163137756,
+   "rank90": 28,
+   "lens": [
+    {
+     "dir": 0,
+     "sv": 3.8045871257781982,
+     "watch_z": {
+      "<|im_end|>": 1.99,
+      "<|endoftext|>": 3.03,
+      "\\n": 3.24,
+      "¬": 1.92
+     },
+     "promotes": [
+      "ao",
+      "__",
+      ";",
+      " __",
+      "…",
+      "..",
+      "aint",
+      "_x"
+     ],
+     "suppresses": [
+      "bev",
+      "utilise",
+      "effectu",
+      "fäh",
+      " podremos",
+      " السلاح",
+      "谁能",
+      "ocre"
+     ]
+    },
+    {
+     "dir": 1,
+     "sv": 2.803990125656128,
+     "watch_z": {
+      "<|im_end|>": 1.04,
+      "<|endoftext|>": 1.93,
+      "\\n": 0.75,
+      "¬": -0.03
+     },
+     "promotes": [
+      "aios",
+      "guna",
+      "zb",
+      " Viz",
+      "ستر",
+      "ia",
+      "浑身",
+      " physical"
+     ],
+     "suppresses": [
+      " smar",
+      "离心",
+      "æ³",
+      ".exports",
+      "ружи",
+      "健",
+      "羨",
+      "issão"
+     ]
+    },
+    {
+     "dir": 2,
+     "sv": 2.5388145446777344,
+     "watch_z": {
+      "<|im_end|>": 0.73,
+      "<|endoftext|>": -0.12,
+      "\\n": -0.95,
+      "¬": -0.59
+     },
+     "promotes": [
+      "è¯",
+      " городу",
+      " gelungen",
+      "目前正在",
+      "hm",
+      "太重",
+      "óta",
+      " freig"
+     ],
+     "suppresses": [
+      "于是",
+      " mee",
+      "í",
+      "pon",
+      " Casal",
+      " Kerry",
+      "美",
+      "倍"
+     ]
+    },
+    {
+     "dir": 3,
+     "sv": 2.1696157455444336,
+     "watch_z": {
+      "<|im_end|>": -0.07,
+      "<|endoftext|>": -0.48,
+      "\\n": 1.64,
+      "¬": 0.24
+     },
+     "promotes": [
+      "籍",
+      "痛",
+      "ix",
+      "全面",
+      "寸",
+      "暖",
+      " pain",
+      " nál"
+     ],
+     "suppresses": [
+      "eggi",
+      "sei",
+      "olé",
+      "杈",
+      "捡起",
+      " tân",
+      "iline",
+      "带回"
+     ]
+    }
+   ],
+   "energy_share": 0.00544379052699574
+  },
+  {
+   "module": "layers.9.mlp.gate_proj",
+   "layer": 9,
+   "kind": "gate_proj",
+   "energy": 183.86401491398595,
+   "sv_top": [
+    6.2174,
+    3.4738,
+    3.1802,
+    2.9717,
+    2.753,
+    2.5154,
+    2.4457,
+    2.3567
+   ],
+   "top4_share": 0.3789081183368559,
+   "rank90": 37,
+   "energy_share": 0.013318772239196242
+  },
+  {
+   "module": "layers.9.mlp.up_proj",
+   "layer": 9,
+   "kind": "up_proj",
+   "energy": 108.90018682453518,
+   "sv_top": [
+    3.2533,
+    2.3454,
+    2.2585,
+    2.2529,
+    2.1052,
+    1.9988,
+    1.9704,
+    1.9541
+   ],
+   "top4_share": 0.24115086860041152,
+   "rank90": 43,
+   "energy_share": 0.007888529932300391
+  }
+ ]
+}
