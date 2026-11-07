@@ -555,6 +555,110 @@ def figure_padding(inp: Inputs, out: Path, fmt: str, keep: int = 127) -> list[Pa
     return render(plot_padding, data, out, "padding-cr255", fmt)
 
 
+# -- zoo survey figures (docs/zoo/survey.json only; no weights are read here) ---------------------------
+
+ZOO_JSON = REPO / "docs" / "zoo" / "survey.json"
+
+
+def _zoo_short(mid: str) -> str:
+    return mid.removeprefix("kraken-")
+
+
+def plot_zoo_blank(data: dict, th: dict):
+    """Blank-row bias of every surveyed model: raw, and relative to the mean of the model's other biases."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    ms = sorted(data["models"].values(), key=lambda m: m["output"]["blank_bias_rel"])
+    y = np.arange(len(ms))
+    fig, (a, b) = plt.subplots(1, 2, figsize=(11, 0.21 * len(ms) + 1.6), sharey=True, gridspec_kw={"wspace": 0.06})
+    for ax, key, lab in ((a, "blank_bias", "blank bias (raw)"), (b, "blank_bias_rel", "blank bias − mean of the other biases")):
+        for i, m in enumerate(ms):
+            col = th["hi"] if m["origin"] == "in-house" else th["C"]
+            ax.scatter(m["output"][key], i, s=22, color=col, marker="D" if m["origin"] == "in-house" else "o", linewidths=0)
+        ax.axvline(0, color=th["muted"], linewidth=0.8)
+        ax.set_xlabel(lab); ax.grid(axis="x", linewidth=0.5); ax.set_axisbelow(True)
+    a.set_yticks(y); a.set_yticklabels([_zoo_short(m["id"]) for m in ms], fontsize=7)
+    a.set_title("raw: the softmax ignores a constant added to all biases", loc="left", fontsize=9)
+    b.set_title("relative: the quantity the softmax can see", loc="left", fontsize=9)
+    fig.legend([Line2D([], [], marker="o", linestyle="", color=th["C"]), Line2D([], [], marker="D", linestyle="", color=th["hi"])],
+               ["model zoo (Zenodo)", "in-house"], loc="lower right", bbox_to_anchor=(0.99, 0.0), frameon=False, fontsize=8)
+    fig.suptitle(f"Blank-row bias of {len(ms)} kraken models, sorted by the relative value", x=0.0, ha="left", fontsize=10)
+    return fig
+
+
+def zoo_order(entry: dict) -> list[str]:
+    from scipy.cluster.hierarchy import linkage, leaves_list
+    from scipy.spatial.distance import squareform
+    ids = entry["ids"]
+    n = len(ids); D = np.zeros((n, n))
+    for p, v in entry["pairs"].items():
+        a, b = p.split("|"); D[ids.index(a), ids.index(b)] = D[ids.index(b), ids.index(a)] = v["rel"]
+    return [ids[i] for i in leaves_list(linkage(squareform(D, checks=False), "average"))]
+
+
+def plot_zoo_distance(data: dict, th: dict):
+    """Symmetric relative L2 between all non-output weights, standard stack; clustered order."""
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LinearSegmentedColormap
+    entry = max(data["distances"].values(), key=lambda e: len(e["ids"]))
+    order = zoo_order(entry); n = len(order)
+    D = np.full((n, n), np.nan)
+    for p, v in entry["pairs"].items():
+        a, b = p.split("|"); i, j = order.index(a), order.index(b); D[i, j] = D[j, i] = v["rel"]
+    fig, ax = plt.subplots(figsize=(9.2, 8.4))
+    cm = LinearSegmentedColormap.from_list("w", [th["O"], th["bg"], th["muted"]])
+    im = ax.imshow(D, cmap=cm, vmin=0, vmax=1.5)
+    ax.set_xticks(range(n)); ax.set_xticklabels([_zoo_short(i) for i in order], rotation=90, fontsize=6.5)
+    ax.set_yticks(range(n)); ax.set_yticklabels([_zoo_short(i) for i in order], fontsize=6.5)
+    for k, i in enumerate(order):
+        if data["models"][i]["origin"] == "in-house":
+            for t in (ax.get_xticklabels()[k], ax.get_yticklabels()[k]):
+                t.set_color(th["hi"])
+    for i in range(n):
+        for j in range(n):
+            if i != j and D[i, j] < 1.0:
+                ax.text(j, i, f"{D[i, j]:.2f}".lstrip("0"), ha="center", va="center", fontsize=5, color=th["fg"])
+    cb = fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
+    cb.set_label("‖a − b‖ / mean(‖a‖, ‖b‖), non-output weights", fontsize=8)
+    ax.set_title(f"{n} models with the standard stack: unrelated pairs sit near √2 ≈ 1.41; labelled cells < 1.0 "
+                 "(in-house names in orange)", loc="left", fontsize=9)
+    return fig
+
+
+def plot_zoo_pairs(data: dict, th: dict):
+    """Observation 3 and the blank bias on the tested parent→child pairs."""
+    import matplotlib.pyplot as plt
+    rows = [p for p in data["documented_pairs"] if p["status"] == "tested" and p["reading"]["blocks"]["conv_w"] < 1.0]
+    lab = [f"{_zoo_short(p['parent'])} → {_zoo_short(p['child'])}" for p in rows]
+    y = np.arange(len(rows))[::-1]
+    fig, (a, b) = plt.subplots(1, 2, figsize=(11, 0.55 * len(rows) + 1.8), sharey=True, gridspec_kw={"wspace": 0.05, "width_ratios": [1.25, 1]})
+    h = 0.26
+    for k, (key, col, name) in enumerate((("conv_w", th["C"], "conv stack"), ("lstm_w", th["L"], "BiLSTM stack"), ("out_rows", th["O"], "output rows (aligned)"))):
+        a.barh(y + (1 - k) * h, [p["reading"]["blocks"][key] for p in rows], height=h, color=col, label=name)
+    a.set_yticks(y); a.set_yticklabels(lab, fontsize=7.5)
+    a.set_xlabel("‖child − parent‖ / ‖parent‖, weights only (pooled over the stack)")
+    a.legend(frameon=False, fontsize=8, loc="lower right"); a.grid(axis="x", linewidth=0.5); a.set_axisbelow(True)
+    a.set_title("which stack moved", loc="left", fontsize=9)
+    for yi, p in zip(y, rows):
+        k = p["reading"]["blank"]
+        b.scatter(k["delta_raw"], yi + 0.07, s=30, color=th["muted"], label="raw Δ bias[blank]")
+        b.scatter(k["delta_rel"], yi - 0.07, s=30, color=th["hi"], marker="D", label="Δ (blank − mean of other biases)")
+    h_, l_ = b.get_legend_handles_labels(); u = dict(zip(l_, h_)); b.legend(u.values(), u.keys(), frameon=False, fontsize=8, loc="lower right")
+    b.axvline(0, color=th["muted"], linewidth=0.8); b.grid(axis="x", linewidth=0.5); b.set_axisbelow(True)
+    b.set_xlabel("change of the blank bias, child − parent"); b.set_title("blank bias", loc="left", fontsize=9)
+    fig.suptitle("Parent → child pairs of the zoo and the in-house family (pairs whose weights are related, distance < 1.0)",
+                 x=0.0, ha="left", fontsize=10)
+    return fig
+
+
+def figure_zoo(out: Path, fmt: str, path: Path = ZOO_JSON) -> list[Path]:
+    data = json.loads(Path(path).read_text())
+    paths = []
+    for fn, name in ((plot_zoo_blank, "zoo-blank-bias"), (plot_zoo_distance, "zoo-distance-standard"), (plot_zoo_pairs, "zoo-pairs")):
+        paths += render(fn, data, out, name, fmt)
+    return paths
+
+
 FIGURES = {"arch": figure_architecture, "drift": figure_drift, "rows": figure_rows,
            "alpha": figure_alpha, "padding": figure_padding}
 
@@ -610,11 +714,15 @@ def main(argv=None):
     import sys
     argv = list(sys.argv[1:] if argv is None else argv)
     ap = argparse.ArgumentParser(prog="wsp.viz")
-    ap.add_argument("figure", choices=["all", *FIGURES])
+    ap.add_argument("figure", choices=["all", "zoo", *FIGURES])
     ap.add_argument("--out", required=True)
     ap.add_argument("--models", default=str(REPO / "models" / "kraken"), help="directory of kraken-<id>.mlmodel")
     ap.add_argument("--format", default="svg", choices=["svg", "png"])
     a = ap.parse_args(argv)
+    if a.figure == "zoo":
+        for p in figure_zoo(Path(a.out), a.format):
+            print(p)
+        return
     inp = Inputs(Path(a.models))
     todo = FIGURES if a.figure == "all" else {a.figure: FIGURES[a.figure]}
     written = []
