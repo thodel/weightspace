@@ -134,6 +134,57 @@ def audit_heldout(lst: Path, practice: list[Path], ids: dict) -> dict:
     return report
 
 
+def job_pages(job_dir: Path, lists: str = "pages_train*.lst") -> dict:
+    """Pages a trainer job trained on: (document, page) from the PAGE XML named in its ``data/pages_train*.lst``.
+    Document = Transkribus docId, else the BLB shelfmark of the Comments; page = pageNr, else the file stem."""
+    from wsp.data import page_doc_id, page_nr
+    out = {"pages": set(), "documents": set()}
+    for lst in sorted((Path(job_dir) / "data").glob(lists)):
+        for line in lst.read_text().split():
+            f = Path(job_dir) / "data" / "pages" / Path(line).name
+            if f.exists():
+                text = f.read_text(encoding="utf-8")
+                doc = norm_id(page_doc_id(text, ""))
+                page = page_nr(text) or f.stem.split("_", 1)[-1]
+            else:       # the trainer prunes chunk files after compiling; the BLB names carry `<n>_<shelfmark>_<page>.xml`
+                stem = f.stem.split("_", 1)[-1]
+                doc, _, page = stem.rpartition("_")
+                doc = norm_id(doc)
+            out["pages"].add((doc, page))
+            out["documents"].add(doc)
+    return out
+
+
+def audit_validation(practice: Path, heldout: Path | None, job_dir: Path, unit: str) -> dict:
+    """A validation-based practice set is sound when none of its documents (``unit='object'``, BLB: the split is by
+    object) or (document, page) pairs (``unit='page'``, Bern) is in the subject's training pages, and none is in the held-out list."""
+    rows = [json.loads(l) for l in Path(practice).read_text(encoding="utf-8").splitlines() if l.strip()]
+    tr = job_pages(job_dir)
+    def ident(r):
+        d = norm_id(r["doc"])
+        pg = r.get("page") if r.get("page") is not None else r["key"].split("/")[1]
+        return d if unit == "object" else (d, str(pg))
+    pids = {ident(r) for r in rows}
+    train_ids = tr["documents"] if unit == "object" else {(d, str(p)) for d, p in tr["pages"]}
+    report = {"set": Path(practice).stem, "lines": len(rows), "unit": unit, "units": len(pids), "training_job": str(job_dir),
+              "training_pages": len(tr["pages"]), "findings": []}
+    shared = sorted(map(str, pids & train_ids))
+    if shared:
+        report["findings"].append({"kind": "practice_unit_in_training_pages", "units": shared})
+    if heldout is not None:
+        hrows = [json.loads(l) for l in Path(heldout).read_text(encoding="utf-8").splitlines() if l.strip()]
+        hids = {ident(r) for r in hrows}
+        hs = sorted(map(str, pids & hids))
+        report["heldout"] = {"set": Path(heldout).stem, "lines": len(hrows), "units": len(hids)}
+        if hs:
+            report["findings"].append({"kind": "practice_unit_in_heldout", "units": hs})
+        hk = {r["key"] for r in hrows} & {r["key"] for r in rows}
+        if hk:
+            report["findings"].append({"kind": "line_key_in_both", "n": len(hk)})
+    report["clean"] = not report["findings"]
+    return report
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.audit")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -144,7 +195,16 @@ def main(argv=None):
     h.add_argument("--heldout", required=True)
     h.add_argument("--practice", nargs="+", required=True)
     h.add_argument("--out", default="data/heldout/overlap.json")
+    v = sub.add_parser("validation", help="a validation-based practice set: disjoint from the subject's training pages and from the held-out set")
+    v.add_argument("--practice", required=True); v.add_argument("--heldout"); v.add_argument("--job", required=True)
+    v.add_argument("--unit", choices=["object", "page"], required=True); v.add_argument("--out", required=True)
     a = ap.parse_args(argv)
+    if a.cmd == "validation":
+        r = audit_validation(Path(a.practice), Path(a.heldout) if a.heldout else None, Path(a.job), a.unit)
+        Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(a.out).write_text(json.dumps(r, indent=2, ensure_ascii=False))
+        print(f"{r['set']}: {r['lines']} lines, {r['units']} {a.unit}s: " + ("clean" if r["clean"] else "FINDINGS " + json.dumps(r["findings"])))
+        return
     ids = heldout_identities()
     if a.cmd == "heldout":
         r = audit_heldout(Path(a.heldout), [Path(p) for p in a.practice], ids)

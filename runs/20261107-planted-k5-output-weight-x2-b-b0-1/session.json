@@ -1,0 +1,14 @@
+{
+  "name": "20261107-planted-k5-output-weight-x2-b-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k5-output-weight-x2.mlmodel",
+  "subject_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+  "subject_file_sha256": "0e7be185c0f5730a826662ff3087b16b829eba160c7d6bb82170133d0957060b",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "created": "2026-11-07T10:48:12.948238+00:00",
+  "unshare": true,
+  "deviations": []
+}

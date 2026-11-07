@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import sys
@@ -35,6 +36,7 @@ from wsp.session import Session
 REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "runs"
 HELDOUT = REPO / "data" / "heldout"
+SCORES = Path.home() / "atr-cache" / "wsp" / "scores"
 
 PREREGISTRATION = """# Pre-registration — {name}
 
@@ -71,10 +73,12 @@ def _unshare_works() -> bool:
 
 
 def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
-    venv_py = REPO / ".venv" / "bin" / "python"
+    venv_py = Path.home() / "Repo" / "weightspace" / ".venv" / "bin" / "python"
     env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={Path.home() / 'atr-cache' / 'tmp'}",
-           "CUDA_VISIBLE_DEVICES=0", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
-    cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", script]
+           "CUDA_VISIBLE_DEVICES=", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
+    # -I ignores PYTHONPATH; the shim puts this checkout's wsp first so a worktree runs its own harness
+    shim = f"import sys,runpy; sys.path.insert(0, {str(REPO)!r}); runpy.run_path({script!r}, run_name='__main__')"
+    cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", "-c", shlex.quote(shim)]
     return "cd " + str(run_dir) + " && " + " ".join(cmd)
 
 
@@ -102,7 +106,7 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
     (run_dir / "program.py").write_text(
         '"""The programmer\'s script. Runs inside the sandbox; only the wsp API and numpy."""\n'
         "from wsp.run import open_session\n\ns = open_session('.')\nprint(s.subject.describe()['parameters'], 'parameters;', s.budget_left, 'passes left')\n")
-    (run_dir / "env.txt").write_text(subprocess.run([str(REPO / ".venv/bin/pip"), "freeze"], capture_output=True, text=True).stdout)
+    (run_dir / "env.txt").write_text(subprocess.run([str(Path.home() / "Repo" / "weightspace" / ".venv" / "bin" / "pip"), "freeze"], capture_output=True, text=True).stdout)
     print(run_dir)
     print("sandbox:", sandbox_command(run_dir))
     return run_dir
@@ -201,9 +205,22 @@ def heldout(run_dir: str, set_name: str) -> dict:
     items = load(set_path)
     s = _subject(final)
     t = time.time()
-    hyps = [p.text for p in s.forward(items)]; refs = [x["text"] for x in items]
+    set_sha = sha256_file(set_path)
+    # a score is a function of (weights, list): reuse it when the same digest was scored on the same list
+    # (corrupted-model sessions that end unchanged; docs/CONTROLS_REPORT.md). Not a second evaluation.
+    cache = SCORES / f"heldout-{set_name}-{set_sha[:12]}-{s.digest()[:16]}.json"
+    cached = json.loads(cache.read_text()) if cache.exists() else None
+    if cached:
+        hyps = cached["hyps"]; refs = [x["text"] for x in items]
+        assert cached["keys"] == [x["key"] for x in items]
+    else:
+        hyps = [p.text for p in s.forward(items)]; refs = [x["text"] for x in items]
     m = score(hyps, refs)
-    result = {"set": set_name, "set_sha256": sha256_file(set_path), "lines": len(items), "metrics": m.as_dict(),
+    if not cached:
+        SCORES.mkdir(parents=True, exist_ok=True)
+        cache.write_text(json.dumps({"digest": s.digest(), "set": set_name, "set_sha256": set_sha, "keys": [x["key"] for x in items],
+                                     "hyps": hyps, "metrics": m.as_dict()}, ensure_ascii=False))
+    result = {"set": set_name, "set_sha256": set_sha, "scored_from_cache": bool(cached), "lines": len(items), "metrics": m.as_dict(),
               "per_line": per_line_edits(hyps, refs), "final_digest": s.digest(), "when": datetime.now(timezone.utc).isoformat(),
               "wall_s": round(time.time() - t, 1)}
     if summary.get("heldout") is None:

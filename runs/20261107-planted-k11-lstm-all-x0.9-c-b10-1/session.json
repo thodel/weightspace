@@ -1,0 +1,14 @@
+{
+  "name": "20261107-planted-k11-lstm-all-x0.9-c-b10-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k11-lstm-all-x0.9.mlmodel",
+  "subject_digest": "b126e5d8410e8d8d4f17074561f6f94d07f8d67f05c7d686c5f3c9a9ad2a85fd",
+  "subject_file_sha256": "4a7b301b0629c376bf631bceba679cc8b7ef7b10a4e85f7c19d8e6a30ec849c1",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-07T13:28:12.112487+00:00",
+  "unshare": true,
+  "deviations": []
+}

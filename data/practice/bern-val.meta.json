@@ -1,0 +1,39 @@
+{
+  "set": "bern-val",
+  "n": 513,
+  "sha256": "30d2b536deef178ab36d07e85180fa003f45fc015e657cda79b3e6b06031dbf2",
+  "candidates": 513,
+  "seed": 20261107,
+  "documents": [
+    "13922499",
+    "13922579"
+  ],
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261022/data/train/A_V_1443_Hertwig_train/20261022_114935-0000.parquet,/home/tobias/atr-cache/wsp/hf/bern-disputation-1528-rev20261025/data/train/A_V_1447_Schlussredaktion_train/20261025_170131-0000.parquet",
+  "selection": "every line of the 17 validation pages of the combined-v1 job (pages_val.lst)",
+  "pages": [
+    "13922499/5",
+    "13922499/16",
+    "13922499/20",
+    "13922499/31",
+    "13922499/34",
+    "13922499/38",
+    "13922579/16",
+    "13922579/17",
+    "13922579/20",
+    "13922579/31",
+    "13922579/34",
+    "13922579/94",
+    "13922579/99",
+    "13922579/112",
+    "13922579/137",
+    "13922579/143",
+    "13922579/566"
+  ],
+  "skipped": [
+    {
+      "page": "13922579/566",
+      "line": "l_4",
+      "reason": "cannot convert float NaN to integer"
+    }
+  ]
+}
