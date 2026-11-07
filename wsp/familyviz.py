@@ -40,6 +40,12 @@ def _mid(stem: str) -> str:
     return FILE_TO_ID.get(stem, _s(stem))
 
 
+def learn_names(w: dict) -> None:
+    """File stem → gateway id for every model in weights.json (Zenodo files are named by their authors)."""
+    for mid, info in w["models"].items():
+        FILE_TO_ID.setdefault(Path(info["path"]).stem, _s(mid))
+
+
 def edges(w: dict) -> list[tuple[str, str]]:
     """Parent → child: the recorded in-house fine-tunes plus every stated base the weights confirm."""
     e = list(EDGES)
@@ -225,9 +231,13 @@ def plot_exchange(data, th):
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
     exs, beta = data
-    fig, axes = plt.subplots(1, len(exs), figsize=(3.4 * len(exs) + 0.6, 4.9), sharey=True, squeeze=False)
+    exs = [e for e in exs if any(r["beta"] == beta for r in e["rows"])]
+    ncol = min(4, len(exs)); nrow = (len(exs) + ncol - 1) // ncol
+    fig, axes = plt.subplots(nrow, ncol, figsize=(3.6 * ncol + 0.6, 5.6 * nrow), squeeze=False)
+    for ax in axes.ravel()[len(exs):]:
+        ax.set_visible(False)
     marks = ["o", "s", "D"]; cols = [th["C"], th["L"], th["O"]]
-    for ax, e in zip(axes[0], exs):
+    for ax, e in zip(axes.ravel(), exs):
         y = np.arange(len(e["blocks"]))
         for si, s in enumerate(e["sets"]):
             for r in e["rows"]:
@@ -250,7 +260,8 @@ def plot_exchange(data, th):
     what = "transplanted" if beta == 1.0 else f"moved {beta:g} of the way"
     fig.suptitle(f"RQ3: one block of the specific model {what} to the general model's (β = {beta:g})\n"
                  "per set: S's CER unedited in the legend; filled = paired 95 % interval excludes 0, hollow = includes 0",
-                 x=0.0, y=1.04, ha="left", fontsize=9.5)
+                 x=0.0, y=1.0 + 0.04 / nrow, ha="left", fontsize=9.5)
+    fig.tight_layout()
     return fig
 
 
@@ -260,6 +271,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
     out = Path(a.out)
     w = json.loads((OUT / "weights.json").read_text()); f = json.loads((OUT / "functional.json").read_text())
+    learn_names(w)
     written = []
     written += render(plot_cka_profile, (f, w), out, "family-cka-profile", a.format)
     written += render(plot_cka_matrices, (f, w), out, "family-cka-matrices", a.format)

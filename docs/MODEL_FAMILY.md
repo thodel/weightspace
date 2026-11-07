@@ -174,7 +174,7 @@ The other 22 models are singletons: trained from scratch, or from a base that is
 
 ### RQ3 — exchange: half-way moves in the front end stabilise a little; the recurrent stack trades
 
-First grid, 07.11.2026, on the in-house lineages 1 and 2 (run before the download; not yet extended to the new lineages): five specific ← general pairs from lineages 1 and 2, every block at β = 0.5 and
+First grid, 07.11.2026, on the in-house lineages 1 and 2: five specific ← general pairs from lineages 1 and 2, every block at β = 0.5 and
 1, each variant read on three practice sets (240 readings, CPU). Full tables: `docs/family/tables.md`;
 numbers and block statistics per variant: `docs/family/exchange-*.json` (the per-line readings stay on
 asteraix under `docs/family/readings/`, git-ignored, 12 MB).
@@ -206,22 +206,58 @@ test of stabilisation needs out-of-domain sets each model reads at, say, 15–30
 - **The output layer is no lever.** Exchanging `O_18` on the shared characters costs or does nothing in
   every pair (β = 1: +0.3 to +9.0 points on the first set).
 
-![RQ3 at β = 0.5: ΔCER per block and set for five specific ← general pairs; the convolutional blocks of bern-hertwig-v2 gain outside at little own cost, the recurrent blocks trade.](family/figures/family-exchange-b0.5.svg#only-light)
-![RQ3 at β = 0.5: ΔCER per block and set for five specific ← general pairs; the convolutional blocks of bern-hertwig-v2 gain outside at little own cost, the recurrent blocks trade.](family/figures/family-exchange-b0.5-dark.svg#only-dark)
+**Second grid, 07.11.2026, on the lineages the download added.** Four new practice sets (train or validation
+side, 300 lines each, `wsp.data build`, shards fetched from the dh-unibe datasets on Hugging Face, 210 MB):
+`reichenau-val-300` (Reichenau incunabula, validation shard: latin_incunabula's own material), `gt-fraktur-300`
+and `newseye-onb-val-300` (Fraktur print), `parzival-300` (three 13th-century textualis hands). No Arabic,
+Persian, Ottoman or Vietnamese ground truth exists on asteraix or in dh-unibe, so the OpenITI lineage and
+french_vietnamese's own material stay unmeasured.
+
+| pair | own / nearest set, S / G | other sets, S / G | grid |
+|---|---|---|---|
+| latin_incunabula ← catmus_print_large (group B) | Reichenau 3.8 % / 22.3 % (own) | Fraktur 25.0 / 31.9 %, NewsEye 28.7 / 26.9 % | every block, β 0.5 and 1 |
+| french_vietnamese ← catmus_print_large (group B) | none (Reichenau 30.1 / 22.3 %) | Fraktur 36.5 / 31.9 %, NewsEye 34.3 / 26.9 % | β 0.5 |
+| textualis_inzigkofen ← tridis_v2 (group C) | Parzival 33.5 / 12.4 % (nearest) | Bern 77.8 / 33.9 %, medieval 78.9 / 42.8 % | β 0.5 |
+
+- **latin_incunabula is the cleanest case so far**, because it reads its own material at 3.8 % and the outside
+  sets at 25–29 %, where a change means something.
+  - *Freezable (RQ1, functional):* the whole front end can be set back to the parent's with no measurable cost
+    on its own material — `C_0` +0.06, `C_2` +0.16 and all three group norms +0.03 to +0.15 at β = 1, every
+    interval including 0. Only the last convolution (`C_5` +0.45) and the recurrent layers (+2.5 to +2.9) carry
+    the fine-tune. In this fine-tune the convolutional front end could have been frozen.
+  - *Free stabilisation:* the first two group norms transplanted from catmus_print_large (β = 1): own set
+    +0.05 / +0.03 (interval includes 0), Fraktur −0.28 / −0.23 and NewsEye −0.57 / −0.47 (both excluding 0).
+    The output layer half-way: own +0.05 (includes 0), NewsEye −1.58.
+  - *Recurrent layers trade, at a good rate here:* `L_11` half-way costs +0.29 on Reichenau for −1.38 on Fraktur
+    and −2.97 on NewsEye.
+- **Towards a better general model, nearly everything helps.** catmus_print_large reads all three print sets
+  better than french_vietnamese; moving `C_2`, the LSTMs or the output layer half-way lowers CER on all three
+  (e.g. `L_11` −3.5, −1.9, −3.0). tridis_v2 reads all three sets far better than textualis_inzigkofen; `C_6` to
+  `L_14` half-way lower CER on all three (up to −4.0 on Parzival), but the last LSTM `L_16` gains on Parzival
+  (−2.9) and loses heavily on the others (+10.5, +7.0): the last recurrent layer is where textualis_inzigkofen's
+  specialisation sits.
+
+![RQ3 at β = 0.5: ΔCER per block and set for eight specific ← general pairs in groups A, B and C.](family/figures/family-exchange-b0.5.svg#only-light)
+![RQ3 at β = 0.5: ΔCER per block and set for eight specific ← general pairs in groups A, B and C.](family/figures/family-exchange-b0.5-dark.svg#only-dark)
 
 The same at β = 1 (the general model's block transplanted): `docs/family/figures/family-exchange-b1.svg`.
 
-**Answer so far:** the shared front end (RQ2) is also the only place where exchange can stabilise
-(RQ3), and only half-way; the individuality of a model sits in its recurrent stack, which an exchange
-can only trade, not improve. Whether several half-way convolutional moves add up is the next grid.
+**Answer so far:** the shared front end (RQ2) is where exchange can stabilise without cost (RQ3): half-way
+in the default architecture, fully in the group-norm architecture, where the front end is functionally the
+same across all six models (CKA 0.99) and latin_incunabula's could have been frozen outright. The
+individuality of a model sits in its recurrent stack, which an exchange can only trade against its own
+material — at a poor rate in the in-house fine-tunes, at a good one (about 1 : 5 to 1 : 10) for latin_incunabula.
+Exchange only helps towards a general model that reads the other material better. Whether several free
+moves add up (front end + output layer for latin_incunabula) is the next grid.
 
 ## Next
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. RQ3 on the lineages the download added: catmus_print_large → latin_incunabula / french_vietnamese
-   (group B, where the first layer is shared almost exactly), openiti_arabic_print → persian/ottoman,
-   tridis_v2 → textualis_inzigkofen — each needs practice lines of its own material first.
+1. Combined free moves for latin_incunabula (group norms + output layer half-way), then the same on
+   held-out Reichenau lines (the train shard's validation split is practice here; the test lines are untouched).
+   OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
+   dh-unibe has.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
    by activation correlation on the probe lines, then permute), so that the generic front end
    of a general model can replace that of an unrelated specific one.

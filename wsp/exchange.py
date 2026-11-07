@@ -41,7 +41,8 @@ BLOCKS = ["C_0", "C_3", "C_6", "C_9", "L_12", "L_14", "L_16", "O_18"]
 
 
 def body_cosine(a: dict, b: dict) -> float:
-    names = [n for n in a if n.split(".")[0] in BLOCKS[:-1] and n in b and a[n].shape == b[n].shape]
+    """Cosine of all tensors outside the output layer that both models have with equal shapes."""
+    names = [n for n in a if not n.startswith("O_") and n in b and a[n].shape == b[n].shape]
     x = np.concatenate([a[n].ravel().astype(np.float64) for n in names]); y = np.concatenate([b[n].ravel().astype(np.float64) for n in names])
     return float(x @ y / (np.linalg.norm(x) * np.linalg.norm(y)))
 
@@ -64,7 +65,9 @@ def exchange(specific: Path, general: Path, sets: list[str], blocks: list[str], 
     S, G = KrakenSubject(specific), KrakenSubject(general)
     st, gt = S.tensors(), G.tensors()
     cos = body_cosine(st, gt)
-    if cos < 0.5 and not allow_unrelated and any(b != "O_18" for b in blocks):
+    if not blocks:                                   # every parameter block of S's architecture, in order
+        blocks = [n for n, m in S.model.nn.named_children() if any(True for _ in m.parameters())]
+    if cos < 0.5 and not allow_unrelated and any(not b.startswith("O_") for b in blocks):
         raise SystemExit(f"body cosine {cos:.3f}: not one lineage, an element-wise block exchange is meaningless")
     out_al = aligned_parent_output(G, S)
     data = {s: load(REPO / "data" / "practice" / f"{s}.jsonl") for s in sets}
@@ -77,7 +80,7 @@ def exchange(specific: Path, general: Path, sets: list[str], blocks: list[str], 
         save_readings(readings_root / s / "G.jsonl", k, h, refs[s])
         log(f"{s:28s} S CER {m.cer:.4f}   G CER {mg.cer:.4f}")
     for b in blocks:
-        target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b == "O_18"
+        target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b.startswith("O_")
                   else {n: gt[n] for n in block_names(st, b)})
         orig = {n: st[n].copy() for n in target}
         for beta in betas:
@@ -110,7 +113,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.exchange")
     ap.add_argument("--specific", required=True); ap.add_argument("--general", required=True)
     ap.add_argument("--sets", nargs="+", required=True, help="practice sets; the first is the specific model's own material")
-    ap.add_argument("--blocks", nargs="*", default=BLOCKS)
+    ap.add_argument("--blocks", nargs="*", default=None, help="default: every parameter block of the specific model")
     ap.add_argument("--betas", nargs="*", type=float, default=[0.5, 1.0])
     ap.add_argument("--out", required=True)
     ap.add_argument("--allow-unrelated", action="store_true")
