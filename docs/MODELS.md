@@ -58,6 +58,7 @@ lossless weight-space edit and the natural first exercise for the harness.
 
 | set | what | where | use |
 |---|---|---|---|
+| `blb-eval-hand` (`data/heldout/`) | the handwriting lines of the four `_eval` projects, 2,272 lines, chosen by data properties only | `scripts/build_blb_eval_hand.py` | **held-out for family 2 from 07.11.2026 on** |
 | `lassberg-blb-gt` `_eval` projects | object-level held-out pages of the BLB set | `datasets:lassberg-blb-gt/<project>_eval` on tei; HF `dh-unibe/image-text_lassberg-blb-gt` (private) | **held-out** for family 2 |
 | 276 Transkribus GT pages (`gt-keys.txt`) | hand-corrected Laßberg pages | `GT_ROOT` on tei; run `tk-gt-kraken-blb` | baseline + practice for family 2 (check overlap with blb-gt train side first) |
 | `bern-disputation-1528` eval pages / 287 GT lines | Hertwig | HF (private); `pipeline.py eval --doc 13922499 --pages 8,17,26,39,48,55`; **only the 22.10 export (`28a16d55`) pairs them correctly** | held-out for family 1, with the 8 Schlussredaktion test pages: `data/heldout/bern-eval.jsonl` |

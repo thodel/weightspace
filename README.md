@@ -13,7 +13,7 @@ Status 06.11.2026 (evening): phase 0 executed on asteraix — harness verified a
 
 Public protocol (MkDocs, for GitHub Pages later): [protocol/](protocol/README.md).
 
-Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first)
+Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/SEARCH_LOG.md](docs/SEARCH_LOG.md) (how the literature was searched) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first)
 
 Layout:
 

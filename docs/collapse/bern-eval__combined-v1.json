@@ -1,0 +1,481 @@
+{
+ "set": "bern-eval",
+ "readings": "docs/baselines/readings/bern-eval/kraken-bern-combined-v1.jsonl",
+ "siblings": [
+  "docs/baselines/readings/bern-eval/kraken-bern-hertwig-v2.jsonl",
+  "docs/baselines/readings/bern-eval/kraken-bern-schlussredaktion-v1.jsonl"
+ ],
+ "lines": 545,
+ "cer": 0.19329102447869448,
+ "flagged": 34,
+ "collapsed_strict": 34,
+ "cer_without_flagged_data_defects": 0.16974146586345382,
+ "classes": {
+  "vertical": {
+   "lines": 1,
+   "edits": 2,
+   "share_of_edits": 0.0006253908692933083,
+   "documents": [
+    [
+     "13922579",
+     1
+    ]
+   ]
+  },
+  "tiny_reference": {
+   "lines": 5,
+   "edits": 14,
+   "share_of_edits": 0.004377736085053158,
+   "documents": [
+    [
+     "13922499",
+     4
+    ],
+    [
+     "13922579",
+     1
+    ]
+   ]
+  },
+  "model_specific": {
+   "lines": 7,
+   "edits": 69,
+   "share_of_edits": 0.021575984990619138,
+   "documents": [
+    [
+     "13922499",
+     5
+    ],
+    [
+     "13922579",
+     2
+    ]
+   ]
+  },
+  "short_all_models": {
+   "lines": 21,
+   "edits": 477,
+   "share_of_edits": 0.14915572232645402,
+   "documents": [
+    [
+     "13922499",
+     15
+    ],
+    [
+     "13922579",
+     6
+    ]
+   ]
+  }
+ },
+ "per_line": [
+  {
+   "key": "A_V_1443_Hertwig_test/p0008/tr_2_tl_8",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 18,
+   "ref_chars": 24,
+   "hyp_chars": 6,
+   "crop": [
+    816,
+    192
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0017/l_1",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 33,
+   "ref_chars": 42,
+   "hyp_chars": 11,
+   "crop": [
+    374,
+    147
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0017/tr_1_tl_16",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 14,
+   "ref_chars": 15,
+   "hyp_chars": 1,
+   "crop": [
+    377,
+    69
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_10",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 49,
+   "ref_chars": 53,
+   "hyp_chars": 5,
+   "crop": [
+    280,
+    149
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_12",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 32,
+   "ref_chars": 36,
+   "hyp_chars": 7,
+   "crop": [
+    335,
+    110
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_13",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 23,
+   "ref_chars": 29,
+   "hyp_chars": 6,
+   "crop": [
+    206,
+    114
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_15",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 50,
+   "ref_chars": 64,
+   "hyp_chars": 28,
+   "crop": [
+    1550,
+    154
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_16",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 57,
+   "ref_chars": 60,
+   "hyp_chars": 5,
+   "crop": [
+    354,
+    77
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0026/tr_1_tl_18",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 39,
+   "ref_chars": 40,
+   "hyp_chars": 3,
+   "crop": [
+    143,
+    130
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_4",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 15,
+   "ref_chars": 24,
+   "hyp_chars": 9,
+   "crop": [
+    1522,
+    146
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_6",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 5,
+   "ref_chars": 6,
+   "hyp_chars": 1,
+   "crop": [
+    226,
+    56
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_12",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 5,
+   "ref_chars": 5,
+   "hyp_chars": 2,
+   "crop": [
+    126,
+    68
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_20",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 29,
+   "ref_chars": 50,
+   "hyp_chars": 24,
+   "crop": [
+    857,
+    147
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_33",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 8,
+   "ref_chars": 9,
+   "hyp_chars": 2,
+   "crop": [
+    312,
+    112
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0039/tr_2_tl_34",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 15,
+   "ref_chars": 26,
+   "hyp_chars": 12,
+   "crop": [
+    569,
+    127
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_9",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 3,
+   "ref_chars": 4,
+   "hyp_chars": 1,
+   "crop": [
+    230,
+    70
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_13",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 1,
+   "ref_chars": 1,
+   "hyp_chars": 0,
+   "crop": [
+    81,
+    60
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_14",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    213,
+    69
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_23",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 12,
+   "ref_chars": 19,
+   "hyp_chars": 9,
+   "crop": [
+    734,
+    106
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_45",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    171,
+    78
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_49",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 4,
+   "ref_chars": 4,
+   "hyp_chars": 1,
+   "crop": [
+    234,
+    65
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_66",
+   "doc": "13922499",
+   "class": "model_specific",
+   "edits": 4,
+   "ref_chars": 7,
+   "hyp_chars": 3,
+   "crop": [
+    207,
+    72
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0048/tr_1_tl_79",
+   "doc": "13922499",
+   "class": "tiny_reference",
+   "edits": 3,
+   "ref_chars": 3,
+   "hyp_chars": 0,
+   "crop": [
+    120,
+    51
+   ]
+  },
+  {
+   "key": "A_V_1443_Hertwig_test/p0055/tr_1_tl_18",
+   "doc": "13922499",
+   "class": "short_all_models",
+   "edits": 6,
+   "ref_chars": 6,
+   "hyp_chars": 0,
+   "crop": [
+    119,
+    56
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0012/tr_1_tl_21",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 43,
+   "ref_chars": 49,
+   "hyp_chars": 8,
+   "crop": [
+    304,
+    123
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0012/tr_1_tl_24",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 35,
+   "ref_chars": 46,
+   "hyp_chars": 21,
+   "crop": [
+    642,
+    152
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0030/tr_1_tl_1",
+   "doc": "13922579",
+   "class": "tiny_reference",
+   "edits": 4,
+   "ref_chars": 2,
+   "hyp_chars": 5,
+   "crop": [
+    116,
+    92
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0030/tr_1_tl_2",
+   "doc": "13922579",
+   "class": "vertical",
+   "edits": 2,
+   "ref_chars": 2,
+   "hyp_chars": 0,
+   "crop": [
+    103,
+    140
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0030/tr_1_tl_11",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 3,
+   "ref_chars": 4,
+   "hyp_chars": 1,
+   "crop": [
+    109,
+    78
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0069/tr_2_tl_26",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 17,
+   "ref_chars": 32,
+   "hyp_chars": 15,
+   "crop": [
+    614,
+    128
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0089/tr_1_tl_4",
+   "doc": "13922579",
+   "class": "model_specific",
+   "edits": 6,
+   "ref_chars": 7,
+   "hyp_chars": 3,
+   "crop": [
+    363,
+    221
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0089/tr_1_tl_24",
+   "doc": "13922579",
+   "class": "model_specific",
+   "edits": 7,
+   "ref_chars": 11,
+   "hyp_chars": 5,
+   "crop": [
+    292,
+    86
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0089/tr_1_tl_28",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 7,
+   "ref_chars": 10,
+   "hyp_chars": 4,
+   "crop": [
+    101,
+    57
+   ]
+  },
+  {
+   "key": "A_V_1447_Schlussredaktion_test/p0089/l_10",
+   "doc": "13922579",
+   "class": "short_all_models",
+   "edits": 7,
+   "ref_chars": 7,
+   "hyp_chars": 0,
+   "crop": [
+    109,
+    32
+   ]
+  }
+ ]
+}

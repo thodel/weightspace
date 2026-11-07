@@ -1,0 +1,153 @@
+{
+ "practice": "blb-eval-hand",
+ "set_sha256": "a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091",
+ "method": "re-aggregated from the blb-eval readings of the same crops (no new forward pass); see docs/baselines/heldout-blb-eval.json for digests",
+ "models": [
+  {
+   "model": "kraken-german-xix-blb-v1",
+   "readings": "docs/baselines/readings/blb-eval/kraken-german-xix-blb-v1.jsonl",
+   "lines": 2272,
+   "metrics": {
+    "lines": 2272,
+    "cer": 0.09553782764968878,
+    "wer": 0.2841870409965604,
+    "collapsed": 6,
+    "length_ratio": 0.9808012623827475,
+    "char_edits": 10898,
+    "ref_chars": 114070,
+    "confusions": [
+     [
+      " ",
+      "",
+      568
+     ],
+     [
+      "e",
+      "",
+      326
+     ],
+     [
+      "",
+      " ",
+      208
+     ],
+     [
+      "n",
+      "",
+      183
+     ],
+     [
+      "r",
+      "",
+      171
+     ],
+     [
+      "s",
+      "",
+      159
+     ],
+     [
+      "i",
+      "",
+      131
+     ],
+     [
+      "t",
+      "",
+      126
+     ],
+     [
+      "r",
+      "n",
+      125
+     ],
+     [
+      "e",
+      "a",
+      114
+     ]
+    ],
+    "extra": {}
+   },
+   "per_project_cer": {
+    "lassberg_eval": 0.05021,
+    "korrespondenten_eval": 0.15171,
+    "unbestimmt_eval": 0.14751,
+    "manuskripte_eval": 0.08328
+   }
+  },
+  {
+   "model": "kraken-german-xix-v1",
+   "readings": "docs/baselines/readings/blb-eval/kraken-german-xix-v1.jsonl",
+   "lines": 2272,
+   "metrics": {
+    "lines": 2272,
+    "cer": 0.23860787235907777,
+    "wer": 0.6625918006879241,
+    "collapsed": 154,
+    "length_ratio": 0.8743490838958534,
+    "char_edits": 27218,
+    "ref_chars": 114070,
+    "confusions": [
+     [
+      " ",
+      "",
+      4347
+     ],
+     [
+      "e",
+      "",
+      1558
+     ],
+     [
+      "n",
+      "",
+      793
+     ],
+     [
+      "s",
+      "",
+      667
+     ],
+     [
+      "i",
+      "",
+      657
+     ],
+     [
+      "r",
+      "",
+      644
+     ],
+     [
+      "t",
+      "",
+      601
+     ],
+     [
+      "h",
+      "",
+      391
+     ],
+     [
+      "a",
+      "",
+      378
+     ],
+     [
+      "c",
+      "",
+      372
+     ]
+    ],
+    "extra": {}
+   },
+   "per_project_cer": {
+    "lassberg_eval": 0.19531,
+    "korrespondenten_eval": 0.25606,
+    "unbestimmt_eval": 0.43963,
+    "manuskripte_eval": 0.21463
+   }
+  }
+ ]
+}

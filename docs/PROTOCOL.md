@@ -70,6 +70,27 @@ session whose edit is reported as a gain.
   trainer count), collapsed lines, length ratio, top-10 confusions; for CTC
   subjects the blank share; for VLM subjects `truncated_cer`, `finish_reason`
   counts and tokens.
+- **Collapsed line (as of 07.11.2026):** hypothesis under half or over twice
+  the reference length, or a repetition loop by `wsp.metrics.degenerate_repeat`
+  (the most frequent character trigram occurs at least six times *and* at
+  least twice as often as in the reference, plus two). Until 07.11.2026 any
+  trigram occurring six times counted, which flags correct long lines
+  (` . `, ` , `, `en `); every collapsed count reported before that date, and
+  the collapsed checks of the sessions `20261106-german-xix-blb-v1-b10-1` and
+  `20261106-bern-combined-v1-b10-1`, used that legacy test
+  (`is_collapsed(..., legacy=True)` reproduces it). Those decisions stand as
+  recorded. Counts on the committed baselines, legacy → current:
+
+  | set | model | lines | legacy | current |
+  |---|---|---:|---:|---:|
+  | blb-eval | german-xix-blb-v1 | 5,628 | 428 | 286 |
+  | blb-eval | german-xix-v1 | 5,628 | 455 | 436 |
+  | blb-train-300 | german-xix-blb-v1 | 300 | 10 | 9 |
+  | blb-train-300 | german-xix-v1 | 300 | 23 | 23 |
+  | bern-eval, bern-train-300, bern-hertwig-train-300 | all family-1 models | | unchanged | unchanged |
+
+  `python -m wsp.collapse` classifies the lines the legacy test flagged
+  (docs/PHASE4_REPORT.md).
 - Every reported difference carries a paired per-line bootstrap 95 %
   interval (2,000 resamples, seed 20261106). A gain whose interval includes 0
   is reported as such.

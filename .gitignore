@@ -26,3 +26,5 @@ protocol/site/
 
 # Track C exchange readings (12 MB, 270 files): reproducible with wsp.exchange; numbers in docs/family/exchange-*.json
 docs/family/readings/
+paper/build/
+paper/figures/*.png
