@@ -123,3 +123,62 @@ total CER hides (`runs/…/heldout_paired.json`).
 **Data finding on the way:** in dh-unibe/image-text_reichenau-inkunabeln, 39 of the 59 validation pages are
 byte-identical to train pages (the upstream Zenodo record lists them under both its Train Set and Validation Set
 folders). Any training on this dataset that uses its validation split for model selection overfits the selection.
+
+## R5 — which latin_incunabula candidate to enable: neither, by the pre-registered rule (07.11.2026)
+
+Rule written and committed before any of these scores (`runs/20261107-latin_incunabula-exchange-2/preregistration.md`,
+commit `0c8f4ff`): a candidate qualifies if it does not lose abbreviations (MUFI, Combining Diacritical Marks or Latin
+Extended-D with a 95 % interval entirely above 0 on `reichenau-heldout`, as a whole or in either sub-collection), its
+Reichenau CER is not worse, and its CER on neither held-out Fraktur set is worse.
+
+**Candidates.** v1 = R4 (`Gn_1` + `Gn_3` from kraken-catmus_print_large, `O_15` half-way). v2 =
+`runs/20261107-latin_incunabula-exchange-2` (`Gn_1` + `Gn_3` only, rebuilt from combination `gn13`, tensor digest
+`1fe624af…`, loads with `load_any`).
+
+**Held-out sets, each read once per model** (line level; audits in `data/heldout/*.audit.json`, all 0 shared pages,
+lines and crops):
+
+- `reichenau-heldout`: R4's 4,374 lines. The German sub-collection contributes only 163 of them, from 30 pages with
+  few transcribed lines; the Latin-German one 4,211.
+- `newseye-heldout`: 2,706 lines from 8 pages of the NewsEye ONB *train* shard; the practice and confirmation lines came
+  from its validation shard, which shares no page name or image with it.
+- `gt-fraktur-heldout`: 1,311 lines from the 35 GT-Fraktur pages no practice or confirmation line came from (same 10
+  documents, other pages).
+
+| candidate | `reichenau-heldout` CER (Δ, 95 % interval) | `newseye-heldout` CER (Δ, 95 % interval) | `gt-fraktur-heldout` CER (Δ, 95 % interval) | loses abbreviations | qualifies |
+|---|---|---|---|---|---|
+| unedited | 5.01 % | 28.56 % | 20.13 % | | |
+| v1 | 4.99 % (-0.03 [-0.07, +0.02]) | 26.52 % (**-2.04** [-2.22, -1.86]) | 19.70 % (**-0.44** [-0.57, -0.31]) | yes | no |
+| v2 | 5.06 % (**+0.04** [+0.01, +0.08]) | 27.48 % (**-1.08** [-1.26, -0.92]) | 19.94 % (**-0.19** [-0.30, -0.08]) | yes | no |
+
+Abbreviation blocks on `reichenau-heldout`, change of the block's share of CER in points (95 % interval):
+
+| candidate | scope | MUFI (CERberus list, overlay) | Combining Diacritical Marks | Latin Extended-D |
+|---|---|---|---|---|
+| v1 | all (4374 lines) | **+0.110** [+0.092, +0.127] (532→731) | **+0.048** [+0.024, +0.072] (2710→2797) | **+0.006** [+0.001, +0.010] (50→60) |
+| v1 | German (163 lines) | +0.039 [-0.013, +0.101] (9→12) | **-0.221** [-0.380, -0.085] (143→126) | +0.000 [+0.000, +0.000] (3→3) |
+| v1 | Latin-German (4211 lines) | **+0.113** [+0.095, +0.132] (523→719) | **+0.060** [+0.037, +0.083] (2567→2671) | **+0.006** [+0.001, +0.011] (47→57) |
+| v2 | all (4374 lines) | **+0.010** [+0.003, +0.019] (532→551) | +0.010 [-0.004, +0.024] (2710→2728) | +0.000 [-0.003, +0.003] (50→50) |
+| v2 | German (163 lines) | +0.013 [-0.027, +0.063] (9→10) | +0.039 [-0.054, +0.139] (143→146) | +0.000 [+0.000, +0.000] (3→3) |
+| v2 | Latin-German (4211 lines) | **+0.010** [+0.002, +0.019] (523→541) | +0.009 [-0.004, +0.022] (2567→2582) | +0.000 [-0.003, +0.003] (47→47) |
+
+**Choice by the pre-registered rule:** none.
+
+(Numbers: `docs/family/candidates-latin_incunabula.json`, from `python -m wsp.candidates latin_incunabula`, which reads
+the stored readings only.)
+
+**Reading.**
+
+- **The purpose of the exchange is confirmed on held-out print.** v1 reads Fraktur it was never trained on better:
+  −2.04 points on NewsEye, −0.44 on GT-Fraktur; v2 half of that (−1.08, −0.19). Stabilisation by exchange is real
+  beyond the lines it was chosen on.
+- **Its price is the model's specialisation.** v1 loses abbreviations clearly on the Latin-German pages (MUFI signs
+  523 → 719 errors). v2, without the output-layer move, keeps most of them but not all: MUFI 523 → 541, interval
+  excluding 0, and its Reichenau CER rises by 0.04 points (interval excluding 0). Both changes are small; the rule set
+  no minimum size, and it is not changed after the fact.
+- **Decision: neither is enabled.** v1 stays registered on the share and disabled (R4); v2 was not registered. The
+  serving-path read the rule reserved for a qualifying candidate was not run.
+
+What would settle it differently: a rule with a minimum effect for the abbreviation blocks (as the session keep rule
+has since PROTOCOL §3 of 06.11.2026), set *before* a new comparison; or a use case that wants Fraktur robustness more
+than abbreviations, for which v1 is the better model — a decision for its users, not for this rule.
