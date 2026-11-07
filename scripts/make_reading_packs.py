@@ -17,14 +17,21 @@ SC = Path.home() / "atr-cache" / "wsp" / "scores"
 DEST = Path("runs/planted")
 
 
-def main():
-    parent = KrakenSubject(PARENT)
-    for cid in CORRUPTIONS:
-        d = DEST / cid / "pack"
+UNRELATED = Path.home() / "Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel"
+
+
+def main(ids=None, unrelated=False):
+    """ids: corruption ids (default all); unrelated: the diff is taken against kraken-bern-hertwig-v2 (a different lineage) and the pack goes to runs/planted/<id>-u."""
+    parent = KrakenSubject(UNRELATED if unrelated else PARENT)
+    for cid in (ids or CORRUPTIONS):
+        d = DEST / (cid + ("-u" if unrelated else "")) / "pack"
         d.mkdir(parents=True, exist_ok=True)
         s = KrakenSubject(OUT / f"{cid}.mlmodel")
         (d / "describe.md").write_text(stats.md_describe(stats.describe(s), "the subject"))
-        (d / "diff_parent_to_subject.md").write_text(stats.md_diff(stats.lineage_diff(parent, s), "kraken-german-xix-v1 (parent) → the subject"))
+        if unrelated:
+            (d / "diff_donor_to_subject.md").write_text(stats.md_diff(stats.lineage_diff(parent, s), "kraken-bern-hertwig-v2 (an unrelated donor, other lineage) → the subject"))
+        else:
+            (d / "diff_parent_to_subject.md").write_text(stats.md_diff(stats.lineage_diff(parent, s), "kraken-german-xix-v1 (parent) → the subject"))
         m = json.loads((SC / f"prac-{cid}.json").read_text())["metrics"]
         conf = "\n".join(f"| `{a or '∅'}` | `{b or '∅'}` | {n} |" for a, b, n in m["confusions"])
         (d / "c0_practice.md").write_text(
@@ -36,4 +43,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    main(args or None, unrelated="--unrelated" in sys.argv)

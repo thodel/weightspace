@@ -1,8 +1,8 @@
 # Controls report — planted defects and validation-based practice (items 2 and 3 of docs/BRIEF_ARTICLE_EXPERIMENTS.md)
 
-Asteraix, 07.11.2026, branch `claude/article-controls-8803eb` on `origin/main` (07f55d7). CPU only, kraken 7.0.2, no retraining, nothing written to the share, registry, Hugging Face or the trainer. Run folders: `runs/20261107-planted-*` (32), `runs/20261107-val-*` (8), packs and programs in `runs/planted/` and `runs/validation/`. Aggregates: `docs/controls/*.json|md`. Tests: 44 passed, 2 skipped.
+Asteraix, 07.11.2026, branch `claude/article-controls-8803eb` on `origin/main` (07f55d7). CPU only, kraken 7.0.2, no retraining, nothing written to the share, registry, Hugging Face or the trainer. Run folders: `runs/20261107-planted-*` (32), `runs/20261107-val-*` (8), packs and programs in `runs/planted/` and `runs/validation/`. Aggregates: `docs/controls/*.json|md`. Tests: 45 passed, 2 skipped (see §10 for the follow-up sections 6–10).
 
-**In four sentences.** (1) The method *can* find and repair planted defects: of seven real corruptions of `xix-blb-v1`, the programmer with passes (a), the blind programmer (b) and a hand-written repair list (c) each brought the held-out CER back to within 0.22 points of the uncorrupted model on every corruption that did damage of 1 point or more (6 of 6; 19 of the 19 repaired cells, 10 of them to within 0.01 point), so "no defect found" on the real models carries information. (2) But these defects are of the kind the diff against the parent shows at once (a row with cosine −0.99, a block of zeros, a block at half the parent's norm), the hand-written list does as well as the programmer, and the blind programmer as well as both: on this family of defects the programmer adds nothing over (c), and the passes add nothing over (b). (3) A plain coordinate search over output biases (d) repairs only the corruption that lives in the output biases (blank +2) and partly the rest, and cannot touch a defect in a conv block. (4) On practice sets that are not training data, the BLB model again yields nothing (4 attempts, 0 kept edits), and `combined-v1` yields the first held-out gain of the project: all three independent programmer attempts converged on the same edit (blank bias −0.3, then interpolating the non-output tensors 25 % toward the clean sibling), −0.39 points on `bern-eval` (paired line interval [−0.69, −0.08], page-clustered [−0.72, −0.06], 14 pages), which is a model-merging gain, small, and not yet confirmed by a sham control.
+**In four sentences.** (1) The method *can* find and repair planted defects: of seven real corruptions of `xix-blb-v1`, the programmer with passes (a), the blind programmer (b) and a hand-written repair list (c) each brought the held-out CER back to within 0.22 points of the uncorrupted model on every corruption that did damage of 1 point or more (6 of 6; 19 of the 19 repaired cells, 10 of them to within 0.01 point), so "no defect found" on the real models carries information. (2) But these defects are of the kind the diff against the parent shows at once (a row with cosine −0.99, a block of zeros, a block at half the parent's norm), the hand-written list does as well as the programmer, and the blind programmer as well as both: on this family of defects the programmer adds nothing over (c), and the passes add nothing over (b). (3) A plain coordinate search over output biases (d) repairs only the corruption that lives in the output biases (blank +2) and partly the rest, and cannot touch a defect in a conv block. (4) On practice sets that are not training data, the BLB model again yields nothing (4 attempts, 0 kept edits), and `combined-v1` yields the first held-out gain of the project: all three independent programmer attempts converged on the same edit (blank bias −0.3, then interpolating the non-output tensors 25 % toward the clean sibling), −0.39 points on `bern-eval` (paired line interval [−0.69, −0.08]; **the page-clustered interval computed later, §9, is [−0.84, +0.04] and contains 0; the page-clustered figure [−0.72, −0.06] quoted in earlier drafts of this report came from a one-stage page resample and is withdrawn**), which is a model-merging gain, small; §6 shows it is distinguishable from norm-matched random edits but not from plain interpolation toward the sibling, and sits in a narrow α window.
 
 ## 1. Setup shared by both items
 
@@ -111,11 +111,11 @@ On unseen practice lines the keep rule refuses every output-layer, blank, space 
 | a3 | 9 | 8 | 2 | 13.86 → 12.35 | 19.33 → 18.94 | −0.387 [same] | the same two edits |
 | replay | 9 | 8 | 1 | 13.86 → 12.17 | 19.33 → 19.01 | −0.320 [−0.697, +0.071] | `L_12` transplanted from `schlussredaktion-v1` |
 
-Per held-out subset of the a1–a3 model: Hertwig (287 lines) −0.49 [−1.10, +0.04]; Schlussredaktion (258) −0.30 [−0.58, −0.01]; page-clustered bootstrap over the 14 test pages −0.39 [−0.72, −0.06]. The replay's page-clustered interval is [−0.67, +0.04].
+Per held-out subset of the a1–a3 model: Hertwig (287 lines) −0.49 [−1.10, +0.04]; Schlussredaktion (258) −0.30 [−0.58, −0.01]; page-clustered (two-stage) bootstrap over the 14 test pages: see §9 (−0.39 [−0.84, +0.04]); the earlier one-stage figure was withdrawn.
 
 What happened to the 06.11. transplant: on training lines the output layer from `hertwig-v2` was kept (practice −0.42 points) and failed on held-out (+0.15). Under the donor rule the replay judges it on the 301 lines `hertwig-v2` did not train on and **refuses it** (`CER rose`, interval [+0.32, +0.83] points): the rule removes the artefact. The one edit the replay keeps instead, `L_12` from the sibling, is judged on the 297 lines the sibling did not train on (interval [−2.18, −0.66] points) and does not clearly transfer (held-out interval contains 0).
 
-Reading. (i) The a1–a3 edit is a two-parameter-family model merge toward a sibling that reads the Schlussredaktion hand better (0.118 against 0.139 on `bern-val`) and the blank bias; the three programmers found it because the pack listed the sibling as a donor and said it read the practice lines better. The practice gain (−1.5 points) shrinks to −0.39 on held-out; the interval excludes 0 at line level and at page level, barely. It is not a "repair of label-noise damage" (the Hertwig part is not significant) and it has had no C2/C3 comparison (α = 0.5 reads better on practice and was refused by the rule, so the α-sweep would say where the optimum is), no sham (C5) and no second held-out set. (ii) With three attempts converging on one final digest the "at least three independent attempts" are three samples of one programmer given one pack, not three programmers. (iii) The BLB model, with a parent that is a worse model on every line, has no donor to merge toward, and nothing is found.
+Reading. (i) The a1–a3 edit is a two-parameter-family model merge toward a sibling that reads the Schlussredaktion hand better (0.118 against 0.139 on `bern-val`) and the blank bias; the three programmers found it because the pack listed the sibling as a donor and said it read the practice lines better. The practice gain (−1.5 points) shrinks to −0.39 on held-out; the line-level interval excludes 0; the two-stage page-clustered interval (§9) does not. It is not a "repair of label-noise damage" (the Hertwig part is not significant) and it has had no C2/C3 comparison (α = 0.5 reads better on practice and was refused by the rule, so the α-sweep would say where the optimum is), no sham (C5) and no second held-out set. (ii) With three attempts converging on one final digest the "at least three independent attempts" are three samples of one programmer given one pack, not three programmers. (iii) The BLB model, with a parent that is a worse model on every line, has no donor to merge toward, and nothing is found.
 
 ### 3.4 Proposed amendment to docs/PROTOCOL.md
 
@@ -134,3 +134,123 @@ Written into §2 of `docs/PROTOCOL.md`, marked **PROPOSED AMENDMENT (07.11.2026,
 - `diff.json` is committed as `diff.json.gz` when under 5 MB; for 7 sessions (interpolations touch every weight) it is omitted (`DIFF_OMITTED.txt` in the folder); the edits are reproducible from `program.py` and the donor models.
 - The three `a1–a3` combined-v1 programmers converged on one model, so the "three independent attempts per model" are not three independent solutions; more independent attempts would need different packs or programmers.
 - The `replay` of session 1 on BLB used the original program unchanged; the 06.11. interval-free keep rule no longer applies, the current one does.
+
+
+---
+
+# Follow-up (07.11.2026, later): sections 6–10
+
+Requested after the first report; CPU only, 4 threads per worker, nothing outside the repo and `~/atr-cache/wsp/`. New code: `wsp.metrics.bootstrap_delta(..., clusters=)` (two-stage cluster bootstrap: pages resampled, then lines within a drawn page; `ci95` unchanged), `wsp.metrics.page_of`, `scripts/sham_alpha_combined.py`, `scripts/global_interp.py`, `scripts/margins.py`, `scripts/recompute_intervals.py`, corruptions k9–k11 in `wsp/plant.py`. Aggregates in `docs/controls/`. Models for the programmers: Claude Sonnet 5.5 (`sonnet`), Claude Opus 5.5 (`opus`), Claude Haiku 5.5 (`haiku`) as fresh subagents given only their pack; Claude Fable 5.1 was requested for two more attempts and **failed with "out of usage credits"**, so no Fable attempt exists. All intervals below are 95 %.
+
+## 6. Is the `combined-v1` gain distinguishable from sham and from plain averaging? (`docs/controls/combined_controls.json`)
+
+The edit: blank bias −0.3 and the 32 non-output tensors α = 0.25 toward `schlussredaktion-v1` (all three Sonnet attempts' final model). Everything below is scored on `bern-val` (practice, 513 lines) and `bern-eval` (held-out, 545 lines, 14 pages), against the unedited model (practice 13.86 %, held-out 19.33 %).
+
+**(a) C5 sham, 20 draws.** Each non-output tensor receives Gaussian noise of the same Frobenius norm as the real α = 0.25 delta of that tensor, plus the same blank −0.3. Held-out Δ of the 20 shams: mean −0.013 points, sd 0.062, range [−0.199, +0.097]; practice CER of the shams 13.82 % on average (best 13.61). The real edit: practice 12.39 % and held-out −0.39. **0 of 20 shams reach the real edit's held-out gain** (the real gain lies about 6 sd below the sham mean). The keep rule of PROTOCOL §3, applied to each sham against the blank-−0.3 state, **kept 0 of 20** — on the 297 sibling-unseen lines (the rule used for the real edit) and on all 513. So the rule's false-keep rate against norm-matched noise is 0/20 here (rule-of-three upper 95 % bound 15 %), and the real gain is not what random edits of that size do.
+
+**(b) C2 and (c) the α sweep** (non-output tensors α toward the sibling, `parent`-style axis; with and without the blank edit; page-clustered interval is the honest one):
+
+| edit | practice CER % | held-out CER % | held-out Δ points [lines] | [pages] |
+|---|---:|---:|---|---|
+| blank −0.3 only | 13.71 | 19.34 | +0.01 [−0.09, +0.12] | [−0.15, +0.18] |
+| α = 0.1 | 13.26 | 19.17 | −0.16 [−0.34, +0.01] | [−0.44, +0.10] |
+| α = 0.25 | 12.51 | 19.01 | −0.31 [−0.61, −0.02] | [−0.77, +0.09] |
+| α = 0.4 | 11.90 | 19.28 | −0.05 [−0.41, +0.31] | [−0.58, +0.43] |
+| α = 0.5 | 11.66 | 19.35 | +0.02 [−0.37, +0.40] | [−0.55, +0.60] |
+| α = 0.75 | 11.54 | 19.76 | +0.43 [−0.05, +0.89] | [−0.36, +1.29] |
+| α = 1.0 | 11.83 | 20.37 | +1.04 [+0.52, +1.55] | [+0.05, +2.19] |
+| α = 0.1 + blank | 13.19 | 19.14 | −0.19 [−0.40, +0.01] | [−0.51, +0.08] |
+| **α = 0.25 + blank (the edit)** | 12.39 | 18.94 | **−0.39 [−0.69, −0.08]** | **[−0.84, +0.04]** |
+| α = 0.4 + blank | 11.74 | 19.17 | −0.16 [−0.52, +0.22] | [−0.70, +0.36] |
+| α = 0.5 + blank | 11.54 | 19.29 | −0.04 [−0.43, +0.34] | [−0.62, +0.56] |
+| α = 0.75 + blank | 11.34 | 19.62 | +0.29 [−0.21, +0.75] | [−0.48, +1.13] |
+| α = 1.0 + blank | 11.73 | 20.15 | +0.82 [+0.29, +1.31] | [−0.17, +1.95] |
+| **C2** uniform average of subject and sibling, output rows aligned by character | 11.65 | 19.31 | −0.02 [−0.43, +0.38] | [−0.62, +0.60] |
+
+Averages of the subject with `hertwig-v2` and of all three were not run.
+
+State plainly: (1) The −0.39 is **distinguishable from random edits of the same size** (0/20 shams, 0/20 false keeps). (2) It is **not distinguishable from plain interpolation**: it *is* plain interpolation, the blank edit adds nothing alone (+0.01), and it adds −0.08 on top of α = 0.25 (inside every interval). The gain lives in a narrow window: held-out improves at α = 0.1–0.25 (−0.16 to −0.39), is zero at 0.4–0.5 (including the uniform average C2: −0.02) and the held-out loss is clear by α = 1. (3) **No interval that is page-clustered excludes 0 at any α.** (4) The practice set ranks the α wrongly: practice CER keeps falling to α ≈ 0.75 (11.3–11.5 %), where held-out is worse by +0.3 to +0.4; the keep rule's refusal of the larger steps (it refused α = 0.5 and 0.75 because the interval against the α = 0.25 state contained 0) saved the model from an overshoot, but only because the rule is conservative, not because the practice set measures the optimum. So the project's one candidate gain is a small, α-specific interpolation effect, with a page-level interval that includes 0 and a practice set that over-fits the interpolation; it should be reported as a model-merge observation, not as a repair.
+
+## 7. Global interpolation and additivity, Kurrent pair (`docs/controls/global_interp.json`)
+
+`parent + α (child − parent)` on `xix-v1` → `xix-blb-v1`; blocks C_0, C_3, C_6, C_9, L_12, L_14, L_16, O_18 (output rows aligned by character, the child's 72 new rows kept). α = 1 is the child, 0 the parent on the chosen blocks. Two sides, labelled: **practice** = `blb-val-300` (300 lines of 7 eval-side objects the model was not trained on; child 13.83 %) and **held-out** = `blb-eval-hand-b` (1,718 lines; child 8.41 %). All eight blocks jointly at α = 0…1.5 (step 0.25), each block alone at the same α, and all 28 block pairs at α = 0.5. "Additivity": joint cost minus the sum of the eight single-block costs at the same α (positive = the joint move is worse than the sum).
+
+| α | practice: joint CER % | joint Δ | sum of singles | joint − sum [pages] | held-out: joint CER % | joint Δ | sum of singles | joint − sum [pages] |
+|---|---:|---:|---:|---|---:|---:|---:|---|
+| 0.0 (parent) | 32.66 | +18.83 | +16.35 | +2.48 [−2.33, +6.68] | 21.70 | +13.29 | +9.49 | **+3.81 [+2.57, +4.98]** |
+| 0.25 | 26.73 | +12.90 | +11.28 | +1.63 [−1.73, +4.91] | 17.02 | +8.61 | +6.38 | **+2.23 [+1.48, +3.02]** |
+| 0.5 | 21.18 | +7.35 | +5.28 | +2.07 [−0.18, +4.26] | 13.24 | +4.84 | +2.65 | **+2.19 [+1.52, +2.95]** |
+| 0.75 | 15.83 | +2.00 | +1.54 | +0.46 [−0.60, +1.64] | 9.23 | +0.82 | +0.44 | **+0.38 [+0.06, +0.70]** |
+| 1.25 | 14.50 | +0.67 | +0.77 | −0.10 [−1.26, +1.00] | 8.69 | +0.29 | +0.06 | +0.22 [−0.10, +0.59] |
+| 1.5 | 16.70 | +2.87 | +2.71 | +0.16 [−1.71, +1.89] | 10.46 | +2.05 | +1.02 | **+1.03 [+0.51, +1.59]** |
+
+Reading. (i) **Nowhere on the line is there a gain**: moving any distance from the child toward the parent costs, and extrapolating costs (α = 1.25: +0.67 practice, +0.29 held-out; 1.5: +2.9, +2.1). (ii) **The joint cost is larger than the sum of the single-block costs on the held-out side** (+0.4 to +3.8 points; page interval excludes 0 at α ≤ 0.75 and at 1.5) and not distinguishable from additive on the practice side (300 lines, wide intervals, same sign). The blocks interact: the damage of moving all of them is worse than the sum of moving each alone. (iii) **Pairs at α = 0.5 are close to additive**: the sum of the two single-block costs predicts the pair's cost with correlation 0.98 (practice) and 0.97 (held-out); mean interaction +0.11 and +0.07 points; the largest are L_12+L_14 (+0.87, practice) and L_16+O_18 (+0.76, held-out). So the departure from additivity builds with the number of blocks moved, not within pairs. This qualifies the manuscript's statement that the sweep was "consistent with an additive loss surface": single blocks and pairs are close to additive, the whole network is not.
+
+## 8. Margins at deleted frames (`docs/controls/margins.json`)
+
+`xix-blb-v1` on `blb-eval-hand-b`: 696 deleted instances of space, `e` or `n` in 418 of 1,718 lines (44 lines skipped: unreadable crop or whitespace normalisation shifting positions). For each, the *window* is the frames strictly between the last frame of the previous emitted character and the first frame of the next (kraken's span end is inclusive). **127 of the 696 (18 %) have no frame between the neighbours**: no blank frame exists there, so no blank-bias edit can act on them. For the other 569: M1 = the smallest over the window of (blank − deleted character) log-probability difference (a softmax log-ratio equals the logit difference): how close the deleted character came to winning at its best frame; M2 = the smallest (blank − best non-blank class).
+
+| | n | M1 min | p5 | p25 | median | p75 | p95 | share M1 < 2 | M2 median |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| space | 305 | 0.00 | 0.12 | 1.15 | 2.53 | 5.27 | 10.18 | 43 % | 1.77 |
+| e | 180 | 0.07 | 0.44 | 1.72 | 3.94 | 6.98 | 10.49 | 30 % | 1.94 |
+| n | 84 | 0.01 | 0.22 | 1.64 | 5.38 | 9.58 | 14.92 | 31 % | 1.62 |
+| all | 569 | 0.00 | 0.20 | 1.35 | **3.17** | 6.60 | 11.57 | 37 % | 1.81 |
+
+Effect of the blank-bias states of session 1 (each shifts every blank-minus-X margin by exactly the edit, so the margins after an edit d are the margins before plus d). Predicted share of the 569 recovered (M1 + d < 0): −0.113: 2.6 %; −0.5: 9.1 %; −1.0: 19.0 %. Measured by decoding the edited models on the 372 lines (the three characters, 696 instances incl. no-gap ones): deletions 696 → 677 (−2.7 %), 613 (−11.9 %), 544 (−21.8 %); insertions in those lines 252 → 263, 311, 385 (+11, +59, +133). So the recovered deletions are paid for with nearly as many insertions at −1.0 (−152 deletions, +133 insertions).
+
+Reading: **the margins support the claim that the deletions are decided upstream of the output layer**: the median deleted character sits 3.2 nats (a factor of 24 in probability) below the blank at its best frame, 63 % are more than 2 nats away, a fifth have no blank frame to act on, and the three states of session 1 reach only about one deletion in 40, in 9 and in 5. The 37 % within 2 nats are reachable only by edits larger than session 1 tried, and the measured insertions say they trade one error for another. The measured and predicted recoveries agree in size; the bias edits are not the lever. (The first version of this script put the neighbours' own frames into the window and reported every margin as negative; it was corrected before any number was used.)
+
+## 9. Cluster intervals
+
+**Earlier results recomputed** (`docs/controls/cluster_intervals.md`; line-level numbers reproduce the originals exactly; practice-set lines are scattered over many pages, so practice intervals barely change):
+
+| result | lines | pages | Δ points | line-level | page-clustered |
+|---|---:|---:|---:|---|---|
+| R2 session 1, held-out `blb-eval` | 5,628 | 157 | −0.010 | [−0.048, +0.026] | [−0.069, +0.049] |
+| R2 session 1 on `blb-eval-hand` | 2,272 | 94 | −0.001 | [−0.055, +0.053] | [−0.082, +0.084] |
+| R3 session 2, practice (pass 8) | 300 | 146 | −0.425 | [−0.850, −0.036] | [−0.926, +0.037] (**now contains 0**) |
+| R3 session 2, held-out `bern-eval` | 545 | 14 | +0.151 | [−0.099, +0.421] | [−0.285, +0.597] |
+| R3 held-out Hertwig / Schlussredaktion | 287 / 258 | 6 / 8 | −0.300 / +0.510 | [−0.721, +0.127] / [+0.206, +0.822] | [−0.825, +0.213] / **[−0.043, +1.076]** (the Schlussredaktion loss **is no longer significant**) |
+| this report, `combined-v1` a1–a3, `bern-eval` | 545 | 14 | −0.387 | [−0.693, −0.082] | [−0.838, +0.035] |
+| this report, replay | 545 | 14 | −0.320 | [−0.697, +0.071] | [−0.840, +0.189] |
+
+Consequences for earlier text: the four per-project BLB intervals of PHASE1 §3 all widen but still contain 0; the "significant Schlussredaktion loss" of PHASE3 §3 and docs/RESULTS.md R3 and the "significant practice gain" of R3 are line-level findings that a page-clustered interval does not support; the conclusion "not a gain" stands, and the claim that the edit *harmed* Schlussredaktion does not. **The α sweep** (`docs/baselines/alpha-xix-blb-v1.cluster.json`, rerun, `docs/controls/alpha_cluster_table.md`): the 16 per-block rows match the old numbers; practice lines are spread over 263 pages, so page intervals differ from line intervals by under 0.02 points except at the edges (C_3 α = 0.5: line [+0.008, +0.302] → page [−0.008, +0.317]; C_9 α = 1.5: [+0.000, +0.355] → [−0.015, +0.365]; O_18 α = 1.5: [+0.000, +0.245] → [−0.016, +0.246]); the large costs (L_12, L_14, L_16 at α = 0.5: +1.2 to +2.3 points) are unchanged. The VLM page-level intervals of PHASE5 were already page-level.
+
+**Planted-defect table with page-clustered intervals** (`docs/controls/planted_table.md`, `planted.json`): every cell of §2.2 now carries the page interval beside the line interval; classes are decided on the page interval. No class of §2 changes; the intervals widen by a factor of about 1.5–3 on the large effects (k1 (a): −10.09 [−10.52, −9.65] pages against [−10.26, −9.91] lines; k6 (a): −11.62 [−13.36, −10.07] against [−12.04, −11.24]).
+
+## 9b. Planted defects: diffuse corruptions and an unrelated donor (new runs `runs/20261107-planted-k9…k11`, `…-u-…`)
+
+Three new corruptions on the same model (held-out CER of the uncorrupted model 9.55 %): **k9** Gaussian noise on every weight tensor, 10 % of each tensor's norm (diffuse); **k10** noise on `L_14` at 60 % of the block's norm (k7 was 25 %); **k11** all three BiLSTMs ×0.9 (diffuse scale). And, for k1, k6 and k8, a variant in which the parent is not available and the only donor is `kraken-bern-hertwig-v2`, a model from another lineage (arms (a), (b), (c); (d) does not use a donor). Same protocol, same classes; one attempt per cell, Sonnet programmers.
+
+| corruption | practice % | held-out % | damage (pts) | (a) | (b) | (c) | (d) |
+|---|---:|---:|---:|---|---|---|---|
+| k9 noise 10 % everywhere | 55.09 | 63.80 | +54.24 | **18.51 (83 %, repaired)**; kept: blank bias, `C_3` bias to the parent, an 8-tensor interpolation α = 0.25 toward the parent | no edit, 63.80 | no edit (no rule fired), 63.80 | 60.32 (6 %, not repaired) |
+| k10 noise 60 % on `L_14` | 12.00 | 13.49 | +3.94 | 10.88 (66 %, partly); `L_14` 40 % toward the parent | 10.72 (70 %, partly); `L_14` 75 % toward the parent | 11.47 (51 %, partly) | 13.49 (0 %) |
+| k11 all LSTM ×0.9 | 7.27 | 9.87 | +0.31 (null by the 0.5-point rule; interval excludes 0) | 9.55 (100 %) | 9.55 (100 %) | 9.55 (102 %) | 9.64 (74 %) |
+| k1 zero row `e`, **unrelated donor** | 16.23 | 19.66 | +10.10 | no edit kept, 19.66 | no edit, 19.66 | 17.75 (19 %: donor rows copied) | — |
+| k6 `L_16` ×0.5, **unrelated donor** | 19.93 | 21.17 | +11.62 | 9.55 (100 %, repaired: ×2 undone, no donor used) | 9.55 (100 %, repaired) | 16.33 (42 %, partly) | — |
+| k8 zero `C_3`, **unrelated donor** | 100.00 | 100.00 | +90.45 | 99.52 (1 %): identity-like `C_3` guesses | 100.00, no edit | 100.00 | — |
+
+Reading. (i) **A diffuse defect is found only by the programmer with passes, and only partly by the blind one**: k9 (noise on everything) is invisible to the diff against the parent at tensor level (no tensor stands out), the blind programmer correctly wrote "no localised defect" and did nothing, the fixed list of repairs fired no rule, and only (a) — which measured — found that pulling all non-output tensors 25 % toward the parent averages the noise away (63.8 → 18.5 %, 83 % of the damage). That is the one cell in the whole study where passes bought something that reading did not. It relies on the parent as an anchor (an interpolation toward a donor of the same lineage). (ii) k10 shows partial repair of block noise by interpolation toward the parent: 51–70 %; none restores the block. (iii) **The repairs of localised defects depend on the donor's lineage**: with an unrelated donor the zeroed row and the zeroed block cannot be rebuilt (k1-u: 0 % for (a), (b); 19 % for (c)'s blind row copy; k8-u: 0–1 %), whereas a scale defect (k6-u) is repaired without any donor (the block's norm is half its neighbours'). (iv) k11 (×0.9, +0.31) was repaired by three arms although it is below the 0.5-point damage threshold; k7 (noise 25 %, +0.49) was repaired by none: a scale defect leaves a norm signature, a noise defect does not.
+
+## 9c. Different programmers on the validation sessions (new runs `runs/20261107-val-*-o1/h1`)
+
+Opus 5.5 (`o1`) and Haiku 5.5 (`h1`) attempts on the same packs (6 attempts per model in total: three Sonnet, one Opus, one Haiku, one replay of the 06.11. program; Fable failed, see above). `xix-blb-v1` (practice `blb-val-300`): **0 of 6 attempts kept any edit** (Opus 5 passes / 4 edits; Haiku 5 / 4); the final model is the subject in every case. `combined-v1` (practice `bern-val`, held-out `bern-eval`, line / page-clustered intervals):
+
+| attempt | passes / edits / kept | practice C0 → last | held-out Δ points | line [95 %] | page [95 %] | kept |
+|---|---|---|---:|---|---|---|
+| a1 = a2 = a3 (Sonnet ×3, one final model) | 8–9 / 7–8 / 2 | 13.86 → 12.35–12.38 | −0.387 | [−0.693, −0.082] | [−0.838, +0.035] | blank −0.3; non-output α = 0.25 toward the sibling |
+| o1 (Opus 5.5) | 9 / 8 / 3 | 13.86 → 12.92 | −0.193 | [−0.562, +0.188] | [−0.788, +0.369] | blank −0.25 (after −0.5 refused); α = 0.25; a further 0.2 toward the sibling |
+| h1 (Haiku 5.5) | 7 / 6 / 1 | 13.86 → 12.51 | −0.314 | [−0.607, −0.024] | [−0.771, +0.086] | non-output α = 0.25 toward the sibling |
+| replay (Fable 5.1's 06.11. program with masks) | 9 / 8 / 1 | 13.86 → 12.17 | −0.320 | [−0.697, +0.071] | [−0.840, +0.189] | `L_12` from the sibling |
+
+All five attempts that kept something moved the model toward the sibling; the sizes of the held-out gains (−0.19 to −0.39) follow how far they went and none has a page interval excluding 0. The attempts are more varied than the three Sonnet runs were, but still not independent of the pack, which names the sibling as a donor and gives its CER on the practice lines.
+
+## 10. Not done in the follow-up
+
+- **The second independent attempt per planted-defect arm with a different pack ordering** was not run (it would be 16 further subagent sessions and the Fable credits had run out); the new programmers of §9b and §9c are separate attempts on new corruptions and new models, not repeats of the original eight cells. The variance of the original cells across attempts remains unmeasured.
+- Averages with `hertwig-v2` and of three siblings (C2 variants), a seed-variance null, C4, and a replacement for the failed Fable attempts.
+- The sham of §6 is one family (Gaussian noise at the interpolation delta's per-tensor norm); a sham that keeps the *direction* of the delta but reshuffles it across tensors was not run.
+- Everything is CPU, one subject per pair, one held-out set per model; the margins use the greedy reading and a window definition stated above.
+- No session was discarded after its result was seen. Two errors (an unexported variable; a margin window that included neighbouring characters) were found and fixed before any number was used.

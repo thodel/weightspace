@@ -12,6 +12,10 @@
     9.922368432807154,
     10.27393113231211
    ],
+   "damage_ci95_pages_pts": [
+    9.660026823406573,
+    10.540843232184272
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k1-zero-row-e-a-b10-1",
@@ -26,6 +30,10 @@
      "delta_ci95_pts": [
       -10.260151168922482,
       -9.90698039352437
+     ],
+     "delta_ci95_pages_pts": [
+      -10.515646664443548,
+      -9.646518137458864
      ],
      "vs_original_pts": 0.014903129657228842,
      "vs_original_ci95_pts": [
@@ -50,6 +58,10 @@
       -10.068518551221148,
       -9.711793141428533
      ],
+     "delta_ci95_pages_pts": [
+      -10.36814080870276,
+      -9.432177712305606
+     ],
      "vs_original_pts": 0.20163057771543924,
      "vs_original_ci95_pts": [
       0.15131732540142329,
@@ -72,6 +84,10 @@
      "delta_ci95_pts": [
       -10.096119991549891,
       -9.746379724671472
+     ],
+     "delta_ci95_pages_pts": [
+      -10.393309551543389,
+      -9.468420296833159
      ],
      "vs_original_pts": 0.17094766371526376,
      "vs_original_ci95_pts": [
@@ -96,6 +112,10 @@
       -7.316174212175194,
       -6.866352145900081
      ],
+     "delta_ci95_pages_pts": [
+      -7.755171533157402,
+      -6.344504693882424
+     ],
      "vs_original_pts": 3.0025422985885855,
      "vs_original_ci95_pts": [
       2.8345125649158267,
@@ -116,6 +136,10 @@
     59.88988936586047,
     61.477249540910016
    ],
+   "damage_ci95_pages_pts": [
+    57.234454907920465,
+    63.93534928370994
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k2-negate-row-n-a-b10-1",
@@ -130,6 +154,10 @@
      "delta_ci95_pts": [
       -61.47922998986829,
       -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
      ],
      "vs_original_pts": -0.0008766546857191804,
      "vs_original_ci95_pts": [
@@ -154,6 +182,10 @@
       -61.47922998986829,
       -59.882127313010656
      ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
      "vs_original_pts": -0.0008766546857191804,
      "vs_original_ci95_pts": [
       -0.012469938541018188,
@@ -176,6 +208,10 @@
      "delta_ci95_pts": [
       -61.4136486558142,
       -59.811363557044636
+     ],
+     "delta_ci95_pages_pts": [
+      -63.88208552851832,
+      -57.149687102475
      ],
      "vs_original_pts": 0.06487244674322906,
      "vs_original_ci95_pts": [
@@ -200,6 +236,10 @@
       -19.14692779321601,
       -18.143264775434343
      ],
+     "delta_ci95_pages_pts": [
+      -20.215403409805432,
+      -16.838916760608225
+     ],
      "vs_original_pts": 42.03909879898309,
      "vs_original_ci95_pts": [
       41.46036812796003,
@@ -220,6 +260,10 @@
     17.926708775891882,
     18.4700571347958
    ],
+   "damage_ci95_pages_pts": [
+    17.44249876488994,
+    18.916833676762543
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k3-swap-rows-e-n-a-b10-1",
@@ -234,6 +278,10 @@
      "delta_ci95_pts": [
       -18.470052711437766,
       -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
      ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
@@ -258,6 +306,10 @@
       -18.470052711437766,
       -17.925348365513795
      ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
       0.0,
@@ -280,6 +332,10 @@
      "delta_ci95_pts": [
       -18.261721335345353,
       -17.700646888244474
+     ],
+     "delta_ci95_pages_pts": [
+      -18.738153262929867,
+      -17.170840459840537
      ],
      "vs_original_pts": 0.2121504339440708,
      "vs_original_ci95_pts": [
@@ -304,6 +360,10 @@
       -0.09805963414210583,
       -0.046726088144799505
      ],
+     "delta_ci95_pages_pts": [
+      -0.10850676739575515,
+      -0.039054872095295456
+     ],
      "vs_original_pts": 18.130972210046465,
      "vs_original_ci95_pts": [
       17.850790644992877,
@@ -324,6 +384,10 @@
     1.1558200336270557,
     1.452165282161795
    ],
+   "damage_ci95_pages_pts": [
+    0.8842947534706422,
+    1.8536028401691245
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k4-blank-bias-plus2-a-b10-1",
@@ -338,6 +402,10 @@
      "delta_ci95_pts": [
       -1.491974238518265,
       -1.1832084009513757
+     ],
+     "delta_ci95_pages_pts": [
+      -1.9013139790864066,
+      -0.904041141169501
      ],
      "vs_original_pts": -0.0341895327430522,
      "vs_original_ci95_pts": [
@@ -362,6 +430,10 @@
       -1.4521158905207416,
       -1.1548380850108717
      ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
       0.0,
@@ -384,6 +456,10 @@
      "delta_ci95_pts": [
       -1.5116127631864553,
       -1.1946175987568197
+     ],
+     "delta_ci95_pages_pts": [
+      -1.9229166508822837,
+      -0.9157817357340864
      ],
      "vs_original_pts": -0.04996931708599883,
      "vs_original_ci95_pts": [
@@ -408,6 +484,10 @@
       -1.4521158905207416,
       -1.1548380850108717
      ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
       0.0,
@@ -428,6 +508,10 @@
     -0.08538891163990259,
     0.02856524561783147
    ],
+   "damage_ci95_pages_pts": [
+    -0.12489384023579991,
+    0.06581141082115105
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k5-output-weight-x2-a-b10-1",
@@ -440,6 +524,10 @@
      "heldout_cer": 0.09525729815025862,
      "delta_vs_corrupted_pts": 0.0,
      "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
       0.0,
       0.0
      ],
@@ -466,6 +554,10 @@
       -0.028347935473010955,
       0.08539263183576784
      ],
+     "delta_ci95_pages_pts": [
+      -0.06527630883130658,
+      0.1255125813467664
+     ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
       0.0,
@@ -486,6 +578,10 @@
      "heldout_cer": 0.09525729815025862,
      "delta_vs_corrupted_pts": 0.0,
      "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
       0.0,
       0.0
      ],
@@ -512,6 +608,10 @@
       0.0,
       0.0
      ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
      "vs_original_pts": -0.028052949943016547,
      "vs_original_ci95_pts": [
       -0.08538891163990259,
@@ -532,6 +632,10 @@
     11.240171082208674,
     12.03934706679022
    ],
+   "damage_ci95_pages_pts": [
+    10.086913831663544,
+    13.360757813935448
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k6-lstm16-x0.5-a-b10-1",
@@ -546,6 +650,10 @@
      "delta_ci95_pts": [
       -12.038965758706578,
       -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
      ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
@@ -570,6 +678,10 @@
       -12.038965758706578,
       -11.238791677548534
      ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
      "vs_original_pts": 0.0,
      "vs_original_ci95_pts": [
       0.0,
@@ -592,6 +704,10 @@
      "delta_ci95_pts": [
       -12.041538366522266,
       -11.239440280726075
+     ],
+     "delta_ci95_pages_pts": [
+      -13.365861625461894,
+      -10.070473327018831
      ],
      "vs_original_pts": -0.0017533093714383607,
      "vs_original_ci95_pts": [
@@ -616,6 +732,10 @@
       -8.560493634304459,
       -7.935127876247125
      ],
+     "delta_ci95_pages_pts": [
+      -9.607015802101431,
+      -7.023638431628417
+     ],
      "vs_original_pts": 3.3882703603050777,
      "vs_original_ci95_pts": [
       3.2226613965744404,
@@ -636,6 +756,10 @@
     0.39670165956414705,
     0.5887432294528607
    ],
+   "damage_ci95_pages_pts": [
+    0.3304175711914187,
+    0.6738149645514737
+   ],
    "arms": {
     "a": {
      "run": "20261107-planted-k7-noise-lstm14-a-b10-1",
@@ -648,6 +772,10 @@
      "heldout_cer": 0.10041202770228806,
      "delta_vs_corrupted_pts": 0.0,
      "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
       0.0,
       0.0
      ],
@@ -674,6 +802,10 @@
       0.0,
       0.0
      ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
      "vs_original_pts": 0.4874200052599281,
      "vs_original_ci95_pts": [
       0.39670165956414705,
@@ -694,6 +826,10 @@
      "heldout_cer": 0.10041202770228806,
      "delta_vs_corrupted_pts": 0.0,
      "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
       0.0,
       0.0
      ],
@@ -720,6 +856,10 @@
       0.0,
       0.0
      ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
      "vs_original_pts": 0.4874200052599281,
      "vs_original_ci95_pts": [
       0.39670165956414705,
@@ -727,6 +867,378 @@
      ],
      "recovered_fraction": 0.0,
      "unchanged": true,
+     "class": "null corruption"
+    }
+   }
+  },
+  "k9-noise-all-10pct": {
+   "what": "diffuse: Gaussian noise on every weight tensor, 10 % of each tensor's norm",
+   "practice_cer": 0.5509442760550245,
+   "heldout_cer": 0.6379854475322171,
+   "damage_pts": 54.24476198825283,
+   "damage_ci95_pts": [
+    52.58453811408938,
+    55.994803918126614
+   ],
+   "damage_ci95_pages_pts": [
+    46.17871201522433,
+    62.955243527863104
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k9-noise-all-10pct-a-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 3,
+     "practice_before": 0.5509442760550245,
+     "practice_last_pass": 0.17618714541074065,
+     "final_digest": "51d20f5778d64cd81eb26d0004c0ce12661c635c17fe6b090e974188cdc50add",
+     "heldout_cer": 0.18511440343648636,
+     "delta_vs_corrupted_pts": -45.287104409573075,
+     "delta_ci95_pts": [
+      -46.80537622295206,
+      -43.808324564883655
+     ],
+     "delta_ci95_pages_pts": [
+      -53.14918963360768,
+      -38.00901474357871
+     ],
+     "vs_original_pts": 8.957657578679758,
+     "vs_original_ci95_pts": [
+      8.464187327823693,
+      9.440365274264208
+     ],
+     "recovered_fraction": 0.8348659437270715,
+     "unchanged": false,
+     "class": "repaired"
+    },
+    "b": {
+     "run": "20261107-planted-k9-noise-all-10pct-b-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "practice_before": 0.5509442760550245,
+     "practice_last_pass": null,
+     "final_digest": "fce9af3f1f4418c4fae94ad695de17f982c7f128c3e84f7de67108e4fd545690",
+     "heldout_cer": 0.6379854475322171,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 54.24476198825283,
+     "vs_original_ci95_pts": [
+      52.58453811408938,
+      55.994803918126614
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    },
+    "c": {
+     "run": "20261107-planted-k9-noise-all-10pct-c-b10-1",
+     "passes": 1,
+     "edits": 0,
+     "kept": 0,
+     "practice_before": 0.5509442760550245,
+     "practice_last_pass": 0.5509442760550245,
+     "final_digest": "fce9af3f1f4418c4fae94ad695de17f982c7f128c3e84f7de67108e4fd545690",
+     "heldout_cer": 0.6379854475322171,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 54.24476198825283,
+     "vs_original_ci95_pts": [
+      52.58453811408938,
+      55.994803918126614
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    },
+    "d": {
+     "run": "20261107-planted-k9-noise-all-10pct-d-b10-1",
+     "passes": 10,
+     "edits": 9,
+     "kept": 2,
+     "practice_before": 0.5509442760550245,
+     "practice_last_pass": 0.5185357892282584,
+     "final_digest": "a7cbb838a920bfba07fd251a53be8e26d40fbe257ce325ba39ca928e3097f312",
+     "heldout_cer": 0.603226089243447,
+     "delta_vs_corrupted_pts": -3.475935828877008,
+     "delta_ci95_pts": [
+      -3.8101738818443476,
+      -3.1551270815074584
+     ],
+     "delta_ci95_pages_pts": [
+      -4.578163118451306,
+      -2.4238674270956717
+     ],
+     "vs_original_pts": 50.76882615937583,
+     "vs_original_ci95_pts": [
+      49.167467728645974,
+      52.40020078729757
+     ],
+     "recovered_fraction": 0.06407873684890998,
+     "unchanged": false,
+     "class": "not repaired"
+    }
+   }
+  },
+  "k10-noise-lstm14-60pct": {
+   "what": "Gaussian noise on the weights of BiLSTM L_14, norm 60 % of the block's",
+   "practice_cer": 0.11999689127224683,
+   "heldout_cer": 0.13490838958534232,
+   "damage_pts": 3.937056193565354,
+   "damage_ci95_pts": [
+    3.717701974239956,
+    4.177105755319525
+   ],
+   "damage_ci95_pages_pts": [
+    3.33700383682318,
+    4.631155646384072
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k10-noise-lstm14-60pct-a-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "practice_before": 0.11999689127224683,
+     "practice_last_pass": 0.0871998134763348,
+     "final_digest": "b3426d7de49eea8ac71e676a3381428430301523e5881e3df48fa0319ed81a72",
+     "heldout_cer": 0.10880161304462173,
+     "delta_vs_corrupted_pts": -2.610677654072059,
+     "delta_ci95_pts": [
+      -2.7841299376570525,
+      -2.4434547201117804
+     ],
+     "delta_ci95_pages_pts": [
+      -3.0771347335595696,
+      -2.2022151136793595
+     ],
+     "vs_original_pts": 1.3263785394932948,
+     "vs_original_ci95_pts": [
+      1.1939745320731747,
+      1.459043554445226
+     ],
+     "recovered_fraction": 0.663103985749276,
+     "unchanged": false,
+     "class": "partly"
+    },
+    "b": {
+     "run": "20261107-planted-k10-noise-lstm14-60pct-b-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "practice_before": 0.11999689127224683,
+     "practice_last_pass": null,
+     "final_digest": "adb2dfc7ab33d09cf08e1ee87dbd6fbc1fb8a7584678db2072bd80072ba79d3d",
+     "heldout_cer": 0.1072148680634698,
+     "delta_vs_corrupted_pts": -2.7693521521872517,
+     "delta_ci95_pts": [
+      -2.99083495212097,
+      -2.5561832356616145
+     ],
+     "delta_ci95_pages_pts": [
+      -3.3392150795708258,
+      -2.205963956734422
+     ],
+     "vs_original_pts": 1.1677040413781024,
+     "vs_original_ci95_pts": [
+      1.0389971418891335,
+      1.3110720562390155
+     ],
+     "recovered_fraction": 0.7034068136272542,
+     "unchanged": false,
+     "class": "partly"
+    },
+    "c": {
+     "run": "20261107-planted-k10-noise-lstm14-60pct-c-b10-1",
+     "passes": 3,
+     "edits": 2,
+     "kept": 1,
+     "practice_before": 0.11999689127224683,
+     "practice_last_pass": 0.10507499805704515,
+     "final_digest": "5680e223c4fe34b9b20e4207da84330dbcbb7868eb2b995b7d1e089efe65219a",
+     "heldout_cer": 0.11472779872008416,
+     "delta_vs_corrupted_pts": -2.0180590865258154,
+     "delta_ci95_pts": [
+      -2.257286289535772,
+      -1.7774486206258087
+     ],
+     "delta_ci95_pages_pts": [
+      -2.672434226119935,
+      -1.3806155093948544
+     ],
+     "vs_original_pts": 1.9189971070395384,
+     "vs_original_ci95_pts": [
+      1.7574754032293387,
+      2.092795597456544
+     ],
+     "recovered_fraction": 0.5125807169895342,
+     "unchanged": false,
+     "class": "partly"
+    },
+    "d": {
+     "run": "20261107-planted-k10-noise-lstm14-60pct-d-b10-1",
+     "passes": 10,
+     "edits": 9,
+     "kept": 0,
+     "practice_before": 0.11999689127224683,
+     "practice_last_pass": 0.12116266417968447,
+     "final_digest": "930c5c2b0279e885f4e87954711d76aaee3e9d07128fc217156821da237eb2fc",
+     "heldout_cer": 0.13490838958534232,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 3.937056193565354,
+     "vs_original_ci95_pts": [
+      3.717701974239956,
+      4.177105755319525
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    }
+   }
+  },
+  "k11-lstm-all-x0.9": {
+   "what": "diffuse: all three BiLSTM blocks (weights and biases) x0.9",
+   "practice_cer": 0.07266651123027901,
+   "heldout_cer": 0.09868501797142105,
+   "damage_pts": 0.3147190321732274,
+   "damage_ci95_pts": [
+    0.22263997297133353,
+    0.41292203060480925
+   ],
+   "damage_ci95_pages_pts": [
+    0.1356490981052047,
+    0.5221080110947962
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k11-lstm-all-x0.9-a-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "practice_before": 0.07266651123027901,
+     "practice_last_pass": 0.06901375612030776,
+     "final_digest": "8db6e8372bf36675460da9451f53e57c720d1a8d6b90eb6e32fab0c1882f0753",
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -0.3147190321732274,
+     "delta_ci95_pts": [
+      -0.4115973609345694,
+      -0.22244258033393138
+     ],
+     "delta_ci95_pages_pts": [
+      -0.5220312455264692,
+      -0.13534241631327215
+     ],
+     "vs_original_pts": 0.0,
+     "vs_original_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 1.0,
+     "unchanged": false,
+     "class": "null corruption"
+    },
+    "b": {
+     "run": "20261107-planted-k11-lstm-all-x0.9-b-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "practice_before": 0.07266651123027901,
+     "practice_last_pass": null,
+     "final_digest": "8db6e8372bf36675460da9451f53e57c720d1a8d6b90eb6e32fab0c1882f0753",
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -0.3147190321732274,
+     "delta_ci95_pts": [
+      -0.4115973609345694,
+      -0.22244258033393138
+     ],
+     "delta_ci95_pages_pts": [
+      -0.5220312455264692,
+      -0.13534241631327215
+     ],
+     "vs_original_pts": 0.0,
+     "vs_original_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 1.0,
+     "unchanged": false,
+     "class": "null corruption"
+    },
+    "c": {
+     "run": "20261107-planted-k11-lstm-all-x0.9-c-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 3,
+     "practice_before": 0.07266651123027901,
+     "practice_last_pass": 0.06497241004119064,
+     "final_digest": "c26bf9fbd881cb07f41739771651bc772c754f13a5f93df24bb7e453cc6a7c58",
+     "heldout_cer": 0.09546769527483125,
+     "delta_vs_corrupted_pts": -0.32173226965898083,
+     "delta_ci95_pts": [
+      -0.41386089100800966,
+      -0.23217593196462605
+     ],
+     "delta_ci95_pages_pts": [
+      -0.530900275316426,
+      -0.1445166516320262
+     ],
+     "vs_original_pts": -0.007013237485753443,
+     "vs_original_ci95_pts": [
+      -0.02485792410618498,
+      0.011318520582294378
+     ],
+     "recovered_fraction": 1.022284122562671,
+     "unchanged": false,
+     "class": "null corruption"
+    },
+    "d": {
+     "run": "20261107-planted-k11-lstm-all-x0.9-d-b10-1",
+     "passes": 10,
+     "edits": 9,
+     "kept": 1,
+     "practice_before": 0.07266651123027901,
+     "practice_last_pass": 0.06870288334499106,
+     "final_digest": "09ff707950f447a87ddb63d2b23bf0eebadcde5856356350a3c7e2bdd0f015f0",
+     "heldout_cer": 0.09636188305426492,
+     "delta_vs_corrupted_pts": -0.23231349171561333,
+     "delta_ci95_pts": [
+      -0.30635734273513904,
+      -0.1626410132189074
+     ],
+     "delta_ci95_pages_pts": [
+      -0.41446383608344656,
+      -0.08379281450753562
+     ],
+     "vs_original_pts": 0.08240554045761406,
+     "vs_original_ci95_pts": [
+      -0.005261727074215572,
+      0.17016746223591367
+     ],
+     "recovered_fraction": 0.7381615598885788,
+     "unchanged": false,
      "class": "null corruption"
     }
    }
@@ -739,6 +1251,10 @@
    "damage_ci95_pts": [
     89.88230777955174,
     90.98812994585589
+   ],
+   "damage_ci95_pages_pts": [
+    88.00851754208071,
+    92.42781954887218
    ],
    "arms": {
     "a": {
@@ -754,6 +1270,10 @@
      "delta_ci95_pts": [
       -90.77055049324684,
       -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
      ],
      "vs_original_pts": 0.2165337073726667,
      "vs_original_ci95_pts": [
@@ -778,6 +1298,10 @@
       -90.77055049324684,
       -89.64228093610672
      ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
      "vs_original_pts": 0.2165337073726667,
      "vs_original_ci95_pts": [
       0.12459810576026659,
@@ -801,6 +1325,10 @@
       -90.77055049324684,
       -89.64228093610672
      ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
      "vs_original_pts": 0.2165337073726667,
      "vs_original_ci95_pts": [
       0.12459810576026659,
@@ -821,6 +1349,301 @@
      "heldout_cer": 1.0,
      "delta_vs_corrupted_pts": 0.0,
      "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 90.44621723503113,
+     "vs_original_ci95_pts": [
+      89.88230777955174,
+      90.98812994585589
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    }
+   }
+  },
+  "k1-zero-row-e-u": {
+   "what": "output row of `e` (weights and bias) set to 0 [unrelated donor]",
+   "practice_cer": 0.16227558871531825,
+   "heldout_cer": 0.19655474708512316,
+   "damage_pts": 10.101691943543438,
+   "damage_ci95_pts": [
+    9.922368432807154,
+    10.27393113231211
+   ],
+   "damage_ci95_pages_pts": [
+    9.660026823406573,
+    10.540843232184272
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k1-zero-row-e-u-a-b10-1",
+     "passes": 3,
+     "edits": 2,
+     "kept": 0,
+     "practice_before": 0.16227558871531825,
+     "practice_last_pass": 0.17502137250330302,
+     "final_digest": "f15cb502574f8562a2c7f8fcd819163ba2d17150ceac5f78d7e2e793fe47a7a8",
+     "heldout_cer": 0.19655474708512316,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 10.101691943543438,
+     "vs_original_ci95_pts": [
+      9.922368432807154,
+      10.27393113231211
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    },
+    "b": {
+     "run": "20261107-planted-k1-zero-row-e-u-b-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "practice_before": 0.16227558871531825,
+     "practice_last_pass": null,
+     "final_digest": "f15cb502574f8562a2c7f8fcd819163ba2d17150ceac5f78d7e2e793fe47a7a8",
+     "heldout_cer": 0.19655474708512316,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 10.101691943543438,
+     "vs_original_ci95_pts": [
+      9.922368432807154,
+      10.27393113231211
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    },
+    "c": {
+     "run": "20261107-planted-k1-zero-row-e-u-c-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 1,
+     "practice_before": 0.16227558871531825,
+     "practice_last_pass": 0.17028056267972333,
+     "final_digest": "c2dd213b50d9d1cecc54c61cb8380c8d26aa3042235315f5d222e262d27d7deb",
+     "heldout_cer": 0.17754010695187167,
+     "delta_vs_corrupted_pts": -1.9014640133251492,
+     "delta_ci95_pts": [
+      -2.013259534091602,
+      -1.7910499769149686
+     ],
+     "delta_ci95_pages_pts": [
+      -2.236282507146342,
+      -1.5880226556610144
+     ],
+     "vs_original_pts": 8.200227930218288,
+     "vs_original_ci95_pts": [
+      8.010756431231943,
+      8.382979827238847
+     ],
+     "recovered_fraction": 0.18823223118979412,
+     "unchanged": false,
+     "class": "not repaired"
+    }
+   }
+  },
+  "k6-lstm16-x0.5-u": {
+   "what": "last BiLSTM block (L_16, all weights and biases) x0.5 [unrelated donor]",
+   "practice_cer": 0.19934716717183493,
+   "heldout_cer": 0.2117121066012098,
+   "damage_pts": 11.617427895152101,
+   "damage_ci95_pts": [
+    11.240171082208674,
+    12.03934706679022
+   ],
+   "damage_ci95_pages_pts": [
+    10.086913831663544,
+    13.360757813935448
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k6-lstm16-x0.5-u-a-b10-1",
+     "passes": 6,
+     "edits": 5,
+     "kept": 1,
+     "practice_before": 0.19934716717183493,
+     "practice_last_pass": 0.06590502836714075,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "vs_original_pts": 0.0,
+     "vs_original_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 1.0,
+     "unchanged": false,
+     "class": "repaired"
+    },
+    "b": {
+     "run": "20261107-planted-k6-lstm16-x0.5-u-b-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "practice_before": 0.19934716717183493,
+     "practice_last_pass": null,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "vs_original_pts": 0.0,
+     "vs_original_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 1.0,
+     "unchanged": false,
+     "class": "repaired"
+    },
+    "c": {
+     "run": "20261107-planted-k6-lstm16-x0.5-u-c-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 1,
+     "practice_before": 0.19934716717183493,
+     "practice_last_pass": 0.23183337219243025,
+     "final_digest": "07a4a06028196110db38322fb9906a82995bdf900596f7c1a0787458ae50479f",
+     "heldout_cer": 0.16325940212150433,
+     "delta_vs_corrupted_pts": -4.845270447970545,
+     "delta_ci95_pts": [
+      -5.050662509742793,
+      -4.659634670797027
+     ],
+     "delta_ci95_pages_pts": [
+      -5.535893408028464,
+      -4.188323557929205
+     ],
+     "vs_original_pts": 6.772157447181555,
+     "vs_original_ci95_pts": [
+      6.511202161973671,
+      7.050567957545723
+     ],
+     "recovered_fraction": 0.41706912164201637,
+     "unchanged": false,
+     "class": "partly"
+    }
+   }
+  },
+  "k8-zero-conv-c3-u": {
+   "what": "conv block C_3 (weights and bias) set to 0 [unrelated donor]",
+   "practice_cer": 1.0,
+   "heldout_cer": 1.0,
+   "damage_pts": 90.44621723503113,
+   "damage_ci95_pts": [
+    89.88230777955174,
+    90.98812994585589
+   ],
+   "damage_ci95_pages_pts": [
+    88.00851754208071,
+    92.42781954887218
+   ],
+   "arms": {
+    "a": {
+     "run": "20261107-planted-k8-zero-conv-c3-u-a-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 2,
+     "practice_before": 1.0,
+     "practice_last_pass": 0.9999222818061708,
+     "final_digest": "d62cbec43762f7249ae7adf1200588e7b5ae96600a7d4c090f741037f5b47e0c",
+     "heldout_cer": 0.9951608661348295,
+     "delta_vs_corrupted_pts": -0.4839133865170542,
+     "delta_ci95_pts": [
+      -0.5631613872105645,
+      -0.4134325571470532
+     ],
+     "delta_ci95_pages_pts": [
+      -0.748625570242134,
+      -0.25685732511162573
+     ],
+     "vs_original_pts": 89.96230384851407,
+     "vs_original_ci95_pts": [
+      89.39985448866963,
+      90.50420314322014
+     ],
+     "recovered_fraction": 0.005350288838056873,
+     "unchanged": false,
+     "class": "not repaired"
+    },
+    "b": {
+     "run": "20261107-planted-k8-zero-conv-c3-u-b-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "practice_before": 1.0,
+     "practice_last_pass": null,
+     "final_digest": "df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db",
+     "heldout_cer": 1.0,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "vs_original_pts": 90.44621723503113,
+     "vs_original_ci95_pts": [
+      89.88230777955174,
+      90.98812994585589
+     ],
+     "recovered_fraction": 0.0,
+     "unchanged": true,
+     "class": "not repaired"
+    },
+    "c": {
+     "run": "20261107-planted-k8-zero-conv-c3-u-c-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 0,
+     "practice_before": 1.0,
+     "practice_last_pass": 1.0,
+     "final_digest": "df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db",
+     "heldout_cer": 1.0,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
       0.0,
       0.0
      ],

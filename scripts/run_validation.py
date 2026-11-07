@@ -1,6 +1,6 @@
 """Item 3: a session on a validation-based practice set (docs/CONTROLS_REPORT.md §3).
 
-    .venv/bin/python scripts/run_validation.py xix-blb-v1|bern-combined-v1 a1|a2|a3|replay
+    .venv/bin/python scripts/run_validation.py xix-blb-v1|bern-combined-v1 a1|a2|a3|o1|f1|h1|replay
 """
 import json
 import shutil
@@ -25,9 +25,10 @@ CFG = {
                              source="the 17 pages the trainer reserved for validation in the job of kraken-bern-combined-v1 (pages_val.lst; partition 0.9, page level), 6 Hertwig pages from the 22.10 export (correct images), 11 Schlussredaktion pages",
                              audit="data/practice/overlap-bern-val.json"),
 }
+MODELS = {"o1": "Claude Opus 5.5 (claude-opus-5-5)", "f1": "Claude Fable 5.1 (claude-fable-5-1)", "h1": "Claude Haiku 5.5 (claude-haiku-5-5)"}
 PROG = {"replay": "Claude Fable 5.1 (claude-fable-5-1) wrote the original program on 06.11.2026; replayed here unchanged (bern: only the donor-rule masks added)."}
-for k in ("a1", "a2", "a3"):
-    PROG[k] = "Claude Sonnet 5.5 (claude-sonnet-5-5) as a fresh subagent in Claude Code, default reasoning effort, tools Read/Write/Bash (py_compile only); read only its pack and runs/validation/PROGRAMMER_BRIEF.md; wrote the program in advance, did not run it."
+for k in ("a1", "a2", "a3", "o1", "f1", "h1"):
+    PROG[k] = MODELS.get(k, "Claude Sonnet 5.5 (claude-sonnet-5-5)") + " as a fresh subagent in Claude Code, default reasoning effort, tools Read/Write/Bash (py_compile only); read only its pack and runs/validation/PROGRAMMER_BRIEF.md; wrote the program in advance, did not run it."
 
 
 def main(model, att):

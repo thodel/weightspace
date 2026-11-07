@@ -25,7 +25,7 @@ import numpy as np
 
 from wsp import align
 from wsp.data import load, sha256_file
-from wsp.metrics import score, per_line_edits, bootstrap_delta
+from wsp.metrics import score, per_line_edits, bootstrap_delta, page_of
 
 DEFAULT_BLOCKS = ["C_0", "C_3", "C_6", "C_9", "L_12", "L_14", "L_16"]
 DEFAULT_ALPHAS = [0.5, 1.5]
@@ -56,6 +56,7 @@ def sweep(child, parent, practice: list[dict], baseline_lines, blocks=DEFAULT_BL
     plan: list[tuple[str, dict[str, np.ndarray]]] = [(b, {n: pt[n] for n in block_names(ct, b)}) for b in blocks]
     plan.append(("O_18", {n: v for n, v in out_al.items() if not n.startswith("_")}))
     refs = [x["text"] for x in practice]
+    clusters = [page_of(x["key"]) for x in practice]
     rows = []
     for block, par in plan:
         if not par:
@@ -73,7 +74,7 @@ def sweep(child, parent, practice: list[dict], baseline_lines, blocks=DEFAULT_BL
             hyps = [p.text for p in preds]
             m = score(hyps, refs)
             lines = per_line_edits(hyps, refs)
-            boot = bootstrap_delta(baseline_lines, lines, resamples=resamples, seed=seed)
+            boot = bootstrap_delta(baseline_lines, lines, resamples=resamples, seed=seed, clusters=clusters)
             row = {"block": block, "alpha": a, "tensors": sorted(par), "block_rel_l2": rel,
                    "metrics": m.as_dict(), "vs_c0": boot, "digest": child.digest(), "wall_s": round(wall, 1)}
             if block == "O_18":
@@ -87,12 +88,12 @@ def sweep(child, parent, practice: list[dict], baseline_lines, blocks=DEFAULT_BL
 
 
 def render_table(rows: list[dict], c0_cer: float) -> str:
-    L = ["| block | rel L2 child−parent | α | CER | Δ vs C0 (pt) | 95 % interval | WER | collapsed |",
-         "|---|---:|---:|---:|---:|---|---:|---:|"]
+    L = ["| block | rel L2 child−parent | α | CER | Δ vs C0 (pt) | 95 % interval (lines) | 95 % interval (pages) | WER | collapsed |",
+         "|---|---:|---:|---:|---:|---|---|---:|---:|"]
     for r in rows:
         m, b = r["metrics"], r["vs_c0"]
         L.append(f"| {r['block']} | {r['block_rel_l2']:.3f} | {r['alpha']} | {m['cer']:.5f} | {100*b['delta_cer']:+.3f} | "
-                 f"[{100*b['ci95'][0]:+.3f}, {100*b['ci95'][1]:+.3f}] | {m['wer']:.4f} | {m['collapsed']} |")
+                 f"[{100*b['ci95'][0]:+.3f}, {100*b['ci95'][1]:+.3f}] | [{100*b['ci95_cluster'][0]:+.3f}, {100*b['ci95_cluster'][1]:+.3f}] | {m['wer']:.4f} | {m['collapsed']} |")
     return "\n".join(L)
 
 
