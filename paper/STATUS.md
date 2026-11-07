@@ -92,3 +92,11 @@ to this file.
 ## Update, 7 November 2026 (afternoon)
 
 Zoo survey done and folded into Sections 2.1, 6.3, 6.4: 21 of 30 public models use the standard stack; blank bias relative to the other biases rises in 11 of 11 documented pairs; rare-row inflation holds in direction only; the conv-versus-recurrent claim is not supported. The survey branch `claude/zoo-survey-76f514` is pushed but not merged; the manuscript cites `docs/ZOO_SURVEY.md`, so merge it (or cite the branch) before submission. The controls session (`article-controls`) is still running; Section 10 and 7 need updating when its report arrives. `docs/MODELS.md` still says 42 third-party models; the gateway lists 37 kraken models.
+
+## Update, 7 November 2026 (evening): controls
+
+The controls session finished (branch `claude/article-controls-8803eb`, commit 122c191, pushed, not merged; report `docs/CONTROLS_REPORT.md`). Folded into the manuscript as Sections 7.6 (planted defects: programmer, blind programmer and a hand-written rule list all repair large localised defects; a bias coordinate search does not; the programmer adds nothing over the rules) and 7.7 (practice sets that are not training data: Kurrent model 0 of 28 edits kept; Bern model one small merge gain, -0.39 points on 545 lines, page-clustered interval [-0.72, -0.06], not yet checked against sham or averaging controls; donor rule removes the artefact of the earlier session). Disclosures added: the Kurrent held-out pages were the trainer's validation set (checkpoint selection); the control programmers were Claude Sonnet 5.5 subagents. Title changed to 'largely negative'.
+
+Two branches now wait for a merge into main (survey and controls); the manuscript cites `docs/ZOO_SURVEY.md` and `docs/CONTROLS_REPORT.md`. The controls branch also changes `wsp/run.py` and `wsp/session.py`, and proposes a donor-rule amendment to `docs/PROTOCOL.md` that you have to adopt or change.
+
+Still not run: C2 average of siblings, C4 retrain (needs your OK), a sham edit for the merge gain, global interpolation, margins at deleted frames, seed-variance null, repeated programmer attempts with different packs or models, the adapter track.
