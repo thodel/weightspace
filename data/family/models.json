@@ -1,0 +1,832 @@
+{
+ "source": "gateway_models (ATR gateway, agentic_historian's recogniser)",
+ "read": "2026-11-07",
+ "models": [
+  {
+   "id": "kraken-fondue_gd_v2",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.21536798",
+   "stated_base": null,
+   "scripts": [
+    "Latn"
+   ],
+   "centuries": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "languages": [
+    "fr",
+    "de",
+    "es",
+    "la",
+    "nl"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-old_norse_am305",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.20529753",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    13
+   ],
+   "languages": [
+    "non"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-prima",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.18220238",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    16,
+    17,
+    18
+   ],
+   "languages": [
+    "it"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-bastarda_inzigkofen",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.18207779",
+   "stated_base": "10.5281/zenodo.15030337",
+   "scripts": [
+    "Bastarda"
+   ],
+   "centuries": [
+    15
+   ],
+   "languages": [
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-cursive_inzigkofen",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.18207767",
+   "stated_base": "10.5281/zenodo.15030337",
+   "scripts": [
+    "Cursive"
+   ],
+   "centuries": [
+    15
+   ],
+   "languages": [
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.18207767/cursive_johannes_jaeck.mlmodel"
+  },
+  {
+   "id": "kraken-textualis_inzigkofen",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.18207719",
+   "stated_base": "10.5281/zenodo.13862096",
+   "scripts": [
+    "Textualis"
+   ],
+   "centuries": [
+    15
+   ],
+   "languages": [
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-mendelssohn_letters",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.18207676",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    19
+   ],
+   "languages": [
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-french_vietnamese",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.17690418",
+   "stated_base": "10.5281/zenodo.10592716",
+   "scripts": [],
+   "centuries": [
+    19,
+    20
+   ],
+   "languages": [
+    "vi",
+    "fr"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-bifrost_old_norse",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.15366732",
+   "stated_base": "10.5281/zenodo.15030337",
+   "scripts": [],
+   "centuries": [],
+   "languages": [
+    "non"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.15366732/bifrost_01.mlmodel"
+  },
+  {
+   "id": "kraken-catmus_medieval",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.15030337",
+   "stated_base": null,
+   "scripts": [
+    "Medieval"
+   ],
+   "centuries": [],
+   "languages": [
+    "fro",
+    "la",
+    "es",
+    "it"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.15030337/catmus-medieval-1.6.0.mlmodel"
+  },
+  {
+   "id": "kraken-kuzushiji",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13942714",
+   "stated_base": null,
+   "scripts": [
+    "Kuzushiji"
+   ],
+   "centuries": [],
+   "languages": [
+    "ja"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-tridis_v2",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13862096",
+   "stated_base": null,
+   "scripts": [
+    "Medieval"
+   ],
+   "centuries": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "languages": [
+    "la",
+    "fr",
+    "es"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-samaritan",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13814200",
+   "stated_base": null,
+   "scripts": [
+    "Samaritan"
+   ],
+   "centuries": [],
+   "languages": [
+    "sam"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-mccatmus",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13788177",
+   "stated_base": null,
+   "scripts": [
+    "Latn"
+   ],
+   "centuries": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "languages": [
+    "fr",
+    "la",
+    "es",
+    "en",
+    "de",
+    "it",
+    "oc"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-latin_graphematic_11c",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13741957",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    11
+   ],
+   "languages": [
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-latin_expanded_11c",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.13736584",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    11
+   ],
+   "languages": [
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-bohemian_19th",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.11673242",
+   "stated_base": null,
+   "scripts": [
+    "Kurrent"
+   ],
+   "centuries": [
+    19
+   ],
+   "languages": [
+    "de",
+    "cs"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.11673242/rec_bohemica.mlmodel"
+  },
+  {
+   "id": "kraken-latin_incunabula",
+   "enabled": true,
+   "task": "ocr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.11113737",
+   "stated_base": "10.5281/zenodo.10592716",
+   "scripts": [
+    "Gothic",
+    "Antiqua"
+   ],
+   "centuries": [
+    15,
+    16
+   ],
+   "languages": [
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-manu_mcfondue",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.10886224",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "languages": [
+    "fr",
+    "la",
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-catmus_gothic_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.10599911",
+   "stated_base": "10.5281/zenodo.15030337",
+   "scripts": [
+    "Gothic"
+   ],
+   "centuries": [
+    16
+   ],
+   "languages": [
+    "fr",
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-catmus_print_large",
+   "enabled": true,
+   "task": "ocr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.10592716",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "languages": [
+    "fr",
+    "es",
+    "de",
+    "en",
+    "it",
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-estournelles_typewritten",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.10556673",
+   "stated_base": null,
+   "scripts": [
+    "Typewritten"
+   ],
+   "centuries": [
+    20
+   ],
+   "languages": [
+    "fr"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-german_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.10519596",
+   "stated_base": null,
+   "scripts": [
+    "Fraktur",
+    "Antiqua"
+   ],
+   "centuries": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ],
+   "languages": [
+    "de",
+    "la"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-peraire_french",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.8193498",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    20
+   ],
+   "languages": [
+    "fr"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-austrian_fraktur",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7933402",
+   "stated_base": null,
+   "scripts": [
+    "Fraktur"
+   ],
+   "centuries": [
+    19
+   ],
+   "languages": [
+    "de"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-glagolitic_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7755504",
+   "stated_base": null,
+   "scripts": [
+    "Glagolitic"
+   ],
+   "centuries": [
+    16
+   ],
+   "languages": [
+    "cu"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-cyrillic_uncial",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7755483",
+   "stated_base": null,
+   "scripts": [
+    "Cyrillic uncial"
+   ],
+   "centuries": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "languages": [
+    "cu"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-cremma_medieval",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7631619",
+   "stated_base": null,
+   "scripts": [
+    "Medieval"
+   ],
+   "centuries": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "languages": [
+    "la",
+    "fro"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-medieval_latin_french_abbreviated",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7516310",
+   "stated_base": null,
+   "scripts": [
+    "Medieval"
+   ],
+   "centuries": [
+    12,
+    13,
+    14,
+    15
+   ],
+   "languages": [
+    "la",
+    "fro"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-medieval_latin_french_expanded",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7516057",
+   "stated_base": null,
+   "scripts": [
+    "Medieval"
+   ],
+   "centuries": [
+    12,
+    13,
+    14,
+    15
+   ],
+   "languages": [
+    "la",
+    "fro"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-gallicorpora",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7410529",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "languages": [
+    "fr"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-openiti_persian_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7051644",
+   "stated_base": "10.5281/zenodo.7050270",
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "languages": [
+    "fa"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-openiti_ottoman_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7050342",
+   "stated_base": "10.5281/zenodo.7050270",
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "languages": [
+    "ota"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-openiti_arabic_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.7050270",
+   "stated_base": null,
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "languages": [
+    "ar",
+    "fa",
+    "ur",
+    "ota"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-lectaurep_french",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.6542744",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [
+    18,
+    19,
+    20
+   ],
+   "languages": [
+    "fr"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-hebrew_sephardi",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.5468665",
+   "stated_base": null,
+   "scripts": [
+    "Sephardi bookhand"
+   ],
+   "centuries": [],
+   "languages": [
+    "he"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-english_print",
+   "enabled": true,
+   "task": "htr",
+   "source": "zenodo",
+   "zenodo": "10.5281/zenodo.2577813",
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [
+    "en"
+   ],
+   "gateway_digest": null,
+   "asteraix_path": null
+  },
+  {
+   "id": "kraken-bern-combined-v1",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-combined-v1.mlmodel"
+  },
+  {
+   "id": "kraken-bern-hertwig-v1",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v1.mlmodel"
+  },
+  {
+   "id": "kraken-bern-hertwig-v2",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel"
+  },
+  {
+   "id": "kraken-bern-schlussredaktion-v1",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-schlussredaktion-v1.mlmodel"
+  },
+  {
+   "id": "kraken-german-xix-blb-v1",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-blb-v1.mlmodel"
+  },
+  {
+   "id": "kraken-german-xix-v1",
+   "enabled": true,
+   "task": "htr",
+   "source": "in-house",
+   "zenodo": null,
+   "stated_base": null,
+   "scripts": [],
+   "centuries": [],
+   "languages": [],
+   "gateway_digest": null,
+   "asteraix_path": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-v1.mlmodel"
+  }
+ ]
+}

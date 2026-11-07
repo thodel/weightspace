@@ -1,6 +1,7 @@
 # weights and data never go into git (16 MB per model, images are archival)
 models/*
 data/*
+!data/family/
 !data/practice/
 data/practice/*
 !data/practice/*.jsonl
@@ -22,3 +23,6 @@ __pycache__/
 
 # built protocol site
 protocol/site/
+
+# Track C exchange readings (12 MB, 270 files): reproducible with wsp.exchange; numbers in docs/family/exchange-*.json
+docs/family/readings/

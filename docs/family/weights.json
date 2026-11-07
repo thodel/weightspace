@@ -1,0 +1,3487 @@
+{
+ "models": {
+  "kraken-cursive_inzigkofen": {
+   "params": 4097926,
+   "codec": 261,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "507d2dc69a6746f97d487b15a8253f1dfb9d09ad484414a208b28cc69c91c893",
+   "file_sha256": "4ab19e7b42e66bb70679a3076a61305975746ddcdb0f222d40f1b66f5e0fe039",
+   "path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.18207767/cursive_johannes_jaeck.mlmodel"
+  },
+  "kraken-bifrost_old_norse": {
+   "params": 4097525,
+   "codec": 260,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "49a0c44d74887dbc7b2d2caf8295f1413e47eb866b1714b31f0a4fabc51315b8",
+   "file_sha256": "9ee524c9b26b383dcdc70cd02fbdb78b65dbe54524b5335b05b319abf600da41",
+   "path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.15366732/bifrost_01.mlmodel"
+  },
+  "kraken-catmus_medieval": {
+   "params": 4093916,
+   "codec": 251,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "ef87e6d45a3e0f1e93c3e2d57640eb097c6da6a2344db75f1fc2646a9bae06f5",
+   "file_sha256": "227d10f15a936c2492105b7796a6152647c742f248af117856f417008eadbc9c",
+   "path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.15030337/catmus-medieval-1.6.0.mlmodel"
+  },
+  "kraken-bohemian_19th": {
+   "params": 4047400,
+   "codec": 135,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "7602d1f917c738339c90f7ffcad9f275620212a1e6a6e02a8e1680fa84a2e622",
+   "file_sha256": "c16da6b363e9046c7eb6da957bb7a7c9a295c74bf5e9defa8893ef7eb638a8a6",
+   "path": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/bases/10.5281_zenodo.11673242/rec_bohemica.mlmodel"
+  },
+  "kraken-bern-combined-v1": {
+   "params": 4101134,
+   "codec": 269,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "4836a9f494a9a62c2a743a0df0d0a848601a39ccee229964cd89687ddef8016c",
+   "file_sha256": "35e7eae281ea85e61847e22ab65a0295aeddb7ddbe49d93bcf7deae7f783a3a6",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-combined-v1.mlmodel"
+  },
+  "kraken-bern-hertwig-v1": {
+   "params": 4099931,
+   "codec": 266,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "9c93cc191436ce7841c5730ce6243f7cd9a1d3bbe949ec57c42f74ff196fca8d",
+   "file_sha256": "ef66a2522fb4e194d13db023f0f93cf9f5dcbc9e979879896fa2275b9b6d134a",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v1.mlmodel"
+  },
+  "kraken-bern-hertwig-v2": {
+   "params": 4099931,
+   "codec": 266,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "f216564e4ddcf8f080556683626798cc2574bb90ee0a196b499a5d1ce9831572",
+   "file_sha256": "479392ab7899b831b3c3872dc0f178a894495757b2df2047f2b695c4a5dcc8f3",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel"
+  },
+  "kraken-bern-schlussredaktion-v1": {
+   "params": 4100733,
+   "codec": 268,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "a0a8e336c85ed4a2e6cde1ff6b6e72cd5191410dc2471a3ff966bc481063e366",
+   "file_sha256": "d26eb02dfaf89f8f222165a1e5c982e38f19a915a5a744e4ad6c15f69b71f526",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-schlussredaktion-v1.mlmodel"
+  },
+  "kraken-german-xix-blb-v1": {
+   "params": 4111961,
+   "codec": 296,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "file_sha256": "48caacb4a742b5b5ccd2a92a005a4ca701bdf7cef7859087832b6d726f5f8df4",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-blb-v1.mlmodel"
+  },
+  "kraken-german-xix-v1": {
+   "params": 4083089,
+   "codec": 224,
+   "body_spec": "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]",
+   "tensor_digest": "dc3dd2786488e6785e4de0a52883806d5dee495df998dd8602912b073274df14",
+   "file_sha256": "7af3d4a0eb1a778c3b8c7f9bab86ed656a2eb235470f972193918db35fa2ece6",
+   "path": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-v1.mlmodel"
+  }
+ },
+ "body_specs": [
+  "[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{Do_10}0.1,2 S{S_11}1(1x0)1,3 Lbx{L_12}200 Do{Do_13}0.1,2 Lbx{L_14}200 Do{Do_15}0.1,2 Lbx{L_16}200 Do{Do_17} O{O_18}1c*]"
+ ],
+ "pairs": {
+  "kraken-bern-combined-v1|kraken-bern-hertwig-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.01640625,
+    "close": 0.0171875,
+    "rel_dist": 0.1452670777651921,
+    "cosine": 0.9894819836862346
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.08804543634907927,
+    "close": 0.08902121697357886,
+    "rel_dist": 0.23986327137182414,
+    "cosine": 0.9713817950747361
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00019869942196531793,
+    "rel_dist": 0.3111095263408846,
+    "cosine": 0.9519975368286767
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00022592539039907462,
+    "rel_dist": 0.31870190146190236,
+    "cosine": 0.9495504980887564
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0001916451335055986,
+    "rel_dist": 0.3290433719838151,
+    "cosine": 0.9466585245455121
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00020278702163061563,
+    "rel_dist": 0.32090730167652926,
+    "cosine": 0.949095184134687
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0001975873544093178,
+    "rel_dist": 0.3449693003223043,
+    "cosine": 0.9411702656189852
+   },
+   "O_18": {
+    "n": 107067,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00016811902827201659,
+    "rel_dist": 0.2689759377843276,
+    "cosine": 0.9737642063606649,
+    "shared_chars": 266
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0008876487438516533,
+    "close": 0.0010925100499891676,
+    "rel_dist": 0.3305607798734063,
+    "cosine": 0.9460362664395409
+   }
+  },
+  "kraken-bern-combined-v1|kraken-bern-hertwig-v2": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.1046875,
+    "close": 0.1046875,
+    "rel_dist": 0.08713446403438946,
+    "cosine": 0.9962669319261998
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.17929343474779824,
+    "close": 0.17996897518014413,
+    "rel_dist": 0.1554794957418772,
+    "cosine": 0.9879578116305447
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00032514450867052023,
+    "rel_dist": 0.21324194738930635,
+    "cosine": 0.977361702004061
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002891844997108155,
+    "rel_dist": 0.22685871110012043,
+    "cosine": 0.9743476837764637
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00029338931955211027,
+    "rel_dist": 0.23224206814460915,
+    "cosine": 0.9732408041892535
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002828618968386023,
+    "rel_dist": 0.22413459423783313,
+    "cosine": 0.9750017820968883
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002672628951747088,
+    "rel_dist": 0.2435651526399721,
+    "cosine": 0.9704700048059347
+   },
+   "O_18": {
+    "n": 107067,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002521785424080249,
+    "rel_dist": 0.17262415856510774,
+    "cosine": 0.9883438480125362,
+    "shared_chars": 266
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.001830462098903127,
+    "close": 0.0021190733147712776,
+    "rel_dist": 0.2326060335873374,
+    "cosine": 0.9730993948310186
+   }
+  },
+  "kraken-bern-combined-v1|kraken-bern-schlussredaktion-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.1015625,
+    "close": 0.10234375,
+    "rel_dist": 0.0853157010302173,
+    "cosine": 0.996442587637049
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.1750400320256205,
+    "close": 0.17566553242594074,
+    "rel_dist": 0.165148436019569,
+    "cosine": 0.9863659907763975
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002528901734104046,
+    "rel_dist": 0.21154532739838672,
+    "cosine": 0.9776479963939843
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00040666570271833427,
+    "rel_dist": 0.22572273928196548,
+    "cosine": 0.9745406065920953
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00026055124892334193,
+    "rel_dist": 0.2625935191259652,
+    "cosine": 0.9655497522775205
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0003036605657237937,
+    "rel_dist": 0.21470054578567482,
+    "cosine": 0.9769651966816854
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 1.0399334442595673e-06,
+    "close": 0.00032237936772046586,
+    "rel_dist": 0.2081463669168102,
+    "cosine": 0.9783560977271488
+   },
+   "O_18": {
+    "n": 107869,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0011402719965884545,
+    "rel_dist": 0.08789822895391358,
+    "cosine": 0.9962251665325977,
+    "shared_chars": 268
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0017870826546414502,
+    "close": 0.0020804580869314034,
+    "rel_dist": 0.23199712434796546,
+    "cosine": 0.973108497814557
+   }
+  },
+  "kraken-bern-combined-v1|kraken-bifrost_old_norse": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4501717356326,
+    "cosine": 0.08062642380132316
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.378873272418291,
+    "cosine": 0.05971465287138887
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.400002833944579,
+    "cosine": 0.05197341910501698
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 6.325910931174089e-05,
+    "rel_dist": 1.4141643725540103,
+    "cosine": 0.03101317071210865
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.28380706287683e-05,
+    "rel_dist": 1.4106184839601974,
+    "cosine": 0.047706654858657785
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.6397670549084856e-05,
+    "rel_dist": 1.3878016775482105,
+    "cosine": 0.0681123263974535
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.3974926061888508,
+    "cosine": 0.05446822583369891
+   },
+   "O_18": {
+    "n": 91829,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.1779612105108407e-05,
+    "rel_dist": 1.5297474272857596,
+    "cosine": -0.06099671096485414,
+    "shared_chars": 228
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.3349514952618614e-05,
+    "rel_dist": 1.3996810516350982,
+    "cosine": 0.05524734714793108
+   }
+  },
+  "kraken-bern-combined-v1|kraken-bohemian_19th": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3896834100560647,
+    "cosine": 0.13472512796561512
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.3523345477881803,
+    "cosine": 0.10006274767328328
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.3827344262207204,
+    "cosine": 0.06581966490206934
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6148062463851935e-05,
+    "rel_dist": 1.4049150090833922,
+    "cosine": 0.04094714128797287
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.391472868217054e-05,
+    "rel_dist": 1.4291217278301538,
+    "cosine": 0.02203667215809599
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.743760399334443e-05,
+    "rel_dist": 1.4084769660180427,
+    "cosine": 0.033394886978439516
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.703826955074875e-05,
+    "rel_dist": 1.4102221262671155,
+    "cosine": 0.02850948598147449
+   },
+   "O_18": {
+    "n": 37293,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 8.044405116241654e-05,
+    "rel_dist": 1.4498225126747404,
+    "cosine": -0.03526099441088858,
+    "shared_chars": 92
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.3349514952618614e-05,
+    "rel_dist": 1.4161256619019662,
+    "cosine": 0.028439500136418806
+   }
+  },
+  "kraken-bern-combined-v1|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 0.27064211390813236,
+    "cosine": 0.9638730422703903
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00010008006405124099,
+    "rel_dist": 0.5418471206104606,
+    "cosine": 0.874944729058432
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 0.7592352930422914,
+    "cosine": 0.7924062775763618
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.229612492770387e-05,
+    "rel_dist": 0.8586920210032141,
+    "cosine": 0.7279946242911599
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 5.652454780361757e-05,
+    "rel_dist": 0.8733933289504674,
+    "cosine": 0.6857500720426254
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.239600665557404e-05,
+    "rel_dist": 0.7688568892940617,
+    "cosine": 0.7460441178368347
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.967554076539102e-05,
+    "rel_dist": 0.726930516565315,
+    "cosine": 0.7683760158379651
+   },
+   "O_18": {
+    "n": 101052,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.9375371096069353e-05,
+    "rel_dist": 0.9121665570087288,
+    "cosine": 0.7575658816784887,
+    "shared_chars": 251
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 6.143331701798166e-05,
+    "rel_dist": 0.7945436634574572,
+    "cosine": 0.7321815671436775
+   }
+  },
+  "kraken-bern-combined-v1|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.03046875,
+    "close": 0.03125,
+    "rel_dist": 0.17605933975634247,
+    "cosine": 0.9846263502380214
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.11419135308246597,
+    "close": 0.11446657325860689,
+    "rel_dist": 0.27311843269524805,
+    "cosine": 0.9628356045649367
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0001264450867052023,
+    "rel_dist": 0.3620374383451352,
+    "cosine": 0.9347858343694817
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00019881434355118567,
+    "rel_dist": 0.36476292979086955,
+    "cosine": 0.9337444062194874
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.000166343669250646,
+    "rel_dist": 0.35204190068962904,
+    "cosine": 0.9388318399894383
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00019966722129783693,
+    "rel_dist": 0.36825985893987956,
+    "cosine": 0.932734740515677
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00012375207986688852,
+    "rel_dist": 0.4024214442798586,
+    "cosine": 0.9196976551704307
+   },
+   "O_18": {
+    "n": 105062,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 6.662732481772668e-05,
+    "rel_dist": 0.4688450731445756,
+    "cosine": 0.9227274737189792,
+    "shared_chars": 261
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0011541941152398757,
+    "close": 0.001319938697072063,
+    "rel_dist": 0.3720731938956123,
+    "cosine": 0.9314363518062875
+   }
+  },
+  "kraken-bern-combined-v1|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3414621385949888,
+    "cosine": 0.10110633240928305
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3652427951538246,
+    "cosine": 0.08024392516873845
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.3817724947044807,
+    "cosine": 0.056619771433155115
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.4026439776619413,
+    "cosine": 0.028992585336594847
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9069767441860467e-05,
+    "rel_dist": 1.4373745280505388,
+    "cosine": 0.021454952339949124
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.743760399334443e-05,
+    "rel_dist": 1.4169884706948497,
+    "cosine": 0.030698784487676132
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.223793677204659e-05,
+    "rel_dist": 1.419988780627816,
+    "cosine": 0.02386015175827945
+   },
+   "O_18": {
+    "n": 70175,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.7000356252226574e-05,
+    "rel_dist": 1.4291875354903674,
+    "cosine": -0.021069151430461962,
+    "shared_chars": 174
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.184502555625988e-05,
+    "rel_dist": 1.4246183603127964,
+    "cosine": 0.025524333404663944
+   }
+  },
+  "kraken-bern-combined-v1|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3474258225256808,
+    "cosine": 0.09347477784186028
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3646791328656818,
+    "cosine": 0.08115515140991719
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.3825737206900377,
+    "cosine": 0.056500246482343065
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8074031231925968e-05,
+    "rel_dist": 1.4030671529053143,
+    "cosine": 0.02890897135606743
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.7144702842377264e-05,
+    "rel_dist": 1.43676120651915,
+    "cosine": 0.02135001826565186
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.223793677204659e-05,
+    "rel_dist": 1.415778014757616,
+    "cosine": 0.031195277706091106
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.6397670549084856e-05,
+    "rel_dist": 1.4187966575131723,
+    "cosine": 0.0246083827543418
+   },
+   "O_18": {
+    "n": 51328,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.741271820448878e-05,
+    "rel_dist": 1.43807832454908,
+    "cosine": -0.025314179439939036,
+    "shared_chars": 127
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.485400434897735e-05,
+    "rel_dist": 1.423718661884837,
+    "cosine": 0.02583678567183057
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-bern-hertwig-v2": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0328125,
+    "close": 0.034375,
+    "rel_dist": 0.10165143823841563,
+    "cosine": 0.9948381996025235
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.09229883907125701,
+    "close": 0.09357485988791032,
+    "rel_dist": 0.16714106039951052,
+    "cosine": 0.9860629075917758
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00030708092485549134,
+    "rel_dist": 0.2099556749959471,
+    "cosine": 0.978060209137622
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 9.037015615962984e-06,
+    "close": 0.00030725853094274146,
+    "rel_dist": 0.21415767007255773,
+    "cosine": 0.9771585269459986
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002815460809646856,
+    "rel_dist": 0.2319790515465585,
+    "cosine": 0.9732861696691573
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002891014975041597,
+    "rel_dist": 0.22434527634916093,
+    "cosine": 0.9750146011614185
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00027662229617304493,
+    "rel_dist": 0.2367615347301642,
+    "cosine": 0.9721863434195729
+   },
+   "O_18": {
+    "n": 107067,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00033623805654403317,
+    "rel_dist": 0.14138756121847326,
+    "cosine": 0.9918770420477884,
+    "shared_chars": 266
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0009357924045351328,
+    "close": 0.001229167836825086,
+    "rel_dist": 0.230157291464224,
+    "cosine": 0.9737031703783052
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-bern-schlussredaktion-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0328125,
+    "close": 0.03359375,
+    "rel_dist": 0.14243980695886693,
+    "cosine": 0.9898661602460429
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.09029723779023219,
+    "close": 0.09134807846277021,
+    "rel_dist": 0.22754125409454423,
+    "cosine": 0.9742225307491021
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00016257225433526012,
+    "rel_dist": 0.2924856812279964,
+    "cosine": 0.9574506358885269
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00018977732793522267,
+    "rel_dist": 0.2979787150679756,
+    "cosine": 0.9558111228070574
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00020510335917312662,
+    "rel_dist": 0.306376824487914,
+    "cosine": 0.9535954325479629
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00023398502495840267,
+    "rel_dist": 0.2994156375182918,
+    "cosine": 0.955599998773089
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00021110648918469218,
+    "rel_dist": 0.3172261936837135,
+    "cosine": 0.950155139406508
+   },
+   "O_18": {
+    "n": 107067,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00029887827248358505,
+    "rel_dist": 0.24884758917358304,
+    "cosine": 0.9772521934114516,
+    "shared_chars": 266
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0009154817976842899,
+    "close": 0.0011366417389490238,
+    "rel_dist": 0.30677752086742455,
+    "cosine": 0.9534074194306317
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-bifrost_old_norse": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4537379412504727,
+    "cosine": 0.07781979663674328
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3789298156992296,
+    "cosine": 0.05789496599785013
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3950179953144815,
+    "cosine": 0.05414194042031168
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.4222093695777906e-05,
+    "rel_dist": 1.4115729975787918,
+    "cosine": 0.030264050988435466
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.037467700258398e-05,
+    "rel_dist": 1.4032438240314715,
+    "cosine": 0.05034740116327164
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.703826955074875e-05,
+    "rel_dist": 1.3812053143669123,
+    "cosine": 0.07147380633341052
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.679700499168053e-05,
+    "rel_dist": 1.3908281680708159,
+    "cosine": 0.0576320290563652
+   },
+   "O_18": {
+    "n": 91829,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.1779612105108407e-05,
+    "rel_dist": 1.5049352896618786,
+    "cosine": -0.05853964429244208,
+    "shared_chars": 228
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.836447960714773e-05,
+    "rel_dist": 1.392970492053895,
+    "cosine": 0.05812947948390065
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-bohemian_19th": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00078125,
+    "rel_dist": 1.399017859235129,
+    "cosine": 0.12319151769743171
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3562286755933388,
+    "cosine": 0.09698548232093027
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.386414366171685,
+    "cosine": 0.06513584049942006
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.037015615962984e-06,
+    "rel_dist": 1.4092604524223122,
+    "cosine": 0.03929099344921763
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.28380706287683e-05,
+    "rel_dist": 1.4349015643887615,
+    "cosine": 0.02224320646922954
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.4114848277316974,
+    "cosine": 0.0349493804764082
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.743760399334443e-05,
+    "rel_dist": 1.4133300814337844,
+    "cosine": 0.030069857166641557
+   },
+   "O_18": {
+    "n": 36892,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 8.131844302287759e-05,
+    "rel_dist": 1.457911814212129,
+    "cosine": -0.03644005556290207,
+    "shared_chars": 91
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.3851011418071524e-05,
+    "rel_dist": 1.420283115422666,
+    "cosine": 0.029334818157582532
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 0.2283209802833338,
+    "cosine": 0.9747237616000411
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00015012009607686148,
+    "rel_dist": 0.507401156859609,
+    "cosine": 0.8898275651425239
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.225433526011561e-05,
+    "rel_dist": 0.7317795521813799,
+    "cosine": 0.8033128726320622
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.037015615962984e-05,
+    "rel_dist": 0.8337891732755057,
+    "cosine": 0.7397648413641658
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.782945736434108e-05,
+    "rel_dist": 0.8218197687952411,
+    "cosine": 0.7180546483947319
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.071547420965058e-05,
+    "rel_dist": 0.7095299569265723,
+    "cosine": 0.7819295978329125
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.071547420965058e-05,
+    "rel_dist": 0.6582905547627127,
+    "cosine": 0.8082679474198661
+   },
+   "O_18": {
+    "n": 101052,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.895895182678225e-05,
+    "rel_dist": 0.775044613692475,
+    "cosine": 0.8164969472845967,
+    "shared_chars": 251
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 7.071100162886052e-05,
+    "rel_dist": 0.7369345717129671,
+    "cosine": 0.7672008435105352
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.034375,
+    "close": 0.03515625,
+    "rel_dist": 0.06675136765644461,
+    "cosine": 0.997801617288429
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.11056345076060849,
+    "close": 0.11243995196156925,
+    "rel_dist": 0.0885718347060724,
+    "cosine": 0.9960779732837708
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0005780346820809249,
+    "rel_dist": 0.12850781401868158,
+    "cosine": 0.9917461589734764
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0004970358588779641,
+    "rel_dist": 0.12311040318066,
+    "cosine": 0.9924252927634173
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 5.383290267011197e-07,
+    "close": 0.0007676571920757967,
+    "rel_dist": 0.09568201252584746,
+    "cosine": 0.9954224995762119
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 1.0399334442595673e-06,
+    "close": 0.0005220465890183029,
+    "rel_dist": 0.13146123064576562,
+    "cosine": 0.9913596566835936
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 2.0798668885191346e-06,
+    "close": 0.0004409317803660566,
+    "rel_dist": 0.1511787768384232,
+    "cosine": 0.9885724963259358
+   },
+   "O_18": {
+    "n": 105062,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00030458205630960766,
+    "rel_dist": 0.2498752548336123,
+    "cosine": 0.9760650618889997,
+    "shared_chars": 261
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0011200923555890778,
+    "close": 0.0017497211679652082,
+    "rel_dist": 0.12550182501167245,
+    "cosine": 0.9921246920048504
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3489010944454383,
+    "cosine": 0.09136022004889596
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00010008006405124099,
+    "rel_dist": 1.3681940824161691,
+    "cosine": 0.07823421084415397
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.384239537345964,
+    "cosine": 0.056468316854894125
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8074031231925968e-05,
+    "rel_dist": 1.4053473278352828,
+    "cosine": 0.028318854635429748
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9608096468561585e-05,
+    "rel_dist": 1.443849819894821,
+    "cosine": 0.02147144487499229
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4208196052009663,
+    "cosine": 0.031909647021556416
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.6397670549084856e-05,
+    "rel_dist": 1.4239871875785333,
+    "cosine": 0.02505926358828733
+   },
+   "O_18": {
+    "n": 69373,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.441482997708042e-05,
+    "rel_dist": 1.4338232544721567,
+    "cosine": -0.022538590060175997,
+    "shared_chars": 172
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.159427732353342e-05,
+    "rel_dist": 1.4294718864015634,
+    "cosine": 0.026181628982964805
+   }
+  },
+  "kraken-bern-hertwig-v1|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3535653888638164,
+    "cosine": 0.08549229246227395
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3677359631316754,
+    "cosine": 0.07901278513937483
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3851717337375056,
+    "cosine": 0.05629169844930753
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.405831571557154,
+    "cosine": 0.028204312633799206
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.068475452196382e-05,
+    "rel_dist": 1.4431718220774647,
+    "cosine": 0.021393535996711188
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.4193924218189928,
+    "cosine": 0.03262369782113761
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.4226933646978397,
+    "cosine": 0.025871332757925046
+   },
+   "O_18": {
+    "n": 50526,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.447303731479116,
+    "cosine": -0.027471024613182245,
+    "shared_chars": 125
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.008978792717469e-05,
+    "rel_dist": 1.4284635577836777,
+    "cosine": 0.0265786630572872
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-bern-schlussredaktion-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.12890625,
+    "close": 0.12890625,
+    "rel_dist": 0.0797205550452333,
+    "cosine": 0.9968235433551899
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.21287029623698958,
+    "close": 0.2134207365892714,
+    "rel_dist": 0.1354822763009208,
+    "cosine": 0.9908468990636246
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002709537572254335,
+    "rel_dist": 0.18624657629338087,
+    "cosine": 0.9826813639483483
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00027111046847888955,
+    "rel_dist": 0.19920763831540153,
+    "cosine": 0.9801827662671568
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00032515073212747634,
+    "rel_dist": 0.19830901238982282,
+    "cosine": 0.9804218878749393
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00032237936772046586,
+    "rel_dist": 0.19481351877122097,
+    "cosine": 0.9810772814895633
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0003410981697171381,
+    "rel_dist": 0.2062748949828382,
+    "cosine": 0.9787772545309201
+   },
+   "O_18": {
+    "n": 107067,
+    "structural_zero": 0,
+    "identical": 9.339946015112033e-06,
+    "close": 0.0004296375166951535,
+    "rel_dist": 0.15354645437916484,
+    "cosine": 0.9904944864104862,
+    "shared_chars": 266
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0021747394224365508,
+    "close": 0.0025029688590754813,
+    "rel_dist": 0.19916309788795328,
+    "cosine": 0.9802293983844628
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-bifrost_old_norse": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4512179584062774,
+    "cosine": 0.08317900871536626
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3780974962137538,
+    "cosine": 0.05982342811338851
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.397093049736822,
+    "cosine": 0.05363454508601811
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 1.4123322227484354,
+    "cosine": 0.03144412294767323
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.3376399655469424e-05,
+    "rel_dist": 1.4068717023786705,
+    "cosine": 0.04895168984679122
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.3846051220393714,
+    "cosine": 0.06988999921692035
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.807820299500832e-05,
+    "rel_dist": 1.394177928299686,
+    "cosine": 0.0563367258056935
+   },
+   "O_18": {
+    "n": 91829,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.0889806052554203e-05,
+    "rel_dist": 1.5156755521726046,
+    "cosine": -0.05955747316329502,
+    "shared_chars": 228
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.209577378898633e-05,
+    "rel_dist": 1.3963092153635703,
+    "cosine": 0.05682465117291456
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-bohemian_19th": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3976072368864487,
+    "cosine": 0.12640447711778313
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00010008006405124099,
+    "rel_dist": 1.353925360929428,
+    "cosine": 0.09910123387103921
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3851974710468553,
+    "cosine": 0.06452992045047197
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 1.4058827400132698,
+    "cosine": 0.04175912684066117
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.1223083548664944e-05,
+    "rel_dist": 1.4321278849935644,
+    "cosine": 0.02196633842525624
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.327787021630615e-05,
+    "rel_dist": 1.4098070208484481,
+    "cosine": 0.03405331586331783
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.41136008744148,
+    "cosine": 0.02944469593735195
+   },
+   "O_18": {
+    "n": 36892,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.421229534858506e-05,
+    "rel_dist": 1.4529789943776845,
+    "cosine": -0.03587491868523749,
+    "shared_chars": 91
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.3349514952618614e-05,
+    "rel_dist": 1.4180376954568008,
+    "cosine": 0.028862118457074298
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 0.2520925244987633,
+    "cosine": 0.9691369579059582
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.506004803843074e-05,
+    "rel_dist": 0.5239042618296887,
+    "cosine": 0.8827352905248178
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.225433526011561e-05,
+    "rel_dist": 0.7453991900186577,
+    "cosine": 0.798020014267854
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 9.037015615962984e-06,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 0.8477620959134888,
+    "cosine": 0.7327101845154517
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 5.760120585701981e-05,
+    "rel_dist": 0.8485767969969575,
+    "cosine": 0.7011737267780203
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.591514143094842e-05,
+    "rel_dist": 0.7429813651686826,
+    "cosine": 0.7619415736910623
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 9.671381031613977e-05,
+    "rel_dist": 0.6950198400874139,
+    "cosine": 0.7876306128324535
+   },
+   "O_18": {
+    "n": 101052,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.9375371096069353e-05,
+    "rel_dist": 0.8396704862135997,
+    "cosine": 0.7888416602011598,
+    "shared_chars": 251
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 2.5074823272645573e-07,
+    "close": 7.146324632703989e-05,
+    "rel_dist": 0.7677625803873386,
+    "cosine": 0.7487158439579269
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.046875,
+    "close": 0.04765625,
+    "rel_dist": 0.13107957643315088,
+    "cosine": 0.99141966134772
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.12187249799839872,
+    "close": 0.12239791833466773,
+    "rel_dist": 0.20539158014155862,
+    "cosine": 0.9789309782093758
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002528901734104046,
+    "rel_dist": 0.2728452832524928,
+    "cosine": 0.9628450682564924
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00025303643724696357,
+    "rel_dist": 0.2711254250704768,
+    "cosine": 0.9633039290663085
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002460163652024117,
+    "rel_dist": 0.2614539009225409,
+    "cosine": 0.9660177579649991
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002360648918469218,
+    "rel_dist": 0.2851617283672126,
+    "cosine": 0.9594987265574758
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0001975873544093178,
+    "rel_dist": 0.31155742915036266,
+    "cosine": 0.9516806354583836
+   },
+   "O_18": {
+    "n": 105062,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.518189259675239e-05,
+    "rel_dist": 0.35739769864664883,
+    "cosine": 0.9523106312147375,
+    "shared_chars": 261
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0012364395355741534,
+    "close": 0.0014716413778715688,
+    "rel_dist": 0.2837974981436467,
+    "cosine": 0.9599117352798961
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3460999703606313,
+    "cosine": 0.09524935848221429
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00010008006405124099,
+    "rel_dist": 1.3661655273608342,
+    "cosine": 0.0800814474610578
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.3839031090917817,
+    "cosine": 0.05522457157077183
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.403384727117819,
+    "cosine": 0.02943744898193341
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.1223083548664944e-05,
+    "rel_dist": 1.4407652848254895,
+    "cosine": 0.021245317801370817
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.4186772500624272,
+    "cosine": 0.031223218228229915
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.5998336106489185e-05,
+    "rel_dist": 1.4216445547245353,
+    "cosine": 0.02446030614156599
+   },
+   "O_18": {
+    "n": 69373,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.324448993124126e-05,
+    "rel_dist": 1.431008197473596,
+    "cosine": -0.021909217281549112,
+    "shared_chars": 172
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.134352909080697e-05,
+    "rel_dist": 1.4269181662331358,
+    "cosine": 0.025751994708392813
+   }
+  },
+  "kraken-bern-hertwig-v2|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.35115292693428,
+    "cosine": 0.0888889634407807
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.365689660295541,
+    "cosine": 0.08087843367133342
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3849224943291225,
+    "cosine": 0.0548599831528627
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8074031231925968e-05,
+    "rel_dist": 1.4036866739993636,
+    "cosine": 0.029554518932909467
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.391472868217054e-05,
+    "rel_dist": 1.4400594575332155,
+    "cosine": 0.021244796087501117
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.6397670549084856e-05,
+    "rel_dist": 1.4173763178128758,
+    "cosine": 0.031806351331487154
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.4203810820313407,
+    "cosine": 0.02527493925457009
+   },
+   "O_18": {
+    "n": 50526,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.95835807307129e-05,
+    "rel_dist": 1.4421909135959086,
+    "cosine": -0.026703135608725878,
+    "shared_chars": 125
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.3851011418071524e-05,
+    "rel_dist": 1.425936191262475,
+    "cosine": 0.026149884735624178
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-bifrost_old_norse": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4504663851182769,
+    "cosine": 0.08502980602051732
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3782996636028506,
+    "cosine": 0.06025737883057718
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.398703139533662,
+    "cosine": 0.05258980810565191
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6148062463851935e-05,
+    "rel_dist": 1.4135100817247548,
+    "cosine": 0.030958124343960752
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.068475452196382e-05,
+    "rel_dist": 1.4095915212690677,
+    "cosine": 0.04765016322661662
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.951747088186356e-05,
+    "rel_dist": 1.3867547144202925,
+    "cosine": 0.06866673935745282
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.119800332778702e-05,
+    "rel_dist": 1.3964532306223725,
+    "cosine": 0.05486610087063757
+   },
+   "O_18": {
+    "n": 91829,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.266941815766261e-05,
+    "rel_dist": 1.5266840718179178,
+    "cosine": -0.05951302927353255,
+    "shared_chars": 228
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.259727025443925e-05,
+    "rel_dist": 1.3986543445035282,
+    "cosine": 0.05552706849950337
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-bohemian_19th": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3939145298401878,
+    "cosine": 0.1326152313954996
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3510167638958426,
+    "cosine": 0.10217963930587459
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3839742989223016,
+    "cosine": 0.06513545586159428
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 1.40549904679558,
+    "cosine": 0.04108046861930337
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 5.383290267011197e-07,
+    "close": 3.1223083548664944e-05,
+    "rel_dist": 1.430155506739842,
+    "cosine": 0.02207645261451564
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.327787021630615e-05,
+    "rel_dist": 1.409100231864529,
+    "cosine": 0.03334183681682058
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.410676367407083,
+    "cosine": 0.028802881592560774
+   },
+   "O_18": {
+    "n": 37293,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.6814683720805512e-05,
+    "rel_dist": 1.451938574107471,
+    "cosine": -0.038608005899330826,
+    "shared_chars": 92
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 2.5074823272645573e-07,
+    "close": 3.259727025443925e-05,
+    "rel_dist": 1.4168364688211526,
+    "cosine": 0.028545491491371006
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 0.27026772839007357,
+    "cosine": 0.9644552458448037
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00012510008006405123,
+    "rel_dist": 0.5360376863523004,
+    "cosine": 0.8776186823397704
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.225433526011561e-05,
+    "rel_dist": 0.7500946895369431,
+    "cosine": 0.7970086825687149
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 0.8527748905047227,
+    "cosine": 0.7310400154471891
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.298449612403101e-05,
+    "rel_dist": 0.8651285446163084,
+    "cosine": 0.6907318807834171
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.551580698835274e-05,
+    "rel_dist": 0.761166223520204,
+    "cosine": 0.7506770769781617
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 8.215474209650583e-05,
+    "rel_dist": 0.7160702637101612,
+    "cosine": 0.7748988058059817
+   },
+   "O_18": {
+    "n": 101052,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 8.906305664410402e-05,
+    "rel_dist": 0.8988341062844373,
+    "cosine": 0.764108967006607,
+    "shared_chars": 251
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 6.845426753432242e-05,
+    "rel_dist": 0.7856958515264636,
+    "cosine": 0.7375562349610831
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.046875,
+    "close": 0.04765625,
+    "rel_dist": 0.17333895271170446,
+    "cosine": 0.9849814025971336
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.11674339471577262,
+    "close": 0.11711869495596477,
+    "rel_dist": 0.2630592320373793,
+    "cosine": 0.9654958658811651
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.03179190751445e-05,
+    "rel_dist": 0.34670497999792443,
+    "cosine": 0.9400702152993828
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00016266628108733372,
+    "rel_dist": 0.3453929264508466,
+    "cosine": 0.940508355824321
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00019541343669250645,
+    "rel_dist": 0.33065477654749714,
+    "cosine": 0.9458673745407538
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0001975873544093178,
+    "rel_dist": 0.3483365713954301,
+    "cosine": 0.9397193815169841
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00017054908485856905,
+    "rel_dist": 0.3771451800269733,
+    "cosine": 0.929350813817215
+   },
+   "O_18": {
+    "n": 105062,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00011421827111610287,
+    "rel_dist": 0.444067932025493,
+    "cosine": 0.9308451001373735,
+    "shared_chars": 261
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0011850361478652298,
+    "close": 0.0013746018118064305,
+    "rel_dist": 0.3500530159614305,
+    "cosine": 0.9391826727208084
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3413079998534831,
+    "cosine": 0.10175449235274811
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.3637079646596317,
+    "cosine": 0.08264599327663352
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.225433526011561e-05,
+    "rel_dist": 1.382879011748311,
+    "cosine": 0.05584099239570581
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6148062463851935e-05,
+    "rel_dist": 1.4024345592867846,
+    "cosine": 0.02994904343132827
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9069767441860467e-05,
+    "rel_dist": 1.4386001314462842,
+    "cosine": 0.02136753637186524
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.367720465890183e-05,
+    "rel_dist": 1.4177864648757026,
+    "cosine": 0.03051665306153959
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4205466192399407,
+    "cosine": 0.02416066455176976
+   },
+   "O_18": {
+    "n": 70175,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.8500178126113287e-05,
+    "rel_dist": 1.4308639883577787,
+    "cosine": -0.0233198699921975,
+    "shared_chars": 174
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.360026318534507e-05,
+    "rel_dist": 1.4254678179983102,
+    "cosine": 0.025562317998416934
+   }
+  },
+  "kraken-bern-schlussredaktion-v1|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3467483341431292,
+    "cosine": 0.09490822213875413
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3631129291620572,
+    "cosine": 0.08360163421630998
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3835540083719897,
+    "cosine": 0.05592828812791953
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8074031231925968e-05,
+    "rel_dist": 1.4027759290968784,
+    "cosine": 0.029994910455630443
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.1223083548664944e-05,
+    "rel_dist": 1.4379181497409044,
+    "cosine": 0.021353549147710243
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.47171381031614e-05,
+    "rel_dist": 1.4165726616389933,
+    "cosine": 0.031003319361141164
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.6397670549084856e-05,
+    "rel_dist": 1.4193482981374248,
+    "cosine": 0.024903411948887604
+   },
+   "O_18": {
+    "n": 51328,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.9482543640897755e-05,
+    "rel_dist": 1.4398704968881135,
+    "cosine": -0.027769415805337056,
+    "shared_chars": 127
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.5104752581703805e-05,
+    "rel_dist": 1.4245332465707852,
+    "cosine": 0.02591316044238656
+   }
+  },
+  "kraken-bifrost_old_norse|kraken-bohemian_19th": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3781658980161375,
+    "cosine": 0.05392121105325726
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.392471203461548,
+    "cosine": 0.07860583485761824
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.45430672049895,
+    "cosine": 0.04243868063773053
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.037015615962984e-06,
+    "rel_dist": 1.4680166923477336,
+    "cosine": 0.033292304561147866
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9069767441860467e-05,
+    "rel_dist": 1.501252699341107,
+    "cosine": 0.030838562409108376
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.703826955074875e-05,
+    "rel_dist": 1.4562938449726361,
+    "cosine": 0.04576748437915177
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.4958402662229617e-05,
+    "rel_dist": 1.4557286029206882,
+    "cosine": 0.04220052833885362
+   },
+   "O_18": {
+    "n": 35689,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.5231516097210904,
+    "cosine": -0.001068840172389924,
+    "shared_chars": 88
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 2.7331557367183677e-05,
+    "rel_dist": 1.4728917941174666,
+    "cosine": 0.03873706949607741
+   }
+  },
+  "kraken-bifrost_old_norse|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4627123254834715,
+    "cosine": 0.04832925813041608
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3907234268995552,
+    "cosine": 0.03302614632653956
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.4190751445086705e-05,
+    "rel_dist": 1.3833642368489314,
+    "cosine": 0.04475621021657194
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.3988553478001344,
+    "cosine": 0.026069553302864385
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.229974160206718e-05,
+    "rel_dist": 1.3606708400781453,
+    "cosine": 0.07429265459311277
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.47171381031614e-05,
+    "rel_dist": 1.3447923316792183,
+    "cosine": 0.09607322305077803
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.1597337770382697e-05,
+    "rel_dist": 1.3585820703152955,
+    "cosine": 0.07856002313516487
+   },
+   "O_18": {
+    "n": 90225,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.1083402604599612e-05,
+    "rel_dist": 1.4553057076193625,
+    "cosine": -0.05816160630744003,
+    "shared_chars": 224
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.761223490896836e-05,
+    "rel_dist": 1.3566726875282924,
+    "cosine": 0.07999292403302165
+   }
+  },
+  "kraken-bifrost_old_norse|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4545535100048341,
+    "cosine": 0.07940461526299968
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3806271703664952,
+    "cosine": 0.05562529711313727
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.3947116496555967,
+    "cosine": 0.055017495147711475
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6148062463851935e-05,
+    "rel_dist": 1.4119921079908517,
+    "cosine": 0.03008884776878784
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9608096468561585e-05,
+    "rel_dist": 1.4031265068980332,
+    "cosine": 0.050476274490867196
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.951747088186356e-05,
+    "rel_dist": 1.38141865376559,
+    "cosine": 0.07136547454854064
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.3903464011546651,
+    "cosine": 0.058298017806531634
+   },
+   "O_18": {
+    "n": 91428,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.281270507940675e-05,
+    "rel_dist": 1.480554267583594,
+    "cosine": -0.0478843997004776,
+    "shared_chars": 227
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.184502555625988e-05,
+    "rel_dist": 1.3928615435499012,
+    "cosine": 0.05833806992325139
+   }
+  },
+  "kraken-bifrost_old_norse|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4547624275396194,
+    "cosine": 0.05290902093218702
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.4002495269316808,
+    "cosine": 0.063459276072504
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8063583815028903e-05,
+    "rel_dist": 1.4422179771577777,
+    "cosine": 0.037132485556834856
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.518507807981492e-05,
+    "rel_dist": 1.4494635727431857,
+    "cosine": 0.02965315246603036
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.8531438415159345e-05,
+    "rel_dist": 1.515581092869998,
+    "cosine": 0.02702021208095326
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.4718585437456044,
+    "cosine": 0.03923548495432852
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.4317803660565725e-05,
+    "rel_dist": 1.4722617941957317,
+    "cosine": 0.034409461604330664
+   },
+   "O_18": {
+    "n": 66967,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.9865456120178597e-05,
+    "rel_dist": 1.4954194892537231,
+    "cosine": -0.00030098439491330737,
+    "shared_chars": 166
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.184502555625988e-05,
+    "rel_dist": 1.4872480355425401,
+    "cosine": 0.03287689839288144
+   }
+  },
+  "kraken-bifrost_old_norse|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4534889876019956,
+    "cosine": 0.05104294008335813
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3987190375786858,
+    "cosine": 0.06594354462500533
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.225433526011561e-05,
+    "rel_dist": 1.4447865602683945,
+    "cosine": 0.03567809977221889
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.4518555594340745,
+    "cosine": 0.02717911885835701
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.6916451335055986e-05,
+    "rel_dist": 1.5143376477637553,
+    "cosine": 0.02742171406981879
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.2878535773710482e-05,
+    "rel_dist": 1.4702328326447602,
+    "cosine": 0.039522171629818414
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4703848972327729,
+    "cosine": 0.03559034086150174
+   },
+   "O_18": {
+    "n": 48521,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.0609632942437295e-05,
+    "rel_dist": 1.5203618890940973,
+    "cosine": -0.0028506853030313005,
+    "shared_chars": 120
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 2.6830060901730764e-05,
+    "rel_dist": 1.4858191019729163,
+    "cosine": 0.03342117781413585
+   }
+  },
+  "kraken-bohemian_19th|kraken-catmus_medieval": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4254107029691556,
+    "cosine": 0.06964432951977485
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.4038911138205517,
+    "cosine": 0.0659767366873041
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.4656314778830308,
+    "cosine": 0.05077091714049895
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 1.8074031231925968e-05,
+    "rel_dist": 1.4979701371037268,
+    "cosine": 0.03099277439729703
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.207149009474591e-05,
+    "rel_dist": 1.4995549975616131,
+    "cosine": 0.0320685406634804
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.119800332778702e-05,
+    "rel_dist": 1.4493823064966216,
+    "cosine": 0.04600426398308024
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.8477537437603994e-05,
+    "rel_dist": 1.4437043991976206,
+    "cosine": 0.03885684171844113
+   },
+   "O_18": {
+    "n": 34486,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.5153193912016256,
+    "cosine": -0.020125666232494722,
+    "shared_chars": 85
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 2.83345502980895e-05,
+    "rel_dist": 1.4664989961424686,
+    "cosine": 0.03818407728093398
+   }
+  },
+  "kraken-bohemian_19th|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4023379428202731,
+    "cosine": 0.12068230535728598
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.358861284738759,
+    "cosine": 0.09322759461868484
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00010838150289017341,
+    "rel_dist": 1.3854624674483826,
+    "cosine": 0.0660603059925103
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.037015615962984e-06,
+    "rel_dist": 1.4089451483565956,
+    "cosine": 0.0392739934714695
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.1761412575366066e-05,
+    "rel_dist": 1.4350326490465766,
+    "cosine": 0.02209481390225479
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.391846921797005e-05,
+    "rel_dist": 1.4113652702245088,
+    "cosine": 0.03491337190290384
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 4.263727121464226e-05,
+    "rel_dist": 1.413276633900917,
+    "cosine": 0.030168891109239093
+   },
+   "O_18": {
+    "n": 36090,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4595445733874,
+    "cosine": -0.03355744021985266,
+    "shared_chars": 89
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.309876671989216e-05,
+    "rel_dist": 1.4202832090161719,
+    "cosine": 0.029274618645704055
+   }
+  },
+  "kraken-bohemian_19th|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.06484375,
+    "close": 0.06484375,
+    "rel_dist": 0.9239803211962948,
+    "cosine": 0.698386160847645
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.18865092073658926,
+    "close": 0.1897267814251401,
+    "rel_dist": 0.628245118976354,
+    "cosine": 0.802786245303288
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.4190751445086705e-05,
+    "rel_dist": 0.775611946149565,
+    "cosine": 0.7019823538587407
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6148062463851935e-05,
+    "rel_dist": 0.8188539457293142,
+    "cosine": 0.6695042236895896
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 9.689922480620155e-05,
+    "rel_dist": 0.7113730146524049,
+    "cosine": 0.7482049919043635
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 5.5116472545757074e-05,
+    "rel_dist": 0.741675772285219,
+    "cosine": 0.7262753394471353
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.799500831946755e-05,
+    "rel_dist": 0.791285291854688,
+    "cosine": 0.6883087151178108
+   },
+   "O_18": {
+    "n": 54536,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.000220038139944257,
+    "rel_dist": 0.5255127153745413,
+    "cosine": 0.8652217032091745,
+    "shared_chars": 135
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.001911453778073772,
+    "close": 0.002001221645389843,
+    "rel_dist": 0.743990324694261,
+    "cosine": 0.7243219466197417
+   }
+  },
+  "kraken-bohemian_19th|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.06484375,
+    "close": 0.06484375,
+    "rel_dist": 0.9187569278259197,
+    "cosine": 0.6982760744240113
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.18865092073658926,
+    "close": 0.18962670136108886,
+    "rel_dist": 0.5995090657557614,
+    "cosine": 0.8204105348110068
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0001264450867052023,
+    "rel_dist": 0.7471178475532232,
+    "cosine": 0.7231227852421236
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.229612492770387e-05,
+    "rel_dist": 0.7802743395831611,
+    "cosine": 0.7000406261441777
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 9.313092161929371e-05,
+    "rel_dist": 0.6663553246364959,
+    "cosine": 0.7790383839509908
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.799500831946755e-05,
+    "rel_dist": 0.6974696661833842,
+    "cosine": 0.7577985788543147
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 8.527454242928452e-05,
+    "rel_dist": 0.7466059657665457,
+    "cosine": 0.722433202506679
+   },
+   "O_18": {
+    "n": 54536,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0001100190699721285,
+    "rel_dist": 0.50508503860206,
+    "cosine": 0.8746707174516573,
+    "shared_chars": 135
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.001911453778073772,
+    "close": 0.002007741099440731,
+    "rel_dist": 0.6997447727039634,
+    "cosine": 0.7560703602960004
+   }
+  },
+  "kraken-catmus_medieval|kraken-cursive_inzigkofen": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.01640625,
+    "close": 0.01640625,
+    "rel_dist": 0.23828153909248956,
+    "cosine": 0.9727311019550585
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 2.5020016012810247e-05,
+    "close": 0.00017514011208967173,
+    "rel_dist": 0.512357813610783,
+    "cosine": 0.887454847885702
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.4190751445086705e-05,
+    "rel_dist": 0.742944511744834,
+    "cosine": 0.7956611398212157
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 9.037015615962984e-06,
+    "rel_dist": 0.84117380124776,
+    "cosine": 0.7342680007199205
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 5.706287683031869e-05,
+    "rel_dist": 0.821563818803426,
+    "cosine": 0.7182050886623678
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 7.591514143094842e-05,
+    "rel_dist": 0.70696608817833,
+    "cosine": 0.784068386261219
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 6.863560732113145e-05,
+    "rel_dist": 0.6543083925032567,
+    "cosine": 0.8108916851700112
+   },
+   "O_18": {
+    "n": 101052,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.91671614614258e-05,
+    "rel_dist": 0.6539816887916491,
+    "cosine": 0.8586664069748173,
+    "shared_chars": 251
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 5.516461119982026e-06,
+    "close": 6.945726046522824e-05,
+    "rel_dist": 0.7353297079205987,
+    "cosine": 0.7684883638403134
+   }
+  },
+  "kraken-catmus_medieval|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3930115600844197,
+    "cosine": 0.029911644761591475
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.4100248472770234,
+    "cosine": 0.05301408902691736
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.4526491362625653,
+    "cosine": 0.04436056379868893
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.4792722707803607,
+    "cosine": 0.02327107508677251
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.6378122308354868e-05,
+    "rel_dist": 1.5129375751940861,
+    "cosine": 0.02997321060733398
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4634363675757767,
+    "cosine": 0.041484062964120015
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.4589919312079704,
+    "cosine": 0.03187046935263454
+   },
+   "O_18": {
+    "n": 65363,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.589752612334195e-05,
+    "rel_dist": 1.4804062779564633,
+    "cosine": -0.008793871014221888,
+    "shared_chars": 162
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 2.7833053832636587e-05,
+    "rel_dist": 1.479829314154554,
+    "cosine": 0.03369268137365902
+   }
+  },
+  "kraken-catmus_medieval|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3975460954548984,
+    "cosine": 0.023762603452648575
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.410025701359108,
+    "cosine": 0.05327057372484708
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.4190751445086705e-05,
+    "rel_dist": 1.4549362189328514,
+    "cosine": 0.0435912866167115
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 8.133314054366686e-05,
+    "rel_dist": 1.4800094251491105,
+    "cosine": 0.023596907614619488
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.6916451335055986e-05,
+    "rel_dist": 1.5117256612826833,
+    "cosine": 0.030312312912818957
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4617005310142794,
+    "cosine": 0.04200550733102381
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.119800332778702e-05,
+    "rel_dist": 1.4572349174183716,
+    "cosine": 0.032951680702486705
+   },
+   "O_18": {
+    "n": 46917,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.2628471556152354e-05,
+    "rel_dist": 1.5043840730203222,
+    "cosine": -0.014479052447281688,
+    "shared_chars": 116
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.008978792717469e-05,
+    "rel_dist": 1.478387388063221,
+    "cosine": 0.034289813757430294
+   }
+  },
+  "kraken-cursive_inzigkofen|kraken-german-xix-blb-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3501655705412496,
+    "cosine": 0.08993720828570376
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.5020016012810247e-05,
+    "rel_dist": 1.3709030130434992,
+    "cosine": 0.07435668703837736
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3830940735935526,
+    "cosine": 0.05775828451042253
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.229612492770387e-05,
+    "rel_dist": 1.4050390734659346,
+    "cosine": 0.028428240684687942
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0146425495262704e-05,
+    "rel_dist": 1.4440709349537528,
+    "cosine": 0.02118610387010946
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.535773710482529e-05,
+    "rel_dist": 1.4206674772161803,
+    "cosine": 0.031893152950806476
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.0158069883527454e-05,
+    "rel_dist": 1.423952857534469,
+    "cosine": 0.025134797355145903
+   },
+   "O_18": {
+    "n": 68170,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 7.334604664808566e-05,
+    "rel_dist": 1.4366329204461619,
+    "cosine": -0.01803755593719518,
+    "shared_chars": 169
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.209577378898633e-05,
+    "rel_dist": 1.4295021063869853,
+    "cosine": 0.02606894686083207
+   }
+  },
+  "kraken-cursive_inzigkofen|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0,
+    "rel_dist": 1.3542156475118596,
+    "cosine": 0.08494282349412799
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 5.004003202562049e-05,
+    "rel_dist": 1.3703686249804408,
+    "cosine": 0.07524126361564325
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 3.6127167630057806e-05,
+    "rel_dist": 1.383867049281814,
+    "cosine": 0.05779609731528388
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 2.7111046847888953e-05,
+    "rel_dist": 1.4054781989358043,
+    "cosine": 0.02837264264288737
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 3.391472868217054e-05,
+    "rel_dist": 1.443383190345628,
+    "cosine": 0.021123257732409455
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.807820299500832e-05,
+    "rel_dist": 1.4192496735672597,
+    "cosine": 0.03259662592834626
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 2.9118136439267888e-05,
+    "rel_dist": 1.4226492195469331,
+    "cosine": 0.025960946037902964
+   },
+   "O_18": {
+    "n": 49323,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 4.054903391926687e-05,
+    "rel_dist": 1.4528550627916823,
+    "cosine": -0.025303460783620745,
+    "shared_chars": 122
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0,
+    "close": 3.134352909080697e-05,
+    "rel_dist": 1.4284863511268588,
+    "cosine": 0.026477903089435987
+   }
+  },
+  "kraken-german-xix-blb-v1|kraken-german-xix-v1": {
+   "C_0": {
+    "n": 1280,
+    "structural_zero": 0,
+    "identical": 0.25,
+    "close": 0.25,
+    "rel_dist": 0.11832369380620791,
+    "cosine": 0.9930668157440115
+   },
+   "C_3": {
+    "n": 39968,
+    "structural_zero": 0,
+    "identical": 0.25477882305844674,
+    "close": 0.25517914331465175,
+    "rel_dist": 0.16690933198270014,
+    "cosine": 0.9860713006286439
+   },
+   "C_6": {
+    "n": 55360,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0002709537572254335,
+    "rel_dist": 0.2568704273179298,
+    "cosine": 0.9670484115425946
+   },
+   "C_9": {
+    "n": 110656,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.00018074031231925968,
+    "rel_dist": 0.2955217871783418,
+    "cosine": 0.956343269357889
+   },
+   "L_12": {
+    "n": 1859200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.0002153316106804479,
+    "rel_dist": 0.2731838145989449,
+    "cosine": 0.9626948436386386
+   },
+   "L_14": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00025478369384359403,
+    "rel_dist": 0.2586929401591953,
+    "cosine": 0.9665618246794824
+   },
+   "L_16": {
+    "n": 963200,
+    "structural_zero": 1600,
+    "identical": 0.0,
+    "close": 0.00025998336106489183,
+    "rel_dist": 0.2651731117687903,
+    "cosine": 0.9648567309039657
+   },
+   "O_18": {
+    "n": 90225,
+    "structural_zero": 0,
+    "identical": 0.0,
+    "close": 0.0004433361041839845,
+    "rel_dist": 0.20676874240688123,
+    "cosine": 0.9789553354690753,
+    "shared_chars": 224
+   },
+   "body": {
+    "n": 3992864,
+    "structural_zero": 4800,
+    "identical": 0.0026336086883259648,
+    "close": 0.002870816516485192,
+    "rel_dist": 0.2669690532311747,
+    "cosine": 0.9643762910308477
+   }
+  }
+ },
+ "tolerance": {
+  "rtol": 0.0001,
+  "atol": 1e-06
+ },
+ "when": "2026-11-07 08:46",
+ "lineages": [
+  [
+   "kraken-bern-combined-v1",
+   "kraken-bern-hertwig-v1",
+   "kraken-bern-hertwig-v2",
+   "kraken-bern-schlussredaktion-v1",
+   "kraken-catmus_medieval",
+   "kraken-cursive_inzigkofen"
+  ],
+  [
+   "kraken-bohemian_19th",
+   "kraken-german-xix-blb-v1",
+   "kraken-german-xix-v1"
+  ],
+  [
+   "kraken-bifrost_old_norse"
+  ]
+ ]
+}
