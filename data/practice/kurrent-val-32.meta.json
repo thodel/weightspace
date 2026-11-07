@@ -1,0 +1,7 @@
+{
+ "set": "kurrent-val-32",
+ "n": 32,
+ "rule": "every second page of kurrent-val-64 in file order (document order); no model output used",
+ "sha256": "3d1311f00140575ecd44c81aaba7979011fc8cd963f157dfbe3644bdbaecf31d",
+ "role": "A3 practice pass (planted-defect control)"
+}

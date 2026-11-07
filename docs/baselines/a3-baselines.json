@@ -1,0 +1,24 @@
+{
+ "clean/p32": {
+  "pages": 32,
+  "chars": 53112,
+  "cer": 0.6170921825576141,
+  "truncated_cer": 0.32173520108450065,
+  "length_ratio": 1.324672390420244,
+  "at_cap": 6,
+  "loops": 8,
+  "wall_s": 211.2,
+  "tokens_mean": 1047.125
+ },
+ "clean/h64": {
+  "pages": 64,
+  "chars": 67892,
+  "cer": 0.5068049254698639,
+  "truncated_cer": 0.2071083485535851,
+  "length_ratio": 1.3247363459612325,
+  "at_cap": 6,
+  "loops": 6,
+  "wall_s": 346.4,
+  "tokens_mean": 647.109375
+ }
+}

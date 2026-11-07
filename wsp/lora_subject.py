@@ -103,6 +103,7 @@ class LoraSubject(Subject):
         for f in self.dir.iterdir():
             if f.name != "adapter_model.safetensors" and f.is_file():
                 shutil.copy2(f, path / f.name)
+                os.chmod(path / f.name, 0o644)  # a read-only source (the cache copy of a trained adapter) must not make the edit read-only
         save_file({k: v.astype(self._dtypes[k]) for k, v in self._state.items()}, str(path / "adapter_model.safetensors"))
         self._work = path
         return path
@@ -172,6 +173,42 @@ def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: 
         for line in report.with_suffix(".raw.jsonl").read_text(encoding="utf-8").splitlines():
             d = json.loads(line)
             by[Path(d["image"]).stem] = {"text": d["raw"], "at_cap": bool(d["at_cap"])}
+        return [by[p["key"]] for p in practice]
+
+    return run
+
+
+def server_runner(spool: str | Path, out_dir: str | Path, render: str | Path | None = None,
+                  timeout: float = 7200.0) -> Callable:
+    """A ``forward`` that hands each pass to a running ``wsp.vllm_server`` through its spool
+    directory (jobs/ in, done/ out). The server owns card 0 and its checks; this client only
+    waits, and raises when the server has yielded (``YIELD``) or stopped."""
+    import time
+
+    spool = Path(spool); out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
+    count = {"n": 0}
+
+    def run(adapter: Path | None, practice: Sequence[dict]) -> list[dict]:
+        count["n"] += 1
+        jid = f"{os.getpid()}-{time.time_ns()}"
+        out = out_dir / f"pass-{count['n']:03d}.jsonl"
+        job = {"adapter": str(adapter) if adapter else None, "keys": [p["key"] for p in practice], "out": str(out)}
+        if render:
+            job["render"] = str(render)
+        tmp = spool / "jobs" / f"{jid}.tmp"
+        tmp.write_text(json.dumps(job)); tmp.rename(spool / "jobs" / f"{jid}.json")
+        t0 = time.time()
+        while not (spool / "done" / jid).exists():
+            if (spool / "YIELD").exists() or not (spool / "READY").exists():
+                raise RuntimeError("pass server not running (yielded or stopped): " +
+                                   ((spool / "YIELD").read_text() if (spool / "YIELD").exists() else "no READY"))
+            if time.time() - t0 > timeout:
+                raise TimeoutError(f"pass {out} not answered in {timeout}s")
+            time.sleep(5)
+        by = {}
+        for line in out.read_text(encoding="utf-8").splitlines():
+            d = json.loads(line)
+            by[d["key"]] = {"text": d["text"], "at_cap": d["finish_reason"] == "length", "tokens": d["tokens"]}
         return [by[p["key"]] for p in practice]
 
     return run

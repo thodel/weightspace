@@ -80,7 +80,10 @@ def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, ru
     if _is_adapter(p):
         from wsp.lora_subject import LoraSubject, reference_runner
         fwd = None
-        if meta and run_dir:
+        if meta and run_dir and meta.get("spool"):
+            from wsp.lora_subject import server_runner
+            fwd = server_runner(meta["spool"], run_dir / "passes")
+        elif meta and run_dir:
             fwd = reference_runner(meta["practice"], meta["data_root"], run_dir / "passes")
         return LoraSubject(p, forward=fwd)
     raise ValueError(f"no subject for {p}")
@@ -109,7 +112,7 @@ def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
 
 
 def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106,
-        data_root: str | None = None) -> Path:
+        data_root: str | None = None, spool: str | None = None) -> Path:
     subj_path, prac_path = Path(subject), Path(practice)
     s = _subject(subj_path)
     items = load(prac_path)
@@ -129,6 +132,8 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
         if not data_root:
             raise ValueError("an adapter session needs --data-root (where the practice pages' images resolve)")
         meta.update({"unit": "page", "data_root": str(Path(data_root).resolve())})
+        if spool:  # passes through a running wsp.vllm_server (stage A3: planted-defect control)
+            meta.update({"engine": "vllm-server (batched, not run-to-run deterministic)", "spool": str(Path(spool).resolve())})
     (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
     (run_dir / "preregistration.md").write_text(PREREGISTRATION.format(
         name=run_dir.name, subject=subj_path, digest=meta["subject_digest"], file_sha=meta["subject_file_sha256"],
@@ -347,12 +352,13 @@ def main(argv=None):
     n = sub.add_parser("new"); n.add_argument("--subject", required=True); n.add_argument("--practice", required=True)
     n.add_argument("--budget", type=int, required=True); n.add_argument("--id"); n.add_argument("--seed", type=int, default=20261106)
     n.add_argument("--data-root", help="adapters: where the practice pages' images resolve")
+    n.add_argument("--spool", help="adapters: pass through a running wsp.vllm_server (A3) instead of evaluate_qlora")
     f = sub.add_parser("freeze"); f.add_argument("run")
     h = sub.add_parser("heldout"); h.add_argument("run"); h.add_argument("--set", required=True)
     e = sub.add_parser("export"); e.add_argument("run"); e.add_argument("--as", dest="model_id", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "new":
-        new(a.subject, a.practice, a.budget, a.id, a.seed, a.data_root)
+        new(a.subject, a.practice, a.budget, a.id, a.seed, a.data_root, a.spool)
     elif a.cmd == "freeze":
         s = freeze(a.run); print(json.dumps({k: s[k] for k in ("name", "used", "edits", "kept", "final_digest")}, indent=1))
     elif a.cmd == "heldout":
