@@ -14,7 +14,7 @@ Working title: *What can be read from, and edited in, the weights of text recogn
 | 3 | LLM can deal with weights ("white-boxing") | 3 | drafted | the weight-space programming post (claims checked against the post) | none; wording of "white box" to be agreed |
 | 4 | Research questions: from comparison to adaptation | 4 | drafted | the plan and protocol | none |
 | 5 | Existing research on explainability of text recognition networks | 5 | drafted | `docs/RELATED_WORK.md`, 75 references in Zotero | rerun of the incomplete OpenAlex queries; read the 14 papers that were abstract-only |
-| 6 | Comparison of models (kraken model zoo), with intermediate results | 6 | **partly** | five lineage pairs of the in-house models, baselines, drift figures | **the zoo-wide survey is not done** (brief written: `docs/BRIEF_ZOO_SURVEY.md`) |
+| 6 | Comparison of models (kraken model zoo), with intermediate results | 6 | **drafted** | five lineage pairs, baselines, drift figures, and the zoo survey of 30 public models (branch `claude/zoo-survey-76f514`, not yet merged into main) | 7 of the gateway's 37 models were refused by Zenodo (HTTP 429); rerun later; the inventory's "42" is 37 |
 | 7 | Adaptability of weights, with intermediate results | 7 | drafted | alpha sweep, two sessions, rewrite, collapse analysis | controls C2 (average), C4 (retrain), C5 (sham), C6 (blind) not run |
 | 8 | Both parts combined | 8 | drafted | predicted-against-measured tables | strengthened once C2/C4 exist |
 | 9 | What we learned about the inner workings of LLMs | 9 | **scoped down** | see below | the adapter track (QLoRA on Qwen-class models) has not been run |
@@ -88,3 +88,7 @@ Authors; BLB and archival signatures; the 5,441 versus 5,243 line count; the cla
 setup"; CPU confirmation; the blank bias relative to other biases; the zoo survey; the adapter track; the 9.55 % duplicate;
 data and code availability (three places); the AI statement; competing interests; funding; acknowledgements; the pointer
 to this file.
+
+## Update, 7 November 2026 (afternoon)
+
+Zoo survey done and folded into Sections 2.1, 6.3, 6.4: 21 of 30 public models use the standard stack; blank bias relative to the other biases rises in 11 of 11 documented pairs; rare-row inflation holds in direction only; the conv-versus-recurrent claim is not supported. The survey branch `claude/zoo-survey-76f514` is pushed but not merged; the manuscript cites `docs/ZOO_SURVEY.md`, so merge it (or cite the branch) before submission. The controls session (`article-controls`) is still running; Section 10 and 7 need updating when its report arrives. `docs/MODELS.md` still says 42 third-party models; the gateway lists 37 kraken models.
