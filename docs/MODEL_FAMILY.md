@@ -278,7 +278,7 @@ within noise; through the serving path (58 pages, gateway segmentation): median 
 better on 40 pages and worse on 17, −0.19 points, interval excluding 0. The block statistics show what the flat
 total hides: abbreviation signs (MUFI) get worse, lowercase letters better.
 
-**Which candidate to enable (docs/RESULTS.md R5, pre-registered).** On held-out Fraktur pages both candidates read
+**Which candidate to enable (docs/RESULTS.md R9, pre-registered).** On held-out Fraktur pages both candidates read
 better than latin_incunabula (v1: NewsEye −2.04, GT-Fraktur −0.44 points; v2 with the group norms only: −1.08,
 −0.19): the stabilisation holds beyond the lines it was chosen on. Both also lose abbreviation signs on the
 Latin-German Reichenau pages (v1 clearly, 523 → 719 MUFI errors; v2 narrowly, 523 → 541), and v2's Reichenau CER
@@ -297,7 +297,7 @@ trade against its own material — at a poor rate in the in-house fine-tunes, at
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R5 (07.11.2026): the Fraktur gain holds on held-out
+1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R9 (07.11.2026): the Fraktur gain holds on held-out
    pages; both variants lose some abbreviation signs; neither enabled. Next, if wanted: exchange that protects the
    output rows of the abbreviation characters (move only the shared Latin letters' rows), compared under a rule with
    a minimum effect fixed beforehand.
