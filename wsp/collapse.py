@@ -4,11 +4,11 @@
         --readings docs/baselines/readings/blb-eval/kraken-german-xix-blb-v1.jsonl \
         [--siblings <readings.jsonl> ...] --out docs/collapse/blb-eval__xix-blb-v1.json
 
-``wsp.metrics.is_collapsed`` flags a line when its hypothesis is less than half or more
+Until 07.11.2026 ``wsp.metrics.is_collapsed`` flagged a line when its hypothesis is less than half or more
 than twice the reference length, *or* when one character trigram occurs six times or
 more. The second test fires on correct long lines: normalised punctuation (" . ", " , ")
 and common endings ("en ") repeat that often in ordinary text. ``degenerate_repeat``
-is the stricter test used here: the most frequent trigram must also occur at least
+is the stricter test, now the default of ``is_collapsed``: the most frequent trigram must also occur at least
 twice as often as in the reference, plus two.
 
 Every flagged line is put in exactly one class, in this order:
@@ -35,28 +35,18 @@ from pathlib import Path
 
 from PIL import Image
 
-from wsp.metrics import is_collapsed, levenshtein, normalise
+from wsp.metrics import degenerate_repeat, is_collapsed, levenshtein, normalise  # noqa: F401 (re-exported)
 
 ORDER = ["detector_false_positive", "vertical", "degenerate_box", "tiny_reference", "box_holds_more",
          "repetition_loop", "model_specific", "short_all_models"]
 
 
-def trigrams(s: str) -> Counter:
-    return Counter(s[i:i + 3] for i in range(len(s) - 2))
-
-
-def degenerate_repeat(hyp: str, ref: str, repeats: int = 6) -> bool:
-    g = trigrams(hyp)
-    if not g:
-        return False
-    top, n = g.most_common(1)[0]
-    return n >= repeats and n >= 2 * trigrams(ref).get(top, 0) + 2
-
-
 def classify(ref: str, hyp: str, crop_w: int, crop_h: int, siblings: list[str] = ()) -> str | None:
-    """None if the line is not flagged by ``is_collapsed``; else its class (see module doc)."""
+    """None if the line is not flagged by the *legacy* ``is_collapsed`` test; else its class
+    (see module doc). The legacy test is used here on purpose: this module exists to say
+    which of the lines counted as collapsed before 07.11.2026 were what."""
     r, h = normalise(ref), normalise(hyp)
-    if not is_collapsed(h, r):
+    if not is_collapsed(h, r, legacy=True):
         return None
     q = len(h) / max(len(r), 1)
     if 0.5 <= q <= 2 and not degenerate_repeat(h, r):

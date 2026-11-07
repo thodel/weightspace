@@ -64,13 +64,34 @@ def align(a: str, b: str) -> list[tuple[str, str]]:
     return pairs
 
 
+def trigrams(s: str, n: int = 3) -> Counter:
+    return Counter(s[i:i + n] for i in range(len(s) - n + 1))
+
+
+def degenerate_repeat(hyp: str, ref: str, ngram: int = 3, repeats: int = 6) -> bool:
+    """A repetition loop: the hypothesis's most frequent n-gram occurs ``repeats`` times or
+    more **and** at least twice as often as in the reference, plus two. Correct long lines
+    repeat " . ", " , " or "en " six times and more; only the excess over the reference
+    marks a loop (docs/PHASE4_REPORT.md §1)."""
+    g = trigrams(hyp, ngram)
+    if not g:
+        return False
+    top, n = g.most_common(1)[0]
+    return n >= repeats and n >= 2 * trigrams(ref, ngram).get(top, 0) + 2
+
+
 def is_collapsed(hyp: str, ref: str, ratio: tuple[float, float] = (0.5, 2.0),
-                 ngram: int = 3, repeats: int = 6) -> bool:
-    """A degenerate line: length far off the reference, or a repeating n-gram.
+                 ngram: int = 3, repeats: int = 6, legacy: bool = False) -> bool:
+    """A degenerate line: length far off the reference, or a repetition loop.
 
     Both shapes were seen in the pipeline: CTC outputs bounded by the image
     width that still emit one character over and over, and VLM loops that
     run to the token ceiling.
+
+    Since 07.11.2026 the loop test is ``degenerate_repeat`` (PROTOCOL.md §5). ``legacy=True``
+    gives the test every count before that date used: any n-gram occurring ``repeats``
+    times, which also fires on correct long lines (142 of the 428 lines counted as
+    collapsed for xix-blb-v1 on blb-eval).
     """
     h, r = normalise(hyp), normalise(ref)
     if r:
@@ -79,11 +100,13 @@ def is_collapsed(hyp: str, ref: str, ratio: tuple[float, float] = (0.5, 2.0),
             return True
     elif h:
         return len(h) > 20
-    if len(h) >= ngram * repeats:
-        grams = Counter(h[i:i + ngram] for i in range(len(h) - ngram + 1))
-        if grams and grams.most_common(1)[0][1] >= repeats:
-            return True
-    return False
+    if legacy:
+        if len(h) >= ngram * repeats:
+            grams = trigrams(h, ngram)
+            if grams and grams.most_common(1)[0][1] >= repeats:
+                return True
+        return False
+    return degenerate_repeat(h, r, ngram, repeats)
 
 
 @dataclass
