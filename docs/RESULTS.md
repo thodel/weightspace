@@ -75,3 +75,19 @@ Not a gain: the kept edit's practice gain came from the parent's own training li
 ### Note to R2 (07.11.2026)
 
 Re-aggregated on `blb-eval-hand` (the handwriting held-out set chosen by data properties, docs/PHASE5_REPORT.md; a re-aggregation of the one held-out reading, not a second evaluation): before 9.553 %, after 9.553 %, Δ −0.001 points [−0.055, +0.053]. The conclusion of R2 is unchanged.
+
+### Note to R2 and R3 (07.11.2026, later): page-clustered intervals
+
+Recomputed with the two-stage cluster bootstrap (`wsp.metrics.bootstrap_delta(..., clusters=)`, pages then lines; `docs/controls/cluster_intervals.md`). Line-level numbers above are unchanged. R2 held-out `blb-eval`: −0.010 [−0.069, +0.049]; on `blb-eval-hand` −0.001 [−0.082, +0.084]. R3 practice −0.425 [−0.926, +0.037] (now contains 0); held-out +0.151 [−0.285, +0.597]; Hertwig −0.300 [−0.825, +0.213]; Schlussredaktion +0.510 [−0.043, +1.076] (the "significant loss" is not supported at page level). Conclusions "not a gain" stand.
+
+## R4 — planted defects, the positive control (07.11.2026; docs/CONTROLS_REPORT.md §2, §9b)
+
+Eleven corruptions of `kraken-german-xix-blb-v1` (practice `blb-train-300`, held-out `blb-eval-hand`, uncorrupted 9.55 %), four arms each: programmer with ten passes (a), blind programmer (b), fixed hand-written repair list (c), coordinate search over output biases (d). For the six localised corruptions that cost at least a point (zero / negate / swap output rows, blank bias +2, last BiLSTM ×0.5, zeroed conv block) arms (a), (b), (c) each return the held-out CER to within 0.22 points of the uncorrupted model (19 of 19 repaired cells); (d) repairs only the bias defect. The programmer is not better than (c) or (b). With an unrelated donor the zeroed row and block are not repaired; a scale defect still is. A diffuse defect (noise on every weight) is repaired 83 % by (a) only (interpolation toward the parent); noise on one block at 25 % of its norm (+0.49 points) is repaired by no arm. Run folders `runs/20261107-planted-*`; aggregates `docs/controls/planted.json`, `planted_table.md`.
+
+## R5 — validation-based practice sets (07.11.2026; docs/CONTROLS_REPORT.md §3, §6, §9c)
+
+Practice sets that are not the subject's training lines: `bern-val` (the trainer's 17 validation pages of `combined-v1`, 513 lines) and `blb-val-300` (carved from seven eval objects; the trainer validated this model on the eval pages, so no validation side exists), audited by `wsp.audit validation`. `xix-blb-v1`: 0 edits kept in 6 attempts (Sonnet ×3, Opus, Haiku, replay). `combined-v1`: all attempts that kept anything interpolated toward the clean sibling; the common edit (blank −0.3, non-output tensors α = 0.25 toward `schlussredaktion-v1`) gives held-out −0.39 [−0.69, −0.08] lines, [−0.84, +0.04] pages; 0 of 20 norm-matched shams reach it and none is kept by the rule; the α sweep shows a narrow window (α ≈ 0.1–0.25) and a practice optimum at α ≈ 0.75 that is worse on held-out; the uniform average gives −0.02. A model-merge observation, not a repair. The donor rule (PROTOCOL §2, proposed) refuses the 06.11. transplant from `hertwig-v2`.
+
+## R6 — additivity and margins (07.11.2026; docs/CONTROLS_REPORT.md §7, §8)
+
+Kurrent pair `xix-v1` → `xix-blb-v1`: no α from 0 to 1.5 on all blocks gives a gain on either side; the joint cost exceeds the sum of single-block costs on held-out lines (by 0.4 to 3.8 points) while block pairs at α = 0.5 are close to additive (correlation 0.97–0.98). Margins at deleted space/`e`/`n` frames: median blank margin 3.2 nats, 18 % of deletions have no blank frame between neighbours, the three blank-bias states of session 1 reach about 3 %, 12 % and 22 % of them at the price of insertions. `docs/controls/global_interp.json`, `margins.json`.
