@@ -651,9 +651,166 @@ def plot_zoo_pairs(data: dict, th: dict):
     return fig
 
 
+LINEAGE_JSON = REPO / "docs" / "zoo" / "lineage.json"
+
+# node positions of the lineage drawing (x = generation, y = row); a model not listed here has no relation to any other surveyed model
+_LIN_NODES = {
+    "kraken-catmus_medieval": (0, 8.0), "kraken-bastarda_inzigkofen": (1.6, 9.2), "kraken-cursive_inzigkofen": (1.6, 8.0),
+    "bern-hertwig-v1": (3.2, 8.9), "bern-hertwig-v2": (3.2, 7.6), "bern-schlussredaktion-v1": (4.8, 8.2), "bern-combined-v1": (4.8, 7.0),
+    "kraken-bifrost_old_norse": (1.6, 6.6), "kraken-catmus_gothic_print": (1.6, 5.6), "kraken-old_norse_am305": (1.6, 4.5),
+    "kraken-tridis_v2": (0, 3.0), "kraken-textualis_inzigkofen": (1.6, 3.0),
+    "kraken-catmus_print_large": (0, 1.2), "kraken-french_vietnamese": (1.6, 1.7), "kraken-latin_incunabula": (1.6, 0.7),
+    "kraken-mccatmus": (0, -0.6), "kraken-prima": (1.6, -0.6),
+    "kraken-bohemian_19th": (0, -2.0), "german-xix-v1": (1.6, -2.0), "german-xix-blb-v1": (3.2, -2.0),
+}
+# (parent, child, kind, label override); kind: ok = documented and the weights agree, bad = documented and the weights do not support it,
+# weights = suggested by weights and codec only, cont = continuation read in READINGS
+_LIN_EDGES = [
+    ("kraken-catmus_medieval", "kraken-bastarda_inzigkofen", "ok"), ("kraken-catmus_medieval", "kraken-cursive_inzigkofen", "ok"),
+    ("kraken-cursive_inzigkofen", "bern-hertwig-v1", "ok"), ("kraken-cursive_inzigkofen", "bern-hertwig-v2", "ok"),
+    ("bern-hertwig-v1", "bern-hertwig-v2", "cont"),
+    ("bern-hertwig-v2", "bern-schlussredaktion-v1", "ok"), ("bern-hertwig-v2", "bern-combined-v1", "ok"),
+    ("kraken-catmus_medieval", "kraken-bifrost_old_norse", "bad"), ("kraken-catmus_medieval", "kraken-catmus_gothic_print", "arch"),
+    ("kraken-catmus_medieval", "kraken-old_norse_am305", "weights"),
+    ("kraken-tridis_v2", "kraken-textualis_inzigkofen", "ok"),
+    ("kraken-catmus_print_large", "kraken-french_vietnamese", "ok"), ("kraken-catmus_print_large", "kraken-latin_incunabula", "ok"),
+    ("kraken-mccatmus", "kraken-prima", "weights"),
+    ("kraken-bohemian_19th", "german-xix-v1", "weights"), ("german-xix-v1", "german-xix-blb-v1", "ok"),
+]
+# documented parents that are not among the surveyed files: (label, child, why not tested)
+_LIN_EXTERNAL = [("Chat model\n(external)", "kraken-kuzushiji", "parent not in set"),
+                 ("German manuscripts\nbase (eScriptorium)", "kraken-mendelssohn_letters", "parent not in set"),
+                 ("Manu McFrench\n(Zenodo 6657809)", "kraken-peraire_french", "parent not in set"),
+                 ("OpenITI Arabic\n(not fetched, HTTP 429)", "kraken-openiti_persian_print\n+ openiti_ottoman_print", "not fetched")]
+
+
+def plot_zoo_lineage(data: dict, th: dict):
+    """Lineage drawing: documented edges coloured by what the weights say, edges only the weights suggest, and the models without relation."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    sv, ln = data["survey"], data["lineage"]
+    dist = {frozenset((p["a"], p["b"])): p["distance"] for p in ln["pairs"]}
+    M = sv["models"]
+    fig, ax = plt.subplots(figsize=(11.5, 9.4))
+    ax.set_axis_off(); ax.set_xlim(-0.9, 6.9); ax.set_ylim(-5.9, 10.2)
+    style = {"ok": (th["O"], "-", 2.0), "cont": (th["O"], "-", 1.0), "bad": (th["hi"], (0, (4, 3)), 1.8), "arch": (th["hi"], (0, (4, 3)), 1.8),
+             "weights": (th["C"], (0, (1, 2)), 2.0)}
+    for pa, ch, kind in _LIN_EDGES:
+        (x0, y0), (x1, y1) = _LIN_NODES[pa], _LIN_NODES[ch]
+        col, ls, lw = style[kind]
+        ax.annotate("", xy=(x1 - 0.42, y1), xytext=(x0 + 0.42, y0), arrowprops={"arrowstyle": "-" if (pa, ch) == ("kraken-catmus_medieval", "kraken-old_norse_am305") else "-|>", "color": col, "lw": lw, "linestyle": ls,
+                                                                              "shrinkA": 0, "shrinkB": 0, "mutation_scale": 11})
+        d = dist.get(frozenset((pa, ch)))
+        lab = "different architecture" if kind == "arch" else (f"{d:.2f}" if d is not None else "")
+        if lab and ch in ("kraken-bifrost_old_norse", "kraken-catmus_gothic_print", "kraken-old_norse_am305"):
+            dd = "" if d is None else f"{d:.2f}"
+            note = {"kraken-bifrost_old_norse": f"distance {dd}: weights unrelated to the documented base",
+                    "kraken-catmus_gothic_print": "documented base has another architecture",
+                    "kraken-old_norse_am305": f"distance {dd}: close by weights, no direction known"}[ch]
+            ax.text(x1 + 0.72, y1, note, color=col, fontsize=7.5, ha="left", va="center")
+        elif lab:
+            ax.text(x0 + (x1 - x0) * 0.38 + 0.05, y0 + (y1 - y0) * 0.38 + 0.08, lab, color=col, fontsize=7.5, ha="left", va="bottom",
+                    bbox={"fc": th["bg"], "ec": "none", "pad": 0.5})
+    involved = set(_LIN_NODES)
+    for mid, (x, y) in _LIN_NODES.items():
+        inh = M[mid]["origin"] == "in-house"
+        ax.text(x, y, mid.removeprefix("kraken-"), ha="center", va="center", fontsize=8, color=th["fg"],
+                bbox={"boxstyle": "round,pad=0.35", "fc": th["bg"], "ec": th["hi"] if inh else th["muted"], "lw": 1.6 if inh else 1.0})
+    # external and unfetched parents
+    ax.text(5.35, 5.9, "documented parents that are not in the surveyed set", fontsize=8.5, color=th["muted"], ha="center")
+    for k, (lab, child, why) in enumerate(_LIN_EXTERNAL):
+        y = 5.0 - 1.5 * k
+        ax.text(4.35, y, lab, ha="center", va="center", fontsize=7.5, color=th["muted"],
+                bbox={"boxstyle": "round,pad=0.3", "fc": th["bg"], "ec": th["muted"], "lw": 0.9, "ls": "--"})
+        ax.annotate("", xy=(5.55, y), xytext=(5.0, y), arrowprops={"arrowstyle": "-|>", "color": th["muted"], "lw": 1.0, "linestyle": (0, (3, 3))})
+        ax.text(5.65, y, child.removeprefix("kraken-"), ha="left", va="center", fontsize=7.5)
+    # the rest
+    rest = [m for m in sorted(M) if m not in involved and m not in {c for _, c, _ in [(0, e[1], 0) for e in _LIN_EXTERNAL]}
+            and not any(m == e[1].split("\n")[0] for e in _LIN_EXTERNAL) and M[m]["origin"] == "zoo"
+            and m not in ("kraken-openiti_persian_print", "kraken-openiti_ottoman_print")]
+    rest = [m for m in rest if m not in ("kraken-kuzushiji", "kraken-mendelssohn_letters", "kraken-peraire_french")]
+    ax.text(-0.85, -3.55, f"No relation found to any other surveyed model ({len(rest)} zoo models; nearest neighbour ≥ 1.0, mostly 1.3–1.5):", fontsize=8.5, color=th["muted"], ha="left")
+    ax.text(-0.85, -4.0, ", ".join(m.removeprefix("kraken-") for m in rest[:5]) + ",\n" + ", ".join(m.removeprefix("kraken-") for m in rest[5:9]) + ",\n" + ", ".join(m.removeprefix("kraken-") for m in rest[9:]),
+            fontsize=7.5, ha="left", va="top", color=th["fg"], linespacing=1.5)
+    handles = [Line2D([], [], color=th["O"], lw=2), Line2D([], [], color=th["hi"], lw=1.8, ls=(0, (4, 3))), Line2D([], [], color=th["C"], lw=2, ls=(0, (1, 2))),
+               Line2D([], [], marker="s", ls="", mfc=th["bg"], mec=th["hi"], mew=1.6), Line2D([], [], marker="s", ls="", mfc=th["bg"], mec=th["muted"])]
+    ax.legend(handles, ["documented, and the weights agree (distance printed)", "documented, but the weights do not support it",
+                        "suggested by weights and codec only (direction from the codec)", "in-house model", "zoo model"],
+              loc="center right", bbox_to_anchor=(1.0, 0.27), frameon=False, fontsize=7.2)
+    fig.suptitle("Lineage of the surveyed models: what the records say and what the weights say  (distance 1.41 = unrelated)", x=0.02, ha="left", y=0.93, fontsize=10)
+    return fig
+
+
+def plot_zoo_appearance(data: dict, th: dict):
+    """What looks related (codec overlap, name, architecture) against what is related (weights), one dot per pair of models with equal architecture."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    sv, ln = data["survey"], data["lineage"]
+    pc = {frozenset((p["child"], p["parent"])) for p in sv["documented_pairs"] if p["status"] == "tested" and p["reading"]["blocks"]["conv_w"] < 1.0}
+    pc |= {frozenset((p["child"], p["parent"])) for p in sv["inferred_pairs"]}
+    bad = {frozenset(("kraken-bifrost_old_norse", "kraken-catmus_medieval"))}
+    fig, (a, b) = plt.subplots(1, 2, figsize=(11.5, 5.4), gridspec_kw={"wspace": 0.62, "width_ratios": [1.5, 1]})
+    cats = {"other": [], "kin": [], "pc": [], "name": [], "bad": []}
+    for p in ln["pairs"]:
+        if p["distance"] is None:
+            continue
+        k = frozenset((p["a"], p["b"]))
+        c = "pc" if k in pc else "bad" if k in bad else "kin" if p["distance"] < 1.0 else "name" if p["shared_name_family"] else "other"
+        cats[c].append(p)
+    spec = {"other": (th["grid"], 10, "any other pair, same architecture"), "kin": (th["soft"], 22, "related through a shared ancestor, not parent and child"),
+            "name": (th["L"], 24, "same project or name, unrelated weights"), "pc": (th["O"], 34, "parent → child (documented and tested, or inferred)"),
+            "bad": (th["hi"], 70, "documented base, weights unrelated")}
+    for c in ("other", "kin", "name", "pc", "bad"):
+        col, sz, _ = spec[c]
+        a.scatter([p["codec_jaccard"] for p in cats[c]], [p["distance"] for p in cats[c]], s=sz, color=col, linewidths=0,
+                  marker="D" if c == "bad" else "o", alpha=0.9 if c != "other" else 0.8, zorder=3 if c != "other" else 2)
+    a.axhline(2 ** 0.5, color=th["muted"], lw=0.8, ls="--"); a.text(0.0, 1.425, "independent networks √2", color=th["muted"], fontsize=7.5)
+    a.set_xlabel("codec overlap (Jaccard of the character sets)"); a.set_ylabel("weight distance (non-output weights)")
+    a.grid(linewidth=0.5); a.set_axisbelow(True); a.set_ylim(-0.62, 1.65); a.set_yticks(np.arange(0, 1.7, 0.2)); a.set_xlim(-0.02, 1.02)
+    notes = {("kraken-bifrost_old_norse", "kraken-catmus_medieval"): "bifrost ~ catmus_medieval:\ncodec reused, weights not",
+             ("kraken-latin_expanded_11c", "kraken-latin_graphematic_11c"): "the two Latin 11th c.\nmodels (same project)",
+             ("kraken-catmus_print_large", "kraken-latin_incunabula"): "incunabula ← print_large:\ncodec rebuilt, weights kept",
+             ("kraken-catmus_medieval", "kraken-old_norse_am305"): "am305 ~ catmus_medieval",
+             ("kraken-bastarda_inzigkofen", "kraken-cursive_inzigkofen"): "siblings: bastarda ~ cursive",
+             ("kraken-german_print", "kraken-mendelssohn_letters"): "german_print ~ mendelssohn",
+             ("kraken-catmus_medieval", "kraken-mccatmus"): "catmus_medieval ~ mccatmus",
+             ("kraken-mccatmus", "kraken-prima"): "mccatmus → prima", ("german-xix-v1", "kraken-bohemian_19th"): "bohemian → xix-v1"}
+    for p in ln["pairs"]:
+        for (u, v), t in notes.items():
+            if {p["a"], p["b"]} == {u, v} and p["distance"] is not None:
+                off = {"bifrost": (-8, -28), "Latin 11th": (-30, 34), "german_print": (6, 22), "catmus_medieval ~ mccatmus": (-14, -26),
+                       "siblings": (-100, 14), "mccatmus →": (6, -22), "incunabula": (14, 14)}
+                off = next((v for k_, v in off.items() if k_ in t), (6, 6))
+                a.annotate(t, (p["codec_jaccard"], p["distance"]), xytext=off, textcoords="offset points", fontsize=7, color=th["fg"],
+                           ha="left" if off[0] > 0 else "right", arrowprops={"arrowstyle": "-", "color": th["muted"], "lw": 0.5})
+    a.legend([Line2D([], [], marker="D" if c == "bad" else "o", ls="", color=spec[c][0], markersize=6 if c != "other" else 4) for c in ("pc", "kin", "name", "bad", "other")],
+             [spec[c][2] for c in ("pc", "kin", "name", "bad", "other")], loc="lower left", fontsize=7.3, frameon=True, framealpha=0.9)
+    a.set_title("A model that shares a codec, a name or a project need not share weights", loc="left", fontsize=9.5)
+    # panel b: pairs that are not same-architecture cannot be related; show the share that name families would have predicted
+    fam = [p for p in ln["pairs"] if p["shared_name_family"] and p["a"] in sv["models"] and p["b"] in sv["models"]
+           and not (sv["models"][p["a"]]["origin"] == "in-house" and sv["models"][p["b"]]["origin"] == "in-house")]
+    rel = [p for p in fam if p["distance"] is not None and p["distance"] < 1.0]
+    diff = [p for p in fam if not p["same_architecture"]]
+    unrel = [p for p in fam if p["distance"] is not None and p["distance"] >= 1.0]
+    vals = [len(rel), len(unrel), len(diff)]
+    b.barh([2, 1, 0], vals, color=[th["O"], th["L"], th["muted"]], height=0.6)
+    for y, v in zip([2, 1, 0], vals):
+        b.text(v + 0.3, y, str(v), va="center", fontsize=9)
+    b.set_yticks([2, 1, 0]); b.set_yticklabels(["related", "same architecture,\nunrelated", "different\narchitecture"], fontsize=8)
+    b.set_xlabel("pairs (zoo and in-house models, excluding in-house pairs)")
+    b.set_title(f"{len(fam)} pairs that share a project or name", loc="left", fontsize=9.5); b.grid(axis="x", linewidth=0.5); b.set_axisbelow(True)
+    b.set_xlim(0, max(vals) * 1.15)
+    fig.suptitle("Close by appearance, close by weights: not the same thing", x=0.0, ha="left", fontsize=10.5)
+    return fig
+
+
 def figure_zoo(out: Path, fmt: str, path: Path = ZOO_JSON) -> list[Path]:
     data = json.loads(Path(path).read_text())
     paths = []
+    if LINEAGE_JSON.exists():
+        both = {"survey": data, "lineage": json.loads(LINEAGE_JSON.read_text())}
+        paths += render(plot_zoo_lineage, both, out, "zoo-lineage", fmt)
+        paths += render(plot_zoo_appearance, both, out, "zoo-appearance", fmt)
     for fn, name in ((plot_zoo_blank, "zoo-blank-bias"), (plot_zoo_distance, "zoo-distance-standard"), (plot_zoo_pairs, "zoo-pairs")):
         paths += render(fn, data, out, name, fmt)
     return paths

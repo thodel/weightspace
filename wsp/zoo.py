@@ -392,14 +392,76 @@ def survey(zoo: Path, inhouse: Path, gateway: Path, fetch: Path) -> dict:
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["survey"])
+    ap.add_argument("cmd", choices=["survey", "lineage"])
     ap.add_argument("--zoo", default="models/zoo"); ap.add_argument("--inhouse", default="models/kraken")
     ap.add_argument("--gateway", default="docs/zoo/gateway_zenodo.json"); ap.add_argument("--fetch", default="docs/zoo/fetch.json")
     ap.add_argument("--out", default="docs/zoo/survey.json")
     a = ap.parse_args(argv)
+    if a.cmd == "lineage":
+        res = lineage(Path(a.out), Path(a.zoo), Path(a.inhouse))
+        Path(a.out).with_name("lineage.json").write_text(json.dumps(res, indent=1, ensure_ascii=False))
+        print(f"wrote lineage.json: {len(res['pairs'])} pairs")
+        return
     res = survey(Path(a.zoo), Path(a.inhouse), Path(a.gateway), Path(a.fetch))
     Path(a.out).write_text(json.dumps(res, indent=1, ensure_ascii=False))
     print(f"wrote {a.out}: {len(res['models'])} models, {len(res['groups'])} spec groups, {len(res['load_errors'])} load errors")
+
+
+
+# -- lineage: what looks related against what the weights say ---------------------------------------------------
+
+# "Looks related": models that share a project, a corpus or a name in the gateway/Zenodo title. Families are written down by hand from the
+# model names and Zenodo titles only; they are the appearance the weights are compared with, not a claim about training.
+NAME_FAMILIES = {
+    "CATMuS": ["kraken-catmus_medieval", "kraken-catmus_print_large", "kraken-catmus_gothic_print", "kraken-mccatmus"],
+    "Inzigkofen": ["kraken-bastarda_inzigkofen", "kraken-cursive_inzigkofen", "kraken-textualis_inzigkofen"],
+    "Bern (in-house)": ["bern-hertwig-v1", "bern-hertwig-v2", "bern-schlussredaktion-v1", "bern-combined-v1"],
+    "German XIX (in-house)": ["german-xix-v1", "german-xix-blb-v1"],
+    "Latin 11th c. (Worms)": ["kraken-latin_expanded_11c", "kraken-latin_graphematic_11c"],
+    "Medieval Latin/French": ["kraken-medieval_latin_french_abbreviated", "kraken-medieval_latin_french_expanded", "kraken-cremma_medieval"],
+    "FoNDUE": ["kraken-fondue_gd_v2", "kraken-manu_mcfondue"],
+    "Old Norse": ["kraken-bifrost_old_norse", "kraken-old_norse_am305"],
+    "German script/print": ["kraken-german_print", "kraken-mendelssohn_letters", "kraken-austrian_fraktur", "german-xix-v1", "german-xix-blb-v1"],
+    "French": ["kraken-peraire_french", "kraken-french_vietnamese", "kraken-estournelles_typewritten"],
+    "Slavic/Cyrillic": ["kraken-glagolitic_print", "kraken-cyrillic_uncial"],
+    "kraken+ (in-house)": ["plus-shard00-cr1", "medieval-shard00-v1", "medieval-shard00-std", "collapse-probe-131-cr1"],
+}
+
+
+def lineage(survey_path: Path, zoo: Path, inhouse: Path) -> dict:
+    """Pair table over all surveyed models: codec overlap, appearance (same name family), architecture, weight distance."""
+    sv = json.loads(Path(survey_path).read_text())
+    models = sv["models"]
+    codecs = {}
+    for mid, m in models.items():
+        p = (zoo / mid / m["file"]) if m["origin"] == "zoo" else (inhouse / m["file"])
+        codecs[mid] = KrakenSubject(p).codec_map()
+    dist = {}
+    for e in sv["distances"].values():
+        for k, v in e["pairs"].items():
+            dist[frozenset(k.split("|"))] = v["rel"]
+    fam_of: dict[str, set] = {}
+    for f, ids in NAME_FAMILIES.items():
+        for i in ids:
+            fam_of.setdefault(i, set()).add(f)
+    doc = {frozenset((p["child"], p["parent"])): p for p in sv["documented_pairs"]}
+    inf = {frozenset((p["child"], p["parent"])) for p in sv["inferred_pairs"]}
+    ids = sorted(models)
+    pairs = []
+    for i, a in enumerate(ids):
+        for b in ids[i + 1:]:
+            ca, cb = codecs[a], codecs[b]
+            sh = set(ca) & set(cb)
+            row = {"a": a, "b": b, "same_architecture": models[a]["spec_key"] == models[b]["spec_key"],
+                   "codec_jaccard": len(sh) / len(set(ca) | set(cb)),
+                   "codec_same_index": (sum(ca[c] == cb[c] for c in sh) / len(sh)) if sh else None,
+                   "shared_name_family": sorted(fam_of.get(a, set()) & fam_of.get(b, set())),
+                   "distance": dist.get(frozenset((a, b)))}
+            k = frozenset((a, b))
+            row["documented"] = None if k not in doc else doc[k]["status"]
+            row["weights_only"] = k in inf
+            pairs.append(row)
+    return {"name_families": NAME_FAMILIES, "pairs": pairs, "codec_sizes": {m: len(c) for m, c in codecs.items()}}
 
 
 if __name__ == "__main__":

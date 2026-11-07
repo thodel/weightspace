@@ -170,3 +170,83 @@ Tally over the 11 documented related pairs: conv < BiLSTM in 8; conv < output ro
 
 - `kraken-gallicorpora` (10.5281/zenodo.7410529): HTTPError: 429 Client Error: TOO MANY REQUESTS for url: https://zenodo.org/oai2d?identifier=oai%3Azenodo.org%3A7410529&metadataPrefix=dcat&verb=GetRecord
 - Load errors under kraken 7.0.2: 0.
+
+### T9. What looks related, and what is related
+
+**a) Parent → child (documented and tested, or inferred): weights close** (13 pairs)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `bern-hertwig-v1` – `cursive_inzigkofen` | — | yes | 0.98 | 1.00 | 0.13 |
+| `catmus_print_large` – `french_vietnamese` | — | yes | 0.92 | 1.00 | 0.19 |
+| `bern-hertwig-v2` – `bern-schlussredaktion-v1` | Bern (in-house) | yes | 0.99 | 1.00 | 0.20 |
+| `bern-hertwig-v1` – `bern-hertwig-v2` | Bern (in-house) | yes | 1.00 | 1.00 | 0.23 |
+| `bern-combined-v1` – `bern-hertwig-v2` | Bern (in-house) | yes | 0.99 | 1.00 | 0.23 |
+| `mccatmus` – `prima` | — | yes | 0.79 | 1.00 | 0.26 |
+| `german-xix-blb-v1` – `german-xix-v1` | German XIX (in-house), German script/print | yes | 0.76 | 1.00 | 0.27 |
+| `bern-hertwig-v2` – `cursive_inzigkofen` | — | yes | 0.98 | 1.00 | 0.28 |
+| `catmus_print_large` – `latin_incunabula` | — | yes | 0.38 | 0.02 | 0.33 |
+| `textualis_inzigkofen` – `tridis_v2` | — | yes | 0.98 | 1.00 | 0.33 |
+| `german-xix-v1` – `bohemian_19th` | — | yes | 0.60 | 1.00 | 0.70 |
+| `bastarda_inzigkofen` – `catmus_medieval` | — | yes | 0.98 | 1.00 | 0.72 |
+| `catmus_medieval` – `cursive_inzigkofen` | — | yes | 0.96 | 1.00 | 0.74 |
+
+**b) The record names the base and the codec is largely the base's, but the weights are unrelated** (1 pair)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `bifrost_old_norse` – `catmus_medieval` | — | yes | 0.78 | 0.38 | 1.36 |
+
+**c) Same project or name, same architecture, weights unrelated (distance ≥ 1.2)** (16 pairs)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `cyrillic_uncial` – `glagolitic_print` | Slavic/Cyrillic | yes | 0.08 | 0.03 | 1.28 |
+| `catmus_medieval` – `mccatmus` | CATMuS | yes | 0.38 | 0.01 | 1.35 |
+| `latin_expanded_11c` – `latin_graphematic_11c` | Latin 11th c. (Worms) | yes | 0.61 | 0.01 | 1.37 |
+| `bifrost_old_norse` – `old_norse_am305` | Old Norse | yes | 0.28 | 0.01 | 1.38 |
+| `austrian_fraktur` – `german_print` | German script/print | yes | 0.66 | 0.02 | 1.39 |
+| `catmus_gothic_print` – `catmus_print_large` | CATMuS | yes | 0.57 | 0.01 | 1.40 |
+| `german-xix-blb-v1` – `mendelssohn_letters` | German script/print | yes | 0.52 | 0.27 | 1.40 |
+| `german-xix-v1` – `mendelssohn_letters` | German script/print | yes | 0.52 | 0.29 | 1.41 |
+| `cremma_medieval` – `medieval_latin_french_abbreviated` | Medieval Latin/French | yes | 0.45 | 0.01 | 1.41 |
+| `fondue_gd_v2` – `manu_mcfondue` | FoNDUE | yes | 0.44 | 0.21 | 1.42 |
+| `german-xix-v1` – `german_print` | German script/print | yes | 0.49 | 0.02 | 1.42 |
+| `german-xix-blb-v1` – `german_print` | German script/print | yes | 0.47 | 0.02 | 1.42 |
+| `german_print` – `mendelssohn_letters` | German script/print | yes | 0.72 | 0.01 | 1.44 |
+| `german-xix-v1` – `austrian_fraktur` | German script/print | yes | 0.45 | 0.02 | 1.45 |
+
+(first 14 of 16, sorted by distance)
+
+**d) Weights related, codec rebuilt (overlap < 0.5)** (5 pairs)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `catmus_print_large` – `latin_incunabula` | — | yes | 0.38 | 0.02 | 0.33 |
+| `french_vietnamese` – `latin_incunabula` | — | yes | 0.36 | 0.02 | 0.37 |
+| `catmus_medieval` – `old_norse_am305` | — | yes | 0.23 | 0.01 | 0.61 |
+| `bastarda_inzigkofen` – `old_norse_am305` | — | yes | 0.23 | 0.01 | 0.83 |
+| `cursive_inzigkofen` – `old_norse_am305` | — | yes | 0.23 | 0.01 | 0.84 |
+
+**e) Siblings of one parent are further from each other than from the parent** (1 pair)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `bastarda_inzigkofen` – `cursive_inzigkofen` | Inzigkofen | yes | 0.98 | 0.98 | 0.86 |
+
+**f) Same name family, different architecture (weights cannot be shared)** (11 pairs)
+
+| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
+|---|---|---|---:|---:|---:|
+| `bastarda_inzigkofen` – `textualis_inzigkofen` | Inzigkofen | no | 0.33 | 0.00 | — |
+| `catmus_gothic_print` – `catmus_medieval` | CATMuS | no | 0.77 | 0.00 | — |
+| `catmus_gothic_print` – `mccatmus` | CATMuS | no | 0.42 | 0.01 | — |
+| `catmus_medieval` – `catmus_print_large` | CATMuS | no | 0.51 | 0.01 | — |
+| `catmus_print_large` – `mccatmus` | CATMuS | no | 0.44 | 0.27 | — |
+| `cremma_medieval` – `medieval_latin_french_expanded` | Medieval Latin/French | no | 0.40 | 0.01 | — |
+| `cursive_inzigkofen` – `textualis_inzigkofen` | Inzigkofen | no | 0.34 | 0.00 | — |
+| `estournelles_typewritten` – `french_vietnamese` | French | no | 0.32 | 0.04 | — |
+| `estournelles_typewritten` – `peraire_french` | French | no | 0.74 | 0.03 | — |
+| `french_vietnamese` – `peraire_french` | French | no | 0.32 | 0.05 | — |
+| `medieval_latin_french_abbreviated` – `medieval_latin_french_expanded` | Medieval Latin/French | no | 0.87 | 0.05 | — |
+

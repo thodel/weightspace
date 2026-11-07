@@ -181,4 +181,42 @@ P("\n### T8. Not fetched or not loaded\n")
 for x in d["fetch_failures"]:
     P(f"- `{x['id']}` ({x['doi']}): {x['error']}")
 P(f"- Load errors under kraken 7.0.2: {len(d['load_errors'])}" + ("".join(f"; `{e['id']}`: {e['error']}" for e in d["load_errors"])) + ".")
+
+# -- T9: appearance against weights (needs docs/zoo/lineage.json)
+import os
+lp = os.path.join(os.path.dirname(sys.argv[1]), "lineage.json")
+if os.path.exists(lp):
+    L = json.load(open(lp))["pairs"]
+    pc = {frozenset((p["child"], p["parent"])) for p in d["documented_pairs"] if p["status"] == "tested" and p["reading"]["blocks"]["conv_w"] < 1.0}
+    pc |= {frozenset((p["child"], p["parent"])) for p in d["inferred_pairs"]}
+
+    def nm(x):
+        return x.removeprefix("kraken-")
+
+    def row(p):
+        ix = "—" if p["codec_same_index"] is None else f"{p['codec_same_index']:.2f}"
+        return (f"| `{nm(p['a'])}` – `{nm(p['b'])}` | {', '.join(p['shared_name_family']) or '—'} | {'yes' if p['same_architecture'] else 'no'} | "
+                f"{p['codec_jaccard']:.2f} | {ix} | {'—' if p['distance'] is None else f'{p['distance']:.2f}'} |")
+    head = ["| pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |", "|---|---|---|---:|---:|---:|"]
+    P("\n### T9. What looks related, and what is related\n")
+    groups = [
+        ("a) Parent → child (documented and tested, or inferred): weights close", [p for p in L if frozenset((p["a"], p["b"])) in pc]),
+        ("b) The record names the base and the codec is largely the base's, but the weights are unrelated",
+         [p for p in L if {p["a"], p["b"]} == {"kraken-bifrost_old_norse", "kraken-catmus_medieval"}]),
+        ("c) Same project or name, same architecture, weights unrelated (distance ≥ 1.2)",
+         [p for p in L if p["shared_name_family"] and p["same_architecture"] and p["distance"] is not None and p["distance"] >= 1.2
+          and not (p["a"] in H and p["b"] in H)]),
+        ("d) Weights related, codec rebuilt (overlap < 0.5)",
+         [p for p in L if p["distance"] is not None and p["distance"] < 1.0 and p["codec_jaccard"] < 0.5 and p["a"] not in H and p["b"] not in H]),
+        ("e) Siblings of one parent are further from each other than from the parent",
+         [p for p in L if {p["a"], p["b"]} in ({"kraken-bastarda_inzigkofen", "kraken-cursive_inzigkofen"},)]),
+        ("f) Same name family, different architecture (weights cannot be shared)",
+         [p for p in L if p["shared_name_family"] and not p["same_architecture"] and not (p["a"] in H and p["b"] in H)]),
+    ]
+    for title, rows in groups:
+        P(f"**{title}** ({len(rows)} pair{'s' if len(rows) != 1 else ''})\n")
+        P("\n".join(head + [row(p) for p in sorted(rows, key=lambda p: (p["distance"] is None, p["distance"] or 9))[:14]]))
+        if len(rows) > 14:
+            P(f"\n(first 14 of {len(rows)}, sorted by distance)")
+        P("")
 print("\n".join(out))
