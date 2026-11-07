@@ -23,7 +23,8 @@ from wsp.subject import Subject, Prediction
 
 
 class LoraSubject(Subject):
-    def __init__(self, adapter_dir: str | Path, forward: Callable[[Path, Sequence[dict]], list[str]] | None = None):
+    def __init__(self, adapter_dir: str | Path, forward: Callable[[Path, Sequence[dict]], list[str]] | None = None,
+                 work_dir: str | Path | None = None):
         from safetensors.numpy import load_file  # lazy
 
         self.dir = Path(adapter_dir)
@@ -31,7 +32,8 @@ class LoraSubject(Subject):
         self._state = {k: v.astype(np.float32) for k, v in load_file(str(self.dir / "adapter_model.safetensors")).items()}
         self._dtypes = {k: v.dtype for k, v in load_file(str(self.dir / "adapter_model.safetensors")).items()}
         self._forward = forward
-        self._work: Path | None = None
+        #: where a pass's adapter is written; a session puts it in its run folder, never beside the original
+        self._work: Path | None = Path(work_dir) if work_dir else None
 
     def describe(self) -> dict:
         mods = sorted({k.rsplit(".lora_", 1)[0] for k in self._state})
@@ -102,9 +104,12 @@ class LoraSubject(Subject):
         path.mkdir(parents=True, exist_ok=True)
         for f in self.dir.iterdir():
             if f.name != "adapter_model.safetensors" and f.is_file():
-                shutil.copy2(f, path / f.name)
+                dst = path / f.name
+                if dst.resolve() != f.resolve():
+                    dst.unlink(missing_ok=True)          # a read-only original's copy is read-only too
+                    shutil.copyfile(f, dst)
+        (path / "adapter_model.safetensors").unlink(missing_ok=True)
         save_file({k: v.astype(self._dtypes[k]) for k, v in self._state.items()}, str(path / "adapter_model.safetensors"))
-        self._work = path
         return path
 
 

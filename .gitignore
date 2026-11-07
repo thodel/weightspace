@@ -25,3 +25,4 @@ protocol/site/
 runs/*/passes/
 runs/*/*.adapter/
 runs/*/*.wsp-work/
+runs/*/work.adapter/

@@ -80,7 +80,7 @@ def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, ru
         fwd = None
         if meta and run_dir:
             fwd = reference_runner(meta["practice"], meta["data_root"], run_dir / "passes")
-        return LoraSubject(p, forward=fwd)
+        return LoraSubject(p, forward=fwd, work_dir=(run_dir / "work.adapter") if run_dir else None)
     raise ValueError(f"no subject for {p}")
 
 
