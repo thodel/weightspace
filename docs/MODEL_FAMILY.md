@@ -10,18 +10,25 @@ gateway's kraken engine, 43 models) — how do they compare *as neural networks*
 ## Material
 
 `data/family/models.json` is the gateway's list (read with `gateway_models`, 07.11.2026): 43 kraken
-models, 37 published on Zenodo and 6 trained in-house. Weights on asteraix: the 6 in-house
-models (`models/kraken/`) and the 4 Zenodo models the trainer keeps as bases on the share
-(`training_folder/bases/`: catmus_medieval, cursive_inzigkofen, bohemian_19th, bifrost_old_norse).
-The serving box idhefix, which holds all 43, is not reachable from asteraix. The other 33 are
-on Zenodo: `python -m wsp.family fetch` lists them (33 files, 608 MB), `--apply` downloads and
-checks Zenodo's checksum. **Not downloaded yet: waiting for an OK.**
+models, 37 published on Zenodo and 6 trained in-house. Weights for all 43 are on asteraix: the 6
+in-house models (`models/kraken/`), 4 Zenodo models the trainer keeps as bases on the share
+(`training_folder/bases/`), and the other 33 downloaded from the Zenodo records the gateway names
+(`python -m wsp.family fetch --apply`, 07.11.2026: 33 files, 608 MB, every file's checksum equal to
+Zenodo's) into `~/atr-cache/wsp/family/zenodo/`. The serving box idhefix is not reachable from asteraix.
 
-All 10 models here share one architecture, the CATMuS/kraken default
-`Cr3,13,32 Mp Cr3,13,32 Mp Cr3,9,64 Mp Cr3,9,64 S Lbx200 Lbx200 Lbx200 O1c<alphabet>`
-(blocks `C_0 C_3 C_6 C_9` convolution + ReLU, `L_12 L_14 L_16` bidirectional LSTM, `O_18` the output
-layer, one row per character + the CTC blank). Only `O_18`'s size differs. Several of the 33
-on Zenodo are larger files (22–43 MB) and will have other architectures.
+**Five architecture groups.** Two models compare element by element only if they have the same input
+height and the same tensor shapes outside the output layer (`wsp.family.arch`; a different dropout rate,
+which has no weights, does not split a group):
+
+| group | models | architecture |
+|---|---:|---|
+| A | 33 | CATMuS/kraken default, height 120: `Cr3,13,32 Mp Cr3,13,32 Mp Cr3,9,64 Mp Cr3,9,64 S Lbx200 ×3 O` — blocks `C_0 C_3 C_6 C_9 L_12 L_14 L_16 O_18` |
+| B | 6 | group-norm variant, height 120: `Cr4,2,32 Gn Cr4,2,64 Gn Mp Cr3,3,128 Gn Mp S Lbx256 ×3 O` — catmus_print_large, catmus_gothic_print, latin_incunabula, french_vietnamese, cremma_medieval, medieval_latin_french_abbreviated |
+| C | 2 | default layout, larger: height 140, `Cr4,16,32 … Lbx256 ×3` — tridis_v2, textualis_inzigkofen |
+| D | 1 | english_print (2019): height 48, two convolutions, one `Lbx100` |
+| E | 1 | estournelles_typewritten: group B's layout at height 48 |
+
+Lineages and distances below are always within a group; CKA (function) too.
 
 ## Method
 
@@ -35,8 +42,10 @@ cosine. `O_18` is compared on the characters both alphabets share (rows paired b
 Structural zeros (kraken's LSTM input biases, 1,600 per layer, zero in every model) are excluded
 from the identity count. Element-wise comparison means something only inside a **lineage**
 (models fine-tuned from a common ancestor share their initialisation): between independently
-trained networks hidden units are in arbitrary order. The body cosine (all blocks except `O_18`)
-is the lineage test; it separates cleanly: related pairs 0.72–0.99, unrelated 0.03–0.08.
+trained networks hidden units are in arbitrary order. The body cosine (all blocks except the output)
+is the lineage test. Over the 544 comparable pairs it falls into three bands: 496 pairs below 0.2
+(at most 0.17: unrelated), 7 between 0.2 and 0.5 (distant relatives, below), 41 above 0.6 (every
+recorded fine-tune is here); nothing lies between 0.5 and 0.6, where the cut-off sits.
 
 **Function (RQ2 across lineages).** Linear CKA (Kornblith et al. 2019) between two models'
 outputs of the same block on the same 120 probe lines (40 each from `blb-train-300`,
@@ -59,82 +68,113 @@ have been trained (RQ1, functional). Practice sets only; no held-out set is read
 the two series colours checked for colour-vision separation, and labelled directly because the
 orange is low-contrast on white). The numbers behind every figure are in `docs/family/tables.md`.
 
-**1. Similarity by depth.** Linear CKA per layer for every pair of models (thin lines) and the two
-group means (thick: same lineage, blue circles; different lineages, orange squares). In the
-convolutional front end (grey band) even unrelated models stay similar (mean CKA 0.56–0.75); the
-recurrent stack is where models become individual, and the output layer is individual even inside a
-lineage (mean 0.26).
+**1. Similarity by depth.** Linear CKA per layer, mean and 10–90 % band for each relation class (same
+lineage, blue circles; distant relatives, green diamonds; unrelated, orange squares), one panel per
+architecture group with at least three models. In the convolutional front end (grey band) even
+unrelated models stay similar; the recurrent stack is where models become individual; the output layer
+is individual even inside a lineage. Group B's first convolution is practically the same in all six
+models (CKA 0.99, unrelated ones included).
 
-![Per-layer CKA for every pair and the two group means, falling from 0.87/0.75 at C_0 to 0.26/0.04 at the output layer.](family/figures/family-cka-profile.svg#only-light)
-![Per-layer CKA for every pair and the two group means, falling from 0.87/0.75 at C_0 to 0.26/0.04 at the output layer.](family/figures/family-cka-profile-dark.svg#only-dark)
+![Per-layer CKA by relation class in groups A and B, falling from 0.80–0.93 (A) and 0.99–1.00 (B) at the first layer to 0.03–0.32 at the output.](family/figures/family-cka-profile.svg#only-light)
+![Per-layer CKA by relation class in groups A and B, falling from 0.80–0.93 (A) and 0.99–1.00 (B) at the first layer to 0.03–0.32 at the output.](family/figures/family-cka-profile-dark.svg#only-dark)
 
-**2. Who is like whom, per layer.** The same CKA as model × model matrices, one per layer, models
-grouped by lineage (base first). `C_0` is nearly uniform (mean 0.80): one shared kind of front end.
-From `L_14` on the lineage blocks stand out on the diagonal, and in `O_18` only the Bern models and the
-two german-xix models still resemble each other (CKA 0.42–0.67 and 0.45).
+**2. Who is like whom, per layer.** Group A's 33 models as model × model CKA matrices, one per layer,
+lineages first (base first, framed) and unrelated models after. `C_0` is nearly uniform (mean 0.80):
+one kind of front end for the whole group. From `L_14` on the lineages stand out on the diagonal, and in
+`O_18` only lineage members still resemble each other.
 
-![Eight model-by-model CKA matrices, one per layer; uniform in C_0, block-diagonal by lineage from L_14, nearly diagonal at O_18.](family/figures/family-cka-matrices.svg#only-light)
-![Eight model-by-model CKA matrices, one per layer; uniform in C_0, block-diagonal by lineage from L_14, nearly diagonal at O_18.](family/figures/family-cka-matrices-dark.svg#only-dark)
+![Eight 33-by-33 CKA matrices of group A, one per layer; nearly uniform in C_0, lineage blocks from L_14, almost only the diagonal at O_18.](family/figures/family-cka-matrices.svg#only-light)
+![Eight 33-by-33 CKA matrices of group A, one per layer; nearly uniform in C_0, lineage blocks from L_14, almost only the diagonal at O_18.](family/figures/family-cka-matrices-dark.svg#only-dark)
 
-**3. What a fine-tune moves.** Relative weight distance parent → child per layer for every recorded
-fine-tune. Light cells barely moved: the first convolution in every Bern fine-tune (0.07–0.10). The
-two "big" steps (CATMuS → Inzigkofen, Bohemica → german-xix) move the whole network; the second one
-moves its first layer most (0.92), unlike any other fine-tune here.
+**3. What a fine-tune moves.** Relative weight distance parent → child per layer, one strip per
+architecture group, for the recorded in-house fine-tunes and every base the registry states and the
+weights confirm. Light cells barely moved: the first convolution in every Bern fine-tune (0.07–0.10)
+and in group B's fine-tunes (0.05–0.08, with the group norms at 0.02–0.08). The "big" steps
+(CATMuS → Inzigkofen ×2, Bohemica → german-xix, OpenITI Arabic → Persian/Ottoman) move the whole network;
+Bohemica → german-xix moves its first layer most (0.92), unlike any other fine-tune here.
 
-![Heat strip of relative distance per layer for seven parent-child fine-tunes, with the values written in each cell.](family/figures/family-weight-drift.svg#only-light)
-![Heat strip of relative distance per layer for seven parent-child fine-tunes, with the values written in each cell.](family/figures/family-weight-drift-dark.svg#only-dark)
+![Heat strips of relative distance per layer for thirteen parent-child fine-tunes in groups A, B and C, values written in each cell.](family/figures/family-weight-drift.svg#only-light)
+![Heat strips of relative distance per layer for thirteen parent-child fine-tunes in groups A, B and C, values written in each cell.](family/figures/family-weight-drift-dark.svg#only-dark)
 
-**4. What never changes.** Dead first-layer filters per model (ReLU output 0 on every probe frame).
-These, and the second-layer weights that read them, are the only parameters that stay bit-identical
-through a fine-tune.
+**4. What never changes.** Dead first-layer filters per model (output 0 on every probe frame), all 43,
+by architecture group. These, and the next layer's weights that read them, are the only parameters
+that stay bit-identical through a fine-tune.
 
-![Bar chart of dead C_0 filters per model: CATMuS lineage 0 to 7, Kurrent lineage 8 to 10, bifrost 1.](family/figures/family-dead-filters.svg#only-light)
-![Bar chart of dead C_0 filters per model: CATMuS lineage 0 to 7, Kurrent lineage 8 to 10, bifrost 1.](family/figures/family-dead-filters-dark.svg#only-dark)
+![Bar chart of dead first-layer filters for all 43 models: 11 have none, 11 have a third or more, up to 19 of 32.](family/figures/family-dead-filters.svg#only-light)
+![Bar chart of dead first-layer filters for all 43 models: 11 have none, 11 have a third or more, up to 19 of 32.](family/figures/family-dead-filters-dark.svg#only-dark)
 
-## Findings so far (10 models)
+## Findings (all 43 models)
 
-### Lineages, from the weights alone
+### Lineages and stated bases, from the weights alone
 
-| lineage | models | what the weights add to the registry |
-|---|---|---|
-| 1 CATMuS medieval | catmus_medieval → cursive_inzigkofen → bern-hertwig-v1/-v2, bern-schlussredaktion-v1, bern-combined-v1 | as recorded |
-| 2 Kurrent XIX | bohemian_19th → german-xix-v1 → german-xix-blb-v1 | **german-xix-v1's base, "to confirm" in docs/MODELS.md, is bohemian_19th** (body cosine 0.756; the trainer's copy of `rec_bohemica.mlmodel` in `bases/` is dated 07.10.2026, the day of the german-xix-v1 job) |
-| 3 | bifrost_old_norse | the gateway names catmus_medieval (zenodo.15030337) as its base, but its body cosine with catmus-medieval-1.6.0 is 0.080, at the level of unrelated models (≤ 0.08): it was not fine-tuned from *this file* (another CATMuS version, or trained from scratch) |
+| lineage | group | models | what the weights add to the registry |
+|---|---|---|---|
+| 1 CATMuS medieval | A | catmus_medieval → cursive_inzigkofen → bern-hertwig-v1 → -v2 → bern-schlussredaktion-v1, bern-combined-v1; catmus_medieval → bastarda_inzigkofen; old_norse_am305 | the in-house chain as recorded; **old_norse_am305** (no base stated) also descends from catmus_medieval (body cosine 0.831) |
+| 2 Kurrent XIX | A | bohemian_19th → german-xix-v1 → german-xix-blb-v1 | **german-xix-v1's base, "to confirm" in docs/MODELS.md, is bohemian_19th** (0.756; the trainer's copy of `rec_bohemica.mlmodel` in `bases/` is dated 07.10.2026, the day of the german-xix-v1 job) |
+| 3 OpenITI | A | openiti_arabic_print → persian_print, ottoman_print | as stated (0.796, 0.785) |
+| 4 McCATMuS | A | mccatmus, prima | **prima** (no base stated) shares mccatmus's initialisation (0.966) |
+| 5 | A | glagolitic_print, hebrew_sephardi, samaritan | not recorded anywhere (0.64–0.70); with cyrillic_uncial (0.30–0.37 to them) they form most of the *distant relatives*: likely models several fine-tunes removed from a common start. hebrew_sephardi also has weak links (0.23–0.24) to medieval_latin_french_expanded and gallicorpora |
+| 6 CATMuS print | B | catmus_print_large → french_vietnamese, latin_incunabula | as stated (0.982, 0.946) |
+| 7 Tridis | C | tridis_v2 → textualis_inzigkofen | as stated (0.947) |
+
+Stated bases contradicted by the weights:
+
+- **bifrost_old_norse** names catmus_medieval (zenodo.15030337); body cosine 0.080, unrelated. It was not
+  fine-tuned from this file (another CATMuS version, or trained from scratch).
+- **catmus_gothic_print** names catmus_medieval too, but has group B's architecture, which catmus_medieval
+  (group A) does not: it cannot be a fine-tune of that file.
+
+The other 22 models are singletons: trained from scratch, or from a base that is not served.
 
 ### RQ1 — nothing trained stays identical; what is identical is dead
 
-- Between unrelated models, no live parameter is identical. Within a lineage, the only identical
-  parameters sit in the first two convolution blocks: 2–25 % of `C_0`, 9–25 % of `C_3`, and
-  **0.00 % of every block from `C_6` on**. The body as a whole: 0.1–0.3 % identical.
-- These are **dead units**, not frozen learning: the unchanged `C_0` filters output 0 on every
-  probe frame (ReLU never fires, so no gradient reaches them), and the unchanged `C_3` weights
-  are exactly those that read the dead `C_0` channels. german-xix-v1 → xix-blb-v1: 8 of 32 `C_0`
-  filters dead and unchanged, and 25.5 % of `C_3` unchanged ≈ 8/32 of its input channels.
-- Dead first-layer filters grow down the CATMuS lineage: catmus_medieval 0 of 32 → cursive_inzigkofen 3 →
-  hertwig-v1 3 → hertwig-v2 6, schlussredaktion-v1 7, combined-v1 6. The Kurrent lineage starts high
-  and stays there: bohemian_19th 10 → german-xix-v1 8 → xix-blb-v1 9, so a quarter of its first layer
-  does nothing. (Dead on the 120 probe lines; a filter could fire on other material.)
-- So no block is identical enough to have been frozen *as trained*. Whether a block *could* have
-  been frozen without loss is a functional question, answered by the exchange grid (β = 1 to the
-  parent), below.
+- Between unrelated models, no live parameter is identical. Within every lineage of every group, the only
+  identical parameters sit in the first two convolution layers (and in group B in the group norm between
+  them): from 0 % (mccatmus → prima, catmus_medieval → old_norse_am305) up to 56–60 % (openiti
+  ottoman ↔ persian, tridis ↔ textualis), and **0.0 % in every layer from the third on**. The body as a
+  whole: below 0.5 % identical.
+- These are **dead units**, not frozen learning: the unchanged first-layer filters output 0 on every
+  probe frame (ReLU never fires, so no gradient reaches them), and the unchanged second-layer weights are
+  exactly those that read the dead channels. german-xix-v1 → xix-blb-v1: 8 of 32 `C_0` filters dead and
+  unchanged, and 25.5 % of `C_3` unchanged ≈ 8/32 of its input channels; openiti ottoman/persian: 19 of 32
+  dead, 56–57 % unchanged.
+- Dead first-layer filters are common across the family: 11 of the 43 models have none, 11 have a third
+  or more (up to 19 of 32 in openiti_ottoman_print, openiti_persian_print and textualis_inzigkofen,
+  18 in mendelssohn_letters). Along a fine-tune they mostly accumulate: catmus_medieval 0 → cursive 3 →
+  hertwig-v2 6 → schlussredaktion-v1 7; openiti_arabic_print 11 → persian 19; tridis_v2 15 → textualis 19.
+  A few revive (at most 1 per step in the Bern chain, 2 from bohemian_19th to german-xix-v1): "dead" here
+  means silent on the 120 probe lines, and a filter that fires on the training material does get a gradient.
+- So no layer is identical enough to have been frozen *as trained*; the identical part is capacity that
+  does nothing, a pruning candidate rather than a freezing one. Whether a layer *could* have been frozen
+  without loss is a functional question, answered by the exchange grid (β = 1 to the parent), below.
 
-### RQ2 — distance grows with depth; the front end is shared even across lineages
+### RQ2 — distance grows with depth; the front end is shared across the whole family
 
-- **Weight space, within lineages:** every fine-tune moves the late blocks most. cursive → hertwig-v1:
-  `C_0` 0.07, `C_6` 0.13, `L_16` 0.15, `O_18` 0.25; catmus → cursive: `C_0` 0.24, `C_9` 0.84, `L_12` 0.82.
-  One exception: bohemian_19th → german-xix-v1 moved `C_0` the most of all blocks (0.92 against
-  0.60–0.78 elsewhere), which suggests the two were fed differently prepared images (a different
-  binarisation, normalisation or polarity of the input) — to check in the trainer's record.
-- **Function, across all pairs:** CKA falls with depth in every pair. Mean over the 27 pairs from
-  different lineages: `C_0` 0.75, `C_3`/`C_6` 0.58–0.59, `C_9` 0.56, `L_12` 0.55, `L_14` 0.46, `L_16` 0.29,
-  `O_18` 0.04; within lineages (18 pairs) 0.87 → 0.26. Independently trained models compute
-  much the same first layer and diverge in the recurrent stack; the last LSTM and the output
-  layer are where models are individual. The front end is generic in function even where it is
-  not shared in weights (unrelated pairs are 0.0 apart in cosine, 0.75 alike in CKA).
+- **Weight space, within lineages:** every fine-tune moves the late layers more than the first. Small
+  fine-tunes barely touch the first convolution (Bern chain 0.07–0.10, group B 0.05–0.08) and move the
+  recurrent layers and output 2–4× more; large ones (CATMuS → Inzigkofen/Bastarda, OpenITI Arabic →
+  Persian/Ottoman) move the deeper layers by 0.5–0.85 and still the first layer least (0.24–0.56). One exception: bohemian_19th → german-xix-v1
+  moved `C_0` the most of all layers (0.92 against 0.60–0.78 elsewhere), which suggests differently
+  prepared input images (binarisation, normalisation or polarity) — to check in the trainer's record.
+- **Function:** CKA falls with depth in every group and every relation class.
+
+  | group, pairs | first conv | last conv | first LSTM | last LSTM | output |
+  |---|---:|---:|---:|---:|---:|
+  | A, same lineage (37) | 0.85 | 0.71 | 0.62 | 0.39 | 0.19 |
+  | A, distant relatives (7) | 0.93 | 0.61 | 0.56 | 0.22 | 0.03 |
+  | A, unrelated (484) | 0.80 | 0.48 | 0.48 | 0.23 | 0.04 |
+  | B, same lineage (3) | 1.00 | 0.95 | 0.79 | 0.41 | 0.32 |
+  | B, unrelated (12) | 0.99 | 0.72 | 0.60 | 0.30 | 0.09 |
+
+  Independently trained models compute much the same first layer — in group B practically the same
+  (0.99) — and diverge in the recurrent stack; the last LSTM and the output layer are where models are
+  individual. The front end is generic in function even where it shares no weights (unrelated pairs:
+  cosine below 0.2, CKA 0.80 in the first layer). Full per-layer means and every pair: `docs/family/tables.md`,
+  `docs/family/functional.json`.
 
 ### RQ3 — exchange: half-way moves in the front end stabilise a little; the recurrent stack trades
 
-First grid, 07.11.2026: five specific ← general pairs from lineages 1 and 2, every block at β = 0.5 and
+First grid, 07.11.2026, on the in-house lineages 1 and 2 (run before the download; not yet extended to the new lineages): five specific ← general pairs from lineages 1 and 2, every block at β = 0.5 and
 1, each variant read on three practice sets (240 readings, CPU). Full tables: `docs/family/tables.md`;
 numbers and block statistics per variant: `docs/family/exchange-*.json` (the per-line readings stay on
 asteraix under `docs/family/readings/`, git-ignored, 12 MB).
@@ -179,8 +219,9 @@ can only trade, not improve. Whether several half-way convolutional moves add up
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. Download the 33 Zenodo models (needs an OK; 608 MB), group by architecture, re-run weights and
-   function over all 43.
+1. RQ3 on the lineages the download added: catmus_print_large → latin_incunabula / french_vietnamese
+   (group B, where the first layer is shared almost exactly), openiti_arabic_print → persian/ottoman,
+   tridis_v2 → textualis_inzigkofen — each needs practice lines of its own material first.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
    by activation correlation on the probe lines, then permute), so that the generic front end
    of a general model can replace that of an unrelated specific one.

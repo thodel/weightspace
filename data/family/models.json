@@ -28,7 +28,7 @@
     "nl"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.21536798/FoNDUE-GD_v2.mlmodel"
   },
   {
    "id": "kraken-old_norse_am305",
@@ -45,7 +45,7 @@
     "non"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.20529753/best_0.9735.mlmodel"
   },
   {
    "id": "kraken-prima",
@@ -64,7 +64,7 @@
     "it"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.18220238/PRIMA HTR.mlmodel"
   },
   {
    "id": "kraken-bastarda_inzigkofen",
@@ -83,7 +83,7 @@
     "de"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.18207779/bastarda_jos_von_pfullendorf.mlmodel"
   },
   {
    "id": "kraken-cursive_inzigkofen",
@@ -121,7 +121,7 @@
     "de"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.18207719/textualis_anna_jaeck.mlmodel"
   },
   {
    "id": "kraken-mendelssohn_letters",
@@ -138,7 +138,7 @@
     "de"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.18207676/fanny_20250228.mlmodel"
   },
   {
    "id": "kraken-french_vietnamese",
@@ -157,7 +157,7 @@
     "fr"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.17690418/kqnbsei_v1.mlmodel"
   },
   {
    "id": "kraken-bifrost_old_norse",
@@ -209,7 +209,7 @@
     "ja"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13942714/kuzushiji-on-chat-version-0.9.mlmodel"
   },
   {
    "id": "kraken-tridis_v2",
@@ -235,7 +235,7 @@
     "es"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13862096/Tridis_v2_Medieval_EarlyModern.mlmodel"
   },
   {
    "id": "kraken-samaritan",
@@ -252,7 +252,7 @@
     "sam"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13814200/sinai_sam_rec_v4_best.mlmodel"
   },
   {
    "id": "kraken-mccatmus",
@@ -282,7 +282,7 @@
     "oc"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13788177/McCATMuS_nfd_nofix_V1.mlmodel"
   },
   {
    "id": "kraken-latin_graphematic_11c",
@@ -299,7 +299,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13741957/bdd-wormser-scriptorium-abbreviated-0.2.mlmodel"
   },
   {
    "id": "kraken-latin_expanded_11c",
@@ -316,7 +316,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.13736584/bdd-wormser-scriptorium-expanded-0.1.mlmodel"
   },
   {
    "id": "kraken-bohemian_19th",
@@ -357,7 +357,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.11113737/reichenau_lat_cat_099218.mlmodel"
   },
   {
    "id": "kraken-manu_mcfondue",
@@ -379,7 +379,7 @@
     "de"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.10886224/ManuMcFondue.mlmodel"
   },
   {
    "id": "kraken-catmus_gothic_print",
@@ -399,7 +399,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.10599911/CATMuS-Gothic-Print-1.0.0.mlmodel"
   },
   {
    "id": "kraken-catmus_print_large",
@@ -426,7 +426,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.10592716/catmus-print-fondue-large.mlmodel"
   },
   {
    "id": "kraken-estournelles_typewritten",
@@ -445,7 +445,7 @@
     "fr"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.10556673/model_pec_9789_nfc.mlmodel"
   },
   {
    "id": "kraken-german_print",
@@ -471,7 +471,7 @@
     "la"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.10519596/german_print.mlmodel"
   },
   {
    "id": "kraken-peraire_french",
@@ -488,7 +488,7 @@
     "fr"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.8193498/peraire2_ft_MMCFR.mlmodel"
   },
   {
    "id": "kraken-austrian_fraktur",
@@ -507,7 +507,7 @@
     "de"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7933402/austriannewspapers.mlmodel"
   },
   {
    "id": "kraken-glagolitic_print",
@@ -526,7 +526,7 @@
     "cu"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7755504/glago01_best.mlmodel"
   },
   {
    "id": "kraken-cyrillic_uncial",
@@ -550,7 +550,7 @@
     "cu"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7755483/Cyr02full_best.mlmodel"
   },
   {
    "id": "kraken-cremma_medieval",
@@ -577,7 +577,7 @@
     "fro"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7631619/cremma-generic-1.0.1.mlmodel"
   },
   {
    "id": "kraken-medieval_latin_french_abbreviated",
@@ -600,7 +600,7 @@
     "fro"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7516310/frolat_medieval_abbr.mlmodel"
   },
   {
    "id": "kraken-medieval_latin_french_expanded",
@@ -623,7 +623,7 @@
     "fro"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7516057/frolat_medieval_expan.mlmodel"
   },
   {
    "id": "kraken-gallicorpora",
@@ -643,7 +643,7 @@
     "fr"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7410529/Gallicorpora+_best.mlmodel"
   },
   {
    "id": "kraken-openiti_persian_print",
@@ -660,7 +660,7 @@
     "fa"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7051644/persian_best.mlmodel"
   },
   {
    "id": "kraken-openiti_ottoman_print",
@@ -677,7 +677,7 @@
     "ota"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7050342/ottoman_best.mlmodel"
   },
   {
    "id": "kraken-openiti_arabic_print",
@@ -697,7 +697,7 @@
     "ota"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.7050270/all_arabic_scripts.mlmodel"
   },
   {
    "id": "kraken-lectaurep_french",
@@ -716,7 +716,7 @@
     "fr"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.6542744/lectaurep_base.mlmodel"
   },
   {
    "id": "kraken-hebrew_sephardi",
@@ -733,7 +733,7 @@
     "he"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.5468665/Sephardi_01.mlmodel"
   },
   {
    "id": "kraken-english_print",
@@ -748,7 +748,7 @@
     "en"
    ],
    "gateway_digest": null,
-   "asteraix_path": null
+   "asteraix_path": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.2577813/en_best.mlmodel"
   },
   {
    "id": "kraken-bern-combined-v1",

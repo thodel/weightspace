@@ -106,6 +106,18 @@ def body_spec(spec: str) -> str:
     return re.sub(r"O\{O_18\}1c\d+", "O{O_18}1c*", spec)
 
 
+def arch(s) -> dict:
+    """A model's architecture as far as comparison is concerned: its parameter blocks in order, its
+    output block, and a key that is equal exactly when two models have the same input height and the
+    same tensor shapes outside the output layer (then they compare element by element; a different
+    dropout rate in the VGSL spec, which has no weights, does not split a group)."""
+    names = [n for n, m in s.model.nn.named_children() if any(True for _ in m.parameters())]
+    out = [n for n in names if n.startswith("O_")][-1]
+    shapes = tuple((k, tuple(v.shape)) for k, v in s.tensors().items() if k.split(".")[0] != out)
+    key = hashlib.sha256(repr((int(s.model.input[2]), shapes)).encode()).hexdigest()[:10]
+    return {"blocks": names, "output": out, "key": key, "height": int(s.model.input[2])}
+
+
 # ------------------------------------------------------------------ weight space
 def _block(t: dict[str, np.ndarray], b: str) -> dict[str, np.ndarray]:
     return {k: v for k, v in t.items() if k.split(".")[0] == b}
@@ -124,49 +136,60 @@ def _stats(xs: list[np.ndarray], ys: list[np.ndarray]) -> dict:
             "cosine": float((x * y).sum() / (nx * ny)) if nx and ny else None}
 
 
-def output_rows(sa, sb) -> tuple[list[np.ndarray], list[np.ndarray], int]:
-    """O_18 weight rows and biases of the characters both codecs share, plus the blank (row 0)."""
+def output_rows(sa, sb, out: str = "O_18") -> tuple[list[np.ndarray], list[np.ndarray], int]:
+    """Output weight rows and biases of the characters both codecs share, plus the blank (row 0)."""
     rm = codec_row_map(sa.codec_map(), sb.codec_map())
     ia = [0] + sorted(rm); ib = [0] + [rm[i] for i in sorted(rm)]
     ta, tb = sa.tensors(), sb.tensors()
-    w = [n for n in ta if n.startswith("O_18.") and n.endswith("weight")][0]
-    bias = [n for n in ta if n.startswith("O_18.") and n.endswith("bias")][0]
+    w = [n for n in ta if n.startswith(out + ".") and n.endswith("weight")][0]
+    bias = [n for n in ta if n.startswith(out + ".") and n.endswith("bias")][0]
     return [ta[w][ia], ta[bias][ia]], [tb[w][ib], tb[bias][ib]], len(rm)
 
 
-def compare_pair(sa, sb) -> dict:
+def compare_pair(sa, sb, blocks: list[str] | None = None, out: str = "O_18") -> dict:
+    """Per block statistics for two models of one architecture group; ``body`` = all blocks but the output."""
+    blocks = blocks or BLOCKS
     ta, tb = sa.tensors(), sb.tensors()
-    out = {}
-    for b in BODY:
+    res = {}
+    for b in blocks:
+        if b == out:
+            continue
         A, B = _block(ta, b), _block(tb, b)
         names = sorted(set(A) & set(B))
-        if any(A[n].shape != B[n].shape for n in names) or set(A) != set(B):
-            out[b] = {"comparable": False}
+        if set(A) != set(B) or any(A[n].shape != B[n].shape for n in names):
+            res[b] = {"comparable": False}
             continue
-        out[b] = _stats([A[n] for n in names], [B[n] for n in names])
-    xa, xb, shared = output_rows(sa, sb)
-    out["O_18"] = {**_stats(xa, xb), "shared_chars": shared}
-    body_a = [v for b in BODY for k, v in sorted(_block(ta, b).items())]
-    body_b = [v for b in BODY for k, v in sorted(_block(tb, b).items())]
-    out["body"] = _stats(body_a, body_b)
-    return out
+        res[b] = _stats([A[n] for n in names], [B[n] for n in names])
+    xa, xb, shared = output_rows(sa, sb, out)
+    res[out] = {**_stats(xa, xb), "shared_chars": shared}
+    body = [b for b in blocks if b != out]
+    res["body"] = _stats([v for b in body for _, v in sorted(_block(ta, b).items())],
+                         [v for b in body for _, v in sorted(_block(tb, b).items())])
+    return res
+
+
+def _key(a: str, b: str) -> str:
+    return "|".join(sorted((a, b)))
 
 
 def weights(models: list[dict]) -> dict:
-    subj, info = {}, {}
+    subj, info, groups = {}, {}, {}
     for m in models:
-        s = _load(m["asteraix_path"]); subj[m["id"]] = s; d = s.describe()
-        info[m["id"]] = {"params": d["parameters"], "codec": d["codec_size"], "body_spec": body_spec(d["spec"]),
-                         "tensor_digest": s.digest(), "file_sha256": sha256_file(Path(m["asteraix_path"])),
-                         "path": m["asteraix_path"]}
-    specs = {v["body_spec"] for v in info.values()}
+        s = _load(m["asteraix_path"]); subj[m["id"]] = s; d = s.describe(); ar = arch(s)
+        info[m["id"]] = {"params": d["parameters"], "codec": d["codec_size"], "spec": d["spec"], "arch": ar["key"],
+                         "height": ar["height"], "tensor_digest": s.digest(),
+                         "file_sha256": sha256_file(Path(m["asteraix_path"])), "path": m["asteraix_path"]}
+        g = groups.setdefault(ar["key"], {"key": ar["key"], "blocks": ar["blocks"], "output": ar["output"],
+                                          "height": ar["height"], "spec": d["spec"], "models": []})
+        g["models"].append(m["id"])
     pairs = {}
-    for a, b in itertools.combinations(sorted(subj), 2):
-        if info[a]["body_spec"] != info[b]["body_spec"]:
-            pairs[f"{a}|{b}"] = {"comparable": False}
-            continue
-        pairs[f"{a}|{b}"] = compare_pair(subj[a], subj[b])
-    return {"models": info, "body_specs": sorted(specs), "pairs": pairs,
+    for g in groups.values():
+        for a, b in itertools.combinations(sorted(g["models"]), 2):
+            pairs[_key(a, b)] = compare_pair(subj[a], subj[b], g["blocks"], g["output"])
+    glist = sorted(groups.values(), key=lambda g: (-len(g["models"]), g["key"]))
+    for i, g in enumerate(glist):
+        g["name"] = "ABCDEFGH"[i]
+    return {"models": info, "groups": glist, "pairs": pairs,
             "tolerance": {"rtol": RTOL, "atol": ATOL}, "when": time.strftime("%Y-%m-%d %H:%M")}
 
 
@@ -190,6 +213,27 @@ def lineages(w: dict) -> list[list[str]]:
     return sorted(groups.values(), key=lambda g: (-len(g), g))
 
 
+def stated_bases(w: dict, reg: list[dict]) -> list[dict]:
+    """Check every base the gateway registry states (a Zenodo DOI) against the weights."""
+    by_doi = {m["zenodo"]: m["id"] for m in reg if m["zenodo"]}
+    out = []
+    for m in reg:
+        base = by_doi.get(m.get("stated_base"))
+        if not m.get("stated_base"):
+            continue
+        row = {"model": m["id"], "stated_base": m["stated_base"], "base_model": base}
+        if base is None or m["id"] not in w["models"] or base not in w["models"]:
+            row["verdict"] = "base not on the gateway" if base is None else "weights missing"
+        elif w["models"][m["id"]]["arch"] != w["models"][base]["arch"]:
+            row["verdict"] = "different architecture: cannot be a fine-tune of this file"
+        else:
+            c = w["pairs"][_key(m["id"], base)]["body"]["cosine"]
+            row["body_cosine"] = c
+            row["verdict"] = "confirmed" if c > LINEAGE_COS else "contradicted: unrelated weights"
+        out.append(row)
+    return out
+
+
 # ------------------------------------------------------------------ function: linear CKA per block
 def probe_items() -> list[dict]:
     rng = np.random.default_rng(SEED); items = []
@@ -202,8 +246,7 @@ def probe_items() -> list[dict]:
 
 def _gram(X: np.ndarray) -> np.ndarray:
     X = X.astype(np.float64); X = X - X.mean(0, keepdims=True)
-    K = X @ X.T
-    return K
+    return X @ X.T
 
 
 def cka_from_grams(K: np.ndarray, L: np.ndarray) -> float:
@@ -212,43 +255,57 @@ def cka_from_grams(K: np.ndarray, L: np.ndarray) -> float:
     return hkl / np.sqrt(hkk * hll) if hkk and hll else float("nan")
 
 
-def functional(models: list[dict], frames: int = FRAMES) -> dict:
-    items = probe_items()
-    CACHE.mkdir(parents=True, exist_ok=True)
+def functional_group(models: list[dict], blocks: list[str], items: list[dict], frames: int = FRAMES, log=print) -> dict:
+    """CKA between every pair of one architecture group, per conv/recurrent/output block; dead conv filters."""
     sample_idx: dict[str, np.ndarray] = {}
-    grams: dict[str, dict[str, np.ndarray]] = {b: {} for b in BLOCKS}
+    grams: dict[str, dict[str, np.ndarray]] = {b: {} for b in blocks}
     dead: dict[str, dict] = {}
     frame_counts = None
     for m in models:
         s = _load(m["asteraix_path"])
-        acts = s.activations(items, BLOCKS)
-        counts = {b: [x.shape[0] for x in acts[b]] for b in BLOCKS}
+        acts = s.activations(items, blocks)
+        counts = {b: [x.shape[0] for x in acts[b]] for b in blocks}
         if frame_counts is None:
             frame_counts = counts
             rng = np.random.default_rng(SEED)
-            for b in BLOCKS:
+            for b in blocks:
                 total = sum(counts[b]); sample_idx[b] = np.sort(rng.choice(total, size=min(frames, total), replace=False))
         elif counts != frame_counts:
-            raise RuntimeError(f"{m['id']}: frame counts differ from the first model; not the same architecture or input")
+            raise RuntimeError(f"{m['id']}: frame counts differ inside one architecture group")
         dead[m["id"]] = {}
-        for b in BLOCKS:
+        for b in blocks:
             full = np.concatenate(acts[b], axis=0)
             if b.startswith("C_"):          # Cr = convolution + ReLU: a filter that is 0 on every frame is dead
-                C = s.tensors()[f"{b}.co.weight"].shape[0]
+                C = next(v for k, v in s.tensors().items() if k.split(".")[0] == b and v.ndim == 4).shape[0]
                 cmax = full.reshape(full.shape[0], C, -1).max(axis=(0, 2))
                 dead[m["id"]][b] = {"dead": int((cmax <= 0).sum()), "filters": int(C),
                                     "dead_index": [int(i) for i in np.flatnonzero(cmax <= 0)]}
             grams[b][m["id"]] = _gram(full[sample_idx[b]]).astype(np.float32)
-        print(f"  activations {m['id']}", flush=True)
+        log(f"  activations {m['id']}")
     ids = [m["id"] for m in models]
-    cka = {b: {} for b in BLOCKS}
-    for b in BLOCKS:
-        for x, y in itertools.combinations(ids, 2):
-            cka[b][f"{x}|{y}"] = cka_from_grams(grams[b][x].astype(np.float64), grams[b][y].astype(np.float64))
+    cka = {b: {_key(x, y): cka_from_grams(grams[b][x].astype(np.float64), grams[b][y].astype(np.float64))
+               for x, y in itertools.combinations(ids, 2)} for b in blocks}
+    return {"models": ids, "blocks": blocks, "frames": {b: int(len(sample_idx[b])) for b in blocks},
+            "cka": cka, "dead_filters": dead}
+
+
+def functional(models: list[dict], w: dict, frames: int = FRAMES) -> dict:
+    items = probe_items()
+    by_id = {m["id"]: m for m in models}
+    groups = []
+    for g in w["groups"]:
+        blocks = [b for b in g["blocks"] if b[0] in "CLO"]
+        ms = [by_id[i] for i in g["models"] if i in by_id]
+        if len(ms) < 2:
+            res = {"models": [m["id"] for m in ms], "blocks": blocks, "cka": {}, "dead_filters": {}, "frames": {}}
+            if ms:                                              # still count its dead filters
+                res = {**functional_group(ms, blocks, items, frames), "cka": {}}
+        else:
+            res = functional_group(ms, blocks, items, frames)
+        res.update({"group": g["name"], "key": g["key"]})
+        groups.append(res)
     return {"probe": {"sets": PROBE_SETS, "per_set": PROBE_PER_SET, "lines": len(items), "seed": SEED,
-                      "keys": [i["key"] for i in items]},
-            "frames": {b: int(len(sample_idx[b])) for b in BLOCKS}, "models": ids, "cka": cka, "dead_filters": dead,
-            "when": time.strftime("%Y-%m-%d %H:%M")}
+                      "keys": [i["key"] for i in items]}, "groups": groups, "when": time.strftime("%Y-%m-%d %H:%M")}
 
 
 # ------------------------------------------------------------------ fetch (needs an explicit OK: it downloads)
@@ -304,13 +361,16 @@ def main(argv=None):
         ms = available()
         w = weights(ms)
         w["lineages"] = lineages(w)
+        w["stated_bases"] = stated_bases(w, json.loads(REGISTRY.read_text())["models"])
         (OUT / "weights.json").write_text(json.dumps(w, indent=1))
-        print(f"{len(ms)} models, {len(w['pairs'])} pairs; lineages: {w['lineages']}")
+        print(f"{len(ms)} models in {len(w['groups'])} architecture groups, {len(w['pairs'])} comparable pairs; "
+              f"lineages of 2+: {[g for g in w['lineages'] if len(g) > 1]}")
     elif a.cmd == "functional":
         ms = available()
-        f = functional(ms)
+        w = json.loads((OUT / "weights.json").read_text())
+        f = functional(ms, w)
         (OUT / "functional.json").write_text(json.dumps(f, indent=1))
-        print(f"CKA over {len(ms)} models, {f['probe']['lines']} probe lines")
+        print(f"CKA over {len(ms)} models in {len(f['groups'])} groups, {f['probe']['lines']} probe lines")
     elif a.cmd == "report":
         print(report())
     elif a.cmd == "fetch":
@@ -331,59 +391,87 @@ def _pair(d: dict, a: str, b: str):
     return d.get(f"{a}|{b}", d.get(f"{b}|{a}"))
 
 
+def _fmt3(x):
+    return '' if x is None else f'{x:.3f}'
+
+
+DISTANT = (0.2, LINEAGE_COS)   # body cosine band of "distant relatives": above unrelated noise, below a recorded fine-tune
+
+
 def report() -> Path:
-    reg = json.loads(REGISTRY.read_text())["models"]
+    regd = json.loads(REGISTRY.read_text()); reg = regd["models"]
     w = json.loads((OUT / "weights.json").read_text())
     f = json.loads((OUT / "functional.json").read_text()) if (OUT / "functional.json").exists() else None
-    lin = w["lineages"]; lin_of = {m: i + 1 for i, g in enumerate(lin) for m in g}
-    rel = lambda a, b: (_pair(w["pairs"], a, b) or {}).get("body", {}).get("cosine", 0) > LINEAGE_COS
+    lin = [g for g in w["lineages"] if len(g) > 1]
+    lin_of = {m: i + 1 for i, g in enumerate(lin) for m in g}
+    gname = {m: g["name"] for g in w["groups"] for m in g["models"]}
+    cos = lambda a, b: (_pair(w["pairs"], a, b) or {}).get("body", {}).get("cosine")
+    rel = lambda a, b: (cos(a, b) or 0) > LINEAGE_COS
+    verdict = {r["model"]: r["verdict"] for r in w.get("stated_bases", [])}
     L = ["## Inventory: the gateway's kraken models", "",
-         f"{len(reg)} kraken models served for agentic_historian (gateway, {json.loads(REGISTRY.read_text())['read']}); "
-         f"{sum(1 for m in reg if m['asteraix_path'])} with weights on asteraix. *Lineage* is inferred from the weights "
-         f"(body cosine > {LINEAGE_COS}), *stated base* is the gateway registry's.", "",
-         "| model | source | stated base | scripts / centuries | weights here | lineage |", "|---|---|---|---|---|---:|"]
-    for m in sorted(reg, key=lambda m: (m["asteraix_path"] is None, lin_of.get(m["id"], 99), m["id"])):
+         f"{len(reg)} kraken models served for agentic_historian (gateway, {regd['read']}); "
+         f"{sum(1 for m in w['models'])} with weights on asteraix. *Arch* is the architecture group (below), *lineage* is "
+         f"inferred from the weights (body cosine > {LINEAGE_COS}), *stated base* is the gateway registry's, checked against the weights.", "",
+         "| model | source | stated base (check) | scripts / centuries | arch | lineage |", "|---|---|---|---|---|---:|"]
+    for m in sorted(reg, key=lambda m: (gname.get(m["id"], "Z"), lin_of.get(m["id"], 99), m["id"])):
         sc = ", ".join(m.get("scripts") or []); ce = ", ".join(str(c) for c in (m.get("centuries") or []))
-        L.append(f"| {_s(m['id'])} | {m['zenodo'] or 'in-house'} | {m['stated_base'] or ''} | {sc}{' / ' if sc and ce else ''}{ce} | "
-                 f"{'yes' if m['asteraix_path'] else 'no'} | {lin_of.get(m['id'], '')} |")
-    L += ["", "## RQ1 — identical parameters, related pairs", "",
-          "Share of *live* parameters (structural zeros excluded: the LSTM input biases, 1,600 per layer, are 0 in every "
-          "model) that are bit-identical between the two models, per block. Unrelated pairs are 0.00 everywhere.", "",
-          "| pair | body | " + " | ".join(BLOCKS) + " |", "|---|---:|" + "---:|" * len(BLOCKS)]
-    rp = sorted(((k, p) for k, p in w["pairs"].items() if p.get("body", {}).get("cosine", 0) > LINEAGE_COS),
-                key=lambda kv: -kv[1]["body"]["cosine"])
-    for k, p in rp:
-        a, b = k.split("|")
-        L.append(f"| {_s(a)} – {_s(b)} | {100*p['body']['identical']:.2f} % | " +
-                 " | ".join(f"{100*p[x]['identical']:.2f}" for x in BLOCKS) + " |")
+        sb = f"{m['stated_base']} ({verdict.get(m['id'], '')})" if m.get("stated_base") else ""
+        L.append(f"| {_s(m['id'])} | {m['zenodo'] or 'in-house'} | {sb} | {sc}{' / ' if sc and ce else ''}{ce} | "
+                 f"{gname.get(m['id'], '—')} | {lin_of.get(m['id'], '')} |")
+    L += ["", "## Architecture groups", "",
+          "Models compare element by element only inside one group: same input height and the same tensor shapes outside the "
+          "output layer (a different dropout rate, which has no weights, does not split a group).", "",
+          "| group | models | input height | parameter blocks | VGSL (first model) |", "|---|---:|---:|---|---|"]
+    for g in w["groups"]:
+        L.append(f"| {g['name']} | {len(g['models'])} | {g['height']} | {' '.join(g['blocks'])} | `{g['spec'][:150]}` |")
+    L += ["", "## Lineages and stated bases", "",
+          "| lineage | arch | models |", "|---:|---|---|"]
+    for i, g in enumerate(lin):
+        L.append(f"| {i + 1} | {gname[g[0]]} | {', '.join(_s(m) for m in g)} |")
+    dist = sorted(((p["body"]["cosine"], k) for k, p in w["pairs"].items() if DISTANT[0] < p["body"]["cosine"] <= DISTANT[1]), reverse=True)
+    if dist:
+        L += ["", f"Distant relatives (body cosine {DISTANT[0]}–{DISTANT[1]}; unrelated pairs sit below 0.2, every recorded "
+              "fine-tune above 0.6): " + "; ".join(f"{_s(k.split('|')[0])} – {_s(k.split('|')[1])} {c:.2f}" for c, k in dist) + "."]
+    L += ["", "| model | stated base | body cosine | verdict |", "|---|---|---:|---|"]
+    for r in w.get("stated_bases", []):
+        L.append(f"| {_s(r['model'])} | {_s(r['base_model'] or r['stated_base'])} | "
+                 f"{_fmt3(r.get('body_cosine'))} | {r['verdict']} |")
+    for g in w["groups"]:
+        rp = sorted(((k, p) for k, p in w["pairs"].items() if p["body"]["cosine"] > LINEAGE_COS and k.split("|")[0] in g["models"]),
+                    key=lambda kv: -kv[1]["body"]["cosine"])
+        if not rp:
+            continue
+        B = g["blocks"]
+        L += ["", f"## Group {g['name']}: RQ1 identical parameters and RQ2 distance, related pairs", "",
+              "Each cell: share of *live* parameters that are bit-identical (structural zeros excluded) / relative distance "
+              "‖B − A‖ / mean(‖A‖, ‖B‖). The output layer on the characters both alphabets share.", "",
+              "| pair | body cosine | " + " | ".join(B) + " |", "|---|---:|" + "---:|" * len(B)]
+        for k, p in rp:
+            a, b = k.split("|")
+            L.append(f"| {_s(a)} – {_s(b)} | {p['body']['cosine']:.3f} | " +
+                     " | ".join(f"{100*p[x]['identical']:.1f} % / {p[x]['rel_dist']:.2f}" if p.get(x, {}).get("identical") is not None else "—"
+                                for x in B) + " |")
     if f:
-        L += ["", "Dead (silent) convolution filters per model: output 0 on every frame of the probe lines "
-              f"({f['probe']['lines']} lines, {', '.join(f['probe']['sets'])}).", "",
-              "| model | " + " | ".join(b for b in BLOCKS if b.startswith('C_')) + " |", "|---|" + "---:|" * 4]
-        for m, d in sorted(f["dead_filters"].items(), key=lambda kv: (lin_of.get(kv[0], 99), kv[0])):
-            L.append(f"| {_s(m)} | " + " | ".join(f"{d[b]['dead']}/{d[b]['filters']}" for b in d) + " |")
-    L += ["", "## RQ2 — how far apart, per block", "", "### Weight space, related pairs", "",
-          "Relative distance ‖B − A‖ / mean(‖A‖, ‖B‖) per block; `O_18` on the characters both alphabets share.", "",
-          "| pair | body cosine | " + " | ".join(BLOCKS) + " |", "|---|---:|" + "---:|" * len(BLOCKS)]
-    for k, p in rp:
-        a, b = k.split("|")
-        L.append(f"| {_s(a)} – {_s(b)} | {p['body']['cosine']:.3f} | " + " | ".join(f"{p[x]['rel_dist']:.3f}" for x in BLOCKS) + " |")
-    if f:
-        ids = f["models"]
-        L += ["", "### Function, every pair: linear CKA per block", "",
-              f"Linear CKA between the two models' outputs of the block on the same {f['probe']['lines']} probe lines "
-              f"({', '.join(f['probe']['sets'])}; {f['probe']['per_set']} each, seed {f['probe']['seed']}), "
-              f"{f['frames']['C_0']} sampled frames per block. 1 = the same features up to unit order and scale.", "",
-              "| pair | lineage | " + " | ".join(BLOCKS) + " |", "|---|---|" + "---:|" * len(BLOCKS)]
-        keys = sorted(f["cka"]["C_0"], key=lambda k: (not rel(*k.split("|")), -np.mean([f["cka"][b][k] for b in BLOCKS])))
-        for k in keys:
-            a, b = sorted(k.split("|"))
-            L.append(f"| {_s(a)} – {_s(b)} | {'same' if rel(a, b) else '—'} | " + " | ".join(f"{f['cka'][x][k]:.2f}" for x in BLOCKS) + " |")
-        for grp in (True, False):
-            ks = [k for k in f["cka"]["C_0"] if rel(*k.split("|")) == grp]
-            if ks:
-                L.append(f"| **mean, {'same lineage' if grp else 'different lineages'} ({len(ks)})** | | " +
-                         " | ".join(f"**{np.mean([f['cka'][x][k] for k in ks]):.2f}**" for x in BLOCKS) + " |")
+        L += ["", "## Function: linear CKA per block, by group", "",
+              f"Linear CKA between two models' outputs of a block on the same {f['probe']['lines']} probe lines "
+              f"({', '.join(f['probe']['sets'])}; {f['probe']['per_set']} each, seed {f['probe']['seed']}). 1 = the same features "
+              "up to unit order and scale. Means over pairs; every pair is in docs/family/functional.json."]
+        for g in f["groups"]:
+            if not g["cka"]:
+                continue
+            B = g["blocks"]
+            L += ["", f"### Group {g['group']} ({len(g['models'])} models, {len(g['cka'][B[0]])} pairs)", "",
+                  "| pairs | n | " + " | ".join(B) + " |", "|---|---:|" + "---:|" * len(B)]
+            for label, test in (("same lineage", lambda k: rel(*k.split("|"))),
+                                ("distant relatives", lambda k: DISTANT[0] < (cos(*k.split("|")) or 0) <= DISTANT[1]),
+                                ("unrelated", lambda k: (cos(*k.split("|")) or 0) <= DISTANT[0])):
+                ks = [k for k in g["cka"][B[0]] if test(k)]
+                if ks:
+                    L.append(f"| {label} | {len(ks)} | " + " | ".join(f"{np.mean([g['cka'][x][k] for k in ks]):.2f}" for x in B) + " |")
+            L += ["", "Dead (silent) convolution filters per model (output 0 on every probe frame):", "",
+                  "| model | " + " | ".join(b for b in B if b.startswith("C_")) + " |", "|---|" + "---:|" * sum(b.startswith("C_") for b in B)]
+            for m, d in sorted(g["dead_filters"].items(), key=lambda kv: (lin_of.get(kv[0], 99), kv[0])):
+                L.append(f"| {_s(m)} | " + " | ".join(f"{d[b]['dead']}/{d[b]['filters']}" for b in d) + " |")
     ex = sorted(OUT.glob("exchange-*.json"))
     if ex:
         L += ["", "## RQ3 — exchange: S's block moved to G's", ""]
@@ -391,7 +479,7 @@ def report() -> Path:
         e = json.loads(p.read_text())
         L += [f"### `{_s(e['specific'])}` ← `{_s(e['general'])}` (body cosine {e['body_cosine']:.3f})", "",
               "Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. "
-              f"First set = S's own material. S / G read: " +
+              f"First set = S's own material or the nearest available. S / G read: " +
               "; ".join(f"`{s}` {100*e['c0'][s]['cer']:.2f} % / {100*e['general_cer'][s]:.2f} %" for s in e["sets"]) + ".", "",
               "| block | β | " + " | ".join(f"`{s}`" for s in e["sets"]) + " |", "|---|---:|" + "---:|" * len(e["sets"])]
         for r in e["rows"]:
@@ -404,7 +492,6 @@ def report() -> Path:
     out = OUT / "tables.md"
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
     return out
-
 
 if __name__ == "__main__":
     main()

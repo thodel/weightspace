@@ -1,179 +1,239 @@
 ## Inventory: the gateway's kraken models
 
-43 kraken models served for agentic_historian (gateway, 2026-11-07); 10 with weights on asteraix. *Lineage* is inferred from the weights (body cosine > 0.5), *stated base* is the gateway registry's.
+43 kraken models served for agentic_historian (gateway, 2026-11-07); 43 with weights on asteraix. *Arch* is the architecture group (below), *lineage* is inferred from the weights (body cosine > 0.5), *stated base* is the gateway registry's, checked against the weights.
 
-| model | source | stated base | scripts / centuries | weights here | lineage |
+| model | source | stated base (check) | scripts / centuries | arch | lineage |
 |---|---|---|---|---|---:|
-| bern-combined-v1 | in-house |  |  | yes | 1 |
-| bern-hertwig-v1 | in-house |  |  | yes | 1 |
-| bern-hertwig-v2 | in-house |  |  | yes | 1 |
-| bern-schlussredaktion-v1 | in-house |  |  | yes | 1 |
-| catmus_medieval | 10.5281/zenodo.15030337 |  | Medieval | yes | 1 |
-| cursive_inzigkofen | 10.5281/zenodo.18207767 | 10.5281/zenodo.15030337 | Cursive / 15 | yes | 1 |
-| bohemian_19th | 10.5281/zenodo.11673242 |  | Kurrent / 19 | yes | 2 |
-| german-xix-blb-v1 | in-house |  |  | yes | 2 |
-| german-xix-v1 | in-house |  |  | yes | 2 |
-| bifrost_old_norse | 10.5281/zenodo.15366732 | 10.5281/zenodo.15030337 |  | yes | 3 |
-| austrian_fraktur | 10.5281/zenodo.7933402 |  | Fraktur / 19 | no |  |
-| bastarda_inzigkofen | 10.5281/zenodo.18207779 | 10.5281/zenodo.15030337 | Bastarda / 15 | no |  |
-| catmus_gothic_print | 10.5281/zenodo.10599911 | 10.5281/zenodo.15030337 | Gothic / 16 | no |  |
-| catmus_print_large | 10.5281/zenodo.10592716 |  | 16, 17, 18, 19, 20, 21 | no |  |
-| cremma_medieval | 10.5281/zenodo.7631619 |  | Medieval / 8, 9, 10, 11, 12, 13, 14, 15 | no |  |
-| cyrillic_uncial | 10.5281/zenodo.7755483 |  | Cyrillic uncial / 11, 12, 13, 14, 15, 16 | no |  |
-| english_print | 10.5281/zenodo.2577813 |  |  | no |  |
-| estournelles_typewritten | 10.5281/zenodo.10556673 |  | Typewritten / 20 | no |  |
-| fondue_gd_v2 | 10.5281/zenodo.21536798 |  | Latn / 16, 17, 18, 19, 20, 21 | no |  |
-| french_vietnamese | 10.5281/zenodo.17690418 | 10.5281/zenodo.10592716 | 19, 20 | no |  |
-| gallicorpora | 10.5281/zenodo.7410529 |  | 16, 17, 18, 19 | no |  |
-| german_print | 10.5281/zenodo.10519596 |  | Fraktur, Antiqua / 15, 16, 17, 18, 19, 20 | no |  |
-| glagolitic_print | 10.5281/zenodo.7755504 |  | Glagolitic / 16 | no |  |
-| hebrew_sephardi | 10.5281/zenodo.5468665 |  | Sephardi bookhand | no |  |
-| kuzushiji | 10.5281/zenodo.13942714 |  | Kuzushiji | no |  |
-| latin_expanded_11c | 10.5281/zenodo.13736584 |  | 11 | no |  |
-| latin_graphematic_11c | 10.5281/zenodo.13741957 |  | 11 | no |  |
-| latin_incunabula | 10.5281/zenodo.11113737 | 10.5281/zenodo.10592716 | Gothic, Antiqua / 15, 16 | no |  |
-| lectaurep_french | 10.5281/zenodo.6542744 |  | 18, 19, 20 | no |  |
-| manu_mcfondue | 10.5281/zenodo.10886224 |  | 16, 17, 18, 19 | no |  |
-| mccatmus | 10.5281/zenodo.13788177 |  | Latn / 16, 17, 18, 19, 20, 21 | no |  |
-| medieval_latin_french_abbreviated | 10.5281/zenodo.7516310 |  | Medieval / 12, 13, 14, 15 | no |  |
-| medieval_latin_french_expanded | 10.5281/zenodo.7516057 |  | Medieval / 12, 13, 14, 15 | no |  |
-| mendelssohn_letters | 10.5281/zenodo.18207676 |  | 19 | no |  |
-| old_norse_am305 | 10.5281/zenodo.20529753 |  | 13 | no |  |
-| openiti_arabic_print | 10.5281/zenodo.7050270 |  | Arabic | no |  |
-| openiti_ottoman_print | 10.5281/zenodo.7050342 | 10.5281/zenodo.7050270 | Arabic | no |  |
-| openiti_persian_print | 10.5281/zenodo.7051644 | 10.5281/zenodo.7050270 | Arabic | no |  |
-| peraire_french | 10.5281/zenodo.8193498 |  | 20 | no |  |
-| prima | 10.5281/zenodo.18220238 |  | 16, 17, 18 | no |  |
-| samaritan | 10.5281/zenodo.13814200 |  | Samaritan | no |  |
-| textualis_inzigkofen | 10.5281/zenodo.18207719 | 10.5281/zenodo.13862096 | Textualis / 15 | no |  |
-| tridis_v2 | 10.5281/zenodo.13862096 |  | Medieval / 11, 12, 13, 14, 15, 16 | no |  |
+| bastarda_inzigkofen | 10.5281/zenodo.18207779 | 10.5281/zenodo.15030337 (confirmed) | Bastarda / 15 | A | 1 |
+| bern-combined-v1 | in-house |  |  | A | 1 |
+| bern-hertwig-v1 | in-house |  |  | A | 1 |
+| bern-hertwig-v2 | in-house |  |  | A | 1 |
+| bern-schlussredaktion-v1 | in-house |  |  | A | 1 |
+| catmus_medieval | 10.5281/zenodo.15030337 |  | Medieval | A | 1 |
+| cursive_inzigkofen | 10.5281/zenodo.18207767 | 10.5281/zenodo.15030337 (confirmed) | Cursive / 15 | A | 1 |
+| old_norse_am305 | 10.5281/zenodo.20529753 |  | 13 | A | 1 |
+| bohemian_19th | 10.5281/zenodo.11673242 |  | Kurrent / 19 | A | 2 |
+| german-xix-blb-v1 | in-house |  |  | A | 2 |
+| german-xix-v1 | in-house |  |  | A | 2 |
+| glagolitic_print | 10.5281/zenodo.7755504 |  | Glagolitic / 16 | A | 4 |
+| hebrew_sephardi | 10.5281/zenodo.5468665 |  | Sephardi bookhand | A | 4 |
+| samaritan | 10.5281/zenodo.13814200 |  | Samaritan | A | 4 |
+| openiti_arabic_print | 10.5281/zenodo.7050270 |  | Arabic | A | 5 |
+| openiti_ottoman_print | 10.5281/zenodo.7050342 | 10.5281/zenodo.7050270 (confirmed) | Arabic | A | 5 |
+| openiti_persian_print | 10.5281/zenodo.7051644 | 10.5281/zenodo.7050270 (confirmed) | Arabic | A | 5 |
+| mccatmus | 10.5281/zenodo.13788177 |  | Latn / 16, 17, 18, 19, 20, 21 | A | 6 |
+| prima | 10.5281/zenodo.18220238 |  | 16, 17, 18 | A | 6 |
+| austrian_fraktur | 10.5281/zenodo.7933402 |  | Fraktur / 19 | A |  |
+| bifrost_old_norse | 10.5281/zenodo.15366732 | 10.5281/zenodo.15030337 (contradicted: unrelated weights) |  | A |  |
+| cyrillic_uncial | 10.5281/zenodo.7755483 |  | Cyrillic uncial / 11, 12, 13, 14, 15, 16 | A |  |
+| fondue_gd_v2 | 10.5281/zenodo.21536798 |  | Latn / 16, 17, 18, 19, 20, 21 | A |  |
+| gallicorpora | 10.5281/zenodo.7410529 |  | 16, 17, 18, 19 | A |  |
+| german_print | 10.5281/zenodo.10519596 |  | Fraktur, Antiqua / 15, 16, 17, 18, 19, 20 | A |  |
+| kuzushiji | 10.5281/zenodo.13942714 |  | Kuzushiji | A |  |
+| latin_expanded_11c | 10.5281/zenodo.13736584 |  | 11 | A |  |
+| latin_graphematic_11c | 10.5281/zenodo.13741957 |  | 11 | A |  |
+| lectaurep_french | 10.5281/zenodo.6542744 |  | 18, 19, 20 | A |  |
+| manu_mcfondue | 10.5281/zenodo.10886224 |  | 16, 17, 18, 19 | A |  |
+| medieval_latin_french_expanded | 10.5281/zenodo.7516057 |  | Medieval / 12, 13, 14, 15 | A |  |
+| mendelssohn_letters | 10.5281/zenodo.18207676 |  | 19 | A |  |
+| peraire_french | 10.5281/zenodo.8193498 |  | 20 | A |  |
+| catmus_print_large | 10.5281/zenodo.10592716 |  | 16, 17, 18, 19, 20, 21 | B | 3 |
+| french_vietnamese | 10.5281/zenodo.17690418 | 10.5281/zenodo.10592716 (confirmed) | 19, 20 | B | 3 |
+| latin_incunabula | 10.5281/zenodo.11113737 | 10.5281/zenodo.10592716 (confirmed) | Gothic, Antiqua / 15, 16 | B | 3 |
+| catmus_gothic_print | 10.5281/zenodo.10599911 | 10.5281/zenodo.15030337 (different architecture: cannot be a fine-tune of this file) | Gothic / 16 | B |  |
+| cremma_medieval | 10.5281/zenodo.7631619 |  | Medieval / 8, 9, 10, 11, 12, 13, 14, 15 | B |  |
+| medieval_latin_french_abbreviated | 10.5281/zenodo.7516310 |  | Medieval / 12, 13, 14, 15 | B |  |
+| textualis_inzigkofen | 10.5281/zenodo.18207719 | 10.5281/zenodo.13862096 (confirmed) | Textualis / 15 | C | 7 |
+| tridis_v2 | 10.5281/zenodo.13862096 |  | Medieval / 11, 12, 13, 14, 15, 16 | C | 7 |
+| english_print | 10.5281/zenodo.2577813 |  |  | D |  |
+| estournelles_typewritten | 10.5281/zenodo.10556673 |  | Typewritten / 20 | E |  |
 
-## RQ1 — identical parameters, related pairs
+## Architecture groups
 
-Share of *live* parameters (structural zeros excluded: the LSTM input biases, 1,600 per layer, are 0 in every model) that are bit-identical between the two models, per block. Unrelated pairs are 0.00 everywhere.
+Models compare element by element only inside one group: same input height and the same tensor shapes outside the output layer (a different dropout rate, which has no weights, does not split a group).
 
-| pair | body | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
+| group | models | input height | parameter blocks | VGSL (first model) |
+|---|---:|---:|---|---|
+| A | 33 | 120 | C_0 C_3 C_6 C_9 L_12 L_14 L_16 O_18 | `[1,120,0,1 Cr{C_0}3,13,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,13,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,9,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,9,64 Do{` |
+| B | 6 | 120 | C_0 Gn_1 C_2 Gn_3 C_5 Gn_6 L_9 L_11 L_13 O_15 | `[1,120,0,1 Cr{C_0}4,2,32,4,2 Gn{Gn_1}32 Cr{C_2}4,2,64,1,1 Gn{Gn_3}32 Mp{Mp_4}4,2,4,2 Cr{C_5}3,3,128,1,1 Gn{Gn_6}32 Mp{Mp_7}1,2,1,2 S{S_8}1(1x0)1,3 Lbx` |
+| C | 2 | 140 | C_0 C_3 C_6 C_9 L_12 L_14 L_16 O_18 | `[1,140,0,1 Cr{C_0}4,16,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}4,16,32 Do{Do_4}0.1,2 Mp{Mp_5}2,2 Cr{C_6}3,8,64 Do{Do_7}0.1,2 Mp{Mp_8}2,2 Cr{C_9}3,8,64 Do{` |
+| D | 1 | 48 | C_0 C_3 L_7 O_9 | `[1,48,0,1 Cr{C_0}3,3,32 Do{Do_1}0.1,2 Mp{Mp_2}2,2 Cr{C_3}3,3,64 Do{Do_4}0.1,2 Mp{Mp_5}2,2 S{S_6}1(1x12)1,3 Lbx{L_7}100 Do{Do_8} O{O_9}1c90]` |
+| E | 1 | 48 | C_0 Gn_1 C_2 Gn_3 C_5 Gn_6 L_9 L_11 L_13 O_15 | `[1,48,0,1 Cr{C_0}4,2,32,4,2 Gn{Gn_1}32 Cr{C_2}4,2,64,1,1 Gn{Gn_3}32 Mp{Mp_4}4,2,4,2 Cr{C_5}3,3,128,1,1 Gn{Gn_6}32 Mp{Mp_7}1,2,1,2 S{S_8}1(1x0)1,3 Lbx{` |
+
+## Lineages and stated bases
+
+| lineage | arch | models |
+|---:|---|---|
+| 1 | A | bastarda_inzigkofen, bern-combined-v1, bern-hertwig-v1, bern-hertwig-v2, bern-schlussredaktion-v1, catmus_medieval, cursive_inzigkofen, old_norse_am305 |
+| 2 | A | bohemian_19th, german-xix-blb-v1, german-xix-v1 |
+| 3 | B | catmus_print_large, french_vietnamese, latin_incunabula |
+| 4 | A | glagolitic_print, hebrew_sephardi, samaritan |
+| 5 | A | openiti_arabic_print, openiti_ottoman_print, openiti_persian_print |
+| 6 | A | mccatmus, prima |
+| 7 | C | textualis_inzigkofen, tridis_v2 |
+
+Distant relatives (body cosine 0.2–0.5; unrelated pairs sit below 0.2, every recorded fine-tune above 0.6): glagolitic_print – samaritan 0.49; cyrillic_uncial – hebrew_sephardi 0.37; cyrillic_uncial – glagolitic_print 0.31; cyrillic_uncial – samaritan 0.30; gallicorpora – medieval_latin_french_expanded 0.25; gallicorpora – hebrew_sephardi 0.24; hebrew_sephardi – medieval_latin_french_expanded 0.23.
+
+| model | stated base | body cosine | verdict |
+|---|---|---:|---|
+| bastarda_inzigkofen | catmus_medieval | 0.775 | confirmed |
+| cursive_inzigkofen | catmus_medieval | 0.768 | confirmed |
+| textualis_inzigkofen | tridis_v2 | 0.947 | confirmed |
+| french_vietnamese | catmus_print_large | 0.982 | confirmed |
+| bifrost_old_norse | catmus_medieval | 0.080 | contradicted: unrelated weights |
+| latin_incunabula | catmus_print_large | 0.946 | confirmed |
+| catmus_gothic_print | catmus_medieval |  | different architecture: cannot be a fine-tune of this file |
+| openiti_persian_print | openiti_arabic_print | 0.796 | confirmed |
+| openiti_ottoman_print | openiti_arabic_print | 0.785 | confirmed |
+
+## Group A: RQ1 identical parameters and RQ2 distance, related pairs
+
+Each cell: share of *live* parameters that are bit-identical (structural zeros excluded) / relative distance ‖B − A‖ / mean(‖A‖, ‖B‖). The output layer on the characters both alphabets share.
+
+| pair | body cosine | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| bern-hertwig-v1 – cursive_inzigkofen | 0.11 % | 3.44 | 11.06 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v2 – bern-schlussredaktion-v1 | 0.22 % | 12.89 | 21.29 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v1 – bern-hertwig-v2 | 0.09 % | 3.28 | 9.23 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-combined-v1 – bern-schlussredaktion-v1 | 0.18 % | 10.16 | 17.50 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-combined-v1 – bern-hertwig-v2 | 0.18 % | 10.47 | 17.93 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| german-xix-blb-v1 – german-xix-v1 | 0.26 % | 25.00 | 25.48 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v2 – cursive_inzigkofen | 0.12 % | 4.69 | 12.19 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v1 – bern-schlussredaktion-v1 | 0.09 % | 3.28 | 9.03 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-combined-v1 – bern-hertwig-v1 | 0.09 % | 1.64 | 8.80 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-schlussredaktion-v1 – cursive_inzigkofen | 0.12 % | 4.69 | 11.67 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-combined-v1 – cursive_inzigkofen | 0.12 % | 3.05 | 11.42 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| catmus_medieval – cursive_inzigkofen | 0.00 % | 1.64 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v1 – catmus_medieval | 0.00 % | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bohemian_19th – german-xix-v1 | 0.19 % | 6.48 | 18.87 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-hertwig-v2 – catmus_medieval | 0.00 % | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-schlussredaktion-v1 – catmus_medieval | 0.00 % | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bern-combined-v1 – catmus_medieval | 0.00 % | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
-| bohemian_19th – german-xix-blb-v1 | 0.19 % | 6.48 | 18.87 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+| bern-hertwig-v1 – cursive_inzigkofen | 0.992 | 3.4 % / 0.07 | 11.1 % / 0.09 | 0.0 % / 0.13 | 0.0 % / 0.12 | 0.0 % / 0.10 | 0.0 % / 0.13 | 0.0 % / 0.15 | 0.0 % / 0.25 |
+| bern-hertwig-v2 – bern-schlussredaktion-v1 | 0.980 | 12.9 % / 0.08 | 21.3 % / 0.14 | 0.0 % / 0.19 | 0.0 % / 0.20 | 0.0 % / 0.20 | 0.0 % / 0.19 | 0.0 % / 0.21 | 0.0 % / 0.15 |
+| bern-hertwig-v1 – bern-hertwig-v2 | 0.974 | 3.3 % / 0.10 | 9.2 % / 0.17 | 0.0 % / 0.21 | 0.0 % / 0.21 | 0.0 % / 0.23 | 0.0 % / 0.22 | 0.0 % / 0.24 | 0.0 % / 0.14 |
+| bern-combined-v1 – bern-schlussredaktion-v1 | 0.973 | 10.2 % / 0.09 | 17.5 % / 0.17 | 0.0 % / 0.21 | 0.0 % / 0.23 | 0.0 % / 0.26 | 0.0 % / 0.21 | 0.0 % / 0.21 | 0.0 % / 0.09 |
+| bern-combined-v1 – bern-hertwig-v2 | 0.973 | 10.5 % / 0.09 | 17.9 % / 0.16 | 0.0 % / 0.21 | 0.0 % / 0.23 | 0.0 % / 0.23 | 0.0 % / 0.22 | 0.0 % / 0.24 | 0.0 % / 0.17 |
+| mccatmus – prima | 0.966 | 0.0 % / 0.11 | 0.0 % / 0.19 | 0.0 % / 0.23 | 0.0 % / 0.25 | 0.0 % / 0.29 | 0.0 % / 0.25 | 0.0 % / 0.25 | 0.0 % / 0.33 |
+| german-xix-blb-v1 – german-xix-v1 | 0.964 | 25.0 % / 0.12 | 25.5 % / 0.17 | 0.0 % / 0.26 | 0.0 % / 0.30 | 0.0 % / 0.27 | 0.0 % / 0.26 | 0.0 % / 0.27 | 0.0 % / 0.21 |
+| openiti_ottoman_print – openiti_persian_print | 0.961 | 56.2 % / 0.17 | 57.1 % / 0.20 | 0.0 % / 0.26 | 0.0 % / 0.29 | 0.0 % / 0.26 | 0.0 % / 0.30 | 0.0 % / 0.30 | 0.0 % / 0.15 |
+| bern-hertwig-v2 – cursive_inzigkofen | 0.960 | 4.7 % / 0.13 | 12.2 % / 0.21 | 0.0 % / 0.27 | 0.0 % / 0.27 | 0.0 % / 0.26 | 0.0 % / 0.29 | 0.0 % / 0.31 | 0.0 % / 0.36 |
+| bern-hertwig-v1 – bern-schlussredaktion-v1 | 0.953 | 3.3 % / 0.14 | 9.0 % / 0.23 | 0.0 % / 0.29 | 0.0 % / 0.30 | 0.0 % / 0.31 | 0.0 % / 0.30 | 0.0 % / 0.32 | 0.0 % / 0.25 |
+| bern-combined-v1 – bern-hertwig-v1 | 0.946 | 1.6 % / 0.15 | 8.8 % / 0.24 | 0.0 % / 0.31 | 0.0 % / 0.32 | 0.0 % / 0.33 | 0.0 % / 0.32 | 0.0 % / 0.34 | 0.0 % / 0.27 |
+| bern-schlussredaktion-v1 – cursive_inzigkofen | 0.939 | 4.7 % / 0.17 | 11.7 % / 0.26 | 0.0 % / 0.35 | 0.0 % / 0.35 | 0.0 % / 0.33 | 0.0 % / 0.35 | 0.0 % / 0.38 | 0.0 % / 0.44 |
+| bern-combined-v1 – cursive_inzigkofen | 0.931 | 3.0 % / 0.18 | 11.4 % / 0.27 | 0.0 % / 0.36 | 0.0 % / 0.36 | 0.0 % / 0.35 | 0.0 % / 0.37 | 0.0 % / 0.40 | 0.0 % / 0.47 |
+| catmus_medieval – old_norse_am305 | 0.831 | 0.0 % / 0.19 | 0.0 % / 0.39 | 0.0 % / 0.53 | 0.0 % / 0.61 | 0.0 % / 0.69 | 0.0 % / 0.58 | 0.0 % / 0.56 | 0.0 % / 0.62 |
+| openiti_arabic_print – openiti_persian_print | 0.796 | 31.2 % / 0.56 | 31.2 % / 0.58 | 0.0 % / 0.61 | 0.0 % / 0.68 | 0.0 % / 0.74 | 0.0 % / 0.66 | 0.0 % / 0.66 | 0.0 % / 0.54 |
+| openiti_arabic_print – openiti_ottoman_print | 0.785 | 31.2 % / 0.56 | 31.2 % / 0.59 | 0.0 % / 0.63 | 0.0 % / 0.70 | 0.0 % / 0.76 | 0.0 % / 0.68 | 0.0 % / 0.69 | 0.0 % / 0.58 |
+| bastarda_inzigkofen – catmus_medieval | 0.775 | 1.9 % / 0.26 | 0.0 % / 0.50 | 0.0 % / 0.74 | 0.0 % / 0.84 | 0.0 % / 0.81 | 0.0 % / 0.70 | 0.0 % / 0.64 | 0.0 % / 0.59 |
+| catmus_medieval – cursive_inzigkofen | 0.768 | 1.6 % / 0.24 | 0.0 % / 0.51 | 0.0 % / 0.74 | 0.0 % / 0.84 | 0.0 % / 0.82 | 0.0 % / 0.71 | 0.0 % / 0.65 | 0.0 % / 0.65 |
+| bern-hertwig-v1 – catmus_medieval | 0.767 | 0.0 % / 0.23 | 0.0 % / 0.51 | 0.0 % / 0.73 | 0.0 % / 0.83 | 0.0 % / 0.82 | 0.0 % / 0.71 | 0.0 % / 0.66 | 0.0 % / 0.78 |
+| bohemian_19th – german-xix-v1 | 0.756 | 6.5 % / 0.92 | 18.9 % / 0.60 | 0.0 % / 0.75 | 0.0 % / 0.78 | 0.0 % / 0.67 | 0.0 % / 0.70 | 0.0 % / 0.75 | 0.0 % / 0.51 |
+| bern-hertwig-v2 – catmus_medieval | 0.749 | 0.0 % / 0.25 | 0.0 % / 0.52 | 0.0 % / 0.75 | 0.0 % / 0.85 | 0.0 % / 0.85 | 0.0 % / 0.74 | 0.0 % / 0.70 | 0.0 % / 0.84 |
+| bern-schlussredaktion-v1 – catmus_medieval | 0.738 | 0.0 % / 0.27 | 0.0 % / 0.54 | 0.0 % / 0.75 | 0.0 % / 0.85 | 0.0 % / 0.87 | 0.0 % / 0.76 | 0.0 % / 0.72 | 0.0 % / 0.90 |
+| bern-combined-v1 – catmus_medieval | 0.732 | 0.0 % / 0.27 | 0.0 % / 0.54 | 0.0 % / 0.76 | 0.0 % / 0.86 | 0.0 % / 0.87 | 0.0 % / 0.77 | 0.0 % / 0.73 | 0.0 % / 0.91 |
+| bohemian_19th – german-xix-blb-v1 | 0.724 | 6.5 % / 0.92 | 18.9 % / 0.63 | 0.0 % / 0.78 | 0.0 % / 0.82 | 0.0 % / 0.71 | 0.0 % / 0.74 | 0.0 % / 0.79 | 0.0 % / 0.53 |
+| glagolitic_print – hebrew_sephardi | 0.698 | 0.0 % / 0.30 | 0.0 % / 0.52 | 0.0 % / 0.62 | 0.0 % / 0.69 | 0.0 % / 0.89 | 0.0 % / 0.78 | 0.0 % / 0.85 | 0.0 % / 0.84 |
+| bastarda_inzigkofen – old_norse_am305 | 0.660 | 0.0 % / 0.27 | 0.0 % / 0.55 | 0.0 % / 0.74 | 0.0 % / 0.87 | 0.0 % / 0.91 | 0.0 % / 0.79 | 0.0 % / 0.76 | 0.0 % / 0.71 |
+| cursive_inzigkofen – old_norse_am305 | 0.654 | 0.0 % / 0.26 | 0.0 % / 0.56 | 0.0 % / 0.75 | 0.0 % / 0.88 | 0.0 % / 0.92 | 0.0 % / 0.80 | 0.0 % / 0.77 | 0.0 % / 0.76 |
+| bern-hertwig-v1 – old_norse_am305 | 0.653 | 0.0 % / 0.26 | 0.0 % / 0.55 | 0.0 % / 0.74 | 0.0 % / 0.87 | 0.0 % / 0.92 | 0.0 % / 0.80 | 0.0 % / 0.77 | 0.0 % / 0.84 |
+| bern-hertwig-v2 – old_norse_am305 | 0.638 | 0.0 % / 0.28 | 0.0 % / 0.56 | 0.0 % / 0.74 | 0.0 % / 0.88 | 0.0 % / 0.94 | 0.0 % / 0.83 | 0.0 % / 0.80 | 0.0 % / 0.89 |
+| hebrew_sephardi – samaritan | 0.636 | 0.0 % / 0.81 | 0.0 % / 0.71 | 0.0 % / 0.78 | 0.0 % / 0.84 | 0.0 % / 1.00 | 0.0 % / 0.86 | 0.0 % / 0.99 | 0.0 % / 1.36 |
+| bastarda_inzigkofen – cursive_inzigkofen | 0.630 | 1.6 % / 0.23 | 0.0 % / 0.57 | 0.0 % / 0.76 | 0.0 % / 0.89 | 0.0 % / 0.96 | 0.0 % / 0.83 | 0.0 % / 0.77 | 0.0 % / 0.38 |
+| bern-schlussredaktion-v1 – old_norse_am305 | 0.630 | 0.0 % / 0.29 | 0.0 % / 0.57 | 0.0 % / 0.74 | 0.0 % / 0.88 | 0.0 % / 0.95 | 0.0 % / 0.84 | 0.0 % / 0.81 | 0.0 % / 0.94 |
+| bastarda_inzigkofen – bern-hertwig-v1 | 0.629 | 0.0 % / 0.23 | 0.0 % / 0.56 | 0.0 % / 0.75 | 0.0 % / 0.89 | 0.0 % / 0.95 | 0.0 % / 0.83 | 0.0 % / 0.77 | 0.0 % / 0.45 |
+| bern-combined-v1 – old_norse_am305 | 0.626 | 0.0 % / 0.29 | 0.0 % / 0.57 | 0.0 % / 0.75 | 0.0 % / 0.88 | 0.0 % / 0.95 | 0.0 % / 0.84 | 0.0 % / 0.82 | 0.0 % / 0.95 |
+| bastarda_inzigkofen – bern-hertwig-v2 | 0.614 | 0.0 % / 0.25 | 0.0 % / 0.57 | 0.0 % / 0.76 | 0.0 % / 0.89 | 0.0 % / 0.97 | 0.0 % / 0.85 | 0.0 % / 0.80 | 0.0 % / 0.52 |
+| bastarda_inzigkofen – bern-schlussredaktion-v1 | 0.606 | 0.0 % / 0.27 | 0.0 % / 0.58 | 0.0 % / 0.76 | 0.0 % / 0.89 | 0.0 % / 0.98 | 0.0 % / 0.86 | 0.0 % / 0.81 | 0.0 % / 0.57 |
+| bastarda_inzigkofen – bern-combined-v1 | 0.601 | 0.0 % / 0.27 | 0.0 % / 0.59 | 0.0 % / 0.77 | 0.0 % / 0.90 | 0.0 % / 0.98 | 0.0 % / 0.86 | 0.0 % / 0.82 | 0.0 % / 0.59 |
 
-Dead (silent) convolution filters per model: output 0 on every frame of the probe lines (120 lines, blb-train-300, bern-train-300, medieval-val-300).
+## Group B: RQ1 identical parameters and RQ2 distance, related pairs
+
+Each cell: share of *live* parameters that are bit-identical (structural zeros excluded) / relative distance ‖B − A‖ / mean(‖A‖, ‖B‖). The output layer on the characters both alphabets share.
+
+| pair | body cosine | C_0 | Gn_1 | C_2 | Gn_3 | C_5 | Gn_6 | L_9 | L_11 | L_13 | O_15 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| catmus_print_large – french_vietnamese | 0.982 | 18.8 % / 0.05 | 9.4 % / 0.02 | 0.0 % / 0.12 | 0.0 % / 0.02 | 0.0 % / 0.13 | 0.0 % / 0.07 | 0.0 % / 0.18 | 0.0 % / 0.18 | 0.0 % / 0.22 | 0.0 % / 0.19 |
+| catmus_print_large – latin_incunabula | 0.946 | 18.8 % / 0.08 | 9.4 % / 0.08 | 0.0 % / 0.22 | 0.0 % / 0.05 | 0.0 % / 0.26 | 0.0 % / 0.16 | 0.0 % / 0.31 | 0.0 % / 0.33 | 0.0 % / 0.35 | 0.0 % / 0.63 |
+| french_vietnamese – latin_incunabula | 0.931 | 18.8 % / 0.09 | 9.4 % / 0.08 | 0.0 % / 0.24 | 0.0 % / 0.05 | 0.0 % / 0.29 | 0.0 % / 0.16 | 0.0 % / 0.35 | 0.0 % / 0.37 | 0.0 % / 0.40 | 0.0 % / 0.63 |
+
+## Group C: RQ1 identical parameters and RQ2 distance, related pairs
+
+Each cell: share of *live* parameters that are bit-identical (structural zeros excluded) / relative distance ‖B − A‖ / mean(‖A‖, ‖B‖). The output layer on the characters both alphabets share.
+
+| pair | body cosine | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| textualis_inzigkofen – tridis_v2 | 0.947 | 60.0 % / 0.12 | 49.4 % / 0.17 | 0.0 % / 0.41 | 0.0 % / 0.49 | 0.0 % / 0.33 | 0.0 % / 0.34 | 0.0 % / 0.33 | 0.0 % / 0.13 |
+
+## Function: linear CKA per block, by group
+
+Linear CKA between two models' outputs of a block on the same 120 probe lines (blb-train-300, bern-train-300, medieval-val-300; 40 each, seed 20261107). 1 = the same features up to unit order and scale. Means over pairs; every pair is in docs/family/functional.json.
+
+### Group A (33 models, 528 pairs)
+
+| pairs | n | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| same lineage | 37 | 0.85 | 0.67 | 0.68 | 0.71 | 0.62 | 0.54 | 0.39 | 0.19 |
+| distant relatives | 7 | 0.93 | 0.81 | 0.69 | 0.61 | 0.56 | 0.39 | 0.22 | 0.03 |
+| unrelated | 484 | 0.80 | 0.66 | 0.59 | 0.48 | 0.48 | 0.40 | 0.23 | 0.04 |
+
+Dead (silent) convolution filters per model (output 0 on every probe frame):
 
 | model | C_0 | C_3 | C_6 | C_9 |
 |---|---:|---:|---:|---:|
+| bastarda_inzigkofen | 4/32 | 0/32 | 0/64 | 0/64 |
 | bern-combined-v1 | 6/32 | 0/32 | 0/64 | 0/64 |
 | bern-hertwig-v1 | 3/32 | 0/32 | 0/64 | 0/64 |
 | bern-hertwig-v2 | 6/32 | 0/32 | 0/64 | 0/64 |
 | bern-schlussredaktion-v1 | 7/32 | 0/32 | 0/64 | 0/64 |
 | catmus_medieval | 0/32 | 0/32 | 0/64 | 0/64 |
 | cursive_inzigkofen | 3/32 | 1/32 | 0/64 | 0/64 |
+| old_norse_am305 | 1/32 | 0/32 | 0/64 | 0/64 |
 | bohemian_19th | 10/32 | 0/32 | 0/64 | 0/64 |
 | german-xix-blb-v1 | 9/32 | 0/32 | 0/64 | 0/64 |
 | german-xix-v1 | 8/32 | 0/32 | 0/64 | 0/64 |
+| glagolitic_print | 0/32 | 0/32 | 0/64 | 0/64 |
+| hebrew_sephardi | 0/32 | 0/32 | 0/64 | 0/64 |
+| samaritan | 3/32 | 0/32 | 0/64 | 0/64 |
+| openiti_arabic_print | 11/32 | 0/32 | 0/64 | 0/64 |
+| openiti_ottoman_print | 19/32 | 0/32 | 0/64 | 0/64 |
+| openiti_persian_print | 19/32 | 0/32 | 0/64 | 0/64 |
+| mccatmus | 0/32 | 0/32 | 0/64 | 0/64 |
+| prima | 0/32 | 0/32 | 0/64 | 0/64 |
+| austrian_fraktur | 7/32 | 1/32 | 0/64 | 0/64 |
 | bifrost_old_norse | 1/32 | 0/32 | 0/64 | 0/64 |
+| cyrillic_uncial | 5/32 | 0/32 | 0/64 | 0/64 |
+| fondue_gd_v2 | 11/32 | 0/32 | 0/64 | 0/64 |
+| gallicorpora | 0/32 | 0/32 | 0/64 | 0/64 |
+| german_print | 5/32 | 2/32 | 0/64 | 0/64 |
+| kuzushiji | 14/32 | 0/32 | 0/64 | 0/64 |
+| latin_expanded_11c | 0/32 | 4/32 | 0/64 | 0/64 |
+| latin_graphematic_11c | 0/32 | 3/32 | 0/64 | 0/64 |
+| lectaurep_french | 0/32 | 0/32 | 0/64 | 0/64 |
+| manu_mcfondue | 4/32 | 0/32 | 0/64 | 0/64 |
+| medieval_latin_french_expanded | 0/32 | 0/32 | 0/64 | 0/64 |
+| mendelssohn_letters | 18/32 | 6/32 | 0/64 | 0/64 |
+| peraire_french | 0/32 | 0/32 | 0/64 | 0/64 |
 
-## RQ2 — how far apart, per block
+### Group B (6 models, 15 pairs)
 
-### Weight space, related pairs
+| pairs | n | C_0 | C_2 | C_5 | L_9 | L_11 | L_13 | O_15 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| same lineage | 3 | 1.00 | 0.99 | 0.95 | 0.79 | 0.66 | 0.41 | 0.32 |
+| unrelated | 12 | 0.99 | 0.90 | 0.72 | 0.60 | 0.49 | 0.30 | 0.09 |
 
-Relative distance ‖B − A‖ / mean(‖A‖, ‖B‖) per block; `O_18` on the characters both alphabets share.
+Dead (silent) convolution filters per model (output 0 on every probe frame):
 
-| pair | body cosine | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
+| model | C_0 | C_2 | C_5 |
+|---|---:|---:|---:|
+| catmus_print_large | 6/32 | 0/64 | 1/128 |
+| french_vietnamese | 6/32 | 0/64 | 0/128 |
+| latin_incunabula | 6/32 | 0/64 | 1/128 |
+| catmus_gothic_print | 7/32 | 0/64 | 0/128 |
+| cremma_medieval | 12/32 | 0/64 | 2/128 |
+| medieval_latin_french_abbreviated | 7/32 | 0/64 | 3/128 |
+
+### Group C (2 models, 1 pairs)
+
+| pairs | n | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| bern-hertwig-v1 – cursive_inzigkofen | 0.992 | 0.067 | 0.089 | 0.129 | 0.123 | 0.096 | 0.131 | 0.151 | 0.250 |
-| bern-hertwig-v2 – bern-schlussredaktion-v1 | 0.980 | 0.080 | 0.135 | 0.186 | 0.199 | 0.198 | 0.195 | 0.206 | 0.154 |
-| bern-hertwig-v1 – bern-hertwig-v2 | 0.974 | 0.102 | 0.167 | 0.210 | 0.214 | 0.232 | 0.224 | 0.237 | 0.141 |
-| bern-combined-v1 – bern-schlussredaktion-v1 | 0.973 | 0.085 | 0.165 | 0.212 | 0.226 | 0.263 | 0.215 | 0.208 | 0.088 |
-| bern-combined-v1 – bern-hertwig-v2 | 0.973 | 0.087 | 0.155 | 0.213 | 0.227 | 0.232 | 0.224 | 0.244 | 0.173 |
-| german-xix-blb-v1 – german-xix-v1 | 0.964 | 0.118 | 0.167 | 0.257 | 0.296 | 0.273 | 0.259 | 0.265 | 0.207 |
-| bern-hertwig-v2 – cursive_inzigkofen | 0.960 | 0.131 | 0.205 | 0.273 | 0.271 | 0.261 | 0.285 | 0.312 | 0.357 |
-| bern-hertwig-v1 – bern-schlussredaktion-v1 | 0.953 | 0.142 | 0.228 | 0.292 | 0.298 | 0.306 | 0.299 | 0.317 | 0.249 |
-| bern-combined-v1 – bern-hertwig-v1 | 0.946 | 0.145 | 0.240 | 0.311 | 0.319 | 0.329 | 0.321 | 0.345 | 0.269 |
-| bern-schlussredaktion-v1 – cursive_inzigkofen | 0.939 | 0.173 | 0.263 | 0.347 | 0.345 | 0.331 | 0.348 | 0.377 | 0.444 |
-| bern-combined-v1 – cursive_inzigkofen | 0.931 | 0.176 | 0.273 | 0.362 | 0.365 | 0.352 | 0.368 | 0.402 | 0.469 |
-| catmus_medieval – cursive_inzigkofen | 0.768 | 0.238 | 0.512 | 0.743 | 0.841 | 0.822 | 0.707 | 0.654 | 0.654 |
-| bern-hertwig-v1 – catmus_medieval | 0.767 | 0.228 | 0.507 | 0.732 | 0.834 | 0.822 | 0.710 | 0.658 | 0.775 |
-| bohemian_19th – german-xix-v1 | 0.756 | 0.919 | 0.600 | 0.747 | 0.780 | 0.666 | 0.697 | 0.747 | 0.505 |
-| bern-hertwig-v2 – catmus_medieval | 0.749 | 0.252 | 0.524 | 0.745 | 0.848 | 0.849 | 0.743 | 0.695 | 0.840 |
-| bern-schlussredaktion-v1 – catmus_medieval | 0.738 | 0.270 | 0.536 | 0.750 | 0.853 | 0.865 | 0.761 | 0.716 | 0.899 |
-| bern-combined-v1 – catmus_medieval | 0.732 | 0.271 | 0.542 | 0.759 | 0.859 | 0.873 | 0.769 | 0.727 | 0.912 |
-| bohemian_19th – german-xix-blb-v1 | 0.724 | 0.924 | 0.628 | 0.776 | 0.819 | 0.711 | 0.742 | 0.791 | 0.526 |
+| same lineage | 1 | 0.91 | 0.80 | 0.66 | 0.49 | 0.46 | 0.44 | 0.25 | 0.04 |
 
-### Function, every pair: linear CKA per block
+Dead (silent) convolution filters per model (output 0 on every probe frame):
 
-Linear CKA between the two models' outputs of the block on the same 120 probe lines (blb-train-300, bern-train-300, medieval-val-300; 40 each, seed 20261107), 2000 sampled frames per block. 1 = the same features up to unit order and scale.
-
-| pair | lineage | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| bern-hertwig-v1 – bern-hertwig-v2 | same | 0.99 | 0.87 | 0.89 | 0.96 | 0.88 | 0.86 | 0.77 | 0.67 |
-| bern-combined-v1 – bern-schlussredaktion-v1 | same | 0.99 | 0.93 | 0.94 | 0.96 | 0.89 | 0.81 | 0.69 | 0.61 |
-| bern-combined-v1 – bern-hertwig-v2 | same | 0.96 | 0.90 | 0.91 | 0.93 | 0.85 | 0.77 | 0.62 | 0.48 |
-| bern-hertwig-v2 – bern-schlussredaktion-v1 | same | 0.95 | 0.85 | 0.90 | 0.92 | 0.86 | 0.79 | 0.65 | 0.50 |
-| bern-hertwig-v1 – bern-schlussredaktion-v1 | same | 0.94 | 0.77 | 0.83 | 0.89 | 0.80 | 0.74 | 0.61 | 0.42 |
-| bern-combined-v1 – bern-hertwig-v1 | same | 0.94 | 0.82 | 0.81 | 0.89 | 0.78 | 0.70 | 0.58 | 0.44 |
-| german-xix-blb-v1 – german-xix-v1 | same | 0.90 | 0.60 | 0.63 | 0.88 | 0.86 | 0.82 | 0.68 | 0.45 |
-| bern-hertwig-v1 – cursive_inzigkofen | same | 0.94 | 0.86 | 0.74 | 0.70 | 0.74 | 0.66 | 0.47 | 0.20 |
-| bohemian_19th – german-xix-v1 | same | 0.89 | 0.82 | 0.68 | 0.73 | 0.66 | 0.56 | 0.40 | 0.08 |
-| bern-hertwig-v2 – cursive_inzigkofen | same | 0.89 | 0.71 | 0.64 | 0.66 | 0.69 | 0.58 | 0.42 | 0.13 |
-| bohemian_19th – german-xix-blb-v1 | same | 0.76 | 0.63 | 0.58 | 0.72 | 0.66 | 0.56 | 0.40 | 0.18 |
-| bern-schlussredaktion-v1 – catmus_medieval | same | 0.71 | 0.62 | 0.73 | 0.72 | 0.65 | 0.60 | 0.37 | 0.05 |
-| bern-hertwig-v1 – catmus_medieval | same | 0.80 | 0.53 | 0.68 | 0.70 | 0.62 | 0.59 | 0.39 | 0.10 |
-| bern-schlussredaktion-v1 – cursive_inzigkofen | same | 0.86 | 0.66 | 0.60 | 0.61 | 0.65 | 0.55 | 0.38 | 0.11 |
-| bern-hertwig-v2 – catmus_medieval | same | 0.73 | 0.47 | 0.72 | 0.72 | 0.63 | 0.58 | 0.38 | 0.07 |
-| bern-combined-v1 – cursive_inzigkofen | same | 0.84 | 0.66 | 0.58 | 0.62 | 0.62 | 0.50 | 0.34 | 0.09 |
-| bern-combined-v1 – catmus_medieval | same | 0.67 | 0.52 | 0.74 | 0.73 | 0.63 | 0.54 | 0.34 | 0.07 |
-| catmus_medieval – cursive_inzigkofen | same | 0.90 | 0.54 | 0.51 | 0.63 | 0.56 | 0.50 | 0.33 | 0.10 |
-| catmus_medieval – german-xix-v1 | — | 0.87 | 0.62 | 0.67 | 0.63 | 0.70 | 0.58 | 0.33 | 0.05 |
-| catmus_medieval – german-xix-blb-v1 | — | 0.88 | 0.73 | 0.50 | 0.62 | 0.70 | 0.59 | 0.33 | 0.02 |
-| bern-schlussredaktion-v1 – bohemian_19th | — | 0.83 | 0.67 | 0.59 | 0.55 | 0.59 | 0.53 | 0.34 | 0.08 |
-| bern-schlussredaktion-v1 – german-xix-v1 | — | 0.77 | 0.67 | 0.62 | 0.59 | 0.58 | 0.50 | 0.33 | 0.02 |
-| bern-hertwig-v2 – bohemian_19th | — | 0.78 | 0.58 | 0.59 | 0.54 | 0.58 | 0.54 | 0.35 | 0.09 |
-| bern-combined-v1 – bohemian_19th | — | 0.81 | 0.62 | 0.60 | 0.54 | 0.59 | 0.52 | 0.31 | 0.04 |
-| bohemian_19th – catmus_medieval | — | 0.79 | 0.70 | 0.58 | 0.56 | 0.60 | 0.50 | 0.29 | 0.01 |
-| bern-hertwig-v1 – bohemian_19th | — | 0.81 | 0.62 | 0.59 | 0.51 | 0.56 | 0.53 | 0.34 | 0.04 |
-| bern-hertwig-v1 – german-xix-v1 | — | 0.81 | 0.64 | 0.58 | 0.55 | 0.56 | 0.50 | 0.33 | 0.01 |
-| bern-hertwig-v2 – german-xix-v1 | — | 0.76 | 0.60 | 0.60 | 0.58 | 0.56 | 0.49 | 0.33 | 0.02 |
-| bern-combined-v1 – german-xix-v1 | — | 0.74 | 0.65 | 0.61 | 0.59 | 0.56 | 0.45 | 0.29 | 0.02 |
-| bifrost_old_norse – catmus_medieval | — | 0.73 | 0.74 | 0.61 | 0.65 | 0.49 | 0.40 | 0.24 | 0.05 |
-| bern-hertwig-v1 – bifrost_old_norse | — | 0.76 | 0.52 | 0.66 | 0.58 | 0.52 | 0.43 | 0.28 | 0.10 |
-| bern-hertwig-v1 – german-xix-blb-v1 | — | 0.68 | 0.44 | 0.67 | 0.58 | 0.57 | 0.52 | 0.32 | 0.01 |
-| bern-schlussredaktion-v1 – bifrost_old_norse | — | 0.69 | 0.58 | 0.63 | 0.60 | 0.50 | 0.40 | 0.25 | 0.11 |
-| bern-schlussredaktion-v1 – german-xix-blb-v1 | — | 0.61 | 0.50 | 0.56 | 0.60 | 0.59 | 0.51 | 0.32 | 0.02 |
-| bern-hertwig-v2 – bifrost_old_norse | — | 0.72 | 0.50 | 0.65 | 0.59 | 0.52 | 0.41 | 0.26 | 0.07 |
-| bohemian_19th – cursive_inzigkofen | — | 0.81 | 0.60 | 0.53 | 0.46 | 0.51 | 0.46 | 0.30 | 0.01 |
-| cursive_inzigkofen – german-xix-v1 | — | 0.84 | 0.57 | 0.47 | 0.48 | 0.52 | 0.44 | 0.28 | 0.02 |
-| cursive_inzigkofen – german-xix-blb-v1 | — | 0.78 | 0.44 | 0.67 | 0.48 | 0.52 | 0.44 | 0.27 | 0.01 |
-| bern-hertwig-v2 – german-xix-blb-v1 | — | 0.61 | 0.37 | 0.59 | 0.60 | 0.57 | 0.50 | 0.32 | 0.02 |
-| bifrost_old_norse – german-xix-blb-v1 | — | 0.67 | 0.68 | 0.65 | 0.56 | 0.46 | 0.34 | 0.19 | 0.02 |
-| bern-combined-v1 – bifrost_old_norse | — | 0.69 | 0.49 | 0.62 | 0.61 | 0.49 | 0.37 | 0.22 | 0.07 |
-| bifrost_old_norse – cursive_inzigkofen | — | 0.76 | 0.48 | 0.54 | 0.50 | 0.49 | 0.40 | 0.27 | 0.07 |
-| bifrost_old_norse – german-xix-v1 | — | 0.79 | 0.59 | 0.53 | 0.52 | 0.45 | 0.33 | 0.19 | 0.03 |
-| bifrost_old_norse – bohemian_19th | — | 0.79 | 0.61 | 0.54 | 0.51 | 0.42 | 0.33 | 0.20 | 0.01 |
-| bern-combined-v1 – german-xix-blb-v1 | — | 0.56 | 0.39 | 0.52 | 0.61 | 0.57 | 0.47 | 0.28 | 0.01 |
-| **mean, same lineage (18)** | | **0.87** | **0.71** | **0.73** | **0.78** | **0.72** | **0.65** | **0.49** | **0.26** |
-| **mean, different lineages (27)** | | **0.75** | **0.58** | **0.59** | **0.56** | **0.55** | **0.46** | **0.29** | **0.04** |
+| model | C_0 | C_3 | C_6 | C_9 |
+|---|---:|---:|---:|---:|
+| textualis_inzigkofen | 19/32 | 0/32 | 2/64 | 0/64 |
+| tridis_v2 | 15/32 | 0/32 | 0/64 | 0/64 |
 
 ## RQ3 — exchange: S's block moved to G's
 
 ### `bern-hertwig-v2` ← `catmus-medieval-1.6.0` (body cosine 0.749)
 
-Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material. S / G read: `bern-hertwig-train-300` 8.28 % / 49.54 %; `medieval-val-300` 64.47 % / 48.18 %; `blb-train-300` 71.90 % / 54.25 %.
+Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material or the nearest available. S / G read: `bern-hertwig-train-300` 8.28 % / 49.54 %; `medieval-val-300` 64.47 % / 48.18 %; `blb-train-300` 71.90 % / 54.25 %.
 
 | block | β | `bern-hertwig-train-300` | `medieval-val-300` | `blb-train-300` |
 |---|---:|---:|---:|---:|
@@ -196,7 +256,7 @@ Linear CKA between the two models' outputs of the block on the same 120 probe li
 
 ### `bern-hertwig-v2` ← `cursive_johannes_jaeck` (body cosine 0.960)
 
-Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material. S / G read: `bern-hertwig-train-300` 8.28 % / 70.59 %; `medieval-val-300` 64.47 % / 73.88 %; `blb-train-300` 71.90 % / 76.60 %.
+Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material or the nearest available. S / G read: `bern-hertwig-train-300` 8.28 % / 70.59 %; `medieval-val-300` 64.47 % / 73.88 %; `blb-train-300` 71.90 % / 76.60 %.
 
 | block | β | `bern-hertwig-train-300` | `medieval-val-300` | `blb-train-300` |
 |---|---:|---:|---:|---:|
@@ -219,7 +279,7 @@ Linear CKA between the two models' outputs of the block on the same 120 probe li
 
 ### `cursive_johannes_jaeck` ← `catmus-medieval-1.6.0` (body cosine 0.768)
 
-Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material. S / G read: `medieval-val-300` 73.88 % / 48.18 %; `bern-train-300` 67.24 % / 48.03 %; `blb-train-300` 76.60 % / 54.25 %.
+Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material or the nearest available. S / G read: `medieval-val-300` 73.88 % / 48.18 %; `bern-train-300` 67.24 % / 48.03 %; `blb-train-300` 76.60 % / 54.25 %.
 
 | block | β | `medieval-val-300` | `bern-train-300` | `blb-train-300` |
 |---|---:|---:|---:|---:|
@@ -242,7 +302,7 @@ Linear CKA between the two models' outputs of the block on the same 120 probe li
 
 ### `german-xix-blb-v1` ← `german-xix-v1` (body cosine 0.964)
 
-Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material. S / G read: `blb-train-300` 6.46 % / 30.39 %; `bern-train-300` 51.35 % / 53.66 %; `medieval-val-300` 54.54 % / 53.73 %.
+Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material or the nearest available. S / G read: `blb-train-300` 6.46 % / 30.39 %; `bern-train-300` 51.35 % / 53.66 %; `medieval-val-300` 54.54 % / 53.73 %.
 
 | block | β | `blb-train-300` | `bern-train-300` | `medieval-val-300` |
 |---|---:|---:|---:|---:|
@@ -265,7 +325,7 @@ Linear CKA between the two models' outputs of the block on the same 120 probe li
 
 ### `german-xix-v1` ← `rec_bohemica` (body cosine 0.756)
 
-Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material. S / G read: `blb-train-300` 30.39 % / 53.98 %; `bern-train-300` 53.66 % / 67.06 %; `medieval-val-300` 53.73 % / 71.94 %.
+Δ CER in points against S unedited, per set, paired 95 % interval; **bold** where it excludes 0. First set = S's own material or the nearest available. S / G read: `blb-train-300` 30.39 % / 53.98 %; `bern-train-300` 53.66 % / 67.06 %; `medieval-val-300` 53.73 % / 71.94 %.
 
 | block | β | `blb-train-300` | `bern-train-300` | `medieval-val-300` |
 |---|---:|---:|---:|---:|
