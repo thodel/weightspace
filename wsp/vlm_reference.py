@@ -18,7 +18,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-TRAINER = Path.home() / "Repo/training-atr-models"
+#: The account's home, from where this repo lies (~/Repo/weightspace), not $HOME or the
+#: password database: the sandbox sets HOME to the run folder and ``unshare -U`` maps the
+#: uid to nobody, whose home is /nonexistent (wsp.run.sandbox_command).
+HOME = Path(__file__).resolve().parents[3]
+TRAINER = HOME / "Repo/training-atr-models"
 PY = TRAINER / ".venvs/vlm-train-tf5/bin/python"
 JOB = Path("/mnt/wbkolleg_dh_1/Textrecognition_Training/archive/train-manifests/"
            "20261029T133027Z-qwen3.5-4b-german-kurrent-xvi-xix-page-v2/job.json")
@@ -39,9 +43,16 @@ print(json.dumps(cmd))
 """
 
 
+def child_env() -> dict:
+    """The trainer's venv with the account's HF cache and temp dir, whatever HOME the caller has."""
+    return {**os.environ, "HOME": str(HOME), "HF_HUB_CACHE": str(HOME / ".cache/huggingface/hub"),
+            "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "TMPDIR": str(HOME / "atr-cache/tmp"),
+            "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines", "CUDA_VISIBLE_DEVICES": "0"}
+
+
 def command(adapter: str | None, pages: Path, data_root: Path, report: Path, max_new_tokens: int) -> list[str]:
     n = sum(1 for l in pages.read_text(encoding="utf-8").splitlines() if l.strip())
-    env = {**os.environ, "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines"}
+    env = child_env()
     out = subprocess.run([str(PY), "-c", _ARGV, str(JOB), adapter or "", str(pages), str(data_root),
                           str(report), str(max_new_tokens), str(n)],
                          capture_output=True, text=True, env=env, check=True)
@@ -61,8 +72,7 @@ def main(argv=None):
     print(" ".join(cmd), flush=True)
     if a.dry_run:
         return 0
-    env = {**os.environ, "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines", "CUDA_VISIBLE_DEVICES": "0"}
-    return subprocess.run(cmd, env=env, cwd=str(TRAINER)).returncode
+    return subprocess.run(cmd, env=child_env(), cwd=str(TRAINER)).returncode
 
 
 if __name__ == "__main__":

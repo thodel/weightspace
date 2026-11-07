@@ -109,12 +109,14 @@ class LoraSubject(Subject):
 
 
 def vllm_runner(render: str | Path, out_dir: str | Path,
-                python: str | Path = Path.home() / ".venvs/vllm/bin/python") -> Callable:
+                python: str | Path | None = None) -> Callable:
     """A ``forward`` for LoraSubject: one ``wsp.vllm_forward`` process per pass on
     card 0, after ``wsp.card.ready`` (memory, and no trainer job waiting, #396).
     Practice items need only ``key``; the render directory holds images and prompt."""
     from wsp import card
+    from wsp.vlm_reference import HOME
 
+    python = python or HOME / ".venvs/vllm/bin/python"
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     count = {"n": 0}
 
@@ -126,7 +128,7 @@ def vllm_runner(render: str | Path, out_dir: str | Path,
         keys = out_dir / f"pass-{count['n']:03d}.keys"
         keys.write_text("".join(p["key"] + "\n" for p in practice))
         out = out_dir / f"pass-{count['n']:03d}.jsonl"
-        env = {**os.environ, "CUDA_VISIBLE_DEVICES": "0", "HF_HUB_OFFLINE": "1",
+        env = {**os.environ, "HOME": str(HOME), "CUDA_VISIBLE_DEVICES": "0", "HF_HUB_OFFLINE": "1",
                "PATH": f"{Path(python).parent}:{os.environ.get('PATH', '')}",
                "PYTHONPATH": str(Path(__file__).resolve().parent.parent)}
         with open(out.with_suffix(".log"), "w") as log:

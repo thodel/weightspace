@@ -22,3 +22,6 @@ __pycache__/
 
 # built protocol site
 protocol/site/
+runs/*/passes/
+runs/*/*.adapter/
+runs/*/*.wsp-work/
