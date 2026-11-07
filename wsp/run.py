@@ -111,14 +111,42 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
 class RunSession(Session):
     """A Session that persists the edited weights next to its log."""
 
+    #: In a replay (``wsp.replay``) the decisions of the original log, in order; keep/revert then
+    #: follow the log instead of the current rule, so a session run under an earlier rule
+    #: re-executes exactly as it ran. ``None`` outside a replay.
+    _replay: list | None = None
+
+    def _replayed(self, call: str, reason: str) -> bool:
+        if not self._replay:
+            raise RuntimeError(f"replay: {call}() called but the original log has no decision left")
+        rec = self._replay.pop(0)
+        if call == "revert" and rec["kept"]:
+            raise RuntimeError("replay: the program reverts where the original log kept; it diverged")
+        if rec["kept"]:
+            self._kept_lines = self._last_lines
+            self._decide(True, reason, rule="replayed", original_rule=rec.get("rule"))
+        else:
+            if self._pre_edit_tensors:
+                for n, v in self._pre_edit_tensors.items():
+                    self.subject.set_tensor(n, v)
+            self._decide(False, rec.get("reason") or reason, rule="replayed", original_rule=rec.get("rule"),
+                         requested=reason)
+        return bool(rec["kept"])
+
     def keep(self, reason: str = "") -> bool:
         """The harness's keep rule decides (Session.keep); only a kept state is persisted.
         Until 06.11.2026 this wrapper returned None, so a programmer reading the return value
         saw every keep as refused (session 20261106-bern-combined-v1-b10-1, deviations)."""
-        kept = super().keep(reason)
+        kept = self._replayed("keep", reason) if self._replay is not None else super().keep(reason)
         if kept:
             self.subject.save(self.run_dir / "current.mlmodel")
         return kept
+
+    def revert(self, reason: str = "") -> None:
+        if self._replay is not None:
+            self._replayed("revert", reason)
+        else:
+            super().revert(reason)
 
     def freeze(self) -> dict:
         summary = super().freeze()
@@ -140,6 +168,9 @@ def open_session(run_dir: str | Path = ".", device: str = "cpu") -> RunSession:
         raise RuntimeError("subject digest differs from session.json; the artefact changed")
     items = load(meta["practice"])
     sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"])
+    replay = run_dir / "replay.json"
+    if replay.exists():
+        sess._replay = json.loads(replay.read_text())["decisions"]
     cur = run_dir / "current.mlmodel"
     if cur.exists():
         edited = _subject(cur, device=device)

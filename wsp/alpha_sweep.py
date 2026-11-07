@@ -48,7 +48,7 @@ def aligned_parent_output(parent, child) -> dict[str, np.ndarray]:
 
 
 def sweep(child, parent, practice: list[dict], baseline_lines, blocks=DEFAULT_BLOCKS, alphas=DEFAULT_ALPHAS,
-          resamples: int = 2000, seed: int = 20261106, log=print) -> list[dict]:
+          resamples: int = 2000, seed: int = 20261106, log=print, readings_dir: Path | None = None) -> list[dict]:
     """One pass per (block, α); the child is restored after each. Returns one row per pass."""
     ct = child.tensors()
     pt = parent.tensors()
@@ -71,6 +71,11 @@ def sweep(child, parent, practice: list[dict], baseline_lines, blocks=DEFAULT_BL
             preds = child.forward(practice)
             wall = time.time() - t
             hyps = [p.text for p in preds]
+            if readings_dir is not None:          # per-variant predictions, for block intervals (wsp.blocks)
+                readings_dir.mkdir(parents=True, exist_ok=True)
+                (readings_dir / f"{block}-a{a}.jsonl").write_text("".join(
+                    json.dumps({"key": p.key, "hyp": h, "ref": r}, ensure_ascii=False) + "\n"
+                    for p, h, r in zip(preds, hyps, refs)), encoding="utf-8")
             m = score(hyps, refs)
             lines = per_line_edits(hyps, refs)
             boot = bootstrap_delta(baseline_lines, lines, resamples=resamples, seed=seed)
@@ -105,6 +110,7 @@ def main(argv=None):
     ap.add_argument("--blocks", nargs="*", default=DEFAULT_BLOCKS)
     ap.add_argument("--alphas", nargs="*", type=float, default=DEFAULT_ALPHAS)
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--readings", help="folder for the per-variant predictions (default: next to --out)")
     a = ap.parse_args(argv)
     from wsp.kraken_subject import KrakenSubject
     child = KrakenSubject(a.child, device=a.device); parent = KrakenSubject(a.parent, device=a.device)
@@ -117,7 +123,8 @@ def main(argv=None):
         raise SystemExit("baseline was scored on another practice list")
     base_lines = [tuple(x) for x in c0["per_line"]]
     t0 = time.time()
-    rows = sweep(child, parent, practice, base_lines, a.blocks, a.alphas)
+    readings = Path(a.readings) if a.readings else Path(a.out).parent / "readings" / Path(a.out).stem
+    rows = sweep(child, parent, practice, base_lines, a.blocks, a.alphas, readings_dir=readings)
     out = Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({
         "control": "C3 per-block alpha sweep", "child": Path(a.child).stem, "parent": Path(a.parent).stem,

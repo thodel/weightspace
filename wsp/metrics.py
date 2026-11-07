@@ -120,6 +120,7 @@ class Metrics:
     ref_chars: int
     confusions: list[tuple[str, str, int]] = field(default_factory=list)
     extra: dict = field(default_factory=dict)
+    blocks: dict = field(default_factory=dict)     # wsp.blocks.table: errors per Unicode block (CERberus-style)
 
     def as_dict(self) -> dict:
         d = asdict(self)
@@ -128,13 +129,14 @@ class Metrics:
 
 
 def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
-          extra: dict | None = None) -> Metrics:
+          extra: dict | None = None, blocks: bool = True) -> Metrics:
     """Corpus-level metrics over paired lines. An empty hypothesis counts as empty."""
     if len(hyps) != len(refs):
         raise ValueError(f"{len(hyps)} hypotheses for {len(refs)} references")
     char_edits = ref_chars = word_edits = ref_words = hyp_chars = 0
     collapsed = 0
     conf: Counter = Counter()
+    block_lines = []
     for h, r in zip(hyps, refs):
         h, r = normalise(h), normalise(r)
         char_edits += levenshtein(r, h)
@@ -147,6 +149,14 @@ def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
         for a, b in align(r, h):
             if a != b:
                 conf[(a, b)] += 1
+        if blocks:
+            from wsp.blocks import line_counts
+            block_lines.append(line_counts(r, h, normalised=True))
+    if blocks:
+        from wsp.blocks import table
+        block_table = table(block_lines)
+    else:
+        block_table = {}
     return Metrics(
         lines=len(refs),
         cer=char_edits / ref_chars if ref_chars else float("nan"),
@@ -157,6 +167,7 @@ def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
         ref_chars=ref_chars,
         confusions=[(a, b, n) for (a, b), n in conf.most_common(top_confusions)],
         extra=dict(extra or {}),
+        blocks=block_table,
     )
 
 
