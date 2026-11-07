@@ -242,20 +242,51 @@ french_vietnamese's own material stay unmeasured.
 
 The same at β = 1 (the general model's block transplanted): `docs/family/figures/family-exchange-b1.svg`.
 
+**Combined moves, latin_incunabula ← catmus_print_large.** Six combinations of the single moves, each read
+on the three practice sets and on three **confirmation sets** of 300 fresh lines from the same sources
+(`reichenau-val-conf-300`, `gt-fraktur-conf-300`, `newseye-onb-val-conf-300`: sampled with another seed, every line
+of the practice set removed; same documents, so they guard against choosing moves on noise in particular
+lines, not against document effects). Table: `docs/family/tables.md`; numbers:
+`docs/family/combine-latin_incunabula-from-catmus_print_large.json`.
+
+| moves | own, practice / fresh | Fraktur, practice / fresh | NewsEye, practice / fresh |
+|---|---|---|---|
+| `Gn_1` + `Gn_3` transplanted | +0.06 / +0.07 | **−0.43** / −0.17 | **−0.98** / **−0.40** |
+| `Gn_1` + `Gn_3` + `O_15` half-way | +0.01 / +0.07 | **−0.60** / **−0.89** | **−2.40** / **−1.83** |
+| the same + `C_0` half-way | +0.01 / +0.07 | **−0.80** / **−0.88** | **−2.39** / **−1.87** |
+| whole front end transplanted (`C_0 Gn_1 C_2 Gn_3 Gn_6`) | **+0.39** / **+0.40** | **+1.30** / **+1.20** | **+1.26** / +0.77 |
+| the same + `O_15` half-way | **+0.34** / **+0.42** | **+0.97** / **+0.72** | −0.27 / −0.48 |
+| `Gn_1` + `Gn_3` + `O_15` half-way + `L_11` half-way | **+0.43** / **+0.36** | **−1.55** / **−2.05** | **−4.28** / **−4.08** |
+
+(Δ CER in points against latin_incunabula unedited; **bold**: paired 95 % interval excludes 0.)
+
+- **Free moves add up, and hold on fresh lines.** The two group norms transplanted plus the output layer half-way:
+  own material unchanged within noise on both practice and fresh lines (+0.01, +0.07), Fraktur −0.6 / −0.9 and
+  NewsEye −2.4 / −1.8 points. That is a stabilised latin_incunabula at no measured cost.
+- **Single-block freezability does not add up.** Each front-end block alone could be set back to the parent at no
+  cost; all of them together cost +0.4 points on the model's own material and lose 0.8–1.3 on the print sets. The
+  front end as a whole is *not* freezable; its blocks compensate for each other.
+- **The recurrent trade is real and repeatable:** adding `L_11` half-way buys another 1–2 points outside for
+  +0.4 on its own material, confirmed on fresh lines.
+
+![Combined moves for latin_incunabula: ΔCER on its own material and two Fraktur sets, practice lines next to fresh confirmation lines.](family/figures/family-combine-latin_incunabula-from-catmus_print_large.svg#only-light)
+![Combined moves for latin_incunabula: ΔCER on its own material and two Fraktur sets, practice lines next to fresh confirmation lines.](family/figures/family-combine-latin_incunabula-from-catmus_print_large-dark.svg#only-dark)
+
 **Answer so far:** the shared front end (RQ2) is where exchange can stabilise without cost (RQ3): half-way
 in the default architecture, fully in the group-norm architecture, where the front end is functionally the
-same across all six models (CKA 0.99) and latin_incunabula's could have been frozen outright. The
-individuality of a model sits in its recurrent stack, which an exchange can only trade against its own
-material — at a poor rate in the in-house fine-tunes, at a good one (about 1 : 5 to 1 : 10) for latin_incunabula.
-Exchange only helps towards a general model that reads the other material better. Whether several free
-moves add up (front end + output layer for latin_incunabula) is the next grid.
+same across all six models (CKA 0.99): for latin_incunabula, two group norms plus the output layer half-way
+stabilise it on print it was not trained for by 0.6–2.4 points, at no cost on its own material, confirmed on
+fresh lines. Freezability is not additive: every front-end block alone could be reverted, the whole front end
+together could not. The individuality of a model sits in its recurrent stack, which an exchange can only
+trade against its own material — at a poor rate in the in-house fine-tunes, at a good one (about 1 : 5 to
+1 : 10) for latin_incunabula. Exchange only helps towards a general model that reads the other material better.
 
 ## Next
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. Combined free moves for latin_incunabula (group norms + output layer half-way), then the same on
-   held-out Reichenau lines (the train shard's validation split is practice here; the test lines are untouched).
+1. The stabilised latin_incunabula (`Gn_1` + `Gn_3` + `O_15` half-way) as a candidate: score it once on held-out
+   Reichenau lines and through the serving path (`wsp.run export`, then the gateway), which is a hand step and needs an OK.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models

@@ -265,6 +265,47 @@ def plot_exchange(data, th):
     return fig
 
 
+def plot_combine(e, th):
+    """Combined moves: ΔCER per combination, practice lines (filled/hollow by interval) next to disjoint confirmation lines."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    sources = []
+    for s in e["sets"]:
+        base = s.replace("-conf", "")
+        if base not in sources:
+            sources.append(base)
+    cols = {src: c for src, c in zip(sources, [th["C"], th["L"], th["O"]])}
+    marks = {src: m for src, m in zip(sources, ["o", "s", "D"])}
+    combos = [r["combo"] for r in e["rows"]]
+    fig, axes = plt.subplots(1, 2, figsize=(11, 0.55 * len(combos) + 2.2), sharey=True, sharex=True)
+    for ax, conf in zip(axes, (False, True)):
+        for r in e["rows"]:
+            y = combos.index(r["combo"])
+            for si, src in enumerate(sources):
+                s = src.replace("-300", "-conf-300") if conf else src
+                if s not in r["sets"]:
+                    continue
+                v = r["sets"][s]["vs_S"]; d = 100 * v["delta_cer"]; lo, hi = (100 * t for t in v["ci95"])
+                yi = y + (si - 1) * 0.22; sig = lo > 0 or hi < 0
+                ax.hlines(yi, lo, hi, color=cols[src], linewidth=1.3)
+                ax.plot(d, yi, marker=marks[src], color=cols[src], markersize=6.5, markeredgewidth=1.3,
+                        markerfacecolor=cols[src] if sig else th["bg"])
+        ax.axvline(0, color=th["muted"], linewidth=0.9)
+        moves = {r["combo"]: " + ".join(f"{b}{'' if beta == 1 else ' ½'}" for b, beta in r["moves"]) for r in e["rows"]}
+        ax.set_yticks(range(len(combos))); ax.set_yticklabels([moves[c] for c in combos], fontsize=7.5); ax.invert_yaxis()
+        ax.grid(axis="x", linewidth=0.5); ax.set_axisbelow(True)
+        ax.set_xlabel("ΔCER against the unedited model (points; < 0 better)", fontsize=8)
+        ax.set_title("confirmation lines (disjoint, chosen after)" if conf else "practice lines (moves chosen here)",
+                     loc="left", fontsize=8.5)
+    handles = [Line2D([], [], marker=marks[s], color=cols[s], linestyle="-", markersize=6) for s in sources]
+    labels = [f"{s} (S {100 * e['c0'][s]['cer']:.1f} %)" + (" — own material" if i == 0 else "") for i, s in enumerate(sources)]
+    fig.legend(handles, labels, loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=3, frameon=False, fontsize=8)
+    fig.suptitle(f"Combined moves: {_mid(e['specific'])} ← {_mid(e['general'])} (block = transplanted, ½ = half-way); filled = paired 95 % interval excludes 0",
+                 x=0.0, y=1.09, ha="left", fontsize=9.5)
+    fig.tight_layout()
+    return fig
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.familyviz")
     ap.add_argument("--out", default=str(OUT / "figures")); ap.add_argument("--format", default="svg")
@@ -280,6 +321,9 @@ def main(argv=None):
     exs = [json.loads(p.read_text()) for p in sorted(OUT.glob("exchange-*.json"))]
     for beta in sorted({r["beta"] for e in exs for r in e["rows"]}):
         written += render(plot_exchange, (exs, beta), out, f"family-exchange-b{beta:g}", a.format)
+    for p in sorted(OUT.glob("combine-*.json")):
+        e = json.loads(p.read_text())
+        written += render(plot_combine, e, out, f"family-{p.stem}", a.format)
     for p in written:
         print(p)
 

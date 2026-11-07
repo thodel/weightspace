@@ -1,0 +1,28 @@
+{
+ "set": "newseye-onb-val-conf-300",
+ "source": "parquet:/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet",
+ "source_info": {
+  "kind": "parquet",
+  "path": "/home/tobias/atr-cache/wsp/hf/newseye-onb/data/validation/newseye-onb/0000.parquet",
+  "pages": 13,
+  "projects": [
+   "newseye-onb"
+  ],
+  "sha256": "836b603d6fa0792f1431613845729c46200f4d433d2ea5d4dba90b76b76542f1"
+ },
+ "n": 699,
+ "seed": 20261108,
+ "candidates": 4810,
+ "sha256": "2235ebf5b073dd9041e29793b3f33fec94e6ce36a9acff19b8d6c2a7658acd36",
+ "documents": [
+  "126500"
+ ],
+ "skipped": [
+  {
+   "key": "newseye-onb/ONB_nfp_18730705_010/tl_280",
+   "reason": "Line polygon outside of image bounds"
+  }
+ ],
+ "selection": "confirmation set: 699 lines sampled with seed 20261108, minus the 49 that are in newseye-onb-val-300, first 300 kept (disjoint from newseye-onb-val-300)",
+ "lines": 300
+}

@@ -109,6 +109,61 @@ def exchange(specific: Path, general: Path, sets: list[str], blocks: list[str], 
             "general_cer": g0, "rows": rows, "when": time.strftime("%Y-%m-%d %H:%M")}
 
 
+def parse_combo(spec: str) -> tuple[str, list[tuple[str, float]]]:
+    """``name=Gn_1:1,Gn_3:1,O_15:0.5`` -> ("name", [("Gn_1", 1.0), ...])."""
+    name, _, moves = spec.partition("=")
+    return name, [(b, float(beta)) for b, beta in (m.split(":") for m in moves.split(","))]
+
+
+def combine(specific: Path, general: Path, sets: list[str], combos: list[tuple[str, list[tuple[str, float]]]],
+            readings_root: Path, log=print) -> dict:
+    """Several block moves at once (each block ``S + β (G − S)``), every combination read on every set,
+    paired against S unedited. For combining the moves a single-block grid found free."""
+    from wsp.kraken_subject import KrakenSubject
+    S, G = KrakenSubject(specific), KrakenSubject(general)
+    st, gt = S.tensors(), G.tensors()
+    cos = body_cosine(st, gt)
+    if cos < 0.5:
+        raise SystemExit(f"body cosine {cos:.3f}: not one lineage")
+    out_al = aligned_parent_output(G, S)
+    orig_all = {n: v.copy() for n, v in st.items()}
+    data = {s: load(REPO / "data" / "practice" / f"{s}.jsonl") for s in sets}
+    refs = {s: [x["text"] for x in data[s]] for s in sets}
+    c0, g0, rows = {}, {}, []
+    for s in sets:
+        k, h, m, pl, pb = read(S, data[s], refs[s]); c0[s] = (pl, pb, m)
+        save_readings(readings_root / s / "S.jsonl", k, h, refs[s])
+        k, h, mg, _, _ = read(G, data[s], refs[s]); g0[s] = mg.cer
+        save_readings(readings_root / s / "G.jsonl", k, h, refs[s])
+        log(f"{s:28s} S CER {m.cer:.4f}   G CER {mg.cer:.4f}")
+    for name, moves in combos:
+        for b, beta in moves:
+            target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b.startswith("O_")
+                      else {n: gt[n] for n in block_names(st, b)})
+            if not target:
+                raise KeyError(f"no block {b}")
+            for n in target:
+                S.set_tensor(n, orig_all[n] + beta * (target[n] - orig_all[n]))
+        row = {"combo": name, "moves": [[b, beta] for b, beta in moves], "digest": S.digest(), "sets": {}}
+        for s in sets:
+            k, h, m, pl, pb = read(S, data[s], refs[s])
+            save_readings(readings_root / s / f"{name}.jsonl", k, h, refs[s])
+            boot = bootstrap_delta(c0[s][0], pl); blk = bootstrap_blocks(c0[s][1], pb)
+            row["sets"][s] = {"cer": m.cer, "wer": m.wer, "collapsed": m.collapsed, "vs_S": boot,
+                              "blocks_vs_S": {g: v for g, v in blk.items() if v["ref"] >= 20 or max(v["errors_before"], v["errors_after"]) >= 10}}
+            log(f"{name:14s} {s:28s} CER {m.cer:.4f}  Δ {100*boot['delta_cer']:+.2f} pt "
+                f"[{100*boot['ci95'][0]:+.2f}, {100*boot['ci95'][1]:+.2f}]")
+        rows.append(row)
+        for n, v in orig_all.items():
+            if not np.array_equal(st[n], v):
+                S.set_tensor(n, v)
+    return {"kind": "combinations", "specific": specific.stem, "general": general.stem,
+            "specific_sha256": sha256_file(specific), "general_sha256": sha256_file(general), "body_cosine": cos,
+            "sets": sets, "own_set": sets[0],
+            "c0": {s: {"cer": c0[s][2].cer, "wer": c0[s][2].wer, "collapsed": c0[s][2].collapsed} for s in sets},
+            "general_cer": g0, "rows": rows, "when": time.strftime("%Y-%m-%d %H:%M")}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="wsp.exchange")
     ap.add_argument("--specific", required=True); ap.add_argument("--general", required=True)
@@ -117,8 +172,15 @@ def main(argv=None):
     ap.add_argument("--betas", nargs="*", type=float, default=[0.5, 1.0])
     ap.add_argument("--out", required=True)
     ap.add_argument("--allow-unrelated", action="store_true")
+    ap.add_argument("--combo", action="append", help="name=BLOCK:beta,BLOCK:beta (repeatable): read these combinations instead of the per-block grid")
     a = ap.parse_args(argv)
     out = Path(a.out)
+    if a.combo:
+        res = combine(Path(a.specific), Path(a.general), a.sets, [parse_combo(c) for c in a.combo],
+                      out.parent / "readings" / out.stem)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(res, indent=1, ensure_ascii=False)); print(out)
+        return
     res = exchange(Path(a.specific), Path(a.general), a.sets, a.blocks, a.betas,
                    out.parent / "readings" / out.stem, a.allow_unrelated)
     out.parent.mkdir(parents=True, exist_ok=True)

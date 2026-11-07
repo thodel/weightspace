@@ -489,6 +489,20 @@ def report() -> Path:
                 cells.append(f"{bold}{100*v['delta_cer']:+.2f}{bold} [{100*lo:+.2f}, {100*hi:+.2f}]")
             L.append(f"| {r['block']} | {r['beta']} | " + " | ".join(cells) + " |")
         L.append("")
+    for p in sorted(OUT.glob("combine-*.json")):
+        e = json.loads(p.read_text())
+        L += [f"### Combined moves: `{_s(e['specific'])}` ← `{_s(e['general'])}`", "",
+              "Several blocks moved at once (block:β). Δ CER in points against S unedited, paired 95 % interval, **bold** where it "
+              "excludes 0. Sets named `-conf-` are confirmation lines disjoint from the practice lines the moves were chosen on. "
+              "S / G read: " + "; ".join(f"`{s}` {100*e['c0'][s]['cer']:.2f} % / {100*e['general_cer'][s]:.2f} %" for s in e["sets"]) + ".", "",
+              "| combination | moves | " + " | ".join(f"`{s}`" for s in e["sets"]) + " |", "|---|---|" + "---:|" * len(e["sets"])]
+        for r in e["rows"]:
+            cells = []
+            for s in e["sets"]:
+                v = r["sets"][s]["vs_S"]; lo, hi = v["ci95"]; bold = "**" if lo > 0 or hi < 0 else ""
+                cells.append(f"{bold}{100*v['delta_cer']:+.2f}{bold} [{100*lo:+.2f}, {100*hi:+.2f}]")
+            L.append(f"| {r['combo']} | {' '.join(f'{b}:{beta:g}' for b, beta in r['moves'])} | " + " | ".join(cells) + " |")
+        L.append("")
     out = OUT / "tables.md"
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
     return out
