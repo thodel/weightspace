@@ -180,6 +180,29 @@ in the BiLSTMs, and what the fine-tune changed in those blocks is, in order: let
 Caveats as for the probes: these are the child's training lines, one model, and one block at a time,
 so interactions between blocks (the α-sweep found the gain is held jointly) are not shown.
 
+## The page: `kraken-german-xix-blb-v1.html`
+
+Open the file from disk; it needs no server. Pick any of the 297 practice lines, filtered by text,
+by deletions, by deleted spaces, or by CER ≤ 20 % (on by default, because worse lines are mostly
+crop or reference defects). The line crop sits on top; each reference character is placed under
+its ink by the forced alignment. Below that:
+- the model's reading;
+- per layer, whether the probes have each character (■ identity and emission, □ identity only);
+- per block and α, the character's fate when that block alone is moved towards the parent.
+
+Hovering a character gives its column, including the deepest layer that still has it and every
+(block, α) that changes its fate.
+
+```bash
+.venv/bin/python -m wsp.vizpage --probes docs/viz/kraken-german-xix-blb-v1__blb-train-300.json \
+    --overlay docs/viz/alpha-overlay-kraken-german-xix-blb-v1__blb-train-300.json \
+    --practice data/practice/blb-train-300.jsonl --out docs/viz/kraken-german-xix-blb-v1.html --images
+```
+
+The page reads only the committed JSON and embeds what it needs (1.2 MB). `--images` writes the
+line crops to `docs/viz/img/`. They are git-ignored, so on a fresh checkout the page works without
+the image row until `--images` has run. That step needs kraken but not the model.
+
 ## Epic status (thodel/weightspace#3)
 
 | sub-task | state |
@@ -190,5 +213,5 @@ so interactions between blocks (the α-sweep found the gain is held jointly) are
 | ablation and α overlay per line | done: `wsp.alpha_overlay` (above), corpus summary plus per-line strips per block and α |
 | output-layer geometry | partly done: `protocol/docs/figures/output-rows-*` |
 | confusion-to-frame index | open (the JSON already holds runs and status per character) |
-| HTML page | open |
+| HTML page | done: `kraken-german-xix-blb-v1.html` (see below) |
 | readings into `docs/READINGS.md` | done: section of 07.11.2026, with four part-block hypotheses for a preregistered session |
