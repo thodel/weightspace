@@ -42,3 +42,12 @@ def test_bootstrap_delta_sign():
     after = per_line_edits(["ein satz"] * 20, refs)
     r = bootstrap_delta(before, after, resamples=200)
     assert r["delta_cer"] < 0 and r["ci95"][1] <= 0
+
+
+def test_collapse_detector_strict_vs_legacy():
+    # a correct long line repeats " . " far more than six times
+    ref = "Act . 1276 . ind . IV . sexto non . Maji . et dimidia denar . Constant . lib . 4 ."
+    assert not is_collapsed(ref, ref)
+    assert is_collapsed(ref, ref, legacy=True)          # what every count before 07.11.2026 did
+    loop = "der der der der der der der der der der"
+    assert is_collapsed(loop, "der Herr ist hier und dort und da zu sehen")
