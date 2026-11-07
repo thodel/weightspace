@@ -249,6 +249,8 @@ All five attempts that kept something moved the model toward the sibling; the si
 
 ## 10. Not done in the follow-up
 
+- **The Fable run is NOT DONE.** Two Claude Fable 5.1 programmer attempts (`f1` on `xix-blb-v1` and on `bern-combined-v1`; folders `runs/validation/<model>/f1/` are empty) were launched on 07.11.2026 and failed immediately with "out of usage credits"; no Fable program, preregistration or session exists, and the tables of §3 and §9c contain no Fable row of this follow-up. (The `replay` rows are the 06.11. program of Fable 5.1, which is a different thing.) The run is scheduled for Monday 9 November 2026 in the morning and will be added to §9c if credits allow.
+
 - **The second independent attempt per planted-defect arm with a different pack ordering** was not run (it would be 16 further subagent sessions and the Fable credits had run out); the new programmers of §9b and §9c are separate attempts on new corruptions and new models, not repeats of the original eight cells. The variance of the original cells across attempts remains unmeasured.
 - Averages with `hertwig-v2` and of three siblings (C2 variants), a seed-variance null, C4, and a replacement for the failed Fable attempts.
 - The sham of §6 is one family (Gaussian noise at the interpolation delta's per-tensor norm); a sham that keeps the *direction* of the delta but reshuffles it across tensors was not run.
