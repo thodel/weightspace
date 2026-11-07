@@ -66,14 +66,22 @@ Chance for identity (always guessing the commonest letter) is 0.14.
    (at most 0.18). 259 of the 361 deletions (72 %) are decodable at no layer. These characters are not
    lost inside the network: they never form. Unreadable ink, or a reference that does not match the
    crop, is the likelier cause, and no weight edit recovers what no layer has.
-4. **Deleted spaces are the exception, and they are lost at the very end.** For 31 of the 77 deleted
-   spaces (40 %), the `O_18` probes still have both identity and emission, yet the model's own argmax
-   emits blank. The `O_18` probe is a linear function of the output logits. "Decodable at `O_18` but
-   not emitted" therefore means that a different affine read-out of the same logits, i.e. a change to
-   the output layer's space row or bias, would recover these spaces. Across the 77, emission sits
-   around 0.44–0.47 from `L_14` on, against 0.96–0.98 for kept spaces. Together with the α-sweep
-   (half of `L_16`'s fine-tune move costs 2.3 points, mostly as space deletions), this places the
-   spacing decision in `L_16` → `O_18`.
+4. **Deleted spaces look like the exception, but mostly are not.** For 31 of the 77 deleted spaces,
+   the `O_18` probes still have identity and emission. This first read like a decision lost at the
+   last readout. The bias trade-off below refutes that reading. Two things are behind the 31:
+   - **The identity probe is trivially right on spaces** (spaces are the commonest class).
+   - **Many deleted spaces are attributed, not missed.** At its best frame, the space is the top
+     logit for 20 of the 31, so the model writes a space there. The edit alignment then charges the
+     deletion to the reference, which spaces out punctuation (`konnte .`, `hat , von`). Of all 77
+     deleted spaces:
+     - 29 sit next to a deleted punctuation mark;
+     - 28 sit next to a deleted letter;
+     - 2 sit next to a replaced character;
+     - only **18** fall between two correctly read characters, i.e. are a missing word gap.
+
+     Emission across the 77 does stay weaker (0.44–0.47 from `L_14` on, against 0.96–0.98 for kept
+     spaces). So for the deletions that are real, the spacing decision is made in the BiLSTMs, as
+     the α-sweep said for `L_16`.
 5. **For replaced letters the network knows that something is there, not what.** Their emission is
    normal (0.91 at `L_16`), but their identity stays at 0.19.
 
@@ -88,17 +96,31 @@ Chance for identity (always guessing the commonest letter) is 0.14.
   also its limit: the re-fit is balanced and the model's own read-out is not.
 - One model, one practice set. The Bern family (`bern-hertwig-train-300`) runs with the same command.
 
-## Candidate hypotheses (not preregistered)
+## The space-bias trade-off (07.11.2026)
 
-- **H-space:** raise the bias of the space row of `O_18`. Predicted: part of the 31 spaces lost at
-  `O_18` come back, at the cost of inserted spaces. Phase 1's blank-bias edits traded deletions for
-  insertions one to one, so the session has to show the trade is better for this single row.
-  Measuring the trade-off curve on practice first is cheap.
-- **H-L16:** the remaining deleted spaces are already weak at `L_14`/`L_16`. The per-line α overlay
-  (epic sub-task 4) on these lines would show whether moving `L_16` further along the fine-tune
-  (α > 1) strengthens their emission. The corpus-level α = 1.5 was a null.
-- **Not a target:** letter deletions (72 % are readable at no layer) and letter substitutions. They
-  point to the data or to the conv/LSTM features as a whole, not to a block an edit could address.
+`python -m wsp.bias_sweep … --probes docs/viz/kraken-german-xix-blb-v1__blb-train-300.json --verify`
+→ `docs/baselines/bias-xix-blb-v1.json`, figure `bias-kraken-german-xix-blb-v1__blb-train-300.svg`.
+
+**Method.** A bias edit only adds δ to one logit column, and kraken reads the best path. The edited
+model's text is therefore re-decoded exactly from one capture of the logits, with no pass per δ.
+This was checked against real edited forward passes: 300 of 300 lines identical at space +1.0 and
+at blank −1.0. Blank −1.0 also reproduces phase 1's recorded practice CER (0.06435).
+
+| lever | best ΔCER (points), 95 % interval | spaces deleted / inserted (unedited 103 / 18) | of the 31 flagged spaces emitted |
+|---|---|---|---:|
+| space row bias, δ +0.5 … +1.0 | +0.047 [−0.045, +0.145] | 97 / 24 at +1.0 | 5 |
+| space row bias, δ +3 | +0.451 [+0.236, +0.685] | 108 / 35 | 5 |
+| blank bias, δ −1.0 | −0.023 [−0.324, +0.309] | 73 / 31 | 14 |
+| blank bias, δ −3 | +1.119 [+0.460, +1.851] | 36 / 78 | 20 |
+
+**Result.**
+- **H-space is refuted.** At no δ does the space row's bias lower CER. It never brings back more
+  than 5 of the 31 flagged spaces. Past +2 it deletes *more* spaces, because neighbouring space frames
+  lose the blank between them and merge.
+- **The blank bias moves along an almost one-to-one trade.** Deleted spaces fall from 103 to 73 and
+  inserted spaces rise from 18 to 31. That is phase 1's null, now with its whole curve.
+- **No output-layer bias is a target on this model.** What remains below the output layer is
+  sub-task 4: the per-line α overlay on `L_16`.
 
 ## Epic status (thodel/weightspace#3)
 
@@ -111,4 +133,4 @@ Chance for identity (always guessing the commonest letter) is 0.14.
 | output-layer geometry | partly done: `protocol/docs/figures/output-rows-*` |
 | confusion-to-frame index | open (the JSON already holds runs and status per character) |
 | HTML page | open |
-| readings into `docs/READINGS.md` | candidates above, not yet in READINGS |
+| readings into `docs/READINGS.md` | open; the space-bias candidate was tested and refuted (above) |

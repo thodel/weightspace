@@ -94,3 +94,12 @@ def test_figures_render_without_a_model(tmp_path):
          "identity": ln["identity"], "emission": ln["emission"]}
     paths = render(lv.plot_decision, d, tmp_path, "line", "png")
     assert all(p.stat().st_size > 5_000 for p in paths)
+
+
+def test_bias_redecode_and_space_edits():
+    from wsp import bias_sweep as bs
+    l2c = {1: "a", 2: " ", 3: "b"}
+    lg = np.zeros((5, 4)); lg[:, 0] = 2.0; lg[0, 1] = 5; lg[2, 2] = 1.5; lg[4, 3] = 5    # space under the blank
+    assert bs.decode(lg, l2c, 2, 0.0) == "ab" and bs.decode(lg, l2c, 2, 1.0) == "a b"
+    assert bs.decode(lg, l2c, 0, -1.0) == "a b" and bs.decode(None, l2c, 2, 1.0) == ""
+    assert bs.space_edits(["ab", "a b"], ["a b", "ab"]) == {"deleted": 1, "inserted": 1, "substituted": 0}
