@@ -223,8 +223,13 @@ def heldout(run_dir: str, set_name: str) -> dict:
     result = {"set": set_name, "set_sha256": set_sha, "scored_from_cache": bool(cached), "lines": len(items), "metrics": m.as_dict(),
               "per_line": per_line_edits(hyps, refs), "final_digest": s.digest(), "when": datetime.now(timezone.utc).isoformat(),
               "wall_s": round(time.time() - t, 1)}
-    if summary.get("heldout") is None:
-        summary["heldout"] = result
+    by_set = summary.setdefault("heldout_by_set", {})
+    if summary.get("heldout") is not None and summary["heldout"].get("set") not in by_set:
+        by_set[summary["heldout"]["set"]] = summary["heldout"]          # records written before 07.11.2026
+    if set_name not in by_set:
+        by_set[set_name] = result                                       # once per held-out set (PROTOCOL)
+        if summary.get("heldout") is None:
+            summary["heldout"] = result                                 # the first set stays the headline score
     else:
         summary.setdefault("heldout_repeats", []).append(result)
         summary.setdefault("deviations", []).append(f"second held-out evaluation on {set_name}: not a result")

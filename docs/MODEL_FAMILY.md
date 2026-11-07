@@ -278,6 +278,12 @@ within noise; through the serving path (58 pages, gateway segmentation): median 
 better on 40 pages and worse on 17, −0.19 points, interval excluding 0. The block statistics show what the flat
 total hides: abbreviation signs (MUFI) get worse, lowercase letters better.
 
+**Which candidate to enable (docs/RESULTS.md R9, pre-registered).** On held-out Fraktur pages both candidates read
+better than latin_incunabula (v1: NewsEye −2.04, GT-Fraktur −0.44 points; v2 with the group norms only: −1.08,
+−0.19): the stabilisation holds beyond the lines it was chosen on. Both also lose abbreviation signs on the
+Latin-German Reichenau pages (v1 clearly, 523 → 719 MUFI errors; v2 narrowly, 523 → 541), and v2's Reichenau CER
+rises by 0.04 points. By the rule fixed beforehand neither qualifies; neither is enabled.
+
 **Answer so far:** the shared front end (RQ2) is where exchange can stabilise without cost (RQ3): half-way
 in the default architecture, fully in the group-norm architecture, where the front end is functionally the
 same across all six models (CKA 0.99): for latin_incunabula, two group norms plus the output layer half-way
@@ -291,10 +297,10 @@ trade against its own material — at a poor rate in the in-house fine-tunes, at
 
 0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
    and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
-1. ~~The stabilised latin_incunabula as a candidate~~ — done 07.11.2026, docs/RESULTS.md R4: within noise on
-   held-out lines, −0.2 points through the serving path, abbreviation signs worse. Registered on the share,
-   **disabled**; promoting it is a decision for its users (abbreviations). A held-out Fraktur set would test its
-   purpose; a variant without the output-layer move (group norms only) would keep the abbreviations.
+1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R9 (07.11.2026): the Fraktur gain holds on held-out
+   pages; both variants lose some abbreviation signs; neither enabled. Next, if wanted: exchange that protects the
+   output rows of the abbreviation characters (move only the shared Latin letters' rows), compared under a rule with
+   a minimum effect fixed beforehand.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
