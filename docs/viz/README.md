@@ -191,4 +191,4 @@ so interactions between blocks (the α-sweep found the gain is held jointly) are
 | output-layer geometry | partly done: `protocol/docs/figures/output-rows-*` |
 | confusion-to-frame index | open (the JSON already holds runs and status per character) |
 | HTML page | open |
-| readings into `docs/READINGS.md` | open; the space-bias candidate was tested and refuted (above) |
+| readings into `docs/READINGS.md` | done: section of 07.11.2026, with four part-block hypotheses for a preregistered session |
