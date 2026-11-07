@@ -26,3 +26,6 @@ protocol/site/
 
 # Track C exchange readings (12 MB, 270 files): reproducible with wsp.exchange; numbers in docs/family/exchange-*.json
 docs/family/readings/
+
+# per-line decision views carry manuscript crops: regenerate with wsp.layerview, not committed
+docs/viz/lines/
