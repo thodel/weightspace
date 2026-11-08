@@ -28,6 +28,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 
 - Readings: traces of fine-tuning; two survive a seed null (blank bias relative to other biases, rare rows); lineage recoverable in the zoo for fine-tunes that did not move far; front end generic, recurrent stack individual.
 - Edits: 15 proposed edits in two sessions on training lines, no held-out gain; repeated on unseen practice lines one small gain (-0.19 to -0.39 points), an interpolation toward a sibling, not matched by 20 shams, page-clustered intervals include 0.
+- C4 retrain on corrected data (branch `claude/c4-retrain`): -0.55 (1e-5) and -0.99 points (5e-5) held-out, Hertwig lines only; at least as good as the best edit (Section 7.11).
 - Positive control: repairs of localised defects by programmer, blind programmer and rule list alike; diffuse damage only by the programmer who measures; unrelated donor: no rebuilding.
 - Two candidates from systematic block exchange (`latin_incunabula`): both read held-out Fraktur better (-0.2 to -2.0 points) but cost abbreviation signs or the own collection; neither qualifies under the pre-registered rule (RESULTS R9); none promoted.
 - Data findings: a dataset export that paired 44 of 50 pages with wrong images (repaired); a held-out set that was half a printed book (replaced); 39 of 59 validation pages of the Reichenau incunable dataset are byte-identical to train pages.
@@ -36,7 +37,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 
 1. Authors and corresponding author; wording on AI assistance (Section Declarations).
 2. Data and code availability: repository and datasets are private; what is published, under which licence, where (Zenodo / HAL / GitHub).
-3. C4 (retrain on corrected data, GPU job) and the adapter track: run or leave out.
+3. C4 and the adapter track are done; whether to add the control on uncorrected pairs.
 4. Spell out BLB, holding institutions, archival signatures (Section 2.2).
 5. Length: the main text is about twice the 7,000 words an editor would expect; cut or split (data findings paper, harness report).
 6. The playbook epic (`docs/epics/EPIC_LLM_PLAYBOOK.md`) is a candidate follow-up paper, not part of this one.
