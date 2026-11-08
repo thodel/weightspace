@@ -1,12 +1,7 @@
 # 2026-11-07 · Where `german-xix-blb-v1` finds and loses characters
 
 **Type:** reading on practice lines, no session budget, no held-out line ·
-**Source:** `docs/viz/README.md` (draft pull request 11, not yet merged)
-
-!!! warning "Not yet merged"
-    The code and figures of this entry are on a draft pull request. The figures
-    are included here because they illustrate the readings; they will be
-    regenerated from the merged code before publication.
+**Source:** `docs/viz/README.md`, `wsp/layerview.py` (pull request 11)
 
 ## Plan
 

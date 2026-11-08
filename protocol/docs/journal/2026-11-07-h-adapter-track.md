@@ -2,8 +2,7 @@
 
 **Type:** harness, readings, positive control, one session (A0–A4) ·
 **Session:** `20261107-adapter-v2-b10-1` · **Budget:** 10 (7 spent) ·
-**Held-out touched:** once, after freeze · **Source:** `docs/ADAPTER_REPORT.md`
-(branch not yet merged) · **Result:** [R10](../results.md#r10)
+**Held-out touched:** once, after freeze · **Source:** `docs/ADAPTER_REPORT.md` · **Result:** [R10](../results.md#r10)
 
 ## Plan
 
