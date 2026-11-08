@@ -408,13 +408,14 @@ unit-level correspondence to exchange.
 
 ## Next
 
-0. ~~Combined moves and out-of-domain sets at 15–30 % CER~~ — done 08.11.2026 (section above; docs/RESULTS.md R12): neither
+0. ~~Combined moves and out-of-domain sets at 15–30 % CER~~ — done 08.11.2026 (section above; docs/RESULTS.md R13): neither
    pre-registered candidate meets the minimum effect on held-out documents. Next, if wanted: confirmation sets drawn from
    documents disjoint from practice, then the same two candidates against a fresh held-out draw.
 1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R9 (07.11.2026): the Fraktur gain holds on held-out
-   pages; both variants lose some abbreviation signs; neither enabled. Next, if wanted: exchange that protects the
-   output rows of the abbreviation characters (move only the shared Latin letters' rows), compared under a rule with
-   a minimum effect fixed beforehand.
+   pages; both variants lose some abbreviation signs; neither enabled. R12 (08.11.2026): v3 moves the output rows of
+   the shared characters except the abbreviation characters; under a rule with minimum effects fixed beforehand it
+   qualifies (NewsEye −1.66, MUFI +0.014 instead of v1's +0.110). Serving-path read and registration wait for the
+   user's OK.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
 2. ~~Cross-lineage exchange after unit alignment~~ — done 08.11.2026: permutation alignment is exact but unrelated models

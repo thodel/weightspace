@@ -47,6 +47,50 @@ def body_cosine(a: dict, b: dict) -> float:
     return float(x @ y / (np.linalg.norm(x) * np.linalg.norm(y)))
 
 
+#: Output-row selections for a masked output move ``O_15/<rows>:beta`` (docs/RESULTS.md R12): only the rows of
+#: the selected characters move; every other row keeps S's weights and bias. Rows are paired by character
+#: (``aligned_parent_output``), never by index; characters G lacks keep S's rows in any case.
+ROW_SELECTIONS = ("nonabbrev", "nonabbrev-noblank", "letters")
+
+
+def _protected(ch: str) -> bool:
+    """An abbreviation character in the sense of R4/R9: in the MUFI overlay, Combining Diacritical Marks or
+    Latin Extended-D. A codec label of more than one code point counts as protected (none in the
+    latin_incunabula codec)."""
+    from wsp.blocks import block_of, in_mufi
+    return len(ch) != 1 or in_mufi(ch) or block_of(ch) in ("Combining Diacritical Marks", "Latin Extended-D")
+
+
+def selected_rows(S, G, rows: str) -> dict[int, str]:
+    """S's output rows that a masked move moves: row -> character ('<blank>' for row 0)."""
+    cs, cg = S.codec_map(), G.codec_map()
+    shared = {i: ch for ch, i in cs.items() if ch in cg}
+    if rows in ("nonabbrev", "nonabbrev-noblank"):
+        sel = {i: ch for i, ch in shared.items() if not _protected(ch)}
+    elif rows == "letters":
+        sel = {i: ch for i, ch in shared.items() if len(ch) == 1 and ("a" <= ch <= "z" or "A" <= ch <= "Z")}
+    else:
+        raise KeyError(f"unknown row selection {rows!r}; one of {ROW_SELECTIONS}")
+    if rows != "nonabbrev-noblank":
+        sel[0] = "<blank>"
+    return dict(sorted(sel.items()))
+
+
+def move_target(b: str, st: dict, gt: dict, out_al: dict, S=None, G=None) -> dict:
+    """The tensors block ``b`` moves towards. ``O_15/<rows>`` is the output layer with only the selected rows
+    taken from G (paired by character), the rest S's own, so ``S + beta (target - S)`` leaves them unchanged."""
+    if b.startswith("O_"):
+        full = {n: v for n, v in out_al.items() if not n.startswith("_")}
+        if "/" not in b:
+            return full
+        idx = sorted(selected_rows(S, G, b.split("/", 1)[1]))
+        out = {}
+        for n, v in full.items():
+            t = st[n].copy(); t[idx] = v[idx]; out[n] = t
+        return out
+    return {n: gt[n] for n in block_names(st, b)}
+
+
 def read(subject, items, refs):
     preds = subject.forward(items)
     hyps = [p.text for p in preds]
@@ -138,13 +182,15 @@ def combine(specific: Path, general: Path, sets: list[str], combos: list[tuple[s
         log(f"{s:28s} S CER {m.cer:.4f}   G CER {mg.cer:.4f}")
     for name, moves in combos:
         for b, beta in moves:
-            target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b.startswith("O_")
-                      else {n: gt[n] for n in block_names(st, b)})
+            target = move_target(b, orig_all, gt, out_al, S, G)
             if not target:
                 raise KeyError(f"no block {b}")
             for n in target:
                 S.set_tensor(n, orig_all[n] + beta * (target[n] - orig_all[n]))
         row = {"combo": name, "moves": [[b, beta] for b, beta in moves], "digest": S.digest(), "sets": {}}
+        for b, _ in moves:
+            if b.startswith("O_") and "/" in b:
+                row.setdefault("rows_moved", {})[b] = list(selected_rows(S, G, b.split("/", 1)[1]).values())
         for s in sets:
             k, h, m, pl, pb = read(S, data[s], refs[s])
             save_readings(readings_root / s / f"{name}.jsonl", k, h, refs[s])
@@ -184,8 +230,7 @@ def build_candidate(combine_json: Path, combo: str, run_dir: Path) -> dict:
     st, gt = S.tensors(), G.tensors()
     out_al = aligned_parent_output(G, S)
     for b, beta in row["moves"]:
-        target = ({n: v for n, v in out_al.items() if not n.startswith("_")} if b.startswith("O_")
-                  else {n: gt[n] for n in block_names(st, b)})
+        target = move_target(b, start, gt, out_al, S, G)
         for n in target:
             S.set_tensor(n, start[n] + beta * (target[n] - start[n]))
     if S.digest() != row["digest"]:
@@ -199,7 +244,7 @@ def build_candidate(combine_json: Path, combo: str, run_dir: Path) -> dict:
             "practice": str(REPO / "data" / "practice" / f"{e['own_set']}.jsonl"),
             "practice_sha256": sha256_file(REPO / "data" / "practice" / f"{e['own_set']}.jsonl"),
             "method": "block exchange (Track C, docs/MODEL_FAMILY.md): each block S + beta (G - S), output rows paired by character",
-            "moves": row["moves"], "chosen_on": e["sets"], "combine_json": str(combine_json), "code": _git_rev(),
+            "moves": row["moves"], "rows_moved": row.get("rows_moved"), "chosen_on": e["sets"], "combine_json": str(combine_json), "code": _git_rev(),
             "created": time.strftime("%Y-%m-%dT%H:%M:%S")}
     (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
     cmp = diffmod.compare(start, S.tensors())
