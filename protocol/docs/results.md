@@ -43,7 +43,87 @@ sha256 `0729b93b…`, audit clean). Subject tensor digest `f35e075a…`, frozen
 
 **Not a gain.** Run under the keep rule before [A1](amendments.md#a1).
 
+## R3 — Label-noise damage is not removable by transplant { #r3 }
+
+Session `20261106-bern-combined-v1-b10-1`, budget 10, practice `bern-train-300`
+(sha256 `474414e3…`, training side), held-out `bern-eval` (545 lines, sha256
+`f7b024e0…`). One edit kept: the output layer from the parent.
+
+| | practice CER | held-out all | Hertwig | Schlussredaktion |
+|---|---:|---:|---:|---:|
+| before (C0) | 0.1456 | 0.1933 | 0.2669 | 0.1348 |
+| after | 0.1414 | 0.1948 | 0.2639 | 0.1399 |
+| Δ, 95 % interval (points) | −0.42 [−0.85, −0.04] | **+0.15 [−0.10, +0.42]** | −0.30 [−0.72, +0.13] | +0.51 [+0.21, +0.82] |
+
+**Not a gain:** the practice gain came from the donor's own training lines.
+[Journal](journal/2026-11-06-e-phase3.md).
+
+*Note to R2 (7 Nov):* re-aggregated on `blb-eval-hand`, the handwriting
+held-out set chosen by data properties: 9.553 % → 9.553 %, Δ −0.001 points
+[−0.055, +0.053].
+
+## R4 — A block exchange for `latin_incunabula` { #r4 }
+
+Two group norms from its base, output layer half-way. Held-out, 4,374 lines of
+its own collection: 5.01 % → 4.99 % (−0.03 [−0.07, +0.02]); serving path, 58
+pages, median page 4.16 % → 4.05 % (−0.19 [−0.27, −0.10]). Abbreviation signs
+get worse: MUFI characters 532 → 731 errors (+0.11 points, interval excluding
+0). [Journal](journal/2026-11-07-b-model-family.md).
+
+## R5 — Weight survey of the kraken zoo { #r5 }
+
+30 public models read, no forward pass. Weights agree with the documented
+lineage in 11 of 13 pairs; a shared name predicts relatedness in 1 of 17
+pairs, a near-identical codec in 23 of 23. Blank-bias rise relative to the
+other biases in 11 of 11 parent → child pairs. [Journal](journal/2026-11-07-c-zoo-survey.md).
+
+## R6 — Seed-variance null { #r6 }
+
+Five seeds of one recipe. Seed noise is about a third of the output rows'
+movement in a fine-tune and about 90 % of the pooled stacks'. Survives: the
+relative blank-bias rise (+0.53 to +0.55 vs −0.02 to +0.01 between seeds),
+rare rows growing and losing bias. Held-out spread between seeds sd 0.18
+points; differences under about one point between two runs are not
+distinguishable from seed. [Journal](journal/2026-11-07-d-seed-null.md).
+
+## R7 — Planted defects and unseen practice { #r7 }
+
+All six planted corruptions that cost ≥ 1 point were repaired to within 0.22
+points by the programmer, the blind programmer and a rule list alike; diffuse
+damage only by the programmer with passes (83 %). Unseen practice: Kurrent
+model 0 of 6 attempts kept; `combined-v1` −0.19 to −0.39 points held-out, none
+with a page-clustered interval excluding 0. [Journal](journal/2026-11-07-e-controls.md).
+
+## R8 — Sham, global interpolation, margins { #r8 }
+
+20 norm-matched shams: held-out mean −0.013 (sd 0.062); 0 of 20 reach the real
+edit's −0.39, which equals plain quarter-step interpolation. Whole-network
+interpolation costs +3.81 points [+2.57, +4.98] more than the sum of single
+blocks. Blank-bias edits recover one deletion in 40 / 9 / 5 at −0.1 / −0.5 /
+−1.0 and pay with nearly as many insertions. [Journal](journal/2026-11-07-e-controls.md).
+
+## R9 — Neither `latin_incunabula` candidate qualifies { #r9 }
+
+Preregistered rule. Both read held-out Fraktur better (v1 −2.04 / −0.44, v2
+−1.08 / −0.19 points) and both lose abbreviations; v2 also +0.04 on its own
+collection. Neither enabled. [Journal](journal/2026-11-07-g-candidate-decision.md).
+
+## R10 — Adapter session A4 { #r10 }
+
+`qwen3.5-4b-german-kurrent-xvi-xix-page-v2`, budget 10, one edit kept
+(layer-27 `q_proj` × 0.8). 134 held-out pages: CER 0.685 → 0.569, Δ −0.115
+[−0.271, −0.001] by pages; sham +0.032; clipped CER unchanged (0.354 → 0.351).
+**A gain in stopping, not in reading,** on a quantity shown to be chaotic.
+[Journal](journal/2026-11-07-h-adapter-track.md).
+
+## Pending
+
+- Phase 5 adapter session `20261107-kurrent-page-v2-b10-1`: frozen, held-out
+  scoring in progress ([journal](journal/2026-11-08-a-adapter-session-v2.md)).
 ## Controls
+
+- **C2 average, C5 sham, global interpolation:** R7, R8.
+- **C4 retrain** on corrected data: not run (needs a go-ahead).
 
 - **C3 per-block α-sweep, `german-xix-v1 → german-xix-blb-v1`** (practice
   only): see the [journal entry](journal/2026-11-06-d-alpha-sweep.md).

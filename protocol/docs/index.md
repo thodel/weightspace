@@ -12,12 +12,18 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 6 November 2026"
-    Phase 0 (harness, practice sets, baselines) and phase 1 (first budgeted
-    session) are done. **No gain has been found yet**: the one session so far
-    kept an edit whose held-out effect is −0.010 CER points with a 95 %
-    interval containing 0. Negative and null results are reported here in
-    full, as the protocol requires.
+!!! note "Status — 8 November 2026"
+    **No weight edit has yet produced a held-out gain on a kraken model.**
+    Two budgeted sessions (15 edits) on training-line practice gave −0.010 and
+    +0.15 CER points; on unseen practice lines the one small gain (−0.39) is a
+    quarter-step merge toward a sibling, not a repair. A positive control shows
+    the method does repair planted, localised defects — but so does a blind
+    programmer and a hand-written rule list. On a page-level vision-language
+    adapter, one session gained −11.5 points held-out, a gain in where the
+    model stops writing, not in what it reads; a second session's held-out
+    score is running. Along the way the work found several defects in the
+    project's own data. Negative and null results are reported in full, as the
+    protocol requires.
 
 ## The models
 
