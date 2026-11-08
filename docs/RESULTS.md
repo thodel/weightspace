@@ -199,6 +199,6 @@ What would settle it differently: a rule with a minimum effect for the abbreviat
 has since PROTOCOL §3 of 06.11.2026), set *before* a new comparison; or a use case that wants Fraktur robustness more
 than abbreviations, for which v1 is the better model — a decision for its users, not for this rule.
 
-## R10 — adapter track: one QLoRA adapter of Qwen3.5-4B (07.11.2026; docs/ADAPTER_REPORT.md on branch `claude/adapters-4d972b`, not yet merged)
+## R10 — adapter track: one QLoRA adapter of Qwen3.5-4B (07.11.2026; docs/ADAPTER_REPORT.md merged into main 08.11.2026)
 
 Rank-64 update of 128 modules (Qwen3.5-4B, Kurrent pages). Readings: norms tight across three healthy siblings, no outlier; adapters of one base nearly orthogonal (cosine 0.10), so no donor operations. Positive control: of six planted defects two did damage beyond pass noise; the doubled scale (CER 3.76 → 0.517, clean 0.51) was repaired by programmer, blind programmer and rule list alike; eight late `down_proj` ×3 (+24 points) recognised by the rule list but its exact repair refused by the keep rule; four single-module defects did no damage. Real session (v2, budget 10; 7 passes, 6 edits, 1 kept: layer-27 `q_proj` ×0.8): held-out 134 pages CER 0.685 → 0.569, Δ −0.115 [−0.271, −0.001] by pages, sham +0.032; clipped CER unchanged (0.354 → 0.351), length ratio 1.33 → 1.22, 4 of 22 capped pages stop. Engines disagree (identical text on 10 of 61 pages; merged vs peft 3 of 10), so loop status is chaotic; the base alone loops more (12 of 32 pages at the ceiling vs 8). Manuscript Section 9.3.

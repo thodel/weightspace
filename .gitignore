@@ -28,3 +28,7 @@ protocol/site/
 docs/family/readings/
 paper/build/
 paper/figures/*.png
+runs/*/*.adapter/
+runs/*/passes/
+runs/*/.cache/
+runs/*planted-adapter-p3-alpha2-*/diff.json

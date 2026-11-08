@@ -17,7 +17,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 | 6 | Comparison of models, with intermediate results | 6 | drafted; 43 models, seed null |
 | 7 | Adaptability of weights, with intermediate results | 7 | drafted; controls run except C4 retrain |
 | 8 | Both parts combined | 8 | drafted; margins measured |
-| 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 now reports the adapter track (branch `claude/adapters-4d972b`, `docs/ADAPTER_REPORT.md`, not yet merged) |
+| 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 now reports the adapter track (branch `claude/adapters-4d972b`, `docs/ADAPTER_REPORT.md`, merged into main on 8 November) |
 
 ## Two interpretations to confirm
 

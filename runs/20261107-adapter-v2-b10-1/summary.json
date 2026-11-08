@@ -1,0 +1,241 @@
+{
+  "budget": 10,
+  "used": 7,
+  "seed": 20261106,
+  "keep_rule": {
+    "min_effect": 0.0,
+    "resamples": 2000,
+    "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"
+  },
+  "practice_lines": 32,
+  "practice_id": "3d1311f00140575ecd44c81aaba7979011fc8cd963f157dfbe3644bdbaecf31d",
+  "start_digest": "fb4f55ee7386abc7292e29bbf2a24f502fc4079cb4732934cbead229b300504c",
+  "final_digest": "7bb2a6fa32289d90397a286655c9b952b9e1ec7df4347b2ee50a989ba6e8f8e5",
+  "edits": 6,
+  "kept": 1,
+  "baseline": {
+    "lines": 32,
+    "cer": 0.7290254556409098,
+    "wer": 1.306216423637759,
+    "collapsed": 9,
+    "length_ratio": 1.4554714565446603,
+    "char_edits": 38720,
+    "ref_chars": 53112,
+    "confusions": [
+      [
+        "",
+        " ",
+        6975
+      ],
+      [
+        "",
+        "\u2733",
+        3389
+      ],
+      [
+        "",
+        "n",
+        1679
+      ],
+      [
+        "",
+        "e",
+        1661
+      ],
+      [
+        "",
+        "\"",
+        1261
+      ],
+      [
+        "",
+        "s",
+        963
+      ],
+      [
+        "",
+        "i",
+        840
+      ],
+      [
+        "",
+        "a",
+        789
+      ],
+      [
+        "",
+        "t",
+        770
+      ],
+      [
+        "",
+        "u",
+        724
+      ]
+    ],
+    "extra": {}
+  },
+  "last_pass": {
+    "lines": 32,
+    "cer": 0.5673859014911884,
+    "wer": 0.9365201184080693,
+    "collapsed": 6,
+    "length_ratio": 1.2888612742882963,
+    "char_edits": 30135,
+    "ref_chars": 53112,
+    "confusions": [
+      [
+        "",
+        " ",
+        4025
+      ],
+      [
+        "",
+        "\u2733",
+        1280
+      ],
+      [
+        "",
+        "\"",
+        1263
+      ],
+      [
+        "",
+        "e",
+        962
+      ],
+      [
+        "",
+        "n",
+        769
+      ],
+      [
+        "",
+        "h",
+        714
+      ],
+      [
+        "",
+        "i",
+        659
+      ],
+      [
+        "",
+        ",",
+        621
+      ],
+      [
+        "",
+        "d",
+        563
+      ],
+      [
+        "",
+        "l",
+        554
+      ]
+    ],
+    "extra": {}
+  },
+  "changed_tensors": {
+    "base_model.model.model.language_model.layers.27.self_attn.q_proj.lora_B.weight": {
+      "shape": [
+        8192,
+        64
+      ],
+      "l2": 1.4153984878698271,
+      "rel_l2": 0.19999998625771304,
+      "cosine": 0.9999999999999901,
+      "changed": 524288,
+      "numel": 524288,
+      "top_rows": [
+        [
+          4609,
+          0.10391651203379132
+        ],
+        [
+          4640,
+          0.0847226939947688
+        ],
+        [
+          4610,
+          0.08291458420266207
+        ],
+        [
+          3585,
+          0.08191257914307683
+        ],
+        [
+          1056,
+          0.0788888641883088
+        ],
+        [
+          1038,
+          0.07816917220504081
+        ],
+        [
+          3586,
+          0.07456713231990172
+        ],
+        [
+          3616,
+          0.07389810507339112
+        ],
+        [
+          1026,
+          0.07256099678174259
+        ],
+        [
+          1042,
+          0.06915007930966072
+        ]
+      ]
+    }
+  },
+  "heldout": {
+    "set": "kurrent-test-134 (2 pages per document of the trainer's frozen test draw, seed 20261109)",
+    "engine": "evaluate_qlora path (hf_pass.py), transformers greedy cap 3072",
+    "clean": {
+      "pages": 134,
+      "chars": 197502,
+      "cer": 0.6846,
+      "truncated_cer": 0.3536,
+      "length_ratio": 1.3329,
+      "at_cap": 22,
+      "loops": 34
+    },
+    "frozen": {
+      "pages": 134,
+      "chars": 197502,
+      "cer": 0.5694,
+      "truncated_cer": 0.3506,
+      "length_ratio": 1.215,
+      "at_cap": 18,
+      "loops": 30
+    },
+    "delta": {
+      "delta_cer": -0.11519377018966903,
+      "ci95": [
+        -0.27111569312781314,
+        -0.0013968896500423655
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 134
+    },
+    "doc_clustered_ci95": [
+      -0.25148926277860106,
+      -0.008677774759029533
+    ],
+    "identical_pages": 40,
+    "note": "one reading of the frozen adapter; the unedited adapter's reading is the A2 baseline"
+  },
+  "deviations": [
+    "held-out is a 134-page document-stratified subset of the 733-page test draw, not the full draw (3 h per reading); the unedited baseline was read once with the same engine; a sham (random matrix of the same norm in the same tensor) was read afterwards (docs/ADAPTER_REPORT.md)",
+    "sandbox card check uses a watcher flag (wsp.card watch) because loopback is down inside unshare -Un"
+  ],
+  "final_file_sha256": "305da1c3bb43917fbfa63aeaaf28c4878b68a43ac778eaabbb40e7214e49063d",
+  "subject": "/home/tobias/atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-page-v2",
+  "name": "20261107-adapter-v2-b10-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b/runs/20261107-adapter-v2-b10-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b/runs/20261107-adapter-v2-b10-1 TMPDIR=/home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b/runs/20261107-adapter-v2-b10-1/atr-cache/tmp CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* /home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b/runs/20261107-adapter-v2-b10-1/Repo/weightspace/.venv/bin/python -I -c 'import sys,runpy; sys.path.insert(0, '\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b'\"'\"'); runpy.run_path('\"'\"'program.py'\"'\"', run_name='\"'\"'__main__'\"'\"')'"
+}

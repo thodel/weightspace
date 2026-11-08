@@ -31,7 +31,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 
 ## Open items
 
-1. Merge decision for branch `claude/adapters-4d972b` (adapter harness, 133 files; includes an earlier unmerged phase-5 commit). Also exists on the remote: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13), not reviewed here.
+1. Not merged and not reviewed: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13). Also exists on the remote: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13), not reviewed here.
 2. C4 retrain on corrected data needs the user's OK (GPU job on the trainer's card is not allowed for sessions).
 3. 5,441 vs 5,243 line count of `combined-v1` (trainer to answer).
 4. Donor-rule amendment in `docs/PROTOCOL.md` is proposed, not adopted.
