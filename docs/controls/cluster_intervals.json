@@ -1,0 +1,197 @@
+[
+ {
+  "label": "R2 session 1, practice (pass 8 vs C0)",
+  "lines": 300,
+  "pages": 263,
+  "delta_pts": -0.02331545814875241,
+  "line_ci": [
+   -0.3244495944380074,
+   0.3087814429884018
+  ],
+  "page_ci": [
+   -0.3426743831861104,
+   0.3383458646616544
+  ],
+  "source": "PHASE1 \u00a72"
+ },
+ {
+  "label": "R2 session 1, held-out blb-eval (5,628 lines)",
+  "lines": 5628,
+  "pages": 157,
+  "delta_pts": -0.01036471967875291,
+  "line_ci": [
+   -0.04762890867674452,
+   0.026461326770924054
+  ],
+  "page_ci": [
+   -0.0685248366391028,
+   0.04855308818491749
+  ],
+  "source": "PHASE1 \u00a73, RESULTS R2"
+ },
+ {
+  "label": "R2 session 1, held-out lassberg_eval",
+  "lines": 446,
+  "pages": 23,
+  "delta_pts": 0.04978363267338151,
+  "line_ci": [
+   -0.037460198539052136,
+   0.1388032078963604
+  ],
+  "page_ci": [
+   -0.0792256553339539,
+   0.19478287438414316
+  ],
+  "source": "PHASE1 \u00a73"
+ },
+ {
+  "label": "R2 session 1, held-out korrespondenten_eval",
+  "lines": 452,
+  "pages": 22,
+  "delta_pts": -0.011328449512879035,
+  "line_ci": [
+   -0.15674566150401248,
+   0.13104687734011855
+  ],
+  "page_ci": [
+   -0.21489490296152103,
+   0.21419602629440815
+  ],
+  "source": "PHASE1 \u00a73"
+ },
+ {
+  "label": "R2 session 1, held-out unbestimmt_eval",
+  "lines": 193,
+  "pages": 7,
+  "delta_pts": -0.08313319785701045,
+  "line_ci": [
+   -0.3361641896673734,
+   0.1622206200432602
+  ],
+  "page_ci": [
+   -0.4601689800844855,
+   0.283095173901321
+  ],
+  "source": "PHASE1 \u00a73"
+ },
+ {
+  "label": "R2 session 1, held-out manuskripte_eval",
+  "lines": 4537,
+  "pages": 105,
+  "delta_pts": -0.013126087004079745,
+  "line_ci": [
+   -0.05097950845410204,
+   0.026894421224786524
+  ],
+  "page_ci": [
+   -0.07465023633172335,
+   0.05241240666283703
+  ],
+  "source": "PHASE1 \u00a73"
+ },
+ {
+  "label": "R2 session 1, re-aggregated on blb-eval-hand (2,272 lines)",
+  "lines": 2272,
+  "pages": 94,
+  "delta_pts": -0.0008766546857191804,
+  "line_ci": [
+   -0.05456806247595841,
+   0.05275157584156698
+  ],
+  "page_ci": [
+   -0.0824137334245384,
+   0.08435637877808877
+  ],
+  "source": "RESULTS R2 note, PHASE5 \u00a72"
+ },
+ {
+  "label": "R3 session 2, practice (pass 8 vs C0)",
+  "lines": 300,
+  "pages": 146,
+  "delta_pts": -0.42478529873487825,
+  "line_ci": [
+   -0.8498845265588917,
+   -0.03640997633351656
+  ],
+  "page_ci": [
+   -0.926462072958889,
+   0.03674444240308605
+  ],
+  "source": "PHASE3 \u00a73"
+ },
+ {
+  "label": "R3 session 2, held-out bern-eval, all (545)",
+  "lines": 545,
+  "pages": 14,
+  "delta_pts": 0.15110305228165644,
+  "line_ci": [
+   -0.09882033228336973,
+   0.42087542087542174
+  ],
+  "page_ci": [
+   -0.2854837708682445,
+   0.596630790828262
+  ],
+  "source": "PHASE3 \u00a73, RESULTS R3"
+ },
+ {
+  "label": "R3 session 2, held-out Hertwig",
+  "lines": 287,
+  "pages": 6,
+  "delta_pts": -0.3003003003002991,
+  "line_ci": [
+   -0.7210884353741454,
+   0.1274246071074625
+  ],
+  "page_ci": [
+   -0.8247152768686983,
+   0.21346235947061198
+  ],
+  "source": "PHASE3 \u00a73"
+ },
+ {
+  "label": "R3 session 2, held-out Schlussredaktion",
+  "lines": 258,
+  "pages": 8,
+  "delta_pts": 0.5098166829374112,
+  "line_ci": [
+   0.20640956002172806,
+   0.8223859873972034
+  ],
+  "page_ci": [
+   -0.04296455424274981,
+   1.0764262648008616
+  ],
+  "source": "PHASE3 \u00a73"
+ },
+ {
+  "label": "CONTROLS \u00a73.3 combined-v1 a1, held-out bern-eval",
+  "lines": 545,
+  "pages": 14,
+  "delta_pts": -0.3868238138410418,
+  "line_ci": [
+   -0.6931166347992346,
+   -0.08195761620418962
+  ],
+  "page_ci": [
+   -0.8383735553027127,
+   0.03530450132391838
+  ],
+  "source": "CONTROLS_REPORT \u00a73.3"
+ },
+ {
+  "label": "CONTROLS \u00a73.3 combined-v1 replay, held-out bern-eval",
+  "lines": 545,
+  "pages": 14,
+  "delta_pts": -0.32033847083711153,
+  "line_ci": [
+   -0.6965419466189976,
+   0.07077558242406523
+  ],
+  "page_ci": [
+   -0.8397816567692395,
+   0.18947497096754584
+  ],
+  "source": "CONTROLS_REPORT \u00a73.3"
+ }
+]

@@ -1,0 +1,8 @@
+C0 CER 0.1383 collapsed 2
+H1 blank bias -0.3: CER 0.1379 (vs last kept -0.0004) kept=False collapsed=2
+H2 space bias +1.5: CER 0.1408 (vs last kept +0.0025) kept=False collapsed=2
+H3 letter rows x1.1: CER 0.1374 (vs last kept -0.0009) kept=False collapsed=2
+H4 output layer toward parent alpha 0.05: CER 0.1385 (vs last kept +0.0002) kept=False collapsed=2
+frozen: used 5 edits 4 kept 0 final CER on practice 0.13845528455284553
+
+--- stderr ---

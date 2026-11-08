@@ -1,0 +1,22 @@
+{
+  "set": "newseye-heldout",
+  "source": "parquet:/home/tobias/atr-cache/wsp/heldout/newseye-heldout/pages.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/heldout/newseye-heldout/pages.parquet",
+    "pages": 8,
+    "projects": [
+      "newseye-onb"
+    ],
+    "sha256": "bab41c457d7197ce72be4ec72121b6f9cdb4cfa4460a6239e6cce7e7c3744453"
+  },
+  "n": 2706,
+  "seed": 20261106,
+  "candidates": 2706,
+  "sha256": "98bff6b3888936c26c291d8dde84bae139b51491b25ad6097f503db6dc8dfe1a",
+  "documents": [
+    "126495"
+  ],
+  "skipped": [],
+  "selection": "every candidate line in source order (no sampling)"
+}

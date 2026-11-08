@@ -1,0 +1,11 @@
+{
+ "heldout_lines": 2706,
+ "heldout_pages": 8,
+ "shared_pages": 0,
+ "shared_line_keys": 0,
+ "shared_line_crops_sha256": 0,
+ "checked_against": [
+  "newseye-onb-val-300",
+  "newseye-onb-val-conf-300"
+ ]
+}

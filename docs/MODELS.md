@@ -1,9 +1,12 @@
 # Model inventory (state 06.11.2026)
 
 Every kraken model the gateway on idhefix serves is listed in
-`serving-atr-inference/config/models.yaml`. 42 of them are third-party Zenodo
-models (CATMuS, TRIDIS, CREMMA, FoNDUE, OpenITI, …) and are *not* ours. The
-in-house models are the seven below. Weights live on the research share
+`serving-atr-inference/config/models.yaml`. 37 of the kraken models are third-party Zenodo
+models (CATMuS, TRIDIS, CREMMA, FoNDUE, OpenITI, …) and are *not* ours (`docs/zoo/gateway_zenodo.json`;
+corrected 07.11.2026, the earlier count of 42 was not reproduced by the survey). The
+in-house models are the six below (two families; the public parent `kraken-cursive_inzigkofen` of family 1 is third-party and is the seventh model in the
+family's lineage, not an in-house one). The model family compared in the article is these six plus the 37 Zenodo models: 43 files (`docs/ZOO_SURVEY.md`, `docs/MODEL_FAMILY.md`).
+Weights live on the research share
 `/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/trained/<id>/<id>.mlmodel`
 (reachable from tei and asteraix, not from h1). All are CoreML `.mlmodel`,
 ~16 MB, loaded by the serving engine with `kraken.lib.models.load_any` under

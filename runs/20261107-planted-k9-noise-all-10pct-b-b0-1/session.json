@@ -1,0 +1,14 @@
+{
+  "name": "20261107-planted-k9-noise-all-10pct-b-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k9-noise-all-10pct.mlmodel",
+  "subject_digest": "fce9af3f1f4418c4fae94ad695de17f982c7f128c3e84f7de67108e4fd545690",
+  "subject_file_sha256": "299cfd10c352e26617380b0dc2a656233b1576497e5b65cc072018ce6a75426d",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "created": "2026-11-07T13:01:04.789752+00:00",
+  "unshare": true,
+  "deviations": []
+}

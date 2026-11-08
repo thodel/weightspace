@@ -1,0 +1,21 @@
+4111961 parameters; 10 passes left
+baseline 0.13829268292682928 2 [(' ', '', 78), ('e', '', 44), ('', ' ', 30), ('i', '', 29), ('n', '', 26)]
+KEEP H1 blank -0.113: CER 0.1383 -> 0.1381, collapsed 2 -> 2
+REVERT H2 blank -0.5 total: CER 0.1381 -> 0.1382, collapsed 2 -> 1
+REVERT H3 space +1.0: CER 0.1381 -> 0.1393, collapsed 2 -> 2
+REVERT H4 space +0.5: CER 0.1381 -> 0.1389, collapsed 2 -> 2
+REVERT H5 rare rows: CER 0.1381 -> 0.1383, collapsed 2 -> 2
+KEEP H6 freq rows x1.1: CER 0.1381 -> 0.1376, collapsed 2 -> 2
+passes left 3
+REVERT H7 freq rows x1.21: CER 0.1376 -> 0.1376, collapsed 2 -> 2
+REVERT H8 blank+space: CER 0.1376 -> 0.1386, collapsed 2 -> 2
+{
+ "used": 9,
+ "edits": 8,
+ "kept": 0,
+ "start_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+ "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd"
+}
+baseline 0.13829268292682928 last 0.13861788617886178
+
+--- stderr ---

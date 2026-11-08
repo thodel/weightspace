@@ -1,0 +1,15 @@
+{
+  "set": "blb-val-300",
+  "lines": 300,
+  "unit": "object",
+  "units": 7,
+  "training_job": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/jobs/20261026T193646Z-kraken-german-xix-blb-v1",
+  "training_pages": 1651,
+  "findings": [],
+  "heldout": {
+    "set": "blb-eval-hand-b",
+    "lines": 1718,
+    "units": 22
+  },
+  "clean": true
+}
