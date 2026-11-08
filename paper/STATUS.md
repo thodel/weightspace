@@ -17,7 +17,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 | 6 | Comparison of models, with intermediate results | 6 | drafted; 43 models, seed null |
 | 7 | Adaptability of weights, with intermediate results | 7 | drafted; controls run except C4 retrain |
 | 8 | Both parts combined | 8 | drafted; margins measured |
-| 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 waits for the adapter track (branch `adapters`, `docs/ADAPTER_REPORT.md`) |
+| 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 now reports the adapter track (branch `claude/adapters-4d972b`, `docs/ADAPTER_REPORT.md`, not yet merged) |
 
 ## Two interpretations to confirm
 
@@ -60,5 +60,5 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 No TeX and no SVG converter are installed on this server, so figures stay as SVG links in the Word
 build; convert them (`rsvg-convert`) on a machine that has the tools, or let `build.sh` do it there.
 
-## Open TODO markers (12)
-Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer to answer); "many public models use the default setup" (now supported by the survey, wording to adjust); data and code availability (three places); adapter track (9.3); AI statement confirmation; competing interests; funding; acknowledgements. Resolved in draft 3: the 9.55 % duplicate (two different line sets, 9.554 % and 9.551 %, coincidence), zoo survey, blank bias relative form, positive control, validation-based practice.
+## Open TODO markers (11)
+Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer to answer); "many public models use the default setup" (now supported by the survey, wording to adjust); data and code availability (three places); AI statement confirmation; competing interests; funding; acknowledgements. Resolved in draft 3: the 9.55 % duplicate (two different line sets, 9.554 % and 9.551 %, coincidence), zoo survey, blank bias relative form, positive control, validation-based practice.

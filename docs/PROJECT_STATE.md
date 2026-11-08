@@ -13,7 +13,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 | Phase 0-5 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis, clean-up of held-out sets | `docs/PHASE0..5_REPORT.md`, `docs/RESULTS.md` R1-R3 | done |
 | B | controls for the article: planted defects, unseen practice sets, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged into main (8d7b577) |
 | C | the family of 43 models: weights, lineage, function, CKA, exchange grid, candidate `latin_incunabula-wsp-v1` | `docs/MODEL_FAMILY.md`, `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md`, `docs/family/`, `docs/RESULTS.md` R4 | done, merged |
-| Adapters | sessions on LoRA adapters of vision-language models | branch `adapters`, `docs/ADAPTER_REPORT.md` | **running**; not merged; manuscript 9.3 waits for it |
+| Adapters | sessions on LoRA adapters of vision-language models | branch `adapters`, `docs/ADAPTER_REPORT.md` | finished 7 Nov; branch `claude/adapters-4d972b` **not merged** (awaits user's decision); folded into manuscript 9.3 and RESULTS R9 |
 | Article | JDMDH manuscript, draft 3 | `paper/manuscript.md`, `paper/STATUS.md`, Nextcloud `Documents/research/atr-research/atr-article-plan.md` | draft 3 complete except TODOs |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/`, Zotero (user library) | done; OpenAlex Q4-Q10 incomplete |
 | Epic: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md`, issue thodel/weightspace#12 | proposed, not started |
@@ -31,7 +31,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 
 ## Open items
 
-1. Adapter session result, then manuscript 9.3 and a merge decision.
+1. Merge decision for branch `claude/adapters-4d972b` (adapter harness, 133 files; includes an earlier unmerged phase-5 commit). Also exists on the remote: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13), not reviewed here.
 2. C4 retrain on corrected data needs the user's OK (GPU job on the trainer's card is not allowed for sessions).
 3. 5,441 vs 5,243 line count of `combined-v1` (trainer to answer).
 4. Donor-rule amendment in `docs/PROTOCOL.md` is proposed, not adopted.
