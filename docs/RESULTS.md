@@ -206,3 +206,88 @@ Rank-64 update of 128 modules (Qwen3.5-4B, Kurrent pages). Readings: norms tight
 ## R11 — C4: retraining `combined-v1` on the corrected data (08.11.2026; docs/C4_RETRAIN.md merged into main 08.11.2026)
 
 Preregistered (commit 2ea91a3) before any run. Subject `kraken-bern-combined-v1`; 151 pages, 4,927 lines (Hertwig from the 22.10 export, correct images); validation the trainer's 17 pages; held-out `bern-eval` (545 lines, 14 pages), scored once per model on CPU; `ketos` 7.0.2 on card 0, nothing registered. Arm A (C4 as in PROTOCOL §4: 5 epochs, lr 1e-5, seeds 1-3): held-out 19.33 → 18.77-18.79 %, Δ -0.54/-0.56/-0.56 (page-clustered about [-1.1, -0.1]), equal to the interpolation edit (-0.39) by the rule. Arm B (lr 5e-5, secondary): Δ -0.98 to -1.02, larger than the interpolation edit (-0.6, page interval reaching 0). Seed sd within an arm 0.01-0.02. The gain lies on the Hertwig lines (-1.30 A, -2.22 B) and not on the Schlussredaktion lines. Not shown: that the correction, and not additional training, causes the gain (no control on uncorrected pairs). Manuscript Section 7.11.
+
+## R12 — latin_incunabula v3: an exchange that spares the abbreviation rows qualifies under a rule with minimum effects (08.11.2026)
+
+Rule written, committed and pushed before any v3 held-out score (`runs/20261108-latin_incunabula-exchange-3/preregistration.md`,
+commit `fdf25e2`). **Candidate v3**: `Gn_1` + `Gn_3` from kraken-catmus_print_large and `O_15` half-way, but only on the
+rows of the 108 characters both codecs share that are not abbreviation characters (MUFI overlay, Combining Diacritical
+Marks, Latin Extended-D), plus the blank row; the 13 shared abbreviation characters (U+0303, U+0304, U+0307, U+0313,
+U+0328, U+0365, ꝑ ꝓ ꝗ ꝙ ꝟ ꝯ, ω) keep latin_incunabula's rows. Rows paired by character. Tensor digest `bd0f11ec…`,
+file sha256 `11fffd8a…`, loads with `load_any`; weights not committed, nothing registered.
+
+**Design, practice and confirmation lines only.** Four variants tried (all `Gn_1` + `Gn_3`: abbreviation rows spared
+with the blank moved / kept; letters a–z A–Z only at β 0.5 / 0.25), next to v1 and v2 rebuilt bit-exactly as references
+(`docs/family/combine-v3-latin_incunabula-from-catmus_print_large.json`). On 300-line sets the four were alike on the
+abbreviation blocks (MUFI 32 → 33–34 and 28 → 29, v1 46 and 41); the one with the largest mean Fraktur gain went to the
+held-out sets alone.
+
+**Rule** (points of CER). *Loses abbreviations*: for MUFI, Combining Diacritical Marks or Latin Extended-D, on
+`reichenau-heldout` or either sub-collection, the line-level interval of the change of the block's share of CER lies
+entirely above +0.02. *Reichenau worse*: line-level interval of the total change entirely above +0.05. *Fraktur*: worse
+on a set if its line-level interval lies entirely above 0; better if its **page-clustered** interval lies entirely below
+0. Qualifies: no abbreviation loss, Reichenau not worse, no Fraktur set worse, at least one better. The minimum effects
+were chosen from R9's numbers (v1 MUFI +0.110, v2 +0.010; v2 Reichenau +0.04); R9's decisions on v1 and v2 stand and are
+not re-judged under this rule.
+
+**Held-out sets, read once by v3** (as R9; unedited readings are R9's stored ones). Intervals: line level, then
+page-clustered (two-stage bootstrap over pages, then lines; 2,000 resamples, seed 20261106).
+
+| candidate | `reichenau-heldout` CER (Δ, 95 % intervals) | `newseye-heldout` CER (Δ, 95 % intervals) | `gt-fraktur-heldout` CER (Δ, 95 % intervals) | loses abbreviations | qualifies |
+|---|---|---|---|---|---|
+| unedited | 5.01 % | 28.56 % | 20.13 % | | |
+| v3 | 4.99 % (−0.02 [−0.06, +0.01]; pages [−0.09, +0.04]) | 26.90 % (**−1.66** [−1.85, −1.49]; pages [−2.02, −1.30]) | 19.92 % (**−0.21** [−0.34, −0.08]; pages [−0.40, +0.01]) | no | **yes** |
+| *R9 v1, for comparison* | *−0.03 [−0.07, +0.02]; pages [−0.12, +0.05]* | *−2.04 [−2.22, −1.86]; pages [−2.42, −1.65]* | *−0.44 [−0.57, −0.31]; pages [−0.65, −0.21]* | | |
+| *R9 v2, for comparison* | *+0.04 [+0.01, +0.08]; pages [−0.01, +0.10]* | *−1.08 [−1.26, −0.92]; pages [−1.41, −0.73]* | *−0.19 [−0.30, −0.08]; pages [−0.37, −0.01]* | | |
+
+Collapsed lines unedited → v3: 0 → 0, 75 → 65, 15 → 15.
+
+Abbreviation blocks on `reichenau-heldout`, change of the block's share of CER in points (line level; pages):
+
+| candidate | scope | MUFI (CERberus list, overlay) | Combining Diacritical Marks | Latin Extended-D |
+|---|---|---|---|---|
+| v3 | all (4374 lines) | +0.014 [+0.006, +0.024]; pages [+0.000, +0.030] (532→558) | +0.025 [+0.010, +0.041]; pages [+0.003, +0.049] (2710→2756) | +0.001 [−0.002, +0.004]; pages [−0.004, +0.007] (50→52) |
+| v3 | German (163 lines) | +0.000 [−0.039, +0.038]; pages [−0.054, +0.052] (9→9) | −0.052 [−0.122, +0.013]; pages [−0.136, +0.024] (143→139) | +0.013 [+0.000, +0.040]; pages [+0.000, +0.055] (3→4) |
+| v3 | Latin-German (4211 lines) | +0.015 [+0.006, +0.025]; pages [+0.000, +0.032] (523→549) | +0.029 [+0.014, +0.044]; pages [+0.007, +0.053] (2567→2617) | +0.001 [−0.003, +0.004]; pages [−0.005, +0.006] (47→48) |
+| *R9 v1* | *all* | *+0.110 [+0.092, +0.127]; pages [+0.076, +0.144] (532→731)* | *+0.048 [+0.024, +0.072]; pages [+0.004, +0.089] (2710→2797)* | *+0.006 [+0.001, +0.010] (50→60)* |
+| *R9 v2* | *all* | *+0.010 [+0.003, +0.019]; pages [−0.002, +0.024] (532→551)* | *+0.010 [−0.004, +0.024]; pages [−0.009, +0.031] (2710→2728)* | *+0.000 [−0.003, +0.003] (50→50)* |
+
+Block statistics, all blocks that moved (share of CER, line level; pages):
+
+| set | block | Δ share | errors |
+|---|---|---|---|
+| reichenau | Latin lowercase a–z | −0.052 [−0.085, −0.021]; pages [−0.112, +0.004] | 4377→4282 |
+| reichenau | Latin-1 Supplement | +0.010 [+0.005, +0.016]; pages [+0.002, +0.021] | 669→688 |
+| reichenau | Space | −0.010 [−0.021, +0.001] | 503→485 |
+| reichenau | Latin uppercase A–Z | −0.008 [−0.015, −0.001] | 201→187 |
+| reichenau | Latin Extended-A | +0.006 [−0.001, +0.012] | 258→268 |
+| reichenau | General Punctuation (⁊ and others) | +0.003 [+0.001, +0.006] | 1→6 |
+| newseye | Latin lowercase a–z | −1.341 [−1.486, −1.199]; pages [−1.628, −1.022] | 22001→20357 |
+| newseye | uppercase / digits / ASCII punctuation | −0.096 / −0.081 / −0.055, all page intervals below 0 | |
+| gt-fraktur | Latin lowercase a–z | −0.293 [−0.399, −0.185]; pages [−0.468, −0.112] | 6686→6473 |
+| gt-fraktur | Latin Extended-A (ſ) | +0.107 [+0.075, +0.142]; pages [+0.057, +0.160] | 838→916 |
+| gt-fraktur | Latin uppercase A–Z | +0.069 [+0.022, +0.117]; pages [+0.003, +0.138] | 2396→2446 |
+| gt-fraktur | Combining Diacritical Marks | +0.048 [+0.026, +0.069]; pages [+0.019, +0.079] | 934→969 |
+
+**Choice by the pre-registered rule: v3** (`docs/family/candidates-latin_incunabula-v3.json`, from
+`python -m wsp.candidates latin_incunabula-v3`, which reads stored readings only).
+
+**Reading.**
+
+- **Sparing the abbreviation rows keeps most of the Fraktur gain and most of the abbreviations.** NewsEye −1.66 points
+  (v1 −2.04, v2 −1.08), the only Fraktur gain the page-clustered interval supports; GT-Fraktur −0.21, line-level interval
+  excluding 0, page interval reaching +0.01 (v2's size, half of v1's). MUFI on Reichenau +0.014 (532 → 558) against v1's
+  +0.110 (532 → 731): v2's level.
+- **The protection is not complete, and the rule lets that through by design.** Combining Diacritical Marks rise by
+  +0.025 (2710 → 2756), between v2 (+0.010) and v1 (+0.048), although their rows were not moved: errors on a character also
+  depend on the rows of its competitors and on the moved group norms (v2, no output move, had +0.010); which share is
+  which was not tested. The point estimate lies above the +0.02 minimum; the line-level interval
+  ([+0.010, +0.041]) does not lie entirely above it, so by the rule this is not a loss. Latin-1 Supplement (ß, ¬ and
+  others, moved) +0.010. On GT-Fraktur the gain on lowercase letters is partly paid in ſ (Latin Extended-A +0.107), the
+  combining marks and capitals.
+- **Reichenau total unchanged** (−0.02, both intervals containing 0). Under the page-clustered interval, R9's "v2 worse
+  by +0.04" would not have held (pages [−0.01, +0.10]); that decision stands as recorded.
+- **Decision: v3 qualifies; nothing is registered or enabled.** As preregistered, the serving-path read (registration
+  on the share, enabled for the evaluation only, 58 Reichenau pages through the gateway as R4, disabled again) waits for
+  the user's OK; offering it to agentic_historian would be a further decision. The three held-out sets have now been read
+  by three exchange candidates of this model; any further candidate needs fresh held-out lines.

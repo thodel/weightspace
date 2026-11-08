@@ -198,7 +198,8 @@ def _matrix(per_line: Sequence[dict[str, dict]], names: list[str]) -> tuple[np.n
 
 
 def bootstrap_blocks(before: Sequence[dict[str, dict]], after: Sequence[dict[str, dict]],
-                     resamples: int = 2000, seed: int = BOOTSTRAP_SEED) -> dict[str, dict]:
+                     resamples: int = 2000, seed: int = BOOTSTRAP_SEED,
+                     clusters: Sequence | None = None) -> dict[str, dict]:
     """Paired per-line bootstrap, per block, of two quantities:
 
     * ``delta_share``: change of the block's share of the corpus CER (errors_b / all ref chars),
@@ -206,7 +207,12 @@ def bootstrap_blocks(before: Sequence[dict[str, dict]], after: Sequence[dict[str
     * ``delta_block_cer``: change of the block's own error rate (errors_b / ref chars of b).
 
     The same resampled lines serve every block (one index draw per resample), as in
-    ``wsp.metrics.bootstrap_delta``; with the same seed the corpus interval is reproduced."""
+    ``wsp.metrics.bootstrap_delta``; with the same seed the corpus interval is reproduced.
+
+    With ``clusters`` (one id per line, the page) each block also gets ``ci95_share_cluster``: the
+    two-stage cluster bootstrap of ``wsp.metrics.bootstrap_delta`` (pages with replacement, then lines
+    within each drawn page; its own generator with the same seed), so the line-level numbers above
+    are unchanged by passing it."""
     if len(before) != len(after):
         raise ValueError("paired bootstrap needs the same lines on both sides")
     names = sorted({g for line in list(before) + list(after) for g in line})
@@ -238,4 +244,21 @@ def bootstrap_blocks(before: Sequence[dict[str, dict]], after: Sequence[dict[str
                   "errors_before": int(Eb[:, i].sum()), "errors_after": int(Ea[:, i].sum()),
                   "ref": int(Nb[:, i].sum()), "excludes_0": bool(s[lo] > 0 or s[hi] < 0),
                   "overlay": g == MUFI}
+    if clusters is not None:
+        if len(clusters) != n:
+            raise ValueError("one cluster id per line")
+        groups: dict = {}
+        for i, c in enumerate(clusters):
+            groups.setdefault(c, []).append(i)
+        arrs = [np.asarray(v) for v in groups.values()]
+        g = np.random.default_rng(seed)
+        C = np.empty((resamples, len(names)))
+        for k in range(resamples):
+            rows = np.concatenate([arrs[j][g.integers(0, len(arrs[j]), len(arrs[j]))]
+                                   for j in g.integers(0, len(arrs), len(arrs))])
+            C[k] = stats(rows)[0]
+        for i, name in enumerate(names):
+            c = np.sort(C[:, i])
+            out[name]["ci95_share_cluster"] = [float(c[lo]), float(c[hi])]
+            out[name]["clusters"] = len(arrs)
     return out
