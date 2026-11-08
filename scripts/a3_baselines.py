@@ -15,7 +15,7 @@ CLEAN = Path.home() / "atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-
 SETS = {"p32": REPO / "data/practice/kurrent-val-32.jsonl", "h64": REPO / "data/practice/kurrent-val-holdout-64.jsonl"}
 out = {}
 jobs = [("clean", CLEAN, "p32"), ("clean", CLEAN, "h64")] + \
-       [(c, P.OUT / c, s) for c in ("p1-scale3", "p3-alpha2", "p2-zeroB", "p4-randdir", "p5-alpha05") for s in ("p32", "h64")]
+       [(c, P.OUT / c, s) for c in ("p1-scale3", "p3-alpha2", "p2-zeroB", "p4-randdir", "p5-alpha05", "p6-scale3-late") for s in ("p32", "h64")]
 for name, d, s in jobs:
     r = P.score(d, SETS[s])
     out[f"{name}/{s}"] = r["metrics"] | {"wall_s": r["wall_s"], "tokens_mean": r["tokens_mean"]}

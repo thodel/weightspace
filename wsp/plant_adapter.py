@@ -14,6 +14,7 @@ cache. Never exported, registered or uploaded.
 | p3-alpha2  | ``lora_alpha`` doubled in the config (every update twice as strong; tensors untouched) |
 | p4-randdir | a random matrix of fixed norm added to one module's ``B`` |
 | p5-alpha05 | ``lora_alpha`` halved in the config |
+| p6-scale3-late | ``B`` of the ``down_proj`` of layers 24-31 ×3 (added after p1/p2/p4 came out below the pass noise) |
 """
 from __future__ import annotations
 
@@ -46,6 +47,9 @@ def corrupt(src: Path, cid: str, rel_norm: float = 1.0) -> LoraSubject:
         b = s.tensors()[k]
         r = np.random.default_rng(SEED).standard_normal(b.shape).astype(np.float32)
         s.set_tensor(k, b + r * (rel_norm * np.linalg.norm(b) / np.linalg.norm(r)))
+    elif cid == "p6-scale3-late":  # added after p1/p2/p4 proved null (below pass noise): the same defect as p1 over the 8 late down_proj modules
+        for L in range(24, 32):
+            s.scale_module(f"{PFX}{L}.mlp.down_proj", 3.0)
     elif cid == "p3-alpha2":
         s.config["lora_alpha"] = s.config["lora_alpha"] * 2
     elif cid == "p5-alpha05":
