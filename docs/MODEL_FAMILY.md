@@ -300,8 +300,8 @@ trade against its own material — at a poor rate in the in-house fine-tunes, at
 1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R9 (07.11.2026): the Fraktur gain holds on held-out
    pages; both variants lose some abbreviation signs; neither enabled. R12 (08.11.2026): v3 moves the output rows of
    the shared characters except the abbreviation characters; under a rule with minimum effects fixed beforehand it
-   qualifies (NewsEye −1.66, MUFI +0.014 instead of v1's +0.110). Serving-path read and registration wait for the
-   user's OK.
+   qualifies (NewsEye −1.66, MUFI +0.014 instead of v1's +0.110); through the serving path not worse (median page
+   −0.09 points). Registered as `kraken-latin_incunabula-wsp-v3`, disabled; offering it is the user's decision.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
 2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
