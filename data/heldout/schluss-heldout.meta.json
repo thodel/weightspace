@@ -1,0 +1,31 @@
+{
+  "set": "schluss-heldout",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/schluss/heldout.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/schluss/heldout.parquet",
+    "pages": 11,
+    "projects": [
+      "A_V_1447_Schlussredaktion_train"
+    ],
+    "sha256": "826405701ae23c7194cb8aaac9429b781c05cfec050f69ec914ddb7195ffa54f"
+  },
+  "n": 308,
+  "seed": 20261106,
+  "candidates": 310,
+  "sha256": "98b788d9207d4443ffb898cddd1ebb9b7ec6e05bf7d010b2d72e1835461d281f",
+  "documents": [
+    "13922579"
+  ],
+  "skipped": [
+    {
+      "key": "A_V_1447_Schlussredaktion_train/p0119/l_6",
+      "reason": "cannot convert float NaN to integer"
+    },
+    {
+      "key": "A_V_1447_Schlussredaktion_train/p0119/l_4",
+      "reason": "cannot convert float NaN to integer"
+    }
+  ],
+  "selection": "every candidate line in source order (no sampling)"
+}

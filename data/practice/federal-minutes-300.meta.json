@@ -1,0 +1,42 @@
+{
+  "set": "federal-minutes-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/federal-minutes/pool.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/federal-minutes/pool.parquet",
+    "pages": 2121,
+    "projects": [
+      "TEST_federal_minutes"
+    ],
+    "sha256": "8b5298333f3e380242d3302293fa3870b3a680d07169dc495dee24689971fcba"
+  },
+  "n": 299,
+  "seed": 20261106,
+  "candidates": 2121,
+  "sha256": "d20f18a6d79467529b4d4d153a649b4b6c2d4469e7b40c9c05593d8dc0d5906b",
+  "documents": [
+    "457178",
+    "457186",
+    "457187",
+    "457194",
+    "457196",
+    "457212",
+    "457225",
+    "457238",
+    "457243",
+    "457254",
+    "457256",
+    "457257",
+    "457262",
+    "457270",
+    "457271",
+    "471755"
+  ],
+  "skipped": [
+    {
+      "key": "TEST_federal_minutes/0174_page_2457985_line_r2l28_docId_51514/r1_l1",
+      "reason": "Line polygon outside of image bounds"
+    }
+  ],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

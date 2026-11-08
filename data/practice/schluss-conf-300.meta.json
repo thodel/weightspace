@@ -1,0 +1,26 @@
+{
+  "set": "schluss-conf-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/schluss/pool.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/schluss/pool.parquet",
+    "pages": 107,
+    "projects": [
+      "A_V_1447_Schlussredaktion_train"
+    ],
+    "sha256": "7caf269a70da1133af4e962ee89b96f8a6d141151e9130d701860b2a22bc47b0"
+  },
+  "n": 300,
+  "seed": 20261108,
+  "candidates": 2848,
+  "sha256": "1378b8490b15773063a183983d9b9ac0d4f29681ee66ca8e8132519f2193b866",
+  "excluded_lists": [
+    "data/practice/schluss-300.jsonl"
+  ],
+  "excluded_keys": 299,
+  "documents": [
+    "13922579"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}
