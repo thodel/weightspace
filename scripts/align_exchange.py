@@ -112,7 +112,8 @@ def main(argv=None):
     print(f"activations + matching {time.time()-t0:.0f} s", flush=True)
     for b in blocks:
         print(f"{b:5s} matched corr mean {m[b]['mean_corr']:.3f} median {m[b]['median_corr']:.3f}  (unaligned {m[b]['identity_mean_corr']:.3f})"
-              f"  dead S {int(m[b]['dead_A'].sum())} G {int(m[b]['dead_B'].sum())}", flush=True)
+              f"  dead S {int(m[b]['dead_A'].sum())} G {int(m[b]['dead_B'].sum())}"
+              f"  identity share {(m[b]['perm'] == np.arange(len(m[b]['perm']))).mean():.2f}", flush=True)
     perms = {b: m[b]["perm"] for b in blocks}
     gp = permute_tensors(gt, perms)
     np.savez(work / "G_perm.npz", **gp)
@@ -137,7 +138,8 @@ def main(argv=None):
              [("G", a.general, None, s, a.threads) for s in a.sets] +
              [("G_perm", a.general, str(work / "G_perm.npz"), s, a.threads) for s in a.sets] +
              [(v, a.specific, paths[v], s, a.threads) for v in variants for s in a.sets])
-    with ProcessPoolExecutor(a.procs) as ex:
+    import multiprocessing as mp
+    with ProcessPoolExecutor(a.procs, mp_context=mp.get_context("spawn")) as ex:   # fork after torch's threads deadlocks
         res = list(ex.map(_task, tasks))
     by = {(t[0], t[3]): r for t, r in zip(tasks, res)}
     identical = {s: sum(x == y for x, y in zip(by[("G", s)]["hyps"], by[("G_perm", s)]["hyps"])) for s in a.sets}
@@ -148,7 +150,8 @@ def main(argv=None):
            "body_cosine": body_cosine(st, gt), "probe": "120 Track C probe lines, <= 400 positions per line and block",
            "match": {b: {"mean_corr": m[b]["mean_corr"], "median_corr": m[b]["median_corr"],
                          "unaligned_mean_corr": m[b]["identity_mean_corr"], "dead_S": int(m[b]["dead_A"].sum()),
-                         "dead_G_matched": int(m[b]["dead_B"].sum()), "corr_deciles": np.quantile(m[b]["corr"], np.linspace(0, 1, 11)).tolist()}
+                         "dead_G_matched": int(m[b]["dead_B"].sum()),
+                         "identity_share": float((m[b]["perm"] == np.arange(len(m[b]["perm"]))).mean()), "corr_deciles": np.quantile(m[b]["corr"], np.linspace(0, 1, 11)).tolist()}
                      for b in blocks},
            "permuted_identical_lines": identical, "lines": lines,
            "sets": a.sets, "set_sha256": {s: sha256_file(find_list(s)) for s in a.sets}, "c0": {}, "general_cer": {}, "rows": []}
