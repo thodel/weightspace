@@ -203,6 +203,92 @@ The page reads only the committed JSON and embeds what it needs (1.2 MB). `--ima
 line crops to `docs/viz/img/`. They are git-ignored, so on a fresh checkout the page works without
 the image row until `--images` has run. That step needs kraken but not the model.
 
+## Output-layer geometry (08.11.2026)
+
+`python -m wsp.outgeom --parent <parent> --child <child> --practice <set> --out docs/viz` (no forward pass). The
+output layer has one row per character and one for the CTC blank; parent and child rows are paired **by
+character**. Three panels: the rows of both models in one 2-D PCA with an arrow parent → child per shared
+character; each row's weight norm and its bias, parent against child, on the identity line. Classes from the
+practice references: frequent (20 most common), rare (under 10 occurrences, or none), other, new (rows only the
+child has), blank. Marker shapes repeat the class, because three colour pairs fall below 8 OKLab ΔE under CVD.
+
+![Output layer xix-v1 → xix-blb-v1: rows projected with arrows, row norms and biases parent against child.](outgeom-kraken-german-xix-blb-v1.svg#only-light)
+![Output layer xix-v1 → xix-blb-v1: rows projected with arrows, row norms and biases parent against child.](outgeom-kraken-german-xix-blb-v1-dark.svg#only-dark)
+
+![Output layer bern-hertwig-v2 → bern-combined-v1, same panels.](outgeom-kraken-bern-combined-v1.svg#only-light)
+![Output layer bern-hertwig-v2 → bern-combined-v1, same panels.](outgeom-kraken-bern-combined-v1-dark.svg#only-dark)
+
+| class | rows (xix / Bern) | median norm, child | share of rows grown | median bias change | median distance moved |
+|---|---|---|---|---|---|
+| blank | 1 / 1 | 4.6 / 2.8 | 100 % / 0 % | +0.11 / +0.12 | 0.93 / 0.75 |
+| frequent | 20 / 20 | 8.8 / 5.3 | 80 % / 10 % | +0.07 / -0.01 | 1.46 / 1.13 |
+| other | 48 / 23 | 12.1 / 7.8 | 50 % / 48 % | +0.05 / -0.04 | 2.10 / 1.41 |
+| rare | 156 / 223 | 18.1 / 15.8 | 73 % / 87 % | -0.67 / -0.72 | 3.00 / 2.12 |
+| new | 72 / 3 | 11.5 / 6.1 | — / 0 % | — / — | — / — |
+
+What the pictures show, in both lineages:
+
+- **Size follows rarity.** Frequent letters have the smallest rows (median norm 8.8 / 5.3), rare characters the
+  largest (18.1 / 15.8); the blank is the smallest of all (4.6 / 2.8) and carries the largest bias.
+- **The fine-tune works on the rare rows.** They grow (73 % / 87 % of them), lose bias (median −0.67 / −0.72)
+  and move furthest (3.0 / 2.1, against 1.5 / 1.1 for frequent letters). In the Bern pair a whole block of rare
+  rows loses about one unit of bias together, which is the bias panel's lower band. This is the phase-0
+  reading "rare rows inflated" made visible, and it matches R6: rare rows grow and drop their bias in every
+  parent → run pair of the seed experiment.
+- **The blank's bias rises by about +0.11 in both**, the blank-bias reading of phase 0; the blank's norm grows
+  in the Kurrent pair and shrinks in the Bern pair.
+- **New rows** (72 in xix-blb-v1, 3 in combined-v1) form their own cluster in the projection, apart from the
+  parent's rows: the grown alphabet starts from somewhere else.
+
+## Confusion-to-frame index (08.11.2026)
+
+The page now has a **confusion** selector above the line list, built from every edit of every practice line
+(`wsp.vizpage.confusion_index`, edit alignment `wsp.metrics.align`, the same that gives each character its
+status): reference → hypothesis, ∅ for nothing, so deletions (`e → ∅`), replacements (`e → c`) and insertions
+(`∅ → ␣`). Choosing one filters the list to the lines where it happens, sorted by how often, outlines every
+occurrence (insertions as ▾ between characters), and for deletions says at which layer the probes last had the
+character. The URL fragment `#conf=<n>` preselects one, so a view can be linked. The same index is committed as
+`confusions-<model>__<set>.json` (every occurrence with its line, reference index and frame).
+
+xix-blb-v1 on `blb-train-300`, the five most frequent: ␣ → ∅ 77 (41 lines; deepest layer still having it: output
+layer 31, none 23), e → ∅ 32 (none 20), n → ∅ 32 (none 24), ∅ → ␣ 18, i → ∅ 18 (none 13). Practice lines only: the
+held-out lines are read outside sessions and are not in the page.
+
+## The Bern family (08.11.2026)
+
+The same tools on `kraken-bern-combined-v1` with its parent `kraken-bern-hertwig-v2`, practice `bern-train-300`
+(103 Hertwig and 197 Schlussredaktion lines): `kraken-bern-combined-v1.html`, `probe-…`, `alpha-overlay-…`,
+`bias-…`, `outgeom-kraken-bern-combined-v1`, `confusions-…`. One difference: `bern-train-300` comes from only two
+Transkribus documents, so the probes are cross-fitted over **5 page folds** (`wsp.layerview --fold-unit page`)
+instead of document folds. Test lines then share a hand with training lines, which makes the probe scores
+optimistic compared with the Kurrent page; the per-layer *order* is what to compare, not the levels.
+
+| layer | C_0 | C_3 | C_6 | C_9 | L_12 | L_14 | L_16 | O_18 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| identity, letters emitted correctly (7,841) | 0.22 | 0.36 | 0.49 | 0.60 | 0.71 | 0.90 | **0.96** | 0.95 |
+
+Each block's share of the fine-tune (that block alone set back to the parent, practice CER 14.56 %):
+
+| block at α = 0 | ΔCER (points) | letters deleted | spaces deleted | substituted | inserted |
+|---|---:|---:|---:|---:|---:|
+| C_0 | −0.04 | −10 | −11 | +10 | +7 |
+| C_3 | +0.20 | +16 | +7 | +5 | −6 |
+| C_6 | +0.23 | −1 | +10 | +19 | −3 |
+| C_9 | +0.18 | −4 | +15 | +16 | −7 |
+| L_12 | +0.16 | −24 | +14 | +23 | +4 |
+| L_14 | +0.14 | −99 | +12 | +81 | +21 |
+| **L_16** | **+1.04** | −11 | +10 | **+109** | +5 |
+| O_18 | **−0.42** | −118 | −30 | +75 | +27 |
+
+- **A small fine-tune whose specialisation sits in the last LSTM.** Only `L_16` costs more than a quarter point
+  when set back (+1.04, mostly substitutions); in the Kurrent pair every recurrent block costs 4–6 points.
+- **The output layer goes the other way:** back to the parent's, practice CER falls by 0.42 points (fewer
+  deletions, more substitutions). That is the transplant of R3, and as R3 found, the gain comes from the 103
+  Hertwig practice lines the parent was trained on; it did not hold on held-out pages.
+- **Deletions:** of all deleted characters, 72 % are decodable at no layer (696 of 961), as in the Kurrent pair
+  (259 of 361, 72 %); of deleted letters alone 82 % (659 of 807; Kurrent 83 %, 236 of 284). Deleted spaces differ:
+  88 of 154 are still decodable up to the output layer and lost only there (Kurrent: 31 of 77).
+
 ## Relation to the activation-atlas epic (thodel/weightspace#13)
 
 Epic #13 asks for an atlas at the level of single units: selectivity, occlusion and ablation,
@@ -223,7 +309,7 @@ again.
 | per-frame decision view | done, as static SVG per line: image, conv channel energy, BiLSTM ‖h‖ forward and reverse, CTC posteriors, reference against hypothesis, probes per layer |
 | layer probes | done (this page) |
 | ablation and α overlay per line | done: `wsp.alpha_overlay` (above), corpus summary plus per-line strips per block and α |
-| output-layer geometry | partly done: `protocol/docs/figures/output-rows-*` |
-| confusion-to-frame index | open (the JSON already holds runs and status per character) |
-| HTML page | done: `kraken-german-xix-blb-v1.html` (see below) |
+| output-layer geometry | done (08.11.2026): `wsp.outgeom`, projection plus norm and bias panels, both lineages |
+| confusion-to-frame index | done (08.11.2026): selector on the page, `#conf=<n>` links, `confusions-*.json` |
+| HTML page | done: `kraken-german-xix-blb-v1.html` and `kraken-bern-combined-v1.html` |
 | readings into `docs/READINGS.md` | done: section of 07.11.2026, with four part-block hypotheses for a preregistered session |

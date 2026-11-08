@@ -1,0 +1,7573 @@
+{
+ "model": "kraken-bern-combined-v1",
+ "set": "bern-train-300",
+ "frame_px": 8,
+ "note": "ref → hyp; '' = nothing (deletion or insertion); x = frame centre of the reference character (forced CTC alignment, 8 px of the line per frame); lost = deepest layer whose probes still have a deleted character; insertions: i = reference index they follow",
+ "confusions": [
+  {
+   "a": " ",
+   "b": "",
+   "n": 154,
+   "lines": 79,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_16",
+     "i": 40,
+     "x": 134.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 9,
+     "x": 45.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 14,
+     "x": 58.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 26,
+     "x": 100.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 37,
+     "x": 129.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0064/tr_1_tl_10",
+     "i": 37,
+     "x": 123.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0013/tr_1_tl_20",
+     "i": 47,
+     "x": 164.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_18",
+     "i": 33,
+     "x": 182.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 31,
+     "x": 129.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/tr_1_tl_26",
+     "i": 13,
+     "x": 29.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0046/tr_2_tl_5",
+     "i": 15,
+     "x": 61.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 14,
+     "x": 59.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 17,
+     "x": 66.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 3,
+     "x": 89.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_17",
+     "i": 15,
+     "x": 68.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_11",
+     "i": 14,
+     "x": 120.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0073/tr_2_tl_8",
+     "i": 43,
+     "x": 128.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0078/tr_1_tl_4",
+     "i": 5,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+     "i": 3,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0077/tr_1_tl_18",
+     "i": 9,
+     "x": 41.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 2,
+     "x": 11.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 11,
+     "x": 35.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 13,
+     "x": 37.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 15,
+     "x": 39.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 20,
+     "x": 44.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_20",
+     "i": 20,
+     "x": 80.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 37,
+     "x": 184.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 23,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 28,
+     "x": 55.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 62,
+     "x": 175.5,
+     "lost": "C_0"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 20,
+     "x": 88.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 3,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 5,
+     "x": 14.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 13,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_20",
+     "i": 15,
+     "x": 88.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0044/tr_2_tl_14",
+     "i": 18,
+     "x": 68.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 10,
+     "x": 44.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 21,
+     "x": 80.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 3,
+     "x": 8.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 3,
+     "x": 4.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 9,
+     "x": 10.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0044/tr_2_tl_4",
+     "i": 11,
+     "x": 55.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 57,
+     "x": 128.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0101/tr_1_tl_35",
+     "i": 29,
+     "x": 129.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 10,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_17",
+     "i": 36,
+     "x": 131.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 2,
+     "x": 18.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 17,
+     "x": 64.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 24,
+     "x": 72.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 31,
+     "x": 79.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_20",
+     "i": 12,
+     "x": 53.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_20",
+     "i": 27,
+     "x": 106.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_5",
+     "i": 14,
+     "x": 74.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 8,
+     "x": 24.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 12,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 18,
+     "x": 45.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0122/l_18",
+     "i": 8,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 5,
+     "x": 8.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 29,
+     "x": 118.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0029/tr_2_tl_2",
+     "i": 40,
+     "x": 149.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0029/tr_2_tl_2",
+     "i": 42,
+     "x": 152.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0044/tr_2_tl_12",
+     "i": 25,
+     "x": 111.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_28",
+     "i": 37,
+     "x": 251.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 13,
+     "x": 41.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 18,
+     "x": 47.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 20,
+     "x": 49.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_16",
+     "i": 30,
+     "x": 193.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 19,
+     "x": 84.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 24,
+     "x": 91.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 29,
+     "x": 100.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 38,
+     "x": 114.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 59,
+     "x": 157.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 44,
+     "x": 169.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 51,
+     "x": 188.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0053/tr_1_tl_10",
+     "i": 4,
+     "x": 29.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 4,
+     "x": 5.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 7,
+     "x": 8.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 13,
+     "x": 14.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 22,
+     "x": 24.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 27,
+     "x": 29.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 33,
+     "x": 36.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0080/tr_4_tl_28",
+     "i": 3,
+     "x": 12.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0080/tr_4_tl_28",
+     "i": 21,
+     "x": 67.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_20",
+     "i": 6,
+     "x": 23.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_7",
+     "i": 9,
+     "x": 34.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 5,
+     "x": 5.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 9,
+     "x": 10.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 15,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 17,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_16",
+     "i": 24,
+     "x": 75.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0101/tr_1_tl_31",
+     "i": 16,
+     "x": 71.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 11,
+     "x": 53.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 38,
+     "x": 197.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 18,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 23,
+     "x": 70.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 25,
+     "x": 73.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_17",
+     "i": 1,
+     "x": 8.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_6",
+     "i": 5,
+     "x": 37.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_13",
+     "i": 3,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_14",
+     "i": 28,
+     "x": 91.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_14",
+     "i": 48,
+     "x": 147.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 1,
+     "x": 11.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 5,
+     "x": 15.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 11,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 22,
+     "x": 72.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 2,
+     "x": 3.5,
+     "lost": "C_0"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 7,
+     "x": 8.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 13,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 17,
+     "x": 22.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 23,
+     "x": 68.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 48,
+     "x": 130.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 9,
+     "x": 36.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 7,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 9,
+     "x": 22.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 16,
+     "x": 42.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 19,
+     "x": 50.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 23,
+     "x": 58.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 32,
+     "x": 72.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 9,
+     "x": 20.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 11,
+     "x": 22.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 32,
+     "x": 98.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 49,
+     "x": 177.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 4,
+     "x": 13.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 6,
+     "x": 19.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 10,
+     "x": 25.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 13,
+     "x": 34.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 31,
+     "x": 61.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 33,
+     "x": 65.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 37,
+     "x": 74.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 43,
+     "x": 83.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 51,
+     "x": 91.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 53,
+     "x": 93.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 61,
+     "x": 103.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 65,
+     "x": 107.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 69,
+     "x": 112.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 78,
+     "x": 123.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 86,
+     "x": 134.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 37,
+     "x": 122.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 37,
+     "x": 122.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 25,
+     "x": 99.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0081/tr_1_tl_11",
+     "i": 3,
+     "x": 17.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 38,
+     "x": 124.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 9,
+     "x": 41.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 18,
+     "x": 76.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 39,
+     "x": 162.5,
+     "lost": "C_0"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 17,
+     "x": 73.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 32,
+     "x": 110.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 37,
+     "x": 116.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_9",
+     "i": 48,
+     "x": 153.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_15",
+     "i": 4,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0021/tr_1_tl_9",
+     "i": 31,
+     "x": 131.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0011/tr_1_tl_2",
+     "i": 23,
+     "x": 117.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 5,
+     "x": 65.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 10,
+     "x": 118.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "O_18": 88,
+    "never": 37,
+    "L_14": 8,
+    "C_3": 5,
+    "L_16": 4,
+    "C_9": 4,
+    "C_6": 3,
+    "C_0": 3,
+    "L_12": 2
+   }
+  },
+  {
+   "a": "/",
+   "b": "",
+   "n": 68,
+   "lines": 47,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 10,
+     "x": 46.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 27,
+     "x": 101.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0064/tr_1_tl_10",
+     "i": 38,
+     "x": 124.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_5",
+     "i": 22,
+     "x": 90.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0013/tr_1_tl_20",
+     "i": 48,
+     "x": 165.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0013/tr_1_tl_20",
+     "i": 49,
+     "x": 167.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 32,
+     "x": 130.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0046/tr_2_tl_5",
+     "i": 16,
+     "x": 62.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_17",
+     "i": 16,
+     "x": 69.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0073/tr_2_tl_8",
+     "i": 44,
+     "x": 137.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+     "i": 4,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+     "i": 5,
+     "x": 24.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0077/tr_1_tl_18",
+     "i": 10,
+     "x": 44.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 4,
+     "x": 13.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 19,
+     "x": 43.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 63,
+     "x": 178.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 4,
+     "x": 8.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 24,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0044/tr_2_tl_4",
+     "i": 12,
+     "x": 57.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 14,
+     "x": 52.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 15,
+     "x": 54.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 31,
+     "x": 73.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 32,
+     "x": 75.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 25,
+     "x": 73.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_20",
+     "i": 13,
+     "x": 54.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_20",
+     "i": 28,
+     "x": 107.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 7,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 19,
+     "x": 48.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_18",
+     "i": 31,
+     "x": 203.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_18",
+     "i": 32,
+     "x": 205.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 60,
+     "x": 158.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 45,
+     "x": 170.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 52,
+     "x": 191.5,
+     "lost": "C_0"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_25",
+     "i": 30,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0080/tr_4_tl_28",
+     "i": 4,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0080/tr_4_tl_28",
+     "i": 22,
+     "x": 68.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_7",
+     "i": 10,
+     "x": 35.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 16,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_16",
+     "i": 25,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0101/tr_1_tl_31",
+     "i": 17,
+     "x": 72.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 10,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 24,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0022/tr_1_tl_60",
+     "i": 33,
+     "x": 109.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_6",
+     "i": 6,
+     "x": 39.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_13",
+     "i": 51,
+     "x": 242.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_14",
+     "i": 29,
+     "x": 92.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_14",
+     "i": 49,
+     "x": 150.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 24,
+     "x": 69.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 49,
+     "x": 131.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 50,
+     "x": 133.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 10,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0081/tr_1_tl_16",
+     "i": 44,
+     "x": 175.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 5,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 32,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 52,
+     "x": 92.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 87,
+     "x": 135.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 88,
+     "x": 137.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 38,
+     "x": 123.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 26,
+     "x": 100.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 48,
+     "x": 180.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0092/tr_1_tl_22",
+     "i": 32,
+     "x": 112.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0081/tr_1_tl_11",
+     "i": 4,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 40,
+     "x": 163.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 41,
+     "x": 165.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 18,
+     "x": 74.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0021/tr_1_tl_9",
+     "i": 32,
+     "x": 132.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0011/tr_1_tl_2",
+     "i": 24,
+     "x": 118.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 51,
+    "L_14": 4,
+    "C_9": 4,
+    "O_18": 4,
+    "L_16": 2,
+    "L_12": 1,
+    "C_0": 1,
+    "C_6": 1
+   }
+  },
+  {
+   "a": "e",
+   "b": "",
+   "n": 68,
+   "lines": 38,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 35,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 57,
+     "x": 194.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_5",
+     "i": 43,
+     "x": 176.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_2_tl_1",
+     "i": 0,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/tr_1_tl_26",
+     "i": 8,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 1,
+     "x": 48.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 5,
+     "x": 111.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0078/tr_1_tl_4",
+     "i": 7,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_27",
+     "i": 17,
+     "x": 92.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 44,
+     "x": 206.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0104/tr_4_tl_8",
+     "i": 32,
+     "x": 106.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 4,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 13,
+     "x": 37.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 20,
+     "x": 44.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_1_tl_1",
+     "i": 1,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_3",
+     "i": 13,
+     "x": 39.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_2_tl_3",
+     "i": 8,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_2_tl_3",
+     "i": 40,
+     "x": 126.5,
+     "lost": "C_0"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 1,
+     "x": 2.0,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 16,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 22,
+     "x": 70.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 4,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 13,
+     "x": 37.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 16,
+     "x": 40.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/tr_2_tl_17",
+     "i": 26,
+     "x": 97.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 0,
+     "x": 1.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 28,
+     "x": 128.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 11,
+     "x": 39.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 32,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 34,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 28,
+     "x": 97.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 33,
+     "x": 107.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 35,
+     "x": 110.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 50,
+     "x": 136.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 53,
+     "x": 139.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 19,
+     "x": 81.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_25",
+     "i": 33,
+     "x": 138.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 15,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 18,
+     "x": 88.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 3,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 9,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 13,
+     "x": 67.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 17,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 0,
+     "x": 1.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 5,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 15,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 12,
+     "x": 44.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0004/tr_2_tl_23",
+     "i": 14,
+     "x": 69.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0004/tr_2_tl_23",
+     "i": 43,
+     "x": 193.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 1,
+     "x": 1.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 11,
+     "x": 24.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 21,
+     "x": 53.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_3_tl_13",
+     "i": 43,
+     "x": 183.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 16,
+     "x": 45.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 40,
+     "x": 131.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 20,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 28,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 35,
+     "x": 68.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 45,
+     "x": 85.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 55,
+     "x": 96.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 59,
+     "x": 101.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 68,
+     "x": 111.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 71,
+     "x": 114.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 37,
+     "x": 123.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 26,
+     "x": 112.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0049/tr_2_tl_8",
+     "i": 12,
+     "x": 60.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 15,
+     "x": 227.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 51,
+    "L_14": 5,
+    "L_16": 4,
+    "O_18": 4,
+    "C_3": 2,
+    "C_0": 1,
+    "C_6": 1
+   }
+  },
+  {
+   "a": "n",
+   "b": "",
+   "n": 65,
+   "lines": 40,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_13",
+     "i": 2,
+     "x": 38.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 36,
+     "x": 128.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_5",
+     "i": 44,
+     "x": 177.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 23,
+     "x": 88.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0043/tr_2_tl_5",
+     "i": 32,
+     "x": 157.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 4,
+     "x": 94.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 7,
+     "x": 145.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_39",
+     "i": 25,
+     "x": 101.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 21,
+     "x": 45.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_2_tl_3",
+     "i": 9,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 6,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 6,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_34",
+     "i": 27,
+     "x": 141.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 12,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 30,
+     "x": 78.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 47,
+     "x": 98.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 15,
+     "x": 39.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 23,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 24,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_23",
+     "i": 7,
+     "x": 30.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 26,
+     "x": 126.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 29,
+     "x": 129.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 16,
+     "x": 45.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 22,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 23,
+     "x": 53.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_19",
+     "i": 5,
+     "x": 35.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0009/tr_2_tl_2",
+     "i": 22,
+     "x": 96.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 22,
+     "x": 89.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 39,
+     "x": 118.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 8,
+     "x": 39.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 1,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 3,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 11,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 21,
+     "x": 23.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 25,
+     "x": 27.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_26",
+     "i": 0,
+     "x": 10.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_26",
+     "i": 2,
+     "x": 35.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_16",
+     "i": 4,
+     "x": 20.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 4,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 8,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 19,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 20,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 16,
+     "x": 80.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 21,
+     "x": 112.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 30,
+     "x": 160.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 30,
+     "x": 150.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 4,
+     "x": 14.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 6,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 10,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 16,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0034/tr_2_tl_14",
+     "i": 2,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 17,
+     "x": 54.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 2,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 4,
+     "x": 8.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 26,
+     "x": 66.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 48,
+     "x": 176.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0040/tr_1_tl_19",
+     "i": 18,
+     "x": 108.5,
+     "lost": "input"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 21,
+     "x": 48.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 40,
+     "x": 125.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0081/tr_1_tl_11",
+     "i": 35,
+     "x": 195.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 39,
+     "x": 125.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 34,
+     "x": 112.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 35,
+     "x": 114.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 49,
+    "O_18": 11,
+    "C_9": 1,
+    "L_12": 1,
+    "L_16": 1,
+    "L_14": 1,
+    "input": 1
+   }
+  },
+  {
+   "a": "i",
+   "b": "",
+   "n": 59,
+   "lines": 33,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 21,
+     "x": 83.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_30",
+     "i": 25,
+     "x": 142.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/tr_1_tl_26",
+     "i": 3,
+     "x": 15.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 16,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 20,
+     "x": 85.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 6,
+     "x": 138.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 1,
+     "x": 6.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 17,
+     "x": 41.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 25,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 35,
+     "x": 65.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 23,
+     "x": 99.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 29,
+     "x": 107.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 12,
+     "x": 67.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 5,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 19,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 28,
+     "x": 70.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 36,
+     "x": 80.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 58,
+     "x": 133.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_34",
+     "i": 26,
+     "x": 133.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 34,
+     "x": 82.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 46,
+     "x": 96.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 49,
+     "x": 104.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 5,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 14,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 22,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/tr_2_tl_17",
+     "i": 36,
+     "x": 143.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 1,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 3,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 15,
+     "x": 44.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 27,
+     "x": 57.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 31,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 18,
+     "x": 81.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 49,
+     "x": 135.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_25",
+     "i": 37,
+     "x": 142.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 0,
+     "x": 1.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 5,
+     "x": 6.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 18,
+     "x": 20.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 24,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 37,
+     "x": 41.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_16",
+     "i": 5,
+     "x": 30.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 7,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 11,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0049/tr_2_tl_6",
+     "i": 4,
+     "x": 19.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 17,
+     "x": 85.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 27,
+     "x": 75.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 31,
+     "x": 80.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_13",
+     "i": 31,
+     "x": 141.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 11,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 28,
+     "x": 66.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 45,
+     "x": 162.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 19,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 29,
+     "x": 58.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 62,
+     "x": 104.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 67,
+     "x": 110.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 72,
+     "x": 115.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 35,
+     "x": 120.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0049/tr_2_tl_8",
+     "i": 4,
+     "x": 17.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 13,
+     "x": 181.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 41,
+    "O_18": 7,
+    "L_16": 5,
+    "L_14": 3,
+    "L_12": 3
+   }
+  },
+  {
+   "a": "",
+   "b": " ",
+   "n": 54,
+   "lines": 48,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0137/tr_2_tl_9",
+     "i": 37,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_8",
+     "i": 19,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_26",
+     "i": 30,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_30",
+     "i": 15,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0026/tr_2_tl_14",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_7",
+     "i": 17,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_18",
+     "i": 24,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0097/tr_2_tl_9",
+     "i": 10,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0097/tr_2_tl_9",
+     "i": 17,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_19",
+     "i": 30,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_18",
+     "i": 5,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_26",
+     "i": 4,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_17",
+     "i": 50,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_11",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_14",
+     "i": 36,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/tr_3_tl_24",
+     "i": 22,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0051/tr_2_tl_19",
+     "i": 5,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0051/tr_2_tl_19",
+     "i": 16,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_12",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_21",
+     "i": 21,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 5,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 27,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_17",
+     "i": 7,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0065/tr_1_tl_6",
+     "i": 32,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0044/tr_2_tl_12",
+     "i": 38,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_28",
+     "i": 4,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_2",
+     "i": 41,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0074/tr_3_tl_20",
+     "i": 46,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0009/l",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 28,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_24",
+     "i": 10,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0139/tr_2_tl_5",
+     "i": 37,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_7",
+     "i": 25,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_25",
+     "i": 31,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_29",
+     "i": 13,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_16",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_16",
+     "i": 16,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_4",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_3_tl_24",
+     "i": 16,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 23,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_8",
+     "i": 4,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 44,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 44,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0071/tr_2_tl_21",
+     "i": 42,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0120/tr_2_tl_11",
+     "i": 22,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_18",
+     "i": 17,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0092/tr_1_tl_22",
+     "i": 6,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0092/tr_1_tl_22",
+     "i": 23,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_9",
+     "i": 10,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_8",
+     "i": 2,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_8",
+     "i": 32,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_30",
+     "i": 22,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "r",
+   "b": "",
+   "n": 50,
+   "lines": 23,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_16",
+     "i": 35,
+     "x": 117.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 2,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_33",
+     "i": 18,
+     "x": 136.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 25,
+     "x": 49.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 47,
+     "x": 210.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 9,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 11,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 12,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 17,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 19,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 31,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 23,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 40,
+     "x": 86.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0060/tr_3_tl_2",
+     "i": 2,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 8,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 13,
+     "x": 49.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 19,
+     "x": 67.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 23,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 33,
+     "x": 81.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 37,
+     "x": 85.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_5",
+     "i": 41,
+     "x": 182.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 17,
+     "x": 41.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 21,
+     "x": 50.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 35,
+     "x": 65.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 36,
+     "x": 112.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 54,
+     "x": 140.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 6,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 16,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 30,
+     "x": 32.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 36,
+     "x": 39.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 12,
+     "x": 14.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 2,
+     "x": 24.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 25,
+     "x": 136.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 37,
+     "x": 195.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 1,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 6,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 12,
+     "x": 25.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 22,
+     "x": 57.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 27,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 5,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 17,
+     "x": 50.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 37,
+     "x": 118.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 3,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 26,
+     "x": 54.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 40,
+     "x": 80.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 49,
+     "x": 89.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 77,
+     "x": 122.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 16,
+     "x": 228.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 40,
+    "O_18": 5,
+    "L_12": 2,
+    "L_14": 2,
+    "L_16": 1
+   }
+  },
+  {
+   "a": "t",
+   "b": "",
+   "n": 43,
+   "lines": 23,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_7",
+     "i": 28,
+     "x": 104.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 32,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 36,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 37,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 26,
+     "x": 52.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 27,
+     "x": 54.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 32,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 33,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 26,
+     "x": 102.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 8,
+     "x": 51.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_2_tl_3",
+     "i": 22,
+     "x": 65.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 13,
+     "x": 14.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 18,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 23,
+     "x": 25.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 6,
+     "x": 34.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 16,
+     "x": 61.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 6,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_21",
+     "i": 50,
+     "x": 132.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 12,
+     "x": 40.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 42,
+     "x": 122.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 58,
+     "x": 156.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_3",
+     "i": 18,
+     "x": 80.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 39,
+     "x": 43.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 9,
+     "x": 42.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 14,
+     "x": 67.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 17,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 21,
+     "x": 67.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 14,
+     "x": 48.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 5,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_4",
+     "i": 4,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 2,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 3,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 8,
+     "x": 14.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 30,
+     "x": 83.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 31,
+     "x": 95.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 23,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 30,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 41,
+     "x": 81.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 50,
+     "x": 90.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 64,
+     "x": 106.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 36,
+     "x": 121.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 42,
+     "x": 129.5,
+     "lost": "L_14"
+    }
+   ],
+   "lost_at": {
+    "never": 32,
+    "O_18": 7,
+    "L_16": 1,
+    "C_6": 1,
+    "C_3": 1,
+    "L_14": 1
+   }
+  },
+  {
+   "a": "s",
+   "b": "",
+   "n": 41,
+   "lines": 29,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 33,
+     "x": 122.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_54",
+     "i": 2,
+     "x": 16.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_2",
+     "i": 14,
+     "x": 48.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_33",
+     "i": 10,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_45",
+     "i": 0,
+     "x": 0.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 14,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0010/tr_2_tl_35",
+     "i": 1,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_5",
+     "i": 9,
+     "x": 48.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 4,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 33,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_34",
+     "i": 25,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 11,
+     "x": 35.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_51",
+     "i": 14,
+     "x": 97.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_21",
+     "i": 16,
+     "x": 49.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 14,
+     "x": 43.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_1",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 8,
+     "x": 9.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 23,
+     "x": 25.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 38,
+     "x": 42.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0046/tr_2_tl_2",
+     "i": 14,
+     "x": 47.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 13,
+     "x": 63.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 26,
+     "x": 140.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 21,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 13,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 24,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0042/tr_2_tl_5",
+     "i": 0,
+     "x": 2.5,
+     "lost": "C_3"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 14,
+     "x": 33.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 22,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 41,
+     "x": 135.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 9,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 12,
+     "x": 31.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 22,
+     "x": 49.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 36,
+     "x": 69.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 42,
+     "x": 82.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 60,
+     "x": 102.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 63,
+     "x": 105.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 79,
+     "x": 124.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 8,
+     "x": 40.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 41,
+     "x": 121.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_9",
+     "i": 39,
+     "x": 131.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 3,
+     "x": 19.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 30,
+    "O_18": 7,
+    "L_14": 3,
+    "C_3": 1
+   }
+  },
+  {
+   "a": "",
+   "b": "/",
+   "n": 37,
+   "lines": 35,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_41",
+     "i": 36,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0137/tr_2_tl_9",
+     "i": 37,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_8",
+     "i": 19,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0026/tr_2_tl_14",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0097/tr_2_tl_9",
+     "i": 10,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0097/tr_2_tl_9",
+     "i": 17,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0091/tr_1_tl_3",
+     "i": 44,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_19",
+     "i": 30,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0112/tr_2_tl_12",
+     "i": 42,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_18",
+     "i": 5,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_14",
+     "i": 36,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0127/tr_1_tl_28",
+     "i": 38,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 42,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_12",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_21",
+     "i": 21,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 40,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0007/tr_1_tl_2",
+     "i": 47,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_2",
+     "i": 41,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0104/tr_4_tl_18",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0074/tr_3_tl_20",
+     "i": 46,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0139/tr_2_tl_5",
+     "i": 37,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_7",
+     "i": 25,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_25",
+     "i": 31,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/l_2",
+     "i": 43,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_16",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_16",
+     "i": 16,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_3_tl_24",
+     "i": 16,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 44,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0120/tr_2_tl_11",
+     "i": 22,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_18",
+     "i": 17,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0092/tr_1_tl_22",
+     "i": 6,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_9",
+     "i": 10,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0126/tr_2_tl_23",
+     "i": 39,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_8",
+     "i": 2,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0138/tr_2_tl_8",
+     "i": 32,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "d",
+   "b": "",
+   "n": 33,
+   "lines": 21,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_39",
+     "i": 5,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_54",
+     "i": 0,
+     "x": 3.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/tr_1_tl_26",
+     "i": 11,
+     "x": 27.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 21,
+     "x": 45.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 31,
+     "x": 55.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 4,
+     "x": 9.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 17,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 24,
+     "x": 54.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 26,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_32",
+     "i": 8,
+     "x": 44.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 23,
+     "x": 90.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 34,
+     "x": 109.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 48,
+     "x": 131.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0082/tr_2_tl_25",
+     "i": 32,
+     "x": 132.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 12,
+     "x": 13.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 26,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 28,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 21,
+     "x": 27.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 22,
+     "x": 119.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 28,
+     "x": 138.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 2,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 18,
+     "x": 55.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 13,
+     "x": 31.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 20,
+     "x": 52.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 12,
+     "x": 24.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 50,
+     "x": 179.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 34,
+     "x": 67.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 66,
+     "x": 109.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 73,
+     "x": 118.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 75,
+     "x": 120.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 41,
+     "x": 126.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 36,
+     "x": 115.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 14,
+     "x": 223.5,
+     "lost": "O_18"
+    }
+   ],
+   "lost_at": {
+    "never": 25,
+    "L_14": 4,
+    "L_16": 2,
+    "O_18": 2
+   }
+  },
+  {
+   "a": "a",
+   "b": "",
+   "n": 32,
+   "lines": 24,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_54",
+     "i": 1,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 17,
+     "x": 41.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 22,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 5,
+     "x": 10.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 20,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 27,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 14,
+     "x": 54.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 1,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 10,
+     "x": 33.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0029/tr_2_tl_2",
+     "i": 3,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 25,
+     "x": 93.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 56,
+     "x": 151.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_2_tl_9",
+     "i": 10,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_1_tl_4",
+     "i": 2,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 20,
+     "x": 104.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 20,
+     "x": 66.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 29,
+     "x": 145.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_14",
+     "i": 23,
+     "x": 81.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 7,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 3,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 9,
+     "x": 11.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 3,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 13,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 2,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 8,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 82,
+     "x": 127.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_21",
+     "i": 29,
+     "x": 161.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 6,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 22,
+     "x": 91.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 38,
+     "x": 117.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 6,
+     "x": 70.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 26,
+    "O_18": 4,
+    "L_14": 1,
+    "L_12": 1
+   }
+  },
+  {
+   "a": "u",
+   "b": "",
+   "n": 28,
+   "lines": 21,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0003/tr_1_tl_21",
+     "i": 35,
+     "x": 234.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 41,
+     "x": 181.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 45,
+     "x": 194.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0064/tr_1_tl_13",
+     "i": 54,
+     "x": 158.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 21,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 24,
+     "x": 66.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 41,
+     "x": 87.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 36,
+     "x": 84.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 32,
+     "x": 132.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 36,
+     "x": 66.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 21,
+     "x": 88.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 40,
+     "x": 119.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 9,
+     "x": 10.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 29,
+     "x": 31.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 40,
+     "x": 44.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_26",
+     "i": 1,
+     "x": 21.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 1,
+     "x": 1.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 3,
+     "x": 27.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 5,
+     "x": 29.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 36,
+     "x": 86.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 34,
+     "x": 162.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 16,
+     "x": 53.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 4,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 15,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 39,
+     "x": 124.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 40,
+     "x": 126.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 7,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 11,
+     "x": 45.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 24,
+    "O_18": 4
+   }
+  },
+  {
+   "a": "c",
+   "b": "",
+   "n": 25,
+   "lines": 20,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+     "i": 1,
+     "x": 14.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0141/tr_1_tl_3",
+     "i": 12,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 36,
+     "x": 168.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 16,
+     "x": 40.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 35,
+     "x": 179.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 15,
+     "x": 39.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 36,
+     "x": 66.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 17,
+     "x": 56.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 34,
+     "x": 77.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 43,
+     "x": 90.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 5,
+     "x": 32.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_28",
+     "i": 13,
+     "x": 92.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0006/tr_2_tl_18",
+     "i": 36,
+     "x": 131.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 31,
+     "x": 34.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 13,
+     "x": 15.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0049/tr_2_tl_6",
+     "i": 0,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 27,
+     "x": 147.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 32,
+     "x": 81.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 35,
+     "x": 164.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 25,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_4",
+     "i": 0,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 23,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 42,
+     "x": 139.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 57,
+     "x": 98.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 80,
+     "x": 125.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 24,
+    "L_16": 1
+   }
+  },
+  {
+   "a": "l",
+   "b": "",
+   "n": 25,
+   "lines": 12,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 34,
+     "x": 64.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_1_tl_1",
+     "i": 0,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 51,
+     "x": 107.5,
+     "lost": "L_12"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 26,
+     "x": 94.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 27,
+     "x": 96.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 31,
+     "x": 104.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 57,
+     "x": 153.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_1",
+     "i": 2,
+     "x": 33.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_1",
+     "i": 3,
+     "x": 44.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/tr_1_tl_21",
+     "i": 9,
+     "x": 57.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0006/tr_1_tl_3",
+     "i": 4,
+     "x": 13.5,
+     "lost": "C_6"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 28,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 29,
+     "x": 78.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_33",
+     "i": 15,
+     "x": 104.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 1,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 56,
+     "x": 97.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 23,
+     "x": 86.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 24,
+     "x": 88.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 39,
+     "x": 118.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 40,
+     "x": 120.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 1,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 2,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 7,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 8,
+     "x": 74.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 12,
+     "x": 176.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 19,
+    "O_18": 4,
+    "L_12": 1,
+    "C_6": 1
+   }
+  },
+  {
+   "a": "h",
+   "b": "",
+   "n": 23,
+   "lines": 15,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_41",
+     "i": 30,
+     "x": 143.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 37,
+     "x": 169.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 34,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 16,
+     "x": 40.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 18,
+     "x": 58.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 27,
+     "x": 69.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_17",
+     "i": 4,
+     "x": 15.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 32,
+     "x": 35.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 35,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 14,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0006/tr_1_tl_3",
+     "i": 1,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 28,
+     "x": 151.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 19,
+     "x": 65.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 24,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 6,
+     "x": 16.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 26,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 18,
+     "x": 53.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 24,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 28,
+     "x": 74.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 43,
+     "x": 147.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 46,
+     "x": 86.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 58,
+     "x": 100.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 81,
+     "x": 126.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 18,
+    "O_18": 3,
+    "L_14": 2
+   }
+  },
+  {
+   "a": "ͤ",
+   "b": "",
+   "n": 23,
+   "lines": 21,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0043/tr_2_tl_5",
+     "i": 29,
+     "x": 143.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 42,
+     "x": 183.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 25,
+     "x": 67.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 42,
+     "x": 89.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0054/tr_3_tl_15",
+     "i": 4,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0567/tr_2_tl_10",
+     "i": 19,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_21",
+     "i": 46,
+     "x": 124.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_28",
+     "i": 23,
+     "x": 152.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 7,
+     "x": 29.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_19",
+     "i": 25,
+     "x": 152.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 41,
+     "x": 120.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 5,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 10,
+     "x": 11.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 6,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 37,
+     "x": 87.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 15,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0044/tr_2_tl_23",
+     "i": 9,
+     "x": 43.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 48,
+     "x": 88.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 83,
+     "x": 128.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 28,
+     "x": 101.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0124/tr_3_tl_8",
+     "i": 30,
+     "x": 164.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0106/tr_3_tl_19",
+     "i": 20,
+     "x": 86.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 2,
+     "x": 18.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 23
+   }
+  },
+  {
+   "a": "o",
+   "b": "",
+   "n": 22,
+   "lines": 18,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 54,
+     "x": 186.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/tr_1_tl_50",
+     "i": 2,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0141/tr_1_tl_3",
+     "i": 11,
+     "x": 45.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 9,
+     "x": 31.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_20",
+     "i": 43,
+     "x": 169.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 30,
+     "x": 57.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 11,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 4,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 7,
+     "x": 35.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 11,
+     "x": 46.5,
+     "lost": "L_16"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 44,
+     "x": 93.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 20,
+     "x": 48.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0029/tr_2_tl_2",
+     "i": 44,
+     "x": 155.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 31,
+     "x": 131.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 44,
+     "x": 126.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_1",
+     "i": 1,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_4",
+     "i": 1,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 19,
+     "x": 57.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 39,
+     "x": 79.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 47,
+     "x": 87.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 42,
+     "x": 122.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 4,
+     "x": 44.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 17,
+    "O_18": 3,
+    "L_14": 1,
+    "L_16": 1
+   }
+  },
+  {
+   "a": "d",
+   "b": "D",
+   "n": 17,
+   "lines": 16,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_16",
+     "i": 30,
+     "x": 100.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_17",
+     "i": 41,
+     "x": 157.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0079/tr_1_tl_5",
+     "i": 0,
+     "x": 6.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0117/l_5",
+     "i": 23,
+     "x": 103.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0114/tr_1_tl_8",
+     "i": 34,
+     "x": 121.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0102/tr_2_tl_15",
+     "i": 3,
+     "x": 28.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 39,
+     "x": 157.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_19",
+     "i": 11,
+     "x": 60.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0009/tr_2_tl_2",
+     "i": 40,
+     "x": 152.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 4,
+     "x": 37.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 31,
+     "x": 87.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0096/tr_2_tl_27",
+     "i": 19,
+     "x": 70.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0115/l",
+     "i": 21,
+     "x": 82.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_2",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 23,
+     "x": 100.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_30",
+     "i": 0,
+     "x": 4.5
+    }
+   ]
+  },
+  {
+   "a": "\"",
+   "b": "",
+   "n": 17,
+   "lines": 8,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 18,
+     "x": 68.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 33,
+     "x": 156.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 38,
+     "x": 170.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 27,
+     "x": 75.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 39,
+     "x": 87.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 20,
+     "x": 85.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 37,
+     "x": 113.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 47,
+     "x": 129.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 51,
+     "x": 137.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_25",
+     "i": 0,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_25",
+     "i": 5,
+     "x": 30.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0034/tr_2_tl_14",
+     "i": 0,
+     "x": 8.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0034/tr_2_tl_14",
+     "i": 6,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 10,
+     "x": 37.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 19,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 38,
+     "x": 123.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 42,
+     "x": 127.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 17
+   }
+  },
+  {
+   "a": "u",
+   "b": "v",
+   "n": 15,
+   "lines": 15,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_16",
+     "i": 25,
+     "x": 76.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0053/tr_1_tl_28",
+     "i": 20,
+     "x": 94.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_7",
+     "i": 33,
+     "x": 116.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_19",
+     "i": 24,
+     "x": 111.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_27",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0032/tr_1_tl_14",
+     "i": 23,
+     "x": 103.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 13,
+     "x": 73.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_20",
+     "i": 30,
+     "x": 169.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_3",
+     "i": 36,
+     "x": 92.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_34",
+     "i": 9,
+     "x": 41.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 55,
+     "x": 114.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0068/tr_1_tl_7",
+     "i": 0,
+     "x": 6.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0567/tr_2_tl_15",
+     "i": 11,
+     "x": 43.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0009/tr_2_tl_2",
+     "i": 0,
+     "x": 7.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 11,
+     "x": 49.5
+    }
+   ]
+  },
+  {
+   "a": "̈",
+   "b": "ͤ",
+   "n": 15,
+   "lines": 14,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0013/tr_1_tl_20",
+     "i": 27,
+     "x": 102.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0122/tr_2_tl_6",
+     "i": 17,
+     "x": 85.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_17",
+     "i": 23,
+     "x": 92.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0051/tr_2_tl_19",
+     "i": 8,
+     "x": 63.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0567/tr_2_tl_4",
+     "i": 35,
+     "x": 140.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_18",
+     "i": 29,
+     "x": 197.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0137/tr_2_tl_25",
+     "i": 35,
+     "x": 152.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 12,
+     "x": 62.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_24",
+     "i": 8,
+     "x": 64.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_24",
+     "i": 15,
+     "x": 98.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/l_2",
+     "i": 4,
+     "x": 28.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_17",
+     "i": 10,
+     "x": 43.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 32,
+     "x": 98.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_21",
+     "i": 13,
+     "x": 92.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 16,
+     "x": 59.5
+    }
+   ]
+  },
+  {
+   "a": "m",
+   "b": "",
+   "n": 15,
+   "lines": 14,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_8",
+     "i": 38,
+     "x": 152.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 8,
+     "x": 28.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 19,
+     "x": 43.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 24,
+     "x": 50.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_19",
+     "i": 25,
+     "x": 79.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 8,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 59,
+     "x": 136.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 9,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 37,
+     "x": 67.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 41,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_7",
+     "i": 33,
+     "x": 136.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 6,
+     "x": 6.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 8,
+     "x": 18.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_4",
+     "i": 2,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 25,
+     "x": 104.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 11,
+    "O_18": 3,
+    "L_14": 1
+   }
+  },
+  {
+   "a": "D",
+   "b": "d",
+   "n": 14,
+   "lines": 14,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_8",
+     "i": 0,
+     "x": 7.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 5,
+     "x": 31.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_3_tl_12",
+     "i": 34,
+     "x": 128.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0090/tr_1_tl_16",
+     "i": 43,
+     "x": 158.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0059/tr_2_tl_28",
+     "i": 15,
+     "x": 59.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 14,
+     "x": 50.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_21",
+     "i": 11,
+     "x": 32.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_18",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_2",
+     "i": 23,
+     "x": 102.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_37",
+     "i": 0,
+     "x": 7.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_6",
+     "i": 0,
+     "x": 16.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0071/tr_2_tl_21",
+     "i": 33,
+     "x": 135.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0092/tr_1_tl_22",
+     "i": 8,
+     "x": 35.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0067/tr_2_tl_7",
+     "i": 18,
+     "x": 75.5
+    }
+   ]
+  },
+  {
+   "a": "i",
+   "b": "I",
+   "n": 14,
+   "lines": 13,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_18",
+     "i": 5,
+     "x": 40.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0028/tr_2_tl_27",
+     "i": 5,
+     "x": 25.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_27",
+     "i": 8,
+     "x": 45.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/tr_3_tl_24",
+     "i": 16,
+     "x": 56.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0044/tr_2_tl_14",
+     "i": 15,
+     "x": 59.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0131/tr_1_tl_12",
+     "i": 18,
+     "x": 90.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_17",
+     "i": 9,
+     "x": 29.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0122/l_18",
+     "i": 21,
+     "x": 63.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0033/tr_2_tl_30",
+     "i": 17,
+     "x": 84.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0123/l_8",
+     "i": 11,
+     "x": 61.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_21",
+     "i": 8,
+     "x": 41.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0021/tr_1_tl_9",
+     "i": 14,
+     "x": 59.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_30",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_30",
+     "i": 37,
+     "x": 194.5
+    }
+   ]
+  },
+  {
+   "a": "f",
+   "b": "",
+   "n": 14,
+   "lines": 6,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 20,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 21,
+     "x": 62.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 37,
+     "x": 82.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 38,
+     "x": 84.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 9,
+     "x": 36.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 10,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 7,
+     "x": 33.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 8,
+     "x": 37.5,
+     "lost": "L_14"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 29,
+     "x": 67.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 30,
+     "x": 70.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 6,
+     "x": 10.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 7,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 84,
+     "x": 129.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 85,
+     "x": 131.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 11,
+    "O_18": 2,
+    "L_14": 1
+   }
+  },
+  {
+   "a": ",",
+   "b": "/",
+   "n": 13,
+   "lines": 12,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_18",
+     "i": 25,
+     "x": 135.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_26",
+     "i": 5,
+     "x": 27.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_11",
+     "i": 10,
+     "x": 80.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0051/tr_2_tl_19",
+     "i": 17,
+     "x": 118.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 6,
+     "x": 34.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0044/tr_2_tl_12",
+     "i": 39,
+     "x": 172.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0056/tr_1_tl_28",
+     "i": 5,
+     "x": 44.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_24",
+     "i": 11,
+     "x": 80.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0046/tr_1_tl_24",
+     "i": 19,
+     "x": 120.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_29",
+     "i": 14,
+     "x": 61.0
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_4",
+     "i": 10,
+     "x": 40.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 31,
+     "x": 155.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_30",
+     "i": 23,
+     "x": 121.5
+    }
+   ]
+  },
+  {
+   "a": "g",
+   "b": "",
+   "n": 13,
+   "lines": 12,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_33",
+     "i": 0,
+     "x": 9.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 27,
+     "x": 51.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 29,
+     "x": 56.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 28,
+     "x": 106.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 29,
+     "x": 71.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 38,
+     "x": 86.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 4,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 27,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 30,
+     "x": 101.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 39,
+     "x": 126.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 46,
+     "x": 171.5,
+     "lost": "C_9"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 44,
+     "x": 84.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0113/l_8",
+     "i": 11,
+     "x": 141.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 11,
+    "O_18": 1,
+    "C_9": 1
+   }
+  },
+  {
+   "a": "w",
+   "b": "",
+   "n": 12,
+   "lines": 8,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0118/l_7",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 10,
+     "x": 11.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 30,
+     "x": 60.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 2,
+     "x": 2.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 26,
+     "x": 74.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 10,
+     "x": 23.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 35,
+     "x": 103.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 44,
+     "x": 156.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 38,
+     "x": 78.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 54,
+     "x": 94.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 70,
+     "x": 113.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 12
+   }
+  },
+  {
+   "a": "v",
+   "b": "",
+   "n": 11,
+   "lines": 10,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_2_tl_1",
+     "i": 1,
+     "x": 11.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 15,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 45,
+     "x": 95.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 0,
+     "x": 5.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 21,
+     "x": 50.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_3",
+     "i": 52,
+     "x": 138.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 14,
+     "x": 15.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 18,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0136/tr_1_tl_3",
+     "i": 0,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0128/tr_3_tl_19",
+     "i": 34,
+     "x": 125.0,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0056/tr_3_tl_31",
+     "i": 33,
+     "x": 111.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 9,
+    "O_18": 2
+   }
+  },
+  {
+   "a": "b",
+   "b": "",
+   "n": 11,
+   "lines": 9,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0078/tr_1_tl_4",
+     "i": 6,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 12,
+     "x": 33.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 22,
+     "x": 63.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 39,
+     "x": 85.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 35,
+     "x": 83.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0098/tr_3_tl_7",
+     "i": 38,
+     "x": 68.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_5",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 4,
+     "x": 5.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 10,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 24,
+     "x": 52.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 11
+   }
+  },
+  {
+   "a": "ͦ",
+   "b": "",
+   "n": 10,
+   "lines": 9,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_25",
+     "i": 3,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/tr_1_tl_18",
+     "i": 12,
+     "x": 75.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_39",
+     "i": 4,
+     "x": 22.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 3,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 14,
+     "x": 38.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_20",
+     "i": 2,
+     "x": 12.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_3_tl_18",
+     "i": 30,
+     "x": 119.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_20",
+     "i": 7,
+     "x": 24.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0101/tr_1_tl_31",
+     "i": 2,
+     "x": 16.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 16,
+     "x": 39.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 10
+   }
+  },
+  {
+   "a": "D",
+   "b": "",
+   "n": 10,
+   "lines": 7,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 15,
+     "x": 61.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0008/tr_2_tl_6",
+     "i": 26,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 3,
+     "x": 25.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 9,
+     "x": 26.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_4",
+     "i": 19,
+     "x": 47.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 8,
+     "x": 9.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 14,
+     "x": 17.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 7,
+     "x": 20.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 18,
+     "x": 45.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 10
+   }
+  },
+  {
+   "a": ",",
+   "b": "",
+   "n": 10,
+   "lines": 9,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_18",
+     "i": 23,
+     "x": 105.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0569/tr_2_tl_16",
+     "i": 19,
+     "x": 93.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0049/tr_2_tl_54",
+     "i": 7,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 6,
+     "x": 27.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 22,
+     "x": 46.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 36,
+     "x": 213.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 33,
+     "x": 182.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 26,
+     "x": 128.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0130/tr_2_tl_24",
+     "i": 14,
+     "x": 53.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_21",
+     "i": 6,
+     "x": 29.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 10
+   }
+  },
+  {
+   "a": "",
+   "b": "n",
+   "n": 8,
+   "lines": 8,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_25",
+     "i": 22,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0036/tr_3_tl_7",
+     "i": 6,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0127/tr_1_tl_28",
+     "i": 9,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_17",
+     "i": 48,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0042/tr_1_tl_5",
+     "i": 12,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0035/tr_1_tl_20",
+     "i": 26,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0123/l_8",
+     "i": 4,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_3",
+     "i": 19,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "",
+   "b": "l",
+   "n": 8,
+   "lines": 8,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0032/tr_3_tl_8",
+     "i": 32,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/tr_3_tl_24",
+     "i": 0,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0046/tr_2_tl_4",
+     "i": 18,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0137/tr_2_tl_25",
+     "i": 21,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_29",
+     "i": 0,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0027/tr_2_tl_16",
+     "i": 21,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0007/tr_1_tl_7",
+     "i": 22,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_3",
+     "i": 25,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "a",
+   "b": "o",
+   "n": 7,
+   "lines": 7,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_41",
+     "i": 12,
+     "x": 55.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_30",
+     "i": 11,
+     "x": 65.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 33,
+     "x": 171.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_19",
+     "i": 23,
+     "x": 145.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_15",
+     "i": 31,
+     "x": 88.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0004/tr_2_tl_23",
+     "i": 37,
+     "x": 169.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_21",
+     "i": 2,
+     "x": 11.5
+    }
+   ]
+  },
+  {
+   "a": "m",
+   "b": "n",
+   "n": 7,
+   "lines": 7,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_33",
+     "i": 21,
+     "x": 153.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0104/tr_4_tl_8",
+     "i": 33,
+     "x": 108.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_27",
+     "i": 62,
+     "x": 140.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0042/tr_1_tl_5",
+     "i": 13,
+     "x": 79.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 14,
+     "x": 83.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0040/tr_1_tl_19",
+     "i": 9,
+     "x": 60.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_3",
+     "i": 21,
+     "x": 64.5
+    }
+   ]
+  },
+  {
+   "a": "̈",
+   "b": "",
+   "n": 7,
+   "lines": 6,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0016/tr_1_tl_37",
+     "i": 31,
+     "x": 58.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 4,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0007/tr_1_tl_7",
+     "i": 37,
+     "x": 157.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 20,
+     "x": 58.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 35,
+     "x": 121.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_32",
+     "i": 41,
+     "x": 127.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 23,
+     "x": 92.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 7
+   }
+  },
+  {
+   "a": "z",
+   "b": "",
+   "n": 7,
+   "lines": 7,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0023/l_7",
+     "i": 48,
+     "x": 103.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0066/tr_2_tl_13",
+     "i": 17,
+     "x": 19.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0093/tr_1_tl_24",
+     "i": 35,
+     "x": 85.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_24",
+     "i": 40,
+     "x": 160.5,
+     "lost": "O_18"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0058/l_4",
+     "i": 14,
+     "x": 37.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_50",
+     "i": 10,
+     "x": 42.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 6,
+    "O_18": 1
+   }
+  },
+  {
+   "a": "o",
+   "b": "e",
+   "n": 6,
+   "lines": 6,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_25",
+     "i": 33,
+     "x": 151.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_5",
+     "i": 37,
+     "x": 152.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0052/tr_2_tl_20",
+     "i": 4,
+     "x": 24.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0035/tr_2_tl_32",
+     "i": 6,
+     "x": 39.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0021/l_2",
+     "i": 42,
+     "x": 242.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0006/tr_1_tl_3",
+     "i": 2,
+     "x": 7.5
+    }
+   ]
+  },
+  {
+   "a": "o",
+   "b": "a",
+   "n": 6,
+   "lines": 6,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0036/tr_1_tl_41",
+     "i": 22,
+     "x": 115.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_26",
+     "i": 42,
+     "x": 199.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0051/tr_2_tl_19",
+     "i": 33,
+     "x": 197.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0044/tr_2_tl_14",
+     "i": 19,
+     "x": 69.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 7,
+     "x": 34.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_29",
+     "i": 41,
+     "x": 229.5
+    }
+   ]
+  },
+  {
+   "a": "",
+   "b": "ͤ",
+   "n": 6,
+   "lines": 6,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0048/tr_4_tl_21",
+     "i": 29,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_50",
+     "i": 39,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0122/l_18",
+     "i": 14,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0129/tr_2_tl_24",
+     "i": 23,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0144/tr_3_tl_17",
+     "i": 2,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 32,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "H",
+   "b": "h",
+   "n": 6,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0009/tr_2_tl_2",
+     "i": 17,
+     "x": 73.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0566/tr_2_tl_8",
+     "i": 12,
+     "x": 45.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0004/tr_2_tl_23",
+     "i": 31,
+     "x": 143.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0016/tr_2_tl_5",
+     "i": 28,
+     "x": 104.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_30",
+     "i": 25,
+     "x": 135.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_30",
+     "i": 30,
+     "x": 158.5
+    }
+   ]
+  },
+  {
+   "a": "",
+   "b": "i",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_25",
+     "i": 43,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0072/tr_1_tl_13",
+     "i": 0,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0042/tr_1_tl_5",
+     "i": 15,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0058/tr_1_tl_2",
+     "i": 20,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0019/tr_3_tl_30",
+     "i": 13,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "",
+   "b": "e",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_7",
+     "i": 23,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 4,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0047/tr_1_tl_15",
+     "i": 11,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0031/tr_2_tl_29",
+     "i": 28,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0147/tr_2_tl_24",
+     "i": 35,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": ".",
+   "b": "",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0071/tr_2_tl_10",
+     "i": 18,
+     "x": 76.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_19",
+     "i": 31,
+     "x": 100.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 2,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_6",
+     "i": 4,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_21",
+     "i": 2,
+     "x": 27.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 5
+   }
+  },
+  {
+   "a": "",
+   "b": "r",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_9",
+     "i": -1,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0146/tr_2_tl_13",
+     "i": 1,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0019/tr_3_tl_16",
+     "i": 46,
+     "ins": true
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0020/tr_1_tl_5",
+     "i": 7,
+     "ins": true
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0143/tr_1_tl_9",
+     "i": 43,
+     "ins": true
+    }
+   ]
+  },
+  {
+   "a": "-",
+   "b": "",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0041/tr_1_tl_1",
+     "i": 0,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0054/tr_3_tl_15",
+     "i": 10,
+     "x": 59.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0045/tr_1_tl_1",
+     "i": 0,
+     "x": 45.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0030/tr_1_tl_37",
+     "i": 7,
+     "x": 28.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0043/tr_3_tl_33",
+     "i": 0,
+     "x": 46.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 5
+   }
+  },
+  {
+   "a": "s",
+   "b": "ß",
+   "n": 5,
+   "lines": 5,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0567/tr_2_tl_10",
+     "i": 15,
+     "x": 50.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0137/tr_2_tl_25",
+     "i": 23,
+     "x": 106.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0046/tr_2_tl_2",
+     "i": 15,
+     "x": 49.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0041/tr_2_tl_18",
+     "i": 3,
+     "x": 21.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0107/tr_1_tl_17",
+     "i": 42,
+     "x": 133.5
+    }
+   ]
+  },
+  {
+   "a": "8",
+   "b": "",
+   "n": 5,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_16",
+     "i": 31,
+     "x": 195.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 39,
+     "x": 202.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0045/tr_1_tl_20",
+     "i": 0,
+     "x": 7.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 8,
+     "x": 21.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0059/tr_3_tl_33",
+     "i": 33,
+     "x": 74.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 5
+   }
+  },
+  {
+   "a": "e",
+   "b": "a",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_5",
+     "i": 40,
+     "x": 166.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0043/tr_2_tl_5",
+     "i": 11,
+     "x": 63.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0006/tr_2_tl_18",
+     "i": 42,
+     "x": 151.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0002/tr_1_tl_12",
+     "i": 51,
+     "x": 183.5
+    }
+   ]
+  },
+  {
+   "a": "i",
+   "b": "e",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0036/tr_3_tl_7",
+     "i": 11,
+     "x": 35.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0028/tr_2_tl_31",
+     "i": 28,
+     "x": 188.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0145/tr_2_tl_4",
+     "i": 29,
+     "x": 104.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_34",
+     "i": 15,
+     "x": 58.5
+    }
+   ]
+  },
+  {
+   "a": "e",
+   "b": "i",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 11,
+     "x": 42.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0020/tr_2_tl_17",
+     "i": 18,
+     "x": 56.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0037/tr_2_tl_34",
+     "i": 16,
+     "x": 59.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0012/tr_2_tl_30",
+     "i": 25,
+     "x": 142.5
+    }
+   ]
+  },
+  {
+   "a": "J",
+   "b": "I",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0100/tr_2_tl_13",
+     "i": 34,
+     "x": 133.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0006/tr_2_tl_10",
+     "i": 10,
+     "x": 48.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 25,
+     "x": 63.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 22,
+     "x": 75.5
+    }
+   ]
+  },
+  {
+   "a": "I",
+   "b": "",
+   "n": 4,
+   "lines": 3,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 22,
+     "x": 87.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_5",
+     "i": 12,
+     "x": 57.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_21",
+     "i": 0,
+     "x": 0.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0050/tr_1_tl_21",
+     "i": 1,
+     "x": 9.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 4
+   }
+  },
+  {
+   "a": "e",
+   "b": "r",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0024/l_1",
+     "i": 30,
+     "x": 107.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0566/tr_2_tl_8",
+     "i": 1,
+     "x": 14.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0040/tr_1_tl_22",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0136/tr_1_tl_3",
+     "i": 1,
+     "x": 6.5
+    }
+   ]
+  },
+  {
+   "a": "W",
+   "b": "w",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0073/tr_2_tl_8",
+     "i": 0,
+     "x": 5.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0027/tr_2_tl_18",
+     "i": 27,
+     "x": 184.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0018/tr_2_tl_9",
+     "i": 0,
+     "x": 7.5
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_7",
+     "i": 26,
+     "x": 90.5
+    }
+   ]
+  },
+  {
+   "a": "j",
+   "b": "",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0083/tr_1_tl_25",
+     "i": 12,
+     "x": 36.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0050/tr_3_tl_12",
+     "i": 24,
+     "x": 100.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0076/tr_1_tl_8",
+     "i": 1,
+     "x": 4.5,
+     "lost": "never"
+    },
+    {
+     "k": "A_V_1447_Schlussredaktion_train/p0075/l_40",
+     "i": 12,
+     "x": 15.5,
+     "lost": "never"
+    }
+   ],
+   "lost_at": {
+    "never": 4
+   }
+  },
+  {
+   "a": "/",
+   "b": ",",
+   "n": 4,
+   "lines": 4,
+   "occ": [
+    {
+     "k": "A_V_1443_Hertwig_train/p0011/tr_2_tl_1",
+     "i": 11,
+     "x": 45.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0053/tr_1_tl_10",
+     "i": 5,
+     "x": 30.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0038/tr_1_tl_43",
+     "i": 13,
+     "x": 55.5
+    },
+    {
+     "k": "A_V_1443_Hertwig_train/p0004/tr_2_tl_15",
+     "i": 5,
+     "x": 22.5
+    }
+   ]
+  }
+ ]
+}
