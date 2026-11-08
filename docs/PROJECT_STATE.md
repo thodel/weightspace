@@ -31,7 +31,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 
 ## Open items
 
-0. C4 retrain finished 8 Nov (branch `claude/c4-retrain`, not merged): arm A -0.55, arm B -0.99 points on `bern-eval`, Hertwig lines only; RESULTS R11, manuscript 7.11. Next control if wanted: continue on the uncorrected pairs.
+0. C4 retrain finished 8 Nov (branch `claude/c4-retrain`, merged 8 Nov): arm A -0.55, arm B -0.99 points on `bern-eval`, Hertwig lines only; RESULTS R11, manuscript 7.11. Next control if wanted: continue on the uncorrected pairs.
 
 1. Not merged and not reviewed: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13). Also exists on the remote: `claude/layer-probe` (wsp.vizpage, probes; relevant to the atlas epic, issue #13), not reviewed here.
 2. C4 retrain on corrected data needs the user's OK (GPU job on the trainer's card is not allowed for sessions).
