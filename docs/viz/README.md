@@ -203,6 +203,18 @@ The page reads only the committed JSON and embeds what it needs (1.2 MB). `--ima
 line crops to `docs/viz/img/`. They are git-ignored, so on a fresh checkout the page works without
 the image row until `--images` has run. That step needs kraken but not the model.
 
+## Relation to the activation-atlas epic (thodel/weightspace#13)
+
+Epic #13 asks for an atlas at the level of single units: selectivity, occlusion and ablation,
+across seeds. This page works one level up, per block and per character.
+- Its level L0 (the activation map under the line, with the CTC track) is what the decision views
+  and `kraken-german-xix-blb-v1.html` already show.
+- The identity and emission probes here are a block-level form of its L1.
+- The α overlay is a block-level form of its L3.
+
+The atlas should reuse `wsp.layerview`'s frame map and forced alignment rather than build them
+again.
+
 ## Epic status (thodel/weightspace#3)
 
 | sub-task | state |

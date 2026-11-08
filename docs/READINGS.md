@@ -287,3 +287,17 @@ Expectation, stated in advance:
   the same practice set: the control would hand the session its answers.
 - Collapsed lines must not rise: 9 under phase 5's detector (10 under the legacy test, which the committed bias and overlay JSON still use).
 - Held-out once, after freeze, on `blb-eval-hand` (child 9.55 %).
+
+> **Note (08.11.2026, after merging `main`).** Two later results bear on the session design above,
+> not on the readings. They should be settled in the preregistration before any pass.
+> (1) Line-level intervals are too narrow, because lines within a page are correlated. The
+> two-stage page-clustered bootstrap (`wsp.metrics.bootstrap_delta(..., clusters=)`,
+> docs/CONTROLS_REPORT.md §9) is the honest one. It widens the intervals, so the "expected to be
+> refused" above holds more strongly.
+> (2) The proposed amendment PROTOCOL §2 item 8 (not yet adopted) asks for practice lines the
+> subject was not trained on. `blb-train-300` holds the child's training lines. On the trainer's
+> validation pages, four attempts on this model kept nothing (docs/CONTROLS_REPORT.md §3).
+> If the amendment is adopted, the part-block hypotheses move to that practice set, and the
+> block-by-block readings here, which were taken on training lines, should be repeated there
+> before they are relied on. The output-bias null agrees with the controls report's margins: a
+> deleted character sits a median 3.2 nats below the blank.
