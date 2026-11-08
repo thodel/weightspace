@@ -29,7 +29,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 - Readings: traces of fine-tuning; two survive a seed null (blank bias relative to other biases, rare rows); lineage recoverable in the zoo for fine-tunes that did not move far; front end generic, recurrent stack individual.
 - Edits: 15 proposed edits in two sessions on training lines, no held-out gain; repeated on unseen practice lines one small gain (-0.19 to -0.39 points), an interpolation toward a sibling, not matched by 20 shams, page-clustered intervals include 0.
 - Positive control: repairs of localised defects by programmer, blind programmer and rule list alike; diffuse damage only by the programmer who measures; unrelated donor: no rebuilding.
-- One candidate from systematic block exchange (`latin_incunabula`), with a cost in abbreviation signs; not promoted.
+- Two candidates from systematic block exchange (`latin_incunabula`): both read held-out Fraktur better (-0.2 to -2.0 points) but cost abbreviation signs or the own collection; neither qualifies under the pre-registered rule (RESULTS R9); none promoted.
 - Data findings: a dataset export that paired 44 of 50 pages with wrong images (repaired); a held-out set that was half a printed book (replaced); 39 of 59 validation pages of the Reichenau incunable dataset are byte-identical to train pages.
 
 ## Decisions needed from you

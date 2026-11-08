@@ -140,6 +140,65 @@ Positive control on `xix-blb-v1` (held-out 9.55 %): of eight corruptions, the pr
 
 (a) Sham: 20 norm-matched random edits plus the same blank shift gave a held-out mean −0.013 (sd 0.062, range −0.199 to +0.097); the real `combined-v1` edit −0.39; 0 of 20 shams reach it and the keep rule kept 0 of 20. (b) Global interpolation parent → child, Kurrent pair: pairs of blocks are additive at α = 0.5, the whole network is not (joint cost exceeds the sum of single-block costs by +3.81 points [+2.57, +4.98] on the 1,718 held-out lines at α = 0). (c) Margins at deleted frames (696 deleted space, `e`, `n`; `xix-blb-v1`, `blb-eval-hand-b`): 18 % have no frame between the neighbours; of the rest the median deleted character is 3.2 nats below the blank at its best frame; blank-bias edits recover one deletion in 40, 9, 5 at −0.1, −0.5, −1.0 and pay with nearly as many insertions at −1.0 (−152 deletions, +133 insertions): the deletions are decided upstream of the output layer.
 
-## R9 — adapter track: one QLoRA adapter of Qwen3.5-4B (07.11.2026; docs/ADAPTER_REPORT.md on branch `claude/adapters-4d972b`, not yet merged)
+## R9 — which latin_incunabula candidate to enable: neither, by the pre-registered rule (07.11.2026)
+
+Rule written and committed before any of these scores (`runs/20261107-latin_incunabula-exchange-2/preregistration.md`,
+commit `0c8f4ff`): a candidate qualifies if it does not lose abbreviations (MUFI, Combining Diacritical Marks or Latin
+Extended-D with a 95 % interval entirely above 0 on `reichenau-heldout`, as a whole or in either sub-collection), its
+Reichenau CER is not worse, and its CER on neither held-out Fraktur set is worse.
+
+**Candidates.** v1 = R4 (`Gn_1` + `Gn_3` from kraken-catmus_print_large, `O_15` half-way). v2 =
+`runs/20261107-latin_incunabula-exchange-2` (`Gn_1` + `Gn_3` only, rebuilt from combination `gn13`, tensor digest
+`1fe624af…`, loads with `load_any`).
+
+**Held-out sets, each read once per model** (line level; audits in `data/heldout/*.audit.json`, all 0 shared pages,
+lines and crops):
+
+- `reichenau-heldout`: R4's 4,374 lines. The German sub-collection contributes only 163 of them, from 30 pages with
+  few transcribed lines; the Latin-German one 4,211.
+- `newseye-heldout`: 2,706 lines from 8 pages of the NewsEye ONB *train* shard; the practice and confirmation lines came
+  from its validation shard, which shares no page name or image with it.
+- `gt-fraktur-heldout`: 1,311 lines from the 35 GT-Fraktur pages no practice or confirmation line came from (same 10
+  documents, other pages).
+
+| candidate | `reichenau-heldout` CER (Δ, 95 % interval) | `newseye-heldout` CER (Δ, 95 % interval) | `gt-fraktur-heldout` CER (Δ, 95 % interval) | loses abbreviations | qualifies |
+|---|---|---|---|---|---|
+| unedited | 5.01 % | 28.56 % | 20.13 % | | |
+| v1 | 4.99 % (-0.03 [-0.07, +0.02]) | 26.52 % (**-2.04** [-2.22, -1.86]) | 19.70 % (**-0.44** [-0.57, -0.31]) | yes | no |
+| v2 | 5.06 % (**+0.04** [+0.01, +0.08]) | 27.48 % (**-1.08** [-1.26, -0.92]) | 19.94 % (**-0.19** [-0.30, -0.08]) | yes | no |
+
+Abbreviation blocks on `reichenau-heldout`, change of the block's share of CER in points (95 % interval):
+
+| candidate | scope | MUFI (CERberus list, overlay) | Combining Diacritical Marks | Latin Extended-D |
+|---|---|---|---|---|
+| v1 | all (4374 lines) | **+0.110** [+0.092, +0.127] (532→731) | **+0.048** [+0.024, +0.072] (2710→2797) | **+0.006** [+0.001, +0.010] (50→60) |
+| v1 | German (163 lines) | +0.039 [-0.013, +0.101] (9→12) | **-0.221** [-0.380, -0.085] (143→126) | +0.000 [+0.000, +0.000] (3→3) |
+| v1 | Latin-German (4211 lines) | **+0.113** [+0.095, +0.132] (523→719) | **+0.060** [+0.037, +0.083] (2567→2671) | **+0.006** [+0.001, +0.011] (47→57) |
+| v2 | all (4374 lines) | **+0.010** [+0.003, +0.019] (532→551) | +0.010 [-0.004, +0.024] (2710→2728) | +0.000 [-0.003, +0.003] (50→50) |
+| v2 | German (163 lines) | +0.013 [-0.027, +0.063] (9→10) | +0.039 [-0.054, +0.139] (143→146) | +0.000 [+0.000, +0.000] (3→3) |
+| v2 | Latin-German (4211 lines) | **+0.010** [+0.002, +0.019] (523→541) | +0.009 [-0.004, +0.022] (2567→2582) | +0.000 [-0.003, +0.003] (47→47) |
+
+**Choice by the pre-registered rule:** none.
+
+(Numbers: `docs/family/candidates-latin_incunabula.json`, from `python -m wsp.candidates latin_incunabula`, which reads
+the stored readings only.)
+
+**Reading.**
+
+- **The purpose of the exchange is confirmed on held-out print.** v1 reads Fraktur it was never trained on better:
+  −2.04 points on NewsEye, −0.44 on GT-Fraktur; v2 half of that (−1.08, −0.19). Stabilisation by exchange is real
+  beyond the lines it was chosen on.
+- **Its price is the model's specialisation.** v1 loses abbreviations clearly on the Latin-German pages (MUFI signs
+  523 → 719 errors). v2, without the output-layer move, keeps most of them but not all: MUFI 523 → 541, interval
+  excluding 0, and its Reichenau CER rises by 0.04 points (interval excluding 0). Both changes are small; the rule set
+  no minimum size, and it is not changed after the fact.
+- **Decision: neither is enabled.** v1 stays registered on the share and disabled (R4); v2 was not registered. The
+  serving-path read the rule reserved for a qualifying candidate was not run.
+
+What would settle it differently: a rule with a minimum effect for the abbreviation blocks (as the session keep rule
+has since PROTOCOL §3 of 06.11.2026), set *before* a new comparison; or a use case that wants Fraktur robustness more
+than abbreviations, for which v1 is the better model — a decision for its users, not for this rule.
+
+## R10 — adapter track: one QLoRA adapter of Qwen3.5-4B (07.11.2026; docs/ADAPTER_REPORT.md on branch `claude/adapters-4d972b`, not yet merged)
 
 Rank-64 update of 128 modules (Qwen3.5-4B, Kurrent pages). Readings: norms tight across three healthy siblings, no outlier; adapters of one base nearly orthogonal (cosine 0.10), so no donor operations. Positive control: of six planted defects two did damage beyond pass noise; the doubled scale (CER 3.76 → 0.517, clean 0.51) was repaired by programmer, blind programmer and rule list alike; eight late `down_proj` ×3 (+24 points) recognised by the rule list but its exact repair refused by the keep rule; four single-module defects did no damage. Real session (v2, budget 10; 7 passes, 6 edits, 1 kept: layer-27 `q_proj` ×0.8): held-out 134 pages CER 0.685 → 0.569, Δ −0.115 [−0.271, −0.001] by pages, sham +0.032; clipped CER unchanged (0.354 → 0.351), length ratio 1.33 → 1.22, 4 of 22 capped pages stop. Engines disagree (identical text on 10 of 61 pages; merged vs peft 3 of 10), so loop status is chaotic; the base alone loops more (12 of 32 pages at the ceiling vs 8). Manuscript Section 9.3.

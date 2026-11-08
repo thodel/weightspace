@@ -13,7 +13,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 | Phase 0-5 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis, clean-up of held-out sets | `docs/PHASE0..5_REPORT.md`, `docs/RESULTS.md` R1-R3 | done |
 | B | controls for the article: planted defects, unseen practice sets, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged into main (8d7b577) |
 | C | the family of 43 models: weights, lineage, function, CKA, exchange grid, candidate `latin_incunabula-wsp-v1` | `docs/MODEL_FAMILY.md`, `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md`, `docs/family/`, `docs/RESULTS.md` R4 | done, merged |
-| Adapters | sessions on LoRA adapters of vision-language models | branch `adapters`, `docs/ADAPTER_REPORT.md` | finished 7 Nov; branch `claude/adapters-4d972b` **not merged** (awaits user's decision); folded into manuscript 9.3 and RESULTS R9 |
+| Adapters | sessions on LoRA adapters of vision-language models | branch `adapters`, `docs/ADAPTER_REPORT.md` | finished 7 Nov; branch `claude/adapters-4d972b` **not merged** (awaits user's decision); folded into manuscript 9.3 and RESULTS R10 |
 | Article | JDMDH manuscript, draft 3 | `paper/manuscript.md`, `paper/STATUS.md`, Nextcloud `Documents/research/atr-research/atr-article-plan.md` | draft 3 complete except TODOs |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/`, Zotero (user library) | done; OpenAlex Q4-Q10 incomplete |
 | Epic: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md`, issue thodel/weightspace#12 | proposed, not started |
@@ -26,7 +26,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 - Positive control: localised planted defects are repaired by programmer, blind programmer and rule list alike; diffuse damage only by the programmer who measures and with a donor of the same lineage.
 - Margins: 18 % of deleted frames have no blank frame; median margin 3.2 nats; blank-bias edits are not the lever.
 - Interpolation of the Kurrent pair: single blocks and pairs additive, whole network not.
-- Candidate: `kraken-latin_incunabula-wsp-v1`, two group norms and the output layer half-way to the base; not worse on its own collection; costs abbreviation signs; registered, disabled, not promoted.
+- Candidates: `kraken-latin_incunabula-wsp-v1` (v1: two group norms + output layer half-way) and v2 (norms only): both read held-out Fraktur better (v1 -2.04 NewsEye, -0.44 GT-Fraktur; v2 -1.08, -0.19) but v1 loses abbreviations (MUFI 532 to 731) and v2 slightly its own collection (+0.04); neither qualifies under the pre-registered rule (RESULTS R9); v1 registered and disabled, v2 not registered.
 - Data findings: Hertwig export defect (44 of 50 pages, repaired); held-out set was half a printed book (replaced by `blb-eval-hand`); Reichenau incunable dataset: 39 of 59 validation pages identical to train pages.
 
 ## Open items
