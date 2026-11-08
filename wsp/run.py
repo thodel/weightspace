@@ -187,31 +187,53 @@ def freeze(run_dir: str) -> dict:
     return sess.freeze()
 
 
+def score_adapter_on_draw(adapter: Path | None, side: Path, out: Path, chunk: int = 32,
+                          rows: list[dict] | None = None, extra_args: list[str] = ()) -> dict:
+    """The trainer's evaluate_qlora over a frozen page draw, in chunks of ``chunk`` pages with
+    card 0 checked before each (#396), resumable (a chunk whose readings exist is skipped).
+    Returns the trainer's numbers summed over chunks and wsp.pages metrics on all readings."""
+    from wsp import pages, vlm_reference
+    from wsp.lora_subject import _wait_for_card
+    rows = rows if rows is not None else load(side / "pages.jsonl")
+    out.mkdir(parents=True, exist_ok=True)
+    for i in range(0, len(rows), chunk):
+        stem = out / f"chunk-{i // chunk:03d}"
+        if stem.with_suffix(".raw.jsonl").exists():
+            continue
+        _wait_for_card(24 * 3600)
+        draw = stem.with_suffix(".draw.jsonl")
+        draw.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows[i:i + chunk]), encoding="utf-8")
+        argv = ["--pages", str(draw), "--data-root", str(side), "--report", str(stem.with_suffix(".json"))]
+        argv += (["--adapter", str(adapter)] if adapter else []) + list(extra_args)
+        if vlm_reference.main(argv) != 0:
+            raise RuntimeError(f"evaluate_qlora failed on {stem.name}; nothing recorded")
+    raw = {}
+    trainer = {"chars": 0, "errors": 0, "truncated_at_cap": 0, "samples": 0}
+    for f in sorted(out.glob("chunk-*.json")):
+        if f.name.endswith(".draw.jsonl"):
+            continue
+        r = json.loads(f.read_text())
+        for k in trainer:
+            trainer[k] += r.get(k) or 0
+        raw.update(pages.read_reference(f.with_suffix(".raw.jsonl")))
+    trainer["cer"] = trainer["errors"] / trainer["chars"] if trainer["chars"] else None
+    keys = [Path(r["image"]).stem for r in rows]
+    own = pages.score([raw[k]["text"] for k in keys], [r["text"] for r in rows], [raw[k]["at_cap"] for k in keys])
+    return {"pages": len(rows), "set_sha256": sha256_file(side / "pages.jsonl"), "trainer": trainer,
+            "wsp": {k: v for k, v in own.items() if k != "per_page"}, "per_page": own["per_page"], "keys": keys}
+
+
 def heldout_adapter(run_dir: Path, set_name: str) -> dict:
     """Score a frozen adapter once on a frozen trainer draw with the trainer's own scorer
     (transformers, greedy, cap 3,072), and with ``wsp.pages`` on the same readings."""
-    from wsp import pages
-    from wsp import vlm_reference
     summary_path = run_dir / "summary.json"
     summary = json.loads(summary_path.read_text())
     final = run_dir / "final.adapter"
     if not final.is_dir():
         raise RuntimeError("freeze the session first (no final.adapter)")
-    side = ADAPTER_HELDOUT[set_name]
-    report = run_dir / "readings" / f"heldout_{set_name}.json"
-    report.parent.mkdir(exist_ok=True)
     t = time.time()
-    if vlm_reference.main(["--adapter", str(final), "--pages", str(side / "pages.jsonl"),
-                           "--data-root", str(side), "--report", str(report)]) != 0:
-        raise RuntimeError("evaluate_qlora failed; nothing recorded")
-    trainer = json.loads(report.read_text())
-    raw = pages.read_reference(report.with_suffix(".raw.jsonl"))
-    rows = load(side / "pages.jsonl")
-    keys = [Path(r["image"]).stem for r in rows]
-    own = pages.score([raw[k]["text"] for k in keys], [r["text"] for r in rows], [raw[k]["at_cap"] for k in keys])
-    result = {"set": set_name, "set_sha256": sha256_file(side / "pages.jsonl"), "pages": len(rows),
-              "trainer": {k: trainer.get(k) for k in ("cer", "wer", "truncated_cer", "length_ratio", "samples", "truncated_at_cap")},
-              "wsp": {k: v for k, v in own.items() if k != "per_page"}, "per_page": own["per_page"],
+    res = score_adapter_on_draw(final, ADAPTER_HELDOUT[set_name], run_dir / "readings" / f"heldout_{set_name}")
+    result = {"set": set_name, **{k: v for k, v in res.items() if k != "keys"},
               "final_sha256": _file_sha(final), "when": datetime.now(timezone.utc).isoformat(),
               "wall_s": round(time.time() - t, 1)}
     if summary.get("heldout") is None:
@@ -220,8 +242,8 @@ def heldout_adapter(run_dir: Path, set_name: str) -> dict:
         summary.setdefault("heldout_repeats", []).append(result)
         summary.setdefault("deviations", []).append(f"second held-out evaluation on {set_name}: not a result")
     summary_path.write_text(json.dumps(summary, indent=2))
-    print(f"held-out {set_name}: trainer CER {result['trainer']['cer']}, truncated {result['trainer']['truncated_cer']}, "
-          f"at cap {result['trainer']['truncated_at_cap']} of {len(rows)}")
+    print(f"held-out {set_name}: trainer CER {result['trainer']['cer']:.4f}, at cap {result['trainer']['truncated_at_cap']} "
+          f"of {result['pages']}; wsp CER {result['wsp']['cer']:.4f}, truncated {result['wsp']['truncated_cer']:.4f}")
     return result
 
 

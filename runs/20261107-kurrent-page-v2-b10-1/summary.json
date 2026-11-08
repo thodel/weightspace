@@ -1,0 +1,201 @@
+{
+  "budget": 10,
+  "used": 6,
+  "seed": 20261106,
+  "keep_rule": {
+    "min_effect": 0.0,
+    "resamples": 2000,
+    "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"
+  },
+  "practice_lines": 64,
+  "practice_id": "2cc5278ea215b72d5f2faad9977abcde6dde36bc327876d08643852827d46f9b",
+  "start_digest": "fb4f55ee7386abc7292e29bbf2a24f502fc4079cb4732934cbead229b300504c",
+  "final_digest": "ac8346f939b495653c9762ccdb84d598940397f0c5e9dbe534cae231c85acadf",
+  "edits": 5,
+  "kept": 1,
+  "baseline": {
+    "lines": 64,
+    "cer": 0.45151187605665033,
+    "wer": 0.840806433843781,
+    "collapsed": 10,
+    "length_ratio": 1.2263702964625889,
+    "char_edits": 48873,
+    "ref_chars": 108243,
+    "confusions": [
+      [
+        "",
+        " ",
+        7220
+      ],
+      [
+        "",
+        "\u2733",
+        3537
+      ],
+      [
+        "",
+        "n",
+        1897
+      ],
+      [
+        "",
+        "e",
+        1827
+      ],
+      [
+        "",
+        "\"",
+        1261
+      ],
+      [
+        "",
+        "s",
+        1048
+      ],
+      [
+        "",
+        "i",
+        953
+      ],
+      [
+        "",
+        "t",
+        908
+      ],
+      [
+        "",
+        ",",
+        887
+      ],
+      [
+        "",
+        "a",
+        835
+      ]
+    ],
+    "extra": {}
+  },
+  "last_pass": {
+    "lines": 64,
+    "cer": 0.3990188741997173,
+    "wer": 0.7408835518343065,
+    "collapsed": 8,
+    "length_ratio": 1.141690455733858,
+    "char_edits": 43191,
+    "ref_chars": 108243,
+    "confusions": [
+      [
+        "",
+        " ",
+        5210
+      ],
+      [
+        "",
+        "\u2733",
+        2262
+      ],
+      [
+        "",
+        "\"",
+        1261
+      ],
+      [
+        "",
+        "n",
+        1231
+      ],
+      [
+        "",
+        "e",
+        1155
+      ],
+      [
+        " ",
+        "",
+        739
+      ],
+      [
+        "",
+        "h",
+        713
+      ],
+      [
+        "e",
+        "",
+        654
+      ],
+      [
+        "",
+        "i",
+        626
+      ],
+      [
+        "",
+        "l",
+        598
+      ]
+    ],
+    "extra": {}
+  },
+  "changed_tensors": {
+    "base_model.model.model.language_model.layers.31.self_attn.o_proj.lora_B.weight": {
+      "shape": [
+        2560,
+        64
+      ],
+      "l2": 0.8854204596987351,
+      "rel_l2": 0.30089288318110846,
+      "cosine": 0.9536579433166597,
+      "changed": 163840,
+      "numel": 163840,
+      "top_rows": [
+        [
+          553,
+          0.0633995398701381
+        ],
+        [
+          194,
+          0.060591979776604854
+        ],
+        [
+          550,
+          0.0603027985503079
+        ],
+        [
+          66,
+          0.06009542506196617
+        ],
+        [
+          1639,
+          0.05935264087882838
+        ],
+        [
+          1032,
+          0.055296977418735314
+        ],
+        [
+          256,
+          0.0546557756379829
+        ],
+        [
+          795,
+          0.05390495331890922
+        ],
+        [
+          1293,
+          0.0529615839434171
+        ],
+        [
+          654,
+          0.05275132034784706
+        ]
+      ]
+    }
+  },
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "3f68caa54bdcf9c92563a33009c3bb4ea8d8f02c237a08f79064e804455d02cd",
+  "subject": "/home/tobias/atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-page-v2",
+  "name": "20261107-kurrent-page-v2-b10-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/runs/20261107-kurrent-page-v2-b10-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/runs/20261107-kurrent-page-v2-b10-1 TMPDIR=/home/tobias/Repo/weightspace/runs/20261107-kurrent-page-v2-b10-1/atr-cache/tmp CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* /home/tobias/Repo/weightspace/.venv/bin/python -I program.py"
+}

@@ -14,3 +14,25 @@
 - **Per page:** 28 pages better, 16 worse (at most +115 edits), 20 identical.
   The gain is a stopping gain and rests on few pages, so the held-out set has to
   carry it.
+
+## Passes 3-6 and the freeze (07./08.11.2026)
+
+- **Pass 3, H1b:** refused. Against H1, +4.5 points [−2.4, +15.8], pages at the cap 4 → 6.
+- **Pass 4, H2:** refused. Against H1, +5.6 points [+0.3, +13.5], pages at the cap 4 → 5.
+  - The logged comparisons for passes 3 and 4 are wrong because of a harness
+    bug, and the log's deviation note corrects them.
+- **Passes 5-6, the dose of H1:** both refused.
+
+  | dose | CER | at the cap |
+  |---|---:|---:|
+  | 0 | 0.4515 | 9 |
+  | 0.5 | 0.3990 | 7 |
+  | **1.0** | **0.3470** | **4** |
+  | 1.5 | 0.3616 | 5 |
+
+  The curve falls monotonically up to full removal and turns up beyond it, so
+  the edit is a mechanism and not noise on five pages.
+- **Freeze:** with H1 as the final state and 4 passes unused. The remaining
+  lens candidates did not survive (H1b), and no other direction of the
+  attention outputs comes near direction 0 of layer 31 (all |z| < 1.8 on
+  `<|im_end|>`).

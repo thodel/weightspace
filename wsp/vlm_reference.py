@@ -66,13 +66,21 @@ def main(argv=None):
     ap.add_argument("--data-root", required=True)
     ap.add_argument("--report", required=True)
     ap.add_argument("--max-new-tokens", type=int, default=3072)
+    ap.add_argument("--repetition-penalty", type=float,
+                    help="decode comparator: the same scorer with only generate()'s repetition_penalty changed (wsp.rp_eval)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     cmd = command(a.adapter, Path(a.pages), Path(a.data_root), Path(a.report), a.max_new_tokens)
+    env = child_env()
+    if a.repetition_penalty:
+        i = cmd.index("vlm_train_svc.evaluate_qlora")
+        cmd[i] = "wsp.rp_eval"
+        env["WSP_REPETITION_PENALTY"] = str(a.repetition_penalty)
+        env["PYTHONPATH"] = f"{HOME / 'Repo/weightspace'}:{env['PYTHONPATH']}"
     print(" ".join(cmd), flush=True)
     if a.dry_run:
         return 0
-    return subprocess.run(cmd, env=child_env(), cwd=str(TRAINER)).returncode
+    return subprocess.run(cmd, env=env, cwd=str(TRAINER)).returncode
 
 
 if __name__ == "__main__":

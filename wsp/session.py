@@ -210,6 +210,8 @@ class Session:
     def freeze(self) -> dict:
         if self._last_edit is not None:
             raise RuntimeError("decide on the last edit before freezing")
+        # the whole session, from the file: each program runs in a process of its own
+        full = [json.loads(l) for l in (self.run_dir / "log.jsonl").read_text().splitlines() if l.strip()]
         sparse = diffmod.sparse_diff(self._start_tensors, self.subject.tensors())
         diffmod.save_sparse_diff(sparse, self.run_dir / "diff.json")
         cmp = diffmod.compare(self._start_tensors, self.subject.tensors())
@@ -218,11 +220,11 @@ class Session:
             "keep_rule": {"min_effect": self.min_effect, "resamples": self.rule_resamples,
                           "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"},
             "practice_lines": len(self.practice), "practice_id": self.practice_id,
-            "start_digest": self._log[0]["digest"], "final_digest": self.subject.digest(),
-            "edits": sum(1 for e in self._log if e["kind"] == "edit"),
-            "kept": sum(1 for e in self._log if e["kind"] == "decision" and e["kept"]),
+            "start_digest": full[0]["digest"], "final_digest": self.subject.digest(),
+            "edits": sum(1 for e in full if e["kind"] == "edit"),
+            "kept": sum(1 for e in full if e["kind"] == "decision" and e["kept"]),
             "baseline": self._baseline.as_dict() if self._baseline else self._baseline_dict,
-            "last_pass": next((e["metrics"] for e in reversed(self._log) if e["kind"] == "pass"), None),
+            "last_pass": next((e["metrics"] for e in reversed(full) if e["kind"] == "pass"), None),
             "changed_tensors": {k: v for k, v in cmp.items() if v.get("changed")},
             "heldout": None, "deviations": [],
         }
