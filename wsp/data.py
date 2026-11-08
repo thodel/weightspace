@@ -240,11 +240,19 @@ def sha256_file(path: Path) -> str:
 
 
 def sample_lines(source: str, n: int, seed: int, set_name: str,
-                 list_root: Path = LIST_ROOT, image_root: Path = PRACTICE_ROOT) -> Path:
+                 list_root: Path = LIST_ROOT, image_root: Path = PRACTICE_ROOT,
+                 exclude: list[Path] | None = None) -> Path:
     """``n == 0`` takes every candidate line in source order (a held-out set is
-    the whole eval side, never a sample; PROTOCOL.md §2.3 wants its identity)."""
+    the whole eval side, never a sample; PROTOCOL.md §2.3 wants its identity).
+    ``exclude``: line lists whose keys are removed from the candidates first (a confirmation
+    set disjoint from its practice set)."""
     src = open_source(source)
     cands = src.candidates()
+    excluded = set()
+    for e in exclude or []:
+        excluded |= {r["key"] for r in load(e)}
+    if excluded:
+        cands = [c for c in cands if c.key not in excluded]
     if n and len(cands) < n:
         raise ValueError(f"{source} has {len(cands)} candidate lines, fewer than {n}")
     chosen = random.Random(seed).sample(cands, n) if n else list(cands)
@@ -269,6 +277,7 @@ def sample_lines(source: str, n: int, seed: int, set_name: str,
     digest = sha256_file(lst)
     meta = {"set": set_name, "source": source, "source_info": src.describe(), "n": len(rows), "seed": seed,
             "candidates": len(cands), "sha256": digest,
+            **({"excluded_lists": [str(e) for e in exclude], "excluded_keys": len(excluded)} if excluded else {}),
             "documents": sorted({r["doc"] for r in rows if r["doc"]}),
             "skipped": skipped,
             "selection": ("random.Random(seed).sample over all candidate lines in source order" if n
@@ -342,13 +351,14 @@ def main(argv=None):
     b.add_argument("--source", required=True)
     b.add_argument("--n", type=int, default=300, help="lines to sample; 0 = every line (held-out sets)")
     b.add_argument("--seed", type=int, default=SEED)
+    b.add_argument("--exclude", nargs="*", default=None, help="line lists whose keys are not candidates")
     b.add_argument("--heldout", action="store_true",
                    help="write under data/heldout/ and ~/atr-cache/wsp/heldout/ instead of the practice roots")
     sub.add_parser("readme", help="write data/practice/README.md from the meta files")
     a = ap.parse_args(argv)
     if a.cmd == "build":
         roots = {"list_root": HELDOUT_LIST_ROOT, "image_root": HELDOUT_ROOT} if a.heldout else {}
-        lst = sample_lines(a.source, a.n, a.seed, a.set, **roots)
+        lst = sample_lines(a.source, a.n, a.seed, a.set, exclude=[Path(e) for e in a.exclude or []], **roots)
         meta = json.loads((lst.with_suffix(".meta.json")).read_text())
         print(lst, meta["sha256"], f"{meta['n']} of {meta['candidates']} lines, {len(meta['documents'])} documents")
     elif a.cmd == "readme":

@@ -1,0 +1,78 @@
+{
+ "source": "federal-minutes",
+ "dir": "/mnt/wbkolleg_dh_1/tei/datasets/dh-unibe__image-text_federal-minutes-testset",
+ "keep_projects": null,
+ "drop_projects": null,
+ "document_unit": "docid",
+ "note": "Swiss Federal Council minutes 1848-1903 (german-xix-v1's benchmark; never trained on)",
+ "split": "random.Random(20261108).sample(sorted documents, max(1, round(0.25 * n))) -> held-out",
+ "documents": 22,
+ "pool": {
+  "parquet": "/home/tobias/atr-cache/wsp/ood/federal-minutes/pool.parquet",
+  "sha256": "8b5298333f3e380242d3302293fa3870b3a680d07169dc495dee24689971fcba",
+  "pages": 2121,
+  "lines": 2121,
+  "documents": [
+   "457178",
+   "457186",
+   "457187",
+   "457194",
+   "457196",
+   "457212",
+   "457225",
+   "457238",
+   "457243",
+   "457254",
+   "457256",
+   "457257",
+   "457262",
+   "457270",
+   "457271",
+   "471755"
+  ],
+  "side_documents": [
+   "457178",
+   "457186",
+   "457187",
+   "457194",
+   "457196",
+   "457212",
+   "457225",
+   "457238",
+   "457243",
+   "457254",
+   "457256",
+   "457257",
+   "457262",
+   "457270",
+   "457271",
+   "471755"
+  ],
+  "side_pages": 2121,
+  "page_sample": "all"
+ },
+ "heldout": {
+  "parquet": "/home/tobias/atr-cache/wsp/ood/federal-minutes/heldout.parquet",
+  "sha256": "4a3ad5006cba0c53e396964fb094098268af34672893139099aef7edd7066b59",
+  "pages": 630,
+  "lines": 630,
+  "documents": [
+   "457176",
+   "457224",
+   "457236",
+   "457237",
+   "457242",
+   "457248"
+  ],
+  "side_documents": [
+   "457176",
+   "457224",
+   "457236",
+   "457237",
+   "457242",
+   "457248"
+  ],
+  "side_pages": 630,
+  "page_sample": "all"
+ }
+}

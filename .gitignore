@@ -12,6 +12,9 @@ data/heldout/*
 !data/heldout/*.jsonl
 !data/heldout/*.json
 !data/heldout/README.md
+!data/ood/
+data/ood/*
+!data/ood/*.json
 runs/*/readings/
 *.mlmodel
 *.safetensors

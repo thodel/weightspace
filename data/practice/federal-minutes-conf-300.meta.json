@@ -1,0 +1,41 @@
+{
+  "set": "federal-minutes-conf-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/federal-minutes/pool.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/federal-minutes/pool.parquet",
+    "pages": 2121,
+    "projects": [
+      "TEST_federal_minutes"
+    ],
+    "sha256": "8b5298333f3e380242d3302293fa3870b3a680d07169dc495dee24689971fcba"
+  },
+  "n": 300,
+  "seed": 20261108,
+  "candidates": 1822,
+  "sha256": "682aa3d82634f0f09bf9d6e967113f2952ab6effd803a7e66365f4fa3ada656c",
+  "excluded_lists": [
+    "data/practice/federal-minutes-300.jsonl"
+  ],
+  "excluded_keys": 299,
+  "documents": [
+    "457178",
+    "457186",
+    "457187",
+    "457194",
+    "457196",
+    "457212",
+    "457225",
+    "457238",
+    "457243",
+    "457254",
+    "457256",
+    "457257",
+    "457262",
+    "457270",
+    "457271",
+    "471755"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

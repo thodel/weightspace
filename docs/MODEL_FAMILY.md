@@ -293,10 +293,124 @@ together could not. The individuality of a model sits in its recurrent stack, wh
 trade against its own material — at a poor rate in the in-house fine-tunes, at a good one (about 1 : 5 to
 1 : 10) for latin_incunabula. Exchange only helps towards a general model that reads the other material better.
 
+## RQ3 where it matters: out-of-domain sets, combined moves, cross-lineage exchange (08.11.2026)
+
+The first grid measured stabilisation on sets every model reads at 51–77 % CER. This round looks for material
+*outside* each in-house model's training that the model reads at 15–30 %, tests the combined moves the first grid
+suggested against own-material cost, scores pre-registered candidates on held-out data once, and tries exchange
+across lineages after aligning units. CPU only (dhserver03). Numbers: `docs/family/ood-*.json`, `docs/family/align-*.json`;
+sets and splits: `data/ood/*.split.json`, `data/ood/audit.json`; pre-registration: `docs/family/PREREG-ood-exchange.md`.
+
+### Part 1 — out-of-domain material
+
+Every source was split into a practice pool and a held-out side by document, with `random.Random(20261108)`, before any
+model read a line of it (`scripts/build_ood_pools.py`, `scripts/build_schluss_pool.py`); practice lists (300 lines,
+seed 20261106) and confirmation lists (300 fresh lines, seed 20261108, practice lines excluded: `wsp.data build --exclude`)
+come from the pool only. Screening (`scripts/ood_read.py`, `docs/family/ood-screen.json`), CER of the specific model /
+its parent:
+
+| source (dh-unibe) | lineage | specific | parent | grandparent | usable |
+|---|---|---:|---:|---:|---|
+| Federal Council minutes 1848–1903 (`federal-minutes-testset`) | Kurrent | **18.2** | 11.3 | 50.0 (bohemian_19th) | **yes** — primary |
+| Historisches Grundbuch Basel XIX–XX | Kurrent | **28.2** | 25.1 | 46.8 | **yes** — secondary |
+| Bern A V 1447 Schlussredaktion (another scribe of the same records) | Bern | **29.6** | 65.5 | 47.6 (catmus_medieval) | **yes** — the only one |
+| Rats- und Richtebücher XV–XVI | Bern | 50.8 | 69.7 | 47.3 | too hard |
+| Bullinger correspondence (16th c., mostly Latin) | Bern | 53.6 | 70.4 | 41.8 | too hard |
+| Archives de l'ancien Évêché de Bâle XIV–XVII | Bern | 64.0 | 79.3 | 48.6 | too hard |
+| St. Gallen Missiven | Bern | — | — | — | no line geometry (page text only) |
+
+Audit (`scripts/audit_ood.py`): none of these sources is in the training data of the models used with it (trainer
+`job.json` of german-xix-v1, -blb-v1, hertwig-v2; Zenodo descriptions of cursive_inzigkofen, catmus_medieval, bohemian_19th);
+the federal minutes were german-xix-v1's *benchmark*, never trained on. **One correction before any held-out read:** the
+split used the Transkribus container id (`docId` in the PAGE metadata), which in the federal minutes and the Basel register
+is not the source document; the file names carry it (`docId_<n>`, volume `HGB_<a>_<b>_<c>`), and 6 federal source documents
+(4 pages) and 10 Basel volumes sat on both sides. Those held-out lines were removed, unread; the audit then finds no shared
+line, page, container or source document.
+
+Held-out sets (one per lineage, by data properties only): `federal-minutes-heldout` (545 lines, 30 source documents),
+`basel-grundbuch-heldout` (1,888 lines, 111 pages), `schluss-heldout` (308 lines, 11 pages no earlier list touched).
+
+### Part 2 — combined conv moves, practice → confirmation → held-out once
+
+**german-xix-blb-v1 ← german-xix-v1.** The parent reads the federal minutes better (11.3 vs 18.2 %), so this is the case where
+exchange can stabilise. Δ CER in points against blb-v1 unedited, page-clustered 95 % interval:
+
+| move | own: blb-val-300 (practice) / blb-train-300 (fresh) | federal: practice / fresh | Basel: practice / fresh |
+|---|---|---|---|
+| `C_0` half-way | +0.12 / −0.02 | **−1.99** / **−2.31** | −0.30 / −0.40 |
+| `C_0` transplanted | +0.21 / **+0.27** | **−2.37** / **−2.84** | **−0.78** / **−0.76** |
+| `C_6` half-way (first grid's pick) | +0.21 | **−0.35** | −0.14 |
+| `C_0` + `C_6` half-way (first grid's suggestion) | +0.27 / **+0.28** | **−1.82** / **−2.43** | **−0.73** / **−0.95** |
+| `C_0` + `C_3` + `C_6` half-way | **+0.46** / **+0.53** | **−2.05** / **−2.46** | **−1.24** / **−1.53** |
+| all four conv blocks half-way | **+0.87** | **−2.32** | **−1.37** |
+| `L_16` half-way (recurrent, for reference) | **+1.60** | **−2.15** | **−2.08** |
+| `O_18` half-way | +0.15 / **+0.23** | **−0.34** / **−0.38** | −0.09 / −0.14 |
+
+(**bold**: page-clustered interval excludes 0.) The first convolution carries almost all of the gain; every further block
+adds own-material cost. Two candidates were pre-registered (commit `517606e`): **A** = `C_0` half-way, **B** = `C_0` transplanted;
+rule: federal Δ ≤ −1.0 with the page interval's upper end ≤ −0.5 (minimum effect), own held-out (`blb-eval-hand-b`) upper end
+≤ +0.5 (non-inferiority), Basel upper end ≤ +0.5. **Held-out, read once:**
+
+| candidate | federal minutes (16.26 %) | own: blb-eval-hand-b (8.41 %) | Basel (26.62 %) | qualifies |
+|---|---|---|---|---|
+| A `C_0` ½ | **−0.35** [−0.57, −0.14] | +0.05 [−0.02, +0.13] | **−0.50** [−0.74, −0.24] | no (rule 1) |
+| B `C_0` 1 | **−0.46** [−0.75, −0.17] | +0.11 [−0.01, +0.25] | **−1.07** [−1.40, −0.74] | no (rule 1) |
+
+**Neither qualifies; neither is registered.** The stabilisation is real on held-out documents — both out-of-domain sets improve
+with intervals excluding 0, at no own-material cost — but on the federal minutes it is a sixth of what practice and confirmation
+showed (−0.35 instead of −2.0 to −2.3), below the pre-registered minimum. The prediction (A: −2.0 ± 0.6) was wrong. Post hoc
+(after the held-out read, so a hypothesis only): the practice gain is concentrated in one series of source documents (ids 51xxx,
+four of them give a third of it), which the held-out containers do not contain; the confirmation lines came from the same
+documents and could not catch that. **Lesson for the protocol: confirmation sets must be document-disjoint from practice, not
+only line-disjoint.**
+
+**bern-hertwig-v2 ← cursive_inzigkofen: a null.** The parent reads the Schlussredaktion hand at 65.5 %, far worse than
+hertwig-v2 (29.6 %). No conv move lowers CER there; the suggested `C_3` + `C_9` half-way costs **+1.41** on Schlussredaktion and
++0.39 on own lines (`ood-practice-bern-hertwig-v2.json`). Towards the grandparent catmus_medieval (47.6 %) `C_9` half-way gains
+**−1.00** on practice but costs **+0.42** on own lines; on fresh lines the gain falls to −0.40 (interval includes 0), and on
+`bern-val` it is **+0.82** on Hertwig lines for **−1.10** on Schlussredaktion lines: a one-for-one trade. No candidate; the
+Bern held-out sets stay unread.
+
+### Part 3 — cross-lineage exchange after aligning units
+
+`wsp/permute.py`, `scripts/align_exchange.py`. Per layer, units of S and G are matched by activation correlation on the 120
+Track C probe lines (Hungarian assignment; conv channels over all positions, LSTM units per direction), G's weights are
+permuted consistently (conv rows and next-layer input channels; `L_12`'s 960 inputs as `h·64 + c`, checked numerically;
+LSTM gate rows, recurrent columns and next-layer inputs per direction; output columns), and **the permuted G reads every line
+of every set exactly as G does** (899 of 899 and 599 of 599 lines identical). Then S takes G's aligned conv blocks up to `C_k`
+(`front<k>`), the same with the last block's channels rescaled to S's activation scale (`front<k>s`), `C_0` half-way in aligned
+coordinates (`C_0h-al`), and the unaligned transplant as control (`-raw`).
+
+| pair | matched unit correlation, `C_0` … `L_16` (unaligned) | `C_0` aligned | `C_0` ½ aligned | whole front end aligned / rescaled / unaligned |
+|---|---|---|---|---|
+| blb-v1 ← german-xix-v1 (same lineage: control) | 0.65–0.83 (same; the matching is the identity on every unit from `C_3` on and on 25 of 32 `C_0` filters, where S has 9 dead) | own +0.23, federal **−1.96** | own +0.07, federal **−2.02** | own **+2.57** / **+2.33** / — |
+| blb-v1 ← McCATMuS (unrelated, body cosine 0.04) | 0.21–0.36 (0.00–0.04) | CER 100 % on all sets | own **+8.7**, federal **+21.1** | CER 81 % / 46–63 % / 99–100 % |
+| hertwig-v2 ← McCATMuS (unrelated, body cosine 0.06) | 0.18–0.36 (0.00–0.06) | CER 100 % on both sets | own **+2.58**, Schlussredaktion +0.61 | CER 39–53 % / 37–50 % / 98 % |
+
+- **The method is sound:** the permutation is exactly function-preserving, and within a lineage the matching finds the
+  identity and the aligned transplant reproduces the element-wise one.
+- **Across lineages there is nothing to transplant one unit at a time.** Unrelated models have similar first layers as
+  *spaces* (CKA 0.80) but not as *units*: the best one-to-one matching reaches a correlation of 0.2–0.4 per unit, against
+  0.65–0.9 within a lineage. Any transplant costs: the first convolution alone takes CER to 100 %, half-way it costs +2.6 (hertwig-v2) to +21 points (blb-v1), the whole front end +20 to +67;
+  alignment and rescaling reduce the damage but leave the model unusable. McCATMuS is also no better reader of this material
+  (35–60 %). No candidate; nothing read held-out.
+- What would be needed instead is a map that is not a permutation (a linear map between the two front ends' feature spaces,
+  fitted on probe lines, folded into S's `C_3`) — a learned adapter, i.e. gradient-free regression rather than exchange.
+
+### Answer to RQ3, as of 08.11.2026
+
+Within a lineage, half-way or full exchange of the first convolution stabilises a specific model on out-of-domain material that
+the more general parent reads better, at no measured own-material cost; on held-out documents the gain is real but small
+(−0.35 to −1.07 points on sets read at 16–27 %), much smaller than practice suggested, because the practice gain sat in a few
+documents. Combining further conv blocks only adds own-material cost. Towards a parent that reads the out-of-domain material
+worse (the Bern lineage), exchange does not stabilise. Across lineages, unit alignment by permutation is exact but finds no
+unit-level correspondence to exchange.
+
 ## Next
 
-0. Combined moves: the conv blocks that stabilised one at a time (`C_3`+`C_9` for bern-hertwig-v2), together,
-   and out-of-domain sets that the models read at 15–30 % CER, so that stabilisation is measured where it matters.
+0. ~~Combined moves and out-of-domain sets at 15–30 % CER~~ — done 08.11.2026 (section above; docs/RESULTS.md R13): neither
+   pre-registered candidate meets the minimum effect on held-out documents. Next, if wanted: confirmation sets drawn from
+   documents disjoint from practice, then the same two candidates against a fresh held-out draw.
 1. ~~The stabilised latin_incunabula as a candidate~~ — R4 and R9 (07.11.2026): the Fraktur gain holds on held-out
    pages; both variants lose some abbreviation signs; neither enabled. R12 (08.11.2026): v3 moves the output rows of
    the shared characters except the abbreviation characters; under a rule with minimum effects fixed beforehand it
@@ -304,8 +418,8 @@ trade against its own material — at a poor rate in the in-house fine-tunes, at
    user's OK.
    OpenITI and french_vietnamese need Arabic-script and Vietnamese ground truth, which neither asteraix nor
    dh-unibe has.
-2. Cross-lineage exchange (RQ3 across lineages): align units first (match units of the two models
-   by activation correlation on the probe lines, then permute), so that the generic front end
-   of a general model can replace that of an unrelated specific one.
+2. ~~Cross-lineage exchange after unit alignment~~ — done 08.11.2026: permutation alignment is exact but unrelated models
+   share no unit-level front end; every transplant breaks the specific model. Next, if wanted: a non-permutation (linear)
+   map between front ends fitted on probe lines.
 3. A training run with the blocks the exchange grid marks as freezable actually frozen, to
    compare with the unfrozen fine-tune (a trainer job: needs an OK).
