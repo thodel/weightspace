@@ -19,7 +19,9 @@ import json
 from pathlib import Path
 
 from wsp.layerview import LAYERS, lost_at
-from wsp.metrics import levenshtein
+from collections import Counter, defaultdict
+
+from wsp.metrics import align as edit_align, levenshtein
 
 SVGS = [("probe-{model}__{set}", "Layer probes: which letter (identity) and whether to emit (emission), per layer"),
         ("alpha-overlay-{model}__{set}", "Each block's share of the fine-tune, by kind of error (α overlay)"),
@@ -41,12 +43,50 @@ def page_data(probes: dict, overlay: dict | None) -> dict:
             "x": [round((a + b + 1) / 2, 1) for a, b in ln["runs"]],
             "id": [ln["identity"][l] for l in LAYERS], "em": [ln["emission"][l] for l in LAYERS],
             "lost": ["" if s != "del" else lost_at(ln, i) for i, s in enumerate(ln["status"])],
+            "rp": replacements(ln["ref"], ln["hyp"]), "ins": insertions(ln["ref"], ln["hyp"]),
             "ov": [o["states"][t]["status"] for t in tags] if same else None,
             "ovh": {t: o["states"][t]["hyp"] for t in tags} if same else None,
         })
     return {"model": probes.get("model"), "set": probes.get("set"), "layers": LAYERS, "tags": tags,
-            "parent": (overlay or {}).get("parent"), "lines": lines,
+            "parent": (overlay or {}).get("parent"), "lines": lines, "conf": confusion_index(lines),
             "summary": {"deleted_lost_at": probes["deleted_lost_at"], "folds": probes.get("meta", {}).get("folds")}}
+
+
+def replacements(ref: str, hyp: str) -> list[str]:
+    """Per reference character: the hypothesis character it was read as when replaced, else ''."""
+    return [h if (r != h and h) else "" for r, h in edit_align(ref, hyp) if r]
+
+
+def insertions(ref: str, hyp: str) -> list[list]:
+    """[[i, ch]]: hypothesis character ``ch`` inserted after reference index ``i`` (-1 = before the first)."""
+    out, i = [], -1
+    for r, h in edit_align(ref, hyp):
+        if r:
+            i += 1
+        elif h:
+            out.append([i, h])
+    return out
+
+
+def confusion_index(lines: list[dict], top: int = 60) -> list[dict]:
+    """Every confusion as ref→hyp (∅ for nothing): count, lines, and for deletions the deepest layer whose probes
+    still have the character. The page's selector and the committed index JSON both come from this."""
+    occ: dict[tuple, list] = defaultdict(list)
+    for ln in lines:
+        for i, (c, st) in enumerate(zip(ln["r"], ln["s"])):
+            if st == "d":
+                occ[(c, "")].append({"k": ln["k"], "i": i, "x": ln["x"][i], "lost": ln["lost"][i]})
+            elif st == "s":
+                occ[(c, ln["rp"][i])].append({"k": ln["k"], "i": i, "x": ln["x"][i]})
+        for i, h in ln["ins"]:
+            occ[("", h)].append({"k": ln["k"], "i": i, "ins": True})
+    out = []
+    for (a, b), xs in sorted(occ.items(), key=lambda kv: -len(kv[1]))[:top]:
+        e = {"a": a, "b": b, "n": len(xs), "lines": len({x["k"] for x in xs}), "occ": xs}
+        if b == "" and a:
+            e["lost_at"] = dict(Counter(x["lost"] or "never" for x in xs).most_common())
+        out.append(e)
+    return out
 
 
 def write_images(items: list[dict], out_dir: Path) -> int:
@@ -108,6 +148,8 @@ main{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:16px;padding
 figure{margin:0 0 14px}figure img{max-width:100%;height:auto}figcaption{font-size:12px;color:var(--muted)}
 details{padding:0 20px}.legend span{display:inline-block;margin-right:12px;font-size:12px}
 .hyp{font-family:ui-monospace,monospace;font-size:12px;white-space:pre}
+.c.hit{outline:2px solid var(--c);outline-offset:1px;border-radius:2px}.insm{position:absolute;top:-2px;transform:translateX(-50%);color:var(--c);font-size:12px;font-weight:700}
+#csum{font-size:12px;margin:4px 0 8px;color:var(--muted)}select{background:var(--bg);color:var(--fg);border:1px solid var(--grid);border-radius:4px;padding:3px}
 </style></head><body>
 <header><h1>__MODEL__ <span class="muted">on __SET__ (practice lines)</span></h1>
 <div class="muted">Pick a line. Reference characters sit on the frames the forced CTC alignment gives them (8 px of the line per frame).
@@ -117,6 +159,7 @@ Colours: black/white emitted, purple replaced, vermillion deleted. Hover a chara
 <main><section><div class="controls"><input type="search" id="q" placeholder="filter: key or text">
 <label><input type="checkbox" id="fdel"> with deletions</label><label><input type="checkbox" id="fsp"> deleted spaces</label>
 <label title="lines read worse are mostly crop or reference defects (rotated, degenerate boxes, OCR junk)"><input type="checkbox" id="fok" checked> read at CER ≤ 20 %</label></div>
+<div class="controls"><label>confusion <select id="conf"><option value="">— all lines —</option></select></label></div><div id="csum"></div>
 <div id="list"></div><div class="muted" id="count" style="font-size:12px;margin-top:4px"></div></section>
 <section><div id="view"></div></section></main>
 <details><summary><b>Summary figures</b></summary>__FIGS__</details>
@@ -128,12 +171,17 @@ const L=D.layers,lab=l=>l==='input'?'pixels':l;
 const $=s=>document.querySelector(s),list=$('#list'),view=$('#view'),tip=$('#tip');
 const nd=ln=>[...ln.s].filter(c=>c==='d').length, nsp=ln=>[...ln.s].filter((c,i)=>c==='d'&&ln.r[i]===' ').length;
 const glyph=c=>c===' '?'␣':(/\p{M}/u.test(c)?'◌'+c:c);
-let cur=null;
+let cur=null,CF=null;const pair=e=>(e.a?glyph(e.a):'∅')+' → '+(e.b?glyph(e.b):'∅');
+D.conf.forEach((e,j)=>{const o=document.createElement('option');o.value=j;o.textContent=pair(e)+'  ('+e.n+' in '+e.lines+' lines)';$('#conf').appendChild(o)});
+const hits=ln=>CF?CF.occ.filter(o=>o.k===ln.k):[];
+function csum(){if(!CF){$('#csum').textContent='';return}let t=CF.n+' occurrences in '+CF.lines+' lines';
+ if(CF.lost_at)t+='. Deepest layer whose probes still have the deleted character: '+Object.entries(CF.lost_at).map(([l,n])=>lab(l).replace('never','none')+' '+n).join(', ');
+ $('#csum').textContent=t+'. The list shows only these lines; each occurrence is outlined (insertions: ▾ between characters).'}
 function fill(){const q=$('#q').value.toLowerCase(),fd=$('#fdel').checked,fs=$('#fsp').checked,fo=$('#fok').checked;list.innerHTML='';let n=0;
- const rows=D.lines.filter(ln=>(!q||ln.k.toLowerCase().includes(q)||ln.r.toLowerCase().includes(q))&&(!fd||nd(ln))&&(!fs||nsp(ln))&&(!fo||ln.c<=0.2));
- rows.sort((a,b)=>nd(b)-nd(a)||a.k.localeCompare(b.k));
+ const rows=D.lines.filter(ln=>(!q||ln.k.toLowerCase().includes(q)||ln.r.toLowerCase().includes(q))&&(!fd||nd(ln))&&(!fs||nsp(ln))&&(!fo||ln.c<=0.2)&&(!CF||hits(ln).length));
+ rows.sort((a,b)=>CF?hits(b).length-hits(a).length||a.k.localeCompare(b.k):nd(b)-nd(a)||a.k.localeCompare(b.k));
  for(const ln of rows){const d=document.createElement('div');d.textContent=ln.k;d.title=ln.k+"\n"+ln.r;
-  {const s=document.createElement('span');s.className='n';s.textContent=(nd(ln)?nd(ln)+' del · ':'')+(100*ln.c).toFixed(0)+' %';d.prepend(s)}
+  {const s=document.createElement('span');s.className='n';s.textContent=(CF?hits(ln).length+'× · ':(nd(ln)?nd(ln)+' del · ':''))+(100*ln.c).toFixed(0)+' %';d.prepend(s)}
   if(cur===ln)d.className='sel';d.onclick=()=>{cur=ln;fill();show(ln)};list.appendChild(d);n++}
  $('#count').textContent=n+' of '+D.lines.length+' lines'}
 function track(w,h){const t=document.createElement('div');t.className='track';t.style.width=w+'px';if(h)t.style.height=h+'px';return t}
@@ -143,7 +191,10 @@ function show(ln){view.innerHTML='';const W=Math.ceil((Math.max(...ln.x,1)+4)*PX
  const img=new Image();img.id='img';img.src=IMG+ln.k.replaceAll('/','_')+'.png';img.onerror=()=>img.parentNode&&img.parentNode.parentNode.remove();
  const ti=track(W,90);ti.appendChild(img);view.appendChild(row('line',ti,'imgrow'));
  const tr=track(W);[...ln.r].forEach((c,i)=>{const e=document.createElement('span');e.className='c '+ln.s[i];e.textContent=glyph(c);e.style.left=ln.x[i]*PX+'px';
+  if(hits(ln).some(o=>!o.ins&&o.i===i))e.classList.add('hit');
   e.onmousemove=ev=>tipShow(ev,ln,i);e.onmouseleave=()=>tip.style.display='none';tr.appendChild(e)});
+ hits(ln).filter(o=>o.ins).forEach(o=>{const m=document.createElement('span');m.className='insm';m.textContent='▾';
+  const xa=o.i>=0?ln.x[o.i]:ln.x[0]-1,xb=o.i+1<ln.x.length?ln.x[o.i+1]:xa+1;m.style.left=((xa+xb)/2)*PX+'px';m.title='inserted: '+glyph(CF.b);tr.appendChild(m)});
  view.appendChild(row('reference',tr));
  const h=document.createElement('div');h.className='row';h.innerHTML='<div class="lab">model reads</div>';const hs=document.createElement('span');hs.className='hyp';hs.textContent=ln.h;h.appendChild(hs);view.appendChild(h);
  const g=document.createElement('div');g.className='grp';g.textContent='probes per layer (■ identity + emission, □ identity only)';view.appendChild(g);
@@ -156,13 +207,17 @@ function show(ln){view.innerHTML='';const W=Math.ceil((Math.max(...ln.x,1)+4)*PX
     if(code==='o'){s.style.background='var(--grid)'}else s.style.background=col(code);t.appendChild(s)});
    const r=row(tag.replace('@',' α=') ,t);r.title=ln.ovh[tag];if(tag.endsWith('@1.5'))r.style.marginBottom='5px';view.appendChild(r)})}}
 function tipShow(ev,ln,i){const c=ln.r[i],st={o:'emitted',s:'replaced',d:'deleted'}[ln.s[i]];
- let h='<b>'+glyph(c).replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b> — '+st+(ln.lost[i]?'; deepest layer that still has it: <b>'+lab(ln.lost[i]).replace('never','none')+'</b>':'')+'<br>';
+ let h='<b>'+glyph(c).replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b> — '+st+(ln.rp[i]?' as <b>'+glyph(ln.rp[i]).replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b>':'')+(ln.lost[i]?'; deepest layer that still has it: <b>'+lab(ln.lost[i]).replace('never','none')+'</b>':'')+'<br>';
  h+=L.map((l,j)=>lab(l)+' '+(ln.id[j][i]==='1'?'id':'··')+'/'+(ln.em[j][i]==='1'?'em':'··')).join(' · ');
  if(ln.ov){const ch=D.tags.map((t,j)=>[t,ln.ov[j][i]]).filter(([t,code])=>code!==ln.s[i]);if(ch.length)h+='<br>changes under: '+ch.map(([t,code])=>t.replace('@',' α=')+' → '+({o:'emitted',s:'replaced',d:'deleted'}[code])).join(', ')}
  tip.innerHTML=h;tip.style.display='block';tip.style.left=Math.min(ev.clientX+12,innerWidth-330)+'px';tip.style.top=(ev.clientY+14)+'px'}
 ['q','fdel','fsp','fok'].forEach(id=>$('#'+id).addEventListener('input',fill));
+$('#conf').addEventListener('input',()=>{const v=$('#conf').value;CF=v===''?null:D.conf[+v];csum();fill();
+ if(CF){const first=D.lines.find(ln=>hits(ln).length&&(!$('#fok').checked||ln.c<=0.2))||D.lines.find(ln=>hits(ln).length);if(first){cur=first;fill();show(first)}}else if(cur)show(cur)});
 const good=D.lines.filter(ln=>ln.c<=0.2&&ln.r.length>=15&&nsp(ln)).sort((a,b)=>nd(b)-nd(a));
 cur=good[0]||D.lines[0];fill();show(cur);
+{const m=location.hash.match(/conf=(\d+)/);if(m&&D.conf[+m[1]]){$('#conf').value=m[1];$('#conf').dispatchEvent(new Event('input'))}}   // #conf=N preselects a confusion (shareable link)
+$('#conf').addEventListener('input',()=>{history.replaceState(null,'',$('#conf').value===''?location.pathname:'#conf='+$('#conf').value)});
 </script></body></html>
 """
 
@@ -182,6 +237,13 @@ def main(argv=None):
     names = [(n, c) for n, c in names if (out.parent / f"{n}.svg").exists()]
     out.write_text(render_page(data, names), encoding="utf-8")
     print(out, f"{out.stat().st_size / 1e6:.1f} MB")
+    idx = out.parent / f"confusions-{data['model']}__{data['set']}.json"
+    idx.write_text(json.dumps({"model": data["model"], "set": data["set"], "frame_px": 8,
+                               "note": "ref → hyp; '' = nothing (deletion or insertion); x = frame centre of the reference character "
+                                       "(forced CTC alignment, 8 px of the line per frame); lost = deepest layer whose probes still have a "
+                                       "deleted character; insertions: i = reference index they follow",
+                               "confusions": data["conf"]}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(idx)
     if a.images:
         if "heldout" in Path(a.practice).parts:
             raise SystemExit("practice lines only")

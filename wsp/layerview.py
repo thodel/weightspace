@@ -216,9 +216,12 @@ class Ridge:
         return W, self.ys / self.n - mu @ W
 
 
-def fold_docs(items: list[dict], k: int = FOLDS, seed: int = SEED) -> dict[str, int]:
-    """key → fold 0…k−1, whole documents at a time (documents in sha256 order, each to the fold with fewest lines)."""
-    doc = lambda x: x.get("doc") or x["key"].rsplit("/", 1)[0]
+def fold_docs(items: list[dict], k: int = FOLDS, seed: int = SEED, unit: str = "doc") -> dict[str, int]:
+    """key → fold 0…k−1, whole documents at a time (documents in sha256 order, each to the fold with fewest lines).
+    ``unit="page"`` folds by page (the key without its line part) for practice sets drawn from fewer than ``k``
+    documents, such as the Bern sets (two Transkribus documents): test lines then share a hand with training
+    lines, so the probes' scores are less independent than with document folds."""
+    doc = (lambda x: x["key"].rsplit("/", 1)[0]) if unit == "page" else (lambda x: x.get("doc") or x["key"].rsplit("/", 1)[0])
     lines = Counter(doc(x) for x in items)
     order = sorted(lines, key=lambda d: hashlib.sha256(f"{seed}:{d}".encode()).hexdigest())
     size, fold = [0] * k, {}
@@ -281,7 +284,7 @@ def _balanced(pred: np.ndarray, y: np.ndarray) -> tuple[int, int, int, int]:
     return int((pred[ch] == 1).sum()), int(ch.sum()), int((pred[~ch] == 0).sum()), int((~ch).sum())
 
 
-def run_probes(subject, items: list[dict], log=print) -> tuple[dict, dict]:
+def run_probes(subject, items: list[dict], log=print, fold_unit: str = "doc") -> tuple[dict, dict]:
     """Two probes per layer, both ridge readouts of one frame:
 
     * **identity** — trained on the frames the forced alignment gives a character, to that character;
@@ -292,7 +295,9 @@ def run_probes(subject, items: list[dict], log=print) -> tuple[dict, dict]:
     Cross-fitted over ``FOLDS`` document folds: for test fold f the probes are trained on the other folds
     but f+1, λ is chosen on f+1, so every line is scored once by probes that never saw its document.
     Pass 1 accumulates ridge sums per fold; pass 2 scores every line under its own and its predecessor's split."""
-    fold = fold_docs(items)
+    fold = fold_docs(items, unit=fold_unit)
+    if len(set(fold.values())) < FOLDS:
+        raise SystemExit(f"only {len(set(fold.values()))} of {FOLDS} folds have lines: use --fold-unit page")
     K = FOLDS
     classes = dict(subject.model.nn.named_children())["O_18"].lin.out_features
     ident = [dict() for _ in range(K)]; emit = [dict() for _ in range(K)]
@@ -553,6 +558,8 @@ def main(argv=None):
     ap.add_argument("--lines", nargs="*", default=None, help="keys for decision views (default: picked from test lines)")
     ap.add_argument("--views", type=int, default=4)
     ap.add_argument("--format", default="svg", choices=["svg", "png"])
+    ap.add_argument("--fold-unit", default="doc", choices=["doc", "page"],
+                    help="cross-fitting unit; page for sets from fewer than 5 documents (less independent test folds)")
     a = ap.parse_args(argv)
     if "heldout" in Path(a.practice).parts:
         raise SystemExit("layer probes read practice lines only")
@@ -560,10 +567,10 @@ def main(argv=None):
     subject = KrakenSubject(a.model)
     items = load(a.practice)
     model, pset = Path(a.model).stem, Path(a.practice).stem
-    meta, res = run_probes(subject, items)
+    meta, res = run_probes(subject, items, fold_unit=a.fold_unit)
     res.update(model=model, set=pset, meta={**meta, "model_sha256": sha256_file(Path(a.model)),
                                             "practice_sha256": sha256_file(Path(a.practice)), "lambdas": LAMBDAS,
-                                            "fold_rule": f"{FOLDS} folds by document, sha256('{SEED}:'+doc) order, each to the smallest fold"})
+                                            "fold_rule": f"{FOLDS} folds by {'page' if a.fold_unit == 'page' else 'document'}, sha256('{SEED}:'+unit) order, each to the smallest fold"})
     jp = out / f"{model}__{pset}.json"
     jp.write_text(json.dumps(res, ensure_ascii=False, indent=0))
     print(jp)
