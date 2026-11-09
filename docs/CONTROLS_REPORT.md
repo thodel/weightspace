@@ -140,7 +140,7 @@ Written into §2 of `docs/PROTOCOL.md`, marked **PROPOSED AMENDMENT (07.11.2026,
 
 # Follow-up (07.11.2026, later): sections 6–10
 
-Requested after the first report; CPU only, 4 threads per worker, nothing outside the repo and `~/atr-cache/wsp/`. New code: `wsp.metrics.bootstrap_delta(..., clusters=)` (two-stage cluster bootstrap: pages resampled, then lines within a drawn page; `ci95` unchanged), `wsp.metrics.page_of`, `scripts/sham_alpha_combined.py`, `scripts/global_interp.py`, `scripts/margins.py`, `scripts/recompute_intervals.py`, corruptions k9–k11 in `wsp/plant.py`. Aggregates in `docs/controls/`. Models for the programmers: Claude Sonnet 5.5 (`sonnet`), Claude Opus 5.5 (`opus`), Claude Haiku 5.5 (`haiku`) as fresh subagents given only their pack; Claude Fable 5.1 was requested for two more attempts and **failed with "out of usage credits"**, so no Fable attempt exists. All intervals below are 95 %.
+Requested after the first report; CPU only, 4 threads per worker, nothing outside the repo and `~/atr-cache/wsp/`. New code: `wsp.metrics.bootstrap_delta(..., clusters=)` (two-stage cluster bootstrap: pages resampled, then lines within a drawn page; `ci95` unchanged), `wsp.metrics.page_of`, `scripts/sham_alpha_combined.py`, `scripts/global_interp.py`, `scripts/margins.py`, `scripts/recompute_intervals.py`, corruptions k9–k11 in `wsp/plant.py`. Aggregates in `docs/controls/`. Models for the programmers: Claude Sonnet 5.5 (`sonnet`), Claude Opus 5.5 (`opus`), Claude Haiku 5.5 (`haiku`) as fresh subagents given only their pack; Claude Fable 5.1 (`fable`) attempts `f1` were first launched on 07.11.2026 and failed with "out of usage credits"; they were rerun on 09.11.2026 and are in §9c. All intervals below are 95 %.
 
 ## 6. Is the `combined-v1` gain distinguishable from sham and from plain averaging? (`docs/controls/combined_controls.json`)
 
@@ -236,23 +236,24 @@ Reading. (i) **A diffuse defect is found only by the programmer with passes, and
 
 ## 9c. Different programmers on the validation sessions (new runs `runs/20261107-val-*-o1/h1`)
 
-Opus 5.5 (`o1`) and Haiku 5.5 (`h1`) attempts on the same packs (6 attempts per model in total: three Sonnet, one Opus, one Haiku, one replay of the 06.11. program; Fable failed, see above). `xix-blb-v1` (practice `blb-val-300`): **0 of 6 attempts kept any edit** (Opus 5 passes / 4 edits; Haiku 5 / 4); the final model is the subject in every case. `combined-v1` (practice `bern-val`, held-out `bern-eval`, line / page-clustered intervals):
+Opus 5.5 (`o1`) and Haiku 5.5 (`h1`) attempts on the same packs (7 attempts per model in total: three Sonnet, one Opus, one Haiku, one Fable 5.1 `f1` run on 09.11.2026, one replay of the 06.11. Fable program). `xix-blb-v1` (practice `blb-val-300`): **0 of 7 attempts kept any edit** (Opus 5 passes / 4 edits; Haiku 5 / 4; Fable 10 / 9); the final model is the subject in every case. `combined-v1` (practice `bern-val`, held-out `bern-eval`, line / page-clustered intervals):
 
 | attempt | passes / edits / kept | practice C0 → last | held-out Δ points | line [95 %] | page [95 %] | kept |
 |---|---|---|---:|---|---|---|
 | a1 = a2 = a3 (Sonnet ×3, one final model) | 8–9 / 7–8 / 2 | 13.86 → 12.35–12.38 | −0.387 | [−0.693, −0.082] | [−0.838, +0.035] | blank −0.3; non-output α = 0.25 toward the sibling |
 | o1 (Opus 5.5) | 9 / 8 / 3 | 13.86 → 12.92 | −0.193 | [−0.562, +0.188] | [−0.788, +0.369] | blank −0.25 (after −0.5 refused); α = 0.25; a further 0.2 toward the sibling |
 | h1 (Haiku 5.5) | 7 / 6 / 1 | 13.86 → 12.51 | −0.314 | [−0.607, −0.024] | [−0.771, +0.086] | non-output α = 0.25 toward the sibling |
+| f1 (Fable 5.1, 09.11.) | 6 / 5 / 1 | 13.86 → 11.60 | −0.018 | [−0.426, +0.382] | [−0.623, +0.603] | non-output tensors α = 0.5 toward the sibling (judged on the 297 sibling-unseen lines) |
 | replay (Fable 5.1's 06.11. program with masks) | 9 / 8 / 1 | 13.86 → 12.17 | −0.320 | [−0.697, +0.071] | [−0.840, +0.189] | `L_12` from the sibling |
 
-All five attempts that kept something moved the model toward the sibling; the sizes of the held-out gains (−0.19 to −0.39) follow how far they went and none has a page interval excluding 0. The attempts are more varied than the three Sonnet runs were, but still not independent of the pack, which names the sibling as a donor and gives its CER on the practice lines.
+All six attempts that kept something moved the model toward the sibling; the held-out gains (−0.02 to −0.39) follow how far they went and none has a page interval excluding 0. Fable's `f1` went half-way (α = 0.5) in one step: practice falls the furthest of any attempt (13.86 → 11.60, −2.3 points) and held-out does not move (−0.02), exactly the α = 0.5 row of §6: the practice set rewards the overshoot that held-out does not. The attempts are more varied than the three Sonnet runs were, but still not independent of the pack, which names the sibling as a donor and gives its CER on the practice lines.
 
 ## 10. Not done in the follow-up
 
-- **The Fable run is NOT DONE.** Two Claude Fable 5.1 programmer attempts (`f1` on `xix-blb-v1` and on `bern-combined-v1`; folders `runs/validation/<model>/f1/` are empty) were launched on 07.11.2026 and failed immediately with "out of usage credits"; no Fable program, preregistration or session exists, and the tables of §3 and §9c contain no Fable row of this follow-up. (The `replay` rows are the 06.11. program of Fable 5.1, which is a different thing.) The run is scheduled for Monday 9 November 2026 in the morning and will be added to §9c if credits allow.
+- The Fable run (two attempts) failed on 07.11.2026 for lack of usage credits and was run on 09.11.2026; see §9c.
 
 - **The second independent attempt per planted-defect arm with a different pack ordering** was not run (it would be 16 further subagent sessions and the Fable credits had run out); the new programmers of §9b and §9c are separate attempts on new corruptions and new models, not repeats of the original eight cells. The variance of the original cells across attempts remains unmeasured.
-- Averages with `hertwig-v2` and of three siblings (C2 variants), a seed-variance null, C4, and a replacement for the failed Fable attempts.
+- Averages with `hertwig-v2` and of three siblings (C2 variants), a seed-variance null, and C4.
 - The sham of §6 is one family (Gaussian noise at the interpolation delta's per-tensor norm); a sham that keeps the *direction* of the delta but reshuffles it across tensors was not run.
 - Everything is CPU, one subject per pair, one held-out set per model; the margins use the greedy reading and a window definition stated above.
 - No session was discarded after its result was seen. Two errors (an unexported variable; a margin window that included neighbouring characters) were found and fixed before any number was used.

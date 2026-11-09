@@ -1,0 +1,14 @@
+{
+  "name": "20261109-val-xix-blb-v1-f1-b10-1",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-german-xix-blb-v1.mlmodel",
+  "subject_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+  "subject_file_sha256": "48caacb4a742b5b5ccd2a92a005a4ca701bdf7cef7859087832b6d726f5f8df4",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-val-300.jsonl",
+  "practice_sha256": "0118e9b73a3dd88add8d009236352f7c0dcb6ba5b4f81a619caff79b1baa8bca",
+  "practice_lines": 300,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-09T07:07:00.338651+00:00",
+  "unshare": true,
+  "deviations": []
+}
