@@ -21,4 +21,9 @@ that names the one it corrects.
 | 2026-11-07 | [Where xix-blb-v1 finds and loses characters](2026-11-07-f-layer-probes.md) | Each LSTM has a job: find, distinguish, space |
 | 2026-11-07 | [Which latin_incunabula candidate: neither](2026-11-07-g-candidate-decision.md) | Better on Fraktur, worse on abbreviations |
 | 2026-11-07 | [Adapter track A0–A4](2026-11-07-h-adapter-track.md) | Looping is chaotic; −11.5 points held-out, in stopping, not reading |
-| 2026-11-08 | [Phase 5 adapter session](2026-11-08-a-adapter-session-v2.md) | One attention direction; open, held-out scoring running |
+| 2026-11-08 | [Phase 5 adapter session](2026-11-08-a-adapter-session-v2.md) | One attention direction; −10 points on practice |
+| 2026-11-08 | [C4: retraining combined-v1 on corrected data](2026-11-08-b-c4-retrain.md) | The cheap gradient alternative beats the best edit |
+| 2026-11-08 | [Phase 5 adapter session: no held-out gain](2026-11-08-c-adapter-heldout.md) | +0.24 points on 733 pages; the edit swaps which pages loop |
+| 2026-11-08 | [latin_incunabula v3](2026-11-08-d-incunabula-v3.md) | Abbreviations spared, Fraktur gain kept; qualifies |
+| 2026-11-08 | [Exchange on out-of-domain material and across lineages](2026-11-08-e-exchange-ood.md) | Real but small; unrelated models cannot exchange |
+| 2026-11-09 | [A Fable programmer on the validation sessions](2026-11-09-a-fable-attempt.md) | Larger practice gain, no held-out gain |

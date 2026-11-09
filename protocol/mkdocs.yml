@@ -61,6 +61,11 @@ nav:
       - "2026-11-07 · Layer probes": journal/2026-11-07-f-layer-probes.md
       - "2026-11-07 · latin_incunabula candidate decision": journal/2026-11-07-g-candidate-decision.md
       - "2026-11-07 · Adapter track A0–A4": journal/2026-11-07-h-adapter-track.md
-      - "2026-11-08 · Phase 5 adapter session (open)": journal/2026-11-08-a-adapter-session-v2.md
+      - "2026-11-08 · Phase 5 adapter session": journal/2026-11-08-a-adapter-session-v2.md
+      - "2026-11-08 · C4 retrain on corrected data": journal/2026-11-08-b-c4-retrain.md
+      - "2026-11-08 · Phase 5 adapter: no held-out gain": journal/2026-11-08-c-adapter-heldout.md
+      - "2026-11-08 · latin_incunabula v3": journal/2026-11-08-d-incunabula-v3.md
+      - "2026-11-08 · Exchange out of domain and across lineages": journal/2026-11-08-e-exchange-ood.md
+      - "2026-11-09 · Fable programmer on the validation sessions": journal/2026-11-09-a-fable-attempt.md
   - Results: results.md
   - Figures: figures/README.md

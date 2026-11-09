@@ -6,9 +6,8 @@ are named.
 
 ## A4 — Intervals clustered by page { #a4 }
 
-**Date:** 2026-11-07. **Status:** in use for every result since the
-[controls](journal/2026-11-07-e-controls.md); the text is on the controls
-branch, not yet merged into the main protocol file.
+**Date:** 2026-11-07, adopted (in the protocol file since 2026-11-09). In use
+for every result since the [controls](journal/2026-11-07-e-controls.md).
 
 **Change:** every interval is also reported with a two-stage cluster bootstrap
 by page. The keep rule keeps the line-level interval so that earlier decisions

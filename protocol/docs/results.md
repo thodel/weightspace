@@ -116,14 +116,38 @@ collection. Neither enabled. [Journal](journal/2026-11-07-g-candidate-decision.m
 **A gain in stopping, not in reading,** on a quantity shown to be chaotic.
 [Journal](journal/2026-11-07-h-adapter-track.md).
 
-## Pending
+## R11 — C4: retraining `combined-v1` on the corrected data { #r11 }
 
-- Phase 5 adapter session `20261107-kurrent-page-v2-b10-1`: frozen, held-out
-  scoring in progress ([journal](journal/2026-11-08-a-adapter-session-v2.md)).
+5 epochs, lr 1e-5, three seeds: held-out 19.33 % → 18.77–18.79 %, Δ −0.54 to
+−0.56 points (page-clustered about [−1.1, −0.1]); at lr 5e-5, −0.98 to −1.02.
+At least as good as the best weight edit (−0.39). Gain on the Hertwig lines.
+Not shown: that the correction rather than more training causes it.
+[Journal](journal/2026-11-08-b-c4-retrain.md).
+
+## Phase 5 adapter session — no held-out gain
+
+`20261107-kurrent-page-v2-b10-1`: practice CER 0.4515 → 0.3470; 733 held-out
+pages 0.4012 → 0.4036, Δ +0.24 points [−3.5, +3.9]. The edit swaps which pages
+loop. [Journal](journal/2026-11-08-c-adapter-heldout.md).
+
+## R12 — `latin_incunabula` v3 qualifies { #r12 }
+
+Abbreviation rows spared. Held-out: NewsEye −1.66 [−2.02, −1.30] (pages),
+GT-Fraktur −0.21, own collection −0.02; MUFI share +0.014 (v1 +0.110). Serving
+path: median page −0.09 [−0.16, −0.03]. Registered and disabled.
+[Journal](journal/2026-11-08-d-incunabula-v3.md).
+
+## R13 — Exchange on out-of-domain material and across lineages { #r13 }
+
+First-convolution exchange stabilises the Kurrent model on held-out
+out-of-domain documents (−0.35 to −1.07 points, no own-material cost), below the
+preregistered minimum; Bern null; unrelated models cannot exchange units
+(correlation 0.2–0.4, every transplant breaks the model).
+[Journal](journal/2026-11-08-e-exchange-ood.md).
 ## Controls
 
 - **C2 average, C5 sham, global interpolation:** R7, R8.
-- **C4 retrain** on corrected data: not run (needs a go-ahead).
+- **C4 retrain** on corrected data: R11.
 
 - **C3 per-block α-sweep, `german-xix-v1 → german-xix-blb-v1`** (practice
   only): see the [journal entry](journal/2026-11-06-d-alpha-sweep.md).
