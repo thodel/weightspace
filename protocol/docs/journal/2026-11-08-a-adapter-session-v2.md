@@ -7,7 +7,7 @@
 !!! info "Open entry"
     The session is frozen; its one held-out scoring was still running when this
     entry was written. The held-out result will be a new entry, not an edit of
-    this one.
+    this one. **Outcome:** [no held-out gain](2026-11-08-c-adapter-heldout.md).
 
 ## Plan
 
