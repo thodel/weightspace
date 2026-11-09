@@ -140,6 +140,34 @@
    "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
    "unchanged": true
   },
+  "f1": {
+   "run": "20261109-val-xix-blb-v1-f1-b10-1",
+   "passes": 10,
+   "edits": 9,
+   "kept": 0,
+   "refused_by_rule": 9,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.1380487804878049,
+   "practice_vs_baseline_ci": [
+    -0.0009659502535619424,
+    0.00041524790299810044
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
   "replay": {
    "run": "20261107-val-xix-blb-v1-replay-b10-1",
    "passes": 9,
@@ -323,6 +351,36 @@
     0.08639557654648022
    ],
    "final_digest": "ffc6260e0985a90c80df756ed2ca99be7369b01e4b6ad36b807bf1d56b5db6be",
+   "unchanged": false
+  },
+  "f1": {
+   "run": "20261109-val-bern-combined-v1-f1-b10-1",
+   "passes": 6,
+   "edits": 5,
+   "kept": 1,
+   "refused_by_rule": 4,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "H1: the two fine-tunes of hertwig-v2 share a basin; the half-way point reads both hands be"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.11604213434639958,
+   "practice_vs_baseline_ci": [
+    -0.028983820277034084,
+    -0.017333717247336594
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.1931097008159565,
+   "delta_pts": -0.01813236627379866,
+   "ci95_pts": [
+    -0.42595840641443117,
+    0.38233045114993425
+   ],
+   "ci95_pages_pts": [
+    -0.6233008421192232,
+    0.6028090903610839
+   ],
+   "final_digest": "5bf2f6328850d93e26c5764cce01b3af8e985a807d5380975b90409d037bcf41",
    "unchanged": false
   },
   "replay": {

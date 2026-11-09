@@ -1,0 +1,13 @@
+C0: CER 0.1383 collapsed 2 passes left 9
+H1 blank bias -0.5 (refused): CER 0.1386 collapsed 1 passes left 8
+H1b blank bias -0.25 (refused): CER 0.1379 collapsed 2 passes left 7
+H2 space bias +0.6 (refused): CER 0.1390 collapsed 2 passes left 6
+H2b space bias +0.3 (refused): CER 0.1385 collapsed 2 passes left 5
+H3 weak letter rows x1.08 (refused): CER 0.1378 collapsed 2 passes left 4
+H4 parent alpha 0.1 all blocks (refused): CER 0.1432 collapsed 3 passes left 3
+H4b parent alpha 0.2 conv only (refused): CER 0.1393 collapsed 3 passes left 2
+H5 r bias +0.25 (refused): CER 0.1380 collapsed 2 passes left 1
+H6 O_18 weight x1.05 (refused): CER 0.1380 collapsed 2 passes left 0
+frozen: 10 passes, 9 edits, 0 kept; last CER 0.1380487804878049
+
+--- stderr ---
