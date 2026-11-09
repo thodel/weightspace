@@ -12,7 +12,7 @@ for model, (hs, dig) in CFG.items():
     items = load(f"data/heldout/{hs}.jsonl"); refs = [i["text"] for i in items]; PG = [page_of(i["key"]) for i in items]
     c = json.loads(next(SC.glob(f"heldout-{hs}-*-{dig[:16]}.json")).read_text())
     before = per_line_edits(c["hyps"], refs); bcer = c["metrics"]["cer"]
-    for att in ("a1", "a2", "a3", "o1", "h1", "replay"):
+    for att in ("a1", "a2", "a3", "o1", "h1", "f1", "replay"):
         rs = sorted(Path("runs").glob(f"*val-{model}-{att}-*"))
         if not rs:
             continue
