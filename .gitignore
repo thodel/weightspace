@@ -24,3 +24,4 @@ __pycache__/
 protocol/site/
 paper/build/
 paper/figures/*.png
+runs/*/.cache/
