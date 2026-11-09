@@ -1,0 +1,17 @@
+{
+ "H1_minus_v2": {
+  "delta_cer": 0.0023802614837977742,
+  "ci95": [
+   -0.035042542347345995,
+   0.03846934682336606
+  ],
+  "resamples": 2000,
+  "seed": 20261106,
+  "lines": 733
+ },
+ "cap_both": 37,
+ "cap_only_H1": 6,
+ "cap_only_v2": 7,
+ "pages_better": 225,
+ "pages_worse": 233
+}

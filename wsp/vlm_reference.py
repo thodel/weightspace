@@ -18,7 +18,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-TRAINER = Path.home() / "Repo/training-atr-models"
+#: The account's home, from where this repo lies (~/Repo/weightspace), not $HOME or the
+#: password database: the sandbox sets HOME to the run folder and ``unshare -U`` maps the
+#: uid to nobody, whose home is /nonexistent (wsp.run.sandbox_command).
+HOME = Path(__file__).resolve().parents[3]
+TRAINER = HOME / "Repo/training-atr-models"
 PY = TRAINER / ".venvs/vlm-train-tf5/bin/python"
 JOB = Path("/mnt/wbkolleg_dh_1/Textrecognition_Training/archive/train-manifests/"
            "20261029T133027Z-qwen3.5-4b-german-kurrent-xvi-xix-page-v2/job.json")
@@ -39,9 +43,16 @@ print(json.dumps(cmd))
 """
 
 
+def child_env() -> dict:
+    """The trainer's venv with the account's HF cache and temp dir, whatever HOME the caller has."""
+    return {**os.environ, "HOME": str(HOME), "HF_HUB_CACHE": str(HOME / ".cache/huggingface/hub"),
+            "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "TMPDIR": str(HOME / "atr-cache/tmp"),
+            "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines", "CUDA_VISIBLE_DEVICES": "0"}
+
+
 def command(adapter: str | None, pages: Path, data_root: Path, report: Path, max_new_tokens: int) -> list[str]:
     n = sum(1 for l in pages.read_text(encoding="utf-8").splitlines() if l.strip())
-    env = {**os.environ, "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines"}
+    env = child_env()
     out = subprocess.run([str(PY), "-c", _ARGV, str(JOB), adapter or "", str(pages), str(data_root),
                           str(report), str(max_new_tokens), str(n)],
                          capture_output=True, text=True, env=env, check=True)
@@ -55,13 +66,20 @@ def main(argv=None):
     ap.add_argument("--data-root", required=True)
     ap.add_argument("--report", required=True)
     ap.add_argument("--max-new-tokens", type=int, default=3072)
+    ap.add_argument("--repetition-penalty", type=float,
+                    help="decode comparator: the same scorer with only generate()'s repetition_penalty changed (wsp.rp_eval)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     cmd = command(a.adapter, Path(a.pages), Path(a.data_root), Path(a.report), a.max_new_tokens)
+    env = child_env()
+    if a.repetition_penalty:
+        i = cmd.index("vlm_train_svc.evaluate_qlora")
+        cmd[i] = "wsp.rp_eval"
+        env["WSP_REPETITION_PENALTY"] = str(a.repetition_penalty)
+        env["PYTHONPATH"] = f"{HOME / 'Repo/weightspace'}:{env['PYTHONPATH']}"
     print(" ".join(cmd), flush=True)
     if a.dry_run:
         return 0
-    env = {**os.environ, "PYTHONPATH": f"{TRAINER}/src:{TRAINER}/engines", "CUDA_VISIBLE_DEVICES": "0"}
     return subprocess.run(cmd, env=env, cwd=str(TRAINER)).returncode
 
 

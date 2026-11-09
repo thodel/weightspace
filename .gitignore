@@ -39,3 +39,5 @@ runs/*/*.adapter/
 runs/*/passes/
 runs/*/.cache/
 runs/*planted-adapter-p3-alpha2-*/diff.json
+runs/*/*.wsp-work/
+runs/*/work.adapter/

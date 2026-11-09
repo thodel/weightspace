@@ -173,3 +173,31 @@ def test_page_keep_refused_when_pages_at_cap_rise(tmp_path):
     assert subj.tensors()["gain"][0] == 0.5
     events = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()]
     assert events[-2]["page"]["at_cap"] == 3
+
+
+def test_a_pass_that_never_ran_is_not_counted(tmp_path):
+    subj, s = make(tmp_path, budget=2)
+
+    def refuse(practice):
+        raise RuntimeError("pass not started: card 0 full")
+    subj.forward = refuse
+    with pytest.raises(RuntimeError):
+        s.measure("refused")
+    assert s.budget_left == 2
+    assert not (tmp_path / "run" / "budget.json").exists()
+
+
+def test_reopened_session_compares_against_the_kept_state(tmp_path):
+    subj, s = make(tmp_path, budget=4)
+    s.measure("baseline")
+    h = s.hypothesis("gain fixes a->o", "CER to 0", "scaling")
+    s.edit("scale", ["gain"], hypothesis=h, factor=2.0)
+    s.measure("after scale")
+    assert s.keep("cer fell")
+    # a new process: the subject carries the kept weights, the session is built again
+    again = Session(subj, s.practice, tmp_path / "run", budget=4)
+    h = again.hypothesis("no-op", "no change", "none")
+    again.edit("scale", ["w"], hypothesis=h, factor=1.0)
+    again.measure("no-op")
+    assert again._vs_kept["delta_cer"] == 0
+    assert again._baseline_lines != again._kept_lines       # the baseline stayed the first pass
