@@ -1,0 +1,377 @@
+{
+ "report": "score-gt-20261108T203048",
+ "pages": 58,
+ "better": 36,
+ "worse": 15,
+ "equal": 7,
+ "median_page_delta_pt": -0.0900000000000005,
+ "median_ci95_pt": [
+  -0.1600000000000001,
+  -0.024999999999997247
+ ],
+ "weighted_delta_pt": -0.1417973484322821,
+ "weighted_ci95_pt": [
+  -0.2283005511612285,
+  -0.07141804665981022
+ ],
+ "medians": [
+  0.0416,
+  0.04135
+ ],
+ "weighted": [
+  0.1539622017448907,
+  0.15254422826056788
+ ],
+ "resamples": 2000,
+ "seed": 20261106,
+ "per_page": [
+  {
+   "file": "7474186.xml",
+   "chars": 1659,
+   "cer_unedited": 0.0366,
+   "cer_candidate": 0.0354
+  },
+  {
+   "file": "7474191.xml",
+   "chars": 1865,
+   "cer_unedited": 0.0287,
+   "cer_candidate": 0.0282
+  },
+  {
+   "file": "7474192.xml",
+   "chars": 1880,
+   "cer_unedited": 0.0403,
+   "cer_candidate": 0.0376
+  },
+  {
+   "file": "7474433.xml",
+   "chars": 1235,
+   "cer_unedited": 0.039,
+   "cer_candidate": 0.0381
+  },
+  {
+   "file": "7474437.xml",
+   "chars": 1179,
+   "cer_unedited": 0.0314,
+   "cer_candidate": 0.0296
+  },
+  {
+   "file": "7474445.xml",
+   "chars": 862,
+   "cer_unedited": 0.0402,
+   "cer_candidate": 0.0391
+  },
+  {
+   "file": "7474455.xml",
+   "chars": 1779,
+   "cer_unedited": 0.0367,
+   "cer_candidate": 0.0373
+  },
+  {
+   "file": "7474468.xml",
+   "chars": 1846,
+   "cer_unedited": 0.0347,
+   "cer_candidate": 0.0314
+  },
+  {
+   "file": "7474475.xml",
+   "chars": 1313,
+   "cer_unedited": 0.0287,
+   "cer_candidate": 0.0287
+  },
+  {
+   "file": "7474476.xml",
+   "chars": 438,
+   "cer_unedited": 0.0507,
+   "cer_candidate": 0.0507
+  },
+  {
+   "file": "7474479.xml",
+   "chars": 625,
+   "cer_unedited": 0.0485,
+   "cer_candidate": 0.0453
+  },
+  {
+   "file": "7474482.xml",
+   "chars": 1884,
+   "cer_unedited": 0.0408,
+   "cer_candidate": 0.0375
+  },
+  {
+   "file": "7474484.xml",
+   "chars": 629,
+   "cer_unedited": 0.0419,
+   "cer_candidate": 0.0371
+  },
+  {
+   "file": "7474485.xml",
+   "chars": 612,
+   "cer_unedited": 0.0231,
+   "cer_candidate": 0.0215
+  },
+  {
+   "file": "7474487.xml",
+   "chars": 300,
+   "cer_unedited": 0.034,
+   "cer_candidate": 0.0306
+  },
+  {
+   "file": "7474489.xml",
+   "chars": 525,
+   "cer_unedited": 0.0406,
+   "cer_candidate": 0.0426
+  },
+  {
+   "file": "7474491.xml",
+   "chars": 492,
+   "cer_unedited": 0.0455,
+   "cer_candidate": 0.0475
+  },
+  {
+   "file": "7474492.xml",
+   "chars": 539,
+   "cer_unedited": 0.0396,
+   "cer_candidate": 0.0415
+  },
+  {
+   "file": "7474494.xml",
+   "chars": 559,
+   "cer_unedited": 0.0385,
+   "cer_candidate": 0.033
+  },
+  {
+   "file": "7474505.xml",
+   "chars": 704,
+   "cer_unedited": 0.0418,
+   "cer_candidate": 0.0346
+  },
+  {
+   "file": "7474508.xml",
+   "chars": 1189,
+   "cer_unedited": 0.1534,
+   "cer_candidate": 0.1388
+  },
+  {
+   "file": "7482273.xml",
+   "chars": 2845,
+   "cer_unedited": 0.0996,
+   "cer_candidate": 0.0989
+  },
+  {
+   "file": "7482275.xml",
+   "chars": 3109,
+   "cer_unedited": 0.0401,
+   "cer_candidate": 0.0388
+  },
+  {
+   "file": "7483240.xml",
+   "chars": 2283,
+   "cer_unedited": 0.0234,
+   "cer_candidate": 0.0234
+  },
+  {
+   "file": "7483244.xml",
+   "chars": 2106,
+   "cer_unedited": 0.246,
+   "cer_candidate": 0.2455
+  },
+  {
+   "file": "7483251.xml",
+   "chars": 2359,
+   "cer_unedited": 0.6508,
+   "cer_candidate": 0.6499
+  },
+  {
+   "file": "7503472.xml",
+   "chars": 1809,
+   "cer_unedited": 0.08,
+   "cer_candidate": 0.0761
+  },
+  {
+   "file": "7503478.xml",
+   "chars": 1798,
+   "cer_unedited": 0.0414,
+   "cer_candidate": 0.0425
+  },
+  {
+   "file": "7503480.xml",
+   "chars": 2024,
+   "cer_unedited": 0.0466,
+   "cer_candidate": 0.0491
+  },
+  {
+   "file": "7544205.xml",
+   "chars": 3189,
+   "cer_unedited": 0.1455,
+   "cer_candidate": 0.1423
+  },
+  {
+   "file": "7545199.xml",
+   "chars": 1494,
+   "cer_unedited": 0.6612,
+   "cer_candidate": 0.6612
+  },
+  {
+   "file": "7545200.xml",
+   "chars": 2719,
+   "cer_unedited": 0.715,
+   "cer_candidate": 0.7135
+  },
+  {
+   "file": "7545201.xml",
+   "chars": 2807,
+   "cer_unedited": 0.624,
+   "cer_candidate": 0.6255
+  },
+  {
+   "file": "7599912.xml",
+   "chars": 1824,
+   "cer_unedited": 0.0192,
+   "cer_candidate": 0.0186
+  },
+  {
+   "file": "7635651.xml",
+   "chars": 1187,
+   "cer_unedited": 0.0161,
+   "cer_candidate": 0.0203
+  },
+  {
+   "file": "7635669.xml",
+   "chars": 1184,
+   "cer_unedited": 0.0238,
+   "cer_candidate": 0.0187
+  },
+  {
+   "file": "7637100.xml",
+   "chars": 2165,
+   "cer_unedited": 0.0241,
+   "cer_candidate": 0.0245
+  },
+  {
+   "file": "7637102.xml",
+   "chars": 2046,
+   "cer_unedited": 0.0271,
+   "cer_candidate": 0.0271
+  },
+  {
+   "file": "7638374.xml",
+   "chars": 2376,
+   "cer_unedited": 0.0,
+   "cer_candidate": 0.0004
+  },
+  {
+   "file": "7649662.xml",
+   "chars": 3258,
+   "cer_unedited": 0.6433,
+   "cer_candidate": 0.6423
+  },
+  {
+   "file": "7681880.xml",
+   "chars": 1936,
+   "cer_unedited": 0.0043,
+   "cer_candidate": 0.0048
+  },
+  {
+   "file": "7686548.xml",
+   "chars": 2713,
+   "cer_unedited": 0.1042,
+   "cer_candidate": 0.1023
+  },
+  {
+   "file": "7686553.xml",
+   "chars": 2771,
+   "cer_unedited": 0.098,
+   "cer_candidate": 0.095
+  },
+  {
+   "file": "7686554.xml",
+   "chars": 2939,
+   "cer_unedited": 0.0949,
+   "cer_candidate": 0.0935
+  },
+  {
+   "file": "7710960.xml",
+   "chars": 2142,
+   "cer_unedited": 0.0394,
+   "cer_candidate": 0.0408
+  },
+  {
+   "file": "7710964.xml",
+   "chars": 1210,
+   "cer_unedited": 0.0998,
+   "cer_candidate": 0.1015
+  },
+  {
+   "file": "7712733.xml",
+   "chars": 3617,
+   "cer_unedited": 0.0065,
+   "cer_candidate": 0.0065
+  },
+  {
+   "file": "7739821.xml",
+   "chars": 2582,
+   "cer_unedited": 0.1261,
+   "cer_candidate": 0.1269
+  },
+  {
+   "file": "7739822.xml",
+   "chars": 2755,
+   "cer_unedited": 0.0727,
+   "cer_candidate": 0.0705
+  },
+  {
+   "file": "7764257.xml",
+   "chars": 3751,
+   "cer_unedited": 0.031,
+   "cer_candidate": 0.0318
+  },
+  {
+   "file": "7764259.xml",
+   "chars": 1819,
+   "cer_unedited": 0.0321,
+   "cer_candidate": 0.0315
+  },
+  {
+   "file": "7764265.xml",
+   "chars": 2345,
+   "cer_unedited": 0.2258,
+   "cer_candidate": 0.2237
+  },
+  {
+   "file": "7764269.xml",
+   "chars": 1963,
+   "cer_unedited": 0.6092,
+   "cer_candidate": 0.6087
+  },
+  {
+   "file": "7764271.xml",
+   "chars": 3064,
+   "cer_unedited": 0.1747,
+   "cer_candidate": 0.1747
+  },
+  {
+   "file": "7788732.xml",
+   "chars": 1795,
+   "cer_unedited": 0.3001,
+   "cer_candidate": 0.2839
+  },
+  {
+   "file": "7788733.xml",
+   "chars": 1892,
+   "cer_unedited": 0.2468,
+   "cer_candidate": 0.24
+  },
+  {
+   "file": "7788736.xml",
+   "chars": 1781,
+   "cer_unedited": 0.1606,
+   "cer_candidate": 0.155
+  },
+  {
+   "file": "7788740.xml",
+   "chars": 2316,
+   "cer_unedited": 0.0438,
+   "cer_candidate": 0.0412
+  }
+ ]
+}
