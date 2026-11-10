@@ -99,3 +99,11 @@ docs/PHASE5_PLAN.md (decisions §7, status §8).
    - **C2 (average) and C6 (blind):** not run. There is no clean sibling
      adapter of the same base to average with, and the blind control belongs
      to the kraken track.
+
+## Addendum, 10.11.2026 (after the session; changes nothing above)
+
+**Programmer:** Claude Opus 5.5 (`claude-opus-5-5`, effort medium) in Claude Code on asteraix, in the Claude Code
+session that ran phases 1–5. It was not written down before the first pass, unlike session 1
+(`runs/20261106-german-xix-blb-v1-b10-1`, Fable 5.1). The model is taken from the session's record in the
+desktop app; no switch during the session is recorded there. A replicate with Claude Fable 5.1 as programmer, on
+the same subject, practice set and held-out set, is `runs/*-kurrent-page-v2-f1-b10-1` (pre-registered on its own).
