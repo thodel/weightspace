@@ -12,18 +12,19 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 8 November 2026"
-    **No weight edit has yet produced a held-out gain on a kraken model.**
-    Two budgeted sessions (15 edits) on training-line practice gave −0.010 and
-    +0.15 CER points; on unseen practice lines the one small gain (−0.39) is a
-    quarter-step merge toward a sibling, not a repair. A positive control shows
-    the method does repair planted, localised defects — but so does a blind
-    programmer and a hand-written rule list. On a page-level vision-language
-    adapter, one session gained −11.5 points held-out, a gain in where the
-    model stops writing, not in what it reads; a second session's held-out
-    score is running. Along the way the work found several defects in the
-    project's own data. Negative and null results are reported in full, as the
-    protocol requires.
+!!! note "Status — 9 November 2026"
+    **No weight edit has yet repaired a model.** On the kraken models, budgeted
+    sessions gave no held-out gain; the one small gain (−0.39 points) is a
+    quarter-step merge toward a sibling, and a short retrain on corrected data
+    does at least as well (−0.55). A positive control shows the method repairs
+    planted, localised defects — but so do a blind programmer and a rule list.
+    On a page-level vision-language adapter, two sessions found large practice
+    gains from pages that stop looping; neither transferred as a reading gain.
+    **Block exchange between related models does help** on material the model
+    was not trained for: one candidate (`latin_incunabula` v3) reads held-out
+    Fraktur 1.7 points better while keeping its abbreviations. Along the way the
+    work found several defects in the project's own data. Negative and null
+    results are reported in full, as the protocol requires.
 
 ## The models
 

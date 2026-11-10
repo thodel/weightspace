@@ -104,6 +104,7 @@ session whose edit is reported as a gain.
 
   `python -m wsp.collapse` classifies the lines the legacy test flagged
   (docs/PHASE4_REPORT.md).
+- *(07.11.2026)* Intervals are also reported with the two-stage cluster bootstrap by page (`bootstrap_delta(..., clusters=)`, key `ci95_cluster`); the keep rule keeps the line-level interval so that earlier decisions stay reproducible. A claim needs the page-level interval.
 - Every reported difference carries a paired per-line bootstrap 95 %
   interval (2,000 resamples, seed 20261106). A gain whose interval includes 0
   is reported as such.

@@ -23,7 +23,8 @@ from wsp.subject import Subject, Prediction
 
 
 class LoraSubject(Subject):
-    def __init__(self, adapter_dir: str | Path, forward: Callable[[Path, Sequence[dict]], list[str]] | None = None):
+    def __init__(self, adapter_dir: str | Path, forward: Callable[[Path, Sequence[dict]], list[str]] | None = None,
+                 work_dir: str | Path | None = None):
         from safetensors.numpy import load_file  # lazy
 
         self.dir = Path(adapter_dir)
@@ -31,7 +32,8 @@ class LoraSubject(Subject):
         self._state = {k: v.astype(np.float32) for k, v in load_file(str(self.dir / "adapter_model.safetensors")).items()}
         self._dtypes = {k: v.dtype for k, v in load_file(str(self.dir / "adapter_model.safetensors")).items()}
         self._forward = forward
-        self._work: Path | None = None
+        #: where a pass's adapter is written; a session puts it in its run folder, never beside the original
+        self._work: Path | None = Path(work_dir) if work_dir else None
 
     def describe(self) -> dict:
         mods = sorted({k.rsplit(".lora_", 1)[0] for k in self._state})
@@ -102,32 +104,49 @@ class LoraSubject(Subject):
         path.mkdir(parents=True, exist_ok=True)
         for f in self.dir.iterdir():
             if f.name != "adapter_model.safetensors" and f.is_file():
-                shutil.copy2(f, path / f.name)
-                os.chmod(path / f.name, 0o644)  # a read-only source (the cache copy of a trained adapter) must not make the edit read-only
+                dst = path / f.name
+                if dst.resolve() != f.resolve():
+                    dst.unlink(missing_ok=True)          # a read-only original's copy is read-only too
+                    shutil.copyfile(f, dst)
+                    os.chmod(dst, 0o644)  # a read-only source (the cache copy of a trained adapter) must not make the edit read-only
+        (path / "adapter_model.safetensors").unlink(missing_ok=True)
         save_file({k: v.astype(self._dtypes[k]) for k, v in self._state.items()}, str(path / "adapter_model.safetensors"))
-        self._work = path
         return path
 
 
+def _wait_for_card(wait_s: float, every_s: float = 300.0) -> None:
+    """#396's "pause": wait while card 0 lacks room or a trainer job waits; give up after wait_s."""
+    import time
+    from wsp import card
+    t0 = time.time()
+    while True:
+        ok, why = card.ready()
+        if ok:
+            return
+        if time.time() - t0 > wait_s:
+            raise RuntimeError(f"pass not started after {wait_s / 3600:.1f} h: {why}")
+        print(time.strftime("%H:%M"), "card 0 not ready, waiting:", why, flush=True)
+        time.sleep(every_s)
+
+
 def vllm_runner(render: str | Path, out_dir: str | Path,
-                python: str | Path = Path.home() / ".venvs/vllm/bin/python") -> Callable:
+                python: str | Path | None = None, wait_s: float = 6 * 3600) -> Callable:
     """A ``forward`` for LoraSubject: one ``wsp.vllm_forward`` process per pass on
     card 0, after ``wsp.card.ready`` (memory, and no trainer job waiting, #396).
     Practice items need only ``key``; the render directory holds images and prompt."""
-    from wsp import card
+    from wsp.vlm_reference import HOME
 
+    python = python or HOME / ".venvs/vllm/bin/python"
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     count = {"n": 0}
 
     def run(adapter: Path, practice: Sequence[dict]) -> list[dict]:
-        ok, why = card.ready()
-        if not ok:
-            raise RuntimeError(f"pass not started: {why}")
+        _wait_for_card(wait_s)
         count["n"] += 1
         keys = out_dir / f"pass-{count['n']:03d}.keys"
         keys.write_text("".join(p["key"] + "\n" for p in practice))
         out = out_dir / f"pass-{count['n']:03d}.jsonl"
-        env = {**os.environ, "CUDA_VISIBLE_DEVICES": "0", "HF_HUB_OFFLINE": "1",
+        env = {**os.environ, "HOME": str(HOME), "CUDA_VISIBLE_DEVICES": "0", "HF_HUB_OFFLINE": "1",
                "PATH": f"{Path(python).parent}:{os.environ.get('PATH', '')}",
                "PYTHONPATH": str(Path(__file__).resolve().parent.parent)}
         with open(out.with_suffix(".log"), "w") as log:
@@ -143,21 +162,18 @@ def vllm_runner(render: str | Path, out_dir: str | Path,
     return run
 
 
-def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: str | Path) -> Callable:
+def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: str | Path,
+                     wait_s: float = 6 * 3600) -> Callable:
     """A ``forward`` for LoraSubject through the trainer's own ``evaluate_qlora``
     (transformers, greedy, cap 3,072): the pass engine since gate G1 failed for
     vLLM (docs/PHASE5_PLAN.md §8). Practice items need ``key``; their draw rows
     (``source``, ``text``) come from ``practice_file``. Card 0 after ``wsp.card.ready``."""
-    from wsp import card
-
     rows = {json.loads(l)["key"]: json.loads(l) for l in Path(practice_file).read_text(encoding="utf-8").splitlines() if l.strip()}
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     count = {"n": 0}
 
     def run(adapter: Path, practice: Sequence[dict]) -> list[dict]:
-        ok, why = card.ready()
-        if not ok:
-            raise RuntimeError(f"pass not started: {why}")
+        _wait_for_card(wait_s)
         count["n"] += 1
         stem = out_dir / f"pass-{count['n']:03d}"
         draw = stem.with_suffix(".draw.jsonl")

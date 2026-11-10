@@ -74,7 +74,7 @@ Not a gain: the kept edit's practice gain came from the parent's own training li
 
 ### Note to R2 (07.11.2026)
 
-Re-aggregated on `blb-eval-hand` (the handwriting held-out set chosen by data properties, docs/PHASE5_REPORT.md; a re-aggregation of the one held-out reading, not a second evaluation): before 9.553 %, after 9.553 %, Δ −0.001 points [−0.055, +0.053]. The conclusion of R2 is unchanged.
+Re-aggregated on `blb-eval-hand` (the handwriting held-out set chosen by data properties, docs/PHASE5_CLEANUP_REPORT.md; a re-aggregation of the one held-out reading, not a second evaluation): before 9.553 %, after 9.553 %, Δ −0.001 points [−0.055, +0.053]. The conclusion of R2 is unchanged.
 
 ## R4 — `kraken-latin_incunabula-wsp-v1`: a block exchange, held out and through the serving path (07.11.2026)
 
@@ -207,7 +207,7 @@ Rank-64 update of 128 modules (Qwen3.5-4B, Kurrent pages). Readings: norms tight
 
 Preregistered (commit 2ea91a3) before any run. Subject `kraken-bern-combined-v1`; 151 pages, 4,927 lines (Hertwig from the 22.10 export, correct images); validation the trainer's 17 pages; held-out `bern-eval` (545 lines, 14 pages), scored once per model on CPU; `ketos` 7.0.2 on card 0, nothing registered. Arm A (C4 as in PROTOCOL §4: 5 epochs, lr 1e-5, seeds 1-3): held-out 19.33 → 18.77-18.79 %, Δ -0.54/-0.56/-0.56 (page-clustered about [-1.1, -0.1]), equal to the interpolation edit (-0.39) by the rule. Arm B (lr 5e-5, secondary): Δ -0.98 to -1.02, larger than the interpolation edit (-0.6, page interval reaching 0). Seed sd within an arm 0.01-0.02. The gain lies on the Hertwig lines (-1.30 A, -2.22 B) and not on the Schlussredaktion lines. Not shown: that the correction, and not additional training, causes the gain (no control on uncorrected pairs). Manuscript Section 7.11.
 
-## R12 — latin_incunabula v3: an exchange that spares the abbreviation rows qualifies under a rule with minimum effects (08.11.2026)
+## R12 — latin_incunabula v3: an exchange that spares the abbreviation rows qualifies under a rule with minimum effects, and holds through the serving path (08.11.2026)
 
 Rule written, committed and pushed before any v3 held-out score (`runs/20261108-latin_incunabula-exchange-3/preregistration.md`,
 commit `fdf25e2`). **Candidate v3**: `Gn_1` + `Gn_3` from kraken-catmus_print_large and `O_15` half-way, but only on the
@@ -287,10 +287,28 @@ Block statistics, all blocks that moved (share of CER, line level; pages):
   combining marks and capitals.
 - **Reichenau total unchanged** (−0.02, both intervals containing 0). Under the page-clustered interval, R9's "v2 worse
   by +0.04" would not have held (pages [−0.01, +0.10]); that decision stands as recorded.
-- **Decision: v3 qualifies; nothing is registered or enabled.** As preregistered, the serving-path read (registration
-  on the share, enabled for the evaluation only, 58 Reichenau pages through the gateway as R4, disabled again) waits for
-  the user's OK; offering it to agentic_historian would be a further decision. The three held-out sets have now been read
-  by three exchange candidates of this model; any further candidate needs fresh held-out lines.
+- **Decision: v3 qualifies.** The three held-out sets have now been read by three exchange candidates of this model; any
+  further candidate needs fresh held-out lines.
+
+**Serving path (with the user's OK, 08.11.2026).** As R4: exported with `wsp.run export` (file sha256 `11fffd8a…`),
+weights copied to `training_folder/trained/kraken-latin_incunabula-wsp-v3/` on the share, registered with
+`atr_training.registration` (`registry/trained/kraken-latin_incunabula-wsp-v3.yaml`) disabled, enabled for the evaluation
+only, read with `start_batch` (smoke run of 3 pages `wsp-reichenau-heldout-v3-smoke`, then run `wsp-reichenau-heldout-v3`,
+source `datasets:reichenau-incunabula-wsp/reichenau_eval`, both models in the same run), scored with
+`score_ground_truth` by page name (report `score-gt-20261108T203048`), then **disabled again**. The unedited model's
+reading equals R4's on all 58 pages. Paired over pages (`wsp.serving_path`, 2,000 resamples, seed 20261106; on R4's
+pages it reproduces R4's numbers):
+
+| measurement | unedited | v3 | Δ (points) | 95 % interval | R4's v1 Δ |
+|---|---:|---:|---:|---|---:|
+| serving path, 58 pages, median page CER | 4.16 % | 4.14 % | −0.09 (median of page deltas) | [−0.16, −0.03] | −0.19 [−0.27, −0.10] |
+| serving path, character-weighted | 15.40 % | 15.25 % | −0.14 | [−0.23, −0.07] | −0.23 [−0.34, −0.13] |
+
+Per page: better on 36, worse on 15, equal on 7 (`runs/20261108-latin_incunabula-exchange-3/serving_path.json`). The
+serving path is not worse; v3 reads its own collection through the gateway slightly better, by about half of v1's gain.
+**v3 stays registered and disabled**, like v1: whether it is offered to agentic_historian is the user's decision. For an
+edition that keeps abbreviations it is the better of the three candidates (MUFI +0.014 against v1's +0.110); its Fraktur
+gain is about four fifths of v1's on NewsEye and half on GT-Fraktur.
 
 ## R13 — RQ3 on out-of-domain material: first-convolution exchange stabilises a little, below the pre-registered minimum; no exchange across lineages (08.11.2026; docs/MODEL_FAMILY.md, section of 08.11.2026)
 
