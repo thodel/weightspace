@@ -1,7 +1,7 @@
 # Phase 5 report: one direction that stops the v2 Kurrent adapter on practice pages, and not on held-out pages (asteraix, 07.–08.11.2026)
 
 Branch `phase5`. The plan and its decisions are in `docs/PHASE5_PLAN.md`, and the
-session is `runs/20261107-kurrent-page-v2-b10-1/`. Everything ran on card 0
+session is `runs/20261107-kurrent-page-v2-b10-1/`. Programmer: Claude Opus 5.5 (recorded afterwards, see the addendum to the pre-registration). The earlier phase-5 clean-up (collapse detector, `blb-eval-hand`) is in `docs/PHASE5_CLEANUP_REPORT.md`. Everything ran on card 0
 through the trainer's own `evaluate_qlora`. Nothing was written to the share,
 the registry, HF or the trainer.
 
