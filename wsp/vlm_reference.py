@@ -21,7 +21,9 @@ from pathlib import Path
 #: The account's home, from where this repo lies (~/Repo/weightspace), not $HOME or the
 #: password database: the sandbox sets HOME to the run folder and ``unshare -U`` maps the
 #: uid to nobody, whose home is /nonexistent (wsp.run.sandbox_command).
-HOME = Path(__file__).resolve().parents[3]
+# the account's home from the repo's place (the sandbox sets HOME to the run folder); a worktree sits
+# deeper (.claude/worktrees/<name>), so take the first ancestor that holds atr-cache
+HOME = next((p for p in Path(__file__).resolve().parents if (p / "atr-cache").is_dir()), Path(__file__).resolve().parents[3])
 TRAINER = HOME / "Repo/training-atr-models"
 PY = TRAINER / ".venvs/vlm-train-tf5/bin/python"
 JOB = Path("/mnt/wbkolleg_dh_1/Textrecognition_Training/archive/train-manifests/"
