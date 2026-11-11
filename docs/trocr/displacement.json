@@ -1,0 +1,96 @@
+{
+ "cosines": {
+  "base->kurrent | base->v2": {
+   "encoder": 0.20936897226054574,
+   "decoder without embedding": 0.13619449581102383,
+   "decoder embedding (tied)": 0.4158154495532038
+  },
+  "base->kurrent | base->medieval": {
+   "encoder": 0.18240796972759526,
+   "decoder without embedding": 0.1213660370697763,
+   "decoder embedding (tied)": 0.5730862761093751
+  },
+  "base->v2 | base->medieval": {
+   "encoder": 0.2032995986015391,
+   "decoder without embedding": 0.12336964143605897,
+   "decoder embedding (tied)": 0.5151711726252357
+  },
+  "xvi-xvii->from-kurrent-v2 | xvi-xvii->full-v1": {
+   "encoder": 0.2369680244155863,
+   "decoder without embedding": 0.11240998847594634,
+   "decoder embedding (tied)": 0.18177539853014885
+  },
+  "base->kurrent | kurrent->xvi-xvii": {
+   "encoder": 0.07012237374052482,
+   "decoder without embedding": 0.02397579623756199,
+   "decoder embedding (tied)": -0.47644932224289627
+  },
+  "kurrent->xvi-xvii | xvi-xvii->from-kurrent-v2": {
+   "encoder": -0.006877112501145899,
+   "decoder without embedding": -0.018081622692424568,
+   "decoder embedding (tied)": -0.2877128068989655
+  },
+  "kurrent->xvi-xvii | xvi-xvii->full-v1": {
+   "encoder": 0.006980904426575749,
+   "decoder without embedding": -0.01867578947095833,
+   "decoder embedding (tied)": -0.3086731917225219
+  },
+  "base->kurrent | xvi-xvii->from-kurrent-v2": {
+   "encoder": 0.01426771417063629,
+   "decoder without embedding": 0.0033469268981929025,
+   "decoder embedding (tied)": 0.08535445010362915
+  },
+  "xvi-xvii->from-kurrent-v2 | base->v2": {
+   "encoder": 0.07742568328004935,
+   "decoder without embedding": 0.0320617118902873,
+   "decoder embedding (tied)": -0.02455986440194605
+  }
+ },
+ "norm_of_move": {
+  "base->kurrent": {
+   "encoder": 96.27081504585128,
+   "decoder without embedding": 127.3743587996743,
+   "decoder embedding (tied)": 248.63914155617942
+  },
+  "base->v2": {
+   "encoder": 34.07327486511763,
+   "decoder without embedding": 51.892175010502044,
+   "decoder embedding (tied)": 86.0294049008189
+  },
+  "xvi-xvii->from-kurrent-v2": {
+   "encoder": 35.1662712366742,
+   "decoder without embedding": 53.91952060656674,
+   "decoder embedding (tied)": 160.51956232031532
+  },
+  "kurrent->xvi-xvii": {
+   "encoder": 99.9895611000499,
+   "decoder without embedding": 134.05608203240618,
+   "decoder embedding (tied)": 289.8704831776248
+  }
+ },
+ "pooler_identical_share": {
+  "kurrent|xvi-xvii": 1.0,
+  "kurrent|v2": 0.5,
+  "kurrent|medieval": 0.5,
+  "from-kurrent-v2|kurrent": 1.0,
+  "from-kurrent-v2|xvi-xvii": 1.0,
+  "from-kurrent-v2|v2": 0.5,
+  "from-kurrent-v2|full-v1": 1.0,
+  "from-kurrent-v2|medieval": 0.5,
+  "v2|xvi-xvii": 0.5,
+  "full-v1|kurrent": 1.0,
+  "full-v1|xvi-xvii": 1.0,
+  "full-v1|v2": 0.5,
+  "full-v1|medieval": 0.5,
+  "medieval|xvi-xvii": 0.5,
+  "medieval|v2": 0.5
+ },
+ "pooler_present_in": [
+  "kurrent",
+  "xvi-xvii",
+  "from-kurrent-v2",
+  "v2",
+  "full-v1",
+  "medieval"
+ ]
+}
