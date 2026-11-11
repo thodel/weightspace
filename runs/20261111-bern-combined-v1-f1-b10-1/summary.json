@@ -6127,7 +6127,51 @@
     "file_sha256": "bc08d2f93819bbe300e7819e27d4ff1a8803ea387cf8a846364327a3d42635ba",
     "tensor_digest": "4c6d17980cb8a5b33a5f0f1a9dae72c74480b1263803f533c631e05cfc66008c",
     "how": "wsp.run export, copied to the share, atr_training.registration (training-atr-models 81539a6) with enabled: false",
-    "serving_path": "not run",
-    "asked_by": "user, 11.11.2026 (after the session; the task's rule 'nothing is registered' was lifted for this)"
+    "serving_path": {
+      "enabled_for_evaluation": "2026-11-11T21:14:45Z",
+      "disabled_again": "2026-11-11T21:39:18Z",
+      "dataset": "/mnt/wbkolleg_dh_1/tei/datasets/bern-disputation-wsp/bern_eval (14 pages)",
+      "runs": [
+        "wsp-bern-heldout-f1-smoke",
+        "wsp-bern-heldout-f1"
+      ],
+      "report": "score-gt-20261111T213917",
+      "weighted_delta_pt": -2.1569340119340086,
+      "weighted_ci95_pt": [
+        -3.316156557675942,
+        -1.0482390737709957
+      ],
+      "median_page_delta_pt": -2.4150000000000005,
+      "median_ci95_pt": [
+        -3.6149999999999993,
+        -0.07000000000000339
+      ],
+      "better_worse": [
+        11,
+        3
+      ],
+      "by_hand": {
+        "hertwig": {
+          "weighted_delta_pt": -0.04347522403795878,
+          "weighted_ci95_pt": [
+            -0.6848478134110825,
+            0.5573898045227954
+          ],
+          "better": 3,
+          "worse": 3
+        },
+        "schlussredaktion": {
+          "weighted_delta_pt": -3.8439659162634117,
+          "weighted_ci95_pt": [
+            -4.886495828367107,
+            -2.9105740213147655
+          ],
+          "better": 8,
+          "worse": 0
+        }
+      },
+      "file": "serving_path.json"
+    },
+    "asked_by": "user, 11.11.2026 (registration, then the serving-path read with two share writes)"
   }
 }

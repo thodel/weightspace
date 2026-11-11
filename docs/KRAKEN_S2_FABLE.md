@@ -131,8 +131,40 @@ research share as a **disabled** candidate, in the same way as `latin_incunabula
   `registry/trained/kraken-bern-combined-wsp-v1.yaml`, `enabled: false`, engine kraken, task htr,
   level page. The description names it a candidate, not for production.
 
-It was **not** enabled and **not** read through the serving path (gateway, `start_batch`,
-`score_ground_truth`). Its held-out number is the harness's only. Before it is offered for use,
-the runbook's step 4 (`docs/ASTERAIX_RUNBOOK.md` §5) would read `bern-eval` through the gateway
-with the unedited model in the same run. Session 2's frozen model (Opus) was not registered: it
-did not gain on held-out.
+### Serving path (11.11.2026, 22:14–22:39 CET, at the user's request)
+
+As R4 and R12, with the user's OK for two writes to the share:
+
+- The 14 `bern-eval` pages (6 Hertwig, 8 Schlussredaktion) were written to
+  `tei/datasets/bern-disputation-wsp/bern_eval/`: images (PNG) and PAGE XML unchanged from the
+  parquet shards the line set was cut from, `imageFilename` set to the new names
+  `hertwig_pNNNN` / `schlussredaktion_pNNNN`, with a README and a manifest of sha256s.
+- The candidate was enabled for the evaluation only (22:14 CET). The gateway listed it about
+  20 s later.
+- `start_batch`, source `datasets:bern-disputation-wsp/bern_eval`, both models in one run: smoke
+  run `wsp-bern-heldout-f1-smoke` (3 pages), then `wsp-bern-heldout-f1` (14 pages).
+- `score_ground_truth` by page name (report `score-gt-20261111T213917`, all 14 pages taken by
+  name, none missing). Then the candidate was **disabled again** (22:39 CET).
+- Paired over pages with `wsp.serving_path` (2,000 resamples, seed 20261106):
+  `runs/…/serving_path.json`; the per-page numbers are in `runs/…/score_report_serving.json`.
+
+| measurement, Δ in CER points | all 14 pages | Hertwig (6) | Schlussredaktion (8) |
+|---|---:|---:|---:|
+| harness, lines, page-clustered (§3) | −0.57 [−1.15, −0.05] | −1.32 [−2.36, −0.60] | +0.02 [−0.41, +0.52] |
+| serving path, median page CER (unedited → candidate) | 23.83 → 20.91 % | 37.06 → 36.99 % | 18.54 → 15.57 % |
+| serving path, median of page deltas | −2.42 [−3.61, −0.07] | +0.17 [−0.88, +0.87] | −3.61 [−5.25, −2.48] |
+| serving path, character-weighted | **−2.16 [−3.32, −1.05]** | −0.04 [−0.68, +0.56] | **−3.84 [−4.89, −2.91]** |
+| pages better / worse | 11 / 3 | 3 / 3 | 8 / 0 |
+
+**The candidate is not worse through the serving path; it is better, and by more than in the
+harness. But the gain sits on the other hand.** In the harness the gain is on Hertwig and
+nothing moves on Schlussredaktion. Through the gateway Hertwig does not move and every
+Schlussredaktion page improves. The two measurements differ in segmentation: the harness reads the
+ground-truth line crops, the gateway segments each page itself, and its CER is about twice the
+harness's. Not tested here, so only a guess: the edit changes how the model reads the gateway's
+line crops of the Schlussredaktion pages (for example the lowered blank bias, which did nothing
+on the ground-truth crops). The split control of §4 was not repeated through the gateway.
+Fourteen pages from two documents; the interval is over pages, not documents.
+
+The candidate stays registered and **disabled**. Offering it for use is the user's decision.
+Session 2's frozen model (Opus) was not registered: it did not gain on held-out.

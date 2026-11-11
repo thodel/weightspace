@@ -68,7 +68,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 1. **TrOCR track:** decisions 1-4 of `docs/epics/EPIC_TROCR_TRACK.md` before stage 0 on asteraix.
 
 2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
-2b. **`kraken-bern-combined-wsp-v1`** (Fable replicate of kraken session 2, held-out −0.57, page [−1.15, −0.05]) is registered and disabled. Read it through the serving path before offering it? (`docs/KRAKEN_S2_FABLE.md` §6)
+2b. **Offer `kraken-bern-combined-wsp-v1` for use?** Fable replicate of kraken session 2; registered and disabled. Held-out −0.57 (harness, lines) and −2.16 [−3.32, −1.05] through the serving path, but the two measurements put the gain on different hands (`docs/KRAKEN_S2_FABLE.md` §6).
 3. **Rotate leaked secrets:** the Zotero API key, and the Nextcloud admin and database passwords.
 4. **Close epic #3**: all sub-tasks are done.
 5. **Amendments:** A3 (donor rule and practice side) and A5 (sham noise floor for page-level sessions) are proposed, not adopted. A4 (page-clustered intervals) is adopted.
@@ -104,6 +104,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - the evaluation set `tei/datasets/reichenau-incunabula-wsp/`;
   - the registrations of `kraken-latin_incunabula-wsp-v1` and `-v3`, both disabled;
   - the registration of `kraken-bern-combined-wsp-v1` (Fable replicate of session 2), disabled, 11.11.2026.
+  - the evaluation set `tei/datasets/bern-disputation-wsp/` (the 14 `bern-eval` pages), 11.11.2026.
 - **Sessions:** nothing else is registered, uploaded or served by a session.
 - **Software and weights:** kraken pinned at 7.0.2. Weights are not committed.
 - **Privacy:** no children's first names or other personal data in public repositories.

@@ -56,9 +56,16 @@ held-out one. So [A3](../amendments.md#a3) stands as a reason to move practice o
 training side. One replicate each, so this is a difference between two runs, not between two
 models.
 
-## Registration (15:08 CET)
+## Registration and serving path (15:08 and 22:14–22:39 CET)
 
 At the user's request the frozen model was registered as `kraken-bern-combined-wsp-v1`, like
 the `latin_incunabula` candidates: exported, weights copied to the trainer's folder on the
-share, registry record written with `enabled: false`. It has not been enabled or read through
-the serving path, so its held-out number is still the harness's alone.
+share, registry record written with `enabled: false`. Later the same evening it was enabled for
+the evaluation only, the 14 held-out pages were read through the gateway with the unedited
+model in the same run, and it was disabled again.
+
+Through the gateway the candidate is better by 2.16 points (character-weighted, page interval
+[−3.32, −1.05]), on 11 of 14 pages. The surprise is where: every Schlussredaktion page improves
+and Hertwig does not move, the reverse of the line-level result. The gateway segments the pages
+itself, so the two measurements read different line crops. Why the edit helps on those crops
+is not yet tested.
