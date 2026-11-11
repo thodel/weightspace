@@ -127,3 +127,11 @@ Identical, with: pass = one vLLM batch of fixed page count; sampling pinned
 trainer's own eval set for that adapter (`docs/EVAL_SETS.md` in
 training-atr-models), scored by the same `wsp.metrics` code; C4 = one short
 QLoRA continuation through `train_spec`.
+
+**Proposed amendment (11.11.2026, not adopted): a sham noise floor for page-level sessions.**
+Two phase-5 adapter sessions with different programmers kept the same edit. Its practice gain was −10.45 points, and on held-out pages it gained nothing (`docs/PHASE5_REPORT.md`, `docs/PHASE5_FABLE_REPORT.md`). One of three seeded random directions out of the same module passed the keep rule on the 64 practice pages (−5.7 [−11.8, −1.2]). For sessions whose pass reads whole pages, the proposal has three parts:
+- keep an edit only if it beats the spread of several seeded C5 shams of the same module and norm;
+- use a practice set with enough looping pages (about 200–300 pages for 15–20 loops);
+- measure stopping as the end-of-turn margin at the reference's true end, in one teacher-forced pass, rather than by decoding to the end.
+
+Protocol site: amendment A5.
