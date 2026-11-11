@@ -27,3 +27,4 @@ that names the one it corrects.
 | 2026-11-08 | [latin_incunabula v3](2026-11-08-d-incunabula-v3.md) | Abbreviations spared, Fraktur gain kept; qualifies |
 | 2026-11-08 | [Exchange on out-of-domain material and across lineages](2026-11-08-e-exchange-ood.md) | Real but small; unrelated models cannot exchange |
 | 2026-11-09 | [A Fable programmer on the validation sessions](2026-11-09-a-fable-attempt.md) | Larger practice gain, no held-out gain |
+| 2026-11-11 | [Phase 5 with a Fable programmer](2026-11-11-a-phase5-fable.md) | Same direction, same adapter, same held-out null; a random direction passes the keep rule |

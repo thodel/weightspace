@@ -1,0 +1,16 @@
+start 2026-11-10T17:30:39Z program_01.py
+84934656 parameters; 10 passes left
+[C0] cer 0.4515  truncated 0.2564  length_ratio 1.226  at_cap 9  loops 12
+[C0] vs last kept: delta +0.0000  ci95 [+0.0000, +0.0000]
+baseline reproduces C0; continuing with H1
+  layers.31.self_attn.o_proj: sigma[:4] [2.226 1.586 1.397 1.277]  share of module energy in dir 0 0.169
+[H1] cer 0.3470  truncated 0.2341  length_ratio 1.126  at_cap 4  loops 8
+[H1] vs last kept: delta -0.1045  ci95 [-0.2031, -0.0240]
+H1 kept
+  layers.31.mlp.down_proj: sigma[:4] [2.612 1.558 1.398 1.358]  share of module energy in dir 0 0.174
+  layers.27.mlp.down_proj: sigma[:4] [2.678 2.267 2.171 2.059]  share of module energy in dir 0 0.113
+[H2] cer 0.3922  truncated 0.2346  length_ratio 1.167  at_cap 6  loops 11
+[H2] vs last kept: delta +0.0452  ci95 [-0.0244, +0.1578]
+H2 refused (undone)
+program_01 done; 7 passes left; no freeze
+end 2026-11-10T20:32:48Z rc=0

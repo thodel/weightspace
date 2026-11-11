@@ -1,0 +1,7 @@
+start 2026-11-10T22:33:10Z program_03.py
+84934656 parameters; 5 passes left
+  layers.31.self_attn.o_proj in the restored state: sigma[:3] [1.586 1.397 1.277]  smallest 5.94e-08
+frozen: {'used': 5, 'edits': 4, 'kept': 1, 'final_digest': 'ac8346f939b495653c9762ccdb84d598940397f0c5e9dbe534cae231c85acadf'}
+changed tensors: ['layers.31.self_attn.o_proj.lora_B.weight']
+last pass (not the kept state; the kept state is pass 2, H1): 0.3859371968626147
+end 2026-11-10T22:33:13Z rc=0
