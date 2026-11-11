@@ -79,6 +79,6 @@ written by the programmer.
        file name no edit and no result of session 2.
      - **Attempt 0 was discarded** before any pass. This is a deviation, also recorded in
        `summary.json`. An earlier wording of this section was visible to the first programmer
-       subagent and said which edit session 2 kept. That subagent's round-0 files were set
+       subagent and contained information about session 2's outcome. That subagent's round-0 files were set
        aside unrun; after the session they are in `attempt0_discarded/`. The programmer of this
        session is a fresh subagent that did not see them.
