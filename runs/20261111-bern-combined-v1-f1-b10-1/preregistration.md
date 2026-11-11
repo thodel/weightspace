@@ -124,6 +124,50 @@ written by the programmer.
    per-tensor diff suggests, and is not removable by output-bias shifts or by linear combination with
    its relatives: nothing found, nothing kept.
 
+   **Round 1 (11.11.2026, 09:05 UTC, after passes 1–3; written before pass 4).** Results so far: C0
+   reproduced (0.1456, collapsed 29). H1 kept: 0.1444, Δ −0.0012 [−0.0023, −0.0002]; 16 lines better,
+   7 worse; deletions 1041 → 1002, insertions 153 → 161. H2 (sibling soup α 0.5) refused: Δ −0.0016
+   [−0.0076, +0.0033]; 68 lines better, 77 worse, 155 same, and the net gain of 17 edits sits in one
+   Hertwig line (−20, `p0027/tr_2_tl_5`, recovered from a collapse); the per-line changes are
+   convention swaps in both directions (`d↔D`, `u↔v`, `,↔/`). The children's difference is not a
+   direction that helps: **H2b and H2c are dropped**, and H5 (L_12-only soup) with them. Also read
+   from the kept state: 580 of the 1564 edits sit in the 29 collapsed lines, most of them small crops
+   (widths 80–320 px against a median of 1472) that return an empty string for all three models; no
+   edit will reach them. On Hertwig lines the subject applies Schlussredaktion conventions (`,→/` 12,
+   `u→v` 11, `̈→ͤ` 9, `d→D` 8) and deletes `"` 16 times out of 17 occurrences; `"` occurs 17 times in
+   Hertwig and twice in Schlussredaktion text, and its row is the one practice-relevant row with the
+   label-noise signature of the diff (norm 3.03 → 4.27, bias −0.01 → −0.15, cosine 0.894 to the
+   parent's row; the other practice characters have cosine ≥ 0.96).
+
+   Plan for `program_02.py` (passes 4–7, in this order; 3 passes stay for round 2 or the freeze):
+   - **H1b — second blank step.** `add` −0.20 on `O_18.lin.bias[0]` (total −0.40 from the subject).
+     *Prediction:* 0 to −0.3 points, deletions down by 20–40, insertions up by ≤ 15, collapsed not
+     up. *If refused:* the blank knob is exhausted at −0.20; no third step.
+   - **H3 — space bias.** `add` +0.30 on the row of ` ` (deletion : insertion 159 : 55 in the kept
+     state; `/` is left alone, its ratio 67 : 39 and the 12 `,→/` substitutions make it a convention
+     matter). *Prediction:* −0.1 to −0.3 points, space deletions down by 20–40, space insertions up by
+     ≤ 20, other confusions unchanged. *If refused:* space deletions are word-gap readings the row
+     cannot fix by bias; no further per-character bias edits.
+   - **H6 — the `"` row from the parent.** `set_rows` on `O_18.lin.weight` and `O_18.lin.bias` for the
+     row of `"` only, values = the parent's `"` row (aligned by character). The parent was trained on
+     the Hertwig practice lines with correct images; this edit takes its 400-weight classifier for one
+     glyph, not its recurrent stack, so what it can carry is the glyph, not the lines. *Prediction:*
+     −0.05 to −0.15 points, all of it on Hertwig lines: `"` deletions fall from 16 to ≤ 8; at most a
+     handful of `"` insertions (the parent never saw Schlussredaktion). *If refused:* the `"` is lost in
+     the features (the subject's LSTM no longer separates the glyph), not in the row; nothing more on
+     this character.
+   - **H4 — toward the parent, α = 0.25** (as pre-registered above, with its caveat). `interpolate`
+     on the 28 tensors, rows aligned, the new rows `½ ƒ ̊` and every output-bias row edited by H1/H1b/H3
+     held at their edited values (the `"` row equals the parent's after a kept H6). *Prediction:*
+     Hertwig −1 to −3 points (confounded by the parent's training on these lines; part of it may be
+     the Hertwig conventions `, u d` restored for the Hertwig hand, which would transfer), Schlussredaktion
+     +0.2 to +1.0 points, net −0.2 to −0.8; collapsed not up. *If kept:* a note in `notes.md` that the
+     gain is a practice-set result with a memorisation confound; held-out and C5 decide. *If refused:*
+     no larger α; freeze after round 2's bookkeeping.
+   Round 2 may spend the remaining passes on one pre-registered follow-up (a smaller α for H4 if it
+   was refused with Hertwig down and Schlussredaktion up: α = 0.125, predicted half the effect) and the
+   freeze; otherwise it freezes directly.
+
 6. **Controls** (as in session 2):
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

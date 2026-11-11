@@ -29,3 +29,31 @@
   confusions and the intervals. Does not freeze. Compiled with `py_compile`; `__pycache__` removed.
   Dry check (read-only, no session): the H2 arrays give the `ƒ` row unchanged, the blank row interpolated,
   the `e` row the exact mean; the blank bias is held if H1 was kept.
+
+## 2026-11-11T09:12Z — round 1 (programmer: Claude Fable 5.1, `claude-fable-5-1`)
+
+- **Read:** `stdout_program_01.log`, `log.jsonl`, `budget.json`, `readings/pass_001..003.jsonl` (my own
+  passes), the practice list and its line images (sizes of the collapsed lines). Same restrictions as
+  round 0; nothing else read.
+- **Results of program_01:** C0 0.1456 reproduced (collapsed 29). H1 (blank −0.20) **kept**: 0.1444,
+  Δ −0.0012 [−0.0023, −0.0002]; 16 lines better, 7 worse; del 1041→1002, ins 153→161, sub 383→401.
+  H2 (sibling soup α 0.5) **refused**: 0.1429, Δ −0.0016 [−0.0076, +0.0033]; 68 better / 77 worse / 155
+  same; the net −17 edits are one Hertwig line (`p0027/tr_2_tl_5`, −20, recovered from a collapse);
+  collapsed 29→22 but the swings are convention swaps in both directions (`d↔D`, `u↔v`, `,↔/`).
+  → H2b, H2c and H5 dropped: the children's difference is not a direction that helps.
+- **Kept-state reading (pass 2):** 580 of 1564 edits are in the 29 collapsed lines, mostly small crops
+  (80–320 px wide, median line 1472) that give an empty string for all three models; out of reach.
+  Per hand: H subs `,→/` 12, `u→v` 11, `̈→ͤ` 9, `d→D` 8 (Schlussredaktion conventions applied to the
+  Hertwig hand); H deletes `"` 16 of 17 (the `"` row: norm 3.03→4.27, bias −0.01→−0.15, cos 0.894 to the
+  parent's — the one practice-relevant row with the label-noise signature). Space del/ins 159/55 overall
+  (H 67/18, S 92/37); `/` 67/39 with 12 `,→/` subs (convention; left alone).
+- **Section 5, Round 1 addendum written:** H1b (blank −0.20 more), H3 (space bias +0.30), H6 (`"` row
+  from the parent, aligned by character; the parent's one-glyph classifier, not its recurrent stack),
+  H4 (interpolate α 0.25 toward the parent, rows aligned, new rows and this session's edited bias rows
+  held; memorisation caveat stated). Round 2: at most one follow-up (α 0.125 if H4 refused with H down
+  and S up), then freeze.
+- **program_02.py written:** passes 4–7 = H1b, H3, H6, H4 in that order, each measured then
+  keep/revert with the collapsed rule (last kept collapsed read from `log.jsonl`: 29). Prints per-hand
+  CER, del/ins/sub, space and `"` del/ins, confusions, intervals. Does not freeze. `py_compile` ok,
+  `__pycache__` removed. Dry check (read-only, no session): `set_rows` replaces exactly the `"` row and
+  bias; the H4 arrays hold blank/space bias and the `ƒ` row and move the shared rows by a quarter.
