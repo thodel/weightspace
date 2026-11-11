@@ -74,9 +74,11 @@ written by the programmer.
    - **Operator:** a Claude Opus 5.5 (`claude-opus-5-5`) session. It set up the run, runs the
      programs, scores held-out once, runs the controls and writes the comparison. It writes no
      hypotheses and no edits.
-     - Before launching the programmer, it read session 2's pre-registration, which names that
-       session's planned hypotheses, but not its log, notes or programs. It also read
-       PROTOCOL.md and the amendments. Those say that session 2 kept an output-layer transplant
-       from hertwig-v2, which lost on held-out. So **the operator knows session 2's kept edit**.
-     - It passes none of this to the programmer. The brief names no edit and no result of
-       session 2.
+     - What the operator knew about session 2 before the first pass is written in
+       `docs/KRAKEN_S2_FABLE.md` §1, which the programmer does not read. The brief and this
+       file name no edit and no result of session 2.
+     - **Attempt 0 was discarded** before any pass. This is a deviation, also recorded in
+       `summary.json`. An earlier wording of this section was visible to the first programmer
+       subagent and said which edit session 2 kept. That subagent's round-0 files were set
+       aside unrun; after the session they are in `attempt0_discarded/`. The programmer of this
+       session is a fresh subagent that did not see them.
