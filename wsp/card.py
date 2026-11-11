@@ -20,7 +20,8 @@ import urllib.request
 from pathlib import Path
 
 HEALTH = "http://127.0.0.1:8204/health"
-STATE = Path(__file__).resolve().parents[3] / "atr-cache/wsp/card-state.json"   # ~ from the repo's place, as wsp.vlm_reference
+from wsp.vlm_reference import HOME as _HOME
+STATE = _HOME / "atr-cache/wsp/card-state.json"   # ~ from the repo's place, as wsp.vlm_reference
 FRESH_S = 180
 
 

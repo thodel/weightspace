@@ -130,6 +130,12 @@ Not shown: that the correction rather than more training causes it.
 pages 0.4012 → 0.4036, Δ +0.24 points [−3.5, +3.9]. The edit swaps which pages
 loop. [Journal](journal/2026-11-08-c-adapter-heldout.md).
 
+**Replicated with a Fable 5.1 programmer** (`20261110-kurrent-page-v2-f1-b10-1`): working
+blind to the Opus session, it kept the same single edit, and the frozen adapter is
+byte-identical. The held-out readings repeat byte for byte: +0.24 points [−3.5, +3.8] by
+pages, [−5.0, +6.7] by documents. One of three seeded random directions passes the keep rule
+on practice. [Journal](journal/2026-11-11-a-phase5-fable.md).
+
 ## R12 — `latin_incunabula` v3 qualifies { #r12 }
 
 Abbreviation rows spared. Held-out: NewsEye −1.66 [−2.02, −1.30] (pages),

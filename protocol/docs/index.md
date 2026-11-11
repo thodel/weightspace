@@ -23,8 +23,7 @@ characters, about 4 M parameters) fine-tuned on historical German handwriting.
     - **Vision-language adapter:** two sessions with different programmer models
       (Opus 5.5, Fable 5.1) independently kept the same edit. It gave a large
       practice gain from pages that stop looping, and none on 733 held-out
-      pages. One random direction passed the same keep rule. The replicate is
-      in thodel/weightspace#25, not yet merged.
+      pages. One random direction passed the same keep rule.
     - **Block exchange between related models does help** on material the
       model was not trained for. One candidate (`latin_incunabula` v3) reads
       held-out Fraktur 1.7 points better while keeping its abbreviations.

@@ -2,8 +2,8 @@
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** at the manuscript fact-check fixes of 10 November (`24d2102`), plus this documentation update.
-- **Open pull request:** one, thodel/weightspace#25 (the Fable replicate, below).
+- **Main:** includes the Fable replicate (#25), the manuscript update of 11 November (`9b4fa1f`) and the TrOCR preparation (`0106b90`).
+- **Open pull requests:** none.
 
 ## What this is
 
@@ -26,12 +26,13 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Block statistics | errors per Unicode block (after CERberus), additive and paired; exact session replays | `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md` | done, merged |
 | C | the family of 43 served kraken models: weights, lineage, function, exchange grids; `latin_incunabula` candidates v1-v3; exchange on out-of-domain material and across lineages | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9, R12, R13 | done, merged; v3 qualifies, registered and **disabled** |
 | C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged |
-| Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track and the phase-5 session (Opus 5.5) merged; **Fable 5.1 replicate in #25, open, waiting for your decision** |
+| Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track, the phase-5 session (Opus 5.5) and its Fable 5.1 replicate (#25, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10b) merged |
 | Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | all sub-tasks done and merged; issue still open |
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
-| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; Section 9.3 does not yet report the phase-5 sessions |
+| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; the Fable replicate and its shams not yet in 9.3 |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
 | Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | proposed, not started |
+| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/BRIEF_TROCR_STAGE0.md`, `scripts/trocr_fetch.py` | prepared 11 Nov, not started; stage 0 needs asteraix (h1 has 5.5 GB free) and decisions 1-4 of the epic |
 
 ## Findings in one paragraph each
 
@@ -52,7 +53,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - Unrelated models cannot exchange units.
 - **Adapter:**
   - The phase-5 session kept one edit, direction 0 of `layers.31.self_attn.o_proj`. Practice CER fell 45.2 → 34.7 %; on 733 held-out pages the change is +0.24 [−3.5, +3.9].
-  - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25).
+  - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25, merged).
   - One of three seeded random directions passes the same keep rule on practice, which motivates the proposed amendment A5 (sham noise floor).
 - **Data findings:**
   - the Hertwig export defect (44 of 50 pages; repaired on HF, commit `dda578ea`);
@@ -62,14 +63,9 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 ## Open items
 
-**Waiting for review**
-
-1. **thodel/weightspace#25**: the Fable 5.1 replicate of the phase-5 adapter session.
-   - Contents: the report, three shams and harness fixes (pass numbering across programs; home found from `atr-cache`).
-   - The PR says not to merge without your decision.
-   - After the merge, `protocol/mkdocs.yml` needs a nav row for its journal entry.
-
 **Decisions for the user**
+
+1. **TrOCR track:** decisions 1-4 of `docs/epics/EPIC_TROCR_TRACK.md` before stage 0 on asteraix.
 
 2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
 3. **Rotate leaked secrets:** the Zotero API key, and the Nextcloud admin and database passwords.
@@ -81,17 +77,18 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 7. **Article:**
    - authors, availability, funding, AI statement, licences, public release (6 `[TODO]`);
    - length, about 18,000 words against the roughly 7,000 an editor expects;
-   - whether Section 9.3 takes up the phase-5 sessions.
+   - whether Section 9.3 adds the Fable replicate and the sham result;
+   - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 8. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 9. **Branch hygiene.**
-   - Every remote branch except #25's is merged into main and can be deleted.
+   - Every remote branch is merged into main and can be deleted.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
 
 **Settled since 8 November**
 
 - The `combined-v1` line count: 5,441 is right. The other figure, 5,243, adds two quantities that are not like-for-like (`paper/factcheck_draft3.md` §12).
-- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20).
+- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20). The Fable replicate is merged (#25).
 
 **Not started**
 

@@ -17,8 +17,8 @@ measured without decoding to the end: the end-of-turn margin at the
 reference's true end, in one teacher-forced pass.
 
 **Why:** whether a long page loops flips under any small change. In the
-Fable replicate of the [phase 5 adapter session](journal/2026-11-08-c-adapter-heldout.md)
-(`docs/PHASE5_FABLE_REPORT.md`, thodel/weightspace#25), one of three random
+[Fable replicate](journal/2026-11-11-a-phase5-fable.md) of the phase 5 adapter
+session, one of three random
 directions passed the keep rule on 64 practice pages (−5.7 points
 [−11.8, −1.2]). The edit kept in both sessions gained nothing on held-out pages.
 
