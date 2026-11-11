@@ -63,3 +63,10 @@ build; convert them (`rsvg-convert`) on a machine that has the tools, or let `bu
 
 ## Open TODO markers (11)
 Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer to answer); "many public models use the default setup" (now supported by the survey, wording to adjust); data and code availability (three places); AI statement confirmation; competing interests; funding; acknowledgements. Resolved in draft 3: the 9.55 % duplicate (two different line sets, 9.554 % and 9.551 %, coincidence), zoo survey, blank bias relative form, positive control, validation-based practice.
+
+## Update 11 Nov 2026 (CET)
+
+- Second-instance fact-check done (`paper/factcheck_draft3.md`); the three high and most medium findings are fixed in the manuscript (7.7 page intervals, RQ2 retraining sentence, latin v3 in 7.10/abstract/RQ2/conclusion, 7.8 step wording, table cross-references, k11 row, donor-rule wording, Appendix B rows, 43-vs-30 wording).
+- Folded in: R13 (out-of-domain exchange, 7.10) and the phase-5 adapter session (9.3, abstract, conclusion).
+- Still open from the fact-check: "0 of 28 edits" vs 27 in run logs; the low items 14-18 (page count 58 done; "three earlier statements" count, "six" vs "seven" attempts, 3-5 minutes, sd vs range, 9.3 "late layers"); the fact-check did not cover sections 1-6, 7.1-7.5, 8.1, 8.3, 10 and the appendices apart from B.
+- Length is now about 19,100 words (target about 7,000).
