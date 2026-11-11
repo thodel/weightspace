@@ -46,7 +46,83 @@ written by the programmer.
      after the session from `readings/`, with clusters `<project>/<page>`.
    - **Collapse detector:** the current one (A2). On every Bern set it gives the same counts as
      the legacy detector that session 2 used.
-5. **Hypotheses:** *(written by the programmer before the first pass; see below)*
+5. **Hypotheses** (programmer: Claude Fable 5.1, `claude-fable-5-1`; written 11.11.2026 before the
+   first pass, from the brief, the pack, the practice list and CPU-only reads of the three models;
+   no forward pass spent).
+
+   **What I read in the pack and the weights.** The subject's errors are deletions: in a–z 669
+   deletions against 48 insertions, space 168 : 54, `/` 70 : 37; blank bias +1.00 against the
+   parent's +0.88 and the sibling's +0.94. The output rows of every character that occurs in the
+   practice text are nearly the same in the three models (cosine ≥ 0.97, biases within ±0.1), so the
+   output layer is not where the subject differs from its relatives. The rare rows that the diff
+   lists as "moved most" (`ü ö ä ſ · §` …) do not occur in the practice references at all (the
+   umlauts there are NFD combining marks `ͤ ͦ ̈`, whose rows barely moved), so a rare-row revert can
+   change nothing here and is not a hypothesis. The two fine-tune directions τC = subject − parent
+   and τS = sibling − parent have a global cosine of 0.52: 0.85–0.97 in `O_18`, 0.54–0.80 in
+   `L_16`, 0.42–0.56 in `L_14`, 0.24–0.28 in the `L_12` weights, 0.36–0.48 in the conv weights. The
+   two children learnt the same classifier and the same last layer and diverged most in the first
+   BiLSTM; the subject's move is 1.16× the sibling's in norm. Per line (`per_line_edits.json`): the
+   parent beats the subject on 81 of the 103 Hertwig lines (its own training lines) and loses on 174
+   of the 197 Schlussredaktion lines; the sibling beats the subject on 58 Schlussredaktion lines,
+   loses on 38, ties on 101, and loses on 61 of 103 Hertwig lines. 42 lines have ≥ half their
+   reference length in edits for the subject, and most of those are as bad for both donors (very
+   short or marginal lines): no edit will recover them, and they bound what any edit can show.
+
+   **The donors and the practice set.** The *parent* (`hertwig-v2`) was trained on the 103 Hertwig
+   practice lines with correct images; its 0.1137 there is a training-set score, so any Hertwig gain
+   from an edit toward the parent is partly memorisation and need not transfer to held-out. It never
+   saw Schlussredaktion (0.2992 on those lines). The *sibling* (`schlussredaktion-v1`) was trained on
+   the 197 Schlussredaktion practice lines with correct images, as was the subject, so on those lines
+   the two stand on equal footing; it never saw Hertwig, so a Hertwig gain from an edit toward the
+   sibling cannot be memorisation.
+
+   **Plan for the 10 passes.** P1 = C0 (must reproduce 0.1456; if not, the program stops before any
+   edit). P2 = H1, P3 = H2, both in `program_01.py`. P4–P9: follow-ups from the list below, decided
+   from the readings, each written as a hypothesis with a prediction in `notes.md` and in
+   `s.hypothesis()` before its pass. Freeze by P10 at the latest; unspent passes may stay unspent.
+   Every program reverts an edit that raises `m.collapsed` against the last kept state even if the
+   rule would keep it.
+
+   - **H1 — blank bias.** `add` on `O_18.lin.bias`, row 0 only, −0.20 (the parent sits 0.12 below
+     the subject). *Prediction:* CER −0.1 to −0.5 points on both hands; deletions of ` e n i r t`
+     fall, insertions rise by less; collapsed count does not rise. *If refused* (interval contains 0
+     or CER up): the deletions are not a blank-threshold matter but sit in the features or in the
+     unreadable lines; no further blank steps. *If kept:* **H1b**, a second step of −0.20
+     (prediction 0 to −0.3 points; stop after a refusal).
+   - **H2 — soup with the sibling.** `interpolate`, α = 0.5, on the 28 trained tensors (the six
+     `bias_ih` are zero in all three models), output rows aligned by character, the `ƒ` row (subject
+     only) unchanged; if H1 was kept, the blank bias keeps H1's value so that H2 does not partly undo
+     H1. *Prediction:* Schlussredaktion −0.3 to −0.8 points (toward or beyond the sibling's 0.1129;
+     a soup of two fine-tunes from one initialisation is usually no worse than the better one);
+     Hertwig between −1 and +1 point (the subject's Hertwig signal is weak, 0.205 against 0.2355 for a
+     model that never saw Hertwig, and averaging halves both its real Hertwig learning and its label
+     noise); overall −0.2 to −0.6 points; collapsed unchanged. *If refused with CER up on both hands:*
+     the two children are not linearly connected at α = 0.5 → **H2b** α = 0.25 (one pass, half the
+     effect predicted). *If refused with Schlussredaktion down and Hertwig up:* the subject's Hertwig
+     knowledge lies off the sibling's direction and only the parent carries Hertwig → H4. *If kept and
+     Hertwig did not get worse:* **H2c** α = 0.75 is a candidate (predicted small further
+     Schlussredaktion gain, Hertwig loss; likely refused).
+   - **H3 — bias of the most-deleted characters.** `add` +0.3 on the rows of ` ` and `/` (deletion
+     : insertion 168 : 54 and 70 : 37). *Prediction:* −0.1 to −0.4 points, confined to the confusions
+     of these two characters. Decided after the confusions of the last kept state; dropped if H1 has
+     already balanced them (insertions ≥ deletions) or if H1 was refused with insertions rising.
+   - **H4 — toward the parent.** `interpolate`, α = 0.25, on the 28 tensors, rows aligned, the new
+     rows `½ ƒ ̊` unchanged. *Prediction on practice:* Hertwig −2 to −4 points, Schlussredaktion +0.5
+     to +1.5 points, net −0.3 to −1.0; **the Hertwig part is confounded** by the parent's training on
+     these lines. Run only if passes are left after H1–H3; a kept H4 is a practice-set result whose
+     held-out transfer is uncertain, and I say so in `notes.md`; held-out and the C5 sham decide.
+     *If refused:* the parent's Hertwig memory does not survive averaging into the subject, or the
+     Schlussredaktion loss outweighs it.
+   - **H5 — layer-local soup (diagnostic).** If H2 was refused and a pass is left: `interpolate`
+     α = 0.5 toward the sibling on the eight `L_12` tensors only (where the two fine-tunes diverge
+     most). *Prediction:* a small effect of the sign H2 showed on Schlussredaktion, −0.2 to +0.3
+     points. *If refused:* the difference between the children is distributed, not local; freeze.
+
+   **Stopping.** I freeze when the planned hypotheses and their pre-registered follow-ups are
+   exhausted, or after two consecutive refusals with no follow-up left on the list. **If nothing is
+   kept** I conclude that the subject's deficit is spread over the recurrent stack, as the uniform
+   per-tensor diff suggests, and is not removable by output-bias shifts or by linear combination with
+   its relatives: nothing found, nothing kept.
 
 6. **Controls** (as in session 2):
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
