@@ -1,64 +1,111 @@
-# Project state (8 November 2026, late morning CET)
+# Project state (11 November 2026, midday CET)
 
-One page for anyone who opens the repository cold. Details are in the files named. Main is at the merge of
-thodel/weightspace#16; there are no open pull requests.
+One page for anyone who opens the repository cold. Details are in the files it names.
+
+- **Main:** at the manuscript fact-check fixes of 10 November (`24d2102`), plus this documentation update.
+- **Open pull request:** one, thodel/weightspace#25 (the Fable replicate, below).
 
 ## What this is
 
-Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) tried on the in-house kraken text-recognition models of the Bern projects: read the weights, diagnose, edit, measure against held-out data and against ordinary merging. Planning on h1 (no GPU, no kraken), runs on asteraix. Article for JDMDH in `paper/`.
+Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) tried on the in-house kraken text-recognition models of the Bern projects, and on one LoRA adapter of a vision-language model. The method:
+
+1. read the weights;
+2. diagnose;
+3. edit;
+4. measure against held-out data and against ordinary merging and retraining.
+
+Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix. The article for JDMDH is in `paper/`. The protocol site (MkDocs, not yet published) is in `protocol/`.
 
 ## Phases and tracks
 
 | track | what | where | status |
 |---|---|---|---|
-| Phase 0-5 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis, clean-up of held-out sets | `docs/PHASE0..5_REPORT.md`, `docs/RESULTS.md` R1-R3 | done |
-| B | controls for the article: planted defects, unseen practice sets, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged |
-| Block statistics | errors per Unicode block (after CERberus), additive and paired; exact session replays | `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md`, `wsp/blocks.py`, `wsp/replay.py` | done, merged |
-| C | the family of 43 served kraken models: weights, lineage, function (CKA), exchange grids, candidates for `latin_incunabula` | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9 | done, merged; a v3 candidate on an unmerged branch (below) |
-| C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged 8 Nov |
-| Adapters | sessions on a LoRA adapter of a vision-language model | `docs/ADAPTER_REPORT.md`, `docs/RESULTS.md` R10 | first track merged 8 Nov; **second session (v2 page adapter) running**, its commits only on the local `phase5` branch on asteraix (below) |
-| Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, confusion-to-frame index, pages for both lineages | `docs/viz/README.md`, `docs/viz/*.html`, `docs/READINGS.md` (07.11.2026) | **all eight sub-tasks done and merged** (#11, #16); issue still open |
-| Article | JDMDH manuscript, draft 3 | `paper/manuscript.md`, `paper/STATUS.md`, Nextcloud `Documents/research/atr-research/atr-article-plan.md` | draft 3 complete except TODOs |
-| Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/`, Zotero (user library) | done; OpenAlex Q4-Q10 incomplete |
-| Epic #12: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md` | proposed, not started |
-| Epic #13: activation atlas | which units respond to which part of a line | `docs/epics/EPIC_ACTIVATION_ATLAS.md` | proposed, not started; can reuse the frame map and forced alignment of `wsp.layerview` |
+| Phase 0-4 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis | `docs/PHASE0..4_REPORT.md`, `docs/RESULTS.md` R1-R3 | done |
+| Phase 5 clean-up | stricter collapse detector, the handwriting held-out set `blb-eval-hand` | `docs/PHASE5_CLEANUP_REPORT.md` | done |
+| B | controls for the article: planted defects, unseen practice sets with Sonnet, Opus, Haiku and Fable programmers, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged (Fable attempts f1 on 9 Nov, #22) |
+| Block statistics | errors per Unicode block (after CERberus), additive and paired; exact session replays | `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md` | done, merged |
+| C | the family of 43 served kraken models: weights, lineage, function, exchange grids; `latin_incunabula` candidates v1-v3; exchange on out-of-domain material and across lineages | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9, R12, R13 | done, merged; v3 qualifies, registered and **disabled** |
+| C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged |
+| Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track and the phase-5 session (Opus 5.5) merged; **Fable 5.1 replicate in #25, open, waiting for your decision** |
+| Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | all sub-tasks done and merged; issue still open |
+| Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
+| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; Section 9.3 does not yet report the phase-5 sessions |
+| Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
+| Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | proposed, not started |
 
 ## Findings in one paragraph each
 
-- Readings: traces of fine-tuning in the output layer; blank bias up relative to other biases and rare rows growing survive a seed null; the size of a change, the conv depth pattern and "rare rows move most" do not. Lineage can be read from weights for fine-tunes that did not move far (43 models). Front end generic, recurrent stack individual.
-- Edits: no held-out gain on training-line practice (15 edits). On unseen practice lines one small gain for `combined-v1` (-0.19 to -0.39 points) that is a quarter-step interpolation toward a sibling; not matched by 20 shams; page-clustered intervals include 0; not distinguishable from plain interpolation.
-- Positive control: localised planted defects are repaired by programmer, blind programmer and rule list alike; diffuse damage only by the programmer who measures and with a donor of the same lineage.
-- Margins: 18 % of deleted frames have no blank frame; median margin 3.2 nats; blank-bias edits are not the lever.
-- Interpolation of the Kurrent pair: single blocks and pairs additive, whole network not. Same for exchange: every front-end block of `latin_incunabula` could be set back alone, the whole front end together could not.
-- Candidates (R4, R9): `kraken-latin_incunabula-wsp-v1` (two group norms + output layer half-way) and v2 (norms only) both read held-out Fraktur better (v1 -2.04 NewsEye, -0.44 GT-Fraktur; v2 -1.08, -0.19); v1 loses abbreviations (MUFI 532 to 731), v2 slightly its own collection (+0.04); neither qualifies under the pre-registered rule; v1 registered on the share and disabled, v2 not registered.
-- Layers (epic #3): letters are identified in the BiLSTMs (probe identity 0.36 at the last conv, 0.94 at `L_16` for `xix-blb-v1`); in both lineages the fine-tune grows the rare output rows and lowers their bias, and raises the blank's bias by about +0.11; about 72 % of deleted characters are decodable at no layer. The Kurrent fine-tune sits in all three LSTMs (4-6 points each when set back), the Bern fine-tune `hertwig-v2 → combined-v1` only in `L_16` (+1.04).
-- C4 (R11): retraining `combined-v1` on the corrected data lowers `bern-eval` CER on the Hertwig lines (arm A -0.55, arm B -0.99 points).
-- Data findings: Hertwig export defect (44 of 50 pages, repaired on HF, commit `dda578ea`); held-out set was half a printed book (replaced by `blb-eval-hand`); Reichenau incunable dataset: 39 of 59 validation pages identical to train pages, and dh-unibe's copy holds only the German and Latin-German sub-collections.
+- **Readings:**
+  - Some traces of fine-tuning survive a seed null: the blank's bias rising relative to the other biases, and the rare output rows growing.
+  - Lineage can be read from the weights for fine-tunes that did not move far (43 models).
+  - The front end is generic and the recurrent stack is individual.
+  - Letters are identified in the BiLSTMs. About 72 % of deleted characters are decodable at no layer.
+- **Edits on kraken models:**
+  - No held-out gain on practice lines from the training side (15 edits).
+  - On unseen practice lines there is one small gain for `combined-v1` (−0.19 to −0.39 points). It is a quarter-step interpolation toward a sibling, and its page-clustered intervals include 0.
+  - A Fable 5.1 programmer found a larger practice gain and no held-out gain (−0.02).
+  - The C4 retrain on corrected data does at least as well as the best edit: −0.55 at learning rate 1e-5, −0.99 at 5e-5.
+- **Positive control:** localised planted defects are repaired by the programmer, the blind programmer and the rule list alike. Diffuse damage is repaired only by the programmer who measures, and only with a donor of the same lineage.
+- **Exchange:**
+  - `latin_incunabula` v3 qualifies under the rule with minimum effects. It moves the output layer half-way without the abbreviation rows: NewsEye −1.66 [−2.02, −1.30], MUFI share +0.014. Through the serving path it is not worse (median page −0.09).
+  - First-convolution exchange stabilises the Kurrent model on held-out out-of-domain documents (−0.35 to −1.07), but below the preregistered minimum.
+  - Unrelated models cannot exchange units.
+- **Adapter:**
+  - The phase-5 session kept one edit, direction 0 of `layers.31.self_attn.o_proj`. Practice CER fell 45.2 → 34.7 %; on 733 held-out pages the change is +0.24 [−3.5, +3.9].
+  - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25).
+  - One of three seeded random directions passes the same keep rule on practice, which motivates the proposed amendment A5 (sham noise floor).
+- **Data findings:**
+  - the Hertwig export defect (44 of 50 pages; repaired on HF, commit `dda578ea`);
+  - a held-out set that was half a printed book (replaced by `blb-eval-hand`);
+  - in the Reichenau incunable dataset, 39 of 59 validation pages are identical to train pages;
+  - shared source documents behind different container ids in the out-of-domain sets (audited out before any read).
 
 ## Open items
 
-**In progress or waiting for review**
+**Waiting for review**
 
-1. **Adapter session (v2 page adapter).** Frozen with one kept edit (practice CER 45.2 % to 34.7 %); its held-out scoring and controls run in a queue on card 0. Seven commits (`d42f662` … `66fd4a9`) are on the local `phase5` branch on asteraix only: `phase5` was merged into main through #9 before them, so they need a new branch and PR once the held-out numbers are in.
-2. **`claude/incunabula-v3-995321`** (pushed 8 Nov, no PR): a pre-registered third `latin_incunabula` candidate that moves the output layer without the abbreviation rows, and RESULTS R12 saying it qualifies. Not reviewed or merged; if it holds, it is the candidate to read through the serving path and enable.
-3. **`claude/article-controls-8803eb`** (7 Nov, not merged): three small notes (results numbered R4-R6 there, a cluster-interval note in PROTOCOL, the Fable run recorded as not done). Probably superseded by main's R5-R8 and PROTOCOL; check, then close or merge the remainder.
+1. **thodel/weightspace#25**: the Fable 5.1 replicate of the phase-5 adapter session.
+   - Contents: the report, three shams and harness fixes (pass numbering across programs; home found from `atr-cache`).
+   - The PR says not to merge without your decision.
+   - After the merge, `protocol/mkdocs.yml` needs a nav row for its journal entry.
 
 **Decisions for the user**
 
-4. **Rotate leaked secrets:** Zotero API key; Nextcloud admin and database passwords (see handoff).
-5. **Close epic #3** (all sub-tasks done).
-6. **Session design** before any below-output-layer session: page-clustered intervals (`docs/CONTROLS_REPORT.md` §9) and the practice-side amendment (PROTOCOL §2 item 8) are proposed, not adopted; the donor-rule amendment in `docs/PROTOCOL.md` likewise.
-7. **Training jobs** need the user's OK (GPU on the trainer's card): a C4 continuation on the uncorrected pairs; a fine-tune with the first conv layer frozen (Track C).
-8. 5,441 vs 5,243 line count of `combined-v1` (trainer to answer).
-9. Authors, availability, funding, AI statement, licences, public release (paper TODOs).
-10. **Branch hygiene.** Merged into main and safe to delete on the remote: `phase0`-`phase5`, `block-stats`, `model-family`, `candidate-v2`, `schluss-check`, `viz-epic3`, `claude/adapters-4d972b`, `claude/c4-retrain`, `claude/layer-probe`, `claude/seed-null-67d6e1-v2`, `claude/zoo-survey-76f514`, `protocol-current` (check its role first). Not `phase5` locally until item 1 is moved. On asteraix the worktrees `weightspace-blocks` and `weightspace-family` hold git-ignored data (exchange readings, replays); keep them until that data is archived.
+2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
+3. **Rotate leaked secrets:** the Zotero API key, and the Nextcloud admin and database passwords.
+4. **Close epic #3**: all sub-tasks are done.
+5. **Amendments:** A3 (donor rule and practice side) and A5 (sham noise floor for page-level sessions) are proposed, not adopted. A4 (page-clustered intervals) is adopted.
+6. **Training jobs** need your OK, because they use the GPU on the trainer's card:
+   - a C4 continuation on the uncorrected pairs, to show whether the correction or the extra training causes R11's gain;
+   - a fine-tune with the first conv layer frozen (Track C).
+7. **Article:**
+   - authors, availability, funding, AI statement, licences, public release (6 `[TODO]`);
+   - length, about 18,000 words against the roughly 7,000 an editor expects;
+   - whether Section 9.3 takes up the phase-5 sessions.
+8. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
+9. **Branch hygiene.**
+   - Every remote branch except #25's is merged into main and can be deleted.
+   - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
+   - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
+
+**Settled since 8 November**
+
+- The `combined-v1` line count: 5,441 is right. The other figure, 5,243, adds two quantities that are not like-for-like (`paper/factcheck_draft3.md` §12).
+- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20).
 
 **Not started**
 
-11. Epic #12 (LLM playbook) and epic #13 (activation atlas).
-12. Literature: OpenAlex Q4-Q10.
-13. Track C follow-ups: exchange across lineages after matching units by activation; exchange that protects the abbreviation rows (now the v3 branch, item 2).
+10. Epic #12 (LLM playbook) and epic #13 (activation atlas).
+11. Literature: OpenAlex Q4-Q10.
+12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
 ## Rules that apply here
 
-CPU unless stated; card 1 is the trainer's; research share read-only, except the evaluation set `tei/datasets/reichenau-incunabula-wsp/` and the registration of `kraken-latin_incunabula-wsp-v1` (disabled), both with the user's OK on 7 Nov; nothing else registered, uploaded or served by sessions; kraken pinned at 7.0.2; weights not committed; no children's first names or other personal data in public repositories; times in CET, labelled, logs are UTC.
+- **Compute:** CPU unless stated. Card 1 is the trainer's.
+- **Research share:** read-only, with exceptions agreed with the user:
+  - the evaluation set `tei/datasets/reichenau-incunabula-wsp/`;
+  - the registrations of `kraken-latin_incunabula-wsp-v1` and `-v3`, both disabled.
+- **Sessions:** nothing else is registered, uploaded or served by a session.
+- **Software and weights:** kraken pinned at 7.0.2. Weights are not committed.
+- **Privacy:** no children's first names or other personal data in public repositories.
+- **Times:** CET and labelled; logs are UTC.

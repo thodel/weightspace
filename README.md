@@ -9,13 +9,13 @@ Method source: R. Takehi, J. Teoh, A. Zhang, O. Khattab, "Sparks of Weight-Space
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 
-Status 07.11.2026: see docs/PROJECT_STATE.md. (Earlier status, 06.11.2026 evening: phase 0 executed on asteraix — harness verified against kraken 7.0.2, practice sets built and audited, C0 baselines, the lossless `Cr255 → Cr1` rewrite, the session runner with a no-op smoke session, and the first readings. Report: [docs/PHASE0_REPORT.md](docs/PHASE0_REPORT.md). One data finding changes target 1: the 25.10 re-export of the Hertwig dataset pairs 44 of 50 training pages with the wrong image.)
+Status 11.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). All tracks are done and merged. The one open PR is the Fable 5.1 replicate of the phase-5 adapter session (#25). No weight edit has given a held-out repair. One block-exchange candidate (`latin_incunabula` v3) qualifies; it is registered and disabled.
 
 Public protocol (MkDocs, for GitHub Pages later): [protocol/](protocol/README.md).
 
 Current state: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md) (tracks, findings, open items) · article: [paper/](paper/README.md), [paper/STATUS.md](paper/STATUS.md).
 
-Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/SEARCH_LOG.md](docs/SEARCH_LOG.md) (how the literature was searched) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first) · [docs/RESULTS.md](docs/RESULTS.md) (R1-R8) · [docs/CONTROLS_REPORT.md](docs/CONTROLS_REPORT.md) · [docs/SEED_NULL.md](docs/SEED_NULL.md) · [docs/ZOO_SURVEY.md](docs/ZOO_SURVEY.md) · [docs/MODEL_FAMILY.md](docs/MODEL_FAMILY.md) · [docs/epics/](docs/epics/EPIC_LLM_PLAYBOOK.md)
+Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/SEARCH_LOG.md](docs/SEARCH_LOG.md) (how the literature was searched) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first) · [docs/RESULTS.md](docs/RESULTS.md) (R1-R13) · [docs/CONTROLS_REPORT.md](docs/CONTROLS_REPORT.md) · [docs/SEED_NULL.md](docs/SEED_NULL.md) · [docs/ZOO_SURVEY.md](docs/ZOO_SURVEY.md) · [docs/MODEL_FAMILY.md](docs/MODEL_FAMILY.md) · [docs/C4_RETRAIN.md](docs/C4_RETRAIN.md) · [docs/ADAPTER_REPORT.md](docs/ADAPTER_REPORT.md) · [docs/PHASE5_REPORT.md](docs/PHASE5_REPORT.md) · [docs/epics/](docs/epics/EPIC_LLM_PLAYBOOK.md)
 
 Layout:
 

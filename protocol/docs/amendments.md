@@ -4,6 +4,26 @@ Every change to [the rules](method.md), newest first. A session is judged by
 the rules in force when it was preregistered; sessions affected by a change
 are named.
 
+## A5 — A sham noise floor for page-level sessions { #a5 }
+
+**Date:** 2026-11-11. **Status:** *proposed, not adopted.*
+
+**Proposed:** in a session whose passes read whole pages of a
+vision-language adapter, each candidate edit is also compared with several
+seeded random edits of the same module and norm (C5). It is kept only if it
+beats their spread, not only the last kept state. The practice set should hold
+enough looping pages (about 200–300 pages for 15–20 loops). Stopping should be
+measured without decoding to the end: the end-of-turn margin at the
+reference's true end, in one teacher-forced pass.
+
+**Why:** whether a long page loops flips under any small change. In the
+Fable replicate of the [phase 5 adapter session](journal/2026-11-08-c-adapter-heldout.md)
+(`docs/PHASE5_FABLE_REPORT.md`, thodel/weightspace#25), one of three random
+directions passed the keep rule on 64 practice pages (−5.7 points
+[−11.8, −1.2]). The edit kept in both sessions gained nothing on held-out pages.
+
+**Sessions affected:** none yet; both phase-5 adapter sessions ran without it.
+
 ## A4 — Intervals clustered by page { #a4 }
 
 **Date:** 2026-11-07, adopted (in the protocol file since 2026-11-09). In use
