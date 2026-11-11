@@ -57,3 +57,26 @@
   CER, del/ins/sub, space and `"` del/ins, confusions, intervals. Does not freeze. `py_compile` ok,
   `__pycache__` removed. Dry check (read-only, no session): `set_rows` replaces exactly the `"` row and
   bias; the H4 arrays hold blank/space bias and the `ƒ` row and move the shared rows by a quarter.
+
+## 2026-11-11T09:25Z — round 2, last (programmer: Claude Fable 5.1, `claude-fable-5-1`)
+
+- **Read:** `stdout_program_02.log`, `log.jsonl`, `budget.json`, `readings/pass_004..007.jsonl`. Same
+  restrictions; nothing else.
+- **Results of program_02:** H1b (blank −0.20 more, total −0.40) **kept**: 0.1410, Δ −0.0034 [−0.0055,
+  −0.0016], 30 lines better / 9 worse, del 1002→941, ins 161→173, collapsed 29→26. H3 (space +0.30)
+  refused, CER up (space deletions 147→158, not down: the bias does not reach the word-gap readings).
+  H6 (`"` row from the parent) refused with output identical to the kept state — the glyph is lost in
+  the features; nothing more on it. H4 (α 0.25 toward the parent) refused, Δ −0.0053 [−0.0116, +0.0002]:
+  H 56 better / 7 worse (−120 edits, the parent's own training lines), S 24 better / 70 worse (+63);
+  −30 of the net −57 on non-collapsed lines, −27 on collapsed ones; collapsed 26→21.
+- **Section 5, Round 2 addendum written:** H1c (blank −0.20, total −0.60), H1d (−0.20 more, only if H1c
+  kept with Δ ≤ −0.0025), H4b (α 0.125 toward the parent, the pre-registered follow-up; confound
+  stated), then freeze.
+- **program_03.py written:** P8 H1c; P9 H1d conditional; P9/10 H4b; `s.freeze()` at the end whatever
+  the decisions (an unspent pass stays unspent if H1d is skipped). Last kept collapsed read from
+  `log.jsonl` = 26. `py_compile` ok, `__pycache__` removed.
+- **Where the session stands:** the only kept edits are blank-bias shifts on `O_18.lin.bias[0]`
+  (−0.40 so far), practice CER 0.1456 → 0.1410, consistent per line, both hands (H 0.2050→0.1994,
+  S 0.1184→0.1142). Donor edits did not pass: the sibling soup had no direction, the parent direction
+  gains only on the parent's own training lines and costs Schlussredaktion. If H4b is kept, that
+  practice gain carries the memorisation confound and the held-out decides.

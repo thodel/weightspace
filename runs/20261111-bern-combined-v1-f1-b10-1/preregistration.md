@@ -168,6 +168,32 @@ written by the programmer.
    was refused with Hertwig down and Schlussredaktion up: α = 0.125, predicted half the effect) and the
    freeze; otherwise it freezes directly.
 
+   **Round 2 (11.11.2026, 09:20 UTC, after passes 1–7; written before pass 8).** Results of
+   `program_02.py`: H1b (blank −0.20 more, total −0.40) **kept**: 0.1410, Δ −0.0034 [−0.0055,
+   −0.0016], 30 lines better, 9 worse, deletions 1002 → 941, insertions 161 → 173, collapsed 29 → 26.
+   H3 (space +0.30) refused with CER up (Δ +0.0016; space deletions did not fall). H6 (`"` row from
+   the parent) refused with output identical to the kept state: the glyph is lost in the features, not
+   in the row; nothing more on it. H4 (α 0.25 toward the parent) refused, Δ −0.0053 [−0.0116,
+   +0.0002]: Hertwig 56 lines better / 7 worse (−120 edits, the parent's own training lines),
+   Schlussredaktion 24 better / 70 worse (+63) — the predicted pattern, including the confound.
+
+   Plan for `program_03.py` (passes 8–10 at most, then **freeze**):
+   - **H1c — third blank step.** `add` −0.20 on `O_18.lin.bias[0]` (total −0.60). The two earlier
+     steps were consistent and the second gained more than the first. *Prediction:* −0.1 to −0.4
+     points, deletions down by 30–60, insertions up by ≤ 25, collapsed not up. *If refused:* the knob
+     is exhausted at −0.40; no H1d.
+   - **H1d — fourth blank step**, only if H1c is kept with Δ ≤ −0.0025 (not saturating). `add` −0.20
+     (total −0.80). *Prediction:* −0.1 to −0.3 points; insertions rise faster than before. *If
+     refused:* exhausted at −0.60.
+   - **H4b — toward the parent, α = 0.125** (the pre-registered follow-up of H4: refused with Hertwig
+     down and Schlussredaktion up). Same construction as H4, the blank bias held at its kept value.
+     *Prediction:* Hertwig −0.5 to −1.5 points (confounded by the parent's training on these lines),
+     Schlussredaktion +0.1 to +0.5, net −0.1 to −0.4; collapsed not up. *If kept:* a practice-set
+     result with the memorisation confound, so written in `notes.md`; held-out and C5 decide. *If
+     refused:* the parent direction is not kept at any α; the session ends with the blank-bias edits
+     only.
+   - **Freeze** after these, whatever the decisions; an unspent pass stays unspent if H1d is skipped.
+
 6. **Controls** (as in session 2):
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.
