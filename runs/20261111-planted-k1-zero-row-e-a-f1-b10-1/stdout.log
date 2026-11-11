@@ -1,0 +1,11 @@
+C0 0.1623 9
+H1_e_row_parent (kept=True) 0.0675 9
+H2_e_row_mapped (kept=True) 0.0656 9
+H3_e_bias_1_+0.5 (kept=True) 0.0644 9
+H3_e_bias_2_+0.5 (kept=False) 0.0643 9
+H4_C3_bias_parent (kept=False) 0.0657 9
+H5_space_bias_+0.75 (kept=False) 0.0648 9
+H6_blank_bias_-0.5 (kept=False) 0.0644 8
+{'used': 8, 'edits': 7, 'kept': 3, 'final_digest': '46c5555c79123c4c67e124236257b72ef8f212aa2f4f9177246c950b8bd17180'}
+
+--- stderr ---

@@ -1,0 +1,1 @@
+diff.json.gz omitted (>5 MB: the edit rescales or interpolates whole blocks). Reproducible from program.py and the donor models; final digest in summary.json.
