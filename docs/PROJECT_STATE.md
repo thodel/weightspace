@@ -22,6 +22,7 @@ Weight-space programming (Takehi, Teoh, Zhang, Khattab, blog of 2 Nov 2026) trie
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/`, Zotero (user library) | done; OpenAlex Q4-Q10 incomplete |
 | Epic #12: LLM playbook | instruction file so other LLMs can repair/improve a kraken model | `docs/epics/EPIC_LLM_PLAYBOOK.md` | proposed, not started |
 | Epic #13: activation atlas | which units respond to which part of a line | `docs/epics/EPIC_ACTIVATION_ATLAS.md` | proposed, not started; can reuse the frame map and forced alignment of `wsp.layerview` |
+| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/BRIEF_TROCR_STAGE0.md`, `scripts/trocr_fetch.py` | prepared 11 Nov, not started; stage 0 needs asteraix (h1 has 5.5 GB free) and decisions 1-4 of the epic |
 
 ## Findings in one paragraph each
 

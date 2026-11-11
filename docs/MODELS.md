@@ -67,3 +67,5 @@ lossless weight-space edit and the natural first exercise for the harness.
 | `bern-disputation-1528` eval pages / 287 GT lines | Hertwig | HF (private); `pipeline.py eval --doc 13922499 --pages 8,17,26,39,48,55`; **only the 22.10 export (`28a16d55`) pairs them correctly** | held-out for family 1, with the 8 Schlussredaktion test pages: `data/heldout/bern-eval.jsonl` |
 | `german-medieval-v1` test (695 pages, 200 documents) | medieval German, 4 corpora | `/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-medieval-v1/`, `~/atr-cache/arrows/german_test.arrow` on asteraix | held-out for family 3 and the CATMuS lineage |
 | `dh-unibe/image-text_*-lines` (public parquet) | line crops + text | HF | cheap **practice** sets that run on CPU anywhere |
+
+TrOCR models (transformer line recognisers on the hub, dh-unibe and third-party): `docs/MODELS_TROCR.md` (11.11.2026).
