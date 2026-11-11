@@ -1,0 +1,13 @@
+start 2026-11-10T20:36:00Z program_02.py
+84934656 parameters; 7 passes left
+  layers.31.self_attn.o_proj in the restored state: sigma[:3] [1.586 1.397 1.277]  smallest 5.94e-08 (dir 0 of C0 removed)
+  H5 delta norm 0.9538 on ||B|| 2.8063
+  after H5: sigma[:3] [1.277 1.24  1.167]
+[H5] cer 0.3378  truncated 0.2326  length_ratio 1.127  at_cap 4  loops 8
+[H5] vs last kept: delta -0.0092  ci95 [-0.0758, +0.0471]
+H5 refused (undone)
+[H3] cer 0.3859  truncated 0.2608  length_ratio 1.143  at_cap 6  loops 10
+[H3] vs last kept: delta +0.0389  ci95 [-0.0139, +0.1113]
+H3 refused (undone)
+program_02 done; 5 passes left; no freeze
+end 2026-11-10T22:31:34Z rc=0

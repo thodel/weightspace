@@ -170,7 +170,8 @@ def reference_runner(practice_file: str | Path, data_root: str | Path, out_dir: 
     (``source``, ``text``) come from ``practice_file``. Card 0 after ``wsp.card.ready``."""
     rows = {json.loads(l)["key"]: json.loads(l) for l in Path(practice_file).read_text(encoding="utf-8").splitlines() if l.strip()}
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
-    count = {"n": 0}
+    # a session runs as several programs (one open_session each): continue the numbering, never overwrite a pass
+    count = {"n": len(list(out_dir.glob("pass-*.draw.jsonl")))}
 
     def run(adapter: Path, practice: Sequence[dict]) -> list[dict]:
         _wait_for_card(wait_s)

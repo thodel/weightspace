@@ -1,0 +1,16 @@
+{
+  "name": "20261110-kurrent-page-v2-f1-b10-1",
+  "subject": "/home/tobias/atr-cache/wsp/adapters/qwen3.5-4b-german-kurrent-xvi-xix-page-v2",
+  "subject_digest": "fb4f55ee7386abc7292e29bbf2a24f502fc4079cb4732934cbead229b300504c",
+  "subject_file_sha256": "1b70ce4a2b2125bd007bd1c81789bd43c8d72c12ef49e4f50cf8ad9ca3c67897",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/adapter-fable-f1-4e5a6a/data/practice/kurrent-val-64.jsonl",
+  "practice_sha256": "2cc5278ea215b72d5f2faad9977abcde6dde36bc327876d08643852827d46f9b",
+  "practice_lines": 64,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-10T17:22:28.846570+00:00",
+  "unshare": true,
+  "deviations": [],
+  "unit": "page",
+  "data_root": "/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-kurrent-xvi-xix-v1/vlm-pages-val"
+}
