@@ -115,3 +115,24 @@ against C0.
     sibling and none gained by the page interval. No attempt there moved toward the parent.
     The parent was trained on every Hertwig validation line, so under the donor rule a
     parent-ward edit could be judged only on Schlussredaktion lines.
+
+## 6. Registration (11.11.2026, 15:08 CET, at the user's request)
+
+After the session the user asked for the frozen model to be registered. It is registered on the
+research share as a **disabled** candidate, in the same way as `latin_incunabula` v1 and v3 (R4, R12):
+
+- `python -m wsp.run export runs/20261111-bern-combined-v1-f1-b10-1 --as kraken-bern-combined-wsp-v1`
+  wrote the weights, `metadata.json` and a registry record to `runs/…/export/kraken-bern-combined-wsp-v1/`
+  (weights not committed).
+- The weights and `metadata.json` were copied to
+  `training_folder/trained/kraken-bern-combined-wsp-v1/` on the share. File sha256 `bc08d2f9…`
+  and tensor digest `4c6d1798…`, equal to `final.mlmodel` and to `summary.json`.
+- Registered with `atr_training.registration` (training-atr-models `81539a6`) as
+  `registry/trained/kraken-bern-combined-wsp-v1.yaml`, `enabled: false`, engine kraken, task htr,
+  level page. The description names it a candidate, not for production.
+
+It was **not** enabled and **not** read through the serving path (gateway, `start_batch`,
+`score_ground_truth`). Its held-out number is the harness's only. Before it is offered for use,
+the runbook's step 4 (`docs/ASTERAIX_RUNBOOK.md` §5) would read `bern-eval` through the gateway
+with the unedited model in the same run. Session 2's frozen model (Opus) was not registered: it
+did not gain on held-out.

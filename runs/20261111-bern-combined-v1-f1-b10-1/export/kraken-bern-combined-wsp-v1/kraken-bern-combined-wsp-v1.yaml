@@ -1,0 +1,12 @@
+id: "kraken-bern-combined-wsp-v1"
+engine: "kraken"
+enabled: false
+base_model: "kraken-bern-combined-v1"
+task: "htr"
+level: "line"
+local_path: "/home/tobias/Repo/weightspace/.claude/worktrees/kraken-s2-fable-e2803a/runs/20261111-bern-combined-v1-f1-b10-1/export/kraken-bern-combined-wsp-v1/kraken-bern-combined-wsp-v1.mlmodel"
+weights_digest:
+  files:
+    kraken-bern-combined-wsp-v1.mlmodel: "bc08d2f93819bbe300e7819e27d4ff1a8803ea387cf8a846364327a3d42635ba"
+  tensors: "4c6d17980cb8a5b33a5f0f1a9dae72c74480b1263803f533c631e05cfc66008c"
+notes: "weight-space edit of kraken-bern-combined-v1; run 20261111-bern-combined-v1-f1-b10-1 (programmer Claude Fable 5.1); registered 2026-11-11 as /mnt/wbkolleg_dh_1/Textrecognition_Training/registry/trained/kraken-bern-combined-wsp-v1.yaml (weights under training_folder/trained/), disabled, never enabled; not read through the serving path; docs/KRAKEN_S2_FABLE.md §6"

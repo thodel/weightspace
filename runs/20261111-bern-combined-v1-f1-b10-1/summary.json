@@ -3730,7 +3730,7 @@
     "wall_s": 239.4
   },
   "deviations": [
-    "attempt 0 discarded before any pass: the first version of preregistration.md \u00a77 (readable by the programmer) stated session 2's kept edit; that subagent's round-0 files are in attempt0_discarded/, unrun; a fresh subagent programmed the session (docs/KRAKEN_S2_FABLE.md \u00a71)",
+    "attempt 0 discarded before any pass: the first version of preregistration.md §7 (readable by the programmer) stated session 2's kept edit; that subagent's round-0 files are in attempt0_discarded/, unrun; a fresh subagent programmed the session (docs/KRAKEN_S2_FABLE.md §1)",
     "diff.json (118.8 MB: an interpolation touches every weight) not committed; reproducible from program_0*.py and the donor; final digest above"
   ],
   "final_file_sha256": "bc08d2f93819bbe300e7819e27d4ff1a8803ea387cf8a846364327a3d42635ba",
@@ -6117,5 +6117,17 @@
     "C1": "same files (hertwig-v2, schlussredaktion-v1)",
     "C5_and_split": "controls.json (scripts/sham_combined_f1.py)",
     "comparison_with_session_2": "comparison.json (scripts/compare_combined_f1.py)"
+  },
+  "registration": {
+    "id": "kraken-bern-combined-wsp-v1",
+    "when": "2026-11-11T14:07:57Z",
+    "enabled": false,
+    "registry": "/mnt/wbkolleg_dh_1/Textrecognition_Training/registry/trained/kraken-bern-combined-wsp-v1.yaml",
+    "weights": "/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/trained/kraken-bern-combined-wsp-v1/kraken-bern-combined-wsp-v1.mlmodel",
+    "file_sha256": "bc08d2f93819bbe300e7819e27d4ff1a8803ea387cf8a846364327a3d42635ba",
+    "tensor_digest": "4c6d17980cb8a5b33a5f0f1a9dae72c74480b1263803f533c631e05cfc66008c",
+    "how": "wsp.run export, copied to the share, atr_training.registration (training-atr-models 81539a6) with enabled: false",
+    "serving_path": "not run",
+    "asked_by": "user, 11.11.2026 (after the session; the task's rule 'nothing is registered' was lifted for this)"
   }
 }

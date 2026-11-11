@@ -55,3 +55,10 @@ practice set still over-rewards the parent: the Hertwig practice gain (−2.73) 
 held-out one. So [A3](../amendments.md#a3) stands as a reason to move practice off the
 training side. One replicate each, so this is a difference between two runs, not between two
 models.
+
+## Registration (15:08 CET)
+
+At the user's request the frozen model was registered as `kraken-bern-combined-wsp-v1`, like
+the `latin_incunabula` candidates: exported, weights copied to the trainer's folder on the
+share, registry record written with `enabled: false`. It has not been enabled or read through
+the serving path, so its held-out number is still the harness's alone.
