@@ -80,5 +80,5 @@ The same training data from two origins moves the weights almost orthogonally (0
 
 ## Gate 1
 
-**Pass.** The lineage is recoverable from weights for the small fine-tunes: `v2` (0.090 from its parent, nearest), `from-kurrent-v2` (0.088, nearest), `full-v1` (0.140, nearest non-sibling… margin 0.014); confirmed independently and exactly by the pooler marker.
+**Pass.** The lineage is recoverable from weights for the small fine-tunes: `v2` (0.090 from its parent, nearest), `from-kurrent-v2` (0.088, nearest), `full-v1` (0.140, against 0.154 to its sibling: a margin of 0.014); confirmed independently and exactly by the pooler marker.
 It is less clean for the long fine-tunes and for the whole-model pooling. The negative result of the epic's wording does not apply. The readings go on as hypotheses to stage 2, not as findings.
