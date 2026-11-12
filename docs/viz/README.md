@@ -289,6 +289,82 @@ Each block's share of the fine-tune (that block alone set back to the parent, pr
   (259 of 361, 72 %); of deleted letters alone 82 % (659 of 807; Kurrent 83 %, 236 of 284). Deleted spaces differ:
   88 of 154 are still decodable up to the output layer and lost only there (Kurrent: 31 of 77).
 
+> **Correction (12.11.2026).** The parent `hertwig-v2` was trained on the 103 Hertwig lines of
+> `bern-train-300`, so every move toward it is flattered there, not only the output layer's. The
+> block shares in the table above are confounded. On lines the parent never saw, every block's share
+> helps, and the output layer does *not* go the other way: see "On lines the models were not
+> trained on" below.
+
+## On lines the models were not trained on (12.11.2026)
+
+Every reading above was taken on the models' own training lines (`blb-train-300`, `bern-train-300`).
+Amendment A4 (page-clustered intervals) has since been adopted, and A3 (practice lines the subject was
+not trained on) is proposed. So the probes and the α overlay were repeated on the practice sets of
+the controls (docs/CONTROLS_REPORT.md §3):
+- **`blb-val-300`:** 300 lines of 7 eval-side objects, removed from the held-out set, which is now
+  `blb-eval-hand-b`. The child CER is 13.83 %, against 6.46 % on its training lines. No line is
+  recorded as seen by the parent.
+- **`bern-val`:** 513 lines of `combined-v1`'s 17 validation pages. The child CER is 13.86 %. Of
+  these lines, 212 are training lines of the parent `hertwig-v2` (`seen_by` in the practice list).
+
+```bash
+M=models/kraken; P=data/practice
+.venv/bin/python -m wsp.layerview --model $M/kraken-german-xix-blb-v1.mlmodel --practice $P/blb-val-300.jsonl --out docs/viz
+.venv/bin/python -m wsp.layerview --model $M/kraken-bern-combined-v1.mlmodel --practice $P/bern-val.jsonl --out docs/viz --fold-unit page
+.venv/bin/python -m wsp.alpha_overlay --child $M/kraken-german-xix-blb-v1.mlmodel --parent $M/kraken-german-xix-v1.mlmodel --practice $P/blb-val-300.jsonl --out docs/viz
+.venv/bin/python -m wsp.alpha_overlay --child $M/kraken-bern-combined-v1.mlmodel --parent $M/kraken-bern-hertwig-v2.mlmodel --practice $P/bern-val.jsonl --out docs/viz
+.venv/bin/python -m wsp.vizpage --probes docs/viz/<model>__<set>.json --overlay docs/viz/alpha-overlay-<model>__<set>.json \
+    --practice $P/<set>.jsonl --out docs/viz/<model>__<set>.html --images
+```
+
+**The donor rule in the overlay.** Setting a block back to the parent is an edit with the parent as
+donor. `wsp.alpha_overlay` now judges it, as the proposed donor rule asks, on the lines the parent
+never saw (`donor_rule` in the JSON, page-clustered intervals, figure `…__parent-unseen.svg`). The
+same can be done for a committed overlay without the models:
+`python -m wsp.alpha_overlay --practice <set> --from-json <overlay.json>`. On `bern-val` it decides
+the reading. Setting a block back to the parent "improves" CER on the 212 lines the parent trained
+on, and costs on the 301 lines it never saw:
+
+| `combined-v1`, block at α = 0 | 212 lines the parent trained on | 301 lines it never saw | page interval (unseen) |
+|---|---:|---:|---|
+| C_6 | −0.76 | +0.48 | [+0.10, +0.90] |
+| C_9 | −0.84 | +0.43 | [+0.01, +0.91] |
+| L_12 | −4.38 | +0.77 | [−0.24, +1.53] |
+| L_14 | −5.54 | +1.42 | [+0.12, +2.16] |
+| L_16 | −3.52 | **+2.45** | [+1.72, +3.24] |
+| O_18 | −1.53 | +0.48 | [+0.15, +0.81] |
+
+`C_0` and `C_3` are within ±0.5 on both sides. `bern-train-300` records no `seen_by`, but its 103
+Hertwig lines are the parent's training lines too (docs/PHASE3_REPORT.md §2), so the train-side Bern
+overlay is confounded the same way.
+
+**What holds and what does not.**
+
+| reading (07.11 / 08.11, training lines) | on unseen lines (12.11) | verdict |
+|---|---|---|
+| Letters become identifiable over the BiLSTMs. `xix-blb-v1` identity: `C_9` 0.36, `L_12` 0.59, `L_14` 0.82, `L_16` 0.94 | 0.39, 0.59, 0.82, 0.93. Bern 0.60 → 0.71 → 0.89 → 0.96, unchanged | **holds** for both models |
+| Most deletions are decodable at no layer: 72 % for both models (letters 83 % / 82 %) | 66 % for both (letters 76 % / 73 %) | **holds**, a little weaker |
+| Deleted spaces keep a weaker emission signal (`xix-blb-v1`, from `L_14` on: 0.44–0.47 against 0.96–0.98 for kept spaces) | 0.56–0.59 against 0.96–0.97 | **holds** |
+| `xix-blb-v1`: `L_12`'s share finds the letters (+366 letters deleted without it) | +820 letters and +215 spaces deleted, ΔCER +6.81 | **holds**, stronger |
+| `xix-blb-v1`: `L_16`'s share sets the word gaps (+362 spaces deleted) | +264 spaces deleted, the most of any block, but also +147 letters deleted and +114 substitutions; ΔCER +4.16 | **holds**, but less exclusively |
+| `xix-blb-v1`: `L_14`'s share tells letters apart (+342 substitutions) | +294 letters and +99 spaces deleted, −18 substitutions; ΔCER +2.91 | **does not hold** |
+| `xix-blb-v1`: every α = 1.5 point is an exchange, e.g. `L_16` −20 substitutions against +29 deletions | `L_16` +28 letters deleted, +5 substitutions, ΔCER +0.39: no exchange, just a loss. Only `C_9` (−0.07) is not worse | **does not hold** |
+| `combined-v1`: only `L_16` matters (+1.04), and the output layer back to the parent helps (−0.42) | parent-unseen lines: `L_16` +2.45 (letters deleted +159, substitutions +127, not spaces), `L_14` +1.42 (substitutions +109), conv and `O_18` +0.4–0.5 each. The output layer costs (+0.48) | **corrected**: confounded by the parent's training lines |
+
+**Reading it.**
+- **Substitution counts are not a clean measure of telling letters apart.** On unseen material, a
+  block whose share is removed turns misreadings into dropped letters, so substitutions can *fall*
+  while CER rises (`L_12` −170, `L_14` −18). The robust statement for `xix-blb-v1` is narrower:
+  - the fine-tune's `L_12` and `L_14` moves make the letters of the new hands appear at all;
+  - `L_16`'s move does most of the word separation.
+- **The block roles are not a property of the architecture.** In the Bern pair, a small fine-tune
+  on a related hand, `L_16`'s share is about letters, not spacing.
+- **The probe findings, by contrast, replicate on both models.**
+
+**Consequence for the part-block hypotheses** (docs/READINGS.md, 07.11). H-L16 and H-L12 rested on
+the α = 1.5 exchanges, and those do not replicate on unseen lines. They should not be run as
+preregistered; see the note in READINGS.
+
 ## Relation to the activation-atlas epic (thodel/weightspace#13)
 
 Epic #13 asks for an atlas at the level of single units: selectivity, occlusion and ablation,
@@ -311,5 +387,5 @@ again.
 | ablation and α overlay per line | done: `wsp.alpha_overlay` (above), corpus summary plus per-line strips per block and α |
 | output-layer geometry | done (08.11.2026): `wsp.outgeom`, projection plus norm and bias panels, both lineages |
 | confusion-to-frame index | done (08.11.2026): selector on the page, `#conf=<n>` links, `confusions-*.json` |
-| HTML page | done: `kraken-german-xix-blb-v1.html` and `kraken-bern-combined-v1.html` |
-| readings into `docs/READINGS.md` | done: section of 07.11.2026, with four part-block hypotheses for a preregistered session |
+| HTML page | done: `kraken-german-xix-blb-v1.html` and `kraken-bern-combined-v1.html`; unseen-line pages `kraken-german-xix-blb-v1__blb-val-300.html` and `kraken-bern-combined-v1__bern-val.html` (12.11.2026) |
+| readings into `docs/READINGS.md` | done: section of 07.11.2026; checked on unseen lines on 12.11.2026 (above), and the part-block hypotheses were withdrawn |
