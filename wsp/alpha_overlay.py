@@ -133,6 +133,34 @@ def check(summary: dict, sweep: dict) -> list[dict]:
     return out
 
 
+def donor_rule(res: dict, items: list[dict], donor: str) -> dict:
+    """The overlay judged on the lines the donor (the parent) never saw, as PROTOCOL's proposed donor rule asks.
+
+    Moving a block toward the parent is an edit with the parent as donor. On lines the parent was trained
+    on it reads its own training data, so every move toward it looks good there (docs/PHASE3_REPORT.md §3).
+    Uses each practice line's ``seen_by``; the intervals are paired against the child, page-clustered
+    (``bootstrap_delta(..., clusters=page_of)``) as well as line-level."""
+    from wsp.metrics import bootstrap_delta, page_of, per_line_edits
+    if not any("seen_by" in x for x in items):
+        return {"donor": donor, "status": "seen_by not recorded in this practice list: the donor's training lines are unknown"}
+    unseen = {x["key"] for x in items if donor not in x.get("seen_by", [])}
+    by_key = {x["key"]: x for x in items}
+    lines = [ln for ln in res["lines"] if ln["key"] in unseen]
+    refs = [by_key[ln["key"]]["text"] for ln in lines]
+    clusters = [page_of(ln["key"]) for ln in lines]
+    hyps = lambda tag: [ln["states"][tag]["hyp"] for ln in lines]
+    base = per_line_edits(hyps("child"), refs)
+    summary = {"child": {"cer": sum(e for e, _ in base) / max(sum(c for _, c in base), 1), "edits": edit_counts(hyps("child"), refs)}}
+    for tag, row in res["summary"].items():
+        if tag == "child":
+            continue
+        after = per_line_edits(hyps(tag), refs)
+        summary[tag] = {**{k: row[k] for k in ("block", "alpha")}, "cer": sum(e for e, _ in after) / max(sum(c for _, c in after), 1),
+                        "edits": edit_counts(hyps(tag), refs), "vs_child": bootstrap_delta(base, after, clusters=clusters)}
+    return {"donor": donor, "status": "applied", "lines": len(lines), "lines_seen_by_donor": len(res["lines"]) - len(lines),
+            "pages": len(set(clusters)), "summary": summary}
+
+
 # -- figures ---------------------------------------------------------------------------------
 
 KINDS = [("del_letter", "letters deleted"), ("del_space", "spaces deleted"), ("sub", "substituted"),
@@ -235,24 +263,35 @@ def main(argv=None):
     from wsp.kraken_subject import KrakenSubject
     from wsp.viz import render
     ap = argparse.ArgumentParser(prog="wsp.alpha_overlay")
-    ap.add_argument("--child", required=True); ap.add_argument("--parent", required=True)
+    ap.add_argument("--child"); ap.add_argument("--parent")
     ap.add_argument("--practice", required=True); ap.add_argument("--out", default="docs/viz")
     ap.add_argument("--lines", nargs="*"); ap.add_argument("--views", type=int, default=3)
     ap.add_argument("--check"); ap.add_argument("--format", default="svg", choices=["svg", "png"])
+    ap.add_argument("--from-json", help="re-summarise a committed overlay (adds the donor rule) without the models")
     a = ap.parse_args(argv)
     if "heldout" in Path(a.practice).parts:
         raise SystemExit("practice lines only")
-    child, parent = KrakenSubject(a.child), KrakenSubject(a.parent)
     items = load(a.practice)
+    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    if a.from_json:
+        res = json.loads(Path(a.from_json).read_text())
+        res["donor_rule"] = donor_rule(res, items, res["parent"])
+        Path(a.from_json).write_text(json.dumps(res, ensure_ascii=False))
+        print(a.from_json, res["donor_rule"]["status"])
+        _render_donor(res, out, a.format)
+        return
+    if not (a.child and a.parent):
+        raise SystemExit("--child and --parent are required unless --from-json is given")
+    child, parent = KrakenSubject(a.child), KrakenSubject(a.parent)
     res = run(child, parent, items)
     cs, ps, pset = Path(a.child).stem, Path(a.parent).stem, Path(a.practice).stem
     res.update(child=cs, parent=ps, practice=pset,
                meta={"child_sha256": sha256_file(Path(a.child)), "parent_sha256": sha256_file(Path(a.parent)),
                      "practice_sha256": sha256_file(Path(a.practice)), "child_digest": child.digest()})
+    res["donor_rule"] = donor_rule(res, items, ps)
     if a.check:
         res["check"] = check(res["summary"], json.loads(Path(a.check).read_text()))
         print(f"check against {a.check}: {sum(c['equal'] for c in res['check'])}/{len(res['check'])} CERs equal")
-    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     jp = out / f"alpha-overlay-{cs}__{pset}.json"
     slim = {**res, "lines": [{**ln, "states": {t: {k: v for k, v in st.items() if k in ("hyp", "status")}
                                                for t, st in ln["states"].items()}} for ln in res["lines"]]}
@@ -260,6 +299,7 @@ def main(argv=None):
     print(jp)
     for p in render(plot_summary, res, out, f"alpha-overlay-{cs}__{pset}", a.format):
         print(p)
+    _render_donor(res, out, a.format)
     by_key = {x["key"]: x for x in items}
     lines = {ln["key"]: ln for ln in res["lines"]}
     tags = [("0", "0"), ("0.5", "0.5"), ("1", "child"), ("1.5", "1.5")]
@@ -270,6 +310,18 @@ def main(argv=None):
              "image": img, "px_per_frame": img.shape[1] // len(ln["states"]["child"]["p_blank"]), "states": ln["states"]}
         for p in render(plot_line, d, out / "lines", f"alpha-{cs}__{key.replace('/', '_')}", a.format):
             print(p)
+
+
+def _render_donor(res: dict, out: Path, fmt: str) -> None:
+    """The summary figure again on the parent-unseen lines, when the practice list records ``seen_by``."""
+    from wsp.viz import render
+    dr = res.get("donor_rule") or {}
+    if dr.get("status") != "applied" or not dr["lines_seen_by_donor"]:
+        return
+    data = {**res, "summary": dr["summary"],
+            "practice": f"{res['practice']} ({dr['lines']} lines {res['parent']} never saw)"}
+    for p in render(plot_summary, data, out, f"alpha-overlay-{res['child']}__{res['practice']}__parent-unseen", fmt):
+        print(p)
 
 
 if __name__ == "__main__":

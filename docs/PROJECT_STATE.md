@@ -28,7 +28,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | C | the family of 43 served kraken models: weights, lineage, function, exchange grids; `latin_incunabula` candidates v1-v3; exchange on out-of-domain material and across lineages | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9, R12, R13 | done, merged; v3 qualifies, registered and **disabled** |
 | C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged |
 | Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track, the phase-5 session (Opus 5.5) and its Fable 5.1 replicate (#25, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10b) merged |
-| Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | all sub-tasks done and merged; issue still open |
+| Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | done; checked on unseen practice lines (12 Nov): probe findings hold, block roles partly, part-block hypotheses withdrawn; issue closed |
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
 | Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; the Fable replicate and its shams not yet in 9.3 |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
@@ -41,7 +41,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - Some traces of fine-tuning survive a seed null: the blank's bias rising relative to the other biases, and the rare output rows growing.
   - Lineage can be read from the weights for fine-tunes that did not move far (43 models).
   - The front end is generic and the recurrent stack is individual.
-  - Letters are identified in the BiLSTMs. About 72 % of deleted characters are decodable at no layer.
+  - Letters are identified in the BiLSTMs, on training and on unseen lines alike. About two thirds of deleted characters (66–72 %) are decodable at no layer. Which block's fine-tune share does what holds only partly on unseen lines, and the Bern block shares were confounded by the parent's training lines (docs/viz/README.md, 12 Nov).
 - **Edits on kraken models:**
   - No held-out gain on practice lines from the training side (15 edits).
   - On unseen practice lines there is one small gain for `combined-v1` (−0.19 to −0.39 points). It is a quarter-step interpolation toward a sibling, and its page-clustered intervals include 0.
@@ -88,18 +88,17 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
 3. **Rotate leaked secrets:** the Zotero API key, and the Nextcloud admin and database passwords.
-4. **Close epic #3**: all sub-tasks are done.
-5. **Amendments:** A3 (donor rule and practice side) and A5 (sham noise floor for page-level sessions) are proposed, not adopted. A4 (page-clustered intervals) is adopted.
-6. **Training jobs** need your OK, because they use the GPU on the trainer's card:
+4. **Amendments:** A3 (donor rule and practice side; the 12 Nov visualisation rerun is one more case for it) and A5 (sham noise floor for page-level sessions) are proposed, not adopted. A4 (page-clustered intervals) is adopted.
+5. **Training jobs** need your OK, because they use the GPU on the trainer's card:
    - a C4 continuation on the uncorrected pairs, to show whether the correction or the extra training causes R11's gain;
    - a fine-tune with the first conv layer frozen (Track C).
-7. **Article:**
+6. **Article:**
    - authors, availability, funding, AI statement, licences, public release (6 `[TODO]`);
    - length, about 18,000 words against the roughly 7,000 an editor expects;
    - whether Section 9.3 adds the Fable replicate and the sham result;
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
-8. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
-9. **Branch hygiene.**
+7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
+8. **Branch hygiene.**
    - Every remote branch except those of #27 and #28 is merged into main and can be deleted.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
@@ -111,10 +110,10 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 **Not started**
 
-10. Epic #12 (LLM playbook) and epic #13 (activation atlas).
-11. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator).
-12. Literature: OpenAlex Q4-Q10.
-13. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
+9. Epic #12 (LLM playbook) and epic #13 (activation atlas).
+10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator).
+11. Literature: OpenAlex Q4-Q10.
+12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
 ## Rules that apply here
 
