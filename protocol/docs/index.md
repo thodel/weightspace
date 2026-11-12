@@ -12,7 +12,7 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 11 November 2026"
+!!! note "Status — 12 November 2026"
     **No weight edit has yet repaired a model.**
 
     - **Kraken models:** budgeted sessions gave no held-out gain. The one small
@@ -27,6 +27,11 @@ characters, about 4 M parameters) fine-tuned on historical German handwriting.
     - **Block exchange between related models does help** on material the
       model was not trained for. One candidate (`latin_incunabula` v3) reads
       held-out Fraktur 1.7 points better while keeping its abbreviations.
+    - **Second architecture:** a TrOCR track (transformer encoder-decoder,
+      334 M parameters) has started. Readings are deterministic and lineage can
+      be read from the weights. No edit yet.
+    - **Fable 5.1 reruns** of kraken session 2 and of the planted-defect
+      controls are awaiting review (thodel/weightspace#27, #28).
     - **Data:** along the way the work found several defects in the project's
       own data.
 

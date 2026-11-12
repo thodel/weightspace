@@ -109,3 +109,10 @@ Stop gates: after Gate 0 (cost), after Gate 1 (readings), after Gate 3 (positive
 2. May the stage-2 seeds and the stage-5 retrain go through the trainer (about 15 GPU hours, card as the trainer allocates), and when?
 3. May stage 0 download the two private models to asteraix (read, with the user's hub credentials)?
 4. Is a second architecture-family comparison wanted at the end (large models, the Swedish and CATMuS fine-tunes), or only the Bern chain?
+
+### Answers (Tobias, 2026-11-11)
+
+1. Both in parallel: `from-kurrent-v2` and `trocr-kurrent` are subjects (C0 on BLB: 19.74 % and 26.41 %; `XVI-XVII` stays the parent comparison).
+2. Yes: the stage-2 seeds and the stage-5 retrain go through the trainer. Timing and card allocation still to be agreed per run.
+3. Yes (stage 0, earlier).
+4. Yes: a second architecture family with large models (the Swedish and CATMuS fine-tunes) is wanted at the end, after the Bern chain.
