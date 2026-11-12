@@ -44,3 +44,12 @@ Code: reuse `wsp/trocr_family.py` (`read` with a models dict, `dist_matrix`) and
 ## Before any submit
 
 Read-only: pull the original job's request body, pin dataset revisions with `train_spec` action `request`, check `server_status` for free disk and the card state. Then ask for the go-ahead with the exact body.
+
+## Update 12.11.2026: what the original job record shows (read only)
+
+Found at `/mnt/wbkolleg_dh_1/Textrecognition_Training/training_folder/jobs/20261026T064540Z-trocr-german-kurrent-xvi-xix-from-kurrent-v2/job.json`. The trainer has a `trocr` engine, but the **specs of `train_spec` are in the gateway repo** (`/home/dh/agentic_historian`, `training/specs/`, three kraken/VLM specs only), so the five requests need to be added there by its owner or through a commit I am not authorised to make. A draft request body (revisions of all 20 datasets already pinned) is `docs/trocr/nulls_request/request_template.json`.
+
+- **Recipe, as run:** `base_model` dh-unibe/trocr-kurrent-XVI-XVII, 3 epochs, batch 8, no accumulation, lr 5e-5 cosine, warmup 0.1, weight decay 0, max grad norm 1.0, adamw_torch, gradient checkpointing, bf16, **seed 42**, beam 4, length penalty 1.0, no_repeat_ngram 3, max_new_tokens 256, 500 eval samples, trainer commit 50f7c4fb, transformers 4.57.6. 53,008 train samples, 19,878 steps. Recorded CER 8.89 %.
+- **Time:** wall 3 h 10 min: prepare 12 min, **compile 82 min** (CPU, same for every seed), train 86 min, test 9 min. Energy of the train stage 0.40 kWh (both cards counted), so five runs are about 2 kWh as estimated, but 5 x 82 min of compile is avoidable if the compiled data can be reused (to ask the trainer's owner).
+- **Seed 42 was the recorded run's seed**, so my earlier remark that its seed is unknown was wrong. Proposal: seeds 1 to 5 plus a **seed-42 repeat** as a reproduction check (does the recipe give back `from-kurrent-v2` bit for bit, or only up to noise?). That repeat is also the cleanest null for "same recipe, same seed".
+- **Side effects to switch off:** the original job was **published to the hub and registered** (`published: https://huggingface.co/dh-unibe/...`, registry yaml). The seed runs must do neither; whether the trainer has a switch is for its owner to say. The original used card 0 (`cuda:0`); card 1 is the trainer's, so the card is to be set in the request.
