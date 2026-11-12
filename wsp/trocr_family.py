@@ -32,7 +32,17 @@ MODELS = {                      # short name -> directory under the cache
     "full-v1": "dh-unibe__trocr-german-kurrent-xvi-xix-full-v1",
     "medieval": "dh-unibe__trocr-medieval-escriptmask",
 }
+#: third-party models of docs/MODELS_TROCR.md section B (fetched by ``trocr_fetch.py --set extra``); read with ``--set all``
+EXTRA = {
+    "stage1": "microsoft__trocr-base-stage1",
+    "swe": "Riksarkivet__trocr-base-handwritten-hist-swe-2",         # documented parent: base; separate output projection (384.9 M)
+    "catmus": "medieval-data__trocr-medieval-base",
+    "lamop": "LaMOP__TrOCR_Manicule_2026_Latin_Medieval",           # documented parent: base
+    "ru": "kazars24__trocr-base-handwritten-ru",
+    "hanse": "fgho__trocr-hanseXVI-kurrent",                      # no card
+}
 #: documented parent of each model (docs/MODELS_TROCR.md section A; the cards, not the weights)
+PARENT_EXTRA = {"swe": "base", "lamop": "base", "stage1": None, "catmus": None, "ru": None, "hanse": None}   # None: not stated on the hub
 PARENT = {"kurrent": "base", "xvi-xvii": "kurrent", "from-kurrent-v2": "xvi-xvii", "full-v1": "xvi-xvii",
           "v2": "base", "medieval": "base"}
 RTOL, ATOL = 1e-4, 1e-6
@@ -68,9 +78,10 @@ def pair_stats(a: np.ndarray, b: np.ndarray) -> dict:
             "close": float(np.mean(np.isclose(a.ravel(), b.ravel(), rtol=RTOL, atol=ATOL))), "n": int(a.size)}
 
 
-def read(out: Path) -> dict:
+def read(out: Path, models: dict | None = None) -> dict:
     from safetensors import safe_open
 
+    MODELS = models or globals()["MODELS"]
     handles = {k: safe_open(str(CACHE / v / "model.safetensors"), framework="np") for k, v in MODELS.items()}
     names: dict[str, dict[str, str]] = {}               # canonical -> {model: hf name}
     for k, h in handles.items():
@@ -82,7 +93,9 @@ def read(out: Path) -> dict:
     for cn in sorted(names):
         present = names[cn]
         have = [k for k in MODELS if k in present]
-        assert len(have) == len(MODELS) or cn.startswith("enc.pooler"), (cn, set(MODELS) - set(present))   # only the unused pooler may be missing (the base has none)
+        # the core seven differ only in the unused pooler; third-party models may lack tensors (no embedding norm, separate output projection):
+        # such tensors are read for the pairs that have them, and ``present_in`` says which
+        assert models or len(have) == len(MODELS) or cn.startswith("enc.pooler"), (cn, set(MODELS) - set(present))
         arr = {k: handles[k].get_tensor(present[k]).astype(np.float32) for k in have}
         shape = {a.shape for a in arr.values()}
         assert len(shape) == 1, (cn, shape)
@@ -104,8 +117,13 @@ def read(out: Path) -> dict:
                                       "rel_decile_mean": [float(x.mean()) for x in np.array_split(diff / np.where(den > 0, den, 1), 10)],
                                       "abs_decile_mean": [float(x.mean()) for x in np.array_split(diff, 10)]}
             tensors[cn]["token_rows"] = tokrows
-    res = {"models": MODELS, "parent": PARENT, "tensors": tensors, "pairs": rows, "rtol": RTOL, "atol": ATOL}
-    out.write_text(json.dumps(res, indent=0))
+    res = {"models": MODELS, "parent": {k: v for k, v in {**PARENT, **PARENT_EXTRA}.items() if v and k in MODELS}, "tensors": tensors, "pairs": rows, "rtol": RTOL, "atol": ATOL}
+    for r in res["pairs"]:
+        for k in ("sq", "na2", "nb2", "dist", "cos"):
+            if r[k] is not None:
+                r[k] = float(f"{r[k]:.6g}")
+        r["identical"] = round(r["identical"], 6); r["close"] = round(r["close"], 6)
+    out.write_text(json.dumps(res, separators=(",", ":")))
     return res
 
 
@@ -146,9 +164,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="cmd", required=True)
     r = sp.add_parser("read"); r.add_argument("--out", default=str(REPO / "docs/trocr/readings.json"))
+    r.add_argument("--set", choices=["core", "all"], default="core")
     a = ap.parse_args(argv)
     if a.cmd == "read":
-        read(Path(a.out))
+        read(Path(a.out), {**MODELS, **EXTRA} if a.set == "all" else None)
     return 0
 
 
