@@ -1,0 +1,882 @@
+{
+ "all_shapes_identical": false,
+ "describe": {
+  "aliases": {
+   "dec.out.weight": "dec.embed.tokens"
+  },
+  "bridge_and_other": 0,
+  "by_component": {
+   "dec.cross": 44089344,
+   "dec.embed": 51999744,
+   "dec.ffn": 100724736,
+   "dec.norm": 73728,
+   "dec.self": 50380800,
+   "enc.attn": 28320768,
+   "enc.embed": 1034496,
+   "enc.ffn": 56669184,
+   "enc.norm": 38400,
+   "enc.pooler": 590592
+  },
+  "decoder_layers": 12,
+  "decoder_parameters": 247268352,
+  "decoder_tie_word_embeddings": true,
+  "encoder_layers": 12,
+  "encoder_parameters": 86062848,
+  "forward_parameters": 333331200,
+  "model": "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+  "other_tensors": [],
+  "parameters": 333921792,
+  "state_dict_keys": 481,
+  "tensors": 478,
+  "unused_by_forward": 590592,
+  "unused_tensors": [
+   "enc.pooler.bias",
+   "enc.pooler.weight"
+  ],
+  "vocab_size": 50265
+ },
+ "encoding": {
+  "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "PreTrainedTokenizerFast(tokenizer.json)",
+   "special": {
+    "bos": null,
+    "eos": null,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "Riksarkivet/trocr-base-handwritten-hist-swe-2": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-v2": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-kurrent": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-kurrent-XVI-XVII": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "dh-unibe/trocr-medieval-escriptmask": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "fgho/trocr-hanseXVI-kurrent": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "kazars24/trocr-base-handwritten-ru": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "medieval-data/trocr-medieval-base": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "microsoft/trocr-base-handwritten": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  },
+  "microsoft/trocr-base-stage1": {
+   "ids_sha256": "f0aef0a31c19d647084e9f06dcc46f137729a61011a52a7f16af2ab789615b52",
+   "loader": "AutoTokenizer",
+   "special": {
+    "bos": 0,
+    "eos": 2,
+    "pad": 1
+   },
+   "vocab_len": 50265
+  }
+ },
+ "encoding_identical": true,
+ "file_identity_groups": {
+  "config.json": [
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval"
+   ],
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2"
+   ],
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2"
+   ],
+   [
+    "dh-unibe/trocr-kurrent"
+   ],
+   [
+    "dh-unibe/trocr-kurrent-XVI-XVII"
+   ],
+   [
+    "dh-unibe/trocr-medieval-escriptmask"
+   ],
+   [
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "kazars24/trocr-base-handwritten-ru"
+   ],
+   [
+    "medieval-data/trocr-medieval-base"
+   ],
+   [
+    "microsoft/trocr-base-handwritten"
+   ],
+   [
+    "microsoft/trocr-base-stage1"
+   ]
+  ],
+  "generation_config.json": [
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1"
+   ],
+   [
+    "dh-unibe/trocr-kurrent",
+    "dh-unibe/trocr-kurrent-XVI-XVII"
+   ],
+   [
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval"
+   ],
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2"
+   ],
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2"
+   ],
+   [
+    "dh-unibe/trocr-medieval-escriptmask"
+   ],
+   [
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "kazars24/trocr-base-handwritten-ru"
+   ],
+   [
+    "medieval-data/trocr-medieval-base"
+   ]
+  ],
+  "merges.txt": [
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2",
+    "dh-unibe/trocr-kurrent",
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "kazars24/trocr-base-handwritten-ru",
+    "medieval-data/trocr-medieval-base",
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval",
+    "dh-unibe/trocr-medieval-escriptmask",
+    "fgho/trocr-hanseXVI-kurrent"
+   ]
+  ],
+  "preprocessor_config.json": [
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2"
+   ],
+   [
+    "dh-unibe/trocr-kurrent",
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "dh-unibe/trocr-medieval-escriptmask"
+   ],
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2",
+    "kazars24/trocr-base-handwritten-ru"
+   ],
+   [
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval"
+   ],
+   [
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "medieval-data/trocr-medieval-base"
+   ]
+  ],
+  "special_tokens_map.json": [
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2",
+    "kazars24/trocr-base-handwritten-ru",
+    "medieval-data/trocr-medieval-base"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval",
+    "dh-unibe/trocr-medieval-escriptmask",
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "dh-unibe/trocr-kurrent"
+   ]
+  ],
+  "tokenizer.json": [
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2"
+   ],
+   [
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval"
+   ],
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2"
+   ],
+   [
+    "dh-unibe/trocr-kurrent"
+   ],
+   [
+    "dh-unibe/trocr-medieval-escriptmask"
+   ],
+   [
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "kazars24/trocr-base-handwritten-ru"
+   ],
+   [
+    "medieval-data/trocr-medieval-base"
+   ]
+  ],
+  "tokenizer_config.json": [
+   [
+    "dh-unibe/trocr-kurrent",
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ],
+   [
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval"
+   ],
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2"
+   ],
+   [
+    "dh-unibe/trocr-medieval-escriptmask"
+   ],
+   [
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "kazars24/trocr-base-handwritten-ru"
+   ],
+   [
+    "medieval-data/trocr-medieval-base"
+   ]
+  ],
+  "vocab.json": [
+   [
+    "Riksarkivet/trocr-base-handwritten-hist-swe-2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1",
+    "dh-unibe/trocr-german-kurrent-xvi-xix-v2",
+    "dh-unibe/trocr-kurrent",
+    "kazars24/trocr-base-handwritten-ru",
+    "medieval-data/trocr-medieval-base"
+   ],
+   [
+    "LaMOP/TrOCR_Manicule_2026_Latin_Medieval",
+    "dh-unibe/trocr-medieval-escriptmask",
+    "fgho/trocr-hanseXVI-kurrent"
+   ],
+   [
+    "dh-unibe/trocr-kurrent-XVI-XVII",
+    "microsoft/trocr-base-handwritten",
+    "microsoft/trocr-base-stage1"
+   ]
+  ]
+ },
+ "models": {
+  "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "fb32befd773383ef178320226a895a6b4585f62710a3174f8e5212cdaa630235",
+    "generation_config.json": "71908c7174d247401486bb9e06415a1fbbad83f6815827a983f49c61f2bf107f",
+    "tokenizer.json": "6584a53846189738e74af4db48e104d9f855153858b59e6ae69387befa8ae81f",
+    "tokenizer_config.json": "6f6a1e4fc18fbe15843c3e5f5bcf907fc17279af24987890c4601df65a0672fb"
+   },
+   "missing_files": [
+    "vocab.json",
+    "merges.txt",
+    "special_tokens_map.json",
+    "preprocessor_config.json"
+   ],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "Riksarkivet/trocr-base-handwritten-hist-swe-2": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ],
+    "decoder.output_projection.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "f8151c36c70c0a89eca013755790a64df7015bd77c1b410b27089fe7a101d3b4",
+    "generation_config.json": "9a45fb9fc092177e4b5eb1c88a230a39ce3bc59386c72c96795c47c1cd7bfd64",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "88f73800cf47a61709906414dba6970168d361c5103cc63fd2762bee63d0daf8",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "76875c73585f5ec48386c5b75680bfc0ccf3c93c2939d4a25b7018d57c7f5881",
+    "tokenizer_config.json": "6fdbde1f67a50a036e3ed4dc15cdd5000d39ab5bf5a6b8cabe4c0aa2e0e649b2",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 479,
+   "parameters_from_header": 384864769,
+   "tensor_shapes_sha256": "8254de75eb3b6120aa7cce323724a18dd6e5e4d92d48494d69bbe714bae57799"
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "94728037a7fb5dc98d729159caa6868e7cc32b154db8abc3077f6db665213ad1",
+    "generation_config.json": "b6fd87ee4b0094c48029d02bfebd8e8092b46cc7647676e0938675daf61370cd",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+    "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "94728037a7fb5dc98d729159caa6868e7cc32b154db8abc3077f6db665213ad1",
+    "generation_config.json": "b6fd87ee4b0094c48029d02bfebd8e8092b46cc7647676e0938675daf61370cd",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+    "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-v2": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "731fd1dab7cf863cbdc4b17fe5b194aff0236dee5504d84af42bd527cdf4c304",
+    "generation_config.json": "be61c1e8d6a0cf2e248bed9dda69bc2c965931144be8ec669c1a9d622efaeff0",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+    "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "dh-unibe/trocr-kurrent": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "267a0d613742e7b82d6729085aaf5db3c0f84db8c9c615ad4519f5e16e4833b5",
+    "generation_config.json": "6f164281f0965a93abe9194845758c2b2cc3a49a7f9a8590e38415b8f68e5fea",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+    "special_tokens_map.json": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+    "tokenizer.json": "727009a8214ddfa5af1deedf1006d4d06e8e51e54aa5f03566263d4e19bfcdce",
+    "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "dh-unibe/trocr-kurrent-XVI-XVII": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "941f05e27f379ee438502591a41bc6af414df100063f92bbada9bc0fbd1fff46",
+    "generation_config.json": "6f164281f0965a93abe9194845758c2b2cc3a49a7f9a8590e38415b8f68e5fea",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+    "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+    "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+    "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+   },
+   "missing_files": [
+    "tokenizer.json"
+   ],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "dh-unibe/trocr-medieval-escriptmask": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "f0e1032d1ad24e3e1eb3383b0357379bc07efc9c26c58385b1d691a807933d7b",
+    "generation_config.json": "50964cd606cdcedcd219e745f1b7c08dae4eb3bc00f85613825c774b98083565",
+    "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+    "tokenizer.json": "2cc6e170b0165903dc4f20bbd2cfddc618e03947d2b9de0e2d21e032a3e870e5",
+    "tokenizer_config.json": "3fff86348cf8362113e84000bb7fba3314d6c5f8bb6fba4081a5c9390a4b92c1"
+   },
+   "missing_files": [
+    "vocab.json",
+    "merges.txt",
+    "special_tokens_map.json"
+   ],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "fgho/trocr-hanseXVI-kurrent": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "6efdc31b4d23f7df981a0462621793e398884a0782fe4186d3b79e3e845303a3",
+    "generation_config.json": "138de5faf528067f2623c8b63c7d362e6b1e5b81ef2f971b5e9229e60c4f83c9",
+    "preprocessor_config.json": "e61b91440ccab7095447f90272ba5a2178a7ef55bd70d5084db44addf4348a7f",
+    "tokenizer.json": "07bdbb73e317877473e5455a1708148579cf4126520c1107fc6278a2cb071a1d",
+    "tokenizer_config.json": "bd8c933ae7ffada8c6e7953863b49c18204d6da31d6adab61cf332f72d78e94f"
+   },
+   "missing_files": [
+    "vocab.json",
+    "merges.txt",
+    "special_tokens_map.json"
+   ],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "kazars24/trocr-base-handwritten-ru": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "e08910cc0e0cfe661e6016336b852d118d935f10758e10cc5aab7a6c441165d4",
+    "generation_config.json": "64c9e414a49f4a15818f9a4b9d4f400b9f80cbbd0c284851b88eac53d46bc003",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "88f73800cf47a61709906414dba6970168d361c5103cc63fd2762bee63d0daf8",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "dd6783fd244855ae8bdd72562fc7b93d61c97d6333c9bd4dd1dee46682d28c1f",
+    "tokenizer_config.json": "1a2672bb02f0d63f34cbf1597f8da992113bc4f3b7c88d4ab353df9fa02e089b",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "medieval-data/trocr-medieval-base": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "02243e7796e73180172513a4d7ddd061478cb7ee4c82cab2f6f7742d1be52875",
+    "generation_config.json": "0d0f05791c0f786a19f92ab697b5624f1fe559b53332a6d6bbee0c0985606eb3",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "ccd745b3c0578c77953a5d9a3437bc99c68a84cb12386d2938e53f097bf3ab67",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer.json": "2d31fc02480b93ce1566136435aea2aa2d27c580c49a3341c46d00aea73b7920",
+    "tokenizer_config.json": "c3064243d9588aa497fb3f572330458472dcfeebb13e02cf9404dd7f8d80bafe",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+   },
+   "missing_files": [],
+   "n_tensors": 480,
+   "parameters_from_header": 333921792,
+   "tensor_shapes_sha256": "1eaa53d0f2f8cc747f4888651435a37be6748f98f288ba27ed06a6a4c427ec92"
+  },
+  "microsoft/trocr-base-handwritten": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "4c779f24e063c437c3dafd5b2e6c9f59f2fa2bd1dbb4ae6a30153bbbbf19e647",
+    "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+    "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+    "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+    "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+   },
+   "missing_files": [
+    "tokenizer.json"
+   ],
+   "n_tensors": 478,
+   "parameters_from_header": 333331200,
+   "tensor_shapes_sha256": "f18e1e128bae5d7eac3233b9a90d3416caa570344becd11d1e44d29ca74ebefd"
+  },
+  "microsoft/trocr-base-stage1": {
+   "dtypes": [
+    "F32"
+   ],
+   "embedding_shapes": {
+    "decoder.model.decoder.embed_tokens.weight": [
+     50265,
+     1024
+    ],
+    "decoder.output_projection.weight": [
+     50265,
+     1024
+    ]
+   },
+   "files": {
+    "config.json": "c795bc1f3a99e8996961c105751dc7438fbd7935438f75179eca270b1448b65e",
+    "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+    "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+    "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+    "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+   },
+   "missing_files": [
+    "tokenizer.json"
+   ],
+   "n_tensors": 477,
+   "parameters_from_header": 384274177,
+   "tensor_shapes_sha256": "481e3827ec39b05505ec36b0e4990d7f3d4f66b44499726a4676dfb1d8e7db64"
+  }
+ },
+ "pooler_in_file": {
+  "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": true,
+  "Riksarkivet/trocr-base-handwritten-hist-swe-2": true,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": true,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": true,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-v2": true,
+  "dh-unibe/trocr-kurrent": true,
+  "dh-unibe/trocr-kurrent-XVI-XVII": true,
+  "dh-unibe/trocr-medieval-escriptmask": true,
+  "fgho/trocr-hanseXVI-kurrent": true,
+  "kazars24/trocr-base-handwritten-ru": true,
+  "medieval-data/trocr-medieval-base": true,
+  "microsoft/trocr-base-handwritten": false,
+  "microsoft/trocr-base-stage1": false
+ },
+ "reference": "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+ "separate_output_projection_in_file": {
+  "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": false,
+  "Riksarkivet/trocr-base-handwritten-hist-swe-2": true,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": false,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": false,
+  "dh-unibe/trocr-german-kurrent-xvi-xix-v2": false,
+  "dh-unibe/trocr-kurrent": false,
+  "dh-unibe/trocr-kurrent-XVI-XVII": false,
+  "dh-unibe/trocr-medieval-escriptmask": false,
+  "fgho/trocr-hanseXVI-kurrent": false,
+  "kazars24/trocr-base-handwritten-ru": false,
+  "medieval-data/trocr-medieval-base": false,
+  "microsoft/trocr-base-handwritten": false,
+  "microsoft/trocr-base-stage1": true
+ },
+ "shapes_identical_without_pooler": false,
+ "tokenizer_semantic": {
+  "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": false,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": false
+  },
+  "Riksarkivet/trocr-base-handwritten-hist-swe-2": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-german-kurrent-xvi-xix-v2": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-kurrent": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-kurrent-XVI-XVII": {
+   "added_tokens_equal": null,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": null,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "dh-unibe/trocr-medieval-escriptmask": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": false,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": false
+  },
+  "fgho/trocr-hanseXVI-kurrent": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": false,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": false
+  },
+  "kazars24/trocr-base-handwritten-ru": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "medieval-data/trocr-medieval-base": {
+   "added_tokens_equal": true,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": true,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "microsoft/trocr-base-handwritten": {
+   "added_tokens_equal": null,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": null,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  },
+  "microsoft/trocr-base-stage1": {
+   "added_tokens_equal": null,
+   "merges_equal": true,
+   "merges_txt_present": true,
+   "tokenizer_json_vocab_equal": null,
+   "vocab_equal": true,
+   "vocab_json_present": true
+  }
+ }
+}
