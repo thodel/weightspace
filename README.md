@@ -9,7 +9,7 @@ Method source: R. Takehi, J. Teoh, A. Zhang, O. Khattab, "Sparks of Weight-Space
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 
-Status 11.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). All tracks are done and merged. The phase-5 adapter session was replicated with a Fable 5.1 programmer (#25): same edit, same held-out null. A TrOCR track is prepared, not started. No weight edit has given a held-out repair. One block-exchange candidate (`latin_incunabula` v3) qualifies; it is registered and disabled.
+Status 12.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). The kraken and adapter tracks are done and merged; no weight edit has given a held-out repair, and one block-exchange candidate (`latin_incunabula` v3) qualifies (registered, disabled). Two Fable 5.1 reruns are open for review (#27 kraken session 2, #28 planted defects). A TrOCR track has passed stages 0 and 1 ([docs/trocr/STAGE0.md](docs/trocr/STAGE0.md), [docs/TROCR_READINGS.md](docs/TROCR_READINGS.md)).
 
 Public protocol (MkDocs, for GitHub Pages later): [protocol/](protocol/README.md).
 
