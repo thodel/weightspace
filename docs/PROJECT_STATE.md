@@ -1,9 +1,10 @@
-# Project state (11 November 2026, midday CET)
+# Project state (12 November 2026, morning CET)
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** includes the Fable replicate (#25), the manuscript update of 11 November (`9b4fa1f`) and the TrOCR preparation (`0106b90`).
-- **Open pull requests:** none.
+- **Main:** at the merge of TrOCR stage 1 (`d43efc3`, 11 Nov evening), plus this documentation update.
+- **Open pull requests:** two, both Fable 5.1 reruns marked "do not merge without review": thodel/weightspace#27 (kraken session 2) and thodel/weightspace#28 (planted defects).
+- **Running:** no weightspace job. Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
 
 ## What this is
 
@@ -32,7 +33,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; the Fable replicate and its shams not yet in 9.3 |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
 | Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | proposed, not started |
-| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/BRIEF_TROCR_STAGE0.md`, `scripts/trocr_fetch.py` | prepared 11 Nov, not started; stage 0 needs asteraix (h1 has 5.5 GB free) and decisions 1-4 of the epic |
+| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null through the trainer) not started |
 
 ## Findings in one paragraph each
 
@@ -55,6 +56,13 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - The phase-5 session kept one edit, direction 0 of `layers.31.self_attn.o_proj`. Practice CER fell 45.2 → 34.7 %; on 733 held-out pages the change is +0.24 [−3.5, +3.9].
   - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25, merged).
   - One of three seeded random directions passes the same keep rule on practice, which motivates the proposed amendment A5 (sham noise floor).
+- **TrOCR (stages 0-1):**
+  - Seven models share one tokenizer, and input embedding and output projection are one tied tensor.
+  - Readings are deterministic. C0 on `blb-eval-hand`: 19.74 % (`from-kurrent-v2`), 19.83 % (parent `XVI-XVII`), 26.41 % (`trocr-kurrent`).
+  - Lineage is recoverable for the small fine-tunes, and the ViT pooler is an exact lineage marker.
+  - The decoder moves 3-5 times more than the encoder.
+  - The same data from two origins moves the weights almost orthogonally.
+  - All of these are hypotheses until the seed null of stage 2.
 - **Data findings:**
   - the Hertwig export defect (44 of 50 pages; repaired on HF, commit `dda578ea`);
   - a held-out set that was half a printed book (replaced by `blb-eval-hand`);
@@ -63,9 +71,20 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 ## Open items
 
+**Waiting for review**
+
+- **thodel/weightspace#27**, kraken session 2 rerun with a Fable 5.1 programmer:
+  - 3 edits kept;
+  - held-out −0.57 points [−1.15, −0.05] by pages, almost all of it on the Hertwig lines (−1.32);
+  - the interpolation toward `hertwig-v2` alone gives −0.53, about the size of the C4 retrain.
+- **thodel/weightspace#28**, planted-defect controls rerun with a Fable 5.1 programmer:
+  - 13 of 22 cells repaired, against Sonnet's 15;
+  - the one cell where measuring passes made the difference, k9 (noise on all weights), does not reproduce: 24 % against 83 %.
+- Both PRs add journal rows and RESULTS paragraphs. Expect small conflicts in `protocol/docs/journal/index.md` and `protocol/mkdocs.yml` with each other and with this update.
+
 **Decisions for the user**
 
-1. **TrOCR track:** decisions 1-4 of `docs/epics/EPIC_TROCR_TRACK.md` before stage 0 on asteraix.
+1. **TrOCR track:** when the stage-2 seeds go through the trainer (card and timing); whether to fetch the third-party fine-tunes for the comparison; and the parents' corpora question of `docs/trocr/STAGE0.md` §8, item 4 (Laßberg or BLB material in the Kurrent or XVI-XVII training data?).
 
 2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
 2b. **Offer `kraken-bern-combined-wsp-v1` for use?** Fable replicate of kraken session 2; registered and disabled. Held-out −0.57 (harness, lines) and −2.16 [−3.32, −1.05] through the serving path, but the two measurements put the gain on different hands (`docs/KRAKEN_S2_FABLE.md` §6).
@@ -82,7 +101,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 8. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 9. **Branch hygiene.**
-   - Every remote branch is merged into main and can be deleted.
+   - Every remote branch except those of #27 and #28 is merged into main and can be deleted.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
 
@@ -94,8 +113,9 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 **Not started**
 
 10. Epic #12 (LLM playbook) and epic #13 (activation atlas).
-11. Literature: OpenAlex Q4-Q10.
-12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
+11. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator).
+12. Literature: OpenAlex Q4-Q10.
+13. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
 ## Rules that apply here
 

@@ -12,16 +12,15 @@ downloaded or measured. Digests, revisions and CERs of our own re-reading come f
 |---|---|---|
 | encoder | ViT, patch 16, input **384 x 384** (the line crop is resized to a square), mean/std 0.5 | 12 layers, hidden 768, 12 heads, FFN 3072, no q/k/v bias |
 | decoder | TrOCR text decoder, learned positions, `layernorm_embedding` | 12 layers, d_model 1024, 16 heads, FFN 4096, vocabulary **50,265** (RoBERTa byte-level BPE), cross-attention on the 768-d encoder output, 512 positions |
-| tying | `tie_word_embeddings: false` | input embedding and output projection are separate tensors |
+| tying | top-level `tie_word_embeddings: false`, but the decoder config ties | **corrected by stage 0 (docs/trocr/STAGE0.md): the hub files hold ONE embedding tensor (`decoder.model.decoder.embed_tokens.weight`, 50,265 x 1,024); the output projection is tied to it. Editing the one changes both input and output** |
 | generation (trainer's eval) | beam 4, `max_new_tokens` 256, `no_repeat_ngram_size` 3, length penalty 1.0 | the repeat constraint changes lines that legitimately repeat a trigram; pin it per session |
 
-Encoder about 86 M and decoder about 248 M parameters (by subtraction from the total; to be counted by the stage-0 session). A **large** family exists next to it
+Counted by stage 0: encoder 86,062,848 (without the unused ViT pooler of 590,592), decoder 247,268,352 (of which embedding 51,999,744, cross-attention 44,089,344), 333,921,792 stored parameters in all. A **large** family exists next to it
 (558 M: presumably a 24-layer ViT-L encoder with the same 12-layer decoder, to be read from its `config.json`), see below; its tensors do not fit the base-size family.
 
 **Consequence for weight-space work:** every base-size model of the Bern family and most third-party fine-tunes share architecture and tokenizer (`vocab.json` 798,293
 bytes and `merges.txt` 456,318 bytes are identical in `trocr-kurrent` and `trocr-german-kurrent-xvi-xix-from-kurrent-v2`). Tensors are therefore **aligned by name**, with no
-codec alignment as in kraken, and a sibling or parent is a true donor (unlike the adapters, cosine 0.10). Not yet verified: that every token row means the same in all of them
-(the tokenizer files must be compared byte for byte by the stage-0 session).
+codec alignment as in kraken, and a sibling or parent is a true donor (unlike the adapters, cosine 0.10). Verified by stage 0: vocabulary (50,265 entries), merge list and special tokens are identical in all seven fetched models (the files differ in serialisation only; docs/trocr/STAGE0.md).
 
 ## A. dh-unibe (our own), base-size, line level
 

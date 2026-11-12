@@ -1,0 +1,193 @@
+{
+ "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": {
+  "files": {
+   "README.md": 14422,
+   "config.json": 1690,
+   "generation_config.json": 339,
+   "merges.txt": 456318,
+   "metadata.json": 22812,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 390,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 3558642,
+   "tokenizer_config.json": 1284,
+   "training_args.bin": 8145,
+   "training_summary.json": 146,
+   "vocab.json": 798293
+  },
+  "private": false,
+  "revision": "ea9383f3c89d3a316a9feb287e8e9526d78eb04e",
+  "sha256": {
+   "config.json": "94728037a7fb5dc98d729159caa6868e7cc32b154db8abc3077f6db665213ad1",
+   "generation_config.json": "b6fd87ee4b0094c48029d02bfebd8e8092b46cc7647676e0938675daf61370cd",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "054474de1f621f61d1284ee4f274c58def0bb887b1a91694081960fb05dbaf3c",
+   "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+   "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
+ "dh-unibe/trocr-german-kurrent-xvi-xix-full-v1": {
+  "files": {
+   "README.md": 14350,
+   "config.json": 1690,
+   "generation_config.json": 339,
+   "merges.txt": 456318,
+   "metadata.json": 22862,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 390,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 3558642,
+   "tokenizer_config.json": 1284,
+   "training_args.bin": 8081,
+   "training_summary.json": 148,
+   "vocab.json": 798293
+  },
+  "private": true,
+  "revision": "d8dce8518ada43208b7a3abd7764e54f3104405a",
+  "sha256": {
+   "config.json": "94728037a7fb5dc98d729159caa6868e7cc32b154db8abc3077f6db665213ad1",
+   "generation_config.json": "b6fd87ee4b0094c48029d02bfebd8e8092b46cc7647676e0938675daf61370cd",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "870235a8c7612b5b4900cb1c2d6aa479df5a9fc56c45dec1d01335ea8a6ec79b",
+   "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+   "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
+ "dh-unibe/trocr-german-kurrent-xvi-xix-v2": {
+  "files": {
+   "README.md": 14400,
+   "config.json": 1572,
+   "generation_config.json": 300,
+   "merges.txt": 456318,
+   "metadata.json": 22762,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 390,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 3558642,
+   "tokenizer_config.json": 1284,
+   "training_args.bin": 8081,
+   "training_summary.json": 147,
+   "vocab.json": 798293
+  },
+  "private": true,
+  "revision": "f8a97c30931c4256f62153449337919f951f0c18",
+  "sha256": {
+   "config.json": "731fd1dab7cf863cbdc4b17fe5b194aff0236dee5504d84af42bd527cdf4c304",
+   "generation_config.json": "be61c1e8d6a0cf2e248bed9dda69bc2c965931144be8ec669c1a9d622efaeff0",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "0d8fca80f4dd8baf026ff185676d66a1d952b31974f89282faba11ac7ff1e930",
+   "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+   "tokenizer_config.json": "3bd510d03876a11710babb62c6634f7a498ca5ef76c23f3749b8bd8d00391b1b",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
+ "dh-unibe/trocr-kurrent": {
+  "files": {
+   "README.md": 1997,
+   "config.json": 4884,
+   "generation_config.json": 275,
+   "merges.txt": 456318,
+   "model.safetensors": 1335747112,
+   "preprocessor_config.json": 325,
+   "special_tokens_map.json": 280,
+   "tokenizer.json": 3558643,
+   "tokenizer_config.json": 1118,
+   "training_args.bin": 3643,
+   "vocab.json": 798293
+  },
+  "private": false,
+  "revision": "66e374e1e465550c643f2d63d54c329516064a36",
+  "sha256": {
+   "config.json": "267a0d613742e7b82d6729085aaf5db3c0f84db8c9c615ad4519f5e16e4833b5",
+   "generation_config.json": "6f164281f0965a93abe9194845758c2b2cc3a49a7f9a8590e38415b8f68e5fea",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "7752d0843f90ff1933663eabd3182ac0b8f18f5e09edd23de0a3d96e76f42ddf",
+   "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+   "special_tokens_map.json": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+   "tokenizer.json": "727009a8214ddfa5af1deedf1006d4d06e8e51e54aa5f03566263d4e19bfcdce",
+   "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
+ "dh-unibe/trocr-kurrent-XVI-XVII": {
+  "files": {
+   "README.md": 2250,
+   "config.json": 4874,
+   "generation_config.json": 275,
+   "merges.txt": 456318,
+   "model.safetensors": 1335747112,
+   "preprocessor_config.json": 325,
+   "special_tokens_map.json": 772,
+   "tokenizer_config.json": 1118,
+   "training_args.bin": 3643,
+   "vocab.json": 898822
+  },
+  "private": false,
+  "revision": "a6bb6086ba3f7ddc62193a0289b1ee733c1af15e",
+  "sha256": {
+   "config.json": "941f05e27f379ee438502591a41bc6af414df100063f92bbada9bc0fbd1fff46",
+   "generation_config.json": "6f164281f0965a93abe9194845758c2b2cc3a49a7f9a8590e38415b8f68e5fea",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "dfb88d0a11fecc1fb92152a9d435e16c787bb6190c4995f277e4dfeb2976d065",
+   "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+   "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+   "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+   "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+  }
+ },
+ "dh-unibe/trocr-medieval-escriptmask": {
+  "files": {
+   "README.md": 2711,
+   "config.json": 3219,
+   "generation_config.json": 244,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 325,
+   "tokenizer.json": 3558809,
+   "tokenizer_config.json": 541,
+   "training_args.bin": 4283
+  },
+  "private": false,
+  "revision": "3a65a4d93cf7a31018d045855db4c51cd2a2aa7b",
+  "sha256": {
+   "config.json": "f0e1032d1ad24e3e1eb3383b0357379bc07efc9c26c58385b1d691a807933d7b",
+   "generation_config.json": "50964cd606cdcedcd219e745f1b7c08dae4eb3bc00f85613825c774b98083565",
+   "model.safetensors": "e7105d440a7742499ed20c19205680712e6ef723dc94b302bea25608b44388ef",
+   "preprocessor_config.json": "482487ee5a54f49ff5884e7cffc5af08bfde23083c80d60106122b0d4502c1e6",
+   "tokenizer.json": "2cc6e170b0165903dc4f20bbd2cfddc618e03947d2b9de0e2d21e032a3e870e5",
+   "tokenizer_config.json": "3fff86348cf8362113e84000bb7fba3314d6c5f8bb6fba4081a5c9390a4b92c1"
+  }
+ },
+ "microsoft/trocr-base-handwritten": {
+  "files": {
+   "README.md": 2999,
+   "config.json": 4165,
+   "generation_config.json": 190,
+   "merges.txt": 456318,
+   "model.safetensors": 1333384464,
+   "preprocessor_config.json": 224,
+   "special_tokens_map.json": 772,
+   "tokenizer_config.json": 1118,
+   "vocab.json": 898822
+  },
+  "private": false,
+  "revision": "eaacaf452b06415df8f10bb6fad3a4c11e609406",
+  "sha256": {
+   "config.json": "4c779f24e063c437c3dafd5b2e6c9f59f2fa2bd1dbb4ae6a30153bbbbf19e647",
+   "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "25a40cddc7e6120140a3d5b9e3dd3878a92ada7b4f312953ab22edc19c2a5acc",
+   "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+   "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+   "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+   "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+  }
+ }
+}
