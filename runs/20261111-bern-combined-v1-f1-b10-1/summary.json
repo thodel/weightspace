@@ -6172,6 +6172,31 @@
       },
       "file": "serving_path.json"
     },
-    "asked_by": "user, 11.11.2026 (registration, then the serving-path read with two share writes)"
+    "asked_by": "user, 11.11.2026 (registration, then the serving-path read with two share writes)",
+    "serving_path_split": {
+      "when": "2026-11-12T05:57:39Z..06:27:58Z",
+      "controls": {
+        "kraken-bern-combined-wsp-v1-blank": {
+          "file_sha256": "cb23e1c0a6b80e0b2bf3c52bd64793255b365e3d396b3f57fa1fe87d9ae5335b"
+        },
+        "kraken-bern-combined-wsp-v1-interp": {
+          "file_sha256": "e60c05cbe49ff1e22b4b9ce516c7279c2ecd0b85d6bd62e365ebc80d60b08f47"
+        },
+        "kraken-bern-combined-wsp-opus-s2": {
+          "file_sha256": "b245ddd63dba82d5e472176c0f220687fa96116277381d42771d1b5ab6a67a5e",
+          "tensors": "90765a261bfc22304b7516310591befefb2af5814f57b257e1e0b7d37819cef2"
+        }
+      },
+      "all_disabled_again": true,
+      "report": "score-gt-20261112T062756",
+      "file": "serving_path_split.json",
+      "weighted_delta_pt_all": {
+        "final_vs_C0": -2.1569340119340086,
+        "blank_vs_C0": -0.4116444366444372,
+        "interp_vs_C0": -1.856051831051836,
+        "opus_vs_C0": -0.7429238329238363,
+        "final_vs_opus": -1.4140101790101722
+      }
+    }
   }
 }

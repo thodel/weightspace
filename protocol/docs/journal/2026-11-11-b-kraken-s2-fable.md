@@ -69,3 +69,12 @@ Through the gateway the candidate is better by 2.16 points (character-weighted, 
 and Hertwig does not move, the reverse of the line-level result. The gateway segments the pages
 itself, so the two measurements read different line crops. Why the edit helps on those crops
 is not yet tested.
+
+## Next morning: the split through the gateway (12.11., 06:58–07:28 CET)
+
+The guess was that the blank steps carry the gateway gain. They don't. The interpolation alone
+gives −1.86 of the −2.16, and the blank steps add about −0.4. The other surprise dissolved too:
+Opus's model, which lost on the line crops, also gains on every Schlussredaktion page through
+the gateway (−0.74 overall). So the hand reversal belongs to the measurement, not to Fable's
+edit. On the gateway's own crops of that hand, whatever moves the subject toward its parent
+helps. Fable's model is ahead of Opus's on both measures.

@@ -166,5 +166,60 @@ line crops of the Schlussredaktion pages (for example the lowered blank bias, wh
 on the ground-truth crops). The split control of §4 was not repeated through the gateway.
 Fourteen pages from two documents; the interval is over pages, not documents.
 
+### Split and Opus through the serving path (12.11.2026, 06:58–07:28 CET, at the user's request)
+
+The open question above was whether the two blank steps, which did nothing on the ground-truth
+crops, carry the gateway gain. Three controls were registered on the share as disabled models,
+enabled for this read only, and disabled again:
+
+- `kraken-bern-combined-wsp-v1-blank`: only the blank part of the kept diff (−0.40);
+- `kraken-bern-combined-wsp-v1-interp`: only the interpolation part (every other element);
+- `kraken-bern-combined-wsp-opus-s2`: session 2's frozen model (Opus), tensor digest
+  `90765a26…`, equal to that run's summary.
+
+Both parts are built by `build()` in `scripts/sham_combined_f1.py`, as in §4. They were read
+into the same gateway run `wsp-bern-heldout-f1`, so the unedited model's reading is the same one
+used above. Scoring is in report `score-gt-20261112T062756`; the pairing is in
+`runs/…/serving_path_split.json`, and the line-level per-hand split in
+`runs/…/split_by_hand_lines.json`.
+
+Δ CER against the unedited model, in points. The serving-path rows are character-weighted with
+an interval over pages. The line rows use the page-clustered interval (A4).
+
+| model | measure | all | Hertwig | Schlussredaktion |
+|---|---|---:|---:|---:|
+| Fable final | lines | −0.57 [−1.15, −0.05] | −1.32 [−2.36, −0.60] | +0.02 [−0.41, +0.52] |
+| | serving path | **−2.16 [−3.32, −1.05]** | −0.04 [−0.68, +0.56] | −3.84 [−4.89, −2.91] |
+| blank part only | lines | +0.04 [−0.18, +0.25] | +0.01 [−0.44, +0.42] | +0.05 [−0.14, +0.26] |
+| | serving path | −0.41 [−0.78, −0.06] | +0.19 [−0.10, +0.50] | −0.89 [−1.27, −0.55] |
+| interpolation part only | lines | −0.53 [−1.14, −0.01] | −1.41 [−2.42, −0.67] | +0.16 [−0.17, +0.55] |
+| | serving path | **−1.86 [−2.82, −1.03]** | −0.46 [−0.82, −0.06] | −2.97 [−4.05, −2.01] |
+| Opus (session 2) | lines | +0.15 [−0.29, +0.60] | −0.30 [−0.82, +0.21] | +0.51 [−0.04, +1.08] |
+| | serving path | −0.74 [−1.38, −0.17] | +0.39 [+0.11, +0.69] | −1.64 [−2.13, −1.15] |
+| Fable − Opus | lines | −0.73 [−1.19, −0.35] | | |
+| | serving path | −1.41 [−2.07, −0.79] | −0.43 [−0.87, +0.04] | −2.20 [−2.85, −1.54] |
+
+What this settles:
+
+- **The interpolation carries the gain on both measures.** Through the gateway it gives −1.86 of
+  the −2.16 and is better on 12 of 14 pages. The blank part adds about −0.4 through the gateway,
+  all of it on Schlussredaktion. On the ground-truth crops it adds nothing. The two parts add up
+  roughly (−0.41 − 1.86 = −2.27 against −2.16).
+- **The hand reversal belongs to the measurement, not to this edit.** Every edited model,
+  Opus's included, gains on Schlussredaktion through the gateway (−0.89 to −3.84, 8 of 8 pages
+  each), whether or not it gains there on the ground-truth crops. On Hertwig the gateway shows
+  less than the crops for every model. Edits from the subject toward the parent help on the
+  gateway's own line crops of the Schlussredaktion pages. Why is not tested: segmentation
+  details, or how much of a line the gateway's crops include.
+- **Fable's model beats Opus's on both measures**: −0.73 on lines and −1.41 through the gateway.
+  Through the gateway Opus's model is not worse than the unedited one (−0.74), unlike on lines
+  (+0.15). So "session 2 lost on held-out" holds for the line-level measure only.
+- The reading in §5, that what transfers is the label-noise part of the parent direction (as
+  in C4), rests on the line-level Hertwig gain. Through the gateway that gain is small (−0.46
+  for the interpolation alone, −0.04 for the final model), and the larger gain is on the hand
+  without label noise. Both readings hold only under their own measurement.
+
+Fourteen pages from two documents; intervals are over pages. Four candidate and control
+registrations are on the share, all disabled.
+
 The candidate stays registered and **disabled**. Offering it for use is the user's decision.
-Session 2's frozen model (Opus) was not registered: it did not gain on held-out.
