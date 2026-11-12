@@ -1,4 +1,50 @@
 {
+ "LaMOP/TrOCR_Manicule_2026_Latin_Medieval": {
+  "files": {
+   "README.md": 1866,
+   "config.json": 3220,
+   "generation_config.json": 185,
+   "model.safetensors": 1335747032,
+   "tokenizer.json": 3558907,
+   "tokenizer_config.json": 659
+  },
+  "private": false,
+  "revision": "08e146d2dbf4673da24ce2f2dc5f3343bc62099c",
+  "sha256": {
+   "config.json": "fb32befd773383ef178320226a895a6b4585f62710a3174f8e5212cdaa630235",
+   "generation_config.json": "71908c7174d247401486bb9e06415a1fbbad83f6815827a983f49c61f2bf107f",
+   "model.safetensors": "1e2d84d0a50e8797c8cd1f431f81bd9c7b9632025353f5ba5065a9e83077f5ac",
+   "tokenizer.json": "6584a53846189738e74af4db48e104d9f855153858b59e6ae69387befa8ae81f",
+   "tokenizer_config.json": "6f6a1e4fc18fbe15843c3e5f5bcf907fc17279af24987890c4601df65a0672fb"
+  }
+ },
+ "Riksarkivet/trocr-base-handwritten-hist-swe-2": {
+  "files": {
+   "README.md": 13378,
+   "config.json": 4812,
+   "generation_config.json": 274,
+   "merges.txt": 456318,
+   "model.safetensors": 1539518812,
+   "preprocessor_config.json": 364,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 2108642,
+   "tokenizer_config.json": 1253,
+   "vocab.json": 798293
+  },
+  "private": false,
+  "revision": "aa79fcb1850bf3155ebc442570d6c6bfc0ac8100",
+  "sha256": {
+   "config.json": "f8151c36c70c0a89eca013755790a64df7015bd77c1b410b27089fe7a101d3b4",
+   "generation_config.json": "9a45fb9fc092177e4b5eb1c88a230a39ce3bc59386c72c96795c47c1cd7bfd64",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "786c378f820ef2026a869b1fe18cb646b70d8bb9edb2b450279663882f3cb422",
+   "preprocessor_config.json": "88f73800cf47a61709906414dba6970168d361c5103cc63fd2762bee63d0daf8",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "76875c73585f5ec48386c5b75680bfc0ccf3c93c2939d4a25b7018d57c7f5881",
+   "tokenizer_config.json": "6fdbde1f67a50a036e3ed4dc15cdd5000d39ab5bf5a6b8cabe4c0aa2e0e649b2",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
  "dh-unibe/trocr-german-kurrent-xvi-xix-from-kurrent-v2": {
   "files": {
    "README.md": 14422,
@@ -165,6 +211,82 @@
    "tokenizer_config.json": "3fff86348cf8362113e84000bb7fba3314d6c5f8bb6fba4081a5c9390a4b92c1"
   }
  },
+ "fgho/trocr-hanseXVI-kurrent": {
+  "files": {
+   "README.md": 984,
+   "config.json": 3241,
+   "generation_config.json": 893,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 364,
+   "tokenizer.json": 3558905,
+   "tokenizer_config.json": 586,
+   "training_args.bin": 5457
+  },
+  "private": false,
+  "revision": "7513719cd84ac71d152f070e080b0f100ad99fca",
+  "sha256": {
+   "config.json": "6efdc31b4d23f7df981a0462621793e398884a0782fe4186d3b79e3e845303a3",
+   "generation_config.json": "138de5faf528067f2623c8b63c7d362e6b1e5b81ef2f971b5e9229e60c4f83c9",
+   "model.safetensors": "848e7be69ba3d9da33f696763789f029b7230ba936aeb8ea8ddc7a964dd6d7bc",
+   "preprocessor_config.json": "e61b91440ccab7095447f90272ba5a2178a7ef55bd70d5084db44addf4348a7f",
+   "tokenizer.json": "07bdbb73e317877473e5455a1708148579cf4126520c1107fc6278a2cb071a1d",
+   "tokenizer_config.json": "bd8c933ae7ffada8c6e7953863b49c18204d6da31d6adab61cf332f72d78e94f"
+  }
+ },
+ "kazars24/trocr-base-handwritten-ru": {
+  "files": {
+   "README.md": 2597,
+   "config.json": 4897,
+   "generation_config.json": 273,
+   "merges.txt": 456318,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 364,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 3558809,
+   "tokenizer_config.json": 1358,
+   "vocab.json": 798293
+  },
+  "private": false,
+  "revision": "5342fbb29ec56eb677f553738c2fcc2befd6b0ab",
+  "sha256": {
+   "config.json": "e08910cc0e0cfe661e6016336b852d118d935f10758e10cc5aab7a6c441165d4",
+   "generation_config.json": "64c9e414a49f4a15818f9a4b9d4f400b9f80cbbd0c284851b88eac53d46bc003",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "c40c95b9d99af59cfe1911c778430c4d369a63bab3eb059a005ba5b1c8d9cd19",
+   "preprocessor_config.json": "88f73800cf47a61709906414dba6970168d361c5103cc63fd2762bee63d0daf8",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "dd6783fd244855ae8bdd72562fc7b93d61c97d6333c9bd4dd1dee46682d28c1f",
+   "tokenizer_config.json": "1a2672bb02f0d63f34cbf1597f8da992113bc4f3b7c88d4ab353df9fa02e089b",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
+ "medieval-data/trocr-medieval-base": {
+  "files": {
+   "README.md": 5014,
+   "config.json": 4756,
+   "generation_config.json": 185,
+   "merges.txt": 456318,
+   "model.safetensors": 1335747032,
+   "preprocessor_config.json": 617,
+   "special_tokens_map.json": 957,
+   "tokenizer.json": 2108879,
+   "tokenizer_config.json": 1444,
+   "vocab.json": 798293
+  },
+  "private": false,
+  "revision": "2b54c9eba9966d12e7cfe9ac7f033648897d0561",
+  "sha256": {
+   "config.json": "02243e7796e73180172513a4d7ddd061478cb7ee4c82cab2f6f7742d1be52875",
+   "generation_config.json": "0d0f05791c0f786a19f92ab697b5624f1fe559b53332a6d6bbee0c0985606eb3",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "ef783a34b2952c18d421ae17688cb70a652b2bb91ac8e5d5d51efff1a7111609",
+   "preprocessor_config.json": "ccd745b3c0578c77953a5d9a3437bc99c68a84cb12386d2938e53f097bf3ab67",
+   "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+   "tokenizer.json": "2d31fc02480b93ce1566136435aea2aa2d27c580c49a3341c46d00aea73b7920",
+   "tokenizer_config.json": "c3064243d9588aa497fb3f572330458472dcfeebb13e02cf9404dd7f8d80bafe",
+   "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+ },
  "microsoft/trocr-base-handwritten": {
   "files": {
    "README.md": 2999,
@@ -184,6 +306,31 @@
    "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
    "model.safetensors": "25a40cddc7e6120140a3d5b9e3dd3878a92ada7b4f312953ab22edc19c2a5acc",
+   "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+   "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+   "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+   "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+  }
+ },
+ "microsoft/trocr-base-stage1": {
+  "files": {
+   "README.md": 2517,
+   "config.json": 4207,
+   "generation_config.json": 190,
+   "merges.txt": 456318,
+   "model.safetensors": 1537156244,
+   "preprocessor_config.json": 224,
+   "special_tokens_map.json": 772,
+   "tokenizer_config.json": 1118,
+   "vocab.json": 898822
+  },
+  "private": false,
+  "revision": "59270604e602d5094b8d344298053f9fd3979dcf",
+  "sha256": {
+   "config.json": "c795bc1f3a99e8996961c105751dc7438fbd7935438f75179eca270b1448b65e",
+   "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+   "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+   "model.safetensors": "881612edf38f0bd647f22e22fced77a71f379219ed9043ad121ab0b1e5f762f9",
    "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
    "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
    "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",

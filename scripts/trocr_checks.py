@@ -101,10 +101,18 @@ def main() -> int:
     lines = [json.loads(l)["text"] for l in open(a.lines, encoding="utf-8")]
     enc = {}
     for rid, d in models.items():
-        t = AutoTokenizer.from_pretrained(str(d))
+        try:
+            t = AutoTokenizer.from_pretrained(str(d))
+            loader = "AutoTokenizer"
+        except ValueError:      # a tokenizer_config naming a class this transformers does not know (LaMOP): read tokenizer.json directly
+            from transformers import PreTrainedTokenizerFast
+            sm = json.loads((d / "special_tokens_map.json").read_text()) if (d / "special_tokens_map.json").exists() else {}
+            kw = {k: (v["content"] if isinstance(v, dict) else v) for k, v in sm.items() if k in ("bos_token", "eos_token", "pad_token", "unk_token")}
+            t = PreTrainedTokenizerFast(tokenizer_file=str(d / "tokenizer.json"), **kw)
+            loader = "PreTrainedTokenizerFast(tokenizer.json)"
         ids = [t(x).input_ids for x in lines]
         enc[rid] = {"vocab_len": len(t), "special": {"bos": t.bos_token_id, "pad": t.pad_token_id, "eos": t.eos_token_id},
-                    "ids_sha256": hashlib.sha256(json.dumps(ids).encode()).hexdigest()}
+                    "ids_sha256": hashlib.sha256(json.dumps(ids).encode()).hexdigest(), "loader": loader}
     res["encoding"] = enc
     res["encoding_identical"] = len({e["ids_sha256"] for e in enc.values()}) == 1
     # parameter counts per component (counted by TrocrSubject)
