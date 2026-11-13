@@ -11,7 +11,6 @@ One page for anyone who opens the repository cold. Details are in the files it n
   - `claude/c4-retrain`: entries for R11, PROJECT_STATE and README.
   - Each needs a review before it is merged. The last three touch files this page also changes.
 - **Running:**
-  - Epic #13 (activation atlas) has started in the layer-visualisation session: CPU readings on branch `claude/atlas-l0-l2`, not yet pushed.
   - A watcher from the planted-defect session (`~/atr-cache/wsp/spool/a3-f1/p3-attempt2.sh`) is waiting for card 0. Once card 0 has 18 GB free, it starts a pass server and runs a second Fable attempt on adapter p3 (`q02`). That attempt is not part of #28.
   - Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
 
@@ -41,7 +40,8 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
 | Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; not yet in the text: the adapter Fable replicate (#25), kraken session 2 with Fable (#27), the planted defects with Fable (#28), the epic #3 corrections (#30) |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
-| Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | #12 proposed, not started; #13 started 13 Nov (Gate 1 rule fixed before any occlusion run, branch `claude/atlas-l0-l2`) |
+| Epic #12 | LLM playbook | `docs/epics/` | proposed, not started |
+| Epic #13: activation atlas | L0 viewer and L2 occlusion (`wsp.atlas`) | `docs/ATLAS_REPORT.md`, `docs/atlas/` | L0 and L2 done (13 Nov); Gate 1 fails for both models (hit share 0.61 and 0.73 < 0.80), so viewers claim activation, not location; conv receptive field 140 px confirmed; L1, L3, L4 not started |
 | TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null) preregistered on its branch 13 Nov, no run yet |
 
 ## Findings in one paragraph each

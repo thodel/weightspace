@@ -1,0 +1,18 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Activation atlas</title><style>
+:root{--bg:#fff;--fg:#1b1b1b;--muted:#6e6e6e;--grid:#e2e2e2;--C:#0072B2;--L:#E69F00;--O:#009E73;--hi:#D55E00;--alt:#CC79A7}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--C:#56B4E9;--hi:#E8743B}}
+:root[data-theme=dark]{--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--C:#56B4E9;--hi:#E8743B}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;margin:0 auto;max-width:1200px;padding:16px}
+h1{font-size:20px;margin:.2em 0}h2{font-size:15px;margin:1.2em 0 .3em}.muted{color:var(--muted)}
+table{border-collapse:collapse}td,th{padding:3px 10px;border-bottom:1px solid var(--grid);text-align:left}
+a{color:var(--C)}img.fig{max-width:100%}
+</style></head><body>
+<h1>Activation atlas: L0 and L2</h1>
+<p class=muted>Epic thodel/weightspace#13. Rule and readings: docs/ATLAS_REPORT.md. Line images are not in the
+repository; build them locally with <code>python -m wsp.atlas report</code>.</p>
+<h2>Gate 1: does occlusion find each letter where the CTC alignment puts it?</h2>
+<table><tr><th>model</th><th>practice set</th><th>lines</th><th>hit share [page-clustered 95 %]</th><th>median offset</th><th>Gate 1</th></tr><tr><td><a href='kraken-german-xix-blb-v1__blb-val-300.html'>kraken-german-xix-blb-v1</a></td><td>blb-val-300</td><td>80</td><td>0.61 [0.55, 0.67]</td><td>+4 px</td><td><b>fails</b></td></tr><tr><td><a href='kraken-bern-hertwig-v2__bern-val.html'>kraken-bern-hertwig-v2</a></td><td>bern-val</td><td>80</td><td>0.73 [0.69, 0.77]</td><td>+0 px</td><td><b>fails</b></td></tr></table>
+<picture><source srcset='gate1-dark.svg' media='(prefers-color-scheme: dark)'><img class=fig src='gate1.svg' alt='occlusion peak against CTC centre'></picture>
+<h2>kraken-german-xix-blb-v1: receptive field per block</h2><picture><source srcset='rf-kraken-german-xix-blb-v1__blb-val-300-dark.svg' media='(prefers-color-scheme: dark)'><img class=fig src='rf-kraken-german-xix-blb-v1__blb-val-300.svg' alt='measured receptive field per block'></picture><h2>kraken-bern-hertwig-v2: receptive field per block</h2><picture><source srcset='rf-kraken-bern-hertwig-v2__bern-val-dark.svg' media='(prefers-color-scheme: dark)'><img class=fig src='rf-kraken-bern-hertwig-v2__bern-val.svg' alt='measured receptive field per block'></picture>
+</body></html>
