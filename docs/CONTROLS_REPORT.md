@@ -257,3 +257,66 @@ All six attempts that kept something moved the model toward the sibling; the hel
 - The sham of §6 is one family (Gaussian noise at the interpolation delta's per-tensor norm); a sham that keeps the *direction* of the delta but reshuffles it across tensors was not run.
 - Everything is CPU, one subject per pair, one held-out set per model; the margins use the greedy reading and a window definition stated above.
 - No session was discarded after its result was seen. Two errors (an unexported variable; a margin window that included neighbouring characters) were found and fixed before any number was used.
+
+## 11. The planted-defect controls with Claude Fable 5.1 as programmer (11.11.2026)
+
+Asteraix, 11.11.2026, branch `claude/planted-fable-1d89a1`. Kraken sessions on CPU 09:41–11:22 CET (logs 08:41–10:22 UTC); adapter p3 on card 0 only, 10:04–10:43 CET, while card 0 had ≥ 38 GB free (the adapter replicate held 7 GB); card 1 not used. Nothing registered, uploaded or served. Code: `scripts/run_planted_f1.py`, `scripts/run_planted_adapter_f1.py`, `scripts/aggregate_planted_f1.py`; data `docs/controls/planted_f1.{json,md}`; run folders `runs/20261111-planted-*-f1-*` (30).
+
+**What was rerun.** Only the arms an LLM programmed: (a) the programmer with passes and (b) the blind budget-0 programmer, on every kraken corruption k1–k11 and the three `-u` (unrelated-donor) variants (28 runs), and on adapter p3 (2 runs; (a), (b) were run for p3 only on 07.11.). The fixed list (c) and the coordinate search (d) do not depend on the model and were not rerun. Same corrupted subjects (tensor digests in each `preregistration.md` match the 07.11. runs), practice sets (`blb-train-300`; `kurrent-val-32`), budgets (10 / 0; 6 / 0), keep rule, held-out sets (`blb-eval-hand`; score set `kurrent-val-holdout-64`), preregistration template and outcome classes. Run names: the original's with `-f1` after the arm letter (as `runs/20261109-val-*-f1-b10-1`).
+
+**Programmers.** 30 fresh Claude Code subagents with `model: fable` (`claude-fable-5-1`), one per run, default effort, tools Read/Write/Bash (`py_compile` only). Each read only its brief (`runs/planted-f1/PROGRAMMER_BRIEF{,_UNRELATED}.md`, `runs/planted-adapter-f1/PROGRAMMER_BRIEF.md`: the Sonnet briefs with the model id and the read-restriction changed) and its pack, copied unchanged into an opaque folder (`runs/planted-f1/sNN/pack`, `runs/planted-adapter-f1/q01/pack`) so that the path does not name the defect; the map `runs/planted-f1/map.json` was written only after all 28 programs were in. None was told which defect was planted or saw the Sonnet runs, programs or results. As on 07.11., programs were written in full in advance and never run by the programmer (not the multi-round protocol of the adapter replicate `runs/20261110-kurrent-page-v2-f1-b10-1`, which would have changed the arm). Operator: a Claude Opus 5.5 session that knew the defects and the Sonnet results and wrote no hypothesis or edit.
+
+### 11.1 Kraken, held-out `blb-eval-hand` (uncorrupted 9.55 %)
+
+Cell: held-out CER % · recovered share of the damage · class (classes as §2, on the page-clustered interval of final vs corrupted). p/e/k = passes used / edits / kept.
+
+| corruption | damage (pts) | arm | Sonnet 5.5 (07.11.) | p/e/k | Fable 5.1 (11.11.) | p/e/k |
+|---|---:|---|---|---|---|---|
+| k1 zero row `e` | +10.10 | (a) | 9.57 · 100 % · repaired | 5/4/3 | 9.56 · 100 % · repaired | 8/7/3 |
+| | | (b) | 9.76 · 98 % · repaired | 0/1/1 | 9.76 · 98 % · repaired | 0/1/1 |
+| k2 negate row `n` | +60.69 | (a) | 9.55 · 100 % · repaired | 3/2/1 | 9.55 · 100 % · repaired | 4/3/1 |
+| | | (b) | 9.55 · 100 % · repaired | 0/1/1 | 9.55 · 100 % · repaired | 0/1/1 |
+| k3 swap `e`,`n` | +18.20 | (a) | 9.55 · 100 % · repaired | 2/1/1 | 9.57 · 100 % · repaired | 6/5/1 |
+| | | (b) | 9.55 · 100 % · repaired | 0/1/1 | 9.55 · 100 % · repaired | 0/1/1 |
+| k4 blank bias +2 | +1.30 | (a) | 9.52 · 103 % · repaired | 4/3/1 | 9.53 · 102 % · repaired | 5/4/1 |
+| | | (b) | 9.55 · 100 % · repaired | 0/1/1 | **10.86 · 0 % · not repaired** | 0/1/1 |
+| k5 output weight ×2 | −0.03 | (a) | 9.53 · null | 5/4/0 | 9.53 · null | 5/4/0 |
+| | | (b) | 9.55 · null (×0.5 applied) | 0/1/1 | 9.53 · null (no edit) | 0/0/0 |
+| k6 `L_16` ×0.5 | +11.62 | (a) | 9.55 · 100 % · repaired | 6/5/1 | 9.55 · 100 % · repaired | 5/4/1 |
+| | | (b) | 9.55 · 100 % · repaired | 0/1/1 | 9.54 · 100 % · repaired | 0/1/1 |
+| k7 noise `L_14` 25 % | +0.49 | (a) | 10.04 · null | 6/5/0 | 10.04 · null | 5/4/0 |
+| | | (b) | 10.04 · null | 0/0/0 | 10.04 · null | 0/1/1 |
+| k8 zero `C_3` | +90.45 | (a) | 9.77 · 100 % · repaired | 7/6/1 | 9.77 · 100 % · repaired | 5/4/1 |
+| | | (b) | 9.77 · 100 % · repaired | 0/1/1 | 9.77 · 100 % · repaired | 0/1/1 |
+| k9 noise everywhere 10 % | +54.24 | (a) | 18.51 · 83 % · repaired | 8/7/3 | **50.99 · 24 % · partly** | 6/5/3 |
+| | | (b) | 63.80 · 0 % · not repaired | 0/0/0 | 63.80 · 0 % · not repaired | 0/0/0 |
+| k10 noise `L_14` 60 % | +3.94 | (a) | 10.88 · 66 % · partly | 5/4/1 | 10.88 · 66 % · partly | 4/3/1 |
+| | | (b) | 10.72 · 70 % · partly | 0/1/1 | 10.84 · 67 % · partly | 0/1/1 |
+| k11 all LSTM ×0.9 | +0.31 | (a) | 9.55 · 100 % · null | 5/4/1 | 9.67 · 64 % · null | 5/4/1 |
+| | | (b) | 9.55 · 100 % · null | 0/1/1 | 9.87 · 0 % · null (no edit) | 0/0/0 |
+| k1-u zero row `e`, unrelated donor | +10.10 | (a) | 19.66 · 0 % · not repaired | 3/2/0 | 19.66 · 0 % · not repaired | 5/4/0 |
+| | | (b) | 19.66 · 0 % · not repaired | 0/0/0 | **15.28 · 43 % · partly** | 0/1/1 |
+| k6-u `L_16` ×0.5, unrelated donor | +11.62 | (a) | 9.55 · 100 % · repaired | 6/5/1 | 9.55 · 100 % · repaired | 6/5/1 |
+| | | (b) | 9.55 · 100 % · repaired | 0/1/1 | 9.55 · 100 % · repaired | 0/1/1 |
+| k8-u zero `C_3`, unrelated donor | +90.45 | (a) | 99.52 · 1 % · not repaired | 7/6/2 | 86.07 · 15 % · not repaired | 8/7/4 |
+| | | (b) | 100.00 · 0 % · not repaired | 0/0/0 | 100.00 · 0 % · not repaired | 0/0/0 |
+
+**Adapter p3 (`lora_alpha` doubled; score set, 64 val pages, vLLM, not repeatable; clean 0.507, corrupted 3.764):** Sonnet (a) 0.517 · 100 % · 4/3/1, (b) 0.517 · 100 % · 0/1/1; **Fable (a) 0.517 · 100 % · 4/3/1, (b) 0.517 · 100 % · 0/1/1**. Both Fable programs halve every `lora_B` (back to the siblings' α); (a) then tries ×0.9 and ×1.1 around it, both refused. The final adapter is byte-identical to the Sonnet arms' (digest `f5adb9da…`), so both Fable scores are the cached score of that adapter (`scored_from_cache`), not new vLLM readings. Adapter defects p1, p2, p6 had no LLM arm on 07.11. and none here.
+
+### 11.2 Reading
+
+- **Same headline.** Over the 22 kraken cells with a defect (11 corruptions × 2 arms; k5, k7, k11 are null corruptions), Sonnet: 15 repaired, 2 partly, 5 not; Fable: 13 repaired, 4 partly, 5 not. On every localised defect against the parent (k1, k2, k3, k6, k8) and on k6-u both models repair in both arms, mostly to the same model (14 of 28 Fable finals have the Sonnet run's final digest). The blind programmer again does as well as the programmer with passes on localised defects; on adapter p3 all four LLM arms reach the same adapter.
+- **Where Fable differs, four cells.** (i) **k4 (b), worse:** the blind Fable programmer judged the blank bias +2.11 above the parent to be "natural drift" (its threshold for a blank edit was 3.5) and instead reset two output-layer feature columns that its outlier test flagged; held-out unchanged (10.86 vs 10.85, page interval [−0.02, +0.02]). Sonnet's blind programmer set the blank back and repaired it. (ii) **k9 (a), worse:** Fable treated the diffuse noise as "blank out-votes the characters", kept two blank-bias steps (−2.5 in all) and a transplant of the parent's `C_3` bias, and never tried pulling the network toward the parent; 24 % of the damage against Sonnet's 83 % (an 8-tensor interpolation toward the parent). The one cell of §9b where the passes bought something is therefore not reproduced by a second model: it depended on the programmer thinking of the interpolation. (iii) **k1-u (b), better:** with only the unrelated donor, the blind Fable programmer did not copy the donor's row but raised the zeroed `e` row's bias to +1.5, so `e` wins where every other class is suppressed; 43 % of the damage, where every other arm got 0–19 %. (iv) **k8-u (a), better but not repaired:** a donor `C_3` graft, ×2 and two blank-bias steps, 100 → 86 % CER (15 %; Sonnet 1 %).
+- **Null corruptions.** Fable's blind arm made no edit on k5 and k11 (Sonnet's blind arm applied ×0.5 and ×1/0.9, both harmless or helpful); on k7 it applied one unmeasured output-column reset with no held-out effect. On k11 (a) Fable kept a blank −0.5 (64 % of the 0.31-point damage) where Sonnet found the ×0.9 scale (100 %).
+- **Passes.** Fable used 77 passes in the 14 (a) runs, Sonnet 72; Fable's programs were longer (many run-time outlier scans against the parent, guarded probes for the space bias, `C_3` bias and an `L_16` spike), and the keep rule refused every one of those probes except where noted above. Several Fable programmers read the most negative output bias (−7.85) as the space's and suspected a planted space defect. That row is the no-break space (U+00A0), which the pack's `describe.md` prints between backticks like a plain space; the space's own bias is +0.16, and both are the same in the uncorrupted model. This is a defect of the pack's rendering, present for the Sonnet programmers too. The rule refused every space-bias edit that was measured; the blind programs that planned a space edit (k10, k11) gated it on a comparison with the parent, and none fired.
+- **What it means for R7.** The control's claim survives a second programmer model: localised, reference-visible defects are found and repaired, and blind as well as with passes. The one cell where passes alone made the difference (k9 (a)) is programmer-specific, so "the programmer who measures repairs diffuse damage" holds for one of two models, one attempt each. One attempt per cell and model; the variance across attempts is still not measured.
+
+### 11.3 Deviations and failures
+
+- The adapter pack's title named the defect (`# Reading pack — adapter p3-alpha2`); the Sonnet programmers saw it. For Fable it was replaced by `q01`; nothing else in the pack changed (it still prints `lora_alpha` 256 next to the siblings' 128).
+- The six blind (b) kraken programmers launched first were told only after launch (by message) not to read the sibling `a/` folder of their `sNN`; the later ones had it in their task and the brief was tightened mid-way to "only your own `sNN/pack/` and your own `a/` or `b/` subfolder". Every (b) programmer reported that it did not read `a/`. Two (a) programmers (s05, s12) disclosed grepping the `Metrics` dataclass in `wsp/metrics.py` (not on the list) for field names.
+- Not all 28 programmers ran at once (limit of 20 concurrent subagents); seven (b) programmers started as slots freed.
+- First driver launch ran nothing: `scripts/run_planted_f1.py` imported the main checkout's `wsp` (no `wsp.plant` there); no run folder was created; relaunched with `PYTHONPATH` set to this worktree.
+- Adapter p3 (a) was started twice before it ran: attempt 1 aborted before pass 1 (pass server not yet READY); attempt 2 queued its C0 pass on a server that then died on attempt 1's stale job (the first server launch had also failed, `ninja` not on `PATH`). Both run folders recorded 0 passes and no measurement and were deleted before any result was read; the third attempt is the run reported. No session was discarded after a result was seen.
+- Held-out scores reuse the cache when the final digest equals an earlier one (`scored_from_cache`), as in §1.
+- `diff.json` committed as `diff.json.gz` when under 5 MB, otherwise omitted with `DIFF_OMITTED.txt` (6 runs).

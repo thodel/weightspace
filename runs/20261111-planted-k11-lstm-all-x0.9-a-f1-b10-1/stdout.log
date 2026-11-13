@@ -1,0 +1,8 @@
+C0 cer=0.0727 wer=0.1903 collapsed=12 len_ratio=0.9593533846273412 deletions=350 insertions=19 space_del=124 space_ins=19
+H1_space_bias cer=0.0778 wer=0.2035 collapsed=11 len_ratio=0.9554674749358825 deletions=391 insertions=37 space_del=138 space_ins=37 refused
+H1_space_bias_half cer=0.0731 wer=0.1863 collapsed=11 len_ratio=0.9587316390767079 deletions=353 insertions=22 space_del=116 space_ins=22 refused
+H2_blank_bias cer=0.0692 wer=0.1835 collapsed=9 len_ratio=0.971632859252351 deletions=276 insertions=26 space_del=94 space_ins=26 kept
+H2b_blank_bias_more cer=0.0687 wer=0.1847 collapsed=9 len_ratio=0.977850314758685 deletions=239 insertions=43 space_del=86 space_ins=32 refused
+frozen: {'used': 5, 'edits': 4, 'kept': 1, 'final_digest': '650bcf0bc575f23c8d6d25d8b39edb781a4b63fde363067e3a6b2576f2a7342c'}
+
+--- stderr ---

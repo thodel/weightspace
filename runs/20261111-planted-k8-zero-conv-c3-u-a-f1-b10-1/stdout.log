@@ -1,0 +1,240 @@
+start: 10 passes; tensors 34
+C_3 all-zero: True (|w|max 0, |b|max 0)
+L_16.layer.weight_ih_l0: 7 elements with |w| > 3 (abs max 4.702); noted, not edited
+donor loaded: conv shapes match=True; donor C_3 weight rms 0.1609, bias rms 0.1118, |w|max 1.494
+[pass 1] C0 baseline: {"cer": 1.0, "collapsed": 300, "wer": 1.0, "length_ratio": 0.0, "ref_chars": 12867, "dels": 8708, "ins": 0, "subs": 0}
+[pass 2] H1 donor C_3: {"cer": 0.9951814719825911, "collapsed": 300, "wer": 1.0, "length_ratio": 0.0058288645371881555, "ref_chars": 12867, "dels": 8643, "ins": 0, "subs": 0}
+H1 donor C_3: kept=True cer=0.9952 collapsed=300
+[pass 3] H2 identity C_3: {"cer": 0.9989896634802207, "collapsed": 300, "wer": 1.0, "length_ratio": 0.0015543638765835083, "ref_chars": 12867, "dels": 8694, "ins": 0, "subs": 0}
+H2 identity C_3: kept=False cer=0.9990 collapsed=300
+[pass 4] H3 scale C_3 x2.0: {"cer": 0.9906738167404989, "collapsed": 299, "wer": 1.0, "length_ratio": 0.01119141991140126, "ref_chars": 12867, "dels": 8579, "ins": 0, "subs": 0}
+H3 scale C_3 x2.0: kept=True cer=0.9907 collapsed=299
+[pass 5] H3b scale C_3 x2.0: {"cer": 0.9909069713219865, "collapsed": 299, "wer": 0.9996001599360256, "length_ratio": 0.012901220175643118, "ref_chars": 12867, "dels": 8569, "ins": 0, "subs": 0}
+H3b scale C_3 x2.0: kept=False cer=0.9909 collapsed=299
+[pass 6] H4 donor conv stack: {"cer": 0.9909846895158156, "collapsed": 300, "wer": 1.0, "length_ratio": 0.011269138105230435, "ref_chars": 12867, "dels": 8586, "ins": 0, "subs": 0}
+H4 donor conv stack: kept=False cer=0.9910 collapsed=300
+[pass 7] H5 blank bias -0.75: {"cer": 0.9572549933939535, "collapsed": 298, "wer": 0.9988004798080767, "length_ratio": 0.056967436076785574, "ref_chars": 12867, "dels": 8136, "ins": 0, "subs": 0}
+H5 blank bias -0.75: kept=True cer=0.9573 collapsed=298
+[pass 8] H5b blank bias -0.75: {"cer": 0.8719204165695189, "collapsed": 264, "wer": 1.0135945621751299, "length_ratio": 0.2202533613118831, "ref_chars": 12867, "dels": 6631, "ins": 0, "subs": 0}
+H5b blank bias -0.75: kept=True cer=0.8719 collapsed=264
+end: current graft H1; best {"cer": 0.8719204165695189, "collapsed": 264, "wer": 1.0135945621751299, "length_ratio": 0.2202533613118831, "ref_chars": 12867, "dels": 6631, "ins": 0, "subs": 0}; passes left 2
+{
+ "used": 8,
+ "edits": 7,
+ "kept": 4,
+ "final_digest": "d2efe7a5758079e1f3efdaefe798df6b036abc3cee3cb653ff49f40e489d3279",
+ "last_pass": {
+  "lines": 300,
+  "cer": 0.8719204165695189,
+  "wer": 1.0135945621751299,
+  "collapsed": 264,
+  "length_ratio": 0.2202533613118831,
+  "char_edits": 11219,
+  "ref_chars": 12867,
+  "confusions": [
+   [
+    " ",
+    "",
+    1462
+   ],
+   [
+    "e",
+    "",
+    849
+   ],
+   [
+    "n",
+    "",
+    768
+   ],
+   [
+    "i",
+    "",
+    739
+   ],
+   [
+    "r",
+    "",
+    599
+   ],
+   [
+    "s",
+    "",
+    520
+   ],
+   [
+    "a",
+    "",
+    502
+   ],
+   [
+    "t",
+    "",
+    437
+   ],
+   [
+    "u",
+    "",
+    400
+   ],
+   [
+    "h",
+    "",
+    355
+   ]
+  ],
+  "extra": {},
+  "blocks": {
+   "ref_chars": 12867,
+   "edits": 11219,
+   "cer": 0.8719204165695189,
+   "blocks": {
+    "Latin lowercase a-z": {
+     "ref": 9258,
+     "correct": 1060,
+     "sub": 714,
+     "del": 7484,
+     "ins": 69,
+     "errors": 8267,
+     "block_cer": 0.8929574422121409,
+     "share_of_cer": 0.6424963083857931,
+     "overlay": false
+    },
+    "Space": {
+     "ref": 2201,
+     "correct": 659,
+     "sub": 80,
+     "del": 1462,
+     "ins": 13,
+     "errors": 1555,
+     "block_cer": 0.7064970467969105,
+     "share_of_cer": 0.12085179140436776,
+     "overlay": false
+    },
+    "Latin uppercase A-Z": {
+     "ref": 545,
+     "correct": 1,
+     "sub": 40,
+     "del": 504,
+     "ins": 1,
+     "errors": 545,
+     "block_cer": 1.0,
+     "share_of_cer": 0.042356415636900596,
+     "overlay": false
+    },
+    "ASCII punctuation and symbols": {
+     "ref": 450,
+     "correct": 10,
+     "sub": 116,
+     "del": 324,
+     "ins": 0,
+     "errors": 440,
+     "block_cer": 0.9777777777777777,
+     "share_of_cer": 0.03419600528483718,
+     "overlay": false
+    },
+    "Digits 0-9": {
+     "ref": 256,
+     "correct": 1,
+     "sub": 52,
+     "del": 203,
+     "ins": 0,
+     "errors": 255,
+     "block_cer": 0.99609375,
+     "share_of_cer": 0.01981813942643973,
+     "overlay": false
+    },
+    "Combining Diacritical Marks": {
+     "ref": 103,
+     "correct": 0,
+     "sub": 8,
+     "del": 95,
+     "ins": 0,
+     "errors": 103,
+     "block_cer": 1.0,
+     "share_of_cer": 0.008004973964405067,
+     "overlay": false
+    },
+    "Latin-1 Supplement": {
+     "ref": 26,
+     "correct": 0,
+     "sub": 4,
+     "del": 22,
+     "ins": 0,
+     "errors": 26,
+     "block_cer": 1.0,
+     "share_of_cer": 0.0020206730395585606,
+     "overlay": false
+    },
+    "General Punctuation": {
+     "ref": 17,
+     "correct": 0,
+     "sub": 4,
+     "del": 13,
+     "ins": 0,
+     "errors": 17,
+     "block_cer": 1.0,
+     "share_of_cer": 0.001321209295095982,
+     "overlay": false
+    },
+    "Supplemental Punctuation": {
+     "ref": 6,
+     "correct": 0,
+     "sub": 1,
+     "del": 5,
+     "ins": 0,
+     "errors": 6,
+     "block_cer": 1.0,
+     "share_of_cer": 0.00046630916297505244,
+     "overlay": false
+    },
+    "MUFI (CERberus list, overlay)": {
+     "ref": 3,
+     "correct": 0,
+     "sub": 0,
+     "del": 3,
+     "ins": 0,
+     "errors": 3,
+     "block_cer": 1.0,
+     "share_of_cer": 0.00023315458148752622,
+     "overlay": true
+    },
+    "Latin Extended-D": {
+     "ref": 2,
+     "correct": 0,
+     "sub": 0,
+     "del": 2,
+     "ins": 0,
+     "errors": 2,
+     "block_cer": 1.0,
+     "share_of_cer": 0.00015543638765835082,
+     "overlay": false
+    },
+    "Latin Extended-A": {
+     "ref": 2,
+     "correct": 0,
+     "sub": 0,
+     "del": 2,
+     "ins": 0,
+     "errors": 2,
+     "block_cer": 1.0,
+     "share_of_cer": 0.00015543638765835082,
+     "overlay": false
+    },
+    "Geometric Shapes": {
+     "ref": 1,
+     "correct": 0,
+     "sub": 1,
+     "del": 0,
+     "ins": 0,
+     "errors": 1,
+     "block_cer": 1.0,
+     "share_of_cer": 7.771819382917541e-05,
+     "overlay": false
+    }
+   }
+  }
+ }
+}
+
+--- stderr ---
