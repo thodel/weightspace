@@ -320,3 +320,53 @@ Caveats: Hertwig's 1,984 comes from the 22 Oct export, whereas `combined-v1` was
 ## 15. Not covered
 
 Sections outside the scope above (1–6, 7.1–7.5, 8.1, 8.3, 9.1–9.2 apart from the cited numbers, 10, appendices apart from B). Reference accuracy. Any recomputation from weights or per-line readings. The Fable run directories were read from the branch, not re-executed. `paper/review/factcheck_2026-11-07.md` is an earlier check by another session; I did not re-verify its items.
+
+---
+
+## Addendum, 13 November 2026 (CET): re-check against the manuscript on `main` at `ec2658b`
+
+The sections above describe the manuscript as it stood on 10 November (1a23b55). Since then `24d2102` (fixes for findings 1–4 and others) and `9b4fa1f` (9.3 second session, 7.10 v3 and out-of-domain paragraphs, Appendix B rows) have landed on `main`, and the Fable runs (`1c27ec1`) are merged. `origin/main` has no further change under `paper/`. This addendum is a read of the current text against the 19 findings of §14, plus a check of the newly added passages. Nothing was recomputed. Everything in §1–§13 not mentioned here was not re-read.
+
+### Status of the 19 findings
+
+| # | Finding (short) | Status | Evidence in the current text |
+|---|---|---|---|
+| 1 | Table 11 page intervals | fixed | row 2 `[−0.84, +0.04]`, row 3 `[−0.84, +0.19]` |
+| 2 | RQ2 "retraining not run" | fixed | now: only the retraining on uncorrected pairs was not run |
+| 3 | v3 (R12) missing | fixed | in abstract, 7.10, RQ2, conclusion, Appendix B. v3 numbers match R12; the new out-of-domain paragraph matches R13 (18 / 28 % starting CER; A −0.35 `[−0.57, −0.14]`, B −0.46 `[−0.75, −0.17]`; own +0.05 / +0.11; register −0.50 / −1.07; combined moves +0.28 to +0.87; permutation correlations 0.2–0.4, +2.6 to +92) |
+| 4 | "None excludes zero"; "clearly worse from 0.75" | fixed | 7.8 and 7.7 now limited to gains, full step `[+0.05, +2.19]` named, "clearly so only at the full step" |
+| 5 | Fable runs only on a branch | fixed | `runs/20261109-val-*-f1-*` and `runs/20261110-kurrent-page-v2-f1-*` on `main` |
+| 6 | "gradient training is the better tool" | partly fixed | RQ2 now says equal by the rule at the protocol's rate, better only at a secondary arm whose page interval reaches zero, no uncorrected-pairs control. The abstract, the last paragraph of 7.11 ("does more at a larger step") and the conclusion ("better at a larger step") are unchanged. |
+| 7 | Adapter p6 wording; arms (a)/(b) pack | partly fixed | 9.3 now says: eight-module defect recognised by the rule list, repair refused by the keep rule; single-module defects did no damage. Not disclosed: the pack for arms (a)/(b) printed the doubled `lora_alpha`. |
+| 8 | k11 row | fixed | 100 / 100 / 102 / 74 %, caption explains the shares are only indicative |
+| 9 | Donor rule vs Appendix B | fixed | 7.7: "proposed, not adopted in the protocol: Appendix B". Appendix B has new rows: page-level intervals, 1,718-line held-out, second exchange rule, donor rule as "proposed, not adopted". The adapter keep rule's extra "pages at the cap not up" condition is not in Appendix B. |
+| 10 | "rule written … before these scores" (7.10) | open | sentence unchanged. The v3 paragraph and Appendix B disclose the second rule, but not that v1's Reichenau score was already known when the first rule was written. |
+| 11 | Table cross-references | fixed | Table 10 = diffuse, 11 = validation, 12 = sham |
+| 12 | "0 of 28 edits" | open | unchanged; run logs give 27 (7 + 7 + 5 + 8) |
+| 13 | 7.6 "line-level intervals" | open | text and Table 9 caption unchanged |
+| 14 | "60 pages" | fixed | now "4,374 held-out lines on 58 pages" |
+| 15 | "Three earlier statements" | open | still says three, lists two |
+| 16 | "all six that kept anything" (9.2) vs seven attempts | open | unchanged |
+| 17 | "3 to 5 minutes"; "seeds differ by 0.01 to 0.02" | open | unchanged (actual 2 min 41 s to 4 min 49 s; 0.01–0.02 are standard deviations, range 0.04 in arm B) |
+| 18 | Small items | partly fixed | "exactly the half-step row" now "close to". Still open: "its parent and … the donor `hertwig-v2`" (one model twice); 9.3 "late layers"; undisclosed extra keep-rule condition in 9.3. |
+| 19 | 43 vs 30 models | partly fixed | 6.4, 9.1 item 6 and RQ1 now separate the 43 compared from the 30 public models read directly. The source conflict remains: `MODEL_FAMILY.md` (33 downloaded + 4 bases + 6 in-house = all 43) vs `ZOO_SURVEY.md` (seven refused), and 6.4 still says "seven were refused". |
+
+Also still open from §12: Table 1's caption still says the line counts "do not add up … the difference is unexplained" with `[TODO: ask the trainer.]`. The data settle it (1,984 + 3,457 = 5,441; 1,786 is the Hertwig training side only).
+
+Also still open, from the same section 7.7 as finding 1 but not previously listed: 7.7 says the gain "has not been compared with an average of siblings or a per-block sweep, nor with a sham edit of the same size", while 7.8 reports exactly those comparisons (20 shams, α sweep, uniform average).
+
+### New problems in the passages added since 10 November
+
+Sources: `docs/PHASE5_REPORT.md`, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10, R10b, `docs/ADAPTER_REPORT.md`. All numbers in the new 9.3 paragraph on the second session match `PHASE5_REPORT.md`: practice 45.2 → 34.7 % and cap 9 → 4; dose curve 0.452 / 0.399 / 0.347 / 0.362; held-out +0.24 `[−3.5, +3.9]`; 225 better, 233 worse, 275 identical; cap 43 vs 44, with 37 under both, 6 only with the edit and 7 only without; random direction +3.9 on practice; repetition penalty 36.8 against 34.7 with better clipped CER. Three problems remain:
+
+| # | Problem | Manuscript | Source | Severity |
+|---|---|---|---|---|
+| N1 | "run by the same model as programmer (Claude Opus 5.5)" | "same model" has no antecedent | `ADAPTER_REPORT.md` A4: the first adapter session's programmer was Sonnet 5.5; the second was Opus 5.5 | low-medium |
+| N2 | "with the trainer's own evaluation engine instead of the deterministic server" | contrasts two engines | `ADAPTER_REPORT.md`: the first session (A4) already used the scorer engine `evaluate_qlora`, which is deterministic. The vLLM server was used only for the planted-defect control (A3) and is the non-repeatable one. | medium |
+| N3 | Fable 5.1 replicate and two further shams omitted | cites one sham (+3.9 on practice) | R10b / `PHASE5_FABLE_REPORT.md`: Fable's session kept the same edit, with a byte-identical frozen adapter (sha256 `3f68caa5…`) and byte-identical held-out readings (+0.24 `[−3.5, +3.8]` by pages, `[−5.0, +6.7]` by documents). Two new random-direction shams: one would itself have passed the keep rule (−5.7 `[−11.8, −1.2]`, cap 9 → 7). "H1 is not separable from two of the three shams." | medium: weakens the "clean dose curve" reading in 9.3 |
+
+### Updated ranked list of what is still open
+
+High: none of the original three.
+Medium: N2, N3; finding 6 (abstract, 7.11, conclusion); finding 10; finding 7 (undisclosed doubled-α pack).
+Low: N1; findings 12, 13, 15, 16, 17; the rest of 18; the Table 1 TODO; the stale "not compared with … a sham" sentence in 7.7; the 43-vs-30 source conflict (19).
