@@ -126,3 +126,15 @@ Identical, with: pass = one vLLM batch of fixed page count; sampling pinned
 trainer's own eval set for that adapter (`docs/EVAL_SETS.md` in
 training-atr-models), scored by the same `wsp.metrics` code; C4 = one short
 QLoRA continuation through `train_spec`.
+
+Amendments from the adapter track (08.11.2026, docs/ADAPTER_REPORT.md):
+
+- **Engine.** The pass engine is the trainer's own `evaluate_qlora` (transformers, greedy, cap 3,072): it is deterministic. vLLM is not repeatable
+  run to run (same adapter and batch: CER 0.35 vs 0.41; only 2 of 16 pages identical even at one sequence at a time) and differs from the scorer on which
+  pages loop (gate G1). A vLLM pass may serve only for gross-defect controls and states its noise.
+- **Noise floor.** Whether a page loops is chaotic: merging the adapter into the weights or rescaling every `B` by 1.002 changes which pages loop
+  (practice CER −8 points). A session on a loop metric reports a sham of the same tensor (random matrix of the edit's norm) read on the same pages (C5), and the
+  number of attempted edits next to the kept ones.
+- **Donors.** Adapters trained on one base share no basis (ΔW cosine ≈ 0.1, no common `A`): no donor operation exists; the donor rule is moot for adapters.
+- **Held-out subsets.** A document-stratified subset of a frozen draw (here 134 of 733 pages) is allowed when the full draw costs hours, if stated; it does not
+  read like the full draw and is compared only paired, with the trainer's full-draw number quoted beside it.

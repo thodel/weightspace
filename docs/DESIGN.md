@@ -2,7 +2,7 @@
 
 The harness is what makes a weight-space programming session repeatable: the
 same loader, the same budget rule, the same log format, whether the subject is
-a 4 M-parameter kraken net or a rank-16 adapter on a 7 B VLM. Code in `wsp/`.
+a 4 M-parameter kraken net or a rank-64 adapter on a 7 B VLM. Code in `wsp/`.
 
 ## 1. Subject — one interface for every model kind
 
@@ -106,7 +106,7 @@ lines and VLM pages:
 - **Pass cost:** kraken, 300 lines on CPU ≈ seconds; Qwen3.5-4B, 64 pages on
   an A40 ≈ minutes. The budget is in passes; the practice set size is fixed per
   session and logged, so a pass means the same thing in every log.
-- **Adapters are already low-rank:** `ΔW = B·A` with rank 16 gives at most
+- **Adapters are already low-rank:** `ΔW = B·A` with rank 64 (the Qwen3.5 Kurrent adapters; r = 16 was an early assumption) gives at most
   16 directions per module; `wsp.stats.adapter_directions` lists them with
   their singular values, which is the natural starting point for a reading.
 - **Merging into the base for serving** is `scripts/merge_loras.py` in
