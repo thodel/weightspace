@@ -42,6 +42,17 @@ unchanged in every pair.
    0.06–0.14 mean (max 0.26–0.33 on single gate blocks), the output layer
    0.15–0.24.
 
+## Corrections of 13.11.2026
+
+Written after `docs/ZOO_SURVEY.md` (37 public models, 47 read in all), `docs/SEED_NULL.md` and the measured-frequency test of ZOO_SURVEY §4b. The text above stays as it was written on 06.11.2026.
+
+- **1 (rare rows).** With counts instead of the proxy, on the six in-house pairs: rows of characters that never occur in the child's practice lines lose bias (median −0.32 to −0.75) and gain norm in almost every row; rows of characters that occur once or more
+  move with the rest of the network (median bias change −0.03 to +0.05, norm ratio 0.97–1.04). There is a step at *absent*, not a gradient by frequency, and "the rows that moved most are the rare ones" holds only for the first adaptation from the public parent (Spearman of log count with relative move −0.6), not for
+  continuations (+0.35) or the Kurrent pair (+0.02). On the 14 documented pairs of the zoo survey the proxy version holds in direction (norm up in 13, bias down in 14) but not in selectivity (all four criteria in 5; 1 of 7 public pairs). The "30–110 %" growth concerns the rows that moved most; the median over special rows is 0.85–1.56.
+- **2 (blank bias).** Holds and is larger relative to the other biases: +0.16 to +0.57 in the in-house pairs against +0.06 to +0.12 raw, because the other biases fall; 14 of 14 documented pairs rise relative to the other biases (13 raw).
+- **3 (conv versus recurrent).** Not supported as written. The numbers above (deeper conv blocks 0.12–0.23 against LSTM blocks 0.06–0.14) were means over tensors including the conv biases and the all-zero `bias_ih` of the LSTMs; over weights only, the conv stack is below the BiLSTMs in 11 of 14 pairs and below the output rows in 4 of 14.
+  What holds: the first conv block moves least (12 of 14 pairs) and movement grows with depth (10 of 14), and the seed null shows this pattern between two runs that differ only by seed.
+
 ## cursive_inzigkofen → bern-hertwig-v1 (`diff_cursive_inzigkofen__bern-hertwig-v1`)
 
 Codec 261 → 266 (adds `" ̅ „ ♀ ♂`, all with small norms 1.9–4.1: barely

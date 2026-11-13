@@ -461,7 +461,107 @@
  },
  "kraken-gallicorpora": {
   "doi": "10.5281/zenodo.7410529",
-  "files": [],
-  "error": "HTTPError: 429 Client Error: TOO MANY REQUESTS for url: https://zenodo.org/oai2d?identifier=oai%3Azenodo.org%3A7410529&metadataPrefix=dcat&verb=GetRecord"
+  "files": [
+   {
+    "name": "Gallicorpora+_best.mlmodel",
+    "bytes": 16216786,
+    "sha256": "b7261e804394fe883e351f17b599d4c86417db3e69f67c091eb31665fcc660b3"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1170,
+    "sha256": "907966e69add71e3bd7b27c599025a805b4ac5e5c806c015c963ca8f0ab78920"
+   }
+  ]
+ },
+ "kraken-openiti_persian_print": {
+  "doi": "10.5281/zenodo.7051644",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 2604,
+    "sha256": "1ec9c6cf311642eb16a80307cf87efec3c1568dfe5e7702a590df09fd5f414d3"
+   },
+   {
+    "name": "persian_best.mlmodel",
+    "bytes": 16280254,
+    "sha256": "1125bed95e5e0a08f4645547842e58e4bb8e573ce8de0b893b60db3713df7876"
+   }
+  ]
+ },
+ "kraken-openiti_ottoman_print": {
+  "doi": "10.5281/zenodo.7050342",
+  "files": [
+   {
+    "name": "metadata.json",
+    "bytes": 2613,
+    "sha256": "d9d9069ec909b90aa15784e0599ed7bb6bbe87130b4dd0370c7d22a9854170c2"
+   },
+   {
+    "name": "ottoman_best.mlmodel",
+    "bytes": 16282182,
+    "sha256": "1b60d34d758ed9cddd14289d708be8ce584e74a170d0db252eab1ab8cf48e93b"
+   }
+  ]
+ },
+ "kraken-openiti_arabic_print": {
+  "doi": "10.5281/zenodo.7050270",
+  "files": [
+   {
+    "name": "all_arabic_scripts.mlmodel",
+    "bytes": 16277053,
+    "sha256": "1e74031608c37ab99ae4f9d5227aef7782de63fac50f5f2ef3256165db834f9f"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2762,
+    "sha256": "c706f22e8460c3158a0906fd33cd073933995c7ab6abf747a776afc0ae93e4bd"
+   }
+  ]
+ },
+ "kraken-lectaurep_french": {
+  "doi": "10.5281/zenodo.6542744",
+  "files": [
+   {
+    "name": "lectaurep_base.mlmodel",
+    "bytes": 16120811,
+    "sha256": "7d7f4217482fbaef8eb6faab18644bdb708d3a5d18391699dec4f9e559086f88"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 2289,
+    "sha256": "0b53e8220742ce43a256a7664568f1a2e0d8e65b7e6d4ced127336e3f228c774"
+   }
+  ]
+ },
+ "kraken-hebrew_sephardi": {
+  "doi": "10.5281/zenodo.5468665",
+  "files": [
+   {
+    "name": "Sephardi_01.mlmodel",
+    "bytes": 16072769,
+    "sha256": "1ab5ef193001f336e886f3335c624a2454c1ef0a1dfbe87341dcba4bd59c5108"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 1548,
+    "sha256": "60e32843548389e8ce363dd51bb8004be594c5131c1d74f7606ddff81a4aece6"
+   }
+  ]
+ },
+ "kraken-english_print": {
+  "doi": "10.5281/zenodo.2577813",
+  "files": [
+   {
+    "name": "en_best.mlmodel",
+    "bytes": 2930723,
+    "sha256": "b8f720ba359f7b66a4329f7df2c87e58fd3dd8ad223446fff28089373d9798cc"
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 836,
+    "sha256": "509424a175cc92fc8094a23f3d268b458d1244cf942a5b9adcec7ef17ffdb10f"
+   }
+  ]
  }
 }

@@ -88,14 +88,12 @@ for p in d["inferred_pairs"]:
     dist = ent.get(f"{p['child']}|{p['parent']}") or ent.get(f"{p['parent']}|{p['child']}")
     P(f"| `{p['child'].removeprefix('kraken-')}` | `{p['parent'].removeprefix('kraken-')}` | {dist['rel']:.2f} | "
       f"{p['codec_parent']} → {p['codec_child']} (parent's codec is a subset: {p['parent_codec_subset_of_child']}) | {p['same_row_index']} of {p['codec_parent']} |")
+docset = {frozenset((p["child"], p["parent"])) for p in d["documented_pairs"]} | {frozenset((p["child"], p["parent"])) for p in d["inferred_pairs"]}
+cluster = {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen", "kraken-old_norse_am305"}
+extra = [(a, b, v) for p, v in sorted(d["distances"][A]["pairs"].items(), key=lambda t: t[1]["rel"]) for a, b in [p.split("|")]
+         if v["rel"] < 1.2 and frozenset((a, b)) not in docset and not (a in H or b in H) and not (a in cluster and b in cluster)]
 P("\nOther pairs below 1.2 in group A that no record explains (distance, no direction): " + "; ".join(
-    f"`{a.removeprefix('kraken-')}` – `{b.removeprefix('kraken-')}` {v['rel']:.2f}"
-    for p, v in sorted(d["distances"][A]["pairs"].items(), key=lambda t: t[1]["rel"])
-    for a, b in [p.split("|")]
-    if v["rel"] < 1.2 and not (a in H and b in H) and not {a, b} <= {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen"}
-    and not ({a, b} & set(H) and {a, b} & {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen", "kraken-old_norse_am305", "kraken-bohemian_19th"})
-    and {a, b} not in ({"kraken-mccatmus", "kraken-prima"}, {"kraken-old_norse_am305", "kraken-catmus_medieval"}, {"kraken-old_norse_am305", "kraken-bastarda_inzigkofen"},
-                       {"kraken-old_norse_am305", "kraken-cursive_inzigkofen"})) + ".")
+    f"`{a.removeprefix('kraken-')}` – `{b.removeprefix('kraken-')}` {v['rel']:.2f}" for a, b, v in extra) + ".")
 
 # -- observations
 tested = [p for p in d["documented_pairs"] if p["status"] == "tested" and p["reading"]["blocks"]["conv_w"] < 1.0]
@@ -116,18 +114,19 @@ P("|---|---:|---:|---:|---|---|---|---|---|")
 obs1 = []
 for p in all_pairs:
     o = p["reading"]["obs1"]; n = o["special_rows"]
-    c = [o["special_norm_up"] > n / 2, o["special_bias_down"] > n / 2, o["special_median_rel"] > o["frequent_median_rel"],
+    c = [o["special_norm_up"] > n / 2, o["special_bias_down"] > n / 2, None if o["frequent_median_rel"] is None else o["special_median_rel"] > o["frequent_median_rel"],
          o["top_decile_special"] / o["top_decile_rows"] >= o["special_share_of_rows"]]
     obs1.append((p, c))
     tag = " (inferred)" if p["status"] == "inferred" else ""
-    P(f"| {lab(p)}{tag} | {n} | {o['special_norm_up']} | {o['special_bias_down']} | {o['special_median_norm_ratio']:.2f} / {o['frequent_median_norm_ratio']:.2f} | "
-      f"{o['special_median_bias_delta']:+.2f} / {o['frequent_median_bias_delta']:+.2f} | {o['special_median_rel']:.2f} / {o['frequent_median_rel']:.2f} | "
-      f"{o['top_decile_special']} of {o['top_decile_rows']} / {o['special_share_of_rows']:.2f} | {''.join('✓' if x else '✗' for x in c)} |")
+    fz = lambda x, f="{:.2f}": "–" if x is None else f.format(x)
+    P(f"| {lab(p)}{tag} | {n} | {o['special_norm_up']} | {o['special_bias_down']} | {fz(o['special_median_norm_ratio'])} / {fz(o['frequent_median_norm_ratio'])} | "
+      f"{fz(o['special_median_bias_delta'], '{:+.2f}')} / {fz(o['frequent_median_bias_delta'], '{:+.2f}')} | {fz(o['special_median_rel'])} / {fz(o['frequent_median_rel'])} | "
+      f"{o['top_decile_special']} of {o['top_decile_rows']} / {o['special_share_of_rows']:.2f} | {''.join('–' if x is None else '✓' if x else '✗' for x in c)} |")
 rel_obs = [(p, c) for p, c in obs1 if p["status"] == "tested"]
 P(f"\nTally over the {len(rel_obs)} documented pairs with related weights: (a) {sum(c[0] for _, c in rel_obs)}, (b) {sum(c[1] for _, c in rel_obs)}, "
-  f"(c) {sum(c[2] for _, c in rel_obs)}, (d) {sum(c[3] for _, c in rel_obs)}; all four in {sum(all(c) for _, c in rel_obs)}. "
+  f"(c) {sum(c[2] for _, c in rel_obs)}, (d) {sum(c[3] for _, c in rel_obs)}; all four in {sum(all(x is not False for x in c) for _, c in rel_obs)}. "
   f"Zoo pairs only ({sum(1 for p, _ in rel_obs if not p['child'].startswith(('bern', 'german')))}): "
-  f"all four in {sum(all(c) for p, c in rel_obs if not p['child'].startswith(('bern', 'german')))}.")
+  f"all four in {sum(all(x is not False for x in c) for p, c in rel_obs if not p['child'].startswith(('bern', 'german')))}.")
 fm = [m for m in M.values() if "frequent" in m["output"]]
 fz = [m for m in Z.values() if "frequent" in m["output"]]
 P(f"\nThe companion claim — the ten frequent letters have the smallest row norms — can be read on every model without a pair: "

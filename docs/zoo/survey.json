@@ -1291,6 +1291,103 @@
     }
    ]
   },
+  "kraken-english_print": {
+   "id": "kraken-english_print",
+   "origin": "zoo",
+   "file": "en_best.mlmodel",
+   "sha256": "b8f720ba359f7b66a4329f7df2c87e58fd3dd8ad223446fff28089373d9798cc",
+   "bytes": 2930723,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,48,0,1 Cr3,3,32 Do0.1,2 Mp2,2 Cr3,3,64 Do0.1,2 Mp2,2 S1(1x12)1,3 Lbx100 Do O1c90]",
+   "spec_key": "[1,48,0,1 Cr3,3,32 Do Mp2,2 Cr3,3,64 Do Mp2,2 S1(1x12)1,3 Lbx100 Do O1c<N>]",
+   "tensors": 14,
+   "parameters": 732906,
+   "codec_size": 89,
+   "multi_char_codes": 0,
+   "output_classes": 90,
+   "codec_classes": {
+    "latin": 52,
+    "digit": 10,
+    "punct": 26,
+    "combining": 0,
+    "other": 1
+   },
+   "codec_classes_share": {
+    "latin": 0.5843,
+    "digit": 0.1124,
+    "punct": 0.2921,
+    "combining": 0.0,
+    "other": 0.0112
+   },
+   "rare_characters": 14,
+   "metadata_keys": [
+    "accuracy",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [],
+   "completed_epochs": null,
+   "output": {
+    "tensor": "O_9.lin.weight",
+    "classes": 90,
+    "blank_norm": 4.165277595402705,
+    "blank_bias": -0.692119836807251,
+    "other_bias_mean": -0.025017169665210368,
+    "other_bias_std": 0.5086728708726875,
+    "blank_bias_rel": -0.6671026671420406,
+    "blank_bias_z": -1.311457137467442,
+    "blank_rank_by_bias": 83,
+    "row_norm_mean": 24.70543969615402,
+    "row_norm_std": 4.678626583961492,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 17.33563911992247,
+     "rest_norm_mean": 25.63832584504409,
+     "ratio": 0.6761611200628945,
+     "bias_mean": -0.05970255248248577,
+     "rest_bias_mean": -0.020626614878213483,
+     "in_weakest10": 9,
+     "weakest10_chars": [
+      "n",
+      "a",
+      "e",
+      "t",
+      "i",
+      "o",
+      "s",
+      "r",
+      "u",
+      "m"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.2577813",
+   "gateway_base": null,
+   "gateway_description": "A generalized model for English printed text",
+   "languages": [
+    "en"
+   ],
+   "scripts": [],
+   "centuries": [],
+   "doc_snippets": [],
+   "zenodo_files": [
+    {
+     "name": "en_best.mlmodel",
+     "bytes": 2930723,
+     "sha256": "b8f720ba359f7b66a4329f7df2c87e58fd3dd8ad223446fff28089373d9798cc"
+    },
+    {
+     "name": "metadata.json",
+     "bytes": 836,
+     "sha256": "509424a175cc92fc8094a23f3d268b458d1244cf942a5b9adcec7ef17ffdb10f"
+    }
+   ]
+  },
   "kraken-estournelles_typewritten": {
    "id": "kraken-estournelles_typewritten",
    "origin": "zoo",
@@ -1696,6 +1793,132 @@
     }
    ]
   },
+  "kraken-gallicorpora": {
+   "id": "kraken-gallicorpora",
+   "origin": "zoo",
+   "file": "Gallicorpora+_best.mlmodel",
+   "sha256": "b7261e804394fe883e351f17b599d4c86417db3e69f67c091eb31665fcc660b3",
+   "bytes": 16216786,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do.1,2 Lbx200 Do O1c161]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4057425,
+   "codec_size": 160,
+   "multi_char_codes": 0,
+   "output_classes": 161,
+   "codec_classes": {
+    "latin": 62,
+    "digit": 10,
+    "punct": 25,
+    "combining": 17,
+    "other": 46
+   },
+   "codec_classes_share": {
+    "latin": 0.3875,
+    "digit": 0.0625,
+    "punct": 0.1562,
+    "combining": 0.1062,
+    "other": 0.2875
+   },
+   "rare_characters": 88,
+   "metadata_keys": [
+    "accuracy",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "min_epochs",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_factor",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "weight_decay"
+   ],
+   "completed_epochs": 28,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 161,
+    "blank_norm": 2.0930455077274726,
+    "blank_bias": 0.09691587090492249,
+    "other_bias_mean": -0.03305744143472111,
+    "other_bias_std": 0.04323114122344794,
+    "blank_bias_rel": 0.1299733123396436,
+    "blank_bias_z": 3.0064742373524935,
+    "blank_rank_by_bias": 2,
+    "row_norm_mean": 2.7787288756142,
+    "row_norm_std": 0.5161294408749505,
+    "blank_norm_rank_from_weakest": 9,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 2.115736897007321,
+     "rest_norm_mean": 2.8229283408546584,
+     "ratio": 0.7494830337658408,
+     "bias_mean": 0.01033448197413236,
+     "rest_bias_mean": -0.03595023632864468,
+     "in_weakest10": 6,
+     "weakest10_chars": [
+      "n",
+      "ſ",
+      "̶",
+      "l",
+      "t",
+      "r",
+      "i",
+      "e",
+      "ι",
+      "u"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.7410529",
+   "gateway_base": null,
+   "gateway_description": "Gallicorpora+",
+   "languages": [
+    "fr"
+   ],
+   "scripts": [],
+   "centuries": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "doc_snippets": [],
+   "zenodo_files": [
+    {
+     "name": "Gallicorpora+_best.mlmodel",
+     "bytes": 16216786,
+     "sha256": "b7261e804394fe883e351f17b599d4c86417db3e69f67c091eb31665fcc660b3"
+    },
+    {
+     "name": "metadata.json",
+     "bytes": 1170,
+     "sha256": "907966e69add71e3bd7b27c599025a805b4ac5e5c806c015c963ca8f0ab78920"
+    }
+   ]
+  },
   "kraken-german_print": {
    "id": "kraken-german_print",
    "origin": "zoo",
@@ -1956,6 +2179,108 @@
      "name": "metadata.json",
      "bytes": 2328,
      "sha256": "c7513af3e6d2a203574fd78573616cb01478cc8d934fa1b95ce65c79be010b35"
+    }
+   ]
+  },
+  "kraken-hebrew_sephardi": {
+   "id": "kraken-hebrew_sephardi",
+   "origin": "zoo",
+   "file": "Sephardi_01.mlmodel",
+   "sha256": "1ab5ef193001f336e886f3335c624a2454c1ef0a1dfbe87341dcba4bd59c5108",
+   "bytes": 16072769,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do.1,2 Lbx200 Do O1c71]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4021335,
+   "codec_size": 70,
+   "multi_char_codes": 0,
+   "output_classes": 71,
+   "codec_classes": {
+    "latin": 4,
+    "digit": 0,
+    "punct": 20,
+    "combining": 14,
+    "other": 32
+   },
+   "codec_classes_share": {
+    "latin": 0.0571,
+    "digit": 0.0,
+    "punct": 0.2857,
+    "combining": 0.2,
+    "other": 0.4571
+   },
+   "rare_characters": 56,
+   "metadata_keys": [
+    "accuracy",
+    "completed_epochs",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "weight_decay"
+   ],
+   "completed_epochs": 5,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 71,
+    "blank_norm": 2.089822044643173,
+    "blank_bias": 0.14744774997234344,
+    "other_bias_mean": -0.6695421749093969,
+    "other_bias_std": 0.6639298239821082,
+    "blank_bias_rel": 0.8169899248817404,
+    "blank_bias_z": 1.2305365648158575,
+    "blank_rank_by_bias": 1,
+    "row_norm_mean": 4.264103086328844,
+    "row_norm_std": 1.387474130554556,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 0
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.5468665",
+   "gateway_base": null,
+   "gateway_description": "Medieval Hebrew manuscripts in Sephardi bookhand version 1.0",
+   "languages": [
+    "he"
+   ],
+   "scripts": [
+    "Sephardi bookhand"
+   ],
+   "centuries": [],
+   "doc_snippets": [],
+   "zenodo_files": [
+    {
+     "name": "Sephardi_01.mlmodel",
+     "bytes": 16072769,
+     "sha256": "1ab5ef193001f336e886f3335c624a2454c1ef0a1dfbe87341dcba4bd59c5108"
+    },
+    {
+     "name": "metadata.json",
+     "bytes": 1548,
+     "sha256": "60e32843548389e8ce363dd51bb8004be594c5131c1d74f7606ddff81a4aece6"
     }
    ]
   },
@@ -2453,6 +2778,133 @@
      "name": "reichenau_lat_cat_099218.mlmodel",
      "bytes": 22892687,
      "sha256": "7ee065528ea904ec6d08c9e42adcdb9e598c85fb574c799a33fabfd4d3a4f43e"
+    }
+   ]
+  },
+  "kraken-lectaurep_french": {
+   "id": "kraken-lectaurep_french",
+   "origin": "zoo",
+   "file": "lectaurep_base.mlmodel",
+   "sha256": "7d7f4217482fbaef8eb6faab18644bdb708d3a5d18391699dec4f9e559086f88",
+   "bytes": 16120811,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do.1,2 Lbx200 Do O1c102]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4033766,
+   "codec_size": 101,
+   "multi_char_codes": 0,
+   "output_classes": 102,
+   "codec_classes": {
+    "latin": 55,
+    "digit": 10,
+    "punct": 28,
+    "combining": 6,
+    "other": 2
+   },
+   "codec_classes_share": {
+    "latin": 0.5446,
+    "digit": 0.099,
+    "punct": 0.2772,
+    "combining": 0.0594,
+    "other": 0.0198
+   },
+   "rare_characters": 27,
+   "metadata_keys": [
+    "accuracy",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "min_epochs",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_factor",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "weight_decay"
+   ],
+   "completed_epochs": 18,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 102,
+    "blank_norm": 2.2331703959958826,
+    "blank_bias": 0.3739781975746155,
+    "other_bias_mean": -0.24546716732922758,
+    "other_bias_std": 0.5081813553479004,
+    "blank_bias_rel": 0.619445364903843,
+    "blank_bias_z": 1.2189454776037019,
+    "blank_rank_by_bias": 4,
+    "row_norm_mean": 7.115278065647474,
+    "row_norm_std": 2.6732444364387975,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 4.502774519729947,
+     "rest_norm_mean": 7.402366367396653,
+     "ratio": 0.6082885250805997,
+     "bias_mean": -0.06524934824556113,
+     "rest_bias_mean": -0.26527132327248765,
+     "in_weakest10": 7,
+     "weakest10_chars": [
+      "e",
+      " ",
+      "s",
+      "d",
+      "a",
+      "r",
+      "t",
+      "n",
+      "l",
+      "1"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.6542744",
+   "gateway_base": null,
+   "gateway_description": "LECTAUREP Contemporary French Model (Administration)",
+   "languages": [
+    "fr"
+   ],
+   "scripts": [],
+   "centuries": [
+    18,
+    19,
+    20
+   ],
+   "doc_snippets": [
+    "LECTAUREP Contemporary French Model (Administration) The model was trained from the ground truth produced by the LECTAUREP Project (Inria & Archives Nationales) between 2019 and 2022"
+   ],
+   "zenodo_files": [
+    {
+     "name": "lectaurep_base.mlmodel",
+     "bytes": 16120811,
+     "sha256": "7d7f4217482fbaef8eb6faab18644bdb708d3a5d18391699dec4f9e559086f88"
+    },
+    {
+     "name": "metadata.json",
+     "bytes": 2289,
+     "sha256": "0b53e8220742ce43a256a7664568f1a2e0d8e65b7e6d4ced127336e3f228c774"
     }
    ]
   },
@@ -3218,6 +3670,392 @@
      "name": "metadata.json",
      "bytes": 3806,
      "sha256": "ed684daa5cb7d92b868c8b535081fa48ce6f8d168ef153d0772ed0ca7169abd4"
+    }
+   ]
+  },
+  "kraken-openiti_arabic_print": {
+   "id": "kraken-openiti_arabic_print",
+   "origin": "zoo",
+   "file": "all_arabic_scripts.mlmodel",
+   "sha256": "1e74031608c37ab99ae4f9d5227aef7782de63fac50f5f2ef3256165db834f9f",
+   "bytes": 16277053,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do0.1,2 Lbx200 Do O1c197]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4071861,
+   "codec_size": 196,
+   "multi_char_codes": 0,
+   "output_classes": 197,
+   "codec_classes": {
+    "latin": 48,
+    "digit": 30,
+    "punct": 41,
+    "combining": 20,
+    "other": 57
+   },
+   "codec_classes_share": {
+    "latin": 0.2449,
+    "digit": 0.1531,
+    "punct": 0.2092,
+    "combining": 0.102,
+    "other": 0.2908
+   },
+   "rare_characters": 125,
+   "metadata_keys": [
+    "accuracy",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "min_epochs",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_factor",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "warmup",
+    "weight_decay"
+   ],
+   "completed_epochs": 25,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 197,
+    "blank_norm": 2.358322161636022,
+    "blank_bias": 0.5328269600868225,
+    "other_bias_mean": 0.005770495769624807,
+    "other_bias_std": 0.3374794277468763,
+    "blank_bias_rel": 0.5270564643171977,
+    "blank_bias_z": 1.5617439789915495,
+    "blank_rank_by_bias": 16,
+    "row_norm_mean": 14.142662932165894,
+    "row_norm_std": 4.919709745434955,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 16.51340726085734,
+     "rest_norm_mean": 14.015203559655603,
+     "ratio": 1.178249548111674,
+     "bias_mean": -0.020770364813506602,
+     "rest_bias_mean": 0.007197423757965206,
+     "in_weakest10": 0,
+     "weakest10_chars": [
+      "ی",
+      " ",
+      "ي",
+      "م",
+      "ن",
+      "ب",
+      "ل",
+      "ا",
+      "ت",
+      "ع"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.7050270",
+   "gateway_base": null,
+   "gateway_description": "Printed Arabic-Script Base Model Trained on the OpenITI Corpus",
+   "languages": [
+    "ar",
+    "fa",
+    "ur",
+    "ota"
+   ],
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "doc_snippets": [
+    "Printed Arabic-Script Base Model Trained on the OpenITI Corpus Printed Arabic-Script Base Model Trained on the OpenITI Corpus",
+    "it is mostly intended as a base model for fine-tuning more specific models from"
+   ],
+   "zenodo_files": [
+    {
+     "name": "all_arabic_scripts.mlmodel",
+     "bytes": 16277053,
+     "sha256": "1e74031608c37ab99ae4f9d5227aef7782de63fac50f5f2ef3256165db834f9f"
+    },
+    {
+     "name": "metadata.json",
+     "bytes": 2762,
+     "sha256": "c706f22e8460c3158a0906fd33cd073933995c7ab6abf747a776afc0ae93e4bd"
+    }
+   ]
+  },
+  "kraken-openiti_ottoman_print": {
+   "id": "kraken-openiti_ottoman_print",
+   "origin": "zoo",
+   "file": "ottoman_best.mlmodel",
+   "sha256": "1b60d34d758ed9cddd14289d708be8ce584e74a170d0db252eab1ab8cf48e93b",
+   "bytes": 16282182,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do0.1,2 Lbx200 Do O1c197]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4071861,
+   "codec_size": 196,
+   "multi_char_codes": 0,
+   "output_classes": 197,
+   "codec_classes": {
+    "latin": 48,
+    "digit": 30,
+    "punct": 41,
+    "combining": 20,
+    "other": 57
+   },
+   "codec_classes_share": {
+    "latin": 0.2449,
+    "digit": 0.1531,
+    "punct": 0.2092,
+    "combining": 0.102,
+    "other": 0.2908
+   },
+   "rare_characters": 125,
+   "metadata_keys": [
+    "accuracy",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "min_epochs",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_factor",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "warmup",
+    "weight_decay"
+   ],
+   "completed_epochs": 23,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 197,
+    "blank_norm": 2.481688810448428,
+    "blank_bias": 0.7610578536987305,
+    "other_bias_mean": -0.09408231208407396,
+    "other_bias_std": 0.539757504210237,
+    "blank_bias_rel": 0.8551401657828044,
+    "blank_bias_z": 1.5843043572576712,
+    "blank_rank_by_bias": 11,
+    "row_norm_mean": 22.876190248253504,
+    "row_norm_std": 8.975639641558184,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 28.489599637302263,
+     "rest_norm_mean": 22.574394044541204,
+     "ratio": 1.2620316443971809,
+     "bias_mean": -0.3295358791947365,
+     "rest_bias_mean": -0.08142351815339319,
+     "in_weakest10": 0,
+     "weakest10_chars": [
+      "م",
+      "ی",
+      "ي",
+      "ل",
+      "ا",
+      " ",
+      "ب",
+      "ت",
+      "ن",
+      "ع"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.7050342",
+   "gateway_base": "10.5281/zenodo.7050270",
+   "gateway_description": "Printed Ottoman Base Model Trained on the OpenITI Corpus",
+   "languages": [
+    "ota"
+   ],
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "doc_snippets": [
+    "Printed Ottoman Base Model Trained on the OpenITI Corpus This is a text recognition model trained on the OpenITI dataset of printed",
+    "obtained by fine-tuning the Arabic-script base model [1] on the purely",
+    "intended as a base model for fine-tuning more specific models from it"
+   ],
+   "zenodo_files": [
+    {
+     "name": "metadata.json",
+     "bytes": 2613,
+     "sha256": "d9d9069ec909b90aa15784e0599ed7bb6bbe87130b4dd0370c7d22a9854170c2"
+    },
+    {
+     "name": "ottoman_best.mlmodel",
+     "bytes": 16282182,
+     "sha256": "1b60d34d758ed9cddd14289d708be8ce584e74a170d0db252eab1ab8cf48e93b"
+    }
+   ]
+  },
+  "kraken-openiti_persian_print": {
+   "id": "kraken-openiti_persian_print",
+   "origin": "zoo",
+   "file": "persian_best.mlmodel",
+   "sha256": "1125bed95e5e0a08f4645547842e58e4bb8e573ce8de0b893b60db3713df7876",
+   "bytes": 16280254,
+   "format": "CoreML .mlmodel (kraken 7.0.2 load_model)",
+   "spec": "[1,120,0,1 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,13,32 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 Mp2,2 Cr3,9,64 Do0.1,2 S1(1x0)1,3 Lbx200 Do0.1,2 Lbx200 Do0.1,2 Lbx200 Do O1c197]",
+   "spec_key": "[1,120,0,1 Cr3,13,32 Do Mp2,2 Cr3,13,32 Do Mp2,2 Cr3,9,64 Do Mp2,2 Cr3,9,64 Do S1(1x0)1,3 Lbx200 Do Lbx200 Do Lbx200 Do O1c<N>]",
+   "tensors": 34,
+   "parameters": 4071861,
+   "codec_size": 196,
+   "multi_char_codes": 0,
+   "output_classes": 197,
+   "codec_classes": {
+    "latin": 48,
+    "digit": 30,
+    "punct": 41,
+    "combining": 20,
+    "other": 57
+   },
+   "codec_classes_share": {
+    "latin": 0.2449,
+    "digit": 0.1531,
+    "punct": 0.2092,
+    "combining": 0.102,
+    "other": 0.2908
+   },
+   "rare_characters": 125,
+   "metadata_keys": [
+    "accuracy",
+    "hyper_params",
+    "metrics",
+    "model_type",
+    "one_channel_mode",
+    "seg_type",
+    "vgsl"
+   ],
+   "hyper_params_keys": [
+    "augment",
+    "batch_size",
+    "completed_epochs",
+    "cos_t_max",
+    "epochs",
+    "freq",
+    "gamma",
+    "lag",
+    "lrate",
+    "min_delta",
+    "min_epochs",
+    "momentum",
+    "normalization",
+    "normalize_whitespace",
+    "optimizer",
+    "pad",
+    "quit",
+    "rop_factor",
+    "rop_patience",
+    "schedule",
+    "step_size",
+    "warmup",
+    "weight_decay"
+   ],
+   "completed_epochs": 5,
+   "output": {
+    "tensor": "O_18.lin.weight",
+    "classes": 197,
+    "blank_norm": 2.17111149387986,
+    "blank_bias": 0.795983612537384,
+    "other_bias_mean": 0.05922925464538097,
+    "other_bias_std": 0.5583658458530992,
+    "blank_bias_rel": 0.736754357892003,
+    "blank_bias_z": 1.319483208659285,
+    "blank_rank_by_bias": 25,
+    "row_norm_mean": 22.133511279271577,
+    "row_norm_std": 8.925009643329853,
+    "blank_norm_rank_from_weakest": 1,
+    "frequent_present": 10,
+    "frequent": {
+     "norm_mean": 27.267362223509878,
+     "rest_norm_mean": 21.85749778764586,
+     "ratio": 1.247506118423205,
+     "bias_mean": 0.1192532554268837,
+     "rest_bias_mean": 0.056002157829171145,
+     "in_weakest10": 0,
+     "weakest10_chars": [
+      "ی",
+      "م",
+      "ن",
+      " ",
+      "ي",
+      "ب",
+      "ا",
+      "ل",
+      "ت",
+      "ه"
+     ]
+    }
+   },
+   "metadata_keys_naming_base_or_data": [],
+   "doi": "10.5281/zenodo.7051644",
+   "gateway_base": "10.5281/zenodo.7050270",
+   "gateway_description": "Printed Persian Base Model Trained on the OpenITI Corpus",
+   "languages": [
+    "fa"
+   ],
+   "scripts": [
+    "Arabic"
+   ],
+   "centuries": [],
+   "doc_snippets": [
+    "Printed Persian Base Model Trained on the OpenITI Corpus This is a text recognition model trained on the OpenITI dataset of printed",
+    "obtained by fine-tuning the Arabic-script base model [1] on the purely",
+    "intended as a base model for fine-tuning more specific models from it"
+   ],
+   "zenodo_files": [
+    {
+     "name": "metadata.json",
+     "bytes": 2604,
+     "sha256": "1ec9c6cf311642eb16a80307cf87efec3c1568dfe5e7702a590df09fd5f414d3"
+    },
+    {
+     "name": "persian_best.mlmodel",
+     "bytes": 16280254,
+     "sha256": "1125bed95e5e0a08f4645547842e58e4bb8e573ce8de0b893b60db3713df7876"
     }
    ]
   },
@@ -4647,16 +5485,22 @@
    "kraken-cursive_inzigkofen",
    "kraken-cyrillic_uncial",
    "kraken-fondue_gd_v2",
+   "kraken-gallicorpora",
    "kraken-german_print",
    "kraken-glagolitic_print",
+   "kraken-hebrew_sephardi",
    "kraken-kuzushiji",
    "kraken-latin_expanded_11c",
    "kraken-latin_graphematic_11c",
+   "kraken-lectaurep_french",
    "kraken-manu_mcfondue",
    "kraken-mccatmus",
    "kraken-medieval_latin_french_expanded",
    "kraken-mendelssohn_letters",
    "kraken-old_norse_am305",
+   "kraken-openiti_arabic_print",
+   "kraken-openiti_ottoman_print",
+   "kraken-openiti_persian_print",
    "kraken-peraire_french",
    "kraken-prima",
    "kraken-samaritan",
@@ -4675,6 +5519,9 @@
    "kraken-french_vietnamese",
    "kraken-latin_incunabula",
    "kraken-medieval_latin_french_abbreviated"
+  ],
+  "[1,48,0,1 Cr3,3,32 Do Mp2,2 Cr3,3,64 Do Mp2,2 S1(1x12)1,3 Lbx100 Do O1c<N>]": [
+   "kraken-english_print"
   ],
   "[1,48,0,1 Cr4,2,32,4,2 Gn32 Cr4,2,64,1,1 Gn32 Mp4,2,4,2 Cr3,3,128,1,1 Gn32 Mp1,2,1,2 S1(1x0)1,3 Lbx256 Do Lbx256 Do Lbx256 Do O1c<N>]": [
    "kraken-estournelles_typewritten"
@@ -4702,16 +5549,22 @@
     "kraken-cursive_inzigkofen",
     "kraken-cyrillic_uncial",
     "kraken-fondue_gd_v2",
+    "kraken-gallicorpora",
     "kraken-german_print",
     "kraken-glagolitic_print",
+    "kraken-hebrew_sephardi",
     "kraken-kuzushiji",
     "kraken-latin_expanded_11c",
     "kraken-latin_graphematic_11c",
+    "kraken-lectaurep_french",
     "kraken-manu_mcfondue",
     "kraken-mccatmus",
     "kraken-medieval_latin_french_expanded",
     "kraken-mendelssohn_letters",
     "kraken-old_norse_am305",
+    "kraken-openiti_arabic_print",
+    "kraken-openiti_ottoman_print",
+    "kraken-openiti_persian_print",
     "kraken-peraire_french",
     "kraken-prima",
     "kraken-samaritan",
@@ -4766,6 +5619,12 @@
      "rel_conv": 1.441137306276316,
      "rel_lstm": 1.5144911275526518
     },
+    "kraken-austrian_fraktur|kraken-gallicorpora": {
+     "rel": 1.416140022739706,
+     "cos": 0.12527155162955247,
+     "rel_conv": 1.4493049286584203,
+     "rel_lstm": 1.4144410455140008
+    },
     "kraken-austrian_fraktur|kraken-german_print": {
      "rel": 1.3917124770945213,
      "cos": 0.04827372224904275,
@@ -4777,6 +5636,12 @@
      "cos": 0.08347758215860511,
      "rel_conv": 1.3980727398163941,
      "rel_lstm": 1.3724726382440877
+    },
+    "kraken-austrian_fraktur|kraken-hebrew_sephardi": {
+     "rel": 1.4090363479165322,
+     "cos": 0.11606871011558424,
+     "rel_conv": 1.4378604843846223,
+     "rel_lstm": 1.4075969163752764
     },
     "kraken-austrian_fraktur|kraken-kuzushiji": {
      "rel": 1.4090494979410202,
@@ -4795,6 +5660,12 @@
      "cos": 0.06016023517907753,
      "rel_conv": 1.3796438205107455,
      "rel_lstm": 1.3711188704196482
+    },
+    "kraken-austrian_fraktur|kraken-lectaurep_french": {
+     "rel": 1.3682831168209748,
+     "cos": 0.07595591181828146,
+     "rel_conv": 1.3968994390404736,
+     "rel_lstm": 1.3667725845654823
     },
     "kraken-austrian_fraktur|kraken-manu_mcfondue": {
      "rel": 1.4472502920376793,
@@ -4825,6 +5696,24 @@
      "cos": 0.05603494432462896,
      "rel_conv": 1.3881590756932858,
      "rel_lstm": 1.3741994473783135
+    },
+    "kraken-austrian_fraktur|kraken-openiti_arabic_print": {
+     "rel": 1.4860351946742152,
+     "cos": 0.030731871821665667,
+     "rel_conv": 1.4647016928481051,
+     "rel_lstm": 1.4870604741461992
+    },
+    "kraken-austrian_fraktur|kraken-openiti_ottoman_print": {
+     "rel": 1.5631776325900555,
+     "cos": 0.022884551627922044,
+     "rel_conv": 1.5395980498183766,
+     "rel_lstm": 1.5642977200396992
+    },
+    "kraken-austrian_fraktur|kraken-openiti_persian_print": {
+     "rel": 1.560187390351128,
+     "cos": 0.023016475444455294,
+     "rel_conv": 1.5359664479552326,
+     "rel_lstm": 1.5613346117443616
     },
     "kraken-austrian_fraktur|kraken-peraire_french": {
      "rel": 1.3678331660232799,
@@ -4922,6 +5811,12 @@
      "rel_conv": 1.4142131479177342,
      "rel_lstm": 1.4813036709786942
     },
+    "kraken-bastarda_inzigkofen|kraken-gallicorpora": {
+     "rel": 1.4679772348258648,
+     "cos": 0.10540723852334877,
+     "rel_conv": 1.473944157690115,
+     "rel_lstm": 1.467869045600989
+    },
     "kraken-bastarda_inzigkofen|kraken-german_print": {
      "rel": 1.3860147193167185,
      "cos": 0.04170267189286861,
@@ -4933,6 +5828,12 @@
      "cos": 0.06995954516687151,
      "rel_conv": 1.410141291584351,
      "rel_lstm": 1.4065870178730544
+    },
+    "kraken-bastarda_inzigkofen|kraken-hebrew_sephardi": {
+     "rel": 1.4587434556815655,
+     "cos": 0.09701389831061902,
+     "rel_conv": 1.4597512723496542,
+     "rel_lstm": 1.458936063012171
     },
     "kraken-bastarda_inzigkofen|kraken-kuzushiji": {
      "rel": 1.39564379871272,
@@ -4951,6 +5852,12 @@
      "cos": 0.05027470167490718,
      "rel_conv": 1.3812313943759829,
      "rel_lstm": 1.3805290427358465
+    },
+    "kraken-bastarda_inzigkofen|kraken-lectaurep_french": {
+     "rel": 1.3948321716489303,
+     "cos": 0.06354578538782699,
+     "rel_conv": 1.402771468991409,
+     "rel_lstm": 1.394462252198159
     },
     "kraken-bastarda_inzigkofen|kraken-manu_mcfondue": {
      "rel": 1.424250681396465,
@@ -4981,6 +5888,24 @@
      "cos": 0.6598403397011541,
      "rel_conv": 0.7625526581623241,
      "rel_lstm": 0.8328987578263923
+    },
+    "kraken-bastarda_inzigkofen|kraken-openiti_arabic_print": {
+     "rel": 1.456358447780091,
+     "cos": 0.025552040820130757,
+     "rel_conv": 1.433345392931153,
+     "rel_lstm": 1.457442254581937
+    },
+    "kraken-bastarda_inzigkofen|kraken-openiti_ottoman_print": {
+     "rel": 1.5267129783057418,
+     "cos": 0.01883441437790641,
+     "rel_conv": 1.5035517673800276,
+     "rel_lstm": 1.527795534163134
+    },
+    "kraken-bastarda_inzigkofen|kraken-openiti_persian_print": {
+     "rel": 1.523908967124839,
+     "cos": 0.01886214547199492,
+     "rel_conv": 1.5005083051269474,
+     "rel_lstm": 1.524999444948925
     },
     "kraken-bastarda_inzigkofen|kraken-peraire_french": {
      "rel": 1.385742305270589,
@@ -5072,6 +5997,12 @@
      "rel_conv": 1.471270423626011,
      "rel_lstm": 1.551410140034085
     },
+    "kraken-bifrost_old_norse|kraken-gallicorpora": {
+     "rel": 1.3658168001995241,
+     "cos": 0.1472053573950353,
+     "rel_conv": 1.4251248584084144,
+     "rel_lstm": 1.3624904559514692
+    },
     "kraken-bifrost_old_norse|kraken-german_print": {
      "rel": 1.406083931912488,
      "cos": 0.055667103283222844,
@@ -5083,6 +6014,12 @@
      "cos": 0.0971728068656411,
      "rel_conv": 1.3878841018770318,
      "rel_lstm": 1.3466543855724036
+    },
+    "kraken-bifrost_old_norse|kraken-hebrew_sephardi": {
+     "rel": 1.3625989032879207,
+     "cos": 0.13582270291332674,
+     "rel_conv": 1.416010926613584,
+     "rel_lstm": 1.3596157651650411
     },
     "kraken-bifrost_old_norse|kraken-kuzushiji": {
      "rel": 1.4291566106420175,
@@ -5101,6 +6038,12 @@
      "cos": 0.06971108686274259,
      "rel_conv": 1.3915290490125638,
      "rel_lstm": 1.3718012622153486
+    },
+    "kraken-bifrost_old_norse|kraken-lectaurep_french": {
+     "rel": 1.3513277241913333,
+     "cos": 0.08766957602877155,
+     "rel_conv": 1.3920758293949598,
+     "rel_lstm": 1.349109186352334
     },
     "kraken-bifrost_old_norse|kraken-manu_mcfondue": {
      "rel": 1.4777476114699726,
@@ -5131,6 +6074,24 @@
      "cos": 0.06486262068025773,
      "rel_conv": 1.3882443046566504,
      "rel_lstm": 1.3766003599511105
+    },
+    "kraken-bifrost_old_norse|kraken-openiti_arabic_print": {
+     "rel": 1.5225026634881345,
+     "cos": 0.03144580944002695,
+     "rel_conv": 1.506796336617958,
+     "rel_lstm": 1.5232745208506686
+    },
+    "kraken-bifrost_old_norse|kraken-openiti_ottoman_print": {
+     "rel": 1.60322011506925,
+     "cos": 0.021578348473267565,
+     "rel_conv": 1.584466060068767,
+     "rel_lstm": 1.6041264103083364
+    },
+    "kraken-bifrost_old_norse|kraken-openiti_persian_print": {
+     "rel": 1.6002488019546037,
+     "cos": 0.021651446326942984,
+     "rel_conv": 1.5805550644974915,
+     "rel_lstm": 1.6011975561714824
     },
     "kraken-bifrost_old_norse|kraken-peraire_french": {
      "rel": 1.359945006573614,
@@ -5216,6 +6177,12 @@
      "rel_conv": 1.3679607721955662,
      "rel_lstm": 1.4190613002432104
     },
+    "kraken-bohemian_19th|kraken-gallicorpora": {
+     "rel": 1.5909329675699162,
+     "cos": 0.06642070282564759,
+     "rel_conv": 1.5493842933314834,
+     "rel_lstm": 1.5932403389943584
+    },
     "kraken-bohemian_19th|kraken-german_print": {
      "rel": 1.4100012931681152,
      "cos": 0.029336074040353516,
@@ -5227,6 +6194,12 @@
      "cos": 0.04629160430505524,
      "rel_conv": 1.4604635866341864,
      "rel_lstm": 1.5064281878486554
+    },
+    "kraken-bohemian_19th|kraken-hebrew_sephardi": {
+     "rel": 1.578119961420999,
+     "cos": 0.06270256904403831,
+     "rel_conv": 1.5255737562995058,
+     "rel_lstm": 1.5809950899815775
     },
     "kraken-bohemian_19th|kraken-kuzushiji": {
      "rel": 1.4022655421507504,
@@ -5245,6 +6218,12 @@
      "cos": 0.03559021655697236,
      "rel_conv": 1.4033593049163144,
      "rel_lstm": 1.4354348698145398
+    },
+    "kraken-bohemian_19th|kraken-lectaurep_french": {
+     "rel": 1.4818837461908798,
+     "cos": 0.042492512830252724,
+     "rel_conv": 1.4448708457388524,
+     "rel_lstm": 1.4837252812471604
     },
     "kraken-bohemian_19th|kraken-manu_mcfondue": {
      "rel": 1.3975007975973168,
@@ -5275,6 +6254,24 @@
      "cos": 0.03232664484438289,
      "rel_conv": 1.4221340820606598,
      "rel_lstm": 1.4351374637632106
+    },
+    "kraken-bohemian_19th|kraken-openiti_arabic_print": {
+     "rel": 1.4079791311062937,
+     "cos": 0.018936230770321017,
+     "rel_conv": 1.3841220519097193,
+     "rel_lstm": 1.409049212046221
+    },
+    "kraken-bohemian_19th|kraken-openiti_ottoman_print": {
+     "rel": 1.4483942980086504,
+     "cos": 0.014783492074762867,
+     "rel_conv": 1.4350777421559195,
+     "rel_lstm": 1.4490036880948447
+    },
+    "kraken-bohemian_19th|kraken-openiti_persian_print": {
+     "rel": 1.4465273493909112,
+     "cos": 0.01463954994633301,
+     "rel_conv": 1.431816263419768,
+     "rel_lstm": 1.4471930338947756
     },
     "kraken-bohemian_19th|kraken-peraire_french": {
      "rel": 1.4586124986459232,
@@ -5354,6 +6351,12 @@
      "rel_conv": 1.4937492559215442,
      "rel_lstm": 1.542671156836885
     },
+    "kraken-catmus_medieval|kraken-gallicorpora": {
+     "rel": 1.3746950993944687,
+     "cos": 0.14396298578127123,
+     "rel_conv": 1.414176420266513,
+     "rel_lstm": 1.3731567047424182
+    },
     "kraken-catmus_medieval|kraken-german_print": {
      "rel": 1.4020640634339616,
      "cos": 0.054924913045149674,
@@ -5365,6 +6368,12 @@
      "cos": 0.09468857513284076,
      "rel_conv": 1.3852632162410674,
      "rel_lstm": 1.351431295815485
+    },
+    "kraken-catmus_medieval|kraken-hebrew_sephardi": {
+     "rel": 1.370572614909723,
+     "cos": 0.13307799492256653,
+     "rel_conv": 1.4062793501189823,
+     "rel_lstm": 1.3692511700149843
     },
     "kraken-catmus_medieval|kraken-kuzushiji": {
      "rel": 1.4235974636154585,
@@ -5383,6 +6392,12 @@
      "cos": 0.0678844663786601,
      "rel_conv": 1.398259656558769,
      "rel_lstm": 1.370464845831262
+    },
+    "kraken-catmus_medieval|kraken-lectaurep_french": {
+     "rel": 1.3532416110321162,
+     "cos": 0.08623867440820607,
+     "rel_conv": 1.3936599490235189,
+     "rel_lstm": 1.351441717979808
     },
     "kraken-catmus_medieval|kraken-manu_mcfondue": {
      "rel": 1.47146314016235,
@@ -5413,6 +6428,24 @@
      "cos": 0.8307567133055823,
      "rel_conv": 0.5267165384457174,
      "rel_lstm": 0.6122842879714724
+    },
+    "kraken-catmus_medieval|kraken-openiti_arabic_print": {
+     "rel": 1.514433934208042,
+     "cos": 0.032475717579019424,
+     "rel_conv": 1.5224022057191675,
+     "rel_lstm": 1.5140961769871517
+    },
+    "kraken-catmus_medieval|kraken-openiti_ottoman_print": {
+     "rel": 1.5947873692054009,
+     "cos": 0.023040093665432897,
+     "rel_conv": 1.6009938583334067,
+     "rel_lstm": 1.5945243610844153
+    },
+    "kraken-catmus_medieval|kraken-openiti_persian_print": {
+     "rel": 1.5918704513027002,
+     "cos": 0.022970810883706103,
+     "rel_conv": 1.59762044612835,
+     "rel_lstm": 1.5916275351916607
     },
     "kraken-catmus_medieval|kraken-peraire_french": {
      "rel": 1.3604782181711332,
@@ -5486,6 +6519,12 @@
      "rel_conv": 1.4092855239200783,
      "rel_lstm": 1.4793291918714193
     },
+    "kraken-cursive_inzigkofen|kraken-gallicorpora": {
+     "rel": 1.4704363886072185,
+     "cos": 0.10455746064720188,
+     "rel_conv": 1.4727226868986514,
+     "rel_lstm": 1.4705452091649598
+    },
     "kraken-cursive_inzigkofen|kraken-german_print": {
      "rel": 1.3862173763535297,
      "cos": 0.04106519873131472,
@@ -5497,6 +6536,12 @@
      "cos": 0.06938091779784993,
      "rel_conv": 1.405438903460786,
      "rel_lstm": 1.40862788076371
+    },
+    "kraken-cursive_inzigkofen|kraken-hebrew_sephardi": {
+     "rel": 1.4610874469249795,
+     "cos": 0.09625704293923057,
+     "rel_conv": 1.4574176462617192,
+     "rel_lstm": 1.461550901139967
     },
     "kraken-cursive_inzigkofen|kraken-kuzushiji": {
      "rel": 1.3951727661125264,
@@ -5515,6 +6560,12 @@
      "cos": 0.05004246104168865,
      "rel_conv": 1.3789739935560275,
      "rel_lstm": 1.3811619512931417
+    },
+    "kraken-cursive_inzigkofen|kraken-lectaurep_french": {
+     "rel": 1.3962946158235678,
+     "cos": 0.06296466066729167,
+     "rel_conv": 1.401665386286566,
+     "rel_lstm": 1.396068544616945
     },
     "kraken-cursive_inzigkofen|kraken-manu_mcfondue": {
      "rel": 1.4232430408500918,
@@ -5545,6 +6596,24 @@
      "cos": 0.654035166630398,
      "rel_conv": 0.7686204267441139,
      "rel_lstm": 0.8406906409502594
+    },
+    "kraken-cursive_inzigkofen|kraken-openiti_arabic_print": {
+     "rel": 1.4548436568514258,
+     "cos": 0.025675022851607106,
+     "rel_conv": 1.4293939058613268,
+     "rel_lstm": 1.456032834221626
+    },
+    "kraken-cursive_inzigkofen|kraken-openiti_ottoman_print": {
+     "rel": 1.5250733526320663,
+     "cos": 0.01854901070084562,
+     "rel_conv": 1.5002026092595386,
+     "rel_lstm": 1.5262278222390238
+    },
+    "kraken-cursive_inzigkofen|kraken-openiti_persian_print": {
+     "rel": 1.5223066505958862,
+     "cos": 0.018525809258961613,
+     "rel_conv": 1.4969649151903448,
+     "rel_lstm": 1.5234789501416772
     },
     "kraken-cursive_inzigkofen|kraken-peraire_french": {
      "rel": 1.387118207240141,
@@ -5612,6 +6681,12 @@
      "rel_conv": 1.3872893706094558,
      "rel_lstm": 1.4492900788251546
     },
+    "kraken-cyrillic_uncial|kraken-gallicorpora": {
+     "rel": 1.5239077808108912,
+     "cos": 0.0834955221063151,
+     "rel_conv": 1.5058395206764512,
+     "rel_lstm": 1.5251141250426916
+    },
     "kraken-cyrillic_uncial|kraken-german_print": {
      "rel": 1.3905624770808815,
      "cos": 0.034725123720564424,
@@ -5623,6 +6698,12 @@
      "cos": 0.3072277725695232,
      "rel_conv": 1.083758076759626,
      "rel_lstm": 1.291019622746049
+    },
+    "kraken-cyrillic_uncial|kraken-hebrew_sephardi": {
+     "rel": 1.3490297885683789,
+     "cos": 0.37176102300586994,
+     "rel_conv": 1.1912991108432258,
+     "rel_lstm": 1.3569080832516256
     },
     "kraken-cyrillic_uncial|kraken-kuzushiji": {
      "rel": 1.3921413462461154,
@@ -5641,6 +6722,12 @@
      "cos": 0.0416984961285401,
      "rel_conv": 1.383456237708617,
      "rel_lstm": 1.3997380490803557
+    },
+    "kraken-cyrillic_uncial|kraken-lectaurep_french": {
+     "rel": 1.4298776462001839,
+     "cos": 0.05184915013616281,
+     "rel_conv": 1.419151408607435,
+     "rel_lstm": 1.4304924913070884
     },
     "kraken-cyrillic_uncial|kraken-manu_mcfondue": {
      "rel": 1.406789601815731,
@@ -5671,6 +6758,24 @@
      "cos": 0.038083370586469135,
      "rel_conv": 1.3936794199564997,
      "rel_lstm": 1.400920521435159
+    },
+    "kraken-cyrillic_uncial|kraken-openiti_arabic_print": {
+     "rel": 1.429268581843127,
+     "cos": 0.023740421811015745,
+     "rel_conv": 1.401418493003045,
+     "rel_lstm": 1.4305400431864004
+    },
+    "kraken-cyrillic_uncial|kraken-openiti_ottoman_print": {
+     "rel": 1.489020051001622,
+     "cos": 0.018457717207377673,
+     "rel_conv": 1.4677408622739188,
+     "rel_lstm": 1.4899900491196423
+    },
+    "kraken-cyrillic_uncial|kraken-openiti_persian_print": {
+     "rel": 1.4864083797881704,
+     "cos": 0.018593787975039036,
+     "rel_conv": 1.463694775936951,
+     "rel_lstm": 1.487438813120357
     },
     "kraken-cyrillic_uncial|kraken-peraire_french": {
      "rel": 1.4135494458384814,
@@ -5732,6 +6837,12 @@
      "rel_conv": 1.4883301524460388,
      "rel_lstm": 1.4912795464677964
     },
+    "kraken-fondue_gd_v2|kraken-gallicorpora": {
+     "rel": 1.6726337177957837,
+     "cos": 0.04726697979924031,
+     "rel_conv": 1.579010152010544,
+     "rel_lstm": 1.6766674822555323
+    },
     "kraken-fondue_gd_v2|kraken-german_print": {
      "rel": 1.4599392403689366,
      "cos": 0.022135754905486093,
@@ -5743,6 +6854,12 @@
      "cos": 0.03294116444983046,
      "rel_conv": 1.4972737596873804,
      "rel_lstm": 1.588358167232854
+    },
+    "kraken-fondue_gd_v2|kraken-hebrew_sephardi": {
+     "rel": 1.660411858861903,
+     "cos": 0.044289733083803115,
+     "rel_conv": 1.564434090114216,
+     "rel_lstm": 1.6646414148409805
     },
     "kraken-fondue_gd_v2|kraken-kuzushiji": {
      "rel": 1.4420785016574695,
@@ -5761,6 +6878,12 @@
      "cos": 0.025408998965192275,
      "rel_conv": 1.4326127967847797,
      "rel_lstm": 1.502688014233164
+    },
+    "kraken-fondue_gd_v2|kraken-lectaurep_french": {
+     "rel": 1.5589252798680637,
+     "cos": 0.031984606017959175,
+     "rel_conv": 1.4754841243896755,
+     "rel_lstm": 1.5623955689478932
     },
     "kraken-fondue_gd_v2|kraken-manu_mcfondue": {
      "rel": 1.4156323761098712,
@@ -5791,6 +6914,24 @@
      "cos": 0.02319411732421286,
      "rel_conv": 1.4516637694471466,
      "rel_lstm": 1.500899141371453
+    },
+    "kraken-fondue_gd_v2|kraken-openiti_arabic_print": {
+     "rel": 1.4048669719755107,
+     "cos": 0.015714027275364983,
+     "rel_conv": 1.3724223608771506,
+     "rel_lstm": 1.4063836007182133
+    },
+    "kraken-fondue_gd_v2|kraken-openiti_ottoman_print": {
+     "rel": 1.4131421884715183,
+     "cos": 0.012783383032006464,
+     "rel_conv": 1.4082134657896528,
+     "rel_lstm": 1.4136455332637308
+    },
+    "kraken-fondue_gd_v2|kraken-openiti_persian_print": {
+     "rel": 1.4121614164543732,
+     "cos": 0.012935022854754464,
+     "rel_conv": 1.4056939095647556,
+     "rel_lstm": 1.4127133115490578
     },
     "kraken-fondue_gd_v2|kraken-peraire_french": {
      "rel": 1.5303608658375232,
@@ -5852,11 +6993,167 @@
      "rel_conv": 1.563195250907261,
      "rel_lstm": 1.6402548951119966
     },
+    "kraken-gallicorpora|kraken-german_print": {
+     "rel": 1.4960229215956733,
+     "cos": 0.09796950367566638,
+     "rel_conv": 1.4967003176104747,
+     "rel_lstm": 1.4961795717993178
+    },
+    "kraken-gallicorpora|kraken-glagolitic_print": {
+     "rel": 1.3190901857549167,
+     "cos": 0.17199547719416627,
+     "rel_conv": 1.4118107629158252,
+     "rel_lstm": 1.313327960541742
+    },
+    "kraken-gallicorpora|kraken-hebrew_sephardi": {
+     "rel": 1.2315847965135294,
+     "cos": 0.24257711729535242,
+     "rel_conv": 1.403794521082693,
+     "rel_lstm": 1.2190124920740788
+    },
+    "kraken-gallicorpora|kraken-kuzushiji": {
+     "rel": 1.5333099689407943,
+     "cos": 0.0809960127396301,
+     "rel_conv": 1.4915755386122036,
+     "rel_lstm": 1.535723368457118
+    },
+    "kraken-gallicorpora|kraken-latin_expanded_11c": {
+     "rel": 1.3479750160340584,
+     "cos": 0.16005665172709063,
+     "rel_conv": 1.4222716791556842,
+     "rel_lstm": 1.343590218592491
+    },
+    "kraken-gallicorpora|kraken-latin_graphematic_11c": {
+     "rel": 1.4296531244017374,
+     "cos": 0.12302764295779939,
+     "rel_conv": 1.4485407896440259,
+     "rel_lstm": 1.4289325422637296
+    },
+    "kraken-gallicorpora|kraken-lectaurep_french": {
+     "rel": 1.3488116309743217,
+     "cos": 0.15698678325138973,
+     "rel_conv": 1.426636908794003,
+     "rel_lstm": 1.3440604500403164
+    },
+    "kraken-gallicorpora|kraken-manu_mcfondue": {
+     "rel": 1.5973179675763771,
+     "cos": 0.06547476174478806,
+     "rel_conv": 1.5512608477987337,
+     "rel_lstm": 1.5998192127273423
+    },
+    "kraken-gallicorpora|kraken-mccatmus": {
+     "rel": 1.333236804972004,
+     "cos": 0.16484923767934223,
+     "rel_conv": 1.4092232070419244,
+     "rel_lstm": 1.3295204924882595
+    },
+    "kraken-gallicorpora|kraken-medieval_latin_french_expanded": {
+     "rel": 1.226306065416666,
+     "cos": 0.249095215055788,
+     "rel_conv": 1.398652152068363,
+     "rel_lstm": 1.2140519861603525
+    },
+    "kraken-gallicorpora|kraken-mendelssohn_letters": {
+     "rel": 1.6455144351852882,
+     "cos": 0.04548974710617329,
+     "rel_conv": 1.5767385612515736,
+     "rel_lstm": 1.6488561980822785
+    },
+    "kraken-gallicorpora|kraken-old_norse_am305": {
+     "rel": 1.436106107811814,
+     "cos": 0.11629257878237102,
+     "rel_conv": 1.4377389910855194,
+     "rel_lstm": 1.4365434265029289
+    },
+    "kraken-gallicorpora|kraken-openiti_arabic_print": {
+     "rel": 1.6448973920524435,
+     "cos": 0.05767478929830595,
+     "rel_conv": 1.6121862397451594,
+     "rel_lstm": 1.6467433224874233
+    },
+    "kraken-gallicorpora|kraken-openiti_ottoman_print": {
+     "rel": 1.7223447731980068,
+     "cos": 0.040058255651267596,
+     "rel_conv": 1.6866423448625645,
+     "rel_lstm": 1.724271227748591
+    },
+    "kraken-gallicorpora|kraken-openiti_persian_print": {
+     "rel": 1.7196598725328007,
+     "cos": 0.04046384218521374,
+     "rel_conv": 1.6832445302832708,
+     "rel_lstm": 1.7216200415507241
+    },
+    "kraken-gallicorpora|kraken-peraire_french": {
+     "rel": 1.3898715905711627,
+     "cos": 0.1357538554228766,
+     "rel_conv": 1.4253682162652832,
+     "rel_lstm": 1.3884989137456025
+    },
+    "kraken-gallicorpora|kraken-prima": {
+     "rel": 1.3390048988702659,
+     "cos": 0.1611389333474966,
+     "rel_conv": 1.407989820426964,
+     "rel_lstm": 1.3358000638292349
+    },
+    "kraken-gallicorpora|kraken-samaritan": {
+     "rel": 1.3577570402047074,
+     "cos": 0.15081680679886175,
+     "rel_conv": 1.4326574897903825,
+     "rel_lstm": 1.3532083113814017
+    },
+    "kraken-gallicorpora|bern-combined-v1": {
+     "rel": 1.4829665831380898,
+     "cos": 0.09910033872973675,
+     "rel_conv": 1.4768553289122475,
+     "rel_lstm": 1.483553367373945
+    },
+    "kraken-gallicorpora|bern-hertwig-v1": {
+     "rel": 1.4705690759643937,
+     "cos": 0.10418529153224956,
+     "rel_conv": 1.4721403973257678,
+     "rel_lstm": 1.4707216570529158
+    },
+    "kraken-gallicorpora|bern-hertwig-v2": {
+     "rel": 1.4769154415158363,
+     "cos": 0.10184256377116653,
+     "rel_conv": 1.4744418727887687,
+     "rel_lstm": 1.477300225335031
+    },
+    "kraken-gallicorpora|bern-schlussredaktion-v1": {
+     "rel": 1.4809906185337636,
+     "cos": 0.09971527412136469,
+     "rel_conv": 1.4755266045565434,
+     "rel_lstm": 1.4815413759806644
+    },
+    "kraken-gallicorpora|german-xix-blb-v1": {
+     "rel": 1.6073547161462869,
+     "cos": 0.0579087544473435,
+     "rel_conv": 1.5335052744318074,
+     "rel_lstm": 1.6109334570296407
+    },
+    "kraken-gallicorpora|german-xix-v1": {
+     "rel": 1.6054959339710397,
+     "cos": 0.05929307183631541,
+     "rel_conv": 1.5345207596850219,
+     "rel_lstm": 1.6089756212196782
+    },
+    "kraken-gallicorpora|medieval-shard00-std": {
+     "rel": 1.2543275475053677,
+     "cos": 0.22109407314719612,
+     "rel_conv": 1.4015505715234975,
+     "rel_lstm": 1.2449951431478088
+    },
     "kraken-german_print|kraken-glagolitic_print": {
      "rel": 1.4260354539694422,
      "cos": 0.06603876369214695,
      "rel_conv": 1.422948590131572,
      "rel_lstm": 1.426231509261975
+    },
+    "kraken-german_print|kraken-hebrew_sephardi": {
+     "rel": 1.4854247346629357,
+     "cos": 0.09081698551072326,
+     "rel_conv": 1.4784950361964981,
+     "rel_lstm": 1.4860270611859787
     },
     "kraken-german_print|kraken-kuzushiji": {
      "rel": 1.3924102072407178,
@@ -5875,6 +7172,12 @@
      "cos": 0.04823475804049362,
      "rel_conv": 1.3881256930229482,
      "rel_lstm": 1.3874643799731132
+    },
+    "kraken-german_print|kraken-lectaurep_french": {
+     "rel": 1.4107309474761338,
+     "cos": 0.06054917437855774,
+     "rel_conv": 1.413474386762131,
+     "rel_lstm": 1.4106220547678907
     },
     "kraken-german_print|kraken-manu_mcfondue": {
      "rel": 1.4122971102238602,
@@ -5905,6 +7208,24 @@
      "cos": 0.04483768611539112,
      "rel_conv": 1.3969435367876246,
      "rel_lstm": 1.388928741258282
+    },
+    "kraken-german_print|kraken-openiti_arabic_print": {
+     "rel": 1.4401300822426615,
+     "cos": 0.02546230082901253,
+     "rel_conv": 1.4124831590303983,
+     "rel_lstm": 1.441439901286042
+    },
+    "kraken-german_print|kraken-openiti_ottoman_print": {
+     "rel": 1.5054460554882823,
+     "cos": 0.01921708074709744,
+     "rel_conv": 1.4784091788767277,
+     "rel_lstm": 1.5067169194487513
+    },
+    "kraken-german_print|kraken-openiti_persian_print": {
+     "rel": 1.502651972635272,
+     "cos": 0.019438338443301412,
+     "rel_conv": 1.4750338773816771,
+     "rel_lstm": 1.5039463189937592
     },
     "kraken-german_print|kraken-peraire_french": {
      "rel": 1.3977499806304539,
@@ -5966,6 +7287,12 @@
      "rel_conv": 1.483916458981516,
      "rel_lstm": 1.4634865973211721
     },
+    "kraken-glagolitic_print|kraken-hebrew_sephardi": {
+     "rel": 0.8320539326911282,
+     "cos": 0.6984751539073567,
+     "rel_conv": 0.6374730086259849,
+     "rel_lstm": 0.8425811951053832
+    },
     "kraken-glagolitic_print|kraken-kuzushiji": {
      "rel": 1.4539899635881737,
      "cos": 0.05670339737281559,
@@ -5983,6 +7310,12 @@
      "cos": 0.08271394791290802,
      "rel_conv": 1.3928196564794175,
      "rel_lstm": 1.3802756166803392
+    },
+    "kraken-glagolitic_print|kraken-lectaurep_french": {
+     "rel": 1.340707105759121,
+     "cos": 0.10436637189141311,
+     "rel_conv": 1.3878442565426967,
+     "rel_lstm": 1.3380075647779859
     },
     "kraken-glagolitic_print|kraken-manu_mcfondue": {
      "rel": 1.5103293260359003,
@@ -6013,6 +7346,24 @@
      "cos": 0.07631186810558188,
      "rel_conv": 1.3861850116576466,
      "rel_lstm": 1.3868609340049778
+    },
+    "kraken-glagolitic_print|kraken-openiti_arabic_print": {
+     "rel": 1.5570926371654006,
+     "cos": 0.03890072337108046,
+     "rel_conv": 1.5258231107814089,
+     "rel_lstm": 1.5586732367878722
+    },
+    "kraken-glagolitic_print|kraken-openiti_ottoman_print": {
+     "rel": 1.6391715717094453,
+     "cos": 0.02718942598132348,
+     "rel_conv": 1.6069433543088654,
+     "rel_lstm": 1.6407697361420577
+    },
+    "kraken-glagolitic_print|kraken-openiti_persian_print": {
+     "rel": 1.6360809521520527,
+     "cos": 0.027681399252395135,
+     "rel_conv": 1.6029163198526026,
+     "rel_lstm": 1.637720588970301
     },
     "kraken-glagolitic_print|kraken-peraire_french": {
      "rel": 1.3595012336002965,
@@ -6074,6 +7425,138 @@
      "rel_conv": 1.4025556474995442,
      "rel_lstm": 1.3138377607412024
     },
+    "kraken-hebrew_sephardi|kraken-kuzushiji": {
+     "rel": 1.5208261668956289,
+     "cos": 0.07681985973113499,
+     "rel_conv": 1.4724542732377774,
+     "rel_lstm": 1.5236110204319568
+    },
+    "kraken-hebrew_sephardi|kraken-latin_expanded_11c": {
+     "rel": 1.3454712249548866,
+     "cos": 0.14872653223421553,
+     "rel_conv": 1.413129818694472,
+     "rel_lstm": 1.3414752282113986
+    },
+    "kraken-hebrew_sephardi|kraken-latin_graphematic_11c": {
+     "rel": 1.4212471724699887,
+     "cos": 0.11486454497620276,
+     "rel_conv": 1.4361667771846265,
+     "rel_lstm": 1.4207669524841022
+    },
+    "kraken-hebrew_sephardi|kraken-lectaurep_french": {
+     "rel": 1.3466919921647766,
+     "cos": 0.1453543723406642,
+     "rel_conv": 1.4150257238076416,
+     "rel_lstm": 1.342518729075129
+    },
+    "kraken-hebrew_sephardi|kraken-manu_mcfondue": {
+     "rel": 1.5842712341345504,
+     "cos": 0.06232436246873339,
+     "rel_conv": 1.5352892774918754,
+     "rel_lstm": 1.5869751147494364
+    },
+    "kraken-hebrew_sephardi|kraken-mccatmus": {
+     "rel": 1.332659703533549,
+     "cos": 0.15257584590070458,
+     "rel_conv": 1.4020231306607036,
+     "rel_lstm": 1.329298141077768
+    },
+    "kraken-hebrew_sephardi|kraken-medieval_latin_french_expanded": {
+     "rel": 1.241392433506302,
+     "cos": 0.22947257648177927,
+     "rel_conv": 1.399612160077921,
+     "rel_lstm": 1.2301025540641406
+    },
+    "kraken-hebrew_sephardi|kraken-mendelssohn_letters": {
+     "rel": 1.632719255857891,
+     "cos": 0.043143955648210934,
+     "rel_conv": 1.5571316851426362,
+     "rel_lstm": 1.636420779491405
+    },
+    "kraken-hebrew_sephardi|kraken-old_norse_am305": {
+     "rel": 1.428464741050765,
+     "cos": 0.10687099755152232,
+     "rel_conv": 1.4231289372888685,
+     "rel_lstm": 1.4292927914177038
+    },
+    "kraken-hebrew_sephardi|kraken-openiti_arabic_print": {
+     "rel": 1.6326016934267706,
+     "cos": 0.05365076007041277,
+     "rel_conv": 1.5935383199490174,
+     "rel_lstm": 1.6348080166676129
+    },
+    "kraken-hebrew_sephardi|kraken-openiti_ottoman_print": {
+     "rel": 1.7112058003568391,
+     "cos": 0.03687008136640697,
+     "rel_conv": 1.670492919439087,
+     "rel_lstm": 1.7134152792372748
+    },
+    "kraken-hebrew_sephardi|kraken-openiti_persian_print": {
+     "rel": 1.7084197451413605,
+     "cos": 0.03739868832975187,
+     "rel_conv": 1.6667059975164684,
+     "rel_lstm": 1.7106766499741484
+    },
+    "kraken-hebrew_sephardi|kraken-peraire_french": {
+     "rel": 1.3839503636864947,
+     "cos": 0.1265293444670145,
+     "rel_conv": 1.4145868124445893,
+     "rel_lstm": 1.3828535714511276
+    },
+    "kraken-hebrew_sephardi|kraken-prima": {
+     "rel": 1.33784389493567,
+     "cos": 0.1491940040749807,
+     "rel_conv": 1.4007695715943864,
+     "rel_lstm": 1.3349625108632956
+    },
+    "kraken-hebrew_sephardi|kraken-samaritan": {
+     "rel": 0.945523909086171,
+     "cos": 0.6355314018188726,
+     "rel_conv": 0.7970456483741424,
+     "rel_lstm": 0.9538528808291094
+    },
+    "kraken-hebrew_sephardi|bern-combined-v1": {
+     "rel": 1.4730245573438383,
+     "cos": 0.09141034421317638,
+     "rel_conv": 1.4608589968991819,
+     "rel_lstm": 1.4739697721301381
+    },
+    "kraken-hebrew_sephardi|bern-hertwig-v1": {
+     "rel": 1.4610817101859506,
+     "cos": 0.09613813613092023,
+     "rel_conv": 1.4564005797164437,
+     "rel_lstm": 1.4616045938883264
+    },
+    "kraken-hebrew_sephardi|bern-hertwig-v2": {
+     "rel": 1.4672176683725975,
+     "cos": 0.09391329684857253,
+     "rel_conv": 1.4583761798270964,
+     "rel_lstm": 1.4679779106768076
+    },
+    "kraken-hebrew_sephardi|bern-schlussredaktion-v1": {
+     "rel": 1.4710785125316346,
+     "cos": 0.09204964432645442,
+     "rel_conv": 1.4591837725887966,
+     "rel_lstm": 1.4720076349897626
+    },
+    "kraken-hebrew_sephardi|german-xix-blb-v1": {
+     "rel": 1.5940311231006854,
+     "cos": 0.05573091291717415,
+     "rel_conv": 1.5081242735936045,
+     "rel_lstm": 1.5981616756182253
+    },
+    "kraken-hebrew_sephardi|german-xix-v1": {
+     "rel": 1.5923085133897585,
+     "cos": 0.05673604710758643,
+     "rel_conv": 1.5090582804439123,
+     "rel_lstm": 1.5963522084223953
+    },
+    "kraken-hebrew_sephardi|medieval-shard00-std": {
+     "rel": 1.2641218505404312,
+     "cos": 0.20422901359191517,
+     "rel_conv": 1.3962858296787386,
+     "rel_lstm": 1.2557213805722238
+    },
     "kraken-kuzushiji|kraken-latin_expanded_11c": {
      "rel": 1.4344021323091076,
      "cos": 0.05182134965148901,
@@ -6085,6 +7568,12 @@
      "cos": 0.041001371128899504,
      "rel_conv": 1.3777386325992869,
      "rel_lstm": 1.4039506826470731
+    },
+    "kraken-kuzushiji|kraken-lectaurep_french": {
+     "rel": 1.4359664330961042,
+     "cos": 0.05134545079152741,
+     "rel_conv": 1.4034598568900851,
+     "rel_lstm": 1.4376654159566549
     },
     "kraken-kuzushiji|kraken-manu_mcfondue": {
      "rel": 1.4045097681233945,
@@ -6115,6 +7604,24 @@
      "cos": 0.039676970582759416,
      "rel_conv": 1.3930434316331077,
      "rel_lstm": 1.4030828610086419
+    },
+    "kraken-kuzushiji|kraken-openiti_arabic_print": {
+     "rel": 1.4259412622580605,
+     "cos": 0.02224670397051484,
+     "rel_conv": 1.4186727070127194,
+     "rel_lstm": 1.4263331288762884
+    },
+    "kraken-kuzushiji|kraken-openiti_ottoman_print": {
+     "rel": 1.4834830629717068,
+     "cos": 0.016841728564185546,
+     "rel_conv": 1.4850718911993788,
+     "rel_lstm": 1.4834867211178149
+    },
+    "kraken-kuzushiji|kraken-openiti_persian_print": {
+     "rel": 1.4808955567374094,
+     "cos": 0.01704844683283153,
+     "rel_conv": 1.48079975074888,
+     "rel_lstm": 1.4809679936336912
     },
     "kraken-kuzushiji|kraken-peraire_french": {
      "rel": 1.41910022235038,
@@ -6182,6 +7689,12 @@
      "rel_conv": 1.3802577730735492,
      "rel_lstm": 1.3707278577175281
     },
+    "kraken-latin_expanded_11c|kraken-lectaurep_french": {
+     "rel": 1.3443015081991443,
+     "cos": 0.0964389912707507,
+     "rel_conv": 1.3867673906209959,
+     "rel_lstm": 1.3419302993075268
+    },
     "kraken-latin_expanded_11c|kraken-manu_mcfondue": {
      "rel": 1.4855344440096756,
      "cos": 0.042615373947522024,
@@ -6211,6 +7724,24 @@
      "cos": 0.07201846221349771,
      "rel_conv": 1.3885738973073083,
      "rel_lstm": 1.3755739713389181
+    },
+    "kraken-latin_expanded_11c|kraken-openiti_arabic_print": {
+     "rel": 1.5303712552546775,
+     "cos": 0.03677072160410997,
+     "rel_conv": 1.5053570802092273,
+     "rel_lstm": 1.5316143407568885
+    },
+    "kraken-latin_expanded_11c|kraken-openiti_ottoman_print": {
+     "rel": 1.6122496893619904,
+     "cos": 0.025903077274338784,
+     "rel_conv": 1.5841016412927869,
+     "rel_lstm": 1.61362248658239
+    },
+    "kraken-latin_expanded_11c|kraken-openiti_persian_print": {
+     "rel": 1.6091352724546693,
+     "cos": 0.02630075726794318,
+     "rel_conv": 1.5800877560663062,
+     "rel_lstm": 1.610547689150107
     },
     "kraken-latin_expanded_11c|kraken-peraire_french": {
      "rel": 1.3571854050884198,
@@ -6272,6 +7803,12 @@
      "rel_conv": 1.4152310488083273,
      "rel_lstm": 1.335132852203444
     },
+    "kraken-latin_graphematic_11c|kraken-lectaurep_french": {
+     "rel": 1.3739174444415583,
+     "cos": 0.07449667992589885,
+     "rel_conv": 1.3875370503043418,
+     "rel_lstm": 1.373298637641064
+    },
     "kraken-latin_graphematic_11c|kraken-manu_mcfondue": {
      "rel": 1.439229996017745,
      "cos": 0.03381791496473905,
@@ -6301,6 +7838,24 @@
      "cos": 0.05483817067387844,
      "rel_conv": 1.382268290186134,
      "rel_lstm": 1.3746291024580777
+    },
+    "kraken-latin_graphematic_11c|kraken-openiti_arabic_print": {
+     "rel": 1.4754261861709246,
+     "cos": 0.030512636545998374,
+     "rel_conv": 1.4586861191903226,
+     "rel_lstm": 1.4762003037112945
+    },
+    "kraken-latin_graphematic_11c|kraken-openiti_ottoman_print": {
+     "rel": 1.5513994014480426,
+     "cos": 0.022113169355219158,
+     "rel_conv": 1.5365602914364727,
+     "rel_lstm": 1.5520821880647768
+    },
+    "kraken-latin_graphematic_11c|kraken-openiti_persian_print": {
+     "rel": 1.5483364929081223,
+     "cos": 0.022441342984770674,
+     "rel_conv": 1.5321587113832726,
+     "rel_lstm": 1.5490775759277966
     },
     "kraken-latin_graphematic_11c|kraken-peraire_french": {
      "rel": 1.370598021367246,
@@ -6362,6 +7917,114 @@
      "rel_conv": 1.4431647089447563,
      "rel_lstm": 1.4034090460504267
     },
+    "kraken-lectaurep_french|kraken-manu_mcfondue": {
+     "rel": 1.4871174659355582,
+     "cos": 0.04249560713526564,
+     "rel_conv": 1.4531310592331945,
+     "rel_lstm": 1.488822385855885
+    },
+    "kraken-lectaurep_french|kraken-mccatmus": {
+     "rel": 1.3428778325908672,
+     "cos": 0.0991311316318967,
+     "rel_conv": 1.398597844991683,
+     "rel_lstm": 1.3401604550793589
+    },
+    "kraken-lectaurep_french|kraken-medieval_latin_french_expanded": {
+     "rel": 1.3446385059534665,
+     "cos": 0.14807097125704244,
+     "rel_conv": 1.4202440231679008,
+     "rel_lstm": 1.3400535070414594
+    },
+    "kraken-lectaurep_french|kraken-mendelssohn_letters": {
+     "rel": 1.531127287591455,
+     "cos": 0.030968760013409452,
+     "rel_conv": 1.4771603718923885,
+     "rel_lstm": 1.5336271495664944
+    },
+    "kraken-lectaurep_french|kraken-old_norse_am305": {
+     "rel": 1.3776519410307837,
+     "cos": 0.07064083349392782,
+     "rel_conv": 1.3912642768822014,
+     "rel_lstm": 1.3772320022703537
+    },
+    "kraken-lectaurep_french|kraken-openiti_arabic_print": {
+     "rel": 1.5325818853054458,
+     "cos": 0.035642383938588484,
+     "rel_conv": 1.5075860559983059,
+     "rel_lstm": 1.5338622107183533
+    },
+    "kraken-lectaurep_french|kraken-openiti_ottoman_print": {
+     "rel": 1.614088454649563,
+     "cos": 0.025422285399993822,
+     "rel_conv": 1.5868106682133711,
+     "rel_lstm": 1.6154550296643864
+    },
+    "kraken-lectaurep_french|kraken-openiti_persian_print": {
+     "rel": 1.611093766322485,
+     "cos": 0.025549256265162055,
+     "rel_conv": 1.5829776832222182,
+     "rel_lstm": 1.6124985679172454
+    },
+    "kraken-lectaurep_french|kraken-peraire_french": {
+     "rel": 1.3583845997151964,
+     "cos": 0.08178798197018261,
+     "rel_conv": 1.3955427196917012,
+     "rel_lstm": 1.3567189698150437
+    },
+    "kraken-lectaurep_french|kraken-prima": {
+     "rel": 1.3440672929071735,
+     "cos": 0.0971057852001263,
+     "rel_conv": 1.396387343103374,
+     "rel_lstm": 1.341599358840345
+    },
+    "kraken-lectaurep_french|kraken-samaritan": {
+     "rel": 1.3479859845915796,
+     "cos": 0.09162005650000567,
+     "rel_conv": 1.3914526872060966,
+     "rel_lstm": 1.3455104412343872
+    },
+    "kraken-lectaurep_french|bern-combined-v1": {
+     "rel": 1.4033787482554225,
+     "cos": 0.06036816195540276,
+     "rel_conv": 1.4033478284097851,
+     "rel_lstm": 1.4034503685510402
+    },
+    "kraken-lectaurep_french|bern-hertwig-v1": {
+     "rel": 1.396304508939341,
+     "cos": 0.06288942739087544,
+     "rel_conv": 1.4013878933538906,
+     "rel_lstm": 1.3960964467713037
+    },
+    "kraken-lectaurep_french|bern-hertwig-v2": {
+     "rel": 1.3998110231633876,
+     "cos": 0.06181607860179407,
+     "rel_conv": 1.402554933078077,
+     "rel_lstm": 1.3997341032328126
+    },
+    "kraken-lectaurep_french|bern-schlussredaktion-v1": {
+     "rel": 1.402211379589716,
+     "cos": 0.060700743182300725,
+     "rel_conv": 1.4029252267170755,
+     "rel_lstm": 1.4022436867406611
+    },
+    "kraken-lectaurep_french|german-xix-blb-v1": {
+     "rel": 1.4961817221304254,
+     "cos": 0.03735063343119154,
+     "rel_conv": 1.435961567673753,
+     "rel_lstm": 1.4989668197995951
+    },
+    "kraken-lectaurep_french|german-xix-v1": {
+     "rel": 1.4946556038118033,
+     "cos": 0.03800506474678539,
+     "rel_conv": 1.4363106162430013,
+     "rel_lstm": 1.4973700442697115
+    },
+    "kraken-lectaurep_french|medieval-shard00-std": {
+     "rel": 1.340515229618776,
+     "cos": 0.13171721482718235,
+     "rel_conv": 1.4173520657553953,
+     "rel_lstm": 1.336123518529574
+    },
     "kraken-manu_mcfondue|kraken-mccatmus": {
      "rel": 1.499335146929597,
      "cos": 0.04275272953732775,
@@ -6385,6 +8048,24 @@
      "cos": 0.03143027972818905,
      "rel_conv": 1.4313155844771954,
      "rel_lstm": 1.4394325876825054
+    },
+    "kraken-manu_mcfondue|kraken-openiti_arabic_print": {
+     "rel": 1.405610803123065,
+     "cos": 0.02006928878816094,
+     "rel_conv": 1.3772288529680783,
+     "rel_lstm": 1.4068741451928866
+    },
+    "kraken-manu_mcfondue|kraken-openiti_ottoman_print": {
+     "rel": 1.4436748429401485,
+     "cos": 0.016255922066440748,
+     "rel_conv": 1.4257173088025359,
+     "rel_lstm": 1.4444897438755753
+    },
+    "kraken-manu_mcfondue|kraken-openiti_persian_print": {
+     "rel": 1.4420154669424772,
+     "cos": 0.01589905929816071,
+     "rel_conv": 1.4221393846796782,
+     "rel_lstm": 1.4429073371013694
     },
     "kraken-manu_mcfondue|kraken-peraire_french": {
      "rel": 1.4625087973199098,
@@ -6464,6 +8145,24 @@
      "rel_conv": 1.4102864514126456,
      "rel_lstm": 1.3812438062185635
     },
+    "kraken-mccatmus|kraken-openiti_arabic_print": {
+     "rel": 1.544920217801208,
+     "cos": 0.037178492682131074,
+     "rel_conv": 1.5511600076659184,
+     "rel_lstm": 1.5446400308628292
+    },
+    "kraken-mccatmus|kraken-openiti_ottoman_print": {
+     "rel": 1.6267997813290995,
+     "cos": 0.0263131919428696,
+     "rel_conv": 1.6289999345986828,
+     "rel_lstm": 1.6267033977079717
+    },
+    "kraken-mccatmus|kraken-openiti_persian_print": {
+     "rel": 1.6238581955524516,
+     "cos": 0.026359901516798432,
+     "rel_conv": 1.6258431124186064,
+     "rel_lstm": 1.6237712397090562
+    },
     "kraken-mccatmus|kraken-peraire_french": {
      "rel": 1.3581978819282468,
      "cos": 0.08652887815452347,
@@ -6536,6 +8235,24 @@
      "rel_conv": 1.430700605262091,
      "rel_lstm": 1.4275620463545382
     },
+    "kraken-medieval_latin_french_expanded|kraken-openiti_arabic_print": {
+     "rel": 1.6326412725313892,
+     "cos": 0.05308368257439495,
+     "rel_conv": 1.6000900014121213,
+     "rel_lstm": 1.6344388552939741
+    },
+    "kraken-medieval_latin_french_expanded|kraken-openiti_ottoman_print": {
+     "rel": 1.7111368896715455,
+     "cos": 0.036572724025608544,
+     "rel_conv": 1.6753674048617309,
+     "rel_lstm": 1.7130330288630844
+    },
+    "kraken-medieval_latin_french_expanded|kraken-openiti_persian_print": {
+     "rel": 1.7085045432627073,
+     "cos": 0.03659753943376331,
+     "rel_conv": 1.6716105194051984,
+     "rel_lstm": 1.7104533153598322
+    },
     "kraken-medieval_latin_french_expanded|kraken-peraire_french": {
      "rel": 1.3827552929815583,
      "cos": 0.12809129609143935,
@@ -6602,6 +8319,24 @@
      "rel_conv": 1.446113057857656,
      "rel_lstm": 1.4759673797687776
     },
+    "kraken-mendelssohn_letters|kraken-openiti_arabic_print": {
+     "rel": 1.4030055665479533,
+     "cos": 0.015853875087248386,
+     "rel_conv": 1.3779036534765485,
+     "rel_lstm": 1.4041459685708622
+    },
+    "kraken-mendelssohn_letters|kraken-openiti_ottoman_print": {
+     "rel": 1.4236453999941858,
+     "cos": 0.013389526943219845,
+     "rel_conv": 1.414568964892308,
+     "rel_lstm": 1.4241341975193342
+    },
+    "kraken-mendelssohn_letters|kraken-openiti_persian_print": {
+     "rel": 1.4222030218289976,
+     "cos": 0.01355033343297675,
+     "rel_conv": 1.410201468442292,
+     "rel_lstm": 1.4228052337664971
+    },
     "kraken-mendelssohn_letters|kraken-peraire_french": {
      "rel": 1.5041762754746024,
      "cos": 0.025734968947284012,
@@ -6662,6 +8397,24 @@
      "rel_conv": 1.5634897707678672,
      "rel_lstm": 1.611733277442953
     },
+    "kraken-old_norse_am305|kraken-openiti_arabic_print": {
+     "rel": 1.4754162508392108,
+     "cos": 0.027180958643440133,
+     "rel_conv": 1.477637103026628,
+     "rel_lstm": 1.4753564469234737
+    },
+    "kraken-old_norse_am305|kraken-openiti_ottoman_print": {
+     "rel": 1.5504582472542123,
+     "cos": 0.019378593159684612,
+     "rel_conv": 1.5543128239075257,
+     "rel_lstm": 1.5503184729141635
+    },
+    "kraken-old_norse_am305|kraken-openiti_persian_print": {
+     "rel": 1.5476036195042593,
+     "cos": 0.019328051580561587,
+     "rel_conv": 1.551160774665001,
+     "rel_lstm": 1.5474753344900285
+    },
     "kraken-old_norse_am305|kraken-peraire_french": {
      "rel": 1.374252252334561,
      "cos": 0.06125000768623501,
@@ -6721,6 +8474,204 @@
      "cos": 0.098402627689986,
      "rel_conv": 1.429231244104377,
      "rel_lstm": 1.4103055271736242
+    },
+    "kraken-openiti_arabic_print|kraken-openiti_ottoman_print": {
+     "rel": 0.7180301192093511,
+     "cos": 0.7849166864441771,
+     "rel_conv": 0.6619690761536273,
+     "rel_lstm": 0.7205216710245872
+    },
+    "kraken-openiti_arabic_print|kraken-openiti_persian_print": {
+     "rel": 0.6980391207694198,
+     "cos": 0.7961375315533586,
+     "rel_conv": 0.6449405106315793,
+     "rel_lstm": 0.7003939720327937
+    },
+    "kraken-openiti_arabic_print|kraken-peraire_french": {
+     "rel": 1.5044392413827772,
+     "cos": 0.03182086570826342,
+     "rel_conv": 1.5067511851535282,
+     "rel_lstm": 1.5043509635236119
+    },
+    "kraken-openiti_arabic_print|kraken-prima": {
+     "rel": 1.541072106557499,
+     "cos": 0.03641517320288296,
+     "rel_conv": 1.5491578966207495,
+     "rel_lstm": 1.5407179730163607
+    },
+    "kraken-openiti_arabic_print|kraken-samaritan": {
+     "rel": 1.5270110143363158,
+     "cos": 0.0353445964084837,
+     "rel_conv": 1.5020516197028946,
+     "rel_lstm": 1.5282880421167204
+    },
+    "kraken-openiti_arabic_print|bern-combined-v1": {
+     "rel": 1.4485176914452158,
+     "cos": 0.025135381328848,
+     "rel_conv": 1.4241850038524697,
+     "rel_lstm": 1.449640861740961
+    },
+    "kraken-openiti_arabic_print|bern-hertwig-v1": {
+     "rel": 1.454920848610695,
+     "cos": 0.025641949342045472,
+     "rel_conv": 1.4302330058108486,
+     "rel_lstm": 1.4560726073195749
+    },
+    "kraken-openiti_arabic_print|bern-hertwig-v2": {
+     "rel": 1.4514831577156946,
+     "cos": 0.02540806923572065,
+     "rel_conv": 1.4272048771082742,
+     "rel_lstm": 1.4526087740633933
+    },
+    "kraken-openiti_arabic_print|bern-schlussredaktion-v1": {
+     "rel": 1.4497490260798367,
+     "cos": 0.02496860977121431,
+     "rel_conv": 1.4255407322181324,
+     "rel_lstm": 1.4508675833229125
+    },
+    "kraken-openiti_arabic_print|german-xix-blb-v1": {
+     "rel": 1.4065395461859196,
+     "cos": 0.01652298993562527,
+     "rel_conv": 1.4000285364704486,
+     "rel_lstm": 1.4070386863968225
+    },
+    "kraken-openiti_arabic_print|german-xix-v1": {
+     "rel": 1.4063597615112162,
+     "cos": 0.017168359057101276,
+     "rel_conv": 1.398874250938202,
+     "rel_lstm": 1.4068765175876274
+    },
+    "kraken-openiti_arabic_print|medieval-shard00-std": {
+     "rel": 1.6093310958848976,
+     "cos": 0.04728229589827796,
+     "rel_conv": 1.5967318304269809,
+     "rel_lstm": 1.60997830270738
+    },
+    "kraken-openiti_ottoman_print|kraken-openiti_persian_print": {
+     "rel": 0.2804782179644204,
+     "cos": 0.9607368707936471,
+     "rel_conv": 0.269993271334184,
+     "rel_lstm": 0.2809514498983869
+    },
+    "kraken-openiti_ottoman_print|kraken-peraire_french": {
+     "rel": 1.5839132243899268,
+     "cos": 0.02291867247150168,
+     "rel_conv": 1.5854639467984197,
+     "rel_lstm": 1.5838555281706292
+    },
+    "kraken-openiti_ottoman_print|kraken-prima": {
+     "rel": 1.622808930662598,
+     "cos": 0.025824597476843406,
+     "rel_conv": 1.6273106452839246,
+     "rel_lstm": 1.6226148929885515
+    },
+    "kraken-openiti_ottoman_print|kraken-samaritan": {
+     "rel": 1.6085596374003188,
+     "cos": 0.02479636142475035,
+     "rel_conv": 1.580181463749468,
+     "rel_lstm": 1.6099771894950592
+    },
+    "kraken-openiti_ottoman_print|bern-combined-v1": {
+     "rel": 1.5166747888201448,
+     "cos": 0.018416132995807695,
+     "rel_conv": 1.4937774834941657,
+     "rel_lstm": 1.5177265166434202
+    },
+    "kraken-openiti_ottoman_print|bern-hertwig-v1": {
+     "rel": 1.525088907245028,
+     "cos": 0.018650896131129767,
+     "rel_conv": 1.5009250547401287,
+     "rel_lstm": 1.526208993344636
+    },
+    "kraken-openiti_ottoman_print|bern-hertwig-v2": {
+     "rel": 1.520676423957405,
+     "cos": 0.018450438351567497,
+     "rel_conv": 1.4971156562310235,
+     "rel_lstm": 1.5217625964231243
+    },
+    "kraken-openiti_ottoman_print|bern-schlussredaktion-v1": {
+     "rel": 1.5182593934943671,
+     "cos": 0.018166163175587113,
+     "rel_conv": 1.4952170052520897,
+     "rel_lstm": 1.5193186313958271
+    },
+    "kraken-openiti_ottoman_print|german-xix-blb-v1": {
+     "rel": 1.4416719605871875,
+     "cos": 0.012951741089659297,
+     "rel_conv": 1.4560995983892449,
+     "rel_lstm": 1.4413174851500237
+    },
+    "kraken-openiti_ottoman_print|german-xix-v1": {
+     "rel": 1.4421813539976038,
+     "cos": 0.013344278904484613,
+     "rel_conv": 1.4546968583126343,
+     "rel_lstm": 1.4418785002677765
+    },
+    "kraken-openiti_ottoman_print|medieval-shard00-std": {
+     "rel": 1.689602098787105,
+     "cos": 0.03236981119239196,
+     "rel_conv": 1.6726594060483924,
+     "rel_lstm": 1.6904431196543321
+    },
+    "kraken-openiti_persian_print|kraken-peraire_french": {
+     "rel": 1.5808549319641716,
+     "cos": 0.023158683271598087,
+     "rel_conv": 1.5810581833480173,
+     "rel_lstm": 1.5808566848103687
+    },
+    "kraken-openiti_persian_print|kraken-prima": {
+     "rel": 1.6198727494808982,
+     "cos": 0.025843147663246087,
+     "rel_conv": 1.6241751068836014,
+     "rel_lstm": 1.6196873613550085
+    },
+    "kraken-openiti_persian_print|kraken-samaritan": {
+     "rel": 1.6054762968857237,
+     "cos": 0.02511591977978585,
+     "rel_conv": 1.5759080406771795,
+     "rel_lstm": 1.6069484106687797
+    },
+    "kraken-openiti_persian_print|bern-combined-v1": {
+     "rel": 1.5139354964939953,
+     "cos": 0.018426390786362108,
+     "rel_conv": 1.490294114725874,
+     "rel_lstm": 1.5150169984121953
+    },
+    "kraken-openiti_persian_print|bern-hertwig-v1": {
+     "rel": 1.5223208615553707,
+     "cos": 0.01862883153487001,
+     "rel_conv": 1.497686214888519,
+     "rel_lstm": 1.5234587865265952
+    },
+    "kraken-openiti_persian_print|bern-hertwig-v2": {
+     "rel": 1.5179042242807252,
+     "cos": 0.018479852585225057,
+     "rel_conv": 1.4938149446520892,
+     "rel_lstm": 1.5190105728002867
+    },
+    "kraken-openiti_persian_print|bern-schlussredaktion-v1": {
+     "rel": 1.5154988516651602,
+     "cos": 0.018201723324093057,
+     "rel_conv": 1.4917766069618268,
+     "rel_lstm": 1.5165849939073481
+    },
+    "kraken-openiti_persian_print|german-xix-blb-v1": {
+     "rel": 1.4399464346938964,
+     "cos": 0.012840034370794146,
+     "rel_conv": 1.4525891295497504,
+     "rel_lstm": 1.43965960788437
+    },
+    "kraken-openiti_persian_print|german-xix-v1": {
+     "rel": 1.4404345493661899,
+     "cos": 0.013238508871644529,
+     "rel_conv": 1.4513594428449468,
+     "rel_lstm": 1.4401918723904314
+    },
+    "kraken-openiti_persian_print|medieval-shard00-std": {
+     "rel": 1.6867739115823523,
+     "cos": 0.03267797139801231,
+     "rel_conv": 1.66898682197851,
+     "rel_lstm": 1.6876538225758284
     },
     "kraken-peraire_french|kraken-prima": {
      "rel": 1.358230195629055,
@@ -8710,6 +10661,774 @@
    }
   },
   {
+   "child": "kraken-openiti_persian_print",
+   "parent": "kraken-openiti_arabic_print",
+   "source": "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Persian Base Model Trained on the OpenITI Corpus'",
+   "same_spec": true,
+   "status": "tested",
+   "reading": {
+    "per_tensor": {
+     "C_0.co.weight": {
+      "rel": 0.6565967790193009,
+      "cos": 0.882190192002999,
+      "zero": false
+     },
+     "C_0.co.bias": {
+      "rel": 0.40372143150702894,
+      "cos": 0.9657942046576234,
+      "zero": false
+     },
+     "C_3.co.weight": {
+      "rel": 0.6480718286134021,
+      "cos": 0.8571045886047455,
+      "zero": false
+     },
+     "C_3.co.bias": {
+      "rel": 1.0730112638908291,
+      "cos": 0.7313995216124517,
+      "zero": false
+     },
+     "C_6.co.weight": {
+      "rel": 0.7129298660511121,
+      "cos": 0.8505393109668333,
+      "zero": false
+     },
+     "C_6.co.bias": {
+      "rel": 1.5904008490874397,
+      "cos": 0.5234087323225136,
+      "zero": false
+     },
+     "C_9.co.weight": {
+      "rel": 0.8102138004737316,
+      "cos": 0.8116957191376531,
+      "zero": false
+     },
+     "C_9.co.bias": {
+      "rel": 0.9178969998381419,
+      "cos": 0.8883438352549479,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0": {
+      "rel": 0.9113813054866795,
+      "cos": 0.7555476562558318,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0": {
+      "rel": 0.8536980889677308,
+      "cos": 0.8217578599253745,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0": {
+      "rel": 0.4236780925944487,
+      "cos": 0.9379708557372862,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0_reverse": {
+      "rel": 0.8997436255580089,
+      "cos": 0.7613721371160254,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0_reverse": {
+      "rel": 0.8342607450967601,
+      "cos": 0.8248527424432303,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0_reverse": {
+      "rel": 0.4093642842165989,
+      "cos": 0.9397763509669214,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0": {
+      "rel": 0.7923603799884643,
+      "cos": 0.7673065141853622,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0": {
+      "rel": 0.7110636412150609,
+      "cos": 0.8622352219141324,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0": {
+      "rel": 0.3101852049946381,
+      "cos": 0.9611728052485315,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0_reverse": {
+      "rel": 0.7930692708546284,
+      "cos": 0.7758194583167697,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0_reverse": {
+      "rel": 0.711276652798892,
+      "cos": 0.8536901124910692,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0_reverse": {
+      "rel": 0.2906341727255902,
+      "cos": 0.9654729849729146,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0": {
+      "rel": 0.7880701735032584,
+      "cos": 0.7928152901017598,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0": {
+      "rel": 0.7543365886819987,
+      "cos": 0.8487234696539919,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0": {
+      "rel": 0.40117087638903803,
+      "cos": 0.9377006003140819,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0_reverse": {
+      "rel": 0.7673788461662922,
+      "cos": 0.7995333527066811,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0_reverse": {
+      "rel": 0.7504604774262179,
+      "cos": 0.8524172506331958,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0_reverse": {
+      "rel": 0.391198128433154,
+      "cos": 0.9367104495494226,
+      "zero": false
+     }
+    },
+    "blocks": {
+     "conv_w": 0.7547169247613607,
+     "lstm_w": 0.8281481217897095,
+     "conv_readings_def": 0.8516053523101234,
+     "lstm_readings_def": 0.4913887731290609,
+     "out_row_mean": 0.6505582502320328,
+     "conv": 0.8516053523101232,
+     "lstm": 0.6551850308387478,
+     "norm": null,
+     "out_rows": 0.6995640234630568,
+     "conv_by_block": {
+      "C_0": 0.6565967790193009,
+      "C_3": 0.6480718286134021,
+      "C_6": 0.7129298660511121,
+      "C_9": 0.8102138004737316
+     },
+     "out_cos": 0.9570532652910312
+    },
+    "blank": {
+     "bias_p": 0.5328269600868225,
+     "bias_c": 0.795983612537384,
+     "delta_raw": 0.2631566524505615,
+     "rel_p": 0.5270564643171977,
+     "rel_c": 0.736754357892003,
+     "delta_rel": 0.2096978935748054,
+     "mean_other_delta": 0.053458758875756164,
+     "row_rel": 0.6398645044134743
+    },
+    "obs1": {
+     "shared_rows": 196,
+     "special_rows": 125,
+     "frequent_rows": 10,
+     "special_norm_up": 125,
+     "special_bias_down": 74,
+     "special_median_rel": 0.6319143525640489,
+     "special_median_norm_ratio": 1.5180412288185405,
+     "special_median_bias_delta": -0.05574335157871246,
+     "frequent_median_rel": 0.7328639007796897,
+     "frequent_median_norm_ratio": 1.6443454593174625,
+     "frequent_median_bias_delta": 0.13928590342402458,
+     "rest_median_rel": 0.7003938053972818,
+     "top_decile_rows": 19,
+     "top_decile_special": 6,
+     "special_share_of_rows": 0.6377551020408163,
+     "top_rows": [
+      [
+       "w",
+       0.902
+      ],
+      [
+       "K",
+       0.883
+      ],
+      [
+       "j",
+       0.864
+      ],
+      [
+       "D",
+       0.852
+      ],
+      [
+       "”",
+       0.852
+      ],
+      [
+       "’",
+       0.844
+      ],
+      [
+       "h",
+       0.843
+      ],
+      [
+       "n",
+       0.838
+      ]
+     ]
+    },
+    "codec": {
+     "parent": 196,
+     "child": 196,
+     "shared": 196,
+     "added": 0
+    }
+   }
+  },
+  {
+   "child": "kraken-openiti_ottoman_print",
+   "parent": "kraken-openiti_arabic_print",
+   "source": "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Ottoman Base Model Trained on the OpenITI Corpus'",
+   "same_spec": true,
+   "status": "tested",
+   "reading": {
+    "per_tensor": {
+     "C_0.co.weight": {
+      "rel": 0.6597559670135404,
+      "cos": 0.8809425173510216,
+      "zero": false
+     },
+     "C_0.co.bias": {
+      "rel": 0.46478261926539555,
+      "cos": 0.954042344603961,
+      "zero": false
+     },
+     "C_3.co.weight": {
+      "rel": 0.660814471514619,
+      "cos": 0.8530438837928849,
+      "zero": false
+     },
+     "C_3.co.bias": {
+      "rel": 1.2345064703983841,
+      "cos": 0.7530331703753982,
+      "zero": false
+     },
+     "C_6.co.weight": {
+      "rel": 0.7408162695121109,
+      "cos": 0.8432762883376905,
+      "zero": false
+     },
+     "C_6.co.bias": {
+      "rel": 1.9937602785893365,
+      "cos": 0.4678283887744111,
+      "zero": false
+     },
+     "C_9.co.weight": {
+      "rel": 0.8397710623913506,
+      "cos": 0.8035616970359514,
+      "zero": false
+     },
+     "C_9.co.bias": {
+      "rel": 0.9553513204837795,
+      "cos": 0.8984155979270138,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0": {
+      "rel": 0.9332880315393988,
+      "cos": 0.748378147629272,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0": {
+      "rel": 0.8767507873566882,
+      "cos": 0.8168875315517887,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0": {
+      "rel": 0.44520476331743347,
+      "cos": 0.9345713253063146,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0_reverse": {
+      "rel": 0.9233159057403365,
+      "cos": 0.7529832236051768,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0_reverse": {
+      "rel": 0.8616752299025938,
+      "cos": 0.8185060043224891,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0_reverse": {
+      "rel": 0.43822082969070525,
+      "cos": 0.9335794023953535,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0": {
+      "rel": 0.8214721236071243,
+      "cos": 0.7512209558708297,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0": {
+      "rel": 0.7457434597750512,
+      "cos": 0.8509035917612232,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0": {
+      "rel": 0.3334684052603197,
+      "cos": 0.9565854188287737,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0_reverse": {
+      "rel": 0.8222495302825581,
+      "cos": 0.7606983150496117,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0_reverse": {
+      "rel": 0.7436242589112179,
+      "cos": 0.8427904329297327,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0_reverse": {
+      "rel": 0.31754254831596845,
+      "cos": 0.9603331899984668,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0": {
+      "rel": 0.8299179339095354,
+      "cos": 0.7731405215387738,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0": {
+      "rel": 0.7992699447517518,
+      "cos": 0.833785031914596,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0": {
+      "rel": 0.41136019460981466,
+      "cos": 0.9346851077737054,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0_reverse": {
+      "rel": 0.8058408731522014,
+      "cos": 0.7804328850332382,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0_reverse": {
+      "rel": 0.7961737079226393,
+      "cos": 0.8372035168818569,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0_reverse": {
+      "rel": 0.3992344289919477,
+      "cos": 0.9346801722903022,
+      "zero": false
+     }
+    },
+    "blocks": {
+     "conv_w": 0.7812253306923902,
+     "lstm_w": 0.8577616518695395,
+     "conv_readings_def": 0.9436948073960645,
+     "lstm_readings_def": 0.5126813732098869,
+     "out_row_mean": 0.7273407487734389,
+     "conv": 0.9436948073960645,
+     "lstm": 0.6835751642798491,
+     "norm": null,
+     "out_rows": 0.7622851515000929,
+     "conv_by_block": {
+      "C_0": 0.6597559670135404,
+      "C_3": 0.660814471514619,
+      "C_6": 0.7408162695121109,
+      "C_9": 0.8397710623913506
+     },
+     "out_cos": 0.9481670870275487
+    },
+    "blank": {
+     "bias_p": 0.5328269600868225,
+     "bias_c": 0.7610578536987305,
+     "delta_raw": 0.22823089361190796,
+     "rel_p": 0.5270564643171977,
+     "rel_c": 0.8551401657828044,
+     "delta_rel": 0.3280837014656067,
+     "mean_other_delta": -0.09985280785369877,
+     "row_rel": 0.7789266720272977
+    },
+    "obs1": {
+     "shared_rows": 196,
+     "special_rows": 125,
+     "frequent_rows": 10,
+     "special_norm_up": 125,
+     "special_bias_down": 78,
+     "special_median_rel": 0.7044194782939786,
+     "special_median_norm_ratio": 1.557701011540456,
+     "special_median_bias_delta": -0.0748009979724884,
+     "frequent_median_rel": 0.8293380093860685,
+     "frequent_median_norm_ratio": 1.7171118039566153,
+     "frequent_median_bias_delta": -0.31354200933128595,
+     "rest_median_rel": 0.8009653170998339,
+     "top_decile_rows": 19,
+     "top_decile_special": 8,
+     "special_share_of_rows": 0.6377551020408163,
+     "top_rows": [
+      [
+       "ہ",
+       1.1
+      ],
+      [
+       "\"",
+       1.077
+      ],
+      [
+       "”",
+       1.013
+      ],
+      [
+       "4",
+       1.009
+      ],
+      [
+       "’",
+       1.006
+      ],
+      [
+       "9",
+       1.004
+      ],
+      [
+       "۵",
+       0.968
+      ],
+      [
+       "3",
+       0.965
+      ]
+     ]
+    },
+    "codec": {
+     "parent": 196,
+     "child": 196,
+     "shared": 196,
+     "added": 0
+    }
+   }
+  },
+  {
+   "child": "german-xix-v1",
+   "parent": "kraken-bohemian_19th",
+   "source": "trainer record: job 20261007T131819Z-kraken-german-xix-v1, job.json request.base_model = kraken-bohemian_19th (resize union, lrate 1e-4, cosine, 97 epochs run); first suggested by the weights, then confirmed there",
+   "same_spec": true,
+   "status": "tested",
+   "reading": {
+    "per_tensor": {
+     "C_0.co.weight": {
+      "rel": 1.287359677128934,
+      "cos": 0.6907132954196349,
+      "zero": false
+     },
+     "C_0.co.bias": {
+      "rel": 0.2889041640970442,
+      "cos": 0.9678873970269393,
+      "zero": false
+     },
+     "C_3.co.weight": {
+      "rel": 0.5947561743647085,
+      "cos": 0.8204138200390226,
+      "zero": false
+     },
+     "C_3.co.bias": {
+      "rel": 0.7446511941427071,
+      "cos": 0.7793360607457075,
+      "zero": false
+     },
+     "C_6.co.weight": {
+      "rel": 0.721254808522421,
+      "cos": 0.7231417654621707,
+      "zero": false
+     },
+     "C_6.co.bias": {
+      "rel": 0.729498146609618,
+      "cos": 0.7777348405178695,
+      "zero": false
+     },
+     "C_9.co.weight": {
+      "rel": 0.742278053651757,
+      "cos": 0.7000516775752322,
+      "zero": false
+     },
+     "C_9.co.bias": {
+      "rel": 0.7407368725530635,
+      "cos": 0.7640893917018128,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0": {
+      "rel": 0.6970097338329622,
+      "cos": 0.7641438342135921,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0": {
+      "rel": 0.6296190750957303,
+      "cos": 0.831478388124817,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0": {
+      "rel": 0.12423682963287093,
+      "cos": 0.9922614698698506,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0_reverse": {
+      "rel": 0.7048016837575225,
+      "cos": 0.7571537847919783,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0_reverse": {
+      "rel": 0.6559310034404814,
+      "cos": 0.8183102464012983,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0_reverse": {
+      "rel": 0.13958320730366752,
+      "cos": 0.990227199461096,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0": {
+      "rel": 0.7372319832944229,
+      "cos": 0.7243765477070363,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0": {
+      "rel": 0.7561945994426348,
+      "cos": 0.7581409038884548,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0": {
+      "rel": 0.12656500977568866,
+      "cos": 0.9919830387496176,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0_reverse": {
+      "rel": 0.7002739149392008,
+      "cos": 0.7525096951045844,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0_reverse": {
+      "rel": 0.7042267110018653,
+      "cos": 0.7861351866076419,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0_reverse": {
+      "rel": 0.11579382901651208,
+      "cos": 0.9932746338770629,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0": {
+      "rel": 0.7838846632761867,
+      "cos": 0.6938182558858802,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0": {
+      "rel": 0.7259761826576444,
+      "cos": 0.7814427001356388,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0": {
+      "rel": 0.23870182922566058,
+      "cos": 0.97124522071333,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0_reverse": {
+      "rel": 0.8128020931899498,
+      "cos": 0.6621487989334448,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0_reverse": {
+      "rel": 0.7453492039959345,
+      "cos": 0.7646698939898274,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0_reverse": {
+      "rel": 0.21385092975866044,
+      "cos": 0.9768681414270513,
+      "zero": false
+     }
+    },
+    "blocks": {
+     "conv_w": 0.7116879594497862,
+     "lstm_w": 0.7228103399181872,
+     "conv_readings_def": 0.7311798863837817,
+     "lstm_readings_def": 0.4005013534432331,
+     "out_row_mean": 0.5069297597437419,
+     "conv": 0.7311798863837817,
+     "lstm": 0.5340018045909775,
+     "norm": null,
+     "out_rows": 0.5085713905791359,
+     "conv_by_block": {
+      "C_0": 1.287359677128934,
+      "C_3": 0.5947561743647085,
+      "C_6": 0.721254808522421,
+      "C_9": 0.742278053651757
+     },
+     "out_cos": 0.8803454923864494
+    },
+    "blank": {
+     "bias_p": 0.7006098628044128,
+     "bias_c": 1.1194549798965454,
+     "delta_raw": 0.41884511709213257,
+     "rel_p": 1.7294794280668375,
+     "rel_c": 2.9908238598519734,
+     "delta_rel": 1.2613444317851359,
+     "mean_other_delta": -0.8424993146930035,
+     "row_rel": 0.6187026174177176
+    },
+    "obs1": {
+     "shared_rows": 135,
+     "special_rows": 61,
+     "frequent_rows": 10,
+     "special_norm_up": 46,
+     "special_bias_down": 45,
+     "special_median_rel": 0.5411253692865716,
+     "special_median_norm_ratio": 1.060302927396943,
+     "special_median_bias_delta": -2.01924267411232,
+     "frequent_median_rel": 0.3946501662138846,
+     "frequent_median_norm_ratio": 0.8826511958157988,
+     "frequent_median_bias_delta": 0.0454254737123847,
+     "rest_median_rel": 0.5022581004021223,
+     "top_decile_rows": 13,
+     "top_decile_special": 13,
+     "special_share_of_rows": 0.45185185185185184,
+     "top_rows": [
+      [
+       "‹",
+       1.288
+      ],
+      [
+       "›",
+       1.093
+      ],
+      [
+       "#",
+       1.084
+      ],
+      [
+       "⁰",
+       1.018
+      ],
+      [
+       "ä",
+       0.831
+      ],
+      [
+       "í",
+       0.803
+      ],
+      [
+       "¬",
+       0.794
+      ],
+      [
+       "ר",
+       0.789
+      ]
+     ]
+    },
+    "codec": {
+     "parent": 135,
+     "child": 224,
+     "shared": 135,
+     "added": 89
+    }
+   }
+  },
+  {
    "child": "bern-hertwig-v1",
    "parent": "kraken-cursive_inzigkofen",
    "source": "docs/MODELS.md (trainer record)",
@@ -10506,63 +13225,63 @@
    }
   },
   {
-   "child": "german-xix-v1",
-   "parent": "kraken-bohemian_19th",
-   "codec_parent": 135,
-   "codec_child": 224,
+   "child": "kraken-glagolitic_print",
+   "parent": "kraken-hebrew_sephardi",
+   "codec_parent": 70,
+   "codec_child": 154,
    "parent_codec_subset_of_child": true,
-   "same_row_index": 135,
+   "same_row_index": 70,
    "source": "weights and codec only; no documentation read names this relation",
    "reading": {
     "per_tensor": {
      "C_0.co.weight": {
-      "rel": 1.287359677128934,
-      "cos": 0.6907132954196349,
+      "rel": 0.2925466607965327,
+      "cos": 0.9587565631101325,
       "zero": false
      },
      "C_0.co.bias": {
-      "rel": 0.2889041640970442,
-      "cos": 0.9678873970269393,
+      "rel": 0.6598440320963675,
+      "cos": 0.9544793818198108,
       "zero": false
      },
      "C_3.co.weight": {
-      "rel": 0.5947561743647085,
-      "cos": 0.8204138200390226,
+      "rel": 0.5753316571166447,
+      "cos": 0.8788051952412607,
       "zero": false
      },
      "C_3.co.bias": {
-      "rel": 0.7446511941427071,
-      "cos": 0.7793360607457075,
+      "rel": 0.4149400818126367,
+      "cos": 0.9354513626580904,
       "zero": false
      },
      "C_6.co.weight": {
-      "rel": 0.721254808522421,
-      "cos": 0.7231417654621707,
+      "rel": 0.7107227856763725,
+      "cos": 0.8328945062380522,
       "zero": false
      },
      "C_6.co.bias": {
-      "rel": 0.729498146609618,
-      "cos": 0.7777348405178695,
+      "rel": 0.5769137213612225,
+      "cos": 0.9209278493981784,
       "zero": false
      },
      "C_9.co.weight": {
-      "rel": 0.742278053651757,
-      "cos": 0.7000516775752322,
+      "rel": 0.794589057837714,
+      "cos": 0.7883124594861429,
       "zero": false
      },
      "C_9.co.bias": {
-      "rel": 0.7407368725530635,
-      "cos": 0.7640893917018128,
+      "rel": 0.6634900082925014,
+      "cos": 0.8830386946355516,
       "zero": false
      },
      "L_12.layer.weight_ih_l0": {
-      "rel": 0.6970097338329622,
-      "cos": 0.7641438342135921,
+      "rel": 1.2763031861781364,
+      "cos": 0.5906394798230753,
       "zero": false
      },
      "L_12.layer.weight_hh_l0": {
-      "rel": 0.6296190750957303,
-      "cos": 0.831478388124817,
+      "rel": 1.1280468625821087,
+      "cos": 0.6871288690742386,
       "zero": false
      },
      "L_12.layer.bias_ih_l0": {
@@ -10571,18 +13290,18 @@
       "zero": true
      },
      "L_12.layer.bias_hh_l0": {
-      "rel": 0.12423682963287093,
-      "cos": 0.9922614698698506,
+      "rel": 0.07085670222543494,
+      "cos": 0.9975009059535108,
       "zero": false
      },
      "L_12.layer.weight_ih_l0_reverse": {
-      "rel": 0.7048016837575225,
-      "cos": 0.7571537847919783,
+      "rel": 1.2869071624294754,
+      "cos": 0.5861964519083402,
       "zero": false
      },
      "L_12.layer.weight_hh_l0_reverse": {
-      "rel": 0.6559310034404814,
-      "cos": 0.8183102464012983,
+      "rel": 1.150818809023993,
+      "cos": 0.6761744672483339,
       "zero": false
      },
      "L_12.layer.bias_ih_l0_reverse": {
@@ -10591,18 +13310,18 @@
       "zero": true
      },
      "L_12.layer.bias_hh_l0_reverse": {
-      "rel": 0.13958320730366752,
-      "cos": 0.990227199461096,
+      "rel": 0.0658489362130607,
+      "cos": 0.9979382951907265,
       "zero": false
      },
      "L_14.layer.weight_ih_l0": {
-      "rel": 0.7372319832944229,
-      "cos": 0.7243765477070363,
+      "rel": 1.1158508985995175,
+      "cos": 0.6483905971434016,
       "zero": false
      },
      "L_14.layer.weight_hh_l0": {
-      "rel": 0.7561945994426348,
-      "cos": 0.7581409038884548,
+      "rel": 1.0783550406315328,
+      "cos": 0.7015782810569227,
       "zero": false
      },
      "L_14.layer.bias_ih_l0": {
@@ -10611,18 +13330,18 @@
       "zero": true
      },
      "L_14.layer.bias_hh_l0": {
-      "rel": 0.12656500977568866,
-      "cos": 0.9919830387496176,
+      "rel": 0.08056179067564463,
+      "cos": 0.996848616488465,
       "zero": false
      },
      "L_14.layer.weight_ih_l0_reverse": {
-      "rel": 0.7002739149392008,
-      "cos": 0.7525096951045844,
+      "rel": 1.0271417833819572,
+      "cos": 0.6864799269286431,
       "zero": false
      },
      "L_14.layer.weight_hh_l0_reverse": {
-      "rel": 0.7042267110018653,
-      "cos": 0.7861351866076419,
+      "rel": 0.9648055816687223,
+      "cos": 0.7464219667965227,
       "zero": false
      },
      "L_14.layer.bias_ih_l0_reverse": {
@@ -10631,18 +13350,18 @@
       "zero": true
      },
      "L_14.layer.bias_hh_l0_reverse": {
-      "rel": 0.11579382901651208,
-      "cos": 0.9932746338770629,
+      "rel": 0.0803036631785599,
+      "cos": 0.996810081720747,
       "zero": false
      },
      "L_16.layer.weight_ih_l0": {
-      "rel": 0.7838846632761867,
-      "cos": 0.6938182558858802,
+      "rel": 1.1469831216117041,
+      "cos": 0.5998161769947249,
       "zero": false
      },
      "L_16.layer.weight_hh_l0": {
-      "rel": 0.7259761826576444,
-      "cos": 0.7814427001356388,
+      "rel": 1.072916653330893,
+      "cos": 0.6995799013394809,
       "zero": false
      },
      "L_16.layer.bias_ih_l0": {
@@ -10651,18 +13370,18 @@
       "zero": true
      },
      "L_16.layer.bias_hh_l0": {
-      "rel": 0.23870182922566058,
-      "cos": 0.97124522071333,
+      "rel": 0.08239647295504421,
+      "cos": 0.9967127888176658,
       "zero": false
      },
      "L_16.layer.weight_ih_l0_reverse": {
-      "rel": 0.8128020931899498,
-      "cos": 0.6621487989334448,
+      "rel": 1.1617742881233444,
+      "cos": 0.5750198654721826,
       "zero": false
      },
      "L_16.layer.weight_hh_l0_reverse": {
-      "rel": 0.7453492039959345,
-      "cos": 0.7646698939898274,
+      "rel": 1.2268278061620557,
+      "cos": 0.6282158393966576,
       "zero": false
      },
      "L_16.layer.bias_ih_l0_reverse": {
@@ -10671,95 +13390,91 @@
       "zero": true
      },
      "L_16.layer.bias_hh_l0_reverse": {
-      "rel": 0.21385092975866044,
-      "cos": 0.9768681414270513,
+      "rel": 0.08608819204539261,
+      "cos": 0.9965871119579343,
       "zero": false
      }
     },
     "blocks": {
-     "conv_w": 0.7116879594497862,
-     "lstm_w": 0.7228103399181872,
-     "conv_readings_def": 0.7311798863837817,
-     "lstm_readings_def": 0.4005013534432331,
-     "out_row_mean": 0.5069297597437419,
-     "conv": 0.7311798863837817,
-     "lstm": 0.5340018045909775,
+     "conv_w": 0.7221391741321785,
+     "lstm_w": 1.1569580882912398,
+     "conv_readings_def": 0.5860472506237491,
+     "lstm_readings_def": 0.5876161229590241,
+     "out_row_mean": 1.1576553977494157,
+     "conv": 0.5860472506237491,
+     "lstm": 0.7834881639453655,
      "norm": null,
-     "out_rows": 0.5085713905791359,
+     "out_rows": 1.0035653074027746,
      "conv_by_block": {
-      "C_0": 1.287359677128934,
-      "C_3": 0.5947561743647085,
-      "C_6": 0.721254808522421,
-      "C_9": 0.742278053651757
+      "C_0": 0.2925466607965327,
+      "C_3": 0.5753316571166447,
+      "C_6": 0.7107227856763725,
+      "C_9": 0.794589057837714
      },
-     "out_cos": 0.8803454923864494
+     "out_cos": 0.6732224100868273
     },
     "blank": {
-     "bias_p": 0.7006098628044128,
-     "bias_c": 1.1194549798965454,
-     "delta_raw": 0.41884511709213257,
-     "rel_p": 1.7294794280668375,
-     "rel_c": 2.9908238598519734,
-     "delta_rel": 1.2613444317851359,
-     "mean_other_delta": -0.8424993146930035,
-     "row_rel": 0.6187026174177176
+     "bias_p": 0.14744774997234344,
+     "bias_c": 0.40070033073425293,
+     "delta_raw": 0.2532525807619095,
+     "rel_p": 0.8169899248817404,
+     "rel_c": 0.8959116971591947,
+     "delta_rel": 0.07892177227745434,
+     "mean_other_delta": 0.17433080848445515,
+     "row_rel": 0.736365209230263
     },
     "obs1": {
-     "shared_rows": 135,
-     "special_rows": 61,
-     "frequent_rows": 10,
-     "special_norm_up": 46,
-     "special_bias_down": 45,
-     "special_median_rel": 0.5411253692865716,
-     "special_median_norm_ratio": 1.060302927396943,
-     "special_median_bias_delta": -2.01924267411232,
-     "frequent_median_rel": 0.3946501662138846,
-     "frequent_median_norm_ratio": 0.8826511958157988,
-     "frequent_median_bias_delta": 0.0454254737123847,
-     "rest_median_rel": 0.5022581004021223,
-     "top_decile_rows": 13,
-     "top_decile_special": 13,
-     "special_share_of_rows": 0.45185185185185184,
+     "shared_rows": 70,
+     "special_rows": 56,
+     "frequent_rows": 0,
+     "special_norm_up": 55,
+     "special_bias_down": 55,
+     "special_median_rel": 1.2311597274281998,
+     "special_median_norm_ratio": 1.5354184225037173,
+     "special_median_bias_delta": -0.33197563886642456,
+     "frequent_median_rel": null,
+     "frequent_median_norm_ratio": null,
+     "frequent_median_bias_delta": null,
+     "rest_median_rel": 0.732219872046338,
+     "top_decile_rows": 7,
+     "top_decile_special": 7,
+     "special_share_of_rows": 0.8,
      "top_rows": [
       [
-       "‹",
-       1.288
-      ],
-      [
-       "›",
-       1.093
-      ],
-      [
-       "#",
-       1.084
-      ],
-      [
-       "⁰",
-       1.018
-      ],
-      [
-       "ä",
-       0.831
-      ],
-      [
-       "í",
-       0.803
-      ],
-      [
-       "¬",
-       0.794
+       "ו",
+       2.06
       ],
       [
        "ר",
-       0.789
+       2.001
+      ],
+      [
+       "ה",
+       1.999
+      ],
+      [
+       "י",
+       1.92
+      ],
+      [
+       "ד",
+       1.912
+      ],
+      [
+       "ת",
+       1.885
+      ],
+      [
+       "א",
+       1.78
       ]
      ]
     },
     "codec": {
-     "parent": 135,
-     "child": 224,
-     "shared": 135,
-     "added": 89
+     "parent": 70,
+     "child": 154,
+     "shared": 70,
+     "added": 84
     }
    }
   }
@@ -10780,14 +13495,6 @@
   {
    "child": "kraken-peraire_french",
    "note": "Manu McFrench (Zenodo 6657809), named in the metadata; not in the gateway list"
-  },
-  {
-   "child": "kraken-openiti_persian_print",
-   "note": "gateway base_model 10.5281/zenodo.7050270 (OpenITI Arabic); file not fetched (HTTP 429)"
-  },
-  {
-   "child": "kraken-openiti_ottoman_print",
-   "note": "gateway base_model 10.5281/zenodo.7050270 (OpenITI Arabic); file not fetched (HTTP 429)"
   }
  ],
  "nearest": {
@@ -10805,7 +13512,7 @@
     "rel": 1.3681218415082594
    },
    {
-    "median_rel_all": 1.3851392368987234
+    "median_rel_all": 1.387143100594767
    }
   ],
   "kraken-bastarda_inzigkofen": [
@@ -10822,7 +13529,7 @@
     "rel": 0.8599734995212243
    },
    {
-    "median_rel_all": 1.3931203089066748
+    "median_rel_all": 1.39564379871272
    }
   ],
   "kraken-bifrost_old_norse": [
@@ -10856,7 +13563,7 @@
     "rel": 1.3975007975973168
    },
    {
-    "median_rel_all": 1.421133235554606
+    "median_rel_all": 1.4346286656418274
    }
   ],
   "kraken-catmus_medieval": [
@@ -10873,7 +13580,7 @@
     "rel": 0.7353297079205993
    },
    {
-    "median_rel_all": 1.359956759751831
+    "median_rel_all": 1.3681218415082594
    }
   ],
   "kraken-cursive_inzigkofen": [
@@ -10890,7 +13597,7 @@
     "rel": 0.35005301596142824
    },
    {
-    "median_rel_all": 1.3936382267731091
+    "median_rel_all": 1.3962946158235678
    }
   ],
   "kraken-cyrillic_uncial": [
@@ -10903,28 +13610,45 @@
     "rel": 1.282007596644755
    },
    {
-    "id": "kraken-german_print",
-    "rel": 1.3905624770808815
+    "id": "kraken-hebrew_sephardi",
+    "rel": 1.3490297885683789
    },
    {
-    "median_rel_all": 1.4046525376666903
+    "median_rel_all": 1.4101626465106494
    }
   ],
   "kraken-fondue_gd_v2": [
+   {
+    "id": "kraken-openiti_arabic_print",
+    "rel": 1.4048669719755107
+   },
    {
     "id": "kraken-mendelssohn_letters",
     "rel": 1.4055698718236944
    },
    {
-    "id": "german-xix-blb-v1",
-    "rel": 1.4130625767146732
-   },
-   {
-    "id": "german-xix-v1",
-    "rel": 1.4134632197921155
+    "id": "kraken-openiti_persian_print",
+    "rel": 1.4121614164543732
    },
    {
     "median_rel_all": 1.4787000770508798
+   }
+  ],
+  "kraken-gallicorpora": [
+   {
+    "id": "kraken-medieval_latin_french_expanded",
+    "rel": 1.226306065416666
+   },
+   {
+    "id": "kraken-hebrew_sephardi",
+    "rel": 1.2315847965135294
+   },
+   {
+    "id": "medieval-shard00-std",
+    "rel": 1.2543275475053677
+   },
+   {
+    "median_rel_all": 1.4704363886072185
    }
   ],
   "kraken-german_print": [
@@ -10941,10 +13665,14 @@
     "rel": 1.3862173763535297
    },
    {
-    "median_rel_all": 1.406083931912488
+    "median_rel_all": 1.4100012931681152
    }
   ],
   "kraken-glagolitic_print": [
+   {
+    "id": "kraken-hebrew_sephardi",
+    "rel": 0.8320539326911282
+   },
    {
     "id": "kraken-samaritan",
     "rel": 1.0163510264677045
@@ -10954,11 +13682,24 @@
     "rel": 1.282007596644755
    },
    {
-    "id": "kraken-medieval_latin_french_expanded",
-    "rel": 1.3176237182988781
+    "median_rel_all": 1.4067195470894045
+   }
+  ],
+  "kraken-hebrew_sephardi": [
+   {
+    "id": "kraken-glagolitic_print",
+    "rel": 0.8320539326911282
    },
    {
-    "median_rel_all": 1.4067195470894045
+    "id": "kraken-samaritan",
+    "rel": 0.945523909086171
+   },
+   {
+    "id": "kraken-gallicorpora",
+    "rel": 1.2315847965135294
+   },
+   {
+    "median_rel_all": 1.4587434556815655
    }
   ],
   "kraken-kuzushiji": [
@@ -10975,7 +13716,7 @@
     "rel": 1.3934294430308993
    },
    {
-    "median_rel_all": 1.4079273571786415
+    "median_rel_all": 1.4235974636154585
    }
   ],
   "kraken-latin_expanded_11c": [
@@ -11009,7 +13750,24 @@
     "rel": 1.3715002034058787
    },
    {
-    "median_rel_all": 1.3829219300722415
+    "median_rel_all": 1.3847357636798345
+   }
+  ],
+  "kraken-lectaurep_french": [
+   {
+    "id": "medieval-shard00-std",
+    "rel": 1.340515229618776
+   },
+   {
+    "id": "kraken-glagolitic_print",
+    "rel": 1.340707105759121
+   },
+   {
+    "id": "kraken-mccatmus",
+    "rel": 1.3428778325908672
+   },
+   {
+    "median_rel_all": 1.3962946158235678
    }
   ],
   "kraken-manu_mcfondue": [
@@ -11026,7 +13784,7 @@
     "rel": 1.3992131498642353
    },
    {
-    "median_rel_all": 1.424250681396465
+    "median_rel_all": 1.439229996017745
    }
   ],
   "kraken-mccatmus": [
@@ -11048,16 +13806,16 @@
   ],
   "kraken-medieval_latin_french_expanded": [
    {
+    "id": "kraken-gallicorpora",
+    "rel": 1.226306065416666
+   },
+   {
+    "id": "kraken-hebrew_sephardi",
+    "rel": 1.241392433506302
+   },
+   {
     "id": "medieval-shard00-std",
     "rel": 1.2599572258150848
-   },
-   {
-    "id": "kraken-glagolitic_print",
-    "rel": 1.3176237182988781
-   },
-   {
-    "id": "kraken-mccatmus",
-    "rel": 1.3300830028683568
    },
    {
     "median_rel_all": 1.4599220797953827
@@ -11065,16 +13823,16 @@
   ],
   "kraken-mendelssohn_letters": [
    {
+    "id": "kraken-openiti_arabic_print",
+    "rel": 1.4030055665479533
+   },
+   {
     "id": "german-xix-blb-v1",
     "rel": 1.4049401388555243
    },
    {
     "id": "kraken-manu_mcfondue",
     "rel": 1.404978406515836
-   },
-   {
-    "id": "german-xix-v1",
-    "rel": 1.4050641092583007
    },
    {
     "median_rel_all": 1.4560990456768268
@@ -11094,7 +13852,58 @@
     "rel": 0.8377333496237273
    },
    {
-    "median_rel_all": 1.3814312491866187
+    "median_rel_all": 1.3866179233177875
+   }
+  ],
+  "kraken-openiti_arabic_print": [
+   {
+    "id": "kraken-openiti_persian_print",
+    "rel": 0.6980391207694198
+   },
+   {
+    "id": "kraken-openiti_ottoman_print",
+    "rel": 0.7180301192093511
+   },
+   {
+    "id": "kraken-mendelssohn_letters",
+    "rel": 1.4030055665479533
+   },
+   {
+    "median_rel_all": 1.456358447780091
+   }
+  ],
+  "kraken-openiti_ottoman_print": [
+   {
+    "id": "kraken-openiti_persian_print",
+    "rel": 0.2804782179644204
+   },
+   {
+    "id": "kraken-openiti_arabic_print",
+    "rel": 0.7180301192093511
+   },
+   {
+    "id": "kraken-fondue_gd_v2",
+    "rel": 1.4131421884715183
+   },
+   {
+    "median_rel_all": 1.5267129783057418
+   }
+  ],
+  "kraken-openiti_persian_print": [
+   {
+    "id": "kraken-openiti_ottoman_print",
+    "rel": 0.2804782179644204
+   },
+   {
+    "id": "kraken-openiti_arabic_print",
+    "rel": 0.6980391207694198
+   },
+   {
+    "id": "kraken-fondue_gd_v2",
+    "rel": 1.4121614164543732
+   },
+   {
+    "median_rel_all": 1.523908967124839
    }
   ],
   "kraken-peraire_french": [
@@ -11111,7 +13920,7 @@
     "rel": 1.358230195629055
    },
    {
-    "median_rel_all": 1.387118207240141
+    "median_rel_all": 1.3871303354065987
    }
   ],
   "kraken-prima": [
@@ -11133,16 +13942,16 @@
   ],
   "kraken-samaritan": [
    {
+    "id": "kraken-hebrew_sephardi",
+    "rel": 0.945523909086171
+   },
+   {
     "id": "kraken-glagolitic_print",
     "rel": 1.0163510264677045
    },
    {
     "id": "kraken-cyrillic_uncial",
     "rel": 1.2547941111303162
-   },
-   {
-    "id": "kraken-mccatmus",
-    "rel": 1.3466779141599703
    },
    {
     "median_rel_all": 1.3931203089066748
@@ -11162,7 +13971,7 @@
     "rel": 0.33056077987340415
    },
    {
-    "median_rel_all": 1.3996810516351077
+    "median_rel_all": 1.4033787482554225
    }
   ],
   "bern-hertwig-v1": [
@@ -11179,7 +13988,7 @@
     "rel": 0.30677752086742316
    },
    {
-    "median_rel_all": 1.3937581137976005
+    "median_rel_all": 1.396304508939341
    }
   ],
   "bern-hertwig-v2": [
@@ -11196,7 +14005,7 @@
     "rel": 0.23260603358733808
    },
    {
-    "median_rel_all": 1.3963092153635799
+    "median_rel_all": 1.3998110231633876
    }
   ],
   "bern-schlussredaktion-v1": [
@@ -11213,7 +14022,7 @@
     "rel": 0.30677752086742316
    },
    {
-    "median_rel_all": 1.3986543445035384
+    "median_rel_all": 1.402211379589716
    }
   ],
   "german-xix-blb-v1": [
@@ -11230,7 +14039,7 @@
     "rel": 1.3992131498642353
    },
    {
-    "median_rel_all": 1.4305064971040797
+    "median_rel_all": 1.4416719605871875
    }
   ],
   "german-xix-v1": [
@@ -11247,21 +14056,21 @@
     "rel": 1.3988837636515536
    },
    {
-    "median_rel_all": 1.4294828549630056
+    "median_rel_all": 1.4421813539976038
    }
   ],
   "medieval-shard00-std": [
+   {
+    "id": "kraken-gallicorpora",
+    "rel": 1.2543275475053677
+   },
    {
     "id": "kraken-medieval_latin_french_expanded",
     "rel": 1.2599572258150848
    },
    {
-    "id": "kraken-glagolitic_print",
-    "rel": 1.318659762600489
-   },
-   {
-    "id": "kraken-mccatmus",
-    "rel": 1.3284072900019543
+    "id": "kraken-hebrew_sephardi",
+    "rel": 1.2641218505404312
    },
    {
     "median_rel_all": 1.4415489738562846
@@ -11408,12 +14217,6 @@
  },
  "duplicates": [],
  "load_errors": [],
- "fetch_failures": [
-  {
-   "id": "kraken-gallicorpora",
-   "doi": "10.5281/zenodo.7410529",
-   "error": "HTTPError: 429 Client Error: TOO MANY REQUESTS for url: https://zenodo.org/oai2d?identifier=oai%3Azenodo.org%3A7410529&metadataPrefix=dcat&verb=GetRecord"
-  }
- ],
+ "fetch_failures": [],
  "gateway_zenodo_kraken": 37
 }

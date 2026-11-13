@@ -27,7 +27,7 @@ Scratch runs on UBELIX (`20261105T193111Z-kraken-bern-hertwig-scratch-ubelix-v2`
 
 | id | base | trained on | reported CER | notes |
 |---|---|---|---|---|
-| `kraken-german-xix-v1` | **to confirm** (job `20261007T131819Z-kraken-german-xix-v1`, 15,527 pages; ask the trainer's record) | Kurrent XIX corpora | 11.18 % (trainer, document-level held-out, `HELDOUT_BOUNDARY.md` says clean) | the production 19th-c. kraken model |
+| `kraken-german-xix-v1` | `kraken-bohemian_19th` (Zenodo 10.5281/zenodo.11673242). Confirmed 13.11.2026 from the trainer's record, `jobs/20261007T131819Z-kraken-german-xix-v1/job.json` `request.base_model` (`resize: union`, lrate 1e-4, cosine, 15,527 pages); the weights are 0.70 from it (docs/ZOO_SURVEY.md) | Kurrent XIX corpora | 11.18 % (trainer, document-level held-out, `HELDOUT_BOUNDARY.md` says clean) | the production 19th-c. kraken model |
 | `kraken-german-xix-blb-v1` | `trained:kraken-german-xix-v1` | `dh-unibe/image-text_lassberg-blb-gt`, 4 handwriting projects (lassberg, korrespondenten, unbestimmt, manuskripte; drucke left out), object-level `_eval` projects held out | held-out **8.7 %** | spec `agentic_historian/training/specs/blb-kraken-v1.json`: lrate 1e-4 cosine, 40 epochs early-stop, `resize: union` (codec may have grown — matters for merging), NFD |
 
 Both xix models have already read the 276 hand-corrected Transkribus pages

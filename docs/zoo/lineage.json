@@ -246,6 +246,17 @@
   },
   {
    "a": "bern-combined-v1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.28776978417266186,
+   "codec_same_index": 0.0125,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.2635135135135135,
@@ -279,6 +290,17 @@
   },
   {
    "a": "bern-combined-v1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5159010600706714,
+   "codec_same_index": 0.08904109589041095,
+   "shared_name_family": [],
+   "distance": 1.4829665831380898,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.29577464788732394,
@@ -296,6 +318,17 @@
    "codec_same_index": 0.013157894736842105,
    "shared_name_family": [],
    "distance": 1.4171221547680144,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.059375,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.4730245573438383,
    "documented": null,
    "weights_only": false
   },
@@ -340,6 +373,17 @@
    "codec_same_index": 0.027586206896551724,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.33093525179856115,
+   "codec_same_index": 0.5434782608695652,
+   "shared_name_family": [],
+   "distance": 1.4033787482554225,
    "documented": null,
    "weights_only": false
   },
@@ -406,6 +450,39 @@
    "codec_same_index": 0.009523809523809525,
    "shared_name_family": [],
    "distance": 0.8750284540965502,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19845360824742267,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.4485176914452158,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19845360824742267,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5166747888201448,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-combined-v1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19845360824742267,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5139354964939953,
    "documented": null,
    "weights_only": false
   },
@@ -668,6 +745,17 @@
   },
   {
    "a": "bern-hertwig-v1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2909090909090909,
+   "codec_same_index": 0.0125,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.26621160409556316,
@@ -701,6 +789,17 @@
   },
   {
    "a": "bern-hertwig-v1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5160142348754448,
+   "codec_same_index": 0.0896551724137931,
+   "shared_name_family": [],
+   "distance": 1.4705690759643937,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.294811320754717,
@@ -718,6 +817,17 @@
    "codec_same_index": 0.013157894736842105,
    "shared_name_family": [],
    "distance": 1.4084322971726722,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.05993690851735016,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.4610817101859506,
    "documented": null,
    "weights_only": false
   },
@@ -762,6 +872,17 @@
    "codec_same_index": 0.027586206896551724,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.32971014492753625,
+   "codec_same_index": 0.5494505494505495,
+   "shared_name_family": [],
+   "distance": 1.396304508939341,
    "documented": null,
    "weights_only": false
   },
@@ -828,6 +949,39 @@
    "codec_same_index": 0.009523809523809525,
    "shared_name_family": [],
    "distance": 0.8386370185260615,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.454920848610695,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.525088907245028,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5223208615553707,
    "documented": null,
    "weights_only": false
   },
@@ -1077,6 +1231,17 @@
   },
   {
    "a": "bern-hertwig-v2",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2909090909090909,
+   "codec_same_index": 0.0125,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.26621160409556316,
@@ -1110,6 +1275,17 @@
   },
   {
    "a": "bern-hertwig-v2",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5160142348754448,
+   "codec_same_index": 0.0896551724137931,
+   "shared_name_family": [],
+   "distance": 1.4769154415158363,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.294811320754717,
@@ -1127,6 +1303,17 @@
    "codec_same_index": 0.013157894736842105,
    "shared_name_family": [],
    "distance": 1.4129329237016603,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.05993690851735016,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.4672176683725975,
    "documented": null,
    "weights_only": false
   },
@@ -1171,6 +1358,17 @@
    "codec_same_index": 0.027586206896551724,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.32971014492753625,
+   "codec_same_index": 0.5494505494505495,
+   "shared_name_family": [],
+   "distance": 1.3998110231633876,
    "documented": null,
    "weights_only": false
   },
@@ -1237,6 +1435,39 @@
    "codec_same_index": 0.009523809523809525,
    "shared_name_family": [],
    "distance": 0.8583587953179145,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.4514831577156946,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.520676423957405,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-hertwig-v2",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5179042242807252,
    "documented": null,
    "weights_only": false
   },
@@ -1473,6 +1704,17 @@
   },
   {
    "a": "bern-schlussredaktion-v1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2888086642599278,
+   "codec_same_index": 0.0125,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.26440677966101694,
@@ -1506,6 +1748,17 @@
   },
   {
    "a": "bern-schlussredaktion-v1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5177304964539007,
+   "codec_same_index": 0.08904109589041095,
+   "shared_name_family": [],
+   "distance": 1.4809906185337636,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.2964705882352941,
@@ -1523,6 +1776,17 @@
    "codec_same_index": 0.013157894736842105,
    "shared_name_family": [],
    "distance": 1.4158165377243728,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.05956112852664577,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.4710785125316346,
    "documented": null,
    "weights_only": false
   },
@@ -1567,6 +1831,17 @@
    "codec_same_index": 0.027586206896551724,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.33212996389891697,
+   "codec_same_index": 0.5434782608695652,
+   "shared_name_family": [],
+   "distance": 1.402211379589716,
    "documented": null,
    "weights_only": false
   },
@@ -1633,6 +1908,39 @@
    "codec_same_index": 0.009523809523809525,
    "shared_name_family": [],
    "distance": 0.8692146916604754,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19896640826873385,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.4497490260798367,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19896640826873385,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5182593934943671,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "bern-schlussredaktion-v1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.19896640826873385,
+   "codec_same_index": 0.2987012987012987,
+   "shared_name_family": [],
+   "distance": 1.5154988516651602,
    "documented": null,
    "weights_only": false
   },
@@ -1858,6 +2166,17 @@
   },
   {
    "a": "collapse-probe-131-cr1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.5120481927710844,
+   "codec_same_index": 0.047058823529411764,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.44324324324324327,
@@ -1891,6 +2210,17 @@
   },
   {
    "a": "collapse-probe-131-cr1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.49074074074074076,
+   "codec_same_index": 0.08490566037735849,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.30498533724340177,
@@ -1906,6 +2236,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.3504273504273504,
    "codec_same_index": 0.012195121951219513,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.0995260663507109,
+   "codec_same_index": 0.047619047619047616,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -1950,6 +2291,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.375,
    "codec_same_index": 0.009523809523809525,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.5290697674418605,
+   "codec_same_index": 0.01098901098901099,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -2016,6 +2368,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.2541899441340782,
    "codec_same_index": 0.01098901098901099,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3018181818181818,
+   "codec_same_index": 0.03614457831325301,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3018181818181818,
+   "codec_same_index": 0.03614457831325301,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "collapse-probe-131-cr1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3018181818181818,
+   "codec_same_index": 0.03614457831325301,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -2243,6 +2628,17 @@
   },
   {
    "a": "german-xix-blb-v1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.29194630872483224,
+   "codec_same_index": 0.034482758620689655,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.28938906752411575,
@@ -2276,6 +2672,17 @@
   },
   {
    "a": "german-xix-blb-v1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.49508196721311476,
+   "codec_same_index": 0.0728476821192053,
+   "shared_name_family": [],
+   "distance": 1.6073547161462869,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.46954314720812185,
@@ -2295,6 +2702,17 @@
    "codec_same_index": 0.010869565217391304,
    "shared_name_family": [],
    "distance": 1.5191114617066126,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.07647058823529412,
+   "codec_same_index": 0.038461538461538464,
+   "shared_name_family": [],
+   "distance": 1.5940311231006854,
    "documented": null,
    "weights_only": false
   },
@@ -2339,6 +2757,17 @@
    "codec_same_index": 0.007751937984496124,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.31893687707641194,
+   "codec_same_index": 0.041666666666666664,
+   "shared_name_family": [],
+   "distance": 1.4961817221304254,
    "documented": null,
    "weights_only": false
   },
@@ -2407,6 +2836,39 @@
    "codec_same_index": 0.010752688172043012,
    "shared_name_family": [],
    "distance": 1.4455833804993798,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21481481481481482,
+   "codec_same_index": 0.26436781609195403,
+   "shared_name_family": [],
+   "distance": 1.4065395461859196,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21481481481481482,
+   "codec_same_index": 0.26436781609195403,
+   "shared_name_family": [],
+   "distance": 1.4416719605871875,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-blb-v1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21481481481481482,
+   "codec_same_index": 0.26436781609195403,
+   "shared_name_family": [],
+   "distance": 1.4399464346938964,
    "documented": null,
    "weights_only": false
   },
@@ -2541,8 +3003,8 @@
    "codec_same_index": 1.0,
    "shared_name_family": [],
    "distance": 0.6997447727039652,
-   "documented": null,
-   "weights_only": true
+   "documented": "tested",
+   "weights_only": false
   },
   {
    "a": "german-xix-v1",
@@ -2612,6 +3074,17 @@
   },
   {
    "a": "german-xix-v1",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3788546255506608,
+   "codec_same_index": 0.03488372093023256,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.37656903765690375,
@@ -2645,6 +3118,17 @@
   },
   {
    "a": "german-xix-v1",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.41697416974169743,
+   "codec_same_index": 0.09734513274336283,
+   "shared_name_family": [],
+   "distance": 1.6054959339710397,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.49117647058823527,
@@ -2664,6 +3148,17 @@
    "codec_same_index": 0.011111111111111112,
    "shared_name_family": [],
    "distance": 1.517413031542704,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.09293680297397769,
+   "codec_same_index": 0.04,
+   "shared_name_family": [],
+   "distance": 1.5923085133897585,
    "documented": null,
    "weights_only": false
   },
@@ -2708,6 +3203,17 @@
    "codec_same_index": 0.009433962264150943,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4192139737991266,
+   "codec_same_index": 0.041666666666666664,
+   "shared_name_family": [],
+   "distance": 1.4946556038118033,
    "documented": null,
    "weights_only": false
   },
@@ -2776,6 +3282,39 @@
    "codec_same_index": 0.012987012987012988,
    "shared_name_family": [],
    "distance": 1.4443897289616168,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.25748502994011974,
+   "codec_same_index": 0.26744186046511625,
+   "shared_name_family": [],
+   "distance": 1.4063597615112162,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.25748502994011974,
+   "codec_same_index": 0.26744186046511625,
+   "shared_name_family": [],
+   "distance": 1.4421813539976038,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "german-xix-v1",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.25748502994011974,
+   "codec_same_index": 0.26744186046511625,
+   "shared_name_family": [],
+   "distance": 1.4404345493661899,
    "documented": null,
    "weights_only": false
   },
@@ -2968,6 +3507,17 @@
   },
   {
    "a": "kraken-austrian_fraktur",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.42487046632124353,
+   "codec_same_index": 0.25609756097560976,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.4846938775510204,
@@ -3001,6 +3551,17 @@
   },
   {
    "a": "kraken-austrian_fraktur",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.32061068702290074,
+   "codec_same_index": 0.047619047619047616,
+   "shared_name_family": [],
+   "distance": 1.416140022739706,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.657243816254417,
@@ -3020,6 +3581,17 @@
    "codec_same_index": 0.012195121951219513,
    "shared_name_family": [],
    "distance": 1.3737483027029551,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.0847457627118644,
+   "codec_same_index": 0.05,
+   "shared_name_family": [],
+   "distance": 1.4090363479165322,
    "documented": null,
    "weights_only": false
   },
@@ -3064,6 +3636,17 @@
    "codec_same_index": 0.012048192771084338,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.41379310344827586,
+   "codec_same_index": 0.3333333333333333,
+   "shared_name_family": [],
+   "distance": 1.3682831168209748,
    "documented": null,
    "weights_only": false
   },
@@ -3132,6 +3715,39 @@
    "codec_same_index": 0.013888888888888888,
    "shared_name_family": [],
    "distance": 1.3747062638892522,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.26490066225165565,
+   "codec_same_index": 0.0375,
+   "shared_name_family": [],
+   "distance": 1.4860351946742152,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.26490066225165565,
+   "codec_same_index": 0.0375,
+   "shared_name_family": [],
+   "distance": 1.5631776325900555,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-austrian_fraktur",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.26490066225165565,
+   "codec_same_index": 0.0375,
+   "shared_name_family": [],
+   "distance": 1.560187390351128,
    "documented": null,
    "weights_only": false
   },
@@ -3315,6 +3931,17 @@
   },
   {
    "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2958801498127341,
+   "codec_same_index": 0.012658227848101266,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.27017543859649124,
@@ -3348,6 +3975,17 @@
   },
   {
    "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5218978102189781,
+   "codec_same_index": 0.09090909090909091,
+   "shared_name_family": [],
+   "distance": 1.4679772348258648,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.291866028708134,
@@ -3365,6 +4003,17 @@
    "codec_same_index": 0.013333333333333334,
    "shared_name_family": [],
    "distance": 1.4067195470894045,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.05825242718446602,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.4587434556815655,
    "documented": null,
    "weights_only": false
   },
@@ -3409,6 +4058,17 @@
    "codec_same_index": 0.028169014084507043,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.3358208955223881,
+   "codec_same_index": 0.5555555555555556,
+   "shared_name_family": [],
+   "distance": 1.3948321716489303,
    "documented": null,
    "weights_only": false
   },
@@ -3475,6 +4135,39 @@
    "codec_same_index": 0.00980392156862745,
    "shared_name_family": [],
    "distance": 0.8299842145149265,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20159151193633953,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.456358447780091,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20159151193633953,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5267129783057418,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bastarda_inzigkofen",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20159151193633953,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.523908967124839,
    "documented": null,
    "weights_only": false
   },
@@ -3647,6 +4340,17 @@
   },
   {
    "a": "kraken-bifrost_old_norse",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.29259259259259257,
+   "codec_same_index": 0.012658227848101266,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.2673611111111111,
@@ -3680,6 +4384,17 @@
   },
   {
    "a": "kraken-bifrost_old_norse",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5107913669064749,
+   "codec_same_index": 0.09154929577464789,
+   "shared_name_family": [],
+   "distance": 1.3658168001995241,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.2746478873239437,
@@ -3697,6 +4412,17 @@
    "codec_same_index": 0.013333333333333334,
    "shared_name_family": [],
    "distance": 1.3487808584139627,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.057692307692307696,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.3625989032879207,
    "documented": null,
    "weights_only": false
   },
@@ -3741,6 +4467,17 @@
    "codec_same_index": 0.014814814814814815,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.32234432234432236,
+   "codec_same_index": 0.5795454545454546,
+   "shared_name_family": [],
+   "distance": 1.3513277241913333,
    "documented": null,
    "weights_only": false
   },
@@ -3809,6 +4546,39 @@
     "Old Norse"
    ],
    "distance": 1.3769852943663072,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5225026634881345,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.60322011506925,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bifrost_old_norse",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.6002488019546037,
    "documented": null,
    "weights_only": false
   },
@@ -3968,6 +4738,17 @@
   },
   {
    "a": "kraken-bohemian_19th",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.5664335664335665,
+   "codec_same_index": 0.037037037037037035,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.5584415584415584,
@@ -4001,6 +4782,17 @@
   },
   {
    "a": "kraken-bohemian_19th",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.3981042654028436,
+   "codec_same_index": 0.13095238095238096,
+   "shared_name_family": [],
+   "distance": 1.5909329675699162,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.3979933110367893,
@@ -4018,6 +4810,17 @@
    "codec_same_index": 0.011627906976744186,
    "shared_name_family": [],
    "distance": 1.5042921624060792,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.12637362637362637,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.578119961420999,
    "documented": null,
    "weights_only": false
   },
@@ -4062,6 +4865,17 @@
    "codec_same_index": 0.0125,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.5324675324675324,
+   "codec_same_index": 0.04878048780487805,
+   "shared_name_family": [],
+   "distance": 1.4818837461908798,
    "documented": null,
    "weights_only": false
   },
@@ -4128,6 +4942,39 @@
    "codec_same_index": 0.015151515151515152,
    "shared_name_family": [],
    "distance": 1.4346286656418274,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3134920634920635,
+   "codec_same_index": 0.2911392405063291,
+   "shared_name_family": [],
+   "distance": 1.4079791311062937,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3134920634920635,
+   "codec_same_index": 0.2911392405063291,
+   "shared_name_family": [],
+   "distance": 1.4483942980086504,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-bohemian_19th",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3134920634920635,
+   "codec_same_index": 0.2911392405063291,
+   "shared_name_family": [],
+   "distance": 1.4465273493909112,
    "documented": null,
    "weights_only": false
   },
@@ -4280,6 +5127,17 @@
   },
   {
    "a": "kraken-catmus_gothic_print",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.35294117647058826,
+   "codec_same_index": 0.01282051282051282,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.3179916317991632,
@@ -4313,6 +5171,17 @@
   },
   {
    "a": "kraken-catmus_gothic_print",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.5948275862068966,
+   "codec_same_index": 0.18840579710144928,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.2772020725388601,
@@ -4328,6 +5197,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.2508591065292096,
    "codec_same_index": 0.0273972602739726,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.06463878326996197,
+   "codec_same_index": 0.11764705882352941,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -4374,6 +5254,17 @@
    "codec_same_index": 0.016260162601626018,
    "shared_name_family": [],
    "distance": 1.4055420112858277,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.38222222222222224,
+   "codec_same_index": 0.023255813953488372,
+   "shared_name_family": [],
+   "distance": null,
    "documented": null,
    "weights_only": false
   },
@@ -4440,6 +5331,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.2181372549019608,
    "codec_same_index": 0.02247191011235955,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.22289156626506024,
+   "codec_same_index": 0.02702702702702703,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.22289156626506024,
+   "codec_same_index": 0.02702702702702703,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_gothic_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.22289156626506024,
+   "codec_same_index": 0.02702702702702703,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -4581,6 +5505,17 @@
   },
   {
    "a": "kraken-catmus_medieval",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.30268199233716475,
+   "codec_same_index": 0.012658227848101266,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.2714285714285714,
@@ -4614,6 +5549,17 @@
   },
   {
    "a": "kraken-catmus_medieval",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5335820895522388,
+   "codec_same_index": 0.09090909090909091,
+   "shared_name_family": [],
+   "distance": 1.3746950993944687,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.28365384615384615,
@@ -4631,6 +5577,17 @@
    "codec_same_index": 0.013333333333333334,
    "shared_name_family": [],
    "distance": 1.3528221344757956,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.0594059405940594,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.370572614909723,
    "documented": null,
    "weights_only": false
   },
@@ -4675,6 +5632,17 @@
    "codec_same_index": 0.02877697841726619,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.3435114503816794,
+   "codec_same_index": 0.5555555555555556,
+   "shared_name_family": [],
+   "distance": 1.3532416110321162,
    "documented": null,
    "weights_only": false
   },
@@ -4743,6 +5711,39 @@
    "codec_same_index": 0.010101010101010102,
    "shared_name_family": [],
    "distance": 0.6091648507209892,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20485175202156333,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.514433934208042,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20485175202156333,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5947873692054009,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_medieval",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20485175202156333,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5918704513027002,
    "documented": null,
    "weights_only": false
   },
@@ -4869,6 +5870,17 @@
   },
   {
    "a": "kraken-catmus_print_large",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.38565022421524664,
+   "codec_same_index": 0.43023255813953487,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.34297520661157027,
@@ -4902,6 +5914,17 @@
   },
   {
    "a": "kraken-catmus_print_large",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.6593886462882096,
+   "codec_same_index": 0.026490066225165563,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.3521505376344086,
@@ -4917,6 +5940,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.2986111111111111,
    "codec_same_index": 0.011627906976744186,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.09433962264150944,
+   "codec_same_index": 0.04,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -4964,6 +5998,17 @@
    "shared_name_family": [],
    "distance": 0.32870276974129803,
    "documented": "tested",
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.41409691629955947,
+   "codec_same_index": 0.010638297872340425,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
    "weights_only": false
   },
   {
@@ -5029,6 +6074,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.19858156028368795,
    "codec_same_index": 0.011904761904761904,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2682926829268293,
+   "codec_same_index": 0.056818181818181816,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2682926829268293,
+   "codec_same_index": 0.056818181818181816,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-catmus_print_large",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2682926829268293,
+   "codec_same_index": 0.056818181818181816,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -5146,6 +6224,17 @@
   },
   {
    "a": "kraken-cremma_medieval",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3978494623655914,
+   "codec_same_index": 0.013513513513513514,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.33980582524271846,
@@ -5179,6 +6268,17 @@
   },
   {
    "a": "kraken-cremma_medieval",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.5613207547169812,
+   "codec_same_index": 0.058823529411764705,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.24725274725274726,
@@ -5194,6 +6294,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.27450980392156865,
    "codec_same_index": 0.02857142857142857,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.07589285714285714,
+   "codec_same_index": 0.058823529411764705,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -5240,6 +6351,17 @@
    "codec_same_index": 0.018867924528301886,
    "shared_name_family": [],
    "distance": 1.4464782487284296,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.40932642487046633,
+   "codec_same_index": 0.012658227848101266,
+   "shared_name_family": [],
+   "distance": null,
    "documented": null,
    "weights_only": false
   },
@@ -5308,6 +6430,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.21485411140583555,
    "codec_same_index": 0.024691358024691357,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2356902356902357,
+   "codec_same_index": 0.014285714285714285,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2356902356902357,
+   "codec_same_index": 0.014285714285714285,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cremma_medieval",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2356902356902357,
+   "codec_same_index": 0.014285714285714285,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -5414,6 +6569,17 @@
   },
   {
    "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2915129151291513,
+   "codec_same_index": 0.012658227848101266,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.2664359861591695,
@@ -5447,6 +6613,17 @@
   },
   {
    "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.5143884892086331,
+   "codec_same_index": 0.09090909090909091,
+   "shared_name_family": [],
+   "distance": 1.4704363886072185,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.2921615201900237,
@@ -5464,6 +6641,17 @@
    "codec_same_index": 0.013333333333333334,
    "shared_name_family": [],
    "distance": 1.4084228830064613,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.05750798722044728,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.4610874469249795,
    "documented": null,
    "weights_only": false
   },
@@ -5508,6 +6696,17 @@
    "codec_same_index": 0.027586206896551724,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.33088235294117646,
+   "codec_same_index": 0.5555555555555556,
+   "shared_name_family": [],
+   "distance": 1.3962946158235678,
    "documented": null,
    "weights_only": false
   },
@@ -5574,6 +6773,39 @@
    "codec_same_index": 0.009708737864077669,
    "shared_name_family": [],
    "distance": 0.8377333496237273,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.1994750656167979,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.4548436568514258,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.1994750656167979,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5250733526320663,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cursive_inzigkofen",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.1994750656167979,
+   "codec_same_index": 0.3026315789473684,
+   "shared_name_family": [],
+   "distance": 1.5223066505958862,
    "documented": null,
    "weights_only": false
   },
@@ -5669,6 +6901,17 @@
   },
   {
    "a": "kraken-cyrillic_uncial",
+   "b": "kraken-english_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.09507042253521127,
+   "codec_same_index": 0.037037037037037035,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
    "b": "kraken-estournelles_typewritten",
    "same_architecture": false,
    "codec_jaccard": 0.08637873754152824,
@@ -5702,6 +6945,17 @@
   },
   {
    "a": "kraken-cyrillic_uncial",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.10404624277456648,
+   "codec_same_index": 0.027777777777777776,
+   "shared_name_family": [],
+   "distance": 1.5239077808108912,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.07446808510638298,
@@ -5721,6 +6975,17 @@
     "Slavic/Cyrillic"
    ],
    "distance": 1.282007596644755,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.03180212014134275,
+   "codec_same_index": 0.1111111111111111,
+   "shared_name_family": [],
+   "distance": 1.3490297885683789,
    "documented": null,
    "weights_only": false
   },
@@ -5765,6 +7030,17 @@
    "codec_same_index": 0.02857142857142857,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.09491525423728814,
+   "codec_same_index": 0.03571428571428571,
+   "shared_name_family": [],
+   "distance": 1.4298776462001839,
    "documented": null,
    "weights_only": false
   },
@@ -5831,6 +7107,39 @@
    "codec_same_index": 0.027777777777777776,
    "shared_name_family": [],
    "distance": 1.4005963791182163,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.06361323155216285,
+   "codec_same_index": 0.04,
+   "shared_name_family": [],
+   "distance": 1.429268581843127,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.06361323155216285,
+   "codec_same_index": 0.04,
+   "shared_name_family": [],
+   "distance": 1.489020051001622,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-cyrillic_uncial",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.06361323155216285,
+   "codec_same_index": 0.04,
+   "shared_name_family": [],
+   "distance": 1.4864083797881704,
    "documented": null,
    "weights_only": false
   },
@@ -5923,6 +7232,325 @@
    "weights_only": false
   },
   {
+   "a": "kraken-english_print",
+   "b": "kraken-estournelles_typewritten",
+   "same_architecture": false,
+   "codec_jaccard": 0.6724137931034483,
+   "codec_same_index": 0.038461538461538464,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-fondue_gd_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.4055299539170507,
+   "codec_same_index": 0.4659090909090909,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-french_vietnamese",
+   "same_architecture": false,
+   "codec_jaccard": 0.35390946502057613,
+   "codec_same_index": 0.43023255813953487,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.4393063583815029,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-german_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2916666666666667,
+   "codec_same_index": 0.13095238095238096,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-glagolitic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.463855421686747,
+   "codec_same_index": 0.012987012987012988,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.1276595744680851,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-kuzushiji",
+   "same_architecture": false,
+   "codec_jaccard": 0.0003531696980399082,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-latin_expanded_11c",
+   "same_architecture": false,
+   "codec_jaccard": 0.4774774774774775,
+   "codec_same_index": 0.018867924528301886,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-latin_graphematic_11c",
+   "same_architecture": false,
+   "codec_jaccard": 0.5546875,
+   "codec_same_index": 0.014084507042253521,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-latin_incunabula",
+   "same_architecture": false,
+   "codec_jaccard": 0.31092436974789917,
+   "codec_same_index": 0.013513513513513514,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.7431192660550459,
+   "codec_same_index": 0.012345679012345678,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-manu_mcfondue",
+   "same_architecture": false,
+   "codec_jaccard": 0.3449612403100775,
+   "codec_same_index": 0.11235955056179775,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-mccatmus",
+   "same_architecture": false,
+   "codec_jaccard": 0.7083333333333334,
+   "codec_same_index": 0.12941176470588237,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-medieval_latin_french_abbreviated",
+   "same_architecture": false,
+   "codec_jaccard": 0.3630573248407643,
+   "codec_same_index": 0.07017543859649122,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-medieval_latin_french_expanded",
+   "same_architecture": false,
+   "codec_jaccard": 0.35374149659863946,
+   "codec_same_index": 0.07692307692307693,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-mendelssohn_letters",
+   "same_architecture": false,
+   "codec_jaccard": 0.28859060402684567,
+   "codec_same_index": 0.023255813953488372,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-old_norse_am305",
+   "same_architecture": false,
+   "codec_jaccard": 0.2129032258064516,
+   "codec_same_index": 0.015151515151515152,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.38349514563106796,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.38349514563106796,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.38349514563106796,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-peraire_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.6587301587301587,
+   "codec_same_index": 0.04819277108433735,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-prima",
+   "same_architecture": false,
+   "codec_jaccard": 0.5666666666666667,
+   "codec_same_index": 0.12941176470588237,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-samaritan",
+   "same_architecture": false,
+   "codec_jaccard": 0.07563025210084033,
+   "codec_same_index": 0.1111111111111111,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.31899641577060933,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.3248175182481752,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "medieval-shard00-std",
+   "same_architecture": false,
+   "codec_jaccard": 0.6964285714285714,
+   "codec_same_index": 0.01282051282051282,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.6964285714285714,
+   "codec_same_index": 0.01282051282051282,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-english_print",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.6964285714285714,
+   "codec_same_index": 0.01282051282051282,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
    "a": "kraken-estournelles_typewritten",
    "b": "kraken-fondue_gd_v2",
    "same_architecture": false,
@@ -5948,6 +7576,17 @@
   },
   {
    "a": "kraken-estournelles_typewritten",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.4021164021164021,
+   "codec_same_index": 0.5394736842105263,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.3472222222222222,
@@ -5963,6 +7602,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.4,
    "codec_same_index": 0.013513513513513514,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.09375,
+   "codec_same_index": 0.06666666666666667,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -6007,6 +7657,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.28627450980392155,
    "codec_same_index": 0.0136986301369863,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.6349206349206349,
+   "codec_same_index": 0.5625,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -6073,6 +7734,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.19148936170212766,
    "codec_same_index": 0.015873015873015872,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3201754385964912,
+   "codec_same_index": 0.2602739726027397,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3201754385964912,
+   "codec_same_index": 0.2602739726027397,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-estournelles_typewritten",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.3201754385964912,
+   "codec_same_index": 0.2602739726027397,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -6181,6 +7875,17 @@
   },
   {
    "a": "kraken-fondue_gd_v2",
+   "b": "kraken-gallicorpora",
+   "same_architecture": true,
+   "codec_jaccard": 0.3874538745387454,
+   "codec_same_index": 0.0380952380952381,
+   "shared_name_family": [],
+   "distance": 1.6726337177957837,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
    "b": "kraken-german_print",
    "same_architecture": true,
    "codec_jaccard": 0.30971128608923887,
@@ -6198,6 +7903,17 @@
    "codec_same_index": 0.011904761904761904,
    "shared_name_family": [],
    "distance": 1.5847969016240053,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.08745247148288973,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.660411858861903,
    "documented": null,
    "weights_only": false
   },
@@ -6242,6 +7958,17 @@
    "codec_same_index": 0.01,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4474885844748858,
+   "codec_same_index": 0.01020408163265306,
+   "shared_name_family": [],
+   "distance": 1.5589252798680637,
    "documented": null,
    "weights_only": false
   },
@@ -6310,6 +8037,39 @@
    "codec_same_index": 0.012195121951219513,
    "shared_name_family": [],
    "distance": 1.4992505084785357,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2755417956656347,
+   "codec_same_index": 0.033707865168539325,
+   "shared_name_family": [],
+   "distance": 1.4048669719755107,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2755417956656347,
+   "codec_same_index": 0.033707865168539325,
+   "shared_name_family": [],
+   "distance": 1.4131421884715183,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-fondue_gd_v2",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2755417956656347,
+   "codec_same_index": 0.033707865168539325,
+   "shared_name_family": [],
+   "distance": 1.4121614164543732,
    "documented": null,
    "weights_only": false
   },
@@ -6403,6 +8163,17 @@
   },
   {
    "a": "kraken-french_vietnamese",
+   "b": "kraken-gallicorpora",
+   "same_architecture": false,
+   "codec_jaccard": 0.606425702811245,
+   "codec_same_index": 0.026490066225165563,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
    "b": "kraken-german_print",
    "same_architecture": false,
    "codec_jaccard": 0.3375959079283887,
@@ -6418,6 +8189,17 @@
    "same_architecture": false,
    "codec_jaccard": 0.2792207792207792,
    "codec_same_index": 0.011627906976744186,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": false,
+   "codec_jaccard": 0.08771929824561403,
+   "codec_same_index": 0.04,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -6464,6 +8246,17 @@
    "codec_same_index": 0.01639344262295082,
    "shared_name_family": [],
    "distance": 0.3708555552940382,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.3805668016194332,
+   "codec_same_index": 0.010638297872340425,
+   "shared_name_family": [],
+   "distance": null,
    "documented": null,
    "weights_only": false
   },
@@ -6528,6 +8321,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.18961625282167044,
    "codec_same_index": 0.011904761904761904,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.25287356321839083,
+   "codec_same_index": 0.056818181818181816,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.25287356321839083,
+   "codec_same_index": 0.056818181818181816,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-french_vietnamese",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.25287356321839083,
+   "codec_same_index": 0.056818181818181816,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -6624,6 +8450,281 @@
    "weights_only": false
   },
   {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-german_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3424242424242424,
+   "codec_same_index": 0.035398230088495575,
+   "shared_name_family": [],
+   "distance": 1.4960229215956733,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-glagolitic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.30833333333333335,
+   "codec_same_index": 0.013513513513513514,
+   "shared_name_family": [],
+   "distance": 1.3190901857549167,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.08490566037735849,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.2315847965135294,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-kuzushiji",
+   "same_architecture": true,
+   "codec_jaccard": 0.00035169988276670573,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.5333099689407943,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-latin_expanded_11c",
+   "same_architecture": true,
+   "codec_jaccard": 0.3202247191011236,
+   "codec_same_index": 0.017543859649122806,
+   "shared_name_family": [],
+   "distance": 1.3479750160340584,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-latin_graphematic_11c",
+   "same_architecture": true,
+   "codec_jaccard": 0.38461538461538464,
+   "codec_same_index": 0.013333333333333334,
+   "shared_name_family": [],
+   "distance": 1.4296531244017374,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-latin_incunabula",
+   "same_architecture": false,
+   "codec_jaccard": 0.4132841328413284,
+   "codec_same_index": 0.008928571428571428,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4745762711864407,
+   "codec_same_index": 0.15476190476190477,
+   "shared_name_family": [],
+   "distance": 1.3488116309743217,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-manu_mcfondue",
+   "same_architecture": true,
+   "codec_jaccard": 0.3979933110367893,
+   "codec_same_index": 0.03361344537815126,
+   "shared_name_family": [],
+   "distance": 1.5973179675763771,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-mccatmus",
+   "same_architecture": true,
+   "codec_jaccard": 0.4918918918918919,
+   "codec_same_index": 0.04395604395604396,
+   "shared_name_family": [],
+   "distance": 1.333236804972004,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-medieval_latin_french_abbreviated",
+   "same_architecture": false,
+   "codec_jaccard": 0.425,
+   "codec_same_index": 0.12941176470588237,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-medieval_latin_french_expanded",
+   "same_architecture": true,
+   "codec_jaccard": 0.35678391959798994,
+   "codec_same_index": 0.2535211267605634,
+   "shared_name_family": [],
+   "distance": 1.226306065416666,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-mendelssohn_letters",
+   "same_architecture": true,
+   "codec_jaccard": 0.3541666666666667,
+   "codec_same_index": 0.08403361344537816,
+   "shared_name_family": [],
+   "distance": 1.6455144351852882,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-old_norse_am305",
+   "same_architecture": true,
+   "codec_jaccard": 0.20485175202156333,
+   "codec_same_index": 0.013157894736842105,
+   "shared_name_family": [],
+   "distance": 1.436106107811814,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2669039145907473,
+   "codec_same_index": 0.2,
+   "shared_name_family": [],
+   "distance": 1.6448973920524435,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2669039145907473,
+   "codec_same_index": 0.2,
+   "shared_name_family": [],
+   "distance": 1.7223447731980068,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2669039145907473,
+   "codec_same_index": 0.2,
+   "shared_name_family": [],
+   "distance": 1.7196598725328007,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.37254901960784315,
+   "codec_same_index": 0.09210526315789473,
+   "shared_name_family": [],
+   "distance": 1.3898715905711627,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.44339622641509435,
+   "codec_same_index": 0.0425531914893617,
+   "shared_name_family": [],
+   "distance": 1.3390048988702659,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.036458333333333336,
+   "codec_same_index": 0.14285714285714285,
+   "shared_name_family": [],
+   "distance": 1.3577570402047074,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.32628398791540786,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.3231707317073171,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.4745762711864407,
+   "codec_same_index": 0.5357142857142857,
+   "shared_name_family": [],
+   "distance": 1.2543275475053677,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.4745762711864407,
+   "codec_same_index": 0.5357142857142857,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-gallicorpora",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.4745762711864407,
+   "codec_same_index": 0.5357142857142857,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
    "a": "kraken-german_print",
    "b": "kraken-glagolitic_print",
    "same_architecture": true,
@@ -6631,6 +8732,17 @@
    "codec_same_index": 0.011627906976744186,
    "shared_name_family": [],
    "distance": 1.4260354539694422,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-german_print",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.06006006006006006,
+   "codec_same_index": 0.05,
+   "shared_name_family": [],
+   "distance": 1.4854247346629357,
    "documented": null,
    "weights_only": false
   },
@@ -6675,6 +8787,17 @@
    "codec_same_index": 0.008333333333333333,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-german_print",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.29292929292929293,
+   "codec_same_index": 0.011494252873563218,
+   "shared_name_family": [],
+   "distance": 1.4107309474761338,
    "documented": null,
    "weights_only": false
   },
@@ -6743,6 +8866,39 @@
    "codec_same_index": 0.012987012987012988,
    "shared_name_family": [],
    "distance": 1.389197500267972,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-german_print",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20959595959595959,
+   "codec_same_index": 0.03614457831325301,
+   "shared_name_family": [],
+   "distance": 1.4401300822426615,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-german_print",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20959595959595959,
+   "codec_same_index": 0.03614457831325301,
+   "shared_name_family": [],
+   "distance": 1.5054460554882823,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-german_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.20959595959595959,
+   "codec_same_index": 0.03614457831325301,
+   "shared_name_family": [],
+   "distance": 1.502651972635272,
    "documented": null,
    "weights_only": false
   },
@@ -6836,6 +8992,17 @@
   },
   {
    "a": "kraken-glagolitic_print",
+   "b": "kraken-hebrew_sephardi",
+   "same_architecture": true,
+   "codec_jaccard": 0.45454545454545453,
+   "codec_same_index": 1.0,
+   "shared_name_family": [],
+   "distance": 0.8320539326911282,
+   "documented": null,
+   "weights_only": true
+  },
+  {
+   "a": "kraken-glagolitic_print",
    "b": "kraken-kuzushiji",
    "same_architecture": true,
    "codec_jaccard": 0.0003518236190922951,
@@ -6875,6 +9042,17 @@
    "codec_same_index": 0.07142857142857142,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-glagolitic_print",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4010989010989011,
+   "codec_same_index": 0.0136986301369863,
+   "shared_name_family": [],
+   "distance": 1.340707105759121,
    "documented": null,
    "weights_only": false
   },
@@ -6941,6 +9119,39 @@
    "codec_same_index": 0.016129032258064516,
    "shared_name_family": [],
    "distance": 1.3866179233177875,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-glagolitic_print",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.30111524163568776,
+   "codec_same_index": 0.012345679012345678,
+   "shared_name_family": [],
+   "distance": 1.5570926371654006,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-glagolitic_print",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.30111524163568776,
+   "codec_same_index": 0.012345679012345678,
+   "shared_name_family": [],
+   "distance": 1.6391715717094453,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-glagolitic_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.30111524163568776,
+   "codec_same_index": 0.012345679012345678,
+   "shared_name_family": [],
+   "distance": 1.6360809521520527,
    "documented": null,
    "weights_only": false
   },
@@ -7033,6 +9244,248 @@
    "weights_only": false
   },
   {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-kuzushiji",
+   "same_architecture": true,
+   "codec_jaccard": 5.8910162002945506e-05,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.5208261668956289,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-latin_expanded_11c",
+   "same_architecture": true,
+   "codec_jaccard": 0.04316546762589928,
+   "codec_same_index": 0.16666666666666666,
+   "shared_name_family": [],
+   "distance": 1.3454712249548866,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-latin_graphematic_11c",
+   "same_architecture": true,
+   "codec_jaccard": 0.0650887573964497,
+   "codec_same_index": 0.09090909090909091,
+   "shared_name_family": [],
+   "distance": 1.4212471724699887,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-latin_incunabula",
+   "same_architecture": false,
+   "codec_jaccard": 0.0539568345323741,
+   "codec_same_index": 0.3333333333333333,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.11764705882352941,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.3466919921647766,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-manu_mcfondue",
+   "same_architecture": true,
+   "codec_jaccard": 0.07540983606557378,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.5842712341345504,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-mccatmus",
+   "same_architecture": true,
+   "codec_jaccard": 0.10714285714285714,
+   "codec_same_index": 0.05555555555555555,
+   "shared_name_family": [],
+   "distance": 1.332659703533549,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-medieval_latin_french_abbreviated",
+   "same_architecture": false,
+   "codec_jaccard": 0.0893854748603352,
+   "codec_same_index": 0.0625,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-medieval_latin_french_expanded",
+   "same_architecture": true,
+   "codec_jaccard": 0.08433734939759036,
+   "codec_same_index": 0.07142857142857142,
+   "shared_name_family": [],
+   "distance": 1.241392433506302,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-mendelssohn_letters",
+   "same_architecture": true,
+   "codec_jaccard": 0.0641399416909621,
+   "codec_same_index": 0.045454545454545456,
+   "shared_name_family": [],
+   "distance": 1.632719255857891,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-old_norse_am305",
+   "same_architecture": true,
+   "codec_jaccard": 0.0377906976744186,
+   "codec_same_index": 0.07692307692307693,
+   "shared_name_family": [],
+   "distance": 1.428464741050765,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.09465020576131687,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.6326016934267706,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.09465020576131687,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.7112058003568391,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.09465020576131687,
+   "codec_same_index": 0.043478260869565216,
+   "shared_name_family": [],
+   "distance": 1.7084197451413605,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.1111111111111111,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.3839503636864947,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.09644670050761421,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": 1.33784389493567,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.4533333333333333,
+   "codec_same_index": 0.029411764705882353,
+   "shared_name_family": [],
+   "distance": 0.945523909086171,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.0705521472392638,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.07165109034267912,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.1032258064516129,
+   "codec_same_index": 0.0625,
+   "shared_name_family": [],
+   "distance": 1.2641218505404312,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.1032258064516129,
+   "codec_same_index": 0.0625,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-hebrew_sephardi",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.1032258064516129,
+   "codec_same_index": 0.0625,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
    "a": "kraken-kuzushiji",
    "b": "kraken-latin_expanded_11c",
    "same_architecture": true,
@@ -7062,6 +9515,17 @@
    "codec_same_index": 0.0,
    "shared_name_family": [],
    "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-kuzushiji",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.0003529204164460914,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.4359664330961042,
    "documented": null,
    "weights_only": false
   },
@@ -7128,6 +9592,39 @@
    "codec_same_index": null,
    "shared_name_family": [],
    "distance": 1.4027048550640562,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-kuzushiji",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.00035095928872250817,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.4259412622580605,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-kuzushiji",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.00035095928872250817,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.4834830629717068,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-kuzushiji",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.00035095928872250817,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": 1.4808955567374094,
    "documented": null,
    "weights_only": false
   },
@@ -7245,6 +9742,17 @@
   },
   {
    "a": "kraken-latin_expanded_11c",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4426229508196721,
+   "codec_same_index": 0.018518518518518517,
+   "shared_name_family": [],
+   "distance": 1.3443015081991443,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_expanded_11c",
    "b": "kraken-manu_mcfondue",
    "same_architecture": true,
    "codec_jaccard": 0.19784172661870503,
@@ -7306,6 +9814,39 @@
    "codec_same_index": 0.015873015873015872,
    "shared_name_family": [],
    "distance": 1.375985943343447,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_expanded_11c",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.22624434389140272,
+   "codec_same_index": 0.02,
+   "shared_name_family": [],
+   "distance": 1.5303712552546775,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_expanded_11c",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.22624434389140272,
+   "codec_same_index": 0.02,
+   "shared_name_family": [],
+   "distance": 1.6122496893619904,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_expanded_11c",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.22624434389140272,
+   "codec_same_index": 0.02,
+   "shared_name_family": [],
+   "distance": 1.6091352724546693,
    "documented": null,
    "weights_only": false
   },
@@ -7410,6 +9951,17 @@
   },
   {
    "a": "kraken-latin_graphematic_11c",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.4755244755244755,
+   "codec_same_index": 0.014705882352941176,
+   "shared_name_family": [],
+   "distance": 1.3739174444415583,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_graphematic_11c",
    "b": "kraken-manu_mcfondue",
    "same_architecture": true,
    "codec_jaccard": 0.2689655172413793,
@@ -7471,6 +10023,39 @@
    "codec_same_index": 0.02531645569620253,
    "shared_name_family": [],
    "distance": 1.3749082376190507,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_graphematic_11c",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2803347280334728,
+   "codec_same_index": 0.014925373134328358,
+   "shared_name_family": [],
+   "distance": 1.4754261861709246,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_graphematic_11c",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2803347280334728,
+   "codec_same_index": 0.014925373134328358,
+   "shared_name_family": [],
+   "distance": 1.5513994014480426,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_graphematic_11c",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2803347280334728,
+   "codec_same_index": 0.014925373134328358,
+   "shared_name_family": [],
+   "distance": 1.5483364929081223,
    "documented": null,
    "weights_only": false
   },
@@ -7564,6 +10149,17 @@
   },
   {
    "a": "kraken-latin_incunabula",
+   "b": "kraken-lectaurep_french",
+   "same_architecture": false,
+   "codec_jaccard": 0.3170731707317073,
+   "codec_same_index": 0.01282051282051282,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_incunabula",
    "b": "kraken-manu_mcfondue",
    "same_architecture": false,
    "codec_jaccard": 0.4230769230769231,
@@ -7623,6 +10219,39 @@
    "same_architecture": false,
    "codec_jaccard": 0.18329466357308585,
    "codec_same_index": 0.02531645569620253,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_incunabula",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.20057306590257878,
+   "codec_same_index": 0.014285714285714285,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_incunabula",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.20057306590257878,
+   "codec_same_index": 0.014285714285714285,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-latin_incunabula",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.20057306590257878,
+   "codec_same_index": 0.014285714285714285,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -7717,6 +10346,193 @@
    "weights_only": false
   },
   {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-manu_mcfondue",
+   "same_architecture": true,
+   "codec_jaccard": 0.3702290076335878,
+   "codec_same_index": 0.010309278350515464,
+   "shared_name_family": [],
+   "distance": 1.4871174659355582,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-mccatmus",
+   "same_architecture": true,
+   "codec_jaccard": 0.7642276422764228,
+   "codec_same_index": 0.010638297872340425,
+   "shared_name_family": [],
+   "distance": 1.3428778325908672,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-medieval_latin_french_abbreviated",
+   "same_architecture": false,
+   "codec_jaccard": 0.40372670807453415,
+   "codec_same_index": 0.03076923076923077,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-medieval_latin_french_expanded",
+   "same_architecture": true,
+   "codec_jaccard": 0.3973509933774834,
+   "codec_same_index": 0.3,
+   "shared_name_family": [],
+   "distance": 1.3446385059534665,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-mendelssohn_letters",
+   "same_architecture": true,
+   "codec_jaccard": 0.2857142857142857,
+   "codec_same_index": 0.011363636363636364,
+   "shared_name_family": [],
+   "distance": 1.531127287591455,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-old_norse_am305",
+   "same_architecture": true,
+   "codec_jaccard": 0.2125,
+   "codec_same_index": 0.014705882352941176,
+   "shared_name_family": [],
+   "distance": 1.3776519410307837,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3438914027149321,
+   "codec_same_index": 0.25,
+   "shared_name_family": [],
+   "distance": 1.5325818853054458,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3438914027149321,
+   "codec_same_index": 0.25,
+   "shared_name_family": [],
+   "distance": 1.614088454649563,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3438914027149321,
+   "codec_same_index": 0.25,
+   "shared_name_family": [],
+   "distance": 1.611093766322485,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.5785714285714286,
+   "codec_same_index": 0.037037037037037035,
+   "shared_name_family": [],
+   "distance": 1.3583845997151964,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.6143790849673203,
+   "codec_same_index": 0.010638297872340425,
+   "shared_name_family": [],
+   "distance": 1.3440672929071735,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.06060606060606061,
+   "codec_same_index": 0.125,
+   "shared_name_family": [],
+   "distance": 1.3479859845915796,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.3240418118466899,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.3250883392226148,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.6833333333333333,
+   "codec_same_index": 0.024390243902439025,
+   "shared_name_family": [],
+   "distance": 1.340515229618776,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.6833333333333333,
+   "codec_same_index": 0.024390243902439025,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-lectaurep_french",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.6833333333333333,
+   "codec_same_index": 0.024390243902439025,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
    "a": "kraken-manu_mcfondue",
    "b": "kraken-mccatmus",
    "same_architecture": true,
@@ -7768,6 +10584,39 @@
    "codec_same_index": 0.012658227848101266,
    "shared_name_family": [],
    "distance": 1.4391190794327477,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-manu_mcfondue",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.23705722070844687,
+   "codec_same_index": 0.034482758620689655,
+   "shared_name_family": [],
+   "distance": 1.405610803123065,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-manu_mcfondue",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.23705722070844687,
+   "codec_same_index": 0.034482758620689655,
+   "shared_name_family": [],
+   "distance": 1.4436748429401485,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-manu_mcfondue",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.23705722070844687,
+   "codec_same_index": 0.034482758620689655,
+   "shared_name_family": [],
+   "distance": 1.4420154669424772,
    "documented": null,
    "weights_only": false
   },
@@ -7905,6 +10754,39 @@
   },
   {
    "a": "kraken-mccatmus",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3276595744680851,
+   "codec_same_index": 0.03896103896103896,
+   "shared_name_family": [],
+   "distance": 1.544920217801208,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mccatmus",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3276595744680851,
+   "codec_same_index": 0.03896103896103896,
+   "shared_name_family": [],
+   "distance": 1.6267997813290995,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mccatmus",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.3276595744680851,
+   "codec_same_index": 0.03896103896103896,
+   "shared_name_family": [],
+   "distance": 1.6238581955524516,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mccatmus",
    "b": "kraken-peraire_french",
    "same_architecture": true,
    "codec_jaccard": 0.5424836601307189,
@@ -8028,6 +10910,39 @@
   },
   {
    "a": "kraken-medieval_latin_french_abbreviated",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2159090909090909,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_abbreviated",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2159090909090909,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_abbreviated",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": false,
+   "codec_jaccard": 0.2159090909090909,
+   "codec_same_index": 0.05263157894736842,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_abbreviated",
    "b": "kraken-peraire_french",
    "same_architecture": false,
    "codec_jaccard": 0.3172043010752688,
@@ -8138,6 +11053,39 @@
   },
   {
    "a": "kraken-medieval_latin_french_expanded",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2047244094488189,
+   "codec_same_index": 0.34615384615384615,
+   "shared_name_family": [],
+   "distance": 1.6326412725313892,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_expanded",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2047244094488189,
+   "codec_same_index": 0.34615384615384615,
+   "shared_name_family": [],
+   "distance": 1.7111368896715455,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_expanded",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.2047244094488189,
+   "codec_same_index": 0.34615384615384615,
+   "shared_name_family": [],
+   "distance": 1.7085045432627073,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-medieval_latin_french_expanded",
    "b": "kraken-peraire_french",
    "same_architecture": true,
    "codec_jaccard": 0.3068181818181818,
@@ -8237,6 +11185,39 @@
   },
   {
    "a": "kraken-mendelssohn_letters",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21534653465346534,
+   "codec_same_index": 0.3103448275862069,
+   "shared_name_family": [],
+   "distance": 1.4030055665479533,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mendelssohn_letters",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21534653465346534,
+   "codec_same_index": 0.3103448275862069,
+   "shared_name_family": [],
+   "distance": 1.4236453999941858,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mendelssohn_letters",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.21534653465346534,
+   "codec_same_index": 0.3103448275862069,
+   "shared_name_family": [],
+   "distance": 1.4222030218289976,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-mendelssohn_letters",
    "b": "kraken-peraire_french",
    "same_architecture": true,
    "codec_jaccard": 0.3301282051282051,
@@ -8325,6 +11306,39 @@
   },
   {
    "a": "kraken-old_norse_am305",
+   "b": "kraken-openiti_arabic_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.14726840855106887,
+   "codec_same_index": 0.016129032258064516,
+   "shared_name_family": [],
+   "distance": 1.4754162508392108,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-old_norse_am305",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.14726840855106887,
+   "codec_same_index": 0.016129032258064516,
+   "shared_name_family": [],
+   "distance": 1.5504582472542123,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-old_norse_am305",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 0.14726840855106887,
+   "codec_same_index": 0.016129032258064516,
+   "shared_name_family": [],
+   "distance": 1.5476036195042593,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-old_norse_am305",
    "b": "kraken-peraire_french",
    "same_architecture": true,
    "codec_jaccard": 0.19005847953216373,
@@ -8406,6 +11420,303 @@
    "same_architecture": false,
    "codec_jaccard": 0.21630094043887146,
    "codec_same_index": 0.014492753623188406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-openiti_ottoman_print",
+   "same_architecture": true,
+   "codec_jaccard": 1.0,
+   "codec_same_index": 1.0,
+   "shared_name_family": [],
+   "distance": 0.7180301192093511,
+   "documented": "tested",
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 1.0,
+   "codec_same_index": 1.0,
+   "shared_name_family": [],
+   "distance": 0.6980391207694198,
+   "documented": "tested",
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.3333333333333333,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.5044392413827772,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.30038022813688214,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.541072106557499,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.03982300884955752,
+   "codec_same_index": 0.1111111111111111,
+   "shared_name_family": [],
+   "distance": 1.5270110143363158,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.22739018087855298,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.23036649214659685,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": 1.6093310958848976,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_arabic_print",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-openiti_persian_print",
+   "same_architecture": true,
+   "codec_jaccard": 1.0,
+   "codec_same_index": 1.0,
+   "shared_name_family": [],
+   "distance": 0.2804782179644204,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.3333333333333333,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.5839132243899268,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.30038022813688214,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.622808930662598,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.03982300884955752,
+   "codec_same_index": 0.1111111111111111,
+   "shared_name_family": [],
+   "distance": 1.6085596374003188,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.22739018087855298,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.23036649214659685,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": 1.689602098787105,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_ottoman_print",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "kraken-peraire_french",
+   "same_architecture": true,
+   "codec_jaccard": 0.3333333333333333,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.5808549319641716,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "kraken-prima",
+   "same_architecture": true,
+   "codec_jaccard": 0.30038022813688214,
+   "codec_same_index": 0.0379746835443038,
+   "shared_name_family": [],
+   "distance": 1.6198727494808982,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "kraken-samaritan",
+   "same_architecture": true,
+   "codec_jaccard": 0.03982300884955752,
+   "codec_same_index": 0.1111111111111111,
+   "shared_name_family": [],
+   "distance": 1.6054762968857237,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "kraken-textualis_inzigkofen",
+   "same_architecture": false,
+   "codec_jaccard": 0.22739018087855298,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "kraken-tridis_v2",
+   "same_architecture": false,
+   "codec_jaccard": 0.23036649214659685,
+   "codec_same_index": 0.0,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "medieval-shard00-std",
+   "same_architecture": true,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": 1.6867739115823523,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "medieval-shard00-v1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
+   "shared_name_family": [],
+   "distance": null,
+   "documented": null,
+   "weights_only": false
+  },
+  {
+   "a": "kraken-openiti_persian_print",
+   "b": "plus-shard00-cr1",
+   "same_architecture": false,
+   "codec_jaccard": 0.33183856502242154,
+   "codec_same_index": 0.05405405405405406,
    "shared_name_family": [],
    "distance": null,
    "documented": null,
@@ -8737,21 +12048,28 @@
   "kraken-cremma_medieval": 171,
   "kraken-cursive_inzigkofen": 261,
   "kraken-cyrillic_uncial": 222,
+  "kraken-english_print": 89,
   "kraken-estournelles_typewritten": 105,
   "kraken-fondue_gd_v2": 216,
   "kraken-french_vietnamese": 240,
+  "kraken-gallicorpora": 160,
   "kraken-german_print": 283,
   "kraken-glagolitic_print": 154,
+  "kraken-hebrew_sephardi": 70,
   "kraken-kuzushiji": 16906,
   "kraken-latin_expanded_11c": 75,
   "kraken-latin_graphematic_11c": 110,
   "kraken-latin_incunabula": 223,
+  "kraken-lectaurep_french": 101,
   "kraken-manu_mcfondue": 258,
   "kraken-mccatmus": 116,
   "kraken-medieval_latin_french_abbreviated": 125,
   "kraken-medieval_latin_french_expanded": 110,
   "kraken-mendelssohn_letters": 295,
   "kraken-old_norse_am305": 287,
+  "kraken-openiti_arabic_print": 196,
+  "kraken-openiti_ottoman_print": 196,
+  "kraken-openiti_persian_print": 196,
   "kraken-peraire_french": 120,
   "kraken-prima": 146,
   "kraken-samaritan": 39,
