@@ -1,0 +1,302 @@
+{
+ "what": "C0: the adapter as it is, on the 32 practice pages, transformers greedy cap 3072 (the engine of this session's passes)",
+ "metrics": {
+  "pages": 32,
+  "chars": 53112,
+  "cer": 0.729,
+  "truncated_cer": 0.3333,
+  "length_ratio": 1.4555,
+  "at_cap": 8,
+  "loops": 9
+ },
+ "pages": [
+  {
+   "key": "006694_018260_0002_443451",
+   "ref_chars": 129,
+   "hyp_chars": 2094,
+   "cer": 15.922,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳"
+  },
+  {
+   "key": "007021_019568_0001_518494",
+   "ref_chars": 4247,
+   "hyp_chars": 4003,
+   "cer": 0.18,
+   "at_cap": false,
+   "loop": true,
+   "hyp_tail": "urgˀe ze Selming₎, und ander erber lùte vil, die dis alles sehent und horent. ✳"
+  },
+  {
+   "key": "007066_020211_0002_551058",
+   "ref_chars": 241,
+   "hyp_chars": 249,
+   "cer": 0.573,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007055_023792_0001_647474",
+   "ref_chars": 2243,
+   "hyp_chars": 2238,
+   "cer": 0.192,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007154_023822_0002_1913639",
+   "ref_chars": 222,
+   "hyp_chars": 2141,
+   "cer": 9.198,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ �"
+  },
+  {
+   "key": "007131_024234_0001_656435",
+   "ref_chars": 2461,
+   "hyp_chars": 2541,
+   "cer": 0.143,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007218_024284_0002_656610",
+   "ref_chars": 188,
+   "hyp_chars": 2112,
+   "cer": 10.851,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳ ✳"
+  },
+  {
+   "key": "007641_027242_0002_769152",
+   "ref_chars": 176,
+   "hyp_chars": 151,
+   "cer": 0.386,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007884_027397_0001_772042",
+   "ref_chars": 4336,
+   "hyp_chars": 6477,
+   "cer": 1.065,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " irn nachkomē, ✳ so si darzuͦ hant, ✳ und irn nachkomē, ✳ so si darzuͦ hant, ✳"
+  },
+  {
+   "key": "008205_028484_0001_846062",
+   "ref_chars": 3550,
+   "hyp_chars": 5216,
+   "cer": 0.822,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007967_036171_0001_1210969",
+   "ref_chars": 5369,
+   "hyp_chars": 8247,
+   "cer": 0.957,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " schenkte doch im sin nachgemeltes wirtes ein zinsz ist, sechs mite an ein fiert"
+  },
+  {
+   "key": "008159_036203_0001_1211042",
+   "ref_chars": 895,
+   "hyp_chars": 7319,
+   "cer": 7.28,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": "und hant ouch die jetzgen̄t unser gnaͤdigˀ frowen von Kùngs¬ felden, ✳ disen ko"
+  },
+  {
+   "key": "008291_036276_0001_1211387",
+   "ref_chars": 5514,
+   "hyp_chars": 8645,
+   "cer": 0.987,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " woͤrde er im darinne ussen, was sy vor mit stetten, nit tuͦn, dann er hette das"
+  },
+  {
+   "key": "007327_036547_0001_1214496",
+   "ref_chars": 2288,
+   "hyp_chars": 2264,
+   "cer": 0.086,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007325_036924_0001_1234636",
+   "ref_chars": 1526,
+   "hyp_chars": 1459,
+   "cer": 0.17,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007544_036964_0001_1234799",
+   "ref_chars": 960,
+   "hyp_chars": 957,
+   "cer": 0.152,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "007638_036979_0001_1234856",
+   "ref_chars": 1251,
+   "hyp_chars": 1256,
+   "cer": 0.185,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "013867_082673_0007_3461215",
+   "ref_chars": 1353,
+   "hyp_chars": 1353,
+   "cer": 0.0,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "000398_083605_0384_3473720",
+   "ref_chars": 981,
+   "hyp_chars": 978,
+   "cer": 0.045,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "002419_083611_0256_3475467",
+   "ref_chars": 566,
+   "hyp_chars": 825,
+   "cer": 0.585,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "002650_083611_0297_3475647",
+   "ref_chars": 1143,
+   "hyp_chars": 1140,
+   "cer": 0.059,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "013771_088596_0002_3615067",
+   "ref_chars": 939,
+   "hyp_chars": 936,
+   "cer": 0.014,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "006241_114252_0001_4179080",
+   "ref_chars": 693,
+   "hyp_chars": 721,
+   "cer": 0.1,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "015966_1345944_0005_52601997",
+   "ref_chars": 1988,
+   "hyp_chars": 2323,
+   "cer": 0.22,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "010625_1472544_0001_56372578",
+   "ref_chars": 1890,
+   "hyp_chars": 1266,
+   "cer": 0.375,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "011629_1503666_0006_57465490",
+   "ref_chars": 1273,
+   "hyp_chars": 3746,
+   "cer": 2.281,
+   "at_cap": true,
+   "loop": true,
+   "hyp_tail": " \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+  },
+  {
+   "key": "010850_1512359_0001_57983194",
+   "ref_chars": 1442,
+   "hyp_chars": 1471,
+   "cer": 0.186,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "011142_1548493_0001_59180920",
+   "ref_chars": 1463,
+   "hyp_chars": 1441,
+   "cer": 0.169,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "011307_1627433_0002_60942550",
+   "ref_chars": 528,
+   "hyp_chars": 506,
+   "cer": 0.131,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "011470_1672812_0001_61735533",
+   "ref_chars": 1392,
+   "hyp_chars": 1369,
+   "cer": 0.112,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "011722_1968898_0002_68719719",
+   "ref_chars": 606,
+   "hyp_chars": 600,
+   "cer": 0.081,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  },
+  {
+   "key": "013580_202266_0002_8452449",
+   "ref_chars": 1259,
+   "hyp_chars": 1259,
+   "cer": 0.002,
+   "at_cap": false,
+   "loop": false,
+   "hyp_tail": null
+  }
+ ]
+}

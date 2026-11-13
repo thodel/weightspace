@@ -1,0 +1,14 @@
+{
+  "name": "20261107-planted-k3-swap-rows-e-n-b-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k3-swap-rows-e-n.mlmodel",
+  "subject_digest": "e04ecfb521c6e879805ac6017fbecdaa4545f1e7e315de4804ea722f62b5ba9c",
+  "subject_file_sha256": "c0bc09e5c852501c31d1fd20b48a9a2495071d13fa61edaf919573fb89b580e3",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "created": "2026-11-07T10:39:30.630921+00:00",
+  "unshare": true,
+  "deviations": []
+}

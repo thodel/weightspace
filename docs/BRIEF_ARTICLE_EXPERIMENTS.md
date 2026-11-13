@@ -47,7 +47,7 @@ programmer at budget 0 for sessions 1 and 2.
 
 ## 8. Checks that the manuscript flags
 - The value 9.55 % appears for two different sets and procedures (docs/PHASE4_REPORT.md section 4 and
-  docs/PHASE5_REPORT.md section 2). Re-run and confirm.
+  docs/PHASE5_CLEANUP_REPORT.md section 2). Re-run and confirm.
 - The sandbox command line in `runs/*/summary.json` sets a GPU variable although the reports say CPU. Confirm.
 - docs/READINGS.md states that the conv stack moves less than the recurrent stack; its own tables and
   `docs/readings/diff_*.json` say the deeper convs move as much or more. Correct the text.

@@ -1,58 +1,60 @@
 # Article for JDMDH: status and open items
 
-State: 7 November 2026, evening. Draft 2: `manuscript.md` (about 11,400 words including appendices and 18 `[TODO]`; build with `./build.sh`). Draft 1 is `manuscript_v1_draft.md`.
-Working title: *What can be read from, and edited in, the weights of text recognition models? A pre-specified negative result with kraken, and what it showed about our data*.
+State: 11 November 2026.
 
-**Draft 2 follows an internal review (`review/internal_review_2026-11-07.md`, recommendation: major revision as it stood) and a fact-check (`review/factcheck_2026-11-07.md`, 12 wrong / 17 overstated / 5 unsupported claims, all corrected or bounded in draft 2).** Main changes: part 9 retitled and scoped (no claim about LLM internals); the programmer is described as a single-shot code generator; "held jointly" and "interactions dominate" withdrawn; observation about conv versus recurrent withdrawn; six in-house models plus the public parent; data-quality material moved to appendices; protocol changes tabulated.
+- **Draft:** draft 3 of `manuscript.md`, about 19,100 words, 6 `[TODO]`; build with `./build.sh`. Draft 1 is `manuscript_v1_draft.md`.
+- **Fact-check:** a second-instance fact-check of draft 3 (`factcheck_draft3.md`, 10 November) found five main problems, all fixed in `24d2102`:
+  - page intervals in Table 10;
+  - the RQ2 sentence on retraining;
+  - `latin_incunabula` v3, missing from 7.10, the abstract, RQ2 and the conclusion;
+  - the step wording in 7.8;
+  - the Fable numbers, now on `main`.
+- **Folded in on 11 Nov:** R13 (7.10) and the phase-5 adapter session with the Opus programmer (9.3); see the update at the end of this file.
+- **Not yet in the text:** the Fable 5.1 replicate of that session and its three shams (#25, merged; `docs/PHASE5_FABLE_REPORT.md`).
+Title: *What can be read from, and edited in, the weights of text recognition models? Readings and edits on a family of kraken models, and what they showed about our data*.
+
+Draft 3 adds the experiments the internal review (`review/internal_review_2026-11-07.md`) and the fact-check (`review/factcheck_2026-11-07.md`) asked for: seed null (6.3), the 43-model comparison (6.4), planted defects with diffuse and unrelated-donor cases (7.6), practice sets that are not training data with six programmers (7.7), sham and averaging controls (7.8), global interpolation (7.9), block exchange and the `latin_incunabula` candidate (7.10), margins at deleted frames (8.2). Source reports: `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/MODEL_FAMILY.md`, `docs/CONTROLS_REPORT.md`, `docs/RESULTS.md` R4-R8.
 
 ## How the nine-part narrative maps to the draft
 
-| # | Narrative part | Section | Status | What it rests on | What is missing |
-|---|---|---|---|---|---|
-| 1 | Text recognition is established | 1 | drafted | Transkribus, eScriptorium, kraken, PyLaia, HTR-United, CATMuS, JDMDH special issue | check the claims about each platform with the authors |
-| 2 | Variety of models, many with kraken, even in the standard setup | 2 | drafted | kraken 5 paper (48 models, 18 writing systems), gateway lists 42 third-party models, all seven in-house models share one architecture | a count of how many public models use the default architecture: needs the zoo survey (6.5) |
-| 3 | LLM can deal with weights ("white-boxing") | 3 | drafted | the weight-space programming post (claims checked against the post) | none; wording of "white box" to be agreed |
-| 4 | Research questions: from comparison to adaptation | 4 | drafted | the plan and protocol | none |
-| 5 | Existing research on explainability of text recognition networks | 5 | drafted | `docs/RELATED_WORK.md`, 75 references in Zotero | rerun of the incomplete OpenAlex queries; read the 14 papers that were abstract-only |
-| 6 | Comparison of models (kraken model zoo), with intermediate results | 6 | **partly** | five lineage pairs of the in-house models, baselines, drift figures | **the zoo-wide survey is not done** (brief written: `docs/BRIEF_ZOO_SURVEY.md`) |
-| 7 | Adaptability of weights, with intermediate results | 7 | drafted | alpha sweep, two sessions, rewrite, collapse analysis | controls C2 (average), C4 (retrain), C5 (sham), C6 (blind) not run |
-| 8 | Both parts combined | 8 | drafted | predicted-against-measured tables | strengthened once C2/C4 exist |
-| 9 | What we learned about the inner workings of LLMs | 9 | **scoped down** | see below | the adapter track (QLoRA on Qwen-class models) has not been run |
+| # | Narrative part | Section | Status |
+|---|---|---|---|
+| 1 | Text recognition is established | 1 | drafted; check claims about each platform with the authors |
+| 2 | Variety of models, many with kraken, even in the standard setup | 2 | drafted; 21 of 30 downloaded public models use the standard stack (zoo survey) |
+| 3 | LLM can deal with weights ("white-boxing") | 3 | drafted; wording of "white box" to be agreed |
+| 4 | Research questions: from comparison to adaptation | 4 | drafted |
+| 5 | Existing research on explainability of text recognition | 5 | drafted; OpenAlex queries Q4-Q10 incomplete (quota), logged in `docs/SEARCH_LOG.md` |
+| 6 | Comparison of models, with intermediate results | 6 | drafted; 43 models, seed null |
+| 7 | Adaptability of weights, with intermediate results | 7 | drafted; all controls run, C4 in 7.11, v3 in 7.10 |
+| 8 | Both parts combined | 8 | drafted; margins measured |
+| 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 reports the first adapter track and the phase-5 session; the Fable replicate is not yet in it |
 
-## Two interpretations I made that you should confirm
+## Two interpretations to confirm
 
-1. **Part 3, "white-boxing LLMs".** I read it as using a language model to open up neural
-   networks (white box) instead of evaluating them from outside (black box). If you meant
-   opening up the LLMs themselves, part 3 and part 9 change.
-2. **Part 9.** The experiments so far study text recognition networks. The only language
-   model is the programmer. The draft says so (Section 9.3) and does not claim anything about
-   LLM internals. Part 9 can only support such claims if the adapter track is run, or if you
-   want it read as "what we learned about how an LLM works as a reader of weights"
-   (Section 9.2, already drafted).
+1. **Part 3, "white-boxing LLMs"**: read as using a language model to open up neural networks instead of evaluating them from outside. If opening up the LLMs themselves was meant, parts 3 and 9 change.
+2. **Part 9**: the experiments study text recognition networks; the only language model is the programmer. Section 9.3 says so. Part 9 supports claims about LLM internals only if the adapter track is run.
 
-## Honest summary of the results the article would report
+## Summary of the results the article reports
 
-- Reading weights: informative about how fine-tuning moved a model, no repairable defect found.
-- Editing weights: 15 proposed edits in two preregistered sessions, 3 kept, no held-out gain
-  (differences -0.010 and +0.15 points, intervals contain 0).
-- One edit that works: the lossless removal of 11,054,080 gradient-free weights.
-- Data findings: a dataset export that paired 44 of 50 training pages with the wrong images
-  (repaired), and a handwriting held-out set that was half a printed book (replaced).
-- A mostly negative result for weight editing as an improvement method, a positive result
-  for the protocol. Framing options are in the reviewer notes if they have been added.
+- Readings: traces of fine-tuning; two survive a seed null (blank bias relative to other biases, rare rows); lineage recoverable in the zoo for fine-tunes that did not move far; front end generic, recurrent stack individual.
+- Edits: 15 proposed edits in two sessions on training lines, no held-out gain; repeated on unseen practice lines one small gain (-0.19 to -0.39 points), an interpolation toward a sibling, not matched by 20 shams, page-clustered intervals include 0.
+- C4 retrain on corrected data (branch `claude/c4-retrain`, merged): -0.55 (1e-5) and -0.99 points (5e-5) held-out, Hertwig lines only; at least as good as the best edit (Section 7.11).
+- Positive control: repairs of localised defects by programmer, blind programmer and rule list alike; diffuse damage only by the programmer who measures; unrelated donor: no rebuilding.
+- Two candidates from systematic block exchange (`latin_incunabula` v1, v2): both read held-out Fraktur better (-0.2 to -2.0 points) but cost abbreviation signs or the own collection; neither qualifies under the pre-registered rule (RESULTS R9). v3 below.
+- Fable 5.1 on the validation sessions (7.7): `xix-blb-v1` 0 of 9 edits kept; `combined-v1` half-way toward the sibling, practice 13.86 → 11.60, held-out −0.02.
+- `latin_incunabula` v3 (RESULTS R12, now in 7.10): output layer moved half-way without the abbreviation rows. NewsEye −1.66 [−2.02, −1.30], MUFI share +0.014. It qualifies under a rule with minimum effects, which was set after R9's numbers. Serving path not worse. Registered and disabled.
+- Exchange on out-of-domain material (R13): first-convolution exchange −0.35 to −1.07 points held-out, below the preregistered minimum. No exchange across lineages.
+- Phase-5 adapter session (`docs/PHASE5_REPORT.md`, in 9.3): one attention direction, practice −10.45 points, 733 held-out pages +0.24 [−3.5, +3.9]. A Fable 5.1 replicate (`docs/PHASE5_FABLE_REPORT.md`, not yet in 9.3) kept the same edit with byte-identical readings, and one of three random shams passes the keep rule.
+- Data findings: a dataset export that paired 44 of 50 pages with wrong images (repaired); a held-out set that was half a printed book (replaced); 39 of 59 validation pages of the Reichenau incunable dataset are byte-identical to train pages.
 
 ## Decisions needed from you
 
-1. Authors and corresponding author; whether the programmers (two Claude sessions) are
-   described as a tool (the draft does) and what the journal's policy on AI assistance requires.
-2. Data and code availability: the repository is private, the datasets are private. Which may be
-   published, under what licence, and where (Zenodo / HAL / GitHub).
-3. Whether to run the zoo survey (cheap, read-only, no forward pass) before submission. I recommend it:
-   it is the only way to deliver part 6 as you described it.
-4. Whether to run the missing controls C2 (average of siblings) and C4 (retrain on corrected data;
-   needs an OK for a GPU job) and the adapter track. Without C2 and C4 a reviewer cannot tell
-   whether the negative result is specific to weight editing.
-5. Spelling out BLB, the holding institutions and the archival signatures (Section 2.2).
+1. Authors and corresponding author; wording on AI assistance (Section Declarations).
+2. Data and code availability: repository and datasets are private; what is published, under which licence, where (Zenodo / HAL / GitHub).
+3. C4, the adapter track and the phase-5 adapter sessions are done. Open: whether to add the control on uncorrected pairs, and whether 9.3 adds the Fable replicate.
+4. Spell out BLB, holding institutions, archival signatures (Section 2.2).
+5. Length: the main text (about 19,100 words) is more than twice the 7,000 words an editor would expect; cut or split (data findings paper, harness report).
+6. The playbook epic (`docs/epics/EPIC_LLM_PLAYBOOK.md`) is a candidate follow-up paper, not part of this one.
 
 ## How to submit (from the journal's pages, read on 7 November 2026)
 
@@ -73,18 +75,12 @@ Working title: *What can be read from, and edited in, the weights of text recogn
 No TeX and no SVG converter are installed on this server, so figures stay as SVG links in the Word
 build; convert them (`rsvg-convert`) on a machine that has the tools, or let `build.sh` do it there.
 
-## What a JDMDH reviewer will still ask for (from the internal review)
+## Open TODO markers (11)
+Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer to answer); "many public models use the default setup" (now supported by the survey, wording to adjust); data and code availability (three places); AI statement confirmation; competing interests; funding; acknowledgements. Resolved in draft 3: the 9.55 % duplicate (two different line sets, 9.554 % and 9.551 %, coincidence), zoo survey, blank bias relative form, positive control, validation-based practice.
 
-1. A positive control (planted defects) and a validation-based practice set: both cheap, briefed in
-   `docs/BRIEF_ARTICLE_EXPERIMENTS.md`. Without them the negative result cannot be interpreted.
-2. The zoo survey (part 6 as you described it). Briefed in `docs/BRIEF_ZOO_SURVEY.md`.
-3. Open data and code: a tagged public release (Zenodo), prompts, line lists with hashes, ideally the model files.
-4. Length: cut to about 7,000 words in the main text; the appendices already take the forensic detail.
-5. Humanities payoff: the article now says plainly that the data defects were found by ordinary QA, not by weight
-   reading. Decide whether to lead with the data findings or with the zoo survey.
+## Update 11 Nov 2026 (CET)
 
-## Open TODO markers in the draft (18)
-Authors; BLB and archival signatures; the 5,441 versus 5,243 line count; the claim about "many public models use the default
-setup"; CPU confirmation; the blank bias relative to other biases; the zoo survey; the adapter track; the 9.55 % duplicate;
-data and code availability (three places); the AI statement; competing interests; funding; acknowledgements; the pointer
-to this file.
+- Second-instance fact-check done (`paper/factcheck_draft3.md`); the three high and most medium findings are fixed in the manuscript (7.7 page intervals, RQ2 retraining sentence, latin v3 in 7.10/abstract/RQ2/conclusion, 7.8 step wording, table cross-references, k11 row, donor-rule wording, Appendix B rows, 43-vs-30 wording).
+- Folded in: R13 (out-of-domain exchange, 7.10) and the phase-5 adapter session (9.3, abstract, conclusion).
+- Still open from the fact-check: "0 of 28 edits" vs 27 in run logs; the low items 14-18 (page count 58 done; "three earlier statements" count, "six" vs "seven" attempts, 3-5 minutes, sd vs range, 9.3 "late layers"); the fact-check did not cover sections 1-6, 7.1-7.5, 8.1, 8.3, 10 and the appendices apart from B.
+- Length is now about 19,100 words (target about 7,000).

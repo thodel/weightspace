@@ -1,0 +1,80 @@
+{
+ "source": "rats-richtebuecher",
+ "dir": "/mnt/wbkolleg_dh_1/Textrecognition_Training/hf_hub/datasets/dh-unibe___image-text_rats-und-richtebuecher_xv-xvi",
+ "keep_projects": "^Rats-undRichteb",
+ "drop_projects": null,
+ "document_unit": "project",
+ "note": "Rats- und Richtebücher XV-XVI; one microfilm volume per project; TRAINING_VALIDATION_SET_*, Test_* and escript_test* repeat pages of the volumes and are dropped",
+ "split": "random.Random(20261108).sample(sorted documents, max(1, round(0.25 * n))) -> held-out",
+ "documents": 33,
+ "pool": {
+  "parquet": "/home/tobias/atr-cache/wsp/ood/rats-richtebuecher/pool.parquet",
+  "sha256": "9d15b57357ee3718c2d4b2d8f245ff8b19347f45fae4f829b9f7c27c41e581f6",
+  "pages": 156,
+  "lines": 6025,
+  "documents": [
+   "Rats-undRichtebücher_MF_1_3544",
+   "Rats-undRichtebücher_MF_1_3546",
+   "Rats-undRichtebücher_MF_1_3547",
+   "Rats-undRichtebücher_MF_1_3556",
+   "Rats-undRichtebücher_MF_1_3561",
+   "Rats-undRichtebücher_MF_1_3565",
+   "Rats-undRichtebücher_MF_1_3572"
+  ],
+  "side_documents": [
+   "Rats-undRichtebücher_MF_1_3544",
+   "Rats-undRichtebücher_MF_1_3545",
+   "Rats-undRichtebücher_MF_1_3546",
+   "Rats-undRichtebücher_MF_1_3547",
+   "Rats-undRichtebücher_MF_1_3548",
+   "Rats-undRichtebücher_MF_1_3549",
+   "Rats-undRichtebücher_MF_1_3551",
+   "Rats-undRichtebücher_MF_1_3553",
+   "Rats-undRichtebücher_MF_1_3554",
+   "Rats-undRichtebücher_MF_1_3556",
+   "Rats-undRichtebücher_MF_1_3557",
+   "Rats-undRichtebücher_MF_1_3558",
+   "Rats-undRichtebücher_MF_1_3559",
+   "Rats-undRichtebücher_MF_1_3561",
+   "Rats-undRichtebücher_MF_1_3562",
+   "Rats-undRichtebücher_MF_1_3564",
+   "Rats-undRichtebücher_MF_1_3565",
+   "Rats-undRichtebücher_MF_1_3566",
+   "Rats-undRichtebücher_MF_1_3567",
+   "Rats-undRichtebücher_MF_1_3568",
+   "Rats-undRichtebücher_MF_1_3569",
+   "Rats-undRichtebücher_MF_1_3570",
+   "Rats-undRichtebücher_MF_1_3572",
+   "Rats-undRichtebücher_MF_1_3573",
+   "Rats-undRichtebücher_MF_1_3575"
+  ],
+  "side_pages": 3738,
+  "page_sample": "pages in random.Random(20261108).sample order until 6000 lines"
+ },
+ "heldout": {
+  "parquet": "/home/tobias/atr-cache/wsp/ood/rats-richtebuecher/heldout.parquet",
+  "sha256": "bb9d7d9195b30d06b557a3abef019a4efb60b117291f832901b4b1268d4464cc",
+  "pages": 77,
+  "lines": 2024,
+  "documents": [
+   "Rats-undRichtebücher_MF_1_3543",
+   "Rats-undRichtebücher_MF_1_3552",
+   "Rats-undRichtebücher_MF_1_3555",
+   "Rats-undRichtebücher_MF_1_3560",
+   "Rats-undRichtebücher_MF_1_3571",
+   "Rats-undRichtebücher_MF_1_3574"
+  ],
+  "side_documents": [
+   "Rats-undRichtebücher_MF_1_3543",
+   "Rats-undRichtebücher_MF_1_3550",
+   "Rats-undRichtebücher_MF_1_3552",
+   "Rats-undRichtebücher_MF_1_3555",
+   "Rats-undRichtebücher_MF_1_3560",
+   "Rats-undRichtebücher_MF_1_3563",
+   "Rats-undRichtebücher_MF_1_3571",
+   "Rats-undRichtebücher_MF_1_3574"
+  ],
+  "side_pages": 161,
+  "page_sample": "pages in random.Random(20261108).sample order until 2000 lines"
+ }
+}

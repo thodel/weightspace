@@ -1,0 +1,417 @@
+{
+ "xix-blb-v1": {
+  "a1": {
+   "run": "20261107-val-xix-blb-v1-a1-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 0,
+   "refused_by_rule": 7,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.14715447154471545,
+   "practice_vs_baseline_ci": [
+    0.004657464645609288,
+    0.013815901000169523
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "a2": {
+   "run": "20261107-val-xix-blb-v1-a2-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 0,
+   "refused_by_rule": 7,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13715447154471544,
+   "practice_vs_baseline_ci": [
+    -0.0023720772619451047,
+    0.0
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "a3": {
+   "run": "20261107-val-xix-blb-v1-a3-b10-1",
+   "passes": 6,
+   "edits": 5,
+   "kept": 0,
+   "refused_by_rule": 5,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.138130081300813,
+   "practice_vs_baseline_ci": [
+    -0.0031290544150194555,
+    0.002586134979561172
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "o1": {
+   "run": "20261107-val-xix-blb-v1-o1-b10-1",
+   "passes": 5,
+   "edits": 4,
+   "kept": 0,
+   "refused_by_rule": 4,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13715447154471544,
+   "practice_vs_baseline_ci": [
+    -0.0023720772619451047,
+    0.0
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "h1": {
+   "run": "20261107-val-xix-blb-v1-h1-b10-1",
+   "passes": 5,
+   "edits": 4,
+   "kept": 0,
+   "refused_by_rule": 4,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13845528455284553,
+   "practice_vs_baseline_ci": [
+    -0.0002382465057179095,
+    0.0005733005733005725
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "f1": {
+   "run": "20261109-val-xix-blb-v1-f1-b10-1",
+   "passes": 10,
+   "edits": 9,
+   "kept": 0,
+   "refused_by_rule": 9,
+   "reverted_by_programmer": 0,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.1380487804878049,
+   "practice_vs_baseline_ci": [
+    -0.0009659502535619424,
+    0.00041524790299810044
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  },
+  "replay": {
+   "run": "20261107-val-xix-blb-v1-replay-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 0,
+   "refused_by_rule": 2,
+   "reverted_by_programmer": 6,
+   "kept_edits": [],
+   "practice_c0": 0.13829268292682928,
+   "practice_last_pass": 0.13861788617886178,
+   "practice_vs_baseline_ci": [
+    -0.0011311303223721647,
+    0.00182724252491695
+   ],
+   "heldout_before": 0.08407320363842102,
+   "heldout_after": 0.08407320363842102,
+   "delta_pts": 0.0,
+   "ci95_pts": [
+    0.0,
+    0.0
+   ],
+   "ci95_pages_pts": [
+    0.0,
+    0.0
+   ],
+   "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+   "unchanged": true
+  }
+ },
+ "bern-combined-v1": {
+  "a1": {
+   "run": "20261107-val-bern-combined-v1-a1-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 2,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "blank bias too high: model under-emits",
+    "sibling schlussredaktion shares ancestor; interpolate hidden tensors alpha .25"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12375525240315433,
+   "practice_vs_baseline_ci": [
+    -0.021131522596641486,
+    -0.010125278874206264
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "ci95_pages_pts": [
+    -0.8383735553027127,
+    0.03530450132391838
+   ],
+   "final_digest": "c4cfb0500539c07330b0431c344a6be418c6f2669bf105094b403b663141106e",
+   "unchanged": false
+  },
+  "a2": {
+   "run": "20261107-val-bern-combined-v1-a2-b10-1",
+   "passes": 8,
+   "edits": 7,
+   "kept": 2,
+   "refused_by_rule": 5,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "blank bias too high: deletions dominate",
+    "sibling shares parent; averaging toward it improves unseen lines"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12352501007310195,
+   "practice_vs_baseline_ci": [
+    -0.021382916908773975,
+    -0.010472718856679997
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "ci95_pages_pts": [
+    -0.8383735553027127,
+    0.03530450132391838
+   ],
+   "final_digest": "c4cfb0500539c07330b0431c344a6be418c6f2669bf105094b403b663141106e",
+   "unchanged": false
+  },
+  "a3": {
+   "run": "20261107-val-bern-combined-v1-a3-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 2,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "Blank is over-predicted (deletions dominate, length ratio 0.949); lowering its bias restor",
+    "Fine-tuned siblings of one parent are linearly connected; SR is better on all lines (0.118"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12352501007310195,
+   "practice_vs_baseline_ci": [
+    -0.02137092190519496,
+    -0.010598157807124628
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.18942278634028406,
+   "delta_pts": -0.3868238138410418,
+   "ci95_pts": [
+    -0.6931166347992346,
+    -0.08195761620418962
+   ],
+   "ci95_pages_pts": [
+    -0.8383735553027127,
+    0.03530450132391838
+   ],
+   "final_digest": "c4cfb0500539c07330b0431c344a6be418c6f2669bf105094b403b663141106e",
+   "unchanged": false
+  },
+  "o1": {
+   "run": "20261107-val-bern-combined-v1-o1-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 3,
+   "refused_by_rule": 4,
+   "reverted_by_programmer": 1,
+   "kept_edits": [
+    "The -0.5 step overshot or was too noisy; try blank -0.25.",
+    "Subject and sibling are fine-tunes of hertwig-v2 in one basin; a 0.25 soup averages out no",
+    "The 0.25 soup helped; go a further 0.2 of the remaining way toward the sibling."
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.12922350774189834,
+   "practice_vs_baseline_ci": [
+    -0.016393442622950824,
+    -0.004724143748945503
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.19135690540948927,
+   "delta_pts": -0.1934119069205209,
+   "ci95_pts": [
+    -0.5617313150425712,
+    0.18775816748028418
+   ],
+   "ci95_pages_pts": [
+    -0.7880169325952452,
+    0.36935474844702887
+   ],
+   "final_digest": "3beb50fb846f64d68c123723ea2e844de3e6b24d36848075d2ca696e9048a227",
+   "unchanged": false
+  },
+  "h1": {
+   "run": "20261107-val-bern-combined-v1-h1-b10-1",
+   "passes": 7,
+   "edits": 6,
+   "kept": 1,
+   "refused_by_rule": 5,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "Move the convolutional and recurrent weights a quarter of the way toward the sibling."
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.1251367063834686,
+   "practice_vs_baseline_ci": [
+    -0.0196947592862754,
+    -0.008809564670213363
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.19014808099123603,
+   "delta_pts": -0.3142943487458444,
+   "ci95_pts": [
+    -0.6073361395069143,
+    -0.02388059701492473
+   ],
+   "ci95_pages_pts": [
+    -0.7705239562902783,
+    0.08639557654648022
+   ],
+   "final_digest": "ffc6260e0985a90c80df756ed2ca99be7369b01e4b6ad36b807bf1d56b5db6be",
+   "unchanged": false
+  },
+  "f1": {
+   "run": "20261109-val-bern-combined-v1-f1-b10-1",
+   "passes": 6,
+   "edits": 5,
+   "kept": 1,
+   "refused_by_rule": 4,
+   "reverted_by_programmer": 0,
+   "kept_edits": [
+    "H1: the two fine-tunes of hertwig-v2 share a basin; the half-way point reads both hands be"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.11604213434639958,
+   "practice_vs_baseline_ci": [
+    -0.028983820277034084,
+    -0.017333717247336594
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.1931097008159565,
+   "delta_pts": -0.01813236627379866,
+   "ci95_pts": [
+    -0.42595840641443117,
+    0.38233045114993425
+   ],
+   "ci95_pages_pts": [
+    -0.6233008421192232,
+    0.6028090903610839
+   ],
+   "final_digest": "5bf2f6328850d93e26c5764cce01b3af8e985a807d5380975b90409d037bcf41",
+   "unchanged": false
+  },
+  "replay": {
+   "run": "20261107-val-bern-combined-v1-replay-b10-1",
+   "passes": 9,
+   "edits": 8,
+   "kept": 1,
+   "refused_by_rule": 6,
+   "reverted_by_programmer": 1,
+   "kept_edits": [
+    "the label noise damaged the first BiLSTM; the clean sibling's first BiLSTM (same parent, c"
+   ],
+   "practice_c0": 0.13860588269153284,
+   "practice_last_pass": 0.121740632015196,
+   "practice_vs_baseline_ci": [
+    -0.02395277557043933,
+    -0.011704665224385638
+   ],
+   "heldout_before": 0.19329102447869448,
+   "heldout_after": 0.19008763977032336,
+   "delta_pts": -0.32033847083711153,
+   "ci95_pts": [
+    -0.6965419466189976,
+    0.07077558242406523
+   ],
+   "ci95_pages_pts": [
+    -0.8397816567692395,
+    0.18947497096754584
+   ],
+   "final_digest": "53f34da037b6cc04a22d14a5d6241ef893ce62b8ce9ac99d1556ae409eea1925",
+   "unchanged": false
+  }
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "source": "/home/tobias/Repo/weightspace/runs/20261106-bern-combined-v1-b10-1",
+ "replay": "/home/tobias/atr-cache/wsp/replay/20261106-bern-combined-v1-b10-1",
+ "error": null,
+ "passes": {
+  "original": 9,
+  "replay": 9,
+  "digests_equal": true
+ },
+ "decisions": {
+  "original": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false
+  ],
+  "replay": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false
+  ],
+  "equal": true
+ },
+ "final_digest": {
+  "original": "90765a261bfc22304b7516310591befefb2af5814f57b257e1e0b7d37819cef2",
+  "replay": "90765a261bfc22304b7516310591befefb2af5814f57b257e1e0b7d37819cef2",
+  "equal": true
+ },
+ "readings": {
+  "passes_compared": 9,
+  "lines_differing_per_pass": {
+   "pass_001": 0,
+   "pass_002": 0,
+   "pass_003": 0,
+   "pass_004": 0,
+   "pass_005": 0,
+   "pass_006": 0,
+   "pass_007": 0,
+   "pass_008": 0,
+   "pass_009": 0
+  },
+  "identical": true
+ },
+ "exact": true
+}

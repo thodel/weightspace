@@ -28,9 +28,10 @@ def test_noop_session_budget_2():
     s.edit("scale", [out_bias], hypothesis=h, factor=1.0)
     after = s.measure("after no-op")
     assert after.cer == base.cer and after.collapsed == base.collapsed
-    s.keep("no-op kept to exercise the path")
+    # PROTOCOL §3 since 06.11.2026: the paired interval of a no-op is [0, 0], so the harness refuses the keep
+    assert s.keep("no-op: the rule must refuse it") is False
     summary = s.freeze()
-    assert summary["used"] == 2 and summary["edits"] == 1 and summary["kept"] == 1
+    assert summary["used"] == 2 and summary["edits"] == 1 and summary["kept"] == 0
     assert summary["start_digest"] == summary["final_digest"]
     assert json.loads((run_dir / "diff.json").read_text()) == {}
     for key in ("budget", "used", "practice_id", "start_digest", "final_digest", "baseline", "last_pass",
@@ -38,8 +39,11 @@ def test_noop_session_budget_2():
         assert key in summary, key
     assert summary["changed_tensors"] == {}
     assert (run_dir / "final.mlmodel").exists() and (run_dir / "log.jsonl").exists()
-    kinds = [json.loads(l)["kind"] for l in (run_dir / "log.jsonl").read_text().splitlines()]
-    assert kinds == ["start", "pass", "hypothesis", "edit", "pass", "decision", "freeze"]
+    log = [json.loads(l) for l in (run_dir / "log.jsonl").read_text().splitlines()]
+    assert [e["kind"] for e in log] == ["start", "pass", "hypothesis", "edit", "pass", "decision", "freeze"]
+    decision = next(e for e in log if e["kind"] == "decision")
+    assert decision["kept"] is False and decision["rule"] == "refused" and decision["reason"] == "interval contains 0"
+    assert "blocks" in next(e for e in log if e["kind"] == "pass")["metrics"]
     # a second open sees the budget as spent and refuses a third pass
     s2 = open_session(run_dir)
     assert s2.budget_left == 0

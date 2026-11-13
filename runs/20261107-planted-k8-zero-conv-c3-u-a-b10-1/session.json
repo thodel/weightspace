@@ -1,0 +1,14 @@
+{
+  "name": "20261107-planted-k8-zero-conv-c3-u-a-b10-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k8-zero-conv-c3.mlmodel",
+  "subject_digest": "df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db",
+  "subject_file_sha256": "80df9c7b020b643618164105826e3d7ee088addaad390b2e24232a5e6aa4ebd4",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-07T13:40:06.228675+00:00",
+  "unshare": true,
+  "deviations": []
+}

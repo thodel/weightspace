@@ -1,6 +1,7 @@
 # weights and data never go into git (16 MB per model, images are archival)
 models/*
 data/*
+!data/family/
 !data/practice/
 data/practice/*
 !data/practice/*.jsonl
@@ -11,6 +12,9 @@ data/heldout/*
 !data/heldout/*.jsonl
 !data/heldout/*.json
 !data/heldout/README.md
+!data/ood/
+data/ood/*
+!data/ood/*.json
 runs/*/readings/
 *.mlmodel
 *.safetensors
@@ -22,5 +26,18 @@ __pycache__/
 
 # built protocol site
 protocol/site/
+
+# Track C exchange readings (12 MB, 270 files): reproducible with wsp.exchange; numbers in docs/family/exchange-*.json
+docs/family/readings/
+
+# per-line decision views carry manuscript crops: regenerate with wsp.layerview, not committed
+docs/viz/lines/
+docs/viz/img/
 paper/build/
 paper/figures/*.png
+runs/*/*.adapter/
+runs/*/passes/
+runs/*/.cache/
+runs/*planted-adapter-p3-alpha2-*/diff.json
+runs/*/*.wsp-work/
+runs/*/work.adapter/

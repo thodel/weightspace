@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import sys
@@ -35,6 +36,10 @@ from wsp.session import Session
 REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "runs"
 HELDOUT = REPO / "data" / "heldout"
+SCORES = Path.home() / "atr-cache" / "wsp" / "scores"
+KURRENT = Path("/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-kurrent-xvi-xix-v1")
+#: Adapter held-out sets: frozen trainer draws, scored by the trainer's own evaluate_qlora (PHASE5_PLAN §7.3).
+ADAPTER_HELDOUT = {"kurrent-test": KURRENT / "vlm-pages-test"}
 
 PREREGISTRATION = """# Pre-registration — {name}
 
@@ -55,12 +60,38 @@ Filled in **before the first pass** (PROTOCOL.md §2). Empty fields are a deviat
 """
 
 
-def _subject(path: str | Path, device: str = "cpu"):
+def _is_adapter(path: str | Path) -> bool:
+    return Path(path).is_dir() and (Path(path) / "adapter_config.json").is_file()
+
+
+def _ext(subject) -> str:
+    """What a saved state of this subject is called: a CoreML file or a peft directory."""
+    from wsp.lora_subject import LoraSubject
+    return ".adapter" if isinstance(subject, LoraSubject) else ".mlmodel"
+
+
+def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, run_dir: Path | None = None):
+    """A kraken file, or a peft directory (phase 5). An adapter gets its forward pass only
+    inside a session: the trainer's evaluate_qlora on the session's practice pages."""
     p = Path(path)
     if p.suffix == ".mlmodel":
         from wsp.kraken_subject import KrakenSubject
         return KrakenSubject(p, device=device)
-    raise ValueError(f"no subject for {p.suffix} yet (adapters are phase 5)")
+    if _is_adapter(p):
+        from wsp.lora_subject import LoraSubject, reference_runner
+        fwd = None
+        if meta and run_dir and meta.get("spool"):
+            from wsp.lora_subject import server_runner
+            fwd = server_runner(meta["spool"], run_dir / "passes")
+        elif meta and run_dir:
+            fwd = reference_runner(meta["practice"], meta["data_root"], run_dir / "passes")
+        return LoraSubject(p, forward=fwd, work_dir=(run_dir / "work.adapter") if run_dir else None)
+    raise ValueError(f"no subject for {p}")
+
+
+def _file_sha(path: Path) -> str:
+    """sha256 of a file, or of an adapter's weights file."""
+    return sha256_file(path / "adapter_model.safetensors" if path.is_dir() else path)
 
 
 def _unshare_works() -> bool:
@@ -71,14 +102,17 @@ def _unshare_works() -> bool:
 
 
 def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
-    venv_py = REPO / ".venv" / "bin" / "python"
+    venv_py = Path.home() / "Repo" / "weightspace" / ".venv" / "bin" / "python"
     env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={Path.home() / 'atr-cache' / 'tmp'}",
-           "CUDA_VISIBLE_DEVICES=0", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
-    cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", script]
+           "CUDA_VISIBLE_DEVICES=", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
+    # -I ignores PYTHONPATH; the shim puts this checkout's wsp first so a worktree runs its own harness
+    shim = f"import sys,runpy; sys.path.insert(0, {str(REPO)!r}); runpy.run_path({script!r}, run_name='__main__')"
+    cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", "-c", shlex.quote(shim)]
     return "cd " + str(run_dir) + " && " + " ".join(cmd)
 
 
-def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106) -> Path:
+def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106,
+        data_root: str | None = None, spool: str | None = None) -> Path:
     subj_path, prac_path = Path(subject), Path(practice)
     s = _subject(subj_path)
     items = load(prac_path)
@@ -90,10 +124,16 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
     run_dir = RUNS / f"{date}-{stem}-b{budget}-{n}"
     run_dir.mkdir(parents=True)
     meta = {"name": run_dir.name, "subject": str(subj_path.resolve()), "subject_digest": s.digest(),
-            "subject_file_sha256": sha256_file(subj_path), "practice": str(prac_path.resolve()),
+            "subject_file_sha256": _file_sha(subj_path), "practice": str(prac_path.resolve()),
             "practice_sha256": sha256_file(prac_path), "practice_lines": len(items), "budget": budget, "seed": seed,
             "created": datetime.now(timezone.utc).isoformat(), "unshare": _unshare_works(),
             "deviations": [] if _unshare_works() else ["unshare -Un not available: network cut by offline variables only"]}
+    if _is_adapter(subj_path):
+        if not data_root:
+            raise ValueError("an adapter session needs --data-root (where the practice pages' images resolve)")
+        meta.update({"unit": "page", "data_root": str(Path(data_root).resolve())})
+        if spool:  # passes through a running wsp.vllm_server (stage A3: planted-defect control)
+            meta.update({"engine": "vllm-server (batched, not run-to-run deterministic)", "spool": str(Path(spool).resolve())})
     (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
     (run_dir / "preregistration.md").write_text(PREREGISTRATION.format(
         name=run_dir.name, subject=subj_path, digest=meta["subject_digest"], file_sha=meta["subject_file_sha256"],
@@ -102,7 +142,7 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
     (run_dir / "program.py").write_text(
         '"""The programmer\'s script. Runs inside the sandbox; only the wsp API and numpy."""\n'
         "from wsp.run import open_session\n\ns = open_session('.')\nprint(s.subject.describe()['parameters'], 'parameters;', s.budget_left, 'passes left')\n")
-    (run_dir / "env.txt").write_text(subprocess.run([str(REPO / ".venv/bin/pip"), "freeze"], capture_output=True, text=True).stdout)
+    (run_dir / "env.txt").write_text(subprocess.run([str(Path.home() / "Repo" / "weightspace" / ".venv" / "bin" / "pip"), "freeze"], capture_output=True, text=True).stdout)
     print(run_dir)
     print("sandbox:", sandbox_command(run_dir))
     return run_dir
@@ -111,19 +151,47 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
 class RunSession(Session):
     """A Session that persists the edited weights next to its log."""
 
+    #: In a replay (``wsp.replay``) the decisions of the original log, in order; keep/revert then
+    #: follow the log instead of the current rule, so a session run under an earlier rule
+    #: re-executes exactly as it ran. ``None`` outside a replay.
+    _replay: list | None = None
+
+    def _replayed(self, call: str, reason: str) -> bool:
+        if not self._replay:
+            raise RuntimeError(f"replay: {call}() called but the original log has no decision left")
+        rec = self._replay.pop(0)
+        if call == "revert" and rec["kept"]:
+            raise RuntimeError("replay: the program reverts where the original log kept; it diverged")
+        if rec["kept"]:
+            self._kept_lines = self._last_lines
+            self._decide(True, reason, rule="replayed", original_rule=rec.get("rule"))
+        else:
+            if self._pre_edit_tensors:
+                for n, v in self._pre_edit_tensors.items():
+                    self.subject.set_tensor(n, v)
+            self._decide(False, rec.get("reason") or reason, rule="replayed", original_rule=rec.get("rule"),
+                         requested=reason)
+        return bool(rec["kept"])
+
     def keep(self, reason: str = "") -> bool:
         """The harness's keep rule decides (Session.keep); only a kept state is persisted.
         Until 06.11.2026 this wrapper returned None, so a programmer reading the return value
         saw every keep as refused (session 20261106-bern-combined-v1-b10-1, deviations)."""
-        kept = super().keep(reason)
+        kept = self._replayed("keep", reason) if self._replay is not None else super().keep(reason)
         if kept:
-            self.subject.save(self.run_dir / "current.mlmodel")
+            self.subject.save(self.run_dir / f"current{_ext(self.subject)}")
         return kept
+
+    def revert(self, reason: str = "") -> None:
+        if self._replay is not None:
+            self._replayed("revert", reason)
+        else:
+            super().revert(reason)
 
     def freeze(self) -> dict:
         summary = super().freeze()
-        final = self.subject.save(self.run_dir / "final.mlmodel")
-        summary["final_file_sha256"] = sha256_file(final)
+        final = self.subject.save(self.run_dir / f"final{_ext(self.subject)}")
+        summary["final_file_sha256"] = _file_sha(final)
         meta = json.loads((self.run_dir / "session.json").read_text())
         summary["deviations"] = meta.get("deviations", []) + summary.get("deviations", [])
         summary["subject"] = meta["subject"]; summary["name"] = meta["name"]
@@ -135,12 +203,16 @@ class RunSession(Session):
 def open_session(run_dir: str | Path = ".", device: str = "cpu") -> RunSession:
     run_dir = Path(run_dir).resolve()
     meta = json.loads((run_dir / "session.json").read_text())
-    s = _subject(meta["subject"], device=device)
+    s = _subject(meta["subject"], device=device, meta=meta, run_dir=run_dir)
     if s.digest() != meta["subject_digest"]:
         raise RuntimeError("subject digest differs from session.json; the artefact changed")
     items = load(meta["practice"])
-    sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"])
-    cur = run_dir / "current.mlmodel"
+    sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"],
+                      unit=meta.get("unit", "line"))
+    replay = run_dir / "replay.json"
+    if replay.exists():
+        sess._replay = json.loads(replay.read_text())["decisions"]
+    cur = run_dir / f"current{_ext(s)}"
     if cur.exists():
         edited = _subject(cur, device=device)
         for name, value in edited.tensors().items():
@@ -155,10 +227,72 @@ def freeze(run_dir: str) -> dict:
     return sess.freeze()
 
 
+def score_adapter_on_draw(adapter: Path | None, side: Path, out: Path, chunk: int = 32,
+                          rows: list[dict] | None = None, extra_args: list[str] = ()) -> dict:
+    """The trainer's evaluate_qlora over a frozen page draw, in chunks of ``chunk`` pages with
+    card 0 checked before each (#396), resumable (a chunk whose readings exist is skipped).
+    Returns the trainer's numbers summed over chunks and wsp.pages metrics on all readings."""
+    from wsp import pages, vlm_reference
+    from wsp.lora_subject import _wait_for_card
+    rows = rows if rows is not None else load(side / "pages.jsonl")
+    out.mkdir(parents=True, exist_ok=True)
+    for i in range(0, len(rows), chunk):
+        stem = out / f"chunk-{i // chunk:03d}"
+        if stem.with_suffix(".raw.jsonl").exists():
+            continue
+        _wait_for_card(24 * 3600)
+        draw = stem.with_suffix(".draw.jsonl")
+        draw.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows[i:i + chunk]), encoding="utf-8")
+        argv = ["--pages", str(draw), "--data-root", str(side), "--report", str(stem.with_suffix(".json"))]
+        argv += (["--adapter", str(adapter)] if adapter else []) + list(extra_args)
+        if vlm_reference.main(argv) != 0:
+            raise RuntimeError(f"evaluate_qlora failed on {stem.name}; nothing recorded")
+    raw = {}
+    trainer = {"chars": 0, "errors": 0, "truncated_at_cap": 0, "samples": 0}
+    for f in sorted(out.glob("chunk-*.json")):
+        if f.name.endswith(".draw.jsonl"):
+            continue
+        r = json.loads(f.read_text())
+        for k in trainer:
+            trainer[k] += r.get(k) or 0
+        raw.update(pages.read_reference(f.with_suffix(".raw.jsonl")))
+    trainer["cer"] = trainer["errors"] / trainer["chars"] if trainer["chars"] else None
+    keys = [Path(r["image"]).stem for r in rows]
+    own = pages.score([raw[k]["text"] for k in keys], [r["text"] for r in rows], [raw[k]["at_cap"] for k in keys])
+    return {"pages": len(rows), "set_sha256": sha256_file(side / "pages.jsonl"), "trainer": trainer,
+            "wsp": {k: v for k, v in own.items() if k != "per_page"}, "per_page": own["per_page"], "keys": keys}
+
+
+def heldout_adapter(run_dir: Path, set_name: str) -> dict:
+    """Score a frozen adapter once on a frozen trainer draw with the trainer's own scorer
+    (transformers, greedy, cap 3,072), and with ``wsp.pages`` on the same readings."""
+    summary_path = run_dir / "summary.json"
+    summary = json.loads(summary_path.read_text())
+    final = run_dir / "final.adapter"
+    if not final.is_dir():
+        raise RuntimeError("freeze the session first (no final.adapter)")
+    t = time.time()
+    res = score_adapter_on_draw(final, ADAPTER_HELDOUT[set_name], run_dir / "readings" / f"heldout_{set_name}")
+    result = {"set": set_name, **{k: v for k, v in res.items() if k != "keys"},
+              "final_sha256": _file_sha(final), "when": datetime.now(timezone.utc).isoformat(),
+              "wall_s": round(time.time() - t, 1)}
+    if summary.get("heldout") is None:
+        summary["heldout"] = result
+    else:
+        summary.setdefault("heldout_repeats", []).append(result)
+        summary.setdefault("deviations", []).append(f"second held-out evaluation on {set_name}: not a result")
+    summary_path.write_text(json.dumps(summary, indent=2))
+    print(f"held-out {set_name}: trainer CER {result['trainer']['cer']:.4f}, at cap {result['trainer']['truncated_at_cap']} "
+          f"of {result['pages']}; wsp CER {result['wsp']['cer']:.4f}, truncated {result['wsp']['truncated_cer']:.4f}")
+    return result
+
+
 def heldout(run_dir: str, set_name: str) -> dict:
     """Score the frozen artefact once on a held-out set, from outside the sandbox."""
     from wsp.metrics import score, per_line_edits
     run_dir = Path(run_dir).resolve()
+    if set_name in ADAPTER_HELDOUT:
+        return heldout_adapter(run_dir, set_name)
     summary_path = run_dir / "summary.json"
     summary = json.loads(summary_path.read_text())
     final = run_dir / "final.mlmodel"
@@ -170,13 +304,31 @@ def heldout(run_dir: str, set_name: str) -> dict:
     items = load(set_path)
     s = _subject(final)
     t = time.time()
-    hyps = [p.text for p in s.forward(items)]; refs = [x["text"] for x in items]
+    set_sha = sha256_file(set_path)
+    # a score is a function of (weights, list): reuse it when the same digest was scored on the same list
+    # (corrupted-model sessions that end unchanged; docs/CONTROLS_REPORT.md). Not a second evaluation.
+    cache = SCORES / f"heldout-{set_name}-{set_sha[:12]}-{s.digest()[:16]}.json"
+    cached = json.loads(cache.read_text()) if cache.exists() else None
+    if cached:
+        hyps = cached["hyps"]; refs = [x["text"] for x in items]
+        assert cached["keys"] == [x["key"] for x in items]
+    else:
+        hyps = [p.text for p in s.forward(items)]; refs = [x["text"] for x in items]
     m = score(hyps, refs)
-    result = {"set": set_name, "set_sha256": sha256_file(set_path), "lines": len(items), "metrics": m.as_dict(),
+    if not cached:
+        SCORES.mkdir(parents=True, exist_ok=True)
+        cache.write_text(json.dumps({"digest": s.digest(), "set": set_name, "set_sha256": set_sha, "keys": [x["key"] for x in items],
+                                     "hyps": hyps, "metrics": m.as_dict()}, ensure_ascii=False))
+    result = {"set": set_name, "set_sha256": set_sha, "scored_from_cache": bool(cached), "lines": len(items), "metrics": m.as_dict(),
               "per_line": per_line_edits(hyps, refs), "final_digest": s.digest(), "when": datetime.now(timezone.utc).isoformat(),
               "wall_s": round(time.time() - t, 1)}
-    if summary.get("heldout") is None:
-        summary["heldout"] = result
+    by_set = summary.setdefault("heldout_by_set", {})
+    if summary.get("heldout") is not None and summary["heldout"].get("set") not in by_set:
+        by_set[summary["heldout"]["set"]] = summary["heldout"]          # records written before 07.11.2026
+    if set_name not in by_set:
+        by_set[set_name] = result                                       # once per held-out set (PROTOCOL)
+        if summary.get("heldout") is None:
+            summary["heldout"] = result                                 # the first set stays the headline score
     else:
         summary.setdefault("heldout_repeats", []).append(result)
         summary.setdefault("deviations", []).append(f"second held-out evaluation on {set_name}: not a result")
@@ -257,12 +409,14 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     n = sub.add_parser("new"); n.add_argument("--subject", required=True); n.add_argument("--practice", required=True)
     n.add_argument("--budget", type=int, required=True); n.add_argument("--id"); n.add_argument("--seed", type=int, default=20261106)
+    n.add_argument("--data-root", help="adapters: where the practice pages' images resolve")
+    n.add_argument("--spool", help="adapters: pass through a running wsp.vllm_server (A3) instead of evaluate_qlora")
     f = sub.add_parser("freeze"); f.add_argument("run")
     h = sub.add_parser("heldout"); h.add_argument("run"); h.add_argument("--set", required=True)
     e = sub.add_parser("export"); e.add_argument("run"); e.add_argument("--as", dest="model_id", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "new":
-        new(a.subject, a.practice, a.budget, a.id, a.seed)
+        new(a.subject, a.practice, a.budget, a.id, a.seed, a.data_root, a.spool)
     elif a.cmd == "freeze":
         s = freeze(a.run); print(json.dumps({k: s[k] for k in ("name", "used", "edits", "kept", "final_digest")}, indent=1))
     elif a.cmd == "heldout":

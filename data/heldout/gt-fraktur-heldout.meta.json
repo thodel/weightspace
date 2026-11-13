@@ -1,0 +1,31 @@
+{
+  "set": "gt-fraktur-heldout",
+  "source": "parquet:/home/tobias/atr-cache/wsp/heldout/gt-fraktur-heldout/pages.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/heldout/gt-fraktur-heldout/pages.parquet",
+    "pages": 35,
+    "projects": [
+      "gt-fraktur"
+    ],
+    "sha256": "1b41d7dcfeb56729d4362961c6db1746a514c6a73db28af189344e85ded2eae4"
+  },
+  "n": 1311,
+  "seed": 20261106,
+  "candidates": 1311,
+  "sha256": "89474aa11a109c840f8aa566fa507ae81d9e582996ae7540aa9200ba2612c9cf",
+  "documents": [
+    "541181",
+    "542279",
+    "542280",
+    "543221",
+    "543222",
+    "543223",
+    "543224",
+    "543405",
+    "543407",
+    "zpk_1838_01_0033"
+  ],
+  "skipped": [],
+  "selection": "every candidate line in source order (no sampling)"
+}

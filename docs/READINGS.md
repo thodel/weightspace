@@ -201,3 +201,141 @@ What it says:
    L_16 extrapolates where the whole block does not. The honest reading is
    that extrapolating the fine-tune is not where a gain lies on this model;
    the collapsed lines (phase-1 report §5.3) are the better next question.
+
+## german-xix-v1 → german-xix-blb-v1: layer probes, output-bias curve and the per-character α overlay (07.11.2026)
+
+Three readings from the visualisation epic (thodel/weightspace#3). The method, the figures and the
+caveats are in [docs/viz/README.md](viz/README.md). All three use the practice set
+`blb-train-300` only, run on CPU, and spend no session budget; the held-out set was not touched.
+
+- `wsp.layerview` (`docs/viz/kraken-german-xix-blb-v1__blb-train-300.json`) — one-frame linear
+  probes per layer. An *identity* probe says which character, an *emission* probe says character
+  or blank. Reference characters are placed on the frames by a forced CTC alignment. The probes are
+  cross-fitted over 5 document folds.
+- `wsp.bias_sweep` (`docs/baselines/bias-xix-blb-v1.json`) — the space-row and blank biases over a
+  grid of δ. The text is re-decoded exactly from the captured logits; this equals real edited passes
+  on 300/300 lines and reproduces phase 1's CER at blank −1.0.
+- `wsp.alpha_overlay` (`docs/viz/alpha-overlay-kraken-german-xix-blb-v1__blb-train-300.json`) —
+  the C3 sweep again, adding α = 0. It keeps every reference character's fate: emitted, replaced
+  or deleted. Its CERs equal the committed sweep's (16 of 16).
+
+**What happens where.** The child, on these 300 lines: CER 6.46 %, 354 letters and 103 spaces
+deleted, 316 substitutions, 58 insertions, 12,867 reference characters.
+
+| | conv `C_0`–`C_9` | `L_12` | `L_14` | `L_16` | `O_18` |
+|---|---|---|---|---|---|
+| identity probe, correctly read letters | 0.10 → 0.36 | 0.59 | 0.82 | **0.94** | 0.92 |
+| emission probe, kept spaces | 0.12 → 0.64 | **0.86** | 0.96 | 0.98 | 0.98 |
+| block back to the parent (α = 0), ΔCER (points) | +0.27 to +0.80 each | +6.37 | +4.05 | +5.70 | +0.68 |
+| … what it adds | substitutions (+30 to +52) | **+366 letters deleted**, +86 inserted | **+342 substitutions** | **+362 spaces deleted** | +37 letters / +38 spaces deleted |
+
+1. **Letters are identified in the BiLSTMs.** From one frame of the conv stack a linear readout gets
+   about a third of the letters; each BiLSTM adds a large step, and the output layer adds nothing.
+2. **The fine-tune's work is divided by block:**
+   - `L_12` learnt to *find* the letters of the BLB hands: without its share, 366 more letters are
+     dropped;
+   - `L_14` learnt to *tell them apart*: +342 substitutions;
+   - `L_16` learnt the *word gaps*: +362 deleted spaces, 3.5 times the child's own count, with
+     almost no insertions.
+
+   The conv stack's share is shape detail (0.3–0.8 points, nearly all substitutions). This sharpens
+   item 2 of the α-sweep reading above, and it is the answer so far to "which part of the
+   recognition process happens where" on this model.
+3. **Every α = 1.5 point is an exchange, not a null.** Counted against the child:
+
+   | block at α = 1.5 | deleted | substituted | inserted | ΔCER (points) |
+   |---|---:|---:|---:|---:|
+   | `L_16` | +29 | −20 | −3 | +0.05 |
+   | `L_12` | −34 | +41 | +28 | +0.27 |
+   | `L_14` | +46 | −7 | +9 | +0.37 |
+
+   Extrapolating a block moves it further along its own specialisation, at the cost of the kind of
+   error it does not specialise in.
+4. **Not targets:**
+   - **Letter deletions.** 72 % of all deletions (259 of 361) are decodable at no layer: the
+     network never forms these characters. That points to the ink or the reference, as with the
+     phase-4 collapsed lines.
+   - **The output biases.** The space-row bias lowers CER at no δ and recovers at most 5 of 31
+     candidate spaces. The blank bias trades deleted spaces for inserted ones about one for one
+     (−30 / +13 at δ −1.0, ΔCER −0.02). That is phase 1's null, now with its whole curve.
+   - **Most "deleted spaces"** are attributed to the reference's spaced-out punctuation
+     (`konnte .`) or to a dropped neighbour: only 18 of 77 lie between two correctly read
+     characters.
+
+**Hypotheses for a preregistered session on `german-xix-blb-v1`** (budget 10, practice
+`blb-train-300`, held-out `blb-eval-hand`; keep rule of PROTOCOL §3 with `min_effect` 0). Item 3
+suggests that a block's two opposite effects may sit in different parts of the block. The edit
+class is *part-block extrapolation*: `parent + α(child − parent)` on a subset of a block's tensors,
+the rest of the network unchanged. Each part is one direction of the BiLSTM (forward or reverse),
+with its `weight_ih`, `weight_hh` and `bias_hh`.
+
+| id | edit | idea | predicted ΔCER on practice (points) | passes |
+|---|---|---|---|---:|
+| H-L16 | `L_16` forward, then reverse, at α = 1.5 | one direction carries the −20 substitutions, the other the +28 letter deletions | best part −0.15, range [−0.25, +0.10]; spaces deleted ±5 | 2 |
+| H-L12 | `L_12` forward, then reverse, at α = 1.5 | one direction carries the −34 deletions, the other the +41 substitutions and +28 insertions | best part −0.25, range [−0.35, +0.20] | 2 |
+| H-L16+L12 | the better part of each, together | the two gains add if they are independent | sum of the two kept parts, ±0.1 | 1 |
+| H-α | the kept part at α = 1.25 and 1.75 | the optimum is not at 1.5 | within ±0.1 of the α = 1.5 part | 2 |
+
+Expectation, stated in advance:
+- The keep rule needs the interval to exclude 0. On 300 lines the α-sweep intervals are about
+  ±0.23 points wide, so an effect of −0.15 is **expected to be refused**. Only H-L12's upper
+  estimate (−0.25 or better) can pass.
+- The likeliest session outcome is again *no kept edit*. Its value is diagnostic: it shows whether
+  the specialisations in item 3 split by direction.
+- If that is the only question, the same four part-block points can run as an extension of
+  control C3 (no budget, like the sweep) instead of as a session. The two must not both be run on
+  the same practice set: the control would hand the session its answers.
+- Collapsed lines must not rise: 9 under phase 5's detector (10 under the legacy test, which the committed bias and overlay JSON still use).
+- Held-out once, after freeze, on `blb-eval-hand` (child 9.55 %).
+
+> **Note (08.11.2026, after merging `main`).** Two later results bear on the session design above,
+> not on the readings. They should be settled in the preregistration before any pass.
+> (1) Line-level intervals are too narrow, because lines within a page are correlated. The
+> two-stage page-clustered bootstrap (`wsp.metrics.bootstrap_delta(..., clusters=)`,
+> docs/CONTROLS_REPORT.md §9) is the honest one. It widens the intervals, so the "expected to be
+> refused" above holds more strongly.
+> (2) The proposed amendment PROTOCOL §2 item 8 (not yet adopted) asks for practice lines the
+> subject was not trained on. `blb-train-300` holds the child's training lines. On the trainer's
+> validation pages, four attempts on this model kept nothing (docs/CONTROLS_REPORT.md §3).
+> If the amendment is adopted, the part-block hypotheses move to that practice set, and the
+> block-by-block readings here, which were taken on training lines, should be repeated there
+> before they are relied on. The output-bias null agrees with the controls report's margins: a
+> deleted character sits a median 3.2 nats below the blank.
+
+## The readings of 07.11 on lines the models were not trained on (12.11.2026)
+
+The probes and the α overlay were repeated on `blb-val-300` and `bern-val`, the practice sets of
+the controls. Their lines come from objects and pages the subjects were not trained on. Tables,
+commands and figures are in [docs/viz/README.md](viz/README.md) under "On lines the models were not
+trained on".
+
+**What holds:**
+- Letters become linearly identifiable over the three BiLSTMs, with the same levels within 0.03,
+  for both `xix-blb-v1` and `combined-v1`.
+- About two thirds of all deletions (66 % for both models) are decodable at no layer.
+- Deleted spaces keep a weaker emission signal than kept spaces.
+- In `xix-blb-v1` the fine-tune's `L_12` move makes the letters appear (+820 letters deleted
+  without it), and `L_16`'s move does most of the word separation (+264 spaces).
+
+**What does not hold:**
+- *`L_14` tells letters apart.* On unseen lines its share also prevents deletions (+294) rather than
+  substitutions (−18). On unseen material, removing a block's share turns misreadings into dropped
+  letters, so substitution counts are not a measure of identity.
+- *Every α = 1.5 point is an exchange.* On unseen lines the moves are plain losses. The exception is
+  `C_9`, at −0.07 points.
+
+**Corrected: the Bern block shares.** They were measured on `bern-train-300` and confounded by the
+parent `hertwig-v2`, which was trained on its Hertwig lines. On `bern-val` the same artefact shows
+directly:
+- on the 212 lines the parent trained on, every block set back to the parent "improves" CER (by up
+  to 5.5 points);
+- on the 301 lines it never saw, every block costs, with page-clustered intervals: `L_16` +2.45
+  [+1.72, +3.24], mostly letters; `L_14` +1.42; the output layer +0.48 [+0.15, +0.81].
+
+**The part-block hypotheses of 07.11 (H-L16, H-L12, H-L16+L12, H-α) are withdrawn.** They rested on
+the α = 1.5 exchanges, which do not replicate on unseen lines. A session built on them would test a
+training-line effect.
+
+**What remains for a session on these models** is what the controls report already found:
+interpolation toward a relative of the same lineage, judged on lines that relative never saw, with
+page-clustered intervals.

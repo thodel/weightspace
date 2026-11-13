@@ -33,6 +33,8 @@ class Session:
     min_effect: float = 0.0             # PROTOCOL §3 (06.11.2026): keep only if the 95 % interval of
                                         # CER(after) − CER(last kept) lies entirely below −min_effect
     rule_resamples: int = 2000          # resamples for that interval (PROTOCOL §5)
+    unit: str = "line"                  # "page" for VLM subjects: page edits, page metrics and the cap
+                                        # condition (docs/PHASE5_PLAN.md P5.5: at-cap count must not rise)
     _log: list[dict] = field(default_factory=list, init=False)
     _used: int = field(default=0, init=False)
     _closed: bool = field(default=False, init=False)
@@ -45,6 +47,9 @@ class Session:
     _kept_lines: list | None = field(default=None, init=False)      # per-line edits of the last kept state
     _vs_kept: dict | None = field(default=None, init=False)         # bootstrap of the last pass vs that state
     _measured_since_edit: bool = field(default=False, init=False)
+    _kept_at_cap: int | None = field(default=None, init=False)
+    _last_at_cap: int | None = field(default=None, init=False)
+    _baseline_dict: dict | None = field(default=None, init=False)   # baseline metrics of a reopened session
 
     def __post_init__(self):
         self.run_dir = Path(self.run_dir)
@@ -53,11 +58,27 @@ class Session:
         counter = self.run_dir / "budget.json"
         if counter.exists():
             self._used = json.loads(counter.read_text())["used"]
+        state = self.run_dir / "state.json"
+        if state.exists():                         # the reference states, across processes
+            st = json.loads(state.read_text())
+            self._baseline_lines = [tuple(x) for x in st["baseline_lines"]]
+            self._kept_lines = [tuple(x) for x in st["kept_lines"]]
+            self._kept_at_cap = st.get("kept_at_cap")
+            self._baseline_dict = st.get("baseline_metrics")
         self._event("start", budget=self.budget, used=self._used, digest=self.subject.digest(),
                     practice_lines=len(self.practice), practice_id=self.practice_id,
                     describe=self.subject.describe())
 
     # -- logging --------------------------------------------------------
+    def _save_state(self) -> None:
+        """Per-line edits of the baseline and of the last kept state, so a session reopened in a
+        new process compares against them. Until 07.11.2026 they lived in memory only, and a
+        reopened session took its next pass as both (session 20261107-kurrent-page-v2-b10-1)."""
+        (self.run_dir / "state.json").write_text(json.dumps(
+            {"baseline_lines": self._baseline_lines, "kept_lines": self._kept_lines,
+             "kept_at_cap": self._kept_at_cap,
+             "baseline_metrics": self._baseline.as_dict() if self._baseline else self._baseline_dict}))
+
     def _event(self, kind: str, **fields) -> dict:
         if self._closed:
             raise SessionClosed("session is frozen")
@@ -103,30 +124,59 @@ class Session:
         self._measured_since_edit = False
         return len(self._log) - 1
 
-    def measure(self, label: str = "") -> Metrics:
+    def unseen_by(self, *donors: str) -> list[bool]:
+        """Mask of the practice lines no named donor was trained on (PROTOCOL §2, donor rule). Items carry
+        ``seen_by``: a list of model ids that trained on that line; absent = unknown = treated as seen."""
+        return [all(d not in (it.get("seen_by") if it.get("seen_by") is not None else [d]) for d in donors)
+                for it in self.practice]
+
+    def measure(self, label: str = "", rule_mask: Sequence[bool] | None = None) -> Metrics:
+        """One counted pass over the whole practice set. ``rule_mask`` (donor rule, PROTOCOL §2): the keep
+        rule's paired interval is computed on the masked lines only; the metrics are still those of all lines."""
         if self._used >= self.budget:
             raise BudgetExhausted(f"budget of {self.budget} passes used")
+        # Counted once the forward has returned readings: a pass refused before it started
+        # (card 0 full, a trainer job waiting) or one that crashed gave the programmer
+        # nothing. Until 07.11.2026 the count came first (session 20261107-kurrent-page-v2-b10-1).
+        preds = self.subject.forward(self.practice)
         self._used += 1
         (self.run_dir / "budget.json").write_text(json.dumps({"used": self._used, "budget": self.budget}))
-        preds = self.subject.forward(self.practice)
         hyps = [p.text for p in preds]
         refs = [item["text"] for item in self.practice]
         m = score(hyps, refs)
-        lines = per_line_edits(hyps, refs)
+        page = None
+        if self.unit == "page":
+            from wsp import pages
+            page = pages.score(hyps, refs, [bool((p.extra or {}).get("at_cap")) for p in preds])
+            lines = page.pop("per_page")
+            self._last_at_cap = page["at_cap"]
+            if self._kept_at_cap is None:
+                self._kept_at_cap = page["at_cap"]
+        else:
+            lines = per_line_edits(hyps, refs)
         readings = self.run_dir / "readings"
         readings.mkdir(exist_ok=True)
         (readings / f"pass_{self._used:03d}.jsonl").write_text(
             "".join(json.dumps({"key": p.key, "text": p.text, "extra": p.extra}) + "\n" for p in preds))
-        if self._baseline is None:
+        if self._baseline_lines is None:
             self._baseline, self._baseline_lines = m, lines
         if self._kept_lines is None:
             self._kept_lines = lines               # the first pass is the first kept state
+        self._save_state()
         self._last_lines = lines
         self._measured_since_edit = True
-        self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
+        if rule_mask is not None:
+            if len(rule_mask) != len(lines):
+                raise ValueError("rule_mask must have one entry per practice line")
+            sel = [i for i, k in enumerate(rule_mask) if k]
+            self._vs_kept = bootstrap_delta([self._kept_lines[i] for i in sel], [lines[i] for i in sel],
+                                            resamples=self.rule_resamples, seed=self.seed)
+            self._vs_kept["rule_lines"] = len(sel)
+        else:
+            self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
         self._event("pass", label=label, metrics=m.as_dict(), digest=self.subject.digest(),
                     vs_baseline=bootstrap_delta(self._baseline_lines, lines, resamples=500, seed=self.seed),
-                    vs_kept=self._vs_kept)
+                    vs_kept=self._vs_kept, **({"page": page} if page else {}))
         return m
 
     def keep_allowed(self) -> tuple[bool, str]:
@@ -139,6 +189,8 @@ class Session:
             return False, "CER rose"
         if hi >= -self.min_effect or self._vs_kept["delta_cer"] >= 0:
             return False, "interval contains 0" if self.min_effect == 0 else f"interval reaches -{self.min_effect}"
+        if self.unit == "page" and self._last_at_cap > self._kept_at_cap:
+            return False, f"pages at the cap rose ({self._kept_at_cap} -> {self._last_at_cap})"
         return True, ""
 
     def keep(self, reason: str = "") -> bool:
@@ -152,8 +204,17 @@ class Session:
             self._decide(False, why, requested=reason, rule="refused")
             return False
         self._kept_lines = self._last_lines
+        self._kept_at_cap = self._last_at_cap
+        self._save_state()
         self._decide(True, reason, rule="met")
         return True
+
+    def keep_unmeasured(self, reason: str = "") -> None:
+        """Budget 0 only (the blind programmer, PROTOCOL §4 C6): no pass is possible, so no rule can be
+        applied; the edit stands as written. Refused when the session has any budget."""
+        if self.budget != 0:
+            raise RuntimeError("keep_unmeasured is for budget-0 sessions")
+        self._decide(True, reason, rule="unmeasured (budget 0)")
 
     def revert(self, reason: str = "") -> None:
         if self._pre_edit_tensors:
@@ -172,6 +233,8 @@ class Session:
     def freeze(self) -> dict:
         if self._last_edit is not None:
             raise RuntimeError("decide on the last edit before freezing")
+        # the whole session, from the file: each program runs in a process of its own
+        full = [json.loads(l) for l in (self.run_dir / "log.jsonl").read_text().splitlines() if l.strip()]
         sparse = diffmod.sparse_diff(self._start_tensors, self.subject.tensors())
         diffmod.save_sparse_diff(sparse, self.run_dir / "diff.json")
         cmp = diffmod.compare(self._start_tensors, self.subject.tensors())
@@ -180,11 +243,11 @@ class Session:
             "keep_rule": {"min_effect": self.min_effect, "resamples": self.rule_resamples,
                           "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"},
             "practice_lines": len(self.practice), "practice_id": self.practice_id,
-            "start_digest": self._log[0]["digest"], "final_digest": self.subject.digest(),
-            "edits": sum(1 for e in self._log if e["kind"] == "edit"),
-            "kept": sum(1 for e in self._log if e["kind"] == "decision" and e["kept"]),
-            "baseline": self._baseline.as_dict() if self._baseline else None,
-            "last_pass": next((e["metrics"] for e in reversed(self._log) if e["kind"] == "pass"), None),
+            "start_digest": full[0]["digest"], "final_digest": self.subject.digest(),
+            "edits": sum(1 for e in full if e["kind"] == "edit"),
+            "kept": sum(1 for e in full if e["kind"] == "decision" and e["kept"]),
+            "baseline": self._baseline.as_dict() if self._baseline else self._baseline_dict,
+            "last_pass": next((e["metrics"] for e in reversed(full) if e["kind"] == "pass"), None),
             "changed_tensors": {k: v for k, v in cmp.items() if v.get("changed")},
             "heldout": None, "deviations": [],
         }

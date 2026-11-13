@@ -1,0 +1,18 @@
+{
+  "name": "20261107-planted-adapter-p1-scale3-c-b4-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted-adapter/p1-scale3",
+  "subject_digest": "921ca5a66f86f76ab466f00939b1e720511ed3f84b8dda6bcd5721d891916546",
+  "subject_file_sha256": "9ab9c8d9177fc3eed7d39ebfa3a9dc453ab837b36348d42ec014610b15291789",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/adapters-4d972b/data/practice/kurrent-val-32.jsonl",
+  "practice_sha256": "3d1311f00140575ecd44c81aaba7979011fc8cd963f157dfbe3644bdbaecf31d",
+  "practice_lines": 32,
+  "budget": 4,
+  "seed": 20261106,
+  "created": "2026-11-07T17:13:45.515433+00:00",
+  "unshare": true,
+  "deviations": [],
+  "unit": "page",
+  "data_root": "/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-kurrent-xvi-xix-v1/vlm-pages-val",
+  "engine": "vllm-server (batched, not run-to-run deterministic)",
+  "spool": "/home/tobias/atr-cache/wsp/spool/a3"
+}

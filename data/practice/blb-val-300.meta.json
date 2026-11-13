@@ -1,0 +1,27 @@
+{
+  "set": "blb-val-300",
+  "n": 300,
+  "sha256": "0118e9b73a3dd88add8d009236352f7c0dcb6ba5b4f81a619caff79b1baa8bca",
+  "candidates": 300,
+  "seed": 20261107,
+  "documents": [
+    "K2911,103",
+    "K2911,26",
+    "K2911,39",
+    "K2911,46",
+    "K2911,58",
+    "K2912,32",
+    "K2915,3"
+  ],
+  "source": "data/heldout/blb-eval-hand.jsonl (eval objects)",
+  "objects": [
+    "K2911,103",
+    "K2911,26",
+    "K2911,39",
+    "K2911,46",
+    "K2911,58",
+    "K2912,32",
+    "K2915,3"
+  ],
+  "selection": "whole objects drawn with random.Random(20261107) until 450 hand lines, then 300 lines sampled; the eval side is the trainer's validation set (see script header)"
+}

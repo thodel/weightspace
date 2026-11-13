@@ -1,0 +1,222 @@
+{
+ "clean": {
+  "pages": 64,
+  "chars": 67892,
+  "cer": 0.5068049254698639,
+  "truncated_cer": 0.2071083485535851,
+  "length_ratio": 1.3247363459612325,
+  "at_cap": 6,
+  "loops": 6
+ },
+ "noise_points": 5.7,
+ "rows": {
+  "p1-scale3": {
+   "cid": "p1-scale3",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 0.5292523419548695,
+    "truncated_cer": 0.2171389854474754,
+    "length_ratio": 1.3343840216814942,
+    "at_cap": 6,
+    "loops": 6
+   },
+   "damage_points": 2.244741648500559,
+   "class": "null corruption (below pass noise)",
+   "arms": {
+    "c": {
+     "passes": 2,
+     "edits": 1,
+     "kept": 0,
+     "cer": 0.5292523419548695,
+     "trunc": 0.2171389854474754,
+     "at_cap": 6,
+     "recovered_frac": 0.0,
+     "delta_vs_corrupted": {
+      "delta_cer": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    }
+   }
+  },
+  "p2-zeroB": {
+   "cid": "p2-zeroB",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 0.5310640428916514,
+    "truncated_cer": 0.22463618688505274,
+    "length_ratio": 1.3235874624403465,
+    "at_cap": 7,
+    "loops": 8
+   },
+   "damage_points": 2.4259117421787546,
+   "class": "null corruption (below pass noise)",
+   "arms": {
+    "c": {
+     "passes": 1,
+     "edits": 0,
+     "kept": 0,
+     "cer": 0.5310640428916514,
+     "trunc": 0.22463618688505274,
+     "at_cap": 7,
+     "recovered_frac": 0.0,
+     "delta_vs_corrupted": {
+      "delta_cer": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    }
+   }
+  },
+  "p3-alpha2": {
+   "cid": "p3-alpha2",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 3.7637866022506334,
+    "truncated_cer": 0.8193012431508867,
+    "length_ratio": 3.963986920402993,
+    "at_cap": 58,
+    "loops": 58
+   },
+   "damage_points": 325.69816767807697,
+   "class": "defect",
+   "arms": {
+    "a": {
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "cer": 0.5171154186060213,
+     "trunc": 0.2339156307075944,
+     "at_cap": 7,
+     "recovered_frac": 0.9968343410680932,
+     "delta_vs_corrupted": {
+      "delta_cer": -3.246671183644612,
+      "ci95": [
+       -4.756835899623783,
+       -2.2955373511870225
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    },
+    "b": {
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "cer": 0.5171154186060213,
+     "trunc": 0.2339156307075944,
+     "at_cap": 7,
+     "recovered_frac": 0.9968343410680932,
+     "delta_vs_corrupted": {
+      "delta_cer": -3.246671183644612,
+      "ci95": [
+       -4.756835899623783,
+       -2.2955373511870225
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    },
+    "c": {
+     "passes": 2,
+     "edits": 1,
+     "kept": 1,
+     "cer": 0.5171154186060213,
+     "trunc": 0.2339156307075944,
+     "at_cap": 7,
+     "recovered_frac": 0.9968343410680932,
+     "delta_vs_corrupted": {
+      "delta_cer": -3.246671183644612,
+      "ci95": [
+       -4.756835899623783,
+       -2.2955373511870225
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    }
+   }
+  },
+  "p4-randdir": {
+   "cid": "p4-randdir",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 0.47824485948270784,
+    "truncated_cer": 0.2031609026100277,
+    "length_ratio": 1.3043362988275495,
+    "at_cap": 5,
+    "loops": 7
+   },
+   "damage_points": -2.856006598715605,
+   "class": "null corruption (below pass noise)",
+   "arms": {}
+  },
+  "p5-alpha05": {
+   "cid": "p5-alpha05",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 0.4134507747599128,
+    "truncated_cer": 0.25418311435809815,
+    "length_ratio": 1.1663377128380368,
+    "at_cap": 5,
+    "loops": 6
+   },
+   "damage_points": -9.335415070995106,
+   "class": "null corruption (below pass noise)",
+   "arms": {}
+  },
+  "p6-scale3-late": {
+   "cid": "p6-scale3-late",
+   "corrupted": {
+    "pages": 64,
+    "chars": 67892,
+    "cer": 0.7483061332704884,
+    "truncated_cer": 0.2480262770282213,
+    "length_ratio": 1.523581570729983,
+    "at_cap": 12,
+    "loops": 13
+   },
+   "damage_points": 24.150120780062455,
+   "class": "defect",
+   "arms": {
+    "c": {
+     "passes": 2,
+     "edits": 1,
+     "kept": 0,
+     "cer": 0.7483061332704884,
+     "trunc": 0.2480262770282213,
+     "at_cap": 12,
+     "recovered_frac": 0.0,
+     "delta_vs_corrupted": {
+      "delta_cer": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "resamples": 2000,
+      "seed": 20261106,
+      "lines": 64
+     }
+    }
+   }
+  }
+ }
+}
