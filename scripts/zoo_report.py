@@ -114,18 +114,19 @@ P("|---|---:|---:|---:|---|---|---|---|---|")
 obs1 = []
 for p in all_pairs:
     o = p["reading"]["obs1"]; n = o["special_rows"]
-    c = [o["special_norm_up"] > n / 2, o["special_bias_down"] > n / 2, o["special_median_rel"] > o["frequent_median_rel"],
+    c = [o["special_norm_up"] > n / 2, o["special_bias_down"] > n / 2, None if o["frequent_median_rel"] is None else o["special_median_rel"] > o["frequent_median_rel"],
          o["top_decile_special"] / o["top_decile_rows"] >= o["special_share_of_rows"]]
     obs1.append((p, c))
     tag = " (inferred)" if p["status"] == "inferred" else ""
-    P(f"| {lab(p)}{tag} | {n} | {o['special_norm_up']} | {o['special_bias_down']} | {o['special_median_norm_ratio']:.2f} / {o['frequent_median_norm_ratio']:.2f} | "
-      f"{o['special_median_bias_delta']:+.2f} / {o['frequent_median_bias_delta']:+.2f} | {o['special_median_rel']:.2f} / {o['frequent_median_rel']:.2f} | "
-      f"{o['top_decile_special']} of {o['top_decile_rows']} / {o['special_share_of_rows']:.2f} | {''.join('✓' if x else '✗' for x in c)} |")
+    fz = lambda x, f="{:.2f}": "–" if x is None else f.format(x)
+    P(f"| {lab(p)}{tag} | {n} | {o['special_norm_up']} | {o['special_bias_down']} | {fz(o['special_median_norm_ratio'])} / {fz(o['frequent_median_norm_ratio'])} | "
+      f"{fz(o['special_median_bias_delta'], '{:+.2f}')} / {fz(o['frequent_median_bias_delta'], '{:+.2f}')} | {fz(o['special_median_rel'])} / {fz(o['frequent_median_rel'])} | "
+      f"{o['top_decile_special']} of {o['top_decile_rows']} / {o['special_share_of_rows']:.2f} | {''.join('–' if x is None else '✓' if x else '✗' for x in c)} |")
 rel_obs = [(p, c) for p, c in obs1 if p["status"] == "tested"]
 P(f"\nTally over the {len(rel_obs)} documented pairs with related weights: (a) {sum(c[0] for _, c in rel_obs)}, (b) {sum(c[1] for _, c in rel_obs)}, "
-  f"(c) {sum(c[2] for _, c in rel_obs)}, (d) {sum(c[3] for _, c in rel_obs)}; all four in {sum(all(c) for _, c in rel_obs)}. "
+  f"(c) {sum(c[2] for _, c in rel_obs)}, (d) {sum(c[3] for _, c in rel_obs)}; all four in {sum(all(x is not False for x in c) for _, c in rel_obs)}. "
   f"Zoo pairs only ({sum(1 for p, _ in rel_obs if not p['child'].startswith(('bern', 'german')))}): "
-  f"all four in {sum(all(c) for p, c in rel_obs if not p['child'].startswith(('bern', 'german')))}.")
+  f"all four in {sum(all(x is not False for x in c) for p, c in rel_obs if not p['child'].startswith(('bern', 'german')))}.")
 fm = [m for m in M.values() if "frequent" in m["output"]]
 fz = [m for m in Z.values() if "frequent" in m["output"]]
 P(f"\nThe companion claim — the ten frequent letters have the smallest row norms — can be read on every model without a pair: "

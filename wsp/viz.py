@@ -677,7 +677,7 @@ _LIN_EDGES = [
     ("kraken-tridis_v2", "kraken-textualis_inzigkofen", "ok"),
     ("kraken-catmus_print_large", "kraken-french_vietnamese", "ok"), ("kraken-catmus_print_large", "kraken-latin_incunabula", "ok"),
     ("kraken-mccatmus", "kraken-prima", "weights"),
-    ("kraken-bohemian_19th", "german-xix-v1", "weights"), ("german-xix-v1", "german-xix-blb-v1", "ok"),
+    ("kraken-bohemian_19th", "german-xix-v1", "ok"), ("german-xix-v1", "german-xix-blb-v1", "ok"),
     ("kraken-openiti_arabic_print", "kraken-openiti_persian_print", "ok"), ("kraken-openiti_arabic_print", "kraken-openiti_ottoman_print", "ok"),
     ("kraken-hebrew_sephardi", "kraken-glagolitic_print", "pair"), ("kraken-hebrew_sephardi", "kraken-samaritan", "pair"),
     ("kraken-glagolitic_print", "kraken-samaritan", "pair"),

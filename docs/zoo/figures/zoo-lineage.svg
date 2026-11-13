@@ -1204,12 +1204,12 @@ z
    <g id="patch_27">
     <path d="M 202.735385 448.140944 
 Q 233.997692 448.140944 263.023932 448.140944 
-" style="fill: none; stroke-dasharray: 2,4; stroke-dashoffset: 0; stroke: #0072b2; stroke-width: 2; stroke-linecap: round"/>
+" style="fill: none; stroke: #009e73; stroke-width: 2; stroke-linecap: round"/>
     <path d="M 258.623932 445.940944 
 L 263.023932 448.140944 
 L 258.623932 450.340944 
 z
-" style="fill: #0072b2; stroke-dasharray: 2,4; stroke-dashoffset: 0; stroke: #0072b2; stroke-width: 2; stroke-linecap: round"/>
+" style="fill: #009e73; stroke: #009e73; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="text_15">
     <g id="patch_28">
@@ -1221,7 +1221,7 @@ z
 " style="fill: #ffffff"/>
     </g>
     <!-- 0.70 -->
-    <g style="fill: #0072b2" transform="translate(222.315462 443.697999) scale(0.075 -0.075)">
+    <g style="fill: #009e73" transform="translate(222.315462 443.697999) scale(0.075 -0.075)">
      <use xlink:href="#DejaVuSans-13"/>
      <use xlink:href="#DejaVuSans-11" transform="translate(63.625 0)"/>
      <use xlink:href="#DejaVuSans-1a" transform="translate(95.40625 0)"/>

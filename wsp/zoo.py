@@ -265,6 +265,7 @@ DOCUMENTED = [
     ("kraken-latin_incunabula", "kraken-catmus_print_large", "gateway base_model 10.5281/zenodo.10592716; the README sentences read name no base"),
     ("kraken-openiti_persian_print", "kraken-openiti_arabic_print", "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Persian Base Model Trained on the OpenITI Corpus'"),
     ("kraken-openiti_ottoman_print", "kraken-openiti_arabic_print", "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Ottoman Base Model Trained on the OpenITI Corpus'"),
+    ("german-xix-v1", "kraken-bohemian_19th", "trainer record: job 20261007T131819Z-kraken-german-xix-v1, job.json request.base_model = kraken-bohemian_19th (resize union, lrate 1e-4, cosine, 97 epochs run); first suggested by the weights, then confirmed there"),
     ("bern-hertwig-v1", "kraken-cursive_inzigkofen", "docs/MODELS.md (trainer record)"),
     ("bern-hertwig-v2", "kraken-cursive_inzigkofen", "docs/MODELS.md (trainer record)"),
     ("bern-hertwig-v2", "bern-hertwig-v1", "docs/READINGS.md (read as a continuation of v1; docs/MODELS.md lists the same base cursive_inzigkofen for both)"),
@@ -275,7 +276,7 @@ DOCUMENTED = [
 # documented in text, parent not among the surveyed files (cannot be tested)
 # pairs suggested by the weights alone (distance < 1.0 and the child's codec extends the parent's with the same row indices);
 # NOT documented, direction inferred from the codec: tested separately and labelled as such
-INFERRED = [("kraken-prima", "kraken-mccatmus"), ("german-xix-v1", "kraken-bohemian_19th")]
+INFERRED = [("kraken-prima", "kraken-mccatmus"), ("kraken-glagolitic_print", "kraken-hebrew_sephardi")]
 DOCUMENTED_UNAVAILABLE = [
     ("kraken-kuzushiji", "Chat model by Colin Brisson (Zenodo), named in the README: 'finetuned on top of the Chat model'"),
     ("kraken-mendelssohn_letters", "'HTR model for German manuscripts trained from several datasets' (eScriptorium base); not identified with a DOI in the text read"),

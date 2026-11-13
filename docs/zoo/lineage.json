@@ -3003,8 +3003,8 @@
    "codec_same_index": 1.0,
    "shared_name_family": [],
    "distance": 0.6997447727039652,
-   "documented": null,
-   "weights_only": true
+   "documented": "tested",
+   "weights_only": false
   },
   {
    "a": "german-xix-v1",
@@ -8999,7 +8999,7 @@
    "shared_name_family": [],
    "distance": 0.8320539326911282,
    "documented": null,
-   "weights_only": false
+   "weights_only": true
   },
   {
    "a": "kraken-glagolitic_print",

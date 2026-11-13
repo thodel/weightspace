@@ -81,6 +81,7 @@ Distance = ‖a − b‖ / mean(‖a‖, ‖b‖) over all non-output weights (s
 | `latin_incunabula` | `catmus_print_large` | gateway base_model 10.5281/zenodo.10592716; the README sentences read name no base | yes | 0.33 | 1 of 5 | weights agree with the record |
 | `openiti_persian_print` | `openiti_arabic_print` | gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Persian Base Model Trained on the OpenITI Corpus' | yes | 0.70 | 2 of 33 | weights agree with the record |
 | `openiti_ottoman_print` | `openiti_arabic_print` | gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Ottoman Base Model Trained on the OpenITI Corpus' | yes | 0.72 | 2 of 33 | weights agree with the record |
+| `german-xix-v1` | `bohemian_19th` | trainer record: job 20261007T131819Z-kraken-german-xix-v1, job.json request.base_model = kraken-bohemian_19th (resize union, lrate 1e-4, cosine, 97 epochs run); first suggested by the weights, then confirmed there | yes | 0.70 | 2 of 33 | weights agree with the record |
 | `bern-hertwig-v1` | `cursive_inzigkofen` | docs/MODELS.md (trainer record) | yes | 0.13 | 1 of 33 | weights agree with the record |
 | `bern-hertwig-v2` | `cursive_inzigkofen` | docs/MODELS.md (trainer record) | yes | 0.28 | 4 of 33 | weights agree with the record |
 | `bern-hertwig-v2` | `bern-hertwig-v1` | docs/READINGS.md (read as a continuation of v1; docs/MODELS.md lists the same base cursive_inzigkofen for both) | yes | 0.23 | 2 of 33 | weights agree with the record |
@@ -100,9 +101,9 @@ Documented in text, but the parent file is not among those surveyed (so nothing 
 | child | parent (direction from the codec) | distance | codec | shared characters at the same row index |
 |---|---|---:|---|---:|
 | `prima` | `mccatmus` | 0.26 | 116 → 146 (parent's codec is a subset: True) | 116 of 116 |
-| `german-xix-v1` | `bohemian_19th` | 0.70 | 135 → 224 (parent's codec is a subset: True) | 135 of 135 |
+| `glagolitic_print` | `hebrew_sephardi` | 0.83 | 70 → 154 (parent's codec is a subset: True) | 70 of 70 |
 
-Other pairs below 1.2 in group A that no record explains (distance, no direction): `openiti_ottoman_print` – `openiti_persian_print` 0.28; `glagolitic_print` – `hebrew_sephardi` 0.83; `hebrew_sephardi` – `samaritan` 0.95; `glagolitic_print` – `samaritan` 1.02.
+Other pairs below 1.2 in group A that no record explains (distance, no direction): `openiti_ottoman_print` – `openiti_persian_print` 0.28; `hebrew_sephardi` – `samaritan` 0.95; `glagolitic_print` – `samaritan` 1.02.
 
 ### T5. Observation 1 — rows of rare characters (proxy: characters outside basic Latin letters, digits, space and ASCII punctuation)
 
@@ -117,6 +118,7 @@ Other pairs below 1.2 in group A that no record explains (distance, no direction
 | `catmus_print_large` → `latin_incunabula` | 51 | 15 | 32 | 0.85 / 1.17 | -0.06 / -0.02 | 0.71 / 0.45 | 6 of 12 / 0.42 | ✗✓✓✓ |
 | `openiti_arabic_print` → `openiti_persian_print` | 125 | 125 | 74 | 1.52 / 1.64 | -0.06 / +0.14 | 0.63 / 0.73 | 6 of 19 / 0.64 | ✓✓✗✗ |
 | `openiti_arabic_print` → `openiti_ottoman_print` | 125 | 125 | 78 | 1.56 / 1.72 | -0.07 / -0.31 | 0.70 / 0.83 | 8 of 19 / 0.64 | ✓✓✗✗ |
+| `bohemian_19th` → `german-xix-v1` | 61 | 46 | 45 | 1.06 / 0.88 | -2.02 / +0.05 | 0.54 / 0.39 | 13 of 13 / 0.45 | ✓✓✓✓ |
 | `cursive_inzigkofen` → `bern-hertwig-v1` | 188 | 181 | 182 | 1.15 / 0.97 | -0.41 / +0.03 | 0.27 / 0.16 | 26 of 26 / 0.72 | ✓✓✓✓ |
 | `cursive_inzigkofen` → `bern-hertwig-v2` | 188 | 182 | 179 | 1.23 / 1.03 | -0.72 / +0.01 | 0.40 / 0.26 | 26 of 26 / 0.72 | ✓✓✓✓ |
 | `bern-hertwig-v1` → `bern-hertwig-v2` | 192 | 189 | 180 | 1.07 / 1.06 | -0.31 / -0.01 | 0.14 / 0.18 | 20 of 26 / 0.72 | ✓✓✗✓ |
@@ -124,9 +126,9 @@ Other pairs below 1.2 in group A that no record explains (distance, no direction
 | `bern-hertwig-v2` → `bern-combined-v1` | 192 | 173 | 175 | 1.08 / 0.95 | -0.74 / -0.03 | 0.14 / 0.21 | 23 of 26 / 0.72 | ✓✓✗✓ |
 | `german-xix-v1` → `german-xix-blb-v1` | 149 | 110 | 108 | 1.01 / 1.02 | -0.69 / +0.06 | 0.18 / 0.15 | 21 of 22 / 0.67 | ✓✓✓✓ |
 | `mccatmus` → `prima` (inferred) | 41 | 40 | 35 | 1.15 / 0.95 | -0.24 / +0.01 | 0.37 / 0.21 | 6 of 11 / 0.35 | ✓✓✓✓ |
-| `bohemian_19th` → `german-xix-v1` (inferred) | 61 | 46 | 45 | 1.06 / 0.88 | -2.02 / +0.05 | 0.54 / 0.39 | 13 of 13 / 0.45 | ✓✓✓✓ |
+| `hebrew_sephardi` → `glagolitic_print` (inferred) | 56 | 55 | 55 | 1.54 / – | -0.33 / – | 1.23 / – | 7 of 7 / 0.80 | ✓✓–✓ |
 
-Tally over the 13 documented pairs with related weights: (a) 12, (b) 13, (c) 6, (d) 8; all four in 4. Zoo pairs only (7): all four in 1.
+Tally over the 14 documented pairs with related weights: (a) 13, (b) 14, (c) 7, (d) 9; all four in 5. Zoo pairs only (7): all four in 1.
 
 The companion claim — the ten frequent letters have the smallest row norms — can be read on every model without a pair: mean norm of the ten frequent rows over the mean of all other rows is below 1 in 40 of 43 models (median 0.56; zoo only 30 of 33, median 0.61); at least five of the ten weakest non-blank rows are frequent letters in 29 of 43. 4 models (non-Latin codecs) lack one of the ten letters and are not counted.
 
@@ -143,6 +145,7 @@ The companion claim — the ten frequent letters have the smallest row norms —
 | `catmus_print_large` → `latin_incunabula` | +0.116 | -0.190 | +0.305 | 0.52 |
 | `openiti_arabic_print` → `openiti_persian_print` | +0.263 | +0.053 | +0.210 | 0.64 |
 | `openiti_arabic_print` → `openiti_ottoman_print` | +0.228 | -0.100 | +0.328 | 0.78 |
+| `bohemian_19th` → `german-xix-v1` | +0.419 | -0.842 | +1.261 | 0.62 |
 | `cursive_inzigkofen` → `bern-hertwig-v1` | +0.062 | -0.258 | +0.320 | 0.18 |
 | `cursive_inzigkofen` → `bern-hertwig-v2` | +0.064 | -0.456 | +0.520 | 0.29 |
 | `bern-hertwig-v1` → `bern-hertwig-v2` | +0.002 | -0.198 | +0.200 | 0.21 |
@@ -150,9 +153,9 @@ The companion claim — the ten frequent letters have the smallest row norms —
 | `bern-hertwig-v2` → `bern-combined-v1` | +0.118 | -0.456 | +0.574 | 0.25 |
 | `german-xix-v1` → `german-xix-blb-v1` | +0.113 | -0.050 | +0.163 | 0.23 |
 | `mccatmus` → `prima` (inferred) | +0.036 | -0.048 | +0.084 | 0.17 |
-| `bohemian_19th` → `german-xix-v1` (inferred) | +0.419 | -0.842 | +1.261 | 0.62 |
+| `hebrew_sephardi` → `glagolitic_print` (inferred) | +0.253 | +0.174 | +0.079 | 0.74 |
 
-Tally over the 13 documented related pairs: Δ raw > 0 in 12, Δ rel > 0 in 13; the mean of the other biases fell in 12.
+Tally over the 14 documented related pairs: Δ raw > 0 in 13, Δ rel > 0 in 14; the mean of the other biases fell in 13.
 
 Without pairs, over all 47 models: the blank has the highest bias in 28, blank bias − mean of the others is positive in 45 (raw bias positive in 45), and the blank's row norm is below the mean of the other rows in 47. Zoo only: 21 of 37 with the highest bias, relative value median 0.98; in-house 10: median 1.90.
 
@@ -169,6 +172,7 @@ Pooled relative L2 over the **weight** tensors of a stack (biases excluded: thei
 | `catmus_print_large` → `latin_incunabula` | 0.258 | 0.339 | 0.632 | 0.07 / 0.22 / 0.27 | 0.156 / 0.186 |
 | `openiti_arabic_print` → `openiti_persian_print` | 0.755 | 0.828 | 0.700 | 0.66 / 0.65 / 0.71 / 0.81 | 0.852 / 0.491 |
 | `openiti_arabic_print` → `openiti_ottoman_print` | 0.781 | 0.858 | 0.762 | 0.66 / 0.66 / 0.74 / 0.84 | 0.944 / 0.513 |
+| `bohemian_19th` → `german-xix-v1` | 0.712 | 0.723 | 0.509 | 1.29 / 0.59 / 0.72 / 0.74 | 0.731 / 0.401 |
 | `cursive_inzigkofen` → `bern-hertwig-v1` | 0.117 | 0.128 | 0.265 | 0.07 / 0.09 / 0.13 / 0.12 | 0.102 / 0.075 |
 | `cursive_inzigkofen` → `bern-hertwig-v2` | 0.259 | 0.294 | 0.391 | 0.13 / 0.21 / 0.27 / 0.27 | 0.204 / 0.162 |
 | `bern-hertwig-v1` → `bern-hertwig-v2` | 0.204 | 0.239 | 0.145 | 0.10 / 0.17 / 0.21 / 0.22 | 0.151 / 0.127 |
@@ -176,9 +180,9 @@ Pooled relative L2 over the **weight** tensors of a stack (biases excluded: thei
 | `bern-hertwig-v2` → `bern-combined-v1` | 0.210 | 0.241 | 0.175 | 0.09 / 0.16 / 0.21 / 0.23 | 0.145 / 0.129 |
 | `german-xix-v1` → `german-xix-blb-v1` | 0.260 | 0.270 | 0.204 | 0.12 / 0.17 / 0.26 / 0.29 | 0.333 / 0.139 |
 | `mccatmus` → `prima` (inferred) | 0.233 | 0.281 | 0.342 | 0.11 / 0.19 / 0.23 / 0.25 | 0.182 / 0.140 |
-| `bohemian_19th` → `german-xix-v1` (inferred) | 0.712 | 0.723 | 0.509 | 1.29 / 0.59 / 0.72 / 0.74 | 0.731 / 0.401 |
+| `hebrew_sephardi` → `glagolitic_print` (inferred) | 0.722 | 1.157 | 1.004 | 0.29 / 0.58 / 0.71 / 0.79 | 0.586 / 0.588 |
 
-Tally over the 13 documented related pairs: conv < BiLSTM in 10; conv < output rows in 4; the first conv block moves least of the conv blocks in 12; conv blocks increase monotonically with depth in 10. With the READINGS definition conv < BiLSTM in 2.
+Tally over the 14 documented related pairs: conv < BiLSTM in 11; conv < output rows in 4; the first conv block moves least of the conv blocks in 12; conv blocks increase monotonically with depth in 10. With the READINGS definition conv < BiLSTM in 2.
 
 ### T8. Not fetched or not loaded
 
@@ -186,7 +190,7 @@ Tally over the 13 documented related pairs: conv < BiLSTM in 10; conv < output r
 
 ### T9. What looks related, and what is related
 
-**a) Parent → child (documented and tested, or inferred): weights close** (15 pairs)
+**a) Parent → child (documented and tested, or inferred): weights close** (16 pairs)
 
 | pair | shared name / project | same architecture | codec overlap | shared characters at same row index | weight distance |
 |---|---|---|---:|---:|---:|
@@ -205,7 +209,7 @@ Tally over the 13 documented related pairs: conv < BiLSTM in 10; conv < output r
 | `openiti_arabic_print` – `openiti_ottoman_print` | — | yes | 1.00 | 1.00 | 0.72 |
 | `bastarda_inzigkofen` – `catmus_medieval` | — | yes | 0.98 | 1.00 | 0.72 |
 
-(first 14 of 15, sorted by distance)
+(first 14 of 16, sorted by distance)
 
 **b) The record names the base and the codec is largely the base's, but the weights are unrelated** (1 pair)
 

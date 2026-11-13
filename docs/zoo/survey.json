@@ -11173,6 +11173,262 @@
    }
   },
   {
+   "child": "german-xix-v1",
+   "parent": "kraken-bohemian_19th",
+   "source": "trainer record: job 20261007T131819Z-kraken-german-xix-v1, job.json request.base_model = kraken-bohemian_19th (resize union, lrate 1e-4, cosine, 97 epochs run); first suggested by the weights, then confirmed there",
+   "same_spec": true,
+   "status": "tested",
+   "reading": {
+    "per_tensor": {
+     "C_0.co.weight": {
+      "rel": 1.287359677128934,
+      "cos": 0.6907132954196349,
+      "zero": false
+     },
+     "C_0.co.bias": {
+      "rel": 0.2889041640970442,
+      "cos": 0.9678873970269393,
+      "zero": false
+     },
+     "C_3.co.weight": {
+      "rel": 0.5947561743647085,
+      "cos": 0.8204138200390226,
+      "zero": false
+     },
+     "C_3.co.bias": {
+      "rel": 0.7446511941427071,
+      "cos": 0.7793360607457075,
+      "zero": false
+     },
+     "C_6.co.weight": {
+      "rel": 0.721254808522421,
+      "cos": 0.7231417654621707,
+      "zero": false
+     },
+     "C_6.co.bias": {
+      "rel": 0.729498146609618,
+      "cos": 0.7777348405178695,
+      "zero": false
+     },
+     "C_9.co.weight": {
+      "rel": 0.742278053651757,
+      "cos": 0.7000516775752322,
+      "zero": false
+     },
+     "C_9.co.bias": {
+      "rel": 0.7407368725530635,
+      "cos": 0.7640893917018128,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0": {
+      "rel": 0.6970097338329622,
+      "cos": 0.7641438342135921,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0": {
+      "rel": 0.6296190750957303,
+      "cos": 0.831478388124817,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0": {
+      "rel": 0.12423682963287093,
+      "cos": 0.9922614698698506,
+      "zero": false
+     },
+     "L_12.layer.weight_ih_l0_reverse": {
+      "rel": 0.7048016837575225,
+      "cos": 0.7571537847919783,
+      "zero": false
+     },
+     "L_12.layer.weight_hh_l0_reverse": {
+      "rel": 0.6559310034404814,
+      "cos": 0.8183102464012983,
+      "zero": false
+     },
+     "L_12.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_12.layer.bias_hh_l0_reverse": {
+      "rel": 0.13958320730366752,
+      "cos": 0.990227199461096,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0": {
+      "rel": 0.7372319832944229,
+      "cos": 0.7243765477070363,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0": {
+      "rel": 0.7561945994426348,
+      "cos": 0.7581409038884548,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0": {
+      "rel": 0.12656500977568866,
+      "cos": 0.9919830387496176,
+      "zero": false
+     },
+     "L_14.layer.weight_ih_l0_reverse": {
+      "rel": 0.7002739149392008,
+      "cos": 0.7525096951045844,
+      "zero": false
+     },
+     "L_14.layer.weight_hh_l0_reverse": {
+      "rel": 0.7042267110018653,
+      "cos": 0.7861351866076419,
+      "zero": false
+     },
+     "L_14.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_14.layer.bias_hh_l0_reverse": {
+      "rel": 0.11579382901651208,
+      "cos": 0.9932746338770629,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0": {
+      "rel": 0.7838846632761867,
+      "cos": 0.6938182558858802,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0": {
+      "rel": 0.7259761826576444,
+      "cos": 0.7814427001356388,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0": {
+      "rel": 0.23870182922566058,
+      "cos": 0.97124522071333,
+      "zero": false
+     },
+     "L_16.layer.weight_ih_l0_reverse": {
+      "rel": 0.8128020931899498,
+      "cos": 0.6621487989334448,
+      "zero": false
+     },
+     "L_16.layer.weight_hh_l0_reverse": {
+      "rel": 0.7453492039959345,
+      "cos": 0.7646698939898274,
+      "zero": false
+     },
+     "L_16.layer.bias_ih_l0_reverse": {
+      "rel": null,
+      "cos": null,
+      "zero": true
+     },
+     "L_16.layer.bias_hh_l0_reverse": {
+      "rel": 0.21385092975866044,
+      "cos": 0.9768681414270513,
+      "zero": false
+     }
+    },
+    "blocks": {
+     "conv_w": 0.7116879594497862,
+     "lstm_w": 0.7228103399181872,
+     "conv_readings_def": 0.7311798863837817,
+     "lstm_readings_def": 0.4005013534432331,
+     "out_row_mean": 0.5069297597437419,
+     "conv": 0.7311798863837817,
+     "lstm": 0.5340018045909775,
+     "norm": null,
+     "out_rows": 0.5085713905791359,
+     "conv_by_block": {
+      "C_0": 1.287359677128934,
+      "C_3": 0.5947561743647085,
+      "C_6": 0.721254808522421,
+      "C_9": 0.742278053651757
+     },
+     "out_cos": 0.8803454923864494
+    },
+    "blank": {
+     "bias_p": 0.7006098628044128,
+     "bias_c": 1.1194549798965454,
+     "delta_raw": 0.41884511709213257,
+     "rel_p": 1.7294794280668375,
+     "rel_c": 2.9908238598519734,
+     "delta_rel": 1.2613444317851359,
+     "mean_other_delta": -0.8424993146930035,
+     "row_rel": 0.6187026174177176
+    },
+    "obs1": {
+     "shared_rows": 135,
+     "special_rows": 61,
+     "frequent_rows": 10,
+     "special_norm_up": 46,
+     "special_bias_down": 45,
+     "special_median_rel": 0.5411253692865716,
+     "special_median_norm_ratio": 1.060302927396943,
+     "special_median_bias_delta": -2.01924267411232,
+     "frequent_median_rel": 0.3946501662138846,
+     "frequent_median_norm_ratio": 0.8826511958157988,
+     "frequent_median_bias_delta": 0.0454254737123847,
+     "rest_median_rel": 0.5022581004021223,
+     "top_decile_rows": 13,
+     "top_decile_special": 13,
+     "special_share_of_rows": 0.45185185185185184,
+     "top_rows": [
+      [
+       "‹",
+       1.288
+      ],
+      [
+       "›",
+       1.093
+      ],
+      [
+       "#",
+       1.084
+      ],
+      [
+       "⁰",
+       1.018
+      ],
+      [
+       "ä",
+       0.831
+      ],
+      [
+       "í",
+       0.803
+      ],
+      [
+       "¬",
+       0.794
+      ],
+      [
+       "ר",
+       0.789
+      ]
+     ]
+    },
+    "codec": {
+     "parent": 135,
+     "child": 224,
+     "shared": 135,
+     "added": 89
+    }
+   }
+  },
+  {
    "child": "bern-hertwig-v1",
    "parent": "kraken-cursive_inzigkofen",
    "source": "docs/MODELS.md (trainer record)",
@@ -12969,63 +13225,63 @@
    }
   },
   {
-   "child": "german-xix-v1",
-   "parent": "kraken-bohemian_19th",
-   "codec_parent": 135,
-   "codec_child": 224,
+   "child": "kraken-glagolitic_print",
+   "parent": "kraken-hebrew_sephardi",
+   "codec_parent": 70,
+   "codec_child": 154,
    "parent_codec_subset_of_child": true,
-   "same_row_index": 135,
+   "same_row_index": 70,
    "source": "weights and codec only; no documentation read names this relation",
    "reading": {
     "per_tensor": {
      "C_0.co.weight": {
-      "rel": 1.287359677128934,
-      "cos": 0.6907132954196349,
+      "rel": 0.2925466607965327,
+      "cos": 0.9587565631101325,
       "zero": false
      },
      "C_0.co.bias": {
-      "rel": 0.2889041640970442,
-      "cos": 0.9678873970269393,
+      "rel": 0.6598440320963675,
+      "cos": 0.9544793818198108,
       "zero": false
      },
      "C_3.co.weight": {
-      "rel": 0.5947561743647085,
-      "cos": 0.8204138200390226,
+      "rel": 0.5753316571166447,
+      "cos": 0.8788051952412607,
       "zero": false
      },
      "C_3.co.bias": {
-      "rel": 0.7446511941427071,
-      "cos": 0.7793360607457075,
+      "rel": 0.4149400818126367,
+      "cos": 0.9354513626580904,
       "zero": false
      },
      "C_6.co.weight": {
-      "rel": 0.721254808522421,
-      "cos": 0.7231417654621707,
+      "rel": 0.7107227856763725,
+      "cos": 0.8328945062380522,
       "zero": false
      },
      "C_6.co.bias": {
-      "rel": 0.729498146609618,
-      "cos": 0.7777348405178695,
+      "rel": 0.5769137213612225,
+      "cos": 0.9209278493981784,
       "zero": false
      },
      "C_9.co.weight": {
-      "rel": 0.742278053651757,
-      "cos": 0.7000516775752322,
+      "rel": 0.794589057837714,
+      "cos": 0.7883124594861429,
       "zero": false
      },
      "C_9.co.bias": {
-      "rel": 0.7407368725530635,
-      "cos": 0.7640893917018128,
+      "rel": 0.6634900082925014,
+      "cos": 0.8830386946355516,
       "zero": false
      },
      "L_12.layer.weight_ih_l0": {
-      "rel": 0.6970097338329622,
-      "cos": 0.7641438342135921,
+      "rel": 1.2763031861781364,
+      "cos": 0.5906394798230753,
       "zero": false
      },
      "L_12.layer.weight_hh_l0": {
-      "rel": 0.6296190750957303,
-      "cos": 0.831478388124817,
+      "rel": 1.1280468625821087,
+      "cos": 0.6871288690742386,
       "zero": false
      },
      "L_12.layer.bias_ih_l0": {
@@ -13034,18 +13290,18 @@
       "zero": true
      },
      "L_12.layer.bias_hh_l0": {
-      "rel": 0.12423682963287093,
-      "cos": 0.9922614698698506,
+      "rel": 0.07085670222543494,
+      "cos": 0.9975009059535108,
       "zero": false
      },
      "L_12.layer.weight_ih_l0_reverse": {
-      "rel": 0.7048016837575225,
-      "cos": 0.7571537847919783,
+      "rel": 1.2869071624294754,
+      "cos": 0.5861964519083402,
       "zero": false
      },
      "L_12.layer.weight_hh_l0_reverse": {
-      "rel": 0.6559310034404814,
-      "cos": 0.8183102464012983,
+      "rel": 1.150818809023993,
+      "cos": 0.6761744672483339,
       "zero": false
      },
      "L_12.layer.bias_ih_l0_reverse": {
@@ -13054,18 +13310,18 @@
       "zero": true
      },
      "L_12.layer.bias_hh_l0_reverse": {
-      "rel": 0.13958320730366752,
-      "cos": 0.990227199461096,
+      "rel": 0.0658489362130607,
+      "cos": 0.9979382951907265,
       "zero": false
      },
      "L_14.layer.weight_ih_l0": {
-      "rel": 0.7372319832944229,
-      "cos": 0.7243765477070363,
+      "rel": 1.1158508985995175,
+      "cos": 0.6483905971434016,
       "zero": false
      },
      "L_14.layer.weight_hh_l0": {
-      "rel": 0.7561945994426348,
-      "cos": 0.7581409038884548,
+      "rel": 1.0783550406315328,
+      "cos": 0.7015782810569227,
       "zero": false
      },
      "L_14.layer.bias_ih_l0": {
@@ -13074,18 +13330,18 @@
       "zero": true
      },
      "L_14.layer.bias_hh_l0": {
-      "rel": 0.12656500977568866,
-      "cos": 0.9919830387496176,
+      "rel": 0.08056179067564463,
+      "cos": 0.996848616488465,
       "zero": false
      },
      "L_14.layer.weight_ih_l0_reverse": {
-      "rel": 0.7002739149392008,
-      "cos": 0.7525096951045844,
+      "rel": 1.0271417833819572,
+      "cos": 0.6864799269286431,
       "zero": false
      },
      "L_14.layer.weight_hh_l0_reverse": {
-      "rel": 0.7042267110018653,
-      "cos": 0.7861351866076419,
+      "rel": 0.9648055816687223,
+      "cos": 0.7464219667965227,
       "zero": false
      },
      "L_14.layer.bias_ih_l0_reverse": {
@@ -13094,18 +13350,18 @@
       "zero": true
      },
      "L_14.layer.bias_hh_l0_reverse": {
-      "rel": 0.11579382901651208,
-      "cos": 0.9932746338770629,
+      "rel": 0.0803036631785599,
+      "cos": 0.996810081720747,
       "zero": false
      },
      "L_16.layer.weight_ih_l0": {
-      "rel": 0.7838846632761867,
-      "cos": 0.6938182558858802,
+      "rel": 1.1469831216117041,
+      "cos": 0.5998161769947249,
       "zero": false
      },
      "L_16.layer.weight_hh_l0": {
-      "rel": 0.7259761826576444,
-      "cos": 0.7814427001356388,
+      "rel": 1.072916653330893,
+      "cos": 0.6995799013394809,
       "zero": false
      },
      "L_16.layer.bias_ih_l0": {
@@ -13114,18 +13370,18 @@
       "zero": true
      },
      "L_16.layer.bias_hh_l0": {
-      "rel": 0.23870182922566058,
-      "cos": 0.97124522071333,
+      "rel": 0.08239647295504421,
+      "cos": 0.9967127888176658,
       "zero": false
      },
      "L_16.layer.weight_ih_l0_reverse": {
-      "rel": 0.8128020931899498,
-      "cos": 0.6621487989334448,
+      "rel": 1.1617742881233444,
+      "cos": 0.5750198654721826,
       "zero": false
      },
      "L_16.layer.weight_hh_l0_reverse": {
-      "rel": 0.7453492039959345,
-      "cos": 0.7646698939898274,
+      "rel": 1.2268278061620557,
+      "cos": 0.6282158393966576,
       "zero": false
      },
      "L_16.layer.bias_ih_l0_reverse": {
@@ -13134,95 +13390,91 @@
       "zero": true
      },
      "L_16.layer.bias_hh_l0_reverse": {
-      "rel": 0.21385092975866044,
-      "cos": 0.9768681414270513,
+      "rel": 0.08608819204539261,
+      "cos": 0.9965871119579343,
       "zero": false
      }
     },
     "blocks": {
-     "conv_w": 0.7116879594497862,
-     "lstm_w": 0.7228103399181872,
-     "conv_readings_def": 0.7311798863837817,
-     "lstm_readings_def": 0.4005013534432331,
-     "out_row_mean": 0.5069297597437419,
-     "conv": 0.7311798863837817,
-     "lstm": 0.5340018045909775,
+     "conv_w": 0.7221391741321785,
+     "lstm_w": 1.1569580882912398,
+     "conv_readings_def": 0.5860472506237491,
+     "lstm_readings_def": 0.5876161229590241,
+     "out_row_mean": 1.1576553977494157,
+     "conv": 0.5860472506237491,
+     "lstm": 0.7834881639453655,
      "norm": null,
-     "out_rows": 0.5085713905791359,
+     "out_rows": 1.0035653074027746,
      "conv_by_block": {
-      "C_0": 1.287359677128934,
-      "C_3": 0.5947561743647085,
-      "C_6": 0.721254808522421,
-      "C_9": 0.742278053651757
+      "C_0": 0.2925466607965327,
+      "C_3": 0.5753316571166447,
+      "C_6": 0.7107227856763725,
+      "C_9": 0.794589057837714
      },
-     "out_cos": 0.8803454923864494
+     "out_cos": 0.6732224100868273
     },
     "blank": {
-     "bias_p": 0.7006098628044128,
-     "bias_c": 1.1194549798965454,
-     "delta_raw": 0.41884511709213257,
-     "rel_p": 1.7294794280668375,
-     "rel_c": 2.9908238598519734,
-     "delta_rel": 1.2613444317851359,
-     "mean_other_delta": -0.8424993146930035,
-     "row_rel": 0.6187026174177176
+     "bias_p": 0.14744774997234344,
+     "bias_c": 0.40070033073425293,
+     "delta_raw": 0.2532525807619095,
+     "rel_p": 0.8169899248817404,
+     "rel_c": 0.8959116971591947,
+     "delta_rel": 0.07892177227745434,
+     "mean_other_delta": 0.17433080848445515,
+     "row_rel": 0.736365209230263
     },
     "obs1": {
-     "shared_rows": 135,
-     "special_rows": 61,
-     "frequent_rows": 10,
-     "special_norm_up": 46,
-     "special_bias_down": 45,
-     "special_median_rel": 0.5411253692865716,
-     "special_median_norm_ratio": 1.060302927396943,
-     "special_median_bias_delta": -2.01924267411232,
-     "frequent_median_rel": 0.3946501662138846,
-     "frequent_median_norm_ratio": 0.8826511958157988,
-     "frequent_median_bias_delta": 0.0454254737123847,
-     "rest_median_rel": 0.5022581004021223,
-     "top_decile_rows": 13,
-     "top_decile_special": 13,
-     "special_share_of_rows": 0.45185185185185184,
+     "shared_rows": 70,
+     "special_rows": 56,
+     "frequent_rows": 0,
+     "special_norm_up": 55,
+     "special_bias_down": 55,
+     "special_median_rel": 1.2311597274281998,
+     "special_median_norm_ratio": 1.5354184225037173,
+     "special_median_bias_delta": -0.33197563886642456,
+     "frequent_median_rel": null,
+     "frequent_median_norm_ratio": null,
+     "frequent_median_bias_delta": null,
+     "rest_median_rel": 0.732219872046338,
+     "top_decile_rows": 7,
+     "top_decile_special": 7,
+     "special_share_of_rows": 0.8,
      "top_rows": [
       [
-       "‹",
-       1.288
-      ],
-      [
-       "›",
-       1.093
-      ],
-      [
-       "#",
-       1.084
-      ],
-      [
-       "⁰",
-       1.018
-      ],
-      [
-       "ä",
-       0.831
-      ],
-      [
-       "í",
-       0.803
-      ],
-      [
-       "¬",
-       0.794
+       "ו",
+       2.06
       ],
       [
        "ר",
-       0.789
+       2.001
+      ],
+      [
+       "ה",
+       1.999
+      ],
+      [
+       "י",
+       1.92
+      ],
+      [
+       "ד",
+       1.912
+      ],
+      [
+       "ת",
+       1.885
+      ],
+      [
+       "א",
+       1.78
       ]
      ]
     },
     "codec": {
-     "parent": 135,
-     "child": 224,
-     "shared": 135,
-     "added": 89
+     "parent": 70,
+     "child": 154,
+     "shared": 70,
+     "added": 84
     }
    }
   }
