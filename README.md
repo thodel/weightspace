@@ -9,7 +9,7 @@ Method source: R. Takehi, J. Teoh, A. Zhang, O. Khattab, "Sparks of Weight-Space
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 
-Status 12.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). The kraken and adapter tracks are done and merged; no weight edit has given a held-out repair, and one block-exchange candidate (`latin_incunabula` v3) qualifies (registered, disabled). Two Fable 5.1 reruns are open for review (#27 kraken session 2, #28 planted defects). A TrOCR track has passed stages 0 and 1 ([docs/trocr/STAGE0.md](docs/trocr/STAGE0.md), [docs/TROCR_READINGS.md](docs/TROCR_READINGS.md)).
+Status 13.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). The kraken and adapter tracks are done and merged. One budgeted session, the Fable 5.1 rerun of kraken session 2 ([docs/KRAKEN_S2_FABLE.md](docs/KRAKEN_S2_FABLE.md)), gave a held-out gain whose page interval excludes 0. It matches a short retrain on corrected data and does not beat it. One block-exchange candidate (`latin_incunabula` v3) qualifies (registered, disabled). No pull request is open. A TrOCR track has passed stages 0 and 1 ([docs/trocr/STAGE0.md](docs/trocr/STAGE0.md), [docs/TROCR_READINGS.md](docs/TROCR_READINGS.md)).
 
 Public protocol (MkDocs, for GitHub Pages later): [protocol/](protocol/README.md).
 
