@@ -1,10 +1,19 @@
-# Project state (12 November 2026, morning CET)
+# Project state (13 November 2026, CET)
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** at the merge of TrOCR stage 1 (`d43efc3`, 11 Nov evening), plus this documentation update.
-- **Open pull requests:** two, both Fable 5.1 reruns marked "do not merge without review": thodel/weightspace#27 (kraken session 2) and thodel/weightspace#28 (planted defects).
-- **Running:** no weightspace job. Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
+- **Main:** at the merge of thodel/weightspace#28 (`6d03a3f`, 13 Nov), plus this documentation update. thodel/weightspace#27, #28 and #30 were reviewed and merged on 12–13 Nov.
+- **Open pull requests:** none.
+- **Pushed on 13 Nov, but not in a PR and not merged:**
+  - `claude/trocr-stage0-9ababb`: the TrOCR stage-2 plan and the preregistration of the seed null (direct route, card 0), written before any run.
+  - `claude/zoo-survey-76f514`: the zoo survey completed, 37 of 37 models, with manuscript 6.4, READINGS and MODELS updated.
+  - `claude/adapters-4d972b`: corrections to PLAN, DESIGN, PROTOCOL and the adapter report.
+  - `claude/c4-retrain`: entries for R11, PROJECT_STATE and README.
+  - Each needs a review before it is merged. The last three touch files this page also changes.
+- **Running:**
+  - Epic #13 (activation atlas) has started in the layer-visualisation session: CPU readings on branch `claude/atlas-l0-l2`, not yet pushed.
+  - A watcher from the planted-defect session (`~/atr-cache/wsp/spool/a3-f1/p3-attempt2.sh`) is waiting for card 0. Once card 0 has 18 GB free, it starts a pass server and runs a second Fable attempt on adapter p3 (`q02`). That attempt is not part of #28.
+  - Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
 
 ## What this is
 
@@ -21,19 +30,19 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 | track | what | where | status |
 |---|---|---|---|
-| Phase 0-4 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis | `docs/PHASE0..4_REPORT.md`, `docs/RESULTS.md` R1-R3 | done |
+| Phase 0-4 (A) | harness, readings, sessions on `xix-blb-v1` and `combined-v1`, collapse analysis; session 2 replicated with a Fable 5.1 programmer | `docs/PHASE0..4_REPORT.md`, `docs/KRAKEN_S2_FABLE.md`, `docs/RESULTS.md` R1-R3 | done; Fable replicate merged 13 Nov (#27), its model registered and **disabled** |
 | Phase 5 clean-up | stricter collapse detector, the handwriting held-out set `blb-eval-hand` | `docs/PHASE5_CLEANUP_REPORT.md` | done |
-| B | controls for the article: planted defects, unseen practice sets with Sonnet, Opus, Haiku and Fable programmers, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged (Fable attempts f1 on 9 Nov, #22) |
+| B | controls for the article: planted defects, unseen practice sets with Sonnet, Opus, Haiku and Fable programmers, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged (Fable attempts f1 on 9 Nov, #22; planted defects rerun with Fable, §11, merged 13 Nov, #28) |
 | Block statistics | errors per Unicode block (after CERberus), additive and paired; exact session replays | `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md` | done, merged |
 | C | the family of 43 served kraken models: weights, lineage, function, exchange grids; `latin_incunabula` candidates v1-v3; exchange on out-of-domain material and across lineages | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9, R12, R13 | done, merged; v3 qualifies, registered and **disabled** |
 | C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged |
 | Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track, the phase-5 session (Opus 5.5) and its Fable 5.1 replicate (#25, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10b) merged |
 | Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | done; checked on unseen practice lines (12 Nov): probe findings hold, block roles partly, part-block hypotheses withdrawn; issue closed |
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
-| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; the Fable replicate and its shams not yet in 9.3 |
+| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; not yet in the text: the adapter Fable replicate (#25), kraken session 2 with Fable (#27), the planted defects with Fable (#28), the epic #3 corrections (#30) |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
-| Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | proposed, not started |
-| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null through the trainer) not started |
+| Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | #12 proposed, not started; #13 started 13 Nov (Gate 1 rule fixed before any occlusion run, branch `claude/atlas-l0-l2`) |
+| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null) preregistered on its branch 13 Nov, no run yet |
 
 ## Findings in one paragraph each
 
@@ -46,8 +55,9 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - No held-out gain on practice lines from the training side (15 edits).
   - On unseen practice lines there is one small gain for `combined-v1` (−0.19 to −0.39 points). It is a quarter-step interpolation toward a sibling, and its page-clustered intervals include 0.
   - A Fable 5.1 programmer found a larger practice gain and no held-out gain (−0.02).
+  - Session 2 (training-side practice) rerun with a Fable 5.1 programmer: 3 edits kept. Held-out −0.57 [−1.15, −0.05] by pages, almost all of it on Hertwig (−1.32). This is the first session on a kraken model whose held-out page interval excludes 0. Of the kept edits, the step of 12.5 % toward the parent `hertwig-v2` carries the gain (−0.53 alone), and the two blank steps carry none. Through the serving path: −2.16 [−3.32, −1.05], but on the other hand (Schlussredaktion). Every edited model shows that hand reversal, so it belongs to the measurement. The size and place match the C4 retrain (R11). It is a merge toward the parent, not a repair the retrain does not also buy.
   - The C4 retrain on corrected data does at least as well as the best edit: −0.55 at learning rate 1e-5, −0.99 at 5e-5.
-- **Positive control:** localised planted defects are repaired by the programmer, the blind programmer and the rule list alike. Diffuse damage is repaired only by the programmer who measures, and only with a donor of the same lineage.
+- **Positive control:** localised planted defects are repaired by the programmer, the blind programmer and the rule list alike, with Sonnet 5.5 and with Fable 5.1 programmers (13 of 22 cells for Fable, 15 for Sonnet). Diffuse damage (k9) was repaired only by the Sonnet programmer who measured (83 %); the Fable programmer did not try the interpolation toward the parent (24 %). So that claim holds for one of two models, one attempt each.
 - **Exchange:**
   - `latin_incunabula` v3 qualifies under the rule with minimum effects. It moves the output layer half-way without the abbreviation rows: NewsEye −1.66 [−2.02, −1.30], MUFI share +0.014. Through the serving path it is not worse (median page −0.09).
   - First-convolution exchange stabilises the Kurrent model on held-out out-of-domain documents (−0.35 to −1.07), but below the preregistered minimum.
@@ -71,17 +81,6 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 ## Open items
 
-**Waiting for review**
-
-- **thodel/weightspace#27**, kraken session 2 rerun with a Fable 5.1 programmer:
-  - 3 edits kept;
-  - held-out −0.57 points [−1.15, −0.05] by pages, almost all of it on the Hertwig lines (−1.32);
-  - the interpolation toward `hertwig-v2` alone gives −0.53, about the size of the C4 retrain.
-- **thodel/weightspace#28**, planted-defect controls rerun with a Fable 5.1 programmer:
-  - 13 of 22 cells repaired, against Sonnet's 15;
-  - the one cell where measuring passes made the difference, k9 (noise on all weights), does not reproduce: 24 % against 83 %.
-- Both PRs add journal rows and RESULTS paragraphs. Expect small conflicts in `protocol/docs/journal/index.md` and `protocol/mkdocs.yml` with each other and with this update.
-
 **Decisions for the user**
 
 1. **TrOCR track:** when the stage-2 seeds go through the trainer (card and timing); whether to fetch the third-party fine-tunes for the comparison; and the parents' corpora question of `docs/trocr/STAGE0.md` §8, item 4 (Laßberg or BLB material in the Kurrent or XVI-XVII training data?).
@@ -96,23 +95,25 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 6. **Article:**
    - authors, availability, funding, AI statement, licences, public release (6 `[TODO]`);
    - length, about 18,000 words against the roughly 7,000 an editor expects;
-   - whether Section 9.3 adds the Fable replicate and the sham result;
+   - whether and where the text takes up the Fable reruns: 9.3 (adapter replicate and shams, #25), 7.x (kraken session 2, #27, the first held-out page interval excluding 0), 7.6 (planted defects, #28), and the epic #3 corrections on unseen lines (#30);
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
-8. **Branch hygiene.**
-   - Every remote branch except those of #27 and #28 is merged into main and can be deleted.
+8. **Branch hygiene and loose ends.**
+   - Every remote branch except the four under "Pushed on 13 Nov" is merged into main and can be deleted.
+   - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
+   - Whether the waiting `q02` watcher (see Running) should still run.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
 
 **Settled since 8 November**
 
 - The `combined-v1` line count: 5,441 is right. The other figure, 5,243, adds two quantities that are not like-for-like (`paper/factcheck_draft3.md` §12).
-- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20). The Fable replicate is merged (#25).
+- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20). The Fable replicates are merged (#25, #27, #28). Epic #3 is closed (#30).
 
 **Not started**
 
-9. Epic #12 (LLM playbook) and epic #13 (activation atlas).
-10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator).
+9. Epic #12 (LLM playbook).
+10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator). Stage 2 is preregistered on its branch; no run yet.
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
