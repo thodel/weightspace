@@ -63,10 +63,10 @@ lines takes seconds on CPU.
 ### Scale-up: QLoRA adapters of the page models
 
 The trainer (training-atr-models) produces peft adapters (`adapter_model.safetensors`,
-rank 16, language tower and, for Qwen3-VL, the vision tower) for
+rank 64, α 128 (measured 08.11.2026; not 16), language tower only for the Qwen3.5 arms: 128 modules, 340 MB) for
 `Qwen3.5-4B`, `Qwen3-VL-4B/8B`, `olmOCR-2-7B` and Apertus. An adapter is a
-few tens of MB of `lora_A` / `lora_B` pairs per target module — the same order
-of size as a kraken model, and the natural unit of weight-space reading:
+set of `lora_A` / `lora_B` pairs per target module (340 MB for the Qwen3.5 arms, about
+85 times a kraken model's 4 MB), and the natural unit of weight-space reading:
 `ΔW = B·A` per module is low-rank by construction, so its directions are
 enumerable, and a defect direction (looping, truncation, the token-limit hits
 the trainer already counts) is a candidate for exactly the Exp-8 edit of Takehi et al..
@@ -112,7 +112,7 @@ down **before** the forward pass:
 | lossless rewrite | drop padding-only weights, merge chains | kraken+ `Cr255` | fold rank-deficient pairs |
 | direction subtraction | project a direction out of a module's output | LSTM output / CTC input | `B` columns of the modules that write the loop |
 | scaling | per-layer α on the fine-tune delta | `parent + α(child − parent)` | `lora_alpha` per module |
-| transplant | one layer / module from parent or sibling | LSTM layer, conv block | one module's `A,B` from a sibling adapter |
+| transplant | one layer / module from parent or sibling | LSTM layer, conv block | **not available** (08.11.2026, docs/ADAPTER_REPORT.md A1): adapters of one base have independent `A` initialisations, ΔW cosine ≈ 0.1; only statistics transfer |
 | gate edits | BiLSTM gate biases | last resort | — |
 
 Budget per session: 0 passes for pure reading, then 10, 25, 50. A "forward
@@ -130,7 +130,7 @@ prediction, edit, result and keep/revert decision goes to
    `parent + α·(child − parent)` for α ∈ {0.5, 0.75, 1.25, 1.5}. Codecs must
    align: `resize: union` in the BLB spec may have grown the codec, so rows are
    matched by character, never by index. For adapters: averaging and
-   per-module α of sibling adapters of one base.
+   per-module α of one adapter (averaging sibling adapters is not defined: no shared basis, docs/ADAPTER_REPORT.md A1).
 3. **Programmed merge:** per-layer choice of donor, justified from the
    readings — the merging Takehi et al. leave for future work, done by hand under the
    same budget rule.

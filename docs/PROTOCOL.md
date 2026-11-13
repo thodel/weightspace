@@ -128,6 +128,18 @@ trainer's own eval set for that adapter (`docs/EVAL_SETS.md` in
 training-atr-models), scored by the same `wsp.metrics` code; C4 = one short
 QLoRA continuation through `train_spec`.
 
+Amendments from the adapter track (08.11.2026, docs/ADAPTER_REPORT.md):
+
+- **Engine.** The pass engine is the trainer's own `evaluate_qlora` (transformers, greedy, cap 3,072): it is deterministic. vLLM is not repeatable
+  run to run (same adapter and batch: CER 0.35 vs 0.41; only 2 of 16 pages identical even at one sequence at a time) and differs from the scorer on which
+  pages loop (gate G1). A vLLM pass may serve only for gross-defect controls and states its noise.
+- **Noise floor.** Whether a page loops is chaotic: merging the adapter into the weights or rescaling every `B` by 1.002 changes which pages loop
+  (practice CER −8 points). A session on a loop metric reports a sham of the same tensor (random matrix of the edit's norm) read on the same pages (C5), and the
+  number of attempted edits next to the kept ones.
+- **Donors.** Adapters trained on one base share no basis (ΔW cosine ≈ 0.1, no common `A`): no donor operation exists; the donor rule is moot for adapters.
+- **Held-out subsets.** A document-stratified subset of a frozen draw (here 134 of 733 pages) is allowed when the full draw costs hours, if stated; it does not
+  read like the full draw and is compared only paired, with the trainer's full-draw number quoted beside it.
+
 **Proposed amendment (11.11.2026, not adopted): a sham noise floor for page-level sessions.**
 Two phase-5 adapter sessions with different programmers kept the same edit. Its practice gain was −10.45 points, and on held-out pages it gained nothing (`docs/PHASE5_REPORT.md`, `docs/PHASE5_FABLE_REPORT.md`). One of three seeded random directions out of the same module passed the keep rule on the 64 practice pages (−5.7 [−11.8, −1.2]). For sessions whose pass reads whole pages, the proposal has three parts:
 - keep an edit only if it beats the spread of several seeded C5 shams of the same module and norm;
