@@ -68,3 +68,15 @@ def test_figures_and_pick(tmp_path):
              {"key": "short", "ref": "xx", "runs": [(0, 0)] * 2,
               "states": {"child": {"hyp": "xx", "status": "oo"}, "L_16@0.5": {"hyp": "", "status": "dd"}}}]
     assert ao.pick_lines({"lines": lines}, 5) == ["long"]
+
+
+def test_donor_rule_judges_on_lines_the_parent_never_saw():
+    st = lambda hyp: {"hyp": hyp, "status": ""}
+    lines = [{"key": "p/1/a", "states": {"child": st("ab"), "L_16@0": st("ab")}},     # parent's training line: the move "helps"
+             {"key": "p/2/b", "states": {"child": st("cd"), "L_16@0": st("c")}}]      # unseen line: the move costs
+    res = {"lines": lines, "summary": {"child": {}, "L_16@0": {"block": "L_16", "alpha": 0.0}}, "parent": "par"}
+    items = [{"key": "p/1/a", "text": "ab", "seen_by": ["par"]}, {"key": "p/2/b", "text": "cd", "seen_by": []}]
+    dr = ao.donor_rule(res, items, "par")
+    assert dr["lines"] == 1 and dr["lines_seen_by_donor"] == 1 and dr["pages"] == 1
+    assert dr["summary"]["L_16@0"]["cer"] == 0.5 and dr["summary"]["L_16@0"]["edits"]["del_letter"] == 1
+    assert ao.donor_rule(res, [{"key": "p/1/a", "text": "ab"}], "par")["status"].startswith("seen_by not recorded")

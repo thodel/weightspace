@@ -301,3 +301,41 @@ Expectation, stated in advance:
 > block-by-block readings here, which were taken on training lines, should be repeated there
 > before they are relied on. The output-bias null agrees with the controls report's margins: a
 > deleted character sits a median 3.2 nats below the blank.
+
+## The readings of 07.11 on lines the models were not trained on (12.11.2026)
+
+The probes and the α overlay were repeated on `blb-val-300` and `bern-val`, the practice sets of
+the controls. Their lines come from objects and pages the subjects were not trained on. Tables,
+commands and figures are in [docs/viz/README.md](viz/README.md) under "On lines the models were not
+trained on".
+
+**What holds:**
+- Letters become linearly identifiable over the three BiLSTMs, with the same levels within 0.03,
+  for both `xix-blb-v1` and `combined-v1`.
+- About two thirds of all deletions (66 % for both models) are decodable at no layer.
+- Deleted spaces keep a weaker emission signal than kept spaces.
+- In `xix-blb-v1` the fine-tune's `L_12` move makes the letters appear (+820 letters deleted
+  without it), and `L_16`'s move does most of the word separation (+264 spaces).
+
+**What does not hold:**
+- *`L_14` tells letters apart.* On unseen lines its share also prevents deletions (+294) rather than
+  substitutions (−18). On unseen material, removing a block's share turns misreadings into dropped
+  letters, so substitution counts are not a measure of identity.
+- *Every α = 1.5 point is an exchange.* On unseen lines the moves are plain losses. The exception is
+  `C_9`, at −0.07 points.
+
+**Corrected: the Bern block shares.** They were measured on `bern-train-300` and confounded by the
+parent `hertwig-v2`, which was trained on its Hertwig lines. On `bern-val` the same artefact shows
+directly:
+- on the 212 lines the parent trained on, every block set back to the parent "improves" CER (by up
+  to 5.5 points);
+- on the 301 lines it never saw, every block costs, with page-clustered intervals: `L_16` +2.45
+  [+1.72, +3.24], mostly letters; `L_14` +1.42; the output layer +0.48 [+0.15, +0.81].
+
+**The part-block hypotheses of 07.11 (H-L16, H-L12, H-L16+L12, H-α) are withdrawn.** They rested on
+the α = 1.5 exchanges, which do not replicate on unseen lines. A session built on them would test a
+training-line effect.
+
+**What remains for a session on these models** is what the controls report already found:
+interpolation toward a relative of the same lineage, judged on lines that relative never saw, with
+page-clustered intervals.

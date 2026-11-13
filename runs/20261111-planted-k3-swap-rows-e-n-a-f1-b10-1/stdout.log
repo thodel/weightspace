@@ -1,0 +1,15 @@
+C0: CER 0.2443 WER 0.6345 collapsed 9; top [('e', 'n', 1364), ('n', 'e', 837), (' ', '', 98), ('e', '', 71), ('n', '', 65)]
+H1a swap e/n weight rows: CER 0.0646 WER 0.1715 collapsed 9 edits 831; top [(' ', '', 101), ('e', '', 42), ('n', '', 34), ('i', '', 22), ('r', '', 21)]
+  kept=True
+H1b swap e/n biases: CER 0.0646 WER 0.1711 collapsed 9 edits 831; top [(' ', '', 103), ('e', '', 40), ('n', '', 35), ('i', '', 22), ('r', '', 21)]
+  kept=False
+H2 C_3 bias from parent: CER 0.0657 WER 0.1787 collapsed 9 edits 845; top [(' ', '', 97), ('e', '', 45), ('n', '', 32), ('i', '', 22), ('r', '', 21)]
+  kept=False
+L_16 ih outliers |w|>3.0: 7
+H3 L_16 outliers: CER 0.0645 WER 0.1715 collapsed 9 edits 830; top [(' ', '', 101), ('e', '', 42), ('n', '', 33), ('i', '', 22), ('r', '', 21)]
+  kept=False
+H4 space bias +1.5: CER 0.0658 WER 0.1735 collapsed 9 edits 847; top [(' ', '', 97), ('e', '', 46), ('n', '', 37), ('', ' ', 26), ('r', '', 23)]
+  kept=False
+{'used': 6, 'edits': 5, 'kept': 1, 'final_digest': '08105f518888e546bcc2adec6cebe9e6f07e9df23157abfdcad80c907a5566d6'}
+
+--- stderr ---

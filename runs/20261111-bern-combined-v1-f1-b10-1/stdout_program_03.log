@@ -1,0 +1,17 @@
+budget 10, used 7, left 3
+last kept state: collapsed 26, blank bias +0.5976
+H1c: blank bias -> +0.3976
+[H1c] pass 8: CER 0.1397 (1513/10829)  H 0.1985 (676/3405)  S 0.1127 (837/7424)  collapsed 22 (H 8, S 14)  length_ratio 0.936 (H 0.910, S 0.948)  WER 0.3513
+   del 879 ins 188 sub 446
+   vs_kept delta -0.0013 ci95 [-0.0032535885167463974, 0.00047587322737221993]   vs_baseline delta -0.0059 ci95 [-0.010105487102207239, -0.002282688093498908]
+   confusions:  →∅ 131, ∅→  63, e→∅ 62, /→∅ 61, i→∅ 56, n→∅ 55, ∅→/ 45, r→∅ 42, t→∅ 42, s→∅ 37
+   -> REFUSED by the rule: interval contains 0
+H1d skipped (H1c kept=False, delta -0.0013)
+H4b: 267 rows aligned; subject-only rows kept: ['½', 'ƒ', '̊']; blank bias held at +0.5976
+[H4b] pass 9: CER 0.1357 (1469/10829)  H 0.1777 (605/3405)  S 0.1164 (864/7424)  collapsed 22 (H 7, S 15)  length_ratio 0.937 (H 0.912, S 0.948)  WER 0.3508
+   del 860 ins 178 sub 431
+   vs_kept delta -0.0054 ci95 [-0.010361752408652974, -0.0013143071723620003]   vs_baseline delta -0.0100 ci95 [-0.016215236887399204, -0.004517528008673666]
+   confusions:  →∅ 137, ∅→  65, e→∅ 64, /→∅ 58, i→∅ 53, n→∅ 51, ∅→/ 49, r→∅ 43, s→∅ 34, t→∅ 33
+   -> KEPT (rule met)
+program_03 done: H1c kept=False, H1d kept=None, H4b kept=True; passes used 9 of 10, edits 8, kept 3; baseline CER 0.1456, last pass CER 0.1357; final digest 4c6d17980cb8. FROZEN.
+changed tensors: ['C_0.co.bias', 'C_0.co.weight', 'C_3.co.bias', 'C_3.co.weight', 'C_6.co.bias', 'C_6.co.weight', 'C_9.co.bias', 'C_9.co.weight', 'L_12.layer.bias_hh_l0', 'L_12.layer.bias_hh_l0_reverse', 'L_12.layer.weight_hh_l0', 'L_12.layer.weight_hh_l0_reverse', 'L_12.layer.weight_ih_l0', 'L_12.layer.weight_ih_l0_reverse', 'L_14.layer.bias_hh_l0', 'L_14.layer.bias_hh_l0_reverse', 'L_14.layer.weight_hh_l0', 'L_14.layer.weight_hh_l0_reverse', 'L_14.layer.weight_ih_l0', 'L_14.layer.weight_ih_l0_reverse', 'L_16.layer.bias_hh_l0', 'L_16.layer.bias_hh_l0_reverse', 'L_16.layer.weight_hh_l0', 'L_16.layer.weight_hh_l0_reverse', 'L_16.layer.weight_ih_l0', 'L_16.layer.weight_ih_l0_reverse', 'O_18.lin.bias', 'O_18.lin.weight']

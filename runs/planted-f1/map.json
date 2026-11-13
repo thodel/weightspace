@@ -1,0 +1,16 @@
+{
+ "s01": "k8-zero-conv-c3-u",
+ "s02": "k7-noise-lstm14",
+ "s03": "k4-blank-bias-plus2",
+ "s04": "k11-lstm-all-x0.9",
+ "s05": "k6-lstm16-x0.5",
+ "s06": "k1-zero-row-e",
+ "s07": "k6-lstm16-x0.5-u",
+ "s08": "k1-zero-row-e-u",
+ "s09": "k8-zero-conv-c3",
+ "s10": "k9-noise-all-10pct",
+ "s11": "k10-noise-lstm14-60pct",
+ "s12": "k3-swap-rows-e-n",
+ "s13": "k2-negate-row-n",
+ "s14": "k5-output-weight-x2"
+}

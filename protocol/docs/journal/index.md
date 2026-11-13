@@ -28,3 +28,7 @@ that names the one it corrects.
 | 2026-11-08 | [Exchange on out-of-domain material and across lineages](2026-11-08-e-exchange-ood.md) | Real but small; unrelated models cannot exchange |
 | 2026-11-09 | [A Fable programmer on the validation sessions](2026-11-09-a-fable-attempt.md) | Larger practice gain, no held-out gain |
 | 2026-11-11 | [Phase 5 with a Fable programmer](2026-11-11-a-phase5-fable.md) | Same direction, same adapter, same held-out null; a random direction passes the keep rule |
+| 2026-11-11 | [Kraken session 2 with a Fable programmer](2026-11-11-b-kraken-s2-fable.md) | Same direction as Opus, smaller step: −0.57 points held-out |
+| 2026-11-11 | [TrOCR track, stage 0](2026-11-11-d-trocr-stage0.md) | Seven models fetched, tokenizers identical, embedding tied; C0 deterministic, 19.7–26.4 % |
+| 2026-11-11 | [TrOCR track, stage 1: the family as weights](2026-11-11-e-trocr-stage1.md) | Lineage readable for small fine-tunes; decoder moves, encoder hardly; data does not set the direction |
+| 2026-11-11 | [Planted defects with a Fable programmer](2026-11-11-c-planted-fable.md) | Localised defects repaired again, by both arms; the diffuse-noise repair does not reproduce |
