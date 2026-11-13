@@ -1,0 +1,43 @@
+{
+  "model_id": "kraken-latin_incunabula-wsp-v3",
+  "job_id": "20261108-latin_incunabula-exchange-3",
+  "engine": "kraken",
+  "code": {
+    "weightspace": {
+      "commit": "b81d620d95791bf005c0fd3e9c11e2470837a854",
+      "dirty": false
+    }
+  },
+  "created": "2026-11-08T19:06:14.429844+00:00",
+  "weights": "kraken-latin_incunabula-wsp-v3.mlmodel",
+  "source_weights": "/home/tobias/Repo/weightspace/.claude/worktrees/incunabula-v3-995321/runs/20261108-latin_incunabula-exchange-3/final.mlmodel",
+  "weights_digest": {
+    "files": {
+      "kraken-latin_incunabula-wsp-v3.mlmodel": "11fffd8a0166f248365070014839390bf5b5c9bf254d952ac7fc332aecf16f5e"
+    },
+    "tensors": "bd0f11ec263fc0731abb377a3bb70865f85327cfdc7e378438d669bcdb3f4f6c"
+  },
+  "metrics": {
+    "cer": 0.049902217508038055,
+    "wer": 0.22255689424364122,
+    "length_ratio": 0.9903764349718807,
+    "measured_on": "reichenau-heldout",
+    "samples": 4374
+  },
+  "request": {
+    "engine": "kraken",
+    "model_id": "kraken-latin_incunabula-wsp-v3",
+    "base_model": "/home/tobias/atr-cache/wsp/family/zenodo/10.5281_zenodo.11113737/reichenau_lat_cat_099218.mlmodel",
+    "method": "weight-space programming (no gradient)",
+    "budget": 3,
+    "passes_used": 6,
+    "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/incunabula-v3-995321/data/practice/reichenau-val-300.jsonl",
+    "practice_sha256": "d705f423f80062142b2ff1a3ff31a7e1aa79177d33029680d05b2565c82f374d",
+    "edits": 3,
+    "kept": 3,
+    "diff": "/home/tobias/Repo/weightspace/.claude/worktrees/incunabula-v3-995321/runs/20261108-latin_incunabula-exchange-3/diff.json"
+  },
+  "progress": {
+    "val_accuracy": null
+  }
+}

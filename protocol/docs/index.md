@@ -12,12 +12,34 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 6 November 2026"
-    Phase 0 (harness, practice sets, baselines) and phase 1 (first budgeted
-    session) are done. **No gain has been found yet**: the one session so far
-    kept an edit whose held-out effect is −0.010 CER points with a 95 %
-    interval containing 0. Negative and null results are reported here in
-    full, as the protocol requires.
+!!! note "Status — 13 November 2026"
+    **No weight edit has yet done better than a cheap alternative.**
+
+    - **Kraken models:** one budgeted session gave a held-out gain whose page
+      interval excludes 0: the Fable 5.1 rerun of session 2, −0.57 points
+      [−1.15, −0.05]. Its gain is a step of 12.5 % toward the parent model, the
+      same size and place as a short retrain on corrected data (−0.55). Every
+      other session gave no held-out gain.
+    - **Positive control:** the method repairs planted, localised defects, but
+      so do a blind programmer and a rule list. That holds with Sonnet 5.5 and
+      Fable 5.1 programmers. The one diffuse defect repaired by measuring
+      was repaired by one of the two models only.
+    - **Vision-language adapter:** two sessions with different programmer models
+      (Opus 5.5, Fable 5.1) independently kept the same edit. It gave a large
+      practice gain from pages that stop looping, and none on 733 held-out
+      pages. One random direction passed the same keep rule.
+    - **Block exchange between related models does help** on material the
+      model was not trained for. One candidate (`latin_incunabula` v3) reads
+      held-out Fraktur 1.7 points better while keeping its abbreviations.
+    - **Second architecture:** a TrOCR track (transformer encoder-decoder,
+      334 M parameters) has started. Readings are deterministic and lineage can
+      be read from the weights. No edit yet.
+    - **Layer views on unseen lines:** the probe findings hold; part of the
+      block roles do not, and four part-block hypotheses are withdrawn.
+    - **Data:** along the way the work found several defects in the project's
+      own data.
+
+    Negative and null results are reported in full, as the protocol requires.
 
 ## The models
 

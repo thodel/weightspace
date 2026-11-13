@@ -1,0 +1,33 @@
+{
+  "set": "gt-fraktur-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/gt-fraktur/data/train/gt-fraktur/0000.parquet",
+    "pages": 207,
+    "projects": [
+      "gt-fraktur"
+    ],
+    "sha256": "3ab40b85005a5eaae8b2d39a17ae9ae781f19b5cfa72ea76acc835f8ae8e758a"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 14609,
+  "sha256": "9383aa6261a8950a8e57d75a4bd356035c56f4c20a1db591efd3eb472aa2fcd4",
+  "documents": [
+    "541177",
+    "541181",
+    "542279",
+    "542280",
+    "543221",
+    "543222",
+    "543223",
+    "543224",
+    "543314",
+    "543315",
+    "543405",
+    "543407"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

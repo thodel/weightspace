@@ -1,0 +1,14 @@
+{
+  "name": "20261107-val-bern-combined-v1-o1-b10-1",
+  "subject": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-combined-v1.mlmodel",
+  "subject_digest": "4836a9f494a9a62c2a743a0df0d0a848601a39ccee229964cd89687ddef8016c",
+  "subject_file_sha256": "35e7eae281ea85e61847e22ab65a0295aeddb7ddbe49d93bcf7deae7f783a3a6",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/article-controls-8803eb/data/practice/bern-val.jsonl",
+  "practice_sha256": "30d2b536deef178ab36d07e85180fa003f45fc015e657cda79b3e6b06031dbf2",
+  "practice_lines": 513,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-07T13:55:00.607863+00:00",
+  "unshare": true,
+  "deviations": []
+}

@@ -129,6 +129,50 @@ class KrakenSubject(Subject):
             out.append(np.asarray(probs)[0].T)    # kraken returns (N, C, W); hand out (W, C)
         return out
 
+    def activations(self, practice: Sequence[dict], blocks: Sequence[str]) -> dict[str, list[np.ndarray]]:
+        """Output of each named block (``C_0`` … ``O_18``, the VGSL names) per line, as (frames x features):
+        a conv output (N, C, H, W) becomes W rows of C*H features, a recurrent or output layer (N, C, 1, W)
+        W rows of C. Same input transforms as ``forward``; lines the transform cannot scale are skipped
+        (the same lines for every model of one architecture, so the rows stay paired across models).
+        For the family comparison (docs/MODEL_FAMILY.md, RQ2): not a counted pass."""
+        from kraken.lib.dataset import ImageInputTransforms
+        from PIL import Image
+
+        mods = dict(self.model.nn.named_children())
+        missing = [b for b in blocks if b not in mods]
+        if missing:
+            raise KeyError(f"no block {missing}; this model has {list(mods)}")
+        captured: dict[str, np.ndarray] = {}
+
+        def hook(name):
+            def fn(_mod, _inp, out):
+                o = out[0] if isinstance(out, (list, tuple)) else out
+                o = o.detach().cpu().numpy()[0]              # (C, H, W)
+                captured[name] = o.reshape(o.shape[0] * o.shape[1], o.shape[2]).T.astype(np.float32)
+            return fn
+
+        handles = [mods[b].register_forward_hook(hook(b)) for b in blocks]
+        batch, channels, height, width = self.model.input
+        tf = ImageInputTransforms(batch, height, width, channels, (16, 0), valid_norm=False)
+        out: dict[str, list[np.ndarray]] = {b: [] for b in blocks}
+        try:
+            for item in practice:
+                im = Image.open(item["image"]).convert("L")
+                try:
+                    line = tf(im).unsqueeze(0).to(self.device)
+                except ValueError:
+                    continue
+                lens = self._torch.tensor([line.shape[3]], dtype=self._torch.int64)
+                captured.clear()
+                with self._torch.no_grad():
+                    self.model.nn(line, lens)
+                for b in blocks:
+                    out[b].append(captured[b])
+        finally:
+            for h in handles:
+                h.remove()
+        return out
+
     def save(self, path: str | Path) -> Path:
         """Write CoreML. kraken 7.0.2's ``save_model`` takes ``model_type[0]`` of the
         metadata; a model loaded from CoreML carries the *string* ``'recognition'``,

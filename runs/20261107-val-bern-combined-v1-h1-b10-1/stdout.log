@@ -1,0 +1,10 @@
+C0 baseline: CER 0.1386 collapsed 27
+H1 blank -0.25: CER 0.1373 collapsed 24 -> refused
+H1b blank step -0.10: CER 0.1385 collapsed 26 -> refused
+H2 space +0.15: CER 0.1388 collapsed 27 -> refused
+H3 slash +0.15: CER 0.1388 collapsed 27 -> refused
+H4 output layer -> schlussredaktion a=0.5: CER 0.1383 collapsed 27 -> refused
+H5 body -> schlussredaktion a=0.25: CER 0.1251 collapsed 22 -> kept
+used 7 edits 6 kept 1
+
+--- stderr ---

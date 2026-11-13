@@ -9,11 +9,13 @@ Method source: R. Takehi, J. Teoh, A. Zhang, O. Khattab, "Sparks of Weight-Space
 https://rikiyat.github.io/blog/weight-space-programming/ , logs and harness at
 https://github.com/RikiyaT/lm_understand-logs .
 
-Status 06.11.2026 (evening): phase 0 executed on asteraix — harness verified against kraken 7.0.2, practice sets built and audited, C0 baselines, the lossless `Cr255 → Cr1` rewrite, the session runner with a no-op smoke session, and the first readings. Report: [docs/PHASE0_REPORT.md](docs/PHASE0_REPORT.md). One data finding changes target 1: the 25.10 re-export of the Hertwig dataset pairs 44 of 50 training pages with the wrong image.
+Status 13.11.2026: see [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). The kraken and adapter tracks are done and merged. One budgeted session, the Fable 5.1 rerun of kraken session 2 ([docs/KRAKEN_S2_FABLE.md](docs/KRAKEN_S2_FABLE.md)), gave a held-out gain whose page interval excludes 0. It matches a short retrain on corrected data and does not beat it. One block-exchange candidate (`latin_incunabula` v3) qualifies (registered, disabled). No pull request is open. A TrOCR track has passed stages 0 and 1 ([docs/trocr/STAGE0.md](docs/trocr/STAGE0.md), [docs/TROCR_READINGS.md](docs/TROCR_READINGS.md)).
 
 Public protocol (MkDocs, for GitHub Pages later): [protocol/](protocol/README.md).
 
-Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/SEARCH_LOG.md](docs/SEARCH_LOG.md) (how the literature was searched) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first)
+Current state: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md) (tracks, findings, open items) · article: [paper/](paper/README.md), [paper/STATUS.md](paper/STATUS.md).
+
+Docs: [PLAN.md](PLAN.md) · [docs/DESIGN.md](docs/DESIGN.md) · [docs/PROTOCOL.md](docs/PROTOCOL.md) · [docs/ASTERAIX_RUNBOOK.md](docs/ASTERAIX_RUNBOOK.md) · [docs/MODELS.md](docs/MODELS.md) · [docs/PAPER.md](docs/PAPER.md) · [docs/RELATED_WORK.md](docs/RELATED_WORK.md) (how prior work assessed text handling) · [docs/SEARCH_LOG.md](docs/SEARCH_LOG.md) (how the literature was searched) · [docs/DEPLOY_ASTERAIX.md](docs/DEPLOY_ASTERAIX.md) (bootstrap commands) · [docs/BRIEF_PHASE0.md](docs/BRIEF_PHASE0.md) (what to do on asteraix first) · [docs/RESULTS.md](docs/RESULTS.md) (R1-R13) · [docs/CONTROLS_REPORT.md](docs/CONTROLS_REPORT.md) · [docs/SEED_NULL.md](docs/SEED_NULL.md) · [docs/ZOO_SURVEY.md](docs/ZOO_SURVEY.md) · [docs/MODEL_FAMILY.md](docs/MODEL_FAMILY.md) · [docs/C4_RETRAIN.md](docs/C4_RETRAIN.md) · [docs/ADAPTER_REPORT.md](docs/ADAPTER_REPORT.md) · [docs/PHASE5_REPORT.md](docs/PHASE5_REPORT.md) · [docs/epics/](docs/epics/EPIC_LLM_PLAYBOOK.md) · [docs/MODELS_TROCR.md](docs/MODELS_TROCR.md) · [docs/epics/EPIC_TROCR_TRACK.md](docs/epics/EPIC_TROCR_TRACK.md)
 
 Layout:
 

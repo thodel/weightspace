@@ -1,0 +1,36 @@
+{
+ "model": "/home/tobias/atr-cache/trocr/dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+ "set": "data/practice/trocr-blb-train-300.jsonl",
+ "n": 300,
+ "device": "cuda:0",
+ "variants": {
+  "pinned": {
+   "cer": 0.21450221496852412,
+   "wer": 0.62375049980008,
+   "collapsed": 6,
+   "seconds": 32.2,
+   "lines_differing_from_pinned": 0
+  },
+  "use_cache_false": {
+   "cer": 0.21450221496852412,
+   "wer": 0.62375049980008,
+   "collapsed": 6,
+   "seconds": 99.9,
+   "lines_differing_from_pinned": 0
+  },
+  "batch_1": {
+   "cer": 0.21450221496852412,
+   "wer": 0.62375049980008,
+   "collapsed": 6,
+   "seconds": 66.4,
+   "lines_differing_from_pinned": 0
+  },
+  "hub_length_penalty_2": {
+   "cer": 0.21644516981425352,
+   "wer": 0.6281487405037984,
+   "collapsed": 6,
+   "seconds": 28.7,
+   "lines_differing_from_pinned": 30
+  }
+ }
+}

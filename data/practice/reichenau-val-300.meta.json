@@ -1,0 +1,23 @@
+{
+  "set": "reichenau-val-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/reichenau-inkunabeln/data/validation/reichenau-inkunabeln/0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/reichenau-inkunabeln/data/validation/reichenau-inkunabeln/0000.parquet",
+    "pages": 59,
+    "projects": [
+      "reichenau-inkunabeln"
+    ],
+    "sha256": "5b4690e854195794e42edece1a13976e5f1fb0ecf3fd920114090e6ea08e7c3a"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 2876,
+  "sha256": "d705f423f80062142b2ff1a3ff31a7e1aa79177d33029680d05b2565c82f374d",
+  "documents": [
+    "1895717",
+    "1896705"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

@@ -65,8 +65,8 @@ lines takes seconds on CPU.
 The trainer (training-atr-models) produces peft adapters (`adapter_model.safetensors`,
 rank 64, α 128 (measured 08.11.2026; not 16), language tower only for the Qwen3.5 arms: 128 modules, 340 MB) for
 `Qwen3.5-4B`, `Qwen3-VL-4B/8B`, `olmOCR-2-7B` and Apertus. An adapter is a
-few tens of MB of `lora_A` / `lora_B` pairs per target module — the same order
-of size as a kraken model, and the natural unit of weight-space reading:
+set of `lora_A` / `lora_B` pairs per target module (340 MB for the Qwen3.5 arms, about
+85 times a kraken model's 4 MB), and the natural unit of weight-space reading:
 `ΔW = B·A` per module is low-rank by construction, so its directions are
 enumerable, and a defect direction (looping, truncation, the token-limit hits
 the trainer already counts) is a candidate for exactly the Exp-8 edit of Takehi et al..
@@ -138,6 +138,28 @@ prediction, edit, result and keep/revert decision goes to
    5 epochs, lrate 1e-5) through `kraken_train` / `train_spec`, so a weight
    edit is compared with the cheapest gradient alternative.
 
+### Track C — the served kraken family (added 07.11.2026)
+
+Every kraken model the gateway serves for agentic_historian shares one network body
+(`Cr` ×4, `Lbx200` ×3, output layer; VGSL of CATMuS/kraken's default), and only the
+output layer's size differs with the alphabet. That makes the whole served family
+comparable as networks, not only as readers:
+
+- **RQ1 — identical parts.** For every pair, how many parameters are bit-identical or
+  within float noise, per layer; across a lineage (base → fine-tune → fine-tune of it),
+  which layers training never moved and could have been frozen.
+- **RQ2 — where they differ.** Per layer, how far apart two models are: in weight space
+  within a lineage (same initialisation, so element-wise distance means something), and
+  functionally across lineages (what each layer computes on the same lines, compared with
+  a permutation-invariant similarity, because independently trained networks may hold the
+  same features in a different unit order).
+- **RQ3 — exchange.** Whether replacing (or moving towards) a block of a specific model by the
+  same block of a more general model of its lineage keeps the specific model's reading of its
+  own material and improves it on material outside its training: stabilisation by
+  exchange, measured with the paired, block-level statistics of docs/BLOCK_STATS.md.
+
+Design, models and results: docs/MODEL_FAMILY.md.
+
 ## 3. Measurement discipline (details in docs/PROTOCOL.md)
 
 - Practice set (seen by the programmer): a few hundred lines from the *train*
@@ -171,6 +193,7 @@ prediction, edit, result and keep/revert decision goes to
 | **3 Combine** | averaging, α-sweeps, programmed merge, retrain, sham control | one table, all candidates, same held-out sets |
 | **4 Ship** | register winners on asteraix, read held-out through the gateway, `score_ground_truth`; publish diffs; weights to HF private | `docs/RESULTS.md` |
 | **5 Adapters** | `LoraSubject`, vLLM forward pass, first adapter session on the Kurrent page model | the same deliverables as 1–4 for one adapter |
+| **6 Family** | the kraken models agentic_historian serves (43 on the gateway, 07.11.2026), compared as networks: RQ1 how much is identical (freezable), RQ2 which layers differ, RQ3 whether exchanging parts from general to specific models stabilises them — Track C, docs/MODEL_FAMILY.md | `docs/MODEL_FAMILY.md` with the RQ1/RQ2 tables over every model whose weights are on asteraix, and a first RQ3 exchange grid with held-out-free practice numbers |
 
 ## 6. Risks
 

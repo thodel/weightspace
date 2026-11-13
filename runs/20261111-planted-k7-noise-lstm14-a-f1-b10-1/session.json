@@ -1,0 +1,14 @@
+{
+  "name": "20261111-planted-k7-noise-lstm14-a-f1-b10-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k7-noise-lstm14.mlmodel",
+  "subject_digest": "8caee20d9b623c22c56b655dafd5d95e8aa89e7703c7220073c79443973801bc",
+  "subject_file_sha256": "4fe5cd0f681847910dbae3ee44dbe2ab2a2f538e6c93be363731499a65040bf8",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/planted-fable-1d89a1/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 10,
+  "seed": 20261106,
+  "created": "2026-11-11T09:01:56.655837+00:00",
+  "unshare": true,
+  "deviations": []
+}

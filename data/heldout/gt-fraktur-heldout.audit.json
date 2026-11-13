@@ -1,0 +1,11 @@
+{
+ "heldout_lines": 1311,
+ "heldout_pages": 35,
+ "shared_pages": 0,
+ "shared_line_keys": 0,
+ "shared_line_crops_sha256": 0,
+ "checked_against": [
+  "gt-fraktur-300",
+  "gt-fraktur-conf-300"
+ ]
+}

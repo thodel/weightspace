@@ -18,21 +18,23 @@ from wsp.plant import OUT, SUBJECT, PARENT, CORRUPTIONS
 REPO = Path(__file__).resolve().parent.parent
 PRACTICE = REPO / "data/practice/blb-train-300.jsonl"
 HELD = "blb-eval-hand"
-PROGRAMMER = {
+PROGRAMMER = {   # (a), (b): Claude Sonnet 5.5 subagents as below; for the unrelated-donor and k9-k11 variants as the 'a'/'b' entries
     "a": "Claude Sonnet 5.5 (claude-sonnet-5-5) as a fresh subagent in Claude Code, default reasoning effort, tools Read/Write/Bash (py_compile only); read only its pack and runs/planted/PROGRAMMER_BRIEF.md; wrote its program in advance, did not run it.",
     "b": "Claude Sonnet 5.5 (claude-sonnet-5-5) as a fresh subagent in Claude Code, default reasoning effort, tools Read/Write/Bash (py_compile only); read only its pack and the brief; budget 0.",
-    "c": "none: a fixed hand-written list of repairs (runs/planted/arms/program_c.py), written by the session's author (Claude Sonnet 5.5) before any pass, identical for every model.",
+    "c": "none: a fixed hand-written list of repairs (runs/planted/arms/program_c.py; program_c_u.py with the donor swapped for the unrelated-donor variants), written by the session's author (Claude Sonnet 5.5) before any pass, identical for every model.",
     "d": "none: plain coordinate search over output biases (runs/planted/arms/program_d.py), identical for every model.",
 }
 BUDGET = {"a": 10, "b": 0, "c": 10, "d": 10}
 
 
 def main(cid, arm):
-    what = CORRUPTIONS[cid][0]
-    subj = OUT / f"{cid}.mlmodel"
-    plant = json.loads((OUT / "plant.json").read_text())[cid]
+    unrelated = cid.endswith("-u")             # the donor is kraken-bern-hertwig-v2, not the parent
+    base = cid[:-2] if unrelated else cid
+    what = CORRUPTIONS[base][0]
+    subj = OUT / f"{base}.mlmodel"
+    plant = json.loads((OUT / "plant.json").read_text())[base]
     arm_dir = REPO / "runs/planted" / cid / arm if arm in "ab" else REPO / "runs/planted/arms"
-    prog = arm_dir / "program.py" if arm in "ab" else arm_dir / f"program_{arm}.py"
+    prog = arm_dir / "program.py" if arm in "ab" else arm_dir / (f"program_{arm}_u.py" if unrelated and arm == "c" else f"program_{arm}.py")
     hyp_file = arm_dir / ("preregistration_hypotheses.md" if arm == "a" else "hypotheses.md" if arm == "b" else "none")
     hyps = hyp_file.read_text() if hyp_file.exists() else f"(the rules are in the header of `{prog.relative_to(REPO)}`)"
     run_dir = R.new(str(subj), str(PRACTICE), BUDGET[arm], run_id=f"planted-{cid}-{arm}")
@@ -43,7 +45,7 @@ def main(cid, arm):
 Planted-defect control (docs/BRIEF_ARTICLE_EXPERIMENTS.md item 2), arm ({arm}). Written before the first pass; the program is `{prog.relative_to(REPO)}`, copied unchanged.
 
 1. **Subject:** `{subj.name}` (a corrupted copy of `kraken-german-xix-blb-v1`: {what}; `runs/planted/plant.json`) — tensor digest `{meta['subject_digest']}`, file sha256 `{meta['subject_file_sha256']}`; the uncorrupted model has tensor digest `{plant['original_digest']}`.
-   Donor: parent `kraken-german-xix-v1` (file {PARENT.name}), as lineage donor only; it was not trained on the practice lines' BLB eval side but **was not trained on BLB at all**, so the donor rule holds.
+   Donor: {'`kraken-bern-hertwig-v2`, **an unrelated donor** (other lineage, trained on Bern 1528 data, never on BLB); the parent is not available to this arm' if unrelated else 'parent `kraken-german-xix-v1`, a lineage donor; it was never trained on BLB data, so the donor rule holds'}.
 2. **Practice set:** `data/practice/blb-train-300.jsonl`, 300 lines, sha256 `{meta['practice_sha256']}`. Source: the four BLB train projects (train side). **These are the subject's own training lines** (the review's second objection); the validation-based sets are item 3 of the same report.
 3. **Held-out set:** `data/heldout/blb-eval-hand.jsonl`, {pm['n']} lines, {len(pm['documents'])} objects, sha256 `{pm['sha256']}`; audit `data/heldout/overlap-blb-eval-hand.json` (0 shared documents with any practice set).
 4. **Budget:** {BUDGET[arm]} passes (pass 1 = C0 baseline). Keep rule: PROTOCOL.md §3, paired 95 % interval below 0, `min_effect` 0. {'Budget 0: edits are accepted unmeasured (`keep_unmeasured`).' if arm == 'b' else ''}

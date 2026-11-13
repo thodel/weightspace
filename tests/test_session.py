@@ -122,6 +122,33 @@ def test_edit_per_tensor_arguments_and_revert(tmp_path):
     assert (s.tensors()["a"] == 0).all() and (s.tensors()["b"] == 0).all()
 
 
+def _run_session(tmp_path, name, practice):
+    from wsp.run import RunSession
+    subj = ArraySubject({"gain": np.array([0.5]), "w": np.zeros((2, 2))}, forward=toy_forward)
+    subj.save = lambda path: path            # no artefact for the toy subject
+    return subj, RunSession(subj, practice, tmp_path / name, budget=3)
+
+
+def test_replay_follows_the_logged_decision_not_the_current_rule(tmp_path):
+    """A keep the rule would refuse (no change, interval [0, 0]) is kept when the original log kept it,
+    and a revert where the log kept is a divergence."""
+    practice = [{"key": f"l{i}", "text": r} for i, r in enumerate(REFS)]
+    subj, s = _run_session(tmp_path, "replay", practice)
+    s._replay = [{"kept": True, "reason": "kept under the old rule", "rule": "met"}]
+    s.measure("C0")
+    s.edit("scale", ["w"], factor=1.0)       # a no-op: the current rule refuses it
+    s.measure("no-op")
+    assert s.keep_allowed()[0] is False
+    assert s.keep("as logged") is True
+    dec = [json.loads(l) for l in (tmp_path / "replay" / "log.jsonl").read_text().splitlines()][-1]
+    assert dec["kind"] == "decision" and dec["kept"] and dec["rule"] == "replayed"
+
+    subj2, s2 = _run_session(tmp_path, "diverge", practice)
+    s2._replay = [{"kept": True}]
+    s2.measure("C0"); s2.edit("scale", ["gain"], factor=2.0); s2.measure("edit")
+    with pytest.raises(RuntimeError, match="diverged"):
+        s2.revert("program disagrees")
+
 class CapSubject(ArraySubject):
     """Pages: the edit that fixes the text also makes every page run to the cap."""
 
@@ -146,3 +173,31 @@ def test_page_keep_refused_when_pages_at_cap_rise(tmp_path):
     assert subj.tensors()["gain"][0] == 0.5
     events = [json.loads(l) for l in (tmp_path / "run" / "log.jsonl").read_text().splitlines()]
     assert events[-2]["page"]["at_cap"] == 3
+
+
+def test_a_pass_that_never_ran_is_not_counted(tmp_path):
+    subj, s = make(tmp_path, budget=2)
+
+    def refuse(practice):
+        raise RuntimeError("pass not started: card 0 full")
+    subj.forward = refuse
+    with pytest.raises(RuntimeError):
+        s.measure("refused")
+    assert s.budget_left == 2
+    assert not (tmp_path / "run" / "budget.json").exists()
+
+
+def test_reopened_session_compares_against_the_kept_state(tmp_path):
+    subj, s = make(tmp_path, budget=4)
+    s.measure("baseline")
+    h = s.hypothesis("gain fixes a->o", "CER to 0", "scaling")
+    s.edit("scale", ["gain"], hypothesis=h, factor=2.0)
+    s.measure("after scale")
+    assert s.keep("cer fell")
+    # a new process: the subject carries the kept weights, the session is built again
+    again = Session(subj, s.practice, tmp_path / "run", budget=4)
+    h = again.hypothesis("no-op", "no change", "none")
+    again.edit("scale", ["w"], hypothesis=h, factor=1.0)
+    again.measure("no-op")
+    assert again._vs_kept["delta_cer"] == 0
+    assert again._baseline_lines != again._kept_lines       # the baseline stayed the first pass

@@ -1,0 +1,12 @@
+id: "kraken-latin_incunabula-wsp-v3"
+engine: "kraken"
+enabled: false
+base_model: "reichenau_lat_cat_099218"
+task: "htr"
+level: "line"
+local_path: "/home/tobias/Repo/weightspace/.claude/worktrees/incunabula-v3-995321/runs/20261108-latin_incunabula-exchange-3/export/kraken-latin_incunabula-wsp-v3/kraken-latin_incunabula-wsp-v3.mlmodel"
+weights_digest:
+  files:
+    kraken-latin_incunabula-wsp-v3.mlmodel: "11fffd8a0166f248365070014839390bf5b5c9bf254d952ac7fc332aecf16f5e"
+  tensors: "bd0f11ec263fc0731abb377a3bb70865f85327cfdc7e378438d669bcdb3f4f6c"
+notes: "weight-space edit of reichenau_lat_cat_099218; run 20261108-latin_incunabula-exchange-3; registered 2026-11-08 as /mnt/wbkolleg_dh_1/Textrecognition_Training/registry/trained/kraken-latin_incunabula-wsp-v3.yaml (weights under training_folder/trained/), enabled only for the evaluation, now disabled; docs/RESULTS.md R12"

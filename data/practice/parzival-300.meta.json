@@ -1,0 +1,36 @@
+{
+  "set": "parzival-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-1_M1/20260112_134521-0000.parquet,/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-3_M1/20260112_134521-0000.parquet,/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_StGallen_M4+/20260112_134521-0000.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-1_M1/20260112_134521-0000.parquet",
+    "pages": 4,
+    "projects": [
+      "TRAINING_TESTSET_Parzival_Donauesching_Hand-1_M1",
+      "TRAINING_TESTSET_Parzival_Donauesching_Hand-3_M1",
+      "TRAINING_TESTSET_Parzival_StGallen_M4+"
+    ],
+    "sha256": "607572652add3d703851ad51c2a84120d3ae8220d6e45725149e4c0f34cf3f58",
+    "paths": [
+      "/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-1_M1/20260112_134521-0000.parquet",
+      "/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_Donauesching_Hand-3_M1/20260112_134521-0000.parquet",
+      "/home/tobias/atr-cache/wsp/hf/parzival-part-1/data/train/TRAINING_TESTSET_Parzival_StGallen_M4+/20260112_134521-0000.parquet"
+    ],
+    "sha256s": [
+      "607572652add3d703851ad51c2a84120d3ae8220d6e45725149e4c0f34cf3f58",
+      "f27482060de0ffbcf80eb576d17fcfa2abdc2f82821054e7cb5b14e4f36b4b60",
+      "8669ee96f2f4f68d72117056710e48f36341b50b4f763813439dc402074ed414"
+    ]
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 410,
+  "sha256": "84783f49af06e23c89fbc6052ef0b5bd6c3edf7cfb1e3699669b80292c569ccf",
+  "documents": [
+    "116920",
+    "116966",
+    "117034"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

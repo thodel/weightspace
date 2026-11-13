@@ -107,7 +107,7 @@ lines and VLM pages:
   an A40 ≈ minutes. The budget is in passes; the practice set size is fixed per
   session and logged, so a pass means the same thing in every log.
 - **Adapters are already low-rank:** `ΔW = B·A` with rank 64 (the Qwen3.5 Kurrent adapters; r = 16 was an early assumption) gives at most
-  16 directions per module; `wsp.stats.adapter_directions` lists them with
+  64 directions per module; `wsp.stats.adapter_directions` lists them with
   their singular values, which is the natural starting point for a reading.
 - **Merging into the base for serving** is `scripts/merge_loras.py` in
   serving-atr-inference; the harness never serves, it hands over a file and a

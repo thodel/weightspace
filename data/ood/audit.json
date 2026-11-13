@@ -1,0 +1,153 @@
+{
+ "federal-minutes": {
+  "heldout": "federal-minutes-heldout",
+  "heldout_sha256": "ddb031e8a1e55c61f0fc39c449ff082392dbd08a3d9cd3596ddba927221f51de",
+  "heldout_lines": 545,
+  "heldout_pages": 533,
+  "heldout_documents": [
+   "457176",
+   "457224",
+   "457236",
+   "457237",
+   "457242"
+  ],
+  "practice": {
+   "federal-minutes-300": {
+    "lines": 299,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": [],
+    "shared_documents": []
+   },
+   "federal-minutes-conf-300": {
+    "lines": 300,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": [],
+    "shared_documents": []
+   }
+  },
+  "training": {
+   "kraken-german-xix-v1": {
+    "datasets": [
+     "dh-unibe/image-text_zh-regierungsratsprotokolle",
+     "dh-unibe/image-text_kurrent-xix",
+     "dh-unibe/image-text_parlamentsdienste-protokolle",
+     "dh-unibe/image-text_nr-sr-vereinigte-bundesversammlung-xix"
+    ],
+    "source_in_training": false,
+    "benchmarks": [
+     "dh-unibe/image-text_federal-minutes-testset"
+    ]
+   },
+   "kraken-german-xix-blb-v1": {
+    "datasets": [
+     "dh-unibe/image-text_lassberg-blb-gt"
+    ],
+    "source_in_training": false,
+    "benchmarks": []
+   }
+  },
+  "split": {
+   "split": "random.Random(20261108).sample(sorted documents, max(1, round(0.25 * n))) -> held-out"
+  },
+  "clean": true
+ },
+ "basel-grundbuch": {
+  "heldout": "basel-grundbuch-heldout",
+  "heldout_sha256": "ff85c86081f10b08109d8373c679ea15d7d93735e7a7b0fb5804fb023b9b9844",
+  "heldout_lines": 1888,
+  "heldout_pages": 111,
+  "heldout_documents": [
+   "1167010",
+   "1335473",
+   "1369528",
+   "1393563",
+   "1401030",
+   "1401077",
+   "HGB_1_079_013_001",
+   "HGB_1_079_013_002",
+   "HGB_1_079_013_044",
+   "HGB_1_079_013_047",
+   "HGB_1_079_013_053",
+   "HGB_1_079_013_058"
+  ],
+  "practice": {
+   "basel-grundbuch-300": {
+    "lines": 300,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": [],
+    "shared_documents": []
+   },
+   "basel-grundbuch-conf-300": {
+    "lines": 300,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": [],
+    "shared_documents": []
+   }
+  },
+  "training": {
+   "kraken-german-xix-v1": {
+    "datasets": [
+     "dh-unibe/image-text_zh-regierungsratsprotokolle",
+     "dh-unibe/image-text_kurrent-xix",
+     "dh-unibe/image-text_parlamentsdienste-protokolle",
+     "dh-unibe/image-text_nr-sr-vereinigte-bundesversammlung-xix"
+    ],
+    "source_in_training": false,
+    "benchmarks": [
+     "dh-unibe/image-text_federal-minutes-testset"
+    ]
+   },
+   "kraken-german-xix-blb-v1": {
+    "datasets": [
+     "dh-unibe/image-text_lassberg-blb-gt"
+    ],
+    "source_in_training": false,
+    "benchmarks": []
+   }
+  },
+  "split": {
+   "split": "random.Random(20261108).sample(sorted documents, max(1, round(0.25 * n))) -> held-out"
+  },
+  "clean": true
+ },
+ "schluss": {
+  "heldout": "schluss-heldout",
+  "heldout_sha256": "98b788d9207d4443ffb898cddd1ebb9b7ec6e05bf7d010b2d72e1835461d281f",
+  "heldout_lines": 308,
+  "heldout_pages": 11,
+  "heldout_documents": [
+   "13922579"
+  ],
+  "practice": {
+   "schluss-300": {
+    "lines": 299,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": []
+   },
+   "schluss-conf-300": {
+    "lines": 300,
+    "shared_lines": 0,
+    "shared_pages": 0,
+    "shared_source_documents": []
+   }
+  },
+  "training": {
+   "kraken-bern-hertwig-v2": {
+    "datasets": [
+     "dh-unibe/image-text_bern-disputation-1528"
+    ],
+    "source_in_training": false,
+    "benchmarks": []
+   }
+  },
+  "split": {
+   "split": "random.Random(20261108).sample(pages in no earlier list, round(0.25 * 118)) -> held-out"
+  },
+  "clean": true
+ }
+}

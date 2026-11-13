@@ -1,0 +1,34 @@
+{
+  "set": "rats-richtebuecher-300",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/rats-richtebuecher/pool.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/rats-richtebuecher/pool.parquet",
+    "pages": 156,
+    "projects": [
+      "Rats-undRichtebücher_MF_1_3544",
+      "Rats-undRichtebücher_MF_1_3546",
+      "Rats-undRichtebücher_MF_1_3547",
+      "Rats-undRichtebücher_MF_1_3556",
+      "Rats-undRichtebücher_MF_1_3561",
+      "Rats-undRichtebücher_MF_1_3565",
+      "Rats-undRichtebücher_MF_1_3572"
+    ],
+    "sha256": "9d15b57357ee3718c2d4b2d8f245ff8b19347f45fae4f829b9f7c27c41e581f6"
+  },
+  "n": 300,
+  "seed": 20261106,
+  "candidates": 6025,
+  "sha256": "befbe1d7164078d6f0ee771eebad193766f7dec3840281f6c23d0f5cc7101f2c",
+  "documents": [
+    "1610663",
+    "1625102",
+    "1627518",
+    "1627569",
+    "1627579",
+    "1627738",
+    "1627770"
+  ],
+  "skipped": [],
+  "selection": "random.Random(seed).sample over all candidate lines in source order"
+}

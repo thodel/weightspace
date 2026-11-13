@@ -238,8 +238,10 @@ setting. A negative answer is a result too.
 | reference repeat | deterministic: 32 of 32 pages byte-identical, same at-cap pages | the same file, `reference_repeat` |
 | session runner | `wsp.run new` takes an adapter directory and `--data-root`. Sessions on pages use `unit="page"`, and the keep rule gains "pages at the cap must not rise". `heldout --set kurrent-test` runs the trainer's scorer once | `wsp/run.py`, `wsp/session.py` |
 | P5.3 practice draw | done, see below | `data/practice/kurrent-val-64.*`, `scripts/draw_kurrent_practice.py` |
-| P5.3 C0 | running: v2 on all 509 val pages in 16 chunks of 32, card checked between chunks. About 17 minutes per chunk | `scripts/c0_kurrent_val.py` → `docs/baselines/c0-kurrent-val-v2.json` |
-| P5.3 preregistration | after C0 | — |
+| P5.3 C0 | done. Val side CER 0.187; practice 0.4515, 9 at the cap | `docs/baselines/c0-kurrent-val-v2.json` |
+| P5.5 session | done. H1 kept on practice (−10.5 points). Frozen at 6 of 10 passes | `runs/20261107-kurrent-page-v2-b10-1/` |
+| P5.6–7 controls and held-out | done. **Held-out null:** H1 − v2 is +0.24 points [−3.5, +3.9] | `docs/PHASE5_REPORT.md` |
+| P5.3 preregistration | done, committed before the first pass | `runs/20261107-kurrent-page-v2-b10-1/preregistration.md` |
 | P5.4 reading | done for v2, and for v1 as a method test | `docs/readings/adapter_kurrent-page-v2.*`, `…-v1.*` |
 
 **Practice draw.** 64 pages from all 60 val documents: one page each, and three

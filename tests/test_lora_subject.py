@@ -49,3 +49,14 @@ def test_scale_module_and_save_roundtrip(adapter, tmp_path):
     back = LoraSubject(out)
     assert np.allclose(back.delta(m), s.delta(m), atol=1e-5)
     assert json.loads((out / "adapter_config.json").read_text())["r"] == 4
+
+
+def test_save_twice_over_a_read_only_original(adapter, tmp_path):
+    import os
+    for f in adapter.iterdir():
+        os.chmod(f, 0o444)
+    s = LoraSubject(adapter, work_dir=tmp_path / "work")
+    s.save(tmp_path / "work")
+    s.scale_module(s.modules()[0], 0.5)
+    s.save(tmp_path / "work")
+    assert np.allclose(LoraSubject(tmp_path / "work").delta(s.modules()[0]), s.delta(s.modules()[0]), atol=1e-5)

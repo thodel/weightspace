@@ -1,0 +1,12 @@
+{
+ "set": "bern-eval-hertwig",
+ "source": "data/heldout/bern-eval.jsonl, the A_V_1443_Hertwig_test lines (same keys, crops, hashes)",
+ "n": 287,
+ "candidates": 545,
+ "sha256": "1e318b8230143e0a29d3b1db5a16c6bf5ba42d1e2646076ca24fdefae72d12e1",
+ "documents": [
+  "13922499"
+ ],
+ "seed": null,
+ "selection": "key prefix A_V_1443_Hertwig_test/"
+}

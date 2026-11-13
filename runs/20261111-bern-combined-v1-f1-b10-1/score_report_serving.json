@@ -1,0 +1,214 @@
+{
+ "name": "score-gt-20261111T213917",
+ "source": "score_report (agentic_historian data/vlm_test/score-gt-20261111T213917.json), copied by hand",
+ "by_reading": [
+  {
+   "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+   "median": 0.2091,
+   "weighted": 0.2586
+  },
+  {
+   "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+   "median": 0.2383,
+   "weighted": 0.2802
+  }
+ ],
+ "pages": [
+  {
+   "file": "hertwig_p0008.xml",
+   "chars": 807,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.2781
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.2885
+    }
+   ]
+  },
+  {
+   "file": "hertwig_p0017.xml",
+   "chars": 1460,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.457
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.4563
+    }
+   ]
+  },
+  {
+   "file": "hertwig_p0026.xml",
+   "chars": 1283,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.4403
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.4444
+    }
+   ]
+  },
+  {
+   "file": "hertwig_p0039.xml",
+   "chars": 1152,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.3008
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.2953
+    }
+   ]
+  },
+  {
+   "file": "hertwig_p0048.xml",
+   "chars": 1326,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.5449
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.5519
+    }
+   ]
+  },
+  {
+   "file": "hertwig_p0055.xml",
+   "chars": 1560,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1188
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.1067
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0012.xml",
+   "chars": 1185,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.3893
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.3368
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0030.xml",
+   "chars": 1277,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.177
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.1342
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0049.xml",
+   "chars": 1051,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1938
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.169
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0069.xml",
+   "chars": 1152,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1458
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.1163
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0089.xml",
+   "chars": 1121,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1648
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.1222
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0105.xml",
+   "chars": 1160,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1677
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.1423
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0125.xml",
+   "chars": 1197,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.3093
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.2431
+    }
+   ]
+  },
+  {
+   "file": "schlussredaktion_p0142.xml",
+   "chars": 1363,
+   "readings": [
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-v1",
+     "cer": 0.1985
+    },
+    {
+     "reading": "wsp-bern-heldout-f1/kraken-bern-combined-wsp-v1",
+     "cer": 0.175
+    }
+   ]
+  }
+ ]
+}

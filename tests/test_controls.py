@@ -71,3 +71,20 @@ def test_planted_corruptions_are_what_they_say():
     assert u[plant.B][0] == t[plant.B][0] + 2
     u = {k: v.copy() for k, v in t.items()}; plant.noise_block(u, cm, names=(plant.W,), rel_norm=0.25)
     assert np.linalg.norm(u[plant.W] - t[plant.W]) == pytest.approx(0.25 * np.linalg.norm(t[plant.W]), rel=1e-4)
+
+
+def test_cluster_bootstrap_is_wider_when_lines_are_correlated():
+    from wsp.metrics import bootstrap_delta
+    import random
+    rng = random.Random(1)
+    # 20 pages x 10 lines; the edit helps on whole pages (page effect), so lines are strongly correlated
+    before, after, pages = [], [], []
+    for p in range(20):
+        eff = rng.choice([-3, 0, 3])
+        for _ in range(10):
+            before.append((5, 40)); after.append((max(0, 5 + eff + rng.choice([-1, 0, 1])), 40)); pages.append(p)
+    d = bootstrap_delta(before, after, resamples=400, seed=3, clusters=pages)
+    assert d["clusters"] == 20
+    w_line = d["ci95"][1] - d["ci95"][0]; w_cl = d["ci95_cluster"][1] - d["ci95_cluster"][0]
+    assert w_cl > 1.5 * w_line
+    assert "ci95_cluster" not in bootstrap_delta(before, after, resamples=50, seed=3)

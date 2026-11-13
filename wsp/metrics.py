@@ -120,6 +120,7 @@ class Metrics:
     ref_chars: int
     confusions: list[tuple[str, str, int]] = field(default_factory=list)
     extra: dict = field(default_factory=dict)
+    blocks: dict = field(default_factory=dict)     # wsp.blocks.table: errors per Unicode block (CERberus-style)
 
     def as_dict(self) -> dict:
         d = asdict(self)
@@ -128,13 +129,14 @@ class Metrics:
 
 
 def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
-          extra: dict | None = None) -> Metrics:
+          extra: dict | None = None, blocks: bool = True) -> Metrics:
     """Corpus-level metrics over paired lines. An empty hypothesis counts as empty."""
     if len(hyps) != len(refs):
         raise ValueError(f"{len(hyps)} hypotheses for {len(refs)} references")
     char_edits = ref_chars = word_edits = ref_words = hyp_chars = 0
     collapsed = 0
     conf: Counter = Counter()
+    block_lines = []
     for h, r in zip(hyps, refs):
         h, r = normalise(h), normalise(r)
         char_edits += levenshtein(r, h)
@@ -147,6 +149,14 @@ def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
         for a, b in align(r, h):
             if a != b:
                 conf[(a, b)] += 1
+        if blocks:
+            from wsp.blocks import line_counts
+            block_lines.append(line_counts(r, h, normalised=True))
+    if blocks:
+        from wsp.blocks import table
+        block_table = table(block_lines)
+    else:
+        block_table = {}
     return Metrics(
         lines=len(refs),
         cer=char_edits / ref_chars if ref_chars else float("nan"),
@@ -157,6 +167,7 @@ def score(hyps: Sequence[str], refs: Sequence[str], top_confusions: int = 10,
         ref_chars=ref_chars,
         confusions=[(a, b, n) for (a, b), n in conf.most_common(top_confusions)],
         extra=dict(extra or {}),
+        blocks=block_table,
     )
 
 
@@ -165,12 +176,24 @@ def per_line_edits(hyps: Sequence[str], refs: Sequence[str]) -> list[tuple[int, 
     return [(levenshtein(normalise(r), normalise(h)), len(normalise(r))) for h, r in zip(hyps, refs)]
 
 
+def page_of(key: str) -> str:
+    """The page (the cluster of a line): ``project/page`` of a key ``project/page/line``; a key without a page is its own cluster."""
+    parts = key.split("/")
+    return "/".join(parts[:2]) if len(parts) >= 3 else key
+
+
 def bootstrap_delta(before: Sequence[tuple[int, int]], after: Sequence[tuple[int, int]],
-                    resamples: int = 2000, seed: int = BOOTSTRAP_SEED) -> dict:
+                    resamples: int = 2000, seed: int = BOOTSTRAP_SEED, clusters: Sequence | None = None) -> dict:
     """Paired per-line bootstrap of corpus CER(after) − CER(before).
 
     Lines are resampled together, so the interval is about the *same* lines
-    read by two models. Returns the point estimate and a 95 % interval.
+    read by two models. Returns the point estimate and a 95 % interval (``ci95``, line level).
+
+    With ``clusters`` (one id per line, e.g. the page or object the line is cut from) the result also
+    carries ``ci95_cluster``: a two-stage cluster bootstrap that resamples the clusters with replacement
+    and then the lines within each drawn cluster (PROTOCOL §5, brief item 4). Lines of one page are
+    correlated, so the cluster interval is the honest one; ``ci95`` is kept unchanged so that every
+    decision of the keep rule and every earlier number stays reproducible.
     """
     if len(before) != len(after):
         raise ValueError("paired bootstrap needs the same lines on both sides")
@@ -191,4 +214,26 @@ def bootstrap_delta(before: Sequence[tuple[int, int]], after: Sequence[tuple[int
     deltas.sort()
     lo = deltas[int(0.025 * resamples)]
     hi = deltas[min(resamples - 1, int(0.975 * resamples))]
-    return {"delta_cer": point, "ci95": [lo, hi], "resamples": resamples, "seed": seed, "lines": n}
+    out = {"delta_cer": point, "ci95": [lo, hi], "resamples": resamples, "seed": seed, "lines": n}
+    if clusters is not None:
+        if len(clusters) != n:
+            raise ValueError("one cluster id per line")
+        import numpy as np
+        groups: dict = {}
+        for i, c in enumerate(clusters):
+            groups.setdefault(c, []).append(i)
+        arrs = [np.asarray(v) for v in groups.values()]
+        b = np.asarray(before, dtype=np.float64); a = np.asarray(after, dtype=np.float64)
+        g = np.random.default_rng(seed)
+        ds = []
+        for _ in range(resamples):
+            e0 = e1 = c0 = c1 = 0.0
+            for k in g.integers(0, len(arrs), len(arrs)):
+                idx = arrs[k]
+                j = idx[g.integers(0, len(idx), len(idx))]
+                e0 += b[j, 0].sum(); c0 += b[j, 1].sum(); e1 += a[j, 0].sum(); c1 += a[j, 1].sum()
+            ds.append(e1 / c1 - e0 / c0)
+        ds.sort()
+        out.update({"ci95_cluster": [ds[int(0.025 * resamples)], ds[min(resamples - 1, int(0.975 * resamples))]],
+                    "clusters": len(arrs)})
+    return out

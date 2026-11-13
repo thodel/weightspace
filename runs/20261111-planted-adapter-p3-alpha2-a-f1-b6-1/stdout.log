@@ -1,0 +1,7 @@
+C0: cer=2.5669 length_ratio=2.646 collapsed=32 at_cap=29
+H1 all B x0.5: cer=0.6278 length_ratio=1.336 collapsed=7 at_cap=5
+H2 all B x0.9 (eff. 0.45): cer=0.6061 length_ratio=1.299 collapsed=7 at_cap=5
+H2b all B x1.1 (eff. 0.55): cer=0.5488 length_ratio=1.251 collapsed=7 at_cap=5
+frozen: {'used': 4, 'edits': 3, 'kept': 1, 'final_digest': 'f5adb9da702f628dea774c5fc715149d228a163f8f935cee7a9b0a9cfdeda7de'}
+
+--- stderr ---

@@ -28,8 +28,10 @@ judged by the rules that were in force when it was preregistered.
 Before the first pass, each session records:
 
 1. subject and digests (and those of any donor model);
-2. practice set: source, **training side only**, selection rule, size, sha256
-   of the line list;
+2. practice set: source, selection rule, size, sha256 of the line list, and
+   which side it comes from — training side for sessions up to 7 Nov 2026,
+   lines the subject was not trained on since (proposed as
+   [A3](amendments.md#a3));
 3. held-out set: identity, size, sha256, and an overlap audit against the
    practice set and every corpus the subject was trained on — zero shared
    documents, or the session is labelled *not held-out*;
@@ -66,11 +68,19 @@ gain.
 ## Metrics and statistics
 
 - Character and word error rate (CER, WER) on NFD-normalised text with
-  whitespace flattened, as kraken's own evaluation counts them; collapsed
-  lines (output far shorter than the reference); length ratio; top-10
-  confusions; for CTC models the share of frames emitting blank.
+  whitespace flattened, as kraken's own evaluation counts them; length ratio;
+  top-10 confusions; for CTC models the share of frames emitting blank.
+- **Collapsed line:** hypothesis under half or over twice the reference
+  length, or a repetition loop — the most frequent character trigram at least
+  six times and at least twice as often as in the reference, plus two
+  ([A2](amendments.md#a2); before 7 Nov 2026 any trigram six times counted).
+- For page-level models (adapters): CER, CER with the reading clipped to the
+  reference's length, length ratio, pages that run to the token cap, loops.
 - Every difference: paired per-line bootstrap 95 % interval, 2,000 resamples,
-  seed 20261106.
+  seed 20261106; since 7 Nov 2026 also clustered by page, and a claim needs
+  the page-level interval ([A4](amendments.md#a4)).
+- **Held-out sets are chosen by data properties only**, never by how a model
+  reads them.
 - All sessions are reported, including reverted and failed ones. The ratio of
   kept to attempted edits is itself a result.
 

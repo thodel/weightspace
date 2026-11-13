@@ -1,0 +1,69 @@
+{
+  "set": "federal-minutes-heldout",
+  "source": "parquet:/home/tobias/atr-cache/wsp/ood/federal-minutes/heldout.parquet",
+  "source_info": {
+    "kind": "parquet",
+    "path": "/home/tobias/atr-cache/wsp/ood/federal-minutes/heldout.parquet",
+    "pages": 630,
+    "projects": [
+      "TEST_federal_minutes"
+    ],
+    "sha256": "4a3ad5006cba0c53e396964fb094098268af34672893139099aef7edd7066b59"
+  },
+  "n": 545,
+  "seed": 20261106,
+  "candidates": 630,
+  "sha256": "ddb031e8a1e55c61f0fc39c449ff082392dbd08a3d9cd3596ddba927221f51de",
+  "documents": [
+    "457176",
+    "457224",
+    "457236",
+    "457237",
+    "457242",
+    "457248"
+  ],
+  "skipped": [],
+  "selection": "every candidate line in source order (no sampling)",
+  "source_document_rule": "lines whose source document (docId_<n> in the file name) also occurs in the practice pool are removed (08.11.2026, before any reading): the Transkribus docId of the PAGE metadata is a container, not the source document",
+  "removed_source_documents": [
+    "17275",
+    "17276",
+    "17277",
+    "17278",
+    "17279",
+    "17280"
+  ],
+  "removed_lines": 85,
+  "source_documents": [
+    "13778",
+    "13779",
+    "13780",
+    "13781",
+    "13782",
+    "13783",
+    "17233",
+    "17234",
+    "17235",
+    "17236",
+    "17237",
+    "17238",
+    "17251",
+    "17252",
+    "17253",
+    "17254",
+    "17255",
+    "17256",
+    "17257",
+    "17258",
+    "17259",
+    "17260",
+    "17261",
+    "17262",
+    "17263",
+    "17264",
+    "17265",
+    "17266",
+    "17267",
+    "17268"
+  ]
+}
