@@ -24,11 +24,11 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 | # | Narrative part | Section | Status |
 |---|---|---|---|
 | 1 | Text recognition is established | 1 | drafted; check claims about each platform with the authors |
-| 2 | Variety of models, many with kraken, even in the standard setup | 2 | drafted; 21 of 30 downloaded public models use the standard stack (zoo survey) |
+| 2 | Variety of models, many with kraken, even in the standard setup | 2 | drafted; 27 of 37 public models use the standard stack (zoo survey, complete 13 Nov) |
 | 3 | LLM can deal with weights ("white-boxing") | 3 | drafted; wording of "white box" to be agreed |
 | 4 | Research questions: from comparison to adaptation | 4 | drafted |
 | 5 | Existing research on explainability of text recognition | 5 | drafted; OpenAlex queries Q4-Q10 incomplete (quota), logged in `docs/SEARCH_LOG.md` |
-| 6 | Comparison of models, with intermediate results | 6 | drafted; 43 models, seed null; the zoo-survey completion (37 of 37, branch `claude/zoo-survey-76f514`, not merged) updates 6.4 |
+| 6 | Comparison of models, with intermediate results | 6 | drafted; 43 models, seed null; zoo survey complete (37 of 37, #36), folded into 6.3, 6.4, RQ1 and the findings list on 13 Nov |
 | 7 | Adaptability of weights, with intermediate results | 7 | drafted; all controls run, C4 in 7.11, v3 in 7.10 |
 | 8 | Both parts combined | 8 | drafted; margins measured |
 | 9 | What we learned about the inner workings of LLMs | 9 | scoped down; 9.3 reports the first adapter track and the phase-5 session; the Fable replicate (#25) is not yet in it |

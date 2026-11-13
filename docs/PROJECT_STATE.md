@@ -2,14 +2,9 @@
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** at the merge of thodel/weightspace#28 (`6d03a3f`, 13 Nov), plus this documentation update. thodel/weightspace#27, #28 and #30 were reviewed and merged on 12–13 Nov.
+- **Main:** at the merge of thodel/weightspace#34 (`73c7e1b`, 13 Nov), plus this documentation update. #27, #28, #30, #32, #33, #34, #35 and #36 were merged on 12–13 Nov.
 - **Open pull requests:** none.
-- **Pushed on 13 Nov, but not in a PR and not merged:**
-  - `claude/trocr-stage0-9ababb`: the TrOCR stage-2 plan and the preregistration of the seed null (direct route, card 0), written before any run.
-  - `claude/zoo-survey-76f514`: the zoo survey completed, 37 of 37 models, with manuscript 6.4, READINGS and MODELS updated.
-  - `claude/adapters-4d972b`: corrections to PLAN, DESIGN, PROTOCOL and the adapter report.
-  - `claude/c4-retrain`: entries for R11, PROJECT_STATE and README.
-  - Each needs a review before it is merged. The last three touch files this page also changes.
+- **Merged on 13 Nov after review:** the TrOCR stage-2 seed-null plan and preregistration (#35), the completed zoo survey with manuscript 6.3/6.4 (#36), and the adapter-track corrections to PLAN, DESIGN and PROTOCOL (#34). Not merged: `claude/c4-retrain`, an 8 Nov copy of the R11 text that `main` already has in a later form.
 - **Running:**
   - A watcher from the planted-defect session (`~/atr-cache/wsp/spool/a3-f1/p3-attempt2.sh`) is waiting for card 0. Once card 0 has 18 GB free, it starts a pass server and runs a second Fable attempt on adapter p3 (`q02`). That attempt is not part of #28.
   - Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
@@ -41,8 +36,8 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; not yet in the text: the adapter Fable replicate (#25), kraken session 2 with Fable (#27), the planted defects with Fable (#28), the epic #3 corrections (#30) |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
 | Epic #12 | LLM playbook | `docs/epics/` | proposed, not started |
-| Epic #13: activation atlas | L0 viewer and L2 occlusion (`wsp.atlas`) | `docs/ATLAS_REPORT.md`, `docs/atlas/` | L0 and L2 done (13 Nov); Gate 1 fails for both models (hit share 0.61 and 0.73 < 0.80), so viewers claim activation, not location; conv receptive field 140 px confirmed; L1, L3, L4 not started |
-| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null) preregistered on its branch 13 Nov, no run yet |
+| Epic #13: activation atlas | L0 viewer and L2 occlusion (`wsp.atlas`) | `docs/ATLAS_REPORT.md`, `docs/atlas/` | L0 and L2 done and merged (13 Nov, #32); Gate 1 fails for both models (hit share 0.61 and 0.73 < 0.80), so viewers claim activation, not location; conv receptive field 140 px confirmed; L1, L3, L4 not started |
+| TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null) preregistered 13 Nov (#35), no run yet |
 
 ## Findings in one paragraph each
 
@@ -99,7 +94,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 8. **Branch hygiene and loose ends.**
-   - Every remote branch except the four under "Pushed on 13 Nov" is merged into main and can be deleted.
+   - Every remote branch is merged into main, except `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` (one status commit after its merge, folded in here); all can be deleted.
    - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
    - Whether the waiting `q02` watcher (see Running) should still run.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
@@ -112,8 +107,8 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 **Not started**
 
-9. Epic #12 (LLM playbook).
-10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator). Stage 2 is preregistered on its branch; no run yet.
+9. Epic #12 (LLM playbook); levels L1, L3 and L4 of epic #13.
+10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator). Stage 2 is preregistered (`docs/TROCR_NULLS_PREREG.md`, #35); no run yet, card 0 is held by vLLM.
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
