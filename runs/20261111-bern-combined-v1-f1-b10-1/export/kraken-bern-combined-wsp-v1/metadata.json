@@ -1,0 +1,43 @@
+{
+  "model_id": "kraken-bern-combined-wsp-v1",
+  "job_id": "20261111-bern-combined-v1-f1-b10-1",
+  "engine": "kraken",
+  "code": {
+    "weightspace": {
+      "commit": "f4e71ff7ae0b133cddec06509e7f45dfa82bf98a",
+      "dirty": true
+    }
+  },
+  "created": "2026-11-11T14:07:27.978985+00:00",
+  "weights": "kraken-bern-combined-wsp-v1.mlmodel",
+  "source_weights": "/home/tobias/Repo/weightspace/.claude/worktrees/kraken-s2-fable-e2803a/runs/20261111-bern-combined-v1-f1-b10-1/final.mlmodel",
+  "weights_digest": {
+    "files": {
+      "kraken-bern-combined-wsp-v1.mlmodel": "bc08d2f93819bbe300e7819e27d4ff1a8803ea387cf8a846364327a3d42635ba"
+    },
+    "tensors": "4c6d17980cb8a5b33a5f0f1a9dae72c74480b1263803f533c631e05cfc66008c"
+  },
+  "metrics": {
+    "cer": 0.18754910849199155,
+    "wer": 0.508800521512386,
+    "length_ratio": 0.9487458446660623,
+    "measured_on": "bern-eval",
+    "samples": 545
+  },
+  "request": {
+    "engine": "kraken",
+    "model_id": "kraken-bern-combined-wsp-v1",
+    "base_model": "/home/tobias/Repo/weightspace/models/kraken/kraken-bern-combined-v1.mlmodel",
+    "method": "weight-space programming (no gradient)",
+    "budget": 10,
+    "passes_used": 9,
+    "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/kraken-s2-fable-e2803a/data/practice/bern-train-300.jsonl",
+    "practice_sha256": "474414e3be95787da5f08f4bdcfc04adcfc024d8518b72cab8e885367977343f",
+    "edits": 8,
+    "kept": 3,
+    "diff": "/home/tobias/Repo/weightspace/.claude/worktrees/kraken-s2-fable-e2803a/runs/20261111-bern-combined-v1-f1-b10-1/diff.json"
+  },
+  "progress": {
+    "val_accuracy": null
+  }
+}

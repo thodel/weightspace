@@ -1,0 +1,26 @@
+budget 10, used 3, left 7
+last kept state: collapsed 29, blank bias +0.7976
+H1b: blank bias -> +0.5976
+[H1b] pass 4: CER 0.1410 (1527/10829)  H 0.1994 (679/3405)  S 0.1142 (848/7424)  collapsed 26 (H 9, S 17)  length_ratio 0.929 (H 0.898, S 0.943)  WER 0.3474
+   del 941 ins 173 sub 413   space del/ins 147/59   " del/ins 18/0
+   vs_kept delta -0.0034 ci95 [-0.005492071928425907, -0.0015822784810126667]   vs_baseline delta -0.0046 ci95 [-0.007459333153590375, -0.002097009482129819]
+   confusions:  →∅ 147, /→∅ 64, e→∅ 64, n→∅ 62, i→∅ 60, ∅→  59, r→∅ 49, t→∅ 44, s→∅ 41, ∅→/ 39
+   -> KEPT (rule met)
+[H3] pass 5: CER 0.1426 (1544/10829)  H 0.2000 (681/3405)  S 0.1162 (863/7424)  collapsed 26 (H 9, S 17)  length_ratio 0.925 (H 0.897, S 0.937)  WER 0.3464
+   del 979 ins 162 sub 403   space del/ins 158/55   " del/ins 18/0
+   vs_kept delta +0.0016 ci95 [-0.0002880737468791972, 0.0037505860290670545]   vs_baseline delta -0.0030 ci95 [-0.005617977528089901, -0.0003766478342749624]
+   confusions:  →∅ 158, /→∅ 71, e→∅ 70, n→∅ 65, i→∅ 60, ∅→  55, r→∅ 52, t→∅ 44, s→∅ 41, ∅→/ 35
+   -> REFUSED by the rule: interval contains 0
+H6: '"' row subject 262 (norm 4.27, bias -0.145) <- parent row 262 (norm 3.03, bias -0.015)
+[H6] pass 6: CER 0.1410 (1527/10829)  H 0.1994 (679/3405)  S 0.1142 (848/7424)  collapsed 26 (H 9, S 17)  length_ratio 0.929 (H 0.898, S 0.943)  WER 0.3474
+   del 941 ins 173 sub 413   space del/ins 147/59   " del/ins 18/0
+   vs_kept delta +0.0000 ci95 [0.0, 0.0]   vs_baseline delta -0.0046 ci95 [-0.007459333153590375, -0.002097009482129819]
+   confusions:  →∅ 147, /→∅ 64, e→∅ 64, n→∅ 62, i→∅ 60, ∅→  59, r→∅ 49, t→∅ 44, s→∅ 41, ∅→/ 39
+   -> REFUSED by the rule: interval contains 0
+H4: 267 rows aligned; subject-only rows kept: ['½', 'ƒ', '̊']; bias rows held: [0]
+[H4] pass 7: CER 0.1357 (1470/10829)  H 0.1642 (559/3405)  S 0.1227 (911/7424)  collapsed 21 (H 6, S 15)  length_ratio 0.939 (H 0.910, S 0.953)  WER 0.3562
+   del 835 ins 177 sub 458   space del/ins 144/68   " del/ins 16/0
+   vs_kept delta -0.0053 ci95 [-0.011637808685779183, 0.00018294914013904096]   vs_baseline delta -0.0099 ci95 [-0.017098782641018495, -0.003392316860731631]
+   confusions:  →∅ 144, ∅→  68, /→∅ 62, e→∅ 62, i→∅ 53, n→∅ 50, ∅→/ 46, r→∅ 40, t→∅ 32, a→∅ 27
+   -> REFUSED by the rule: interval contains 0
+program_02 done: H1b kept=True, H3 kept=False, H6 kept=False, H4 kept=False; passes left 3. Not frozen.

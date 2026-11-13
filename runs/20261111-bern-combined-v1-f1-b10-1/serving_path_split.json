@@ -1,0 +1,257 @@
+{
+ "report": "score-gt-20261112T062756",
+ "resamples": 2000,
+ "seed": 20261106,
+ "comparisons": {
+  "final_vs_C0": {
+   "all": {
+    "pages": 14,
+    "better": 11,
+    "worse": 3,
+    "equal": 0,
+    "weighted_delta_pt": -2.1569340119340086,
+    "weighted_ci95_pt": [
+     -3.316156557675942,
+     -1.0482390737709957
+    ],
+    "median_page_delta_pt": -2.4150000000000005,
+    "median_ci95_pt": [
+     -3.6149999999999993,
+     -0.07000000000000339
+    ]
+   },
+   "hertwig": {
+    "pages": 6,
+    "better": 3,
+    "worse": 3,
+    "equal": 0,
+    "weighted_delta_pt": -0.04347522403795878,
+    "weighted_ci95_pt": [
+     -0.6848478134110825,
+     0.5573898045227954
+    ],
+    "median_page_delta_pt": 0.16999999999999793,
+    "median_ci95_pt": [
+     -0.8800000000000002,
+     0.869999999999993
+    ]
+   },
+   "schlussredaktion": {
+    "pages": 8,
+    "better": 8,
+    "worse": 0,
+    "equal": 0,
+    "weighted_delta_pt": -3.8439659162634117,
+    "weighted_ci95_pt": [
+     -4.886495828367107,
+     -2.9105740213147655
+    ],
+    "median_page_delta_pt": -3.6050000000000004,
+    "median_ci95_pt": [
+     -5.249999999999999,
+     -2.4799999999999986
+    ]
+   }
+  },
+  "blank_vs_C0": {
+   "all": {
+    "pages": 14,
+    "better": 9,
+    "worse": 5,
+    "equal": 0,
+    "weighted_delta_pt": -0.4116444366444372,
+    "weighted_ci95_pt": [
+     -0.7834372711740312,
+     -0.05653046153847319
+    ],
+    "median_page_delta_pt": -0.2799999999999997,
+    "median_ci95_pt": [
+     -1.0250000000000008,
+     0.09000000000000119
+    ]
+   },
+   "hertwig": {
+    "pages": 6,
+    "better": 1,
+    "worse": 5,
+    "equal": 0,
+    "weighted_delta_pt": 0.19234844491301528,
+    "weighted_ci95_pt": [
+     -0.09698439375750156,
+     0.5008564167725438
+    ],
+    "median_page_delta_pt": 0.23999999999999577,
+    "median_ci95_pt": [
+     -0.13000000000000095,
+     0.5599999999999966
+    ]
+   },
+   "schlussredaktion": {
+    "pages": 8,
+    "better": 8,
+    "worse": 0,
+    "equal": 0,
+    "weighted_delta_pt": -0.8937713023353638,
+    "weighted_ci95_pt": [
+     -1.2706317708891968,
+     -0.5491280848460123
+    ],
+    "median_page_delta_pt": -1.0050000000000003,
+    "median_ci95_pt": [
+     -1.3899999999999997,
+     -0.22999999999999965
+    ]
+   }
+  },
+  "interp_vs_C0": {
+   "all": {
+    "pages": 14,
+    "better": 12,
+    "worse": 2,
+    "equal": 0,
+    "weighted_delta_pt": -1.856051831051836,
+    "weighted_ci95_pt": [
+     -2.8165111124792253,
+     -1.034777556251787
+    ],
+    "median_page_delta_pt": -1.3549999999999993,
+    "median_ci95_pt": [
+     -2.9,
+     -0.6100000000000022
+    ]
+   },
+   "hertwig": {
+    "pages": 6,
+    "better": 4,
+    "worse": 2,
+    "equal": 0,
+    "weighted_delta_pt": -0.45962045334739243,
+    "weighted_ci95_pt": [
+     -0.8242318059299231,
+     -0.06412751677852824
+    ],
+    "median_page_delta_pt": -0.5350000000000021,
+    "median_ci95_pt": [
+     -0.9050000000000016,
+     0.26999999999999524
+    ]
+   },
+   "schlussredaktion": {
+    "pages": 8,
+    "better": 8,
+    "worse": 0,
+    "equal": 0,
+    "weighted_delta_pt": -2.970729013254786,
+    "weighted_ci95_pt": [
+     -4.052560259903585,
+     -2.0147971385863745
+    ],
+    "median_page_delta_pt": -2.694999999999999,
+    "median_ci95_pt": [
+     -4.26,
+     -1.7100000000000004
+    ]
+   }
+  },
+  "opus_vs_C0": {
+   "all": {
+    "pages": 14,
+    "better": 9,
+    "worse": 5,
+    "equal": 0,
+    "weighted_delta_pt": -0.7429238329238363,
+    "weighted_ci95_pt": [
+     -1.3785887024002879,
+     -0.17311349868556758
+    ],
+    "median_page_delta_pt": -0.6250000000000006,
+    "median_ci95_pt": [
+     -1.7949999999999995,
+     0.25999999999999635
+    ]
+   },
+   "hertwig": {
+    "pages": 6,
+    "better": 1,
+    "worse": 5,
+    "equal": 0,
+    "weighted_delta_pt": 0.38712440695836126,
+    "weighted_ci95_pt": [
+     0.10873011865690507,
+     0.6881146605818456
+    ],
+    "median_page_delta_pt": 0.33499999999999364,
+    "median_ci95_pt": [
+     0.05499999999999741,
+     0.9149999999999964
+    ]
+   },
+   "schlussredaktion": {
+    "pages": 8,
+    "better": 8,
+    "worse": 0,
+    "equal": 0,
+    "weighted_delta_pt": -1.6449652850831082,
+    "weighted_ci95_pt": [
+     -2.1310725122946517,
+     -1.152165085195389
+    ],
+    "median_page_delta_pt": -1.7949999999999995,
+    "median_ci95_pt": [
+     -1.94,
+     -1.1249999999999996
+    ]
+   }
+  },
+  "final_vs_opus": {
+   "all": {
+    "pages": 14,
+    "better": 11,
+    "worse": 2,
+    "equal": 1,
+    "weighted_delta_pt": -1.4140101790101722,
+    "weighted_ci95_pt": [
+     -2.066658948830749,
+     -0.7897162559348914
+    ],
+    "median_page_delta_pt": -0.9699999999999993,
+    "median_ci95_pt": [
+     -2.3399999999999976,
+     -0.5999999999999978
+    ]
+   },
+   "hertwig": {
+    "pages": 6,
+    "better": 3,
+    "worse": 2,
+    "equal": 1,
+    "weighted_delta_pt": -0.43059963099632004,
+    "weighted_ci95_pt": [
+     -0.8657119002560387,
+     0.04210394315173893
+    ],
+    "median_page_delta_pt": -0.4149999999999987,
+    "median_ci95_pt": [
+     -0.9699999999999993,
+     0.24000000000000132
+    ]
+   },
+   "schlussredaktion": {
+    "pages": 8,
+    "better": 8,
+    "worse": 0,
+    "equal": 0,
+    "weighted_delta_pt": -2.1990006311803034,
+    "weighted_ci95_pt": [
+     -2.848273932863654,
+     -1.5385646551724141
+    ],
+    "median_page_delta_pt": -2.284999999999999,
+    "median_ci95_pt": [
+     -3.420000000000001,
+     -1.21
+    ]
+   }
+  }
+ }
+}
