@@ -1,0 +1,266 @@
+[
+ {
+  "parent": "cursive_inzigkofen",
+  "child": "bern-hertwig-v1",
+  "set": "bern-hertwig-train-300",
+  "rows": 261,
+  "classes": {
+   "absent (0)": {
+    "n": 185,
+    "median_rel": 0.2759294516110291,
+    "median_norm_ratio": 1.1553940587926441,
+    "median_dbias": -0.41249048709869385,
+    "norm_up": 184,
+    "bias_down": 184
+   },
+   "rare (1–9)": {
+    "n": 33,
+    "median_rel": 0.10648083387691684,
+    "median_norm_ratio": 1.0046737805218036,
+    "median_dbias": -0.02176329493522644,
+    "norm_up": 18,
+    "bias_down": 17
+   },
+   "frequent (≥10)": {
+    "n": 43,
+    "median_rel": 0.13798500676565972,
+    "median_norm_ratio": 0.9767465763354548,
+    "median_dbias": -0.00260809063911438,
+    "norm_up": 13,
+    "bias_down": 22
+   }
+  },
+  "spearman_rel": {
+   "rho": -0.639401537939361,
+   "p": 2.1040976283821135e-31
+  },
+  "spearman_ratio": {
+   "rho": -0.6924583686863116,
+   "p": 1.3468723343402123e-38
+  },
+  "spearman_dbias": {
+   "rho": 0.7468602630870053,
+   "p": 8.470650567031846e-48
+  }
+ },
+ {
+  "parent": "cursive_inzigkofen",
+  "child": "bern-hertwig-v2",
+  "set": "bern-hertwig-train-300",
+  "rows": 261,
+  "classes": {
+   "absent (0)": {
+    "n": 185,
+    "median_rel": 0.4065374982723418,
+    "median_norm_ratio": 1.2336256206519793,
+    "median_dbias": -0.7211490273475647,
+    "norm_up": 184,
+    "bias_down": 179
+   },
+   "rare (1–9)": {
+    "n": 33,
+    "median_rel": 0.2361306160290623,
+    "median_norm_ratio": 1.0397161772059613,
+    "median_dbias": 0.022101521492004395,
+    "norm_up": 24,
+    "bias_down": 15
+   },
+   "frequent (≥10)": {
+    "n": 43,
+    "median_rel": 0.25300524649393336,
+    "median_norm_ratio": 1.0056382208294186,
+    "median_dbias": -0.004952490329742432,
+    "norm_up": 24,
+    "bias_down": 23
+   }
+  },
+  "spearman_rel": {
+   "rho": -0.586809044363684,
+   "p": 1.5231233267447533e-25
+  },
+  "spearman_ratio": {
+   "rho": -0.6659141809904424,
+   "p": 8.185023514299722e-35
+  },
+  "spearman_dbias": {
+   "rho": 0.7271158390215512,
+   "p": 3.342873413209828e-44
+  }
+ },
+ {
+  "parent": "bern-hertwig-v1",
+  "child": "bern-hertwig-v2",
+  "set": "bern-hertwig-train-300",
+  "rows": 266,
+  "classes": {
+   "absent (0)": {
+    "n": 187,
+    "median_rel": 0.14134676143846836,
+    "median_norm_ratio": 1.071546910060449,
+    "median_dbias": -0.3163936138153076,
+    "norm_up": 186,
+    "bias_down": 179
+   },
+   "rare (1–9)": {
+    "n": 35,
+    "median_rel": 0.1688552388577772,
+    "median_norm_ratio": 1.0302048671482864,
+    "median_dbias": 0.04084491729736328,
+    "norm_up": 29,
+    "bias_down": 12
+   },
+   "frequent (≥10)": {
+    "n": 44,
+    "median_rel": 0.17147211991833194,
+    "median_norm_ratio": 1.0287712564436466,
+    "median_dbias": -0.004978330805897713,
+    "norm_up": 34,
+    "bias_down": 24
+   }
+  },
+  "spearman_rel": {
+   "rho": 0.34644587923588865,
+   "p": 6.455752811357877e-09
+  },
+  "spearman_ratio": {
+   "rho": -0.4089435943461418,
+   "p": 3.804123692556448e-12
+  },
+  "spearman_dbias": {
+   "rho": 0.7034334846821735,
+   "p": 4.976171252814978e-41
+  }
+ },
+ {
+  "parent": "bern-hertwig-v2",
+  "child": "bern-schlussredaktion-v1",
+  "set": "bern-train-300",
+  "rows": 266,
+  "classes": {
+   "absent (0)": {
+    "n": 193,
+    "median_rel": 0.12053818063713474,
+    "median_norm_ratio": 1.0667667973371342,
+    "median_dbias": -0.528794527053833,
+    "norm_up": 178,
+    "bias_down": 177
+   },
+   "rare (1–9)": {
+    "n": 31,
+    "median_rel": 0.1480902519548708,
+    "median_norm_ratio": 1.0192542443384935,
+    "median_dbias": -0.011828243732452393,
+    "norm_up": 21,
+    "bias_down": 21
+   },
+   "frequent (≥10)": {
+    "n": 42,
+    "median_rel": 0.16242952827846915,
+    "median_norm_ratio": 0.9848042963332125,
+    "median_dbias": -0.018612544983625412,
+    "norm_up": 12,
+    "bias_down": 29
+   }
+  },
+  "spearman_rel": {
+   "rho": 0.35852001176041437,
+   "p": 1.7324366841217878e-09
+  },
+  "spearman_ratio": {
+   "rho": -0.48296258822959287,
+   "p": 5.966054978264521e-17
+  },
+  "spearman_dbias": {
+   "rho": 0.5722894534980849,
+   "p": 1.5272331232750876e-24
+  }
+ },
+ {
+  "parent": "bern-hertwig-v2",
+  "child": "bern-combined-v1",
+  "set": "bern-train-300",
+  "rows": 266,
+  "classes": {
+   "absent (0)": {
+    "n": 193,
+    "median_rel": 0.13980710300415072,
+    "median_norm_ratio": 1.082600750315627,
+    "median_dbias": -0.7400915622711182,
+    "norm_up": 176,
+    "bias_down": 173
+   },
+   "rare (1–9)": {
+    "n": 31,
+    "median_rel": 0.17138571987996765,
+    "median_norm_ratio": 1.0174486596950345,
+    "median_dbias": -0.031376004219055176,
+    "norm_up": 19,
+    "bias_down": 20
+   },
+   "frequent (≥10)": {
+    "n": 42,
+    "median_rel": 0.20196969662321812,
+    "median_norm_ratio": 0.9710317144646269,
+    "median_dbias": -0.021784503012895584,
+    "norm_up": 12,
+    "bias_down": 28
+   }
+  },
+  "spearman_rel": {
+   "rho": 0.360975933819651,
+   "p": 1.31670771743655e-09
+  },
+  "spearman_ratio": {
+   "rho": -0.562527812169174,
+   "p": 1.342292711075428e-23
+  },
+  "spearman_dbias": {
+   "rho": 0.5628980659406541,
+   "p": 1.2376887143361617e-23
+  }
+ },
+ {
+  "parent": "german-xix-v1",
+  "child": "german-xix-blb-v1",
+  "set": "blb-train-300",
+  "rows": 224,
+  "classes": {
+   "absent (0)": {
+    "n": 134,
+    "median_rel": 0.1726870855544516,
+    "median_norm_ratio": 1.0193803641475334,
+    "median_dbias": -0.74881911277771,
+    "norm_up": 102,
+    "bias_down": 100
+   },
+   "rare (1–9)": {
+    "n": 20,
+    "median_rel": 0.2508400649978739,
+    "median_norm_ratio": 0.9995997994196915,
+    "median_dbias": 0.050051648169755936,
+    "norm_up": 10,
+    "bias_down": 8
+   },
+   "frequent (≥10)": {
+    "n": 70,
+    "median_rel": 0.1682544649731029,
+    "median_norm_ratio": 1.0052878150109616,
+    "median_dbias": 0.054894253611564636,
+    "norm_up": 42,
+    "bias_down": 14
+   }
+  },
+  "spearman_rel": {
+   "rho": 0.015055632639792371,
+   "p": 0.8226918610578899
+  },
+  "spearman_ratio": {
+   "rho": -0.16604253290825932,
+   "p": 0.01282860901839537
+  },
+  "spearman_dbias": {
+   "rho": 0.44169953803734685,
+   "p": 4.101371681564525e-12
+  }
+ }
+]

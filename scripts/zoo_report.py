@@ -88,14 +88,12 @@ for p in d["inferred_pairs"]:
     dist = ent.get(f"{p['child']}|{p['parent']}") or ent.get(f"{p['parent']}|{p['child']}")
     P(f"| `{p['child'].removeprefix('kraken-')}` | `{p['parent'].removeprefix('kraken-')}` | {dist['rel']:.2f} | "
       f"{p['codec_parent']} → {p['codec_child']} (parent's codec is a subset: {p['parent_codec_subset_of_child']}) | {p['same_row_index']} of {p['codec_parent']} |")
+docset = {frozenset((p["child"], p["parent"])) for p in d["documented_pairs"]} | {frozenset((p["child"], p["parent"])) for p in d["inferred_pairs"]}
+cluster = {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen", "kraken-old_norse_am305"}
+extra = [(a, b, v) for p, v in sorted(d["distances"][A]["pairs"].items(), key=lambda t: t[1]["rel"]) for a, b in [p.split("|")]
+         if v["rel"] < 1.2 and frozenset((a, b)) not in docset and not (a in H or b in H) and not (a in cluster and b in cluster)]
 P("\nOther pairs below 1.2 in group A that no record explains (distance, no direction): " + "; ".join(
-    f"`{a.removeprefix('kraken-')}` – `{b.removeprefix('kraken-')}` {v['rel']:.2f}"
-    for p, v in sorted(d["distances"][A]["pairs"].items(), key=lambda t: t[1]["rel"])
-    for a, b in [p.split("|")]
-    if v["rel"] < 1.2 and not (a in H and b in H) and not {a, b} <= {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen"}
-    and not ({a, b} & set(H) and {a, b} & {"kraken-cursive_inzigkofen", "kraken-catmus_medieval", "kraken-bastarda_inzigkofen", "kraken-old_norse_am305", "kraken-bohemian_19th"})
-    and {a, b} not in ({"kraken-mccatmus", "kraken-prima"}, {"kraken-old_norse_am305", "kraken-catmus_medieval"}, {"kraken-old_norse_am305", "kraken-bastarda_inzigkofen"},
-                       {"kraken-old_norse_am305", "kraken-cursive_inzigkofen"})) + ".")
+    f"`{a.removeprefix('kraken-')}` – `{b.removeprefix('kraken-')}` {v['rel']:.2f}" for a, b, v in extra) + ".")
 
 # -- observations
 tested = [p for p in d["documented_pairs"] if p["status"] == "tested" and p["reading"]["blocks"]["conv_w"] < 1.0]

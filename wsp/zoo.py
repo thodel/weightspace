@@ -263,6 +263,8 @@ DOCUMENTED = [
     ("kraken-catmus_gothic_print", "kraken-catmus_medieval", "gateway base_model; README: 'fine-tuned on CATMuS Medieval model'"),
     ("kraken-french_vietnamese", "kraken-catmus_print_large", "gateway base_model 10.5281/zenodo.10592716; README: 'transfer learning from the CATMuS-Print base model'"),
     ("kraken-latin_incunabula", "kraken-catmus_print_large", "gateway base_model 10.5281/zenodo.10592716; the README sentences read name no base"),
+    ("kraken-openiti_persian_print", "kraken-openiti_arabic_print", "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Persian Base Model Trained on the OpenITI Corpus'"),
+    ("kraken-openiti_ottoman_print", "kraken-openiti_arabic_print", "gateway base_model 10.5281/zenodo.7050270; Zenodo title 'Printed Ottoman Base Model Trained on the OpenITI Corpus'"),
     ("bern-hertwig-v1", "kraken-cursive_inzigkofen", "docs/MODELS.md (trainer record)"),
     ("bern-hertwig-v2", "kraken-cursive_inzigkofen", "docs/MODELS.md (trainer record)"),
     ("bern-hertwig-v2", "bern-hertwig-v1", "docs/READINGS.md (read as a continuation of v1; docs/MODELS.md lists the same base cursive_inzigkofen for both)"),
@@ -279,8 +281,6 @@ DOCUMENTED_UNAVAILABLE = [
     ("kraken-mendelssohn_letters", "'HTR model for German manuscripts trained from several datasets' (eScriptorium base); not identified with a DOI in the text read"),
     ("kraken-old_norse_am305", "'fine-tuned from a base model trained on AM 302 fol (Grágás)'; that model is not in the gateway list"),
     ("kraken-peraire_french", "Manu McFrench (Zenodo 6657809), named in the metadata; not in the gateway list"),
-    ("kraken-openiti_persian_print", "gateway base_model 10.5281/zenodo.7050270 (OpenITI Arabic); file not fetched (HTTP 429)"),
-    ("kraken-openiti_ottoman_print", "gateway base_model 10.5281/zenodo.7050270 (OpenITI Arabic); file not fetched (HTTP 429)"),
 ]
 
 
