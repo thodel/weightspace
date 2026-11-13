@@ -12,14 +12,18 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 12 November 2026"
-    **No weight edit has yet repaired a model.**
+!!! note "Status — 13 November 2026"
+    **No weight edit has yet done better than a cheap alternative.**
 
-    - **Kraken models:** budgeted sessions gave no held-out gain. The one small
-      gain (−0.39 points) is a quarter-step merge toward a sibling, and a short
-      retrain on corrected data does at least as well (−0.55).
+    - **Kraken models:** one budgeted session gave a held-out gain whose page
+      interval excludes 0: the Fable 5.1 rerun of session 2, −0.57 points
+      [−1.15, −0.05]. Its gain is a step of 12.5 % toward the parent model, the
+      same size and place as a short retrain on corrected data (−0.55). Every
+      other session gave no held-out gain.
     - **Positive control:** the method repairs planted, localised defects, but
-      so do a blind programmer and a rule list.
+      so do a blind programmer and a rule list. That holds with Sonnet 5.5 and
+      Fable 5.1 programmers. The one diffuse defect repaired by measuring
+      was repaired by one of the two models only.
     - **Vision-language adapter:** two sessions with different programmer models
       (Opus 5.5, Fable 5.1) independently kept the same edit. It gave a large
       practice gain from pages that stop looping, and none on 733 held-out
@@ -30,8 +34,8 @@ characters, about 4 M parameters) fine-tuned on historical German handwriting.
     - **Second architecture:** a TrOCR track (transformer encoder-decoder,
       334 M parameters) has started. Readings are deterministic and lineage can
       be read from the weights. No edit yet.
-    - **Fable 5.1 reruns** of kraken session 2 and of the planted-defect
-      controls are awaiting review (thodel/weightspace#27, #28).
+    - **Layer views on unseen lines:** the probe findings hold; part of the
+      block roles do not, and four part-block hypotheses are withdrawn.
     - **Data:** along the way the work found several defects in the project's
       own data.
 
