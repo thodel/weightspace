@@ -32,7 +32,8 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
 | Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; the Fable replicate and its shams not yet in 9.3 |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
-| Epics #12 and #13 | LLM playbook; activation atlas | `docs/epics/` | proposed, not started |
+| Epic #12 | LLM playbook | `docs/epics/` | proposed, not started |
+| Epic #13: activation atlas | L0 viewer and L2 occlusion (`wsp.atlas`) | `docs/ATLAS_REPORT.md`, `docs/atlas/` | L0 and L2 done (13 Nov); Gate 1 fails for both models (hit share 0.61 and 0.73 < 0.80), so viewers claim activation, not location; conv receptive field 140 px confirmed; L1, L3, L4 not started |
 | TrOCR track | the same experiments on the in-house TrOCR family (transformer encoder-decoder, 334 M, same tokenizer, six base-size models from one base) | `docs/epics/EPIC_TROCR_TRACK.md`, `docs/MODELS_TROCR.md`, `docs/trocr/STAGE0.md`, `docs/TROCR_READINGS.md`, `wsp/trocr_subject.py`, `wsp/trocr_family.py` | **stage 0 (Gate 0) and stage 1 (Gate 1) passed and merged 11 Nov**; decisions 1-4 answered; stage 2 (seed null through the trainer) not started |
 
 ## Findings in one paragraph each
