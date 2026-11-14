@@ -93,7 +93,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 8. **Branch hygiene and loose ends.**
-   - Every remote branch is merged into main, except `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` (one status commit after its merge, folded in here); all can be deleted.
+   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Left: `claude/trocr-stage0-9ababb` (a TrOCR stage-2b run script, not merged).
    - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
