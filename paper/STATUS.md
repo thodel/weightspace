@@ -88,3 +88,7 @@ Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer
 - Folded in: R13 (out-of-domain exchange, 7.10) and the phase-5 adapter session (9.3, abstract, conclusion).
 - Still open from the fact-check: "0 of 28 edits" vs 27 in run logs; the low items 14-18 (page count 58 done; "three earlier statements" count, "six" vs "seven" attempts, 3-5 minutes, sd vs range, 9.3 "late layers"); the fact-check did not cover sections 1-6, 7.1-7.5, 8.1, 8.3, 10 and the appendices apart from B.
 - Length is now about 19,100 words (target about 7,000).
+
+## Update 14 Nov 2026 (CET): C4 control on the uncorrected pairs folded in
+
+Abstract, 7.11 (new paragraph "Control on the uncorrected pairs"), RQ2, item 5 of Section 9, the practitioner paragraph, "Open controls" and the conclusion now report the control (docs/RESULTS.md R14, docs/C4_UNCORRECTED.md): no gain on uncorrected pairs (−0.07 and −0.03 against −0.55 and −0.99), so the C4 gain is attributed to the correction, with the limits stated (fully broken pairing, one subject, three seeds, two learning rates). The sentences are not yet fact-checked against the sources. Length about 19,950 words; 5 `[TODO` markers.
