@@ -55,7 +55,7 @@ Draft 3 adds the experiments the internal review (`review/internal_review_2026-1
 
 1. Authors and corresponding author; wording on AI assistance (Section Declarations).
 2. Data and code availability: repository and datasets are private; what is published, under which licence, where (Zenodo / HAL / GitHub).
-3. C4, the adapter track and the phase-5 adapter sessions are done. Open: whether to add the control on uncorrected pairs, and whether 9.3 adds the Fable replicate.
+3. C4, the adapter track and the phase-5 adapter sessions are done. The control on uncorrected pairs was run on 14 Nov (no gain; `docs/C4_UNCORRECTED.md` §B.4 has the sentence for 7.11); open: whether 9.3 adds the Fable replicate.
 4. Spell out BLB, holding institutions, archival signatures (Section 2.2).
 5. Length: the main text (about 19,100 words) is more than twice the 7,000 words an editor would expect; cut or split (data findings paper, harness report).
 6. The playbook epic (`docs/epics/EPIC_LLM_PLAYBOOK.md`) is a candidate follow-up paper, not part of this one.

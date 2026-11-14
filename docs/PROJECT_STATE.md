@@ -28,7 +28,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | B | controls for the article: planted defects, unseen practice sets with Sonnet, Opus, Haiku and Fable programmers, sham, average, global interpolation, margins, seed null, zoo survey | `docs/CONTROLS_REPORT.md`, `docs/SEED_NULL.md`, `docs/ZOO_SURVEY.md`, `docs/RESULTS.md` R5-R8 | done, merged (Fable attempts f1 on 9 Nov, #22; planted defects rerun with Fable, §11, merged 13 Nov, #28) |
 | Block statistics | errors per Unicode block (after CERberus), additive and paired; exact session replays | `docs/BLOCK_STATS.md`, `docs/CERBERUS_NOTES.md` | done, merged |
 | C | the family of 43 served kraken models: weights, lineage, function, exchange grids; `latin_incunabula` candidates v1-v3; exchange on out-of-domain material and across lineages | `docs/MODEL_FAMILY.md`, `docs/family/`, `docs/RESULTS.md` R4, R9, R12, R13 | done, merged; v3 qualifies, registered and **disabled** |
-| C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/RESULTS.md` R11 | done, merged |
+| C4 retrain | `combined-v1` retrained on the corrected Hertwig data | `docs/C4_RETRAIN.md`, `docs/C4_UNCORRECTED.md`, `docs/RESULTS.md` R11, R14 | done, merged; control on the uncorrected pairs run 14 Nov (no gain: the correction is what helps) |
 | Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track, the phase-5 session (Opus 5.5) and its Fable 5.1 replicate (#25, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10b) merged |
 | Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | done; checked on unseen practice lines (12 Nov): probe findings hold, block roles partly, part-block hypotheses withdrawn; issue closed |
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
@@ -50,7 +50,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - On unseen practice lines there is one small gain for `combined-v1` (−0.19 to −0.39 points). It is a quarter-step interpolation toward a sibling, and its page-clustered intervals include 0.
   - A Fable 5.1 programmer found a larger practice gain and no held-out gain (−0.02).
   - Session 2 (training-side practice) rerun with a Fable 5.1 programmer: 3 edits kept. Held-out −0.57 [−1.15, −0.05] by pages, almost all of it on Hertwig (−1.32). This is the first session on a kraken model whose held-out page interval excludes 0. Of the kept edits, the step of 12.5 % toward the parent `hertwig-v2` carries the gain (−0.53 alone), and the two blank steps carry none. Through the serving path: −2.16 [−3.32, −1.05], but on the other hand (Schlussredaktion). Every edited model shows that hand reversal, so it belongs to the measurement. The size and place match the C4 retrain (R11). It is a merge toward the parent, not a repair the retrain does not also buy.
-  - The C4 retrain on corrected data does at least as well as the best edit: −0.55 at learning rate 1e-5, −0.99 at 5e-5.
+  - The C4 retrain on corrected data does at least as well as the best edit: −0.55 at learning rate 1e-5, −0.99 at 5e-5. A control with the uncorrected pairs gives no gain (−0.07, −0.03; R14), so the gain depends on the correction.
 - **Positive control:** localised planted defects are repaired by the programmer, the blind programmer and the rule list alike, with Sonnet 5.5 and with Fable 5.1 programmers (13 of 22 cells for Fable, 15 for Sonnet). Diffuse damage (k9) was repaired only by the Sonnet programmer who measured (83 %); the Fable programmer did not try the interpolation toward the parent (24 %). So that claim holds for one of two models, one attempt each.
 - **Exchange:**
   - `latin_incunabula` v3 qualifies under the rule with minimum effects. It moves the output layer half-way without the abbreviation rows: NewsEye −1.66 [−2.02, −1.30], MUFI share +0.014. Through the serving path it is not worse (median page −0.09).
@@ -84,7 +84,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 3. **Rotate leaked secrets:** the Zotero API key, and the Nextcloud admin and database passwords.
 4. **Amendments:** A3 (donor rule and practice side; the 12 Nov visualisation rerun is one more case for it) and A5 (sham noise floor for page-level sessions) are proposed, not adopted. A4 (page-clustered intervals) is adopted.
 5. **Training jobs** need your OK, because they use the GPU on the trainer's card:
-   - a C4 continuation on the uncorrected pairs, to show whether the correction or the extra training causes R11's gain;
+   - ~~a C4 continuation on the uncorrected pairs~~ done 14 Nov (`docs/C4_UNCORRECTED.md`, R14): −0.07 and −0.03 points against −0.55 and −0.99; the correction, not the extra training, gives R11's gain;
    - a fine-tune with the first conv layer frozen (Track C).
 6. **Article:**
    - authors, availability, funding, AI statement, licences, public release (6 `[TODO]`);
