@@ -130,3 +130,67 @@ python -m wsp.atlas report --out docs/atlas
 ```
 
 The four runs take about 6 minutes on 48 CPU cores (12 workers × 4 threads). The random control is seed 20261113.
+
+## L3 rule: ablation (fixed 14.11.2026, before any ablation run)
+
+Written and committed before `wsp.atlas_ablate` was run on any line.
+
+**Models and lines.** All lines the model was not trained on, with no length or CER filter:
+
+- `kraken-german-xix-blb-v1` on `blb-val-300` (300 lines, 24 pages);
+- `kraken-bern-hertwig-v2` on the `bern-val` lines whose `seen_by` does not name it (301 lines, 11 pages).
+
+**Selection and evaluation.** The pages (`wsp.metrics.page_of`) are ordered by `sha256("20261114:" + page)` and
+assigned alternately to *selection* and *evaluation*. Units, groups and circuits are chosen on selection pages
+only. Every claim below is made on evaluation pages only. No page is on both sides.
+
+**Units.** The 192 conv channels (`C_0` 32, `C_3` 32, `C_6` 64, `C_9` 64) and the 1,200 BiLSTM units
+(`L_12`, `L_14`, `L_16`: 200 forward and 200 reverse each), 1,392 in all.
+
+**Ablation.** *Mean ablation*: the unit's output, as the next layer sees it, is replaced on every frame (and, for
+a conv channel, at every height) by one number, the unit's mean over all positions of the selection lines.
+Whole-block ablation (mean and zero) is reported for reference only.
+
+**Measures.** Corpus CER (points), with the paired page-clustered bootstrap of `wsp.metrics.bootstrap_delta`
+(2,000 resamples). Per reference character *c*: its accuracy is the share of its occurrences that the greedy
+reading gets right (`ok` in `wsp.layerview.char_status`). Its *loss* is the accuracy before ablation minus
+the accuracy after, in points.
+
+**Stage A (selection pages).** Every unit is ablated alone.
+
+**Choices made on selection pages:**
+
+- the 20 units with the largest ΔCER;
+- per block, its 10 units with the largest ΔCER;
+- per target character, its *circuit*: the up to 10 units, across all blocks, with the largest loss of *c*
+  (only units whose loss is above 0).
+
+The targets are the space and the 10 most frequent other characters of the selection lines.
+
+**Controls.**
+
+- For each block group: 50 random groups of 10 units from the same block.
+- For each circuit: 50 random groups of the same size from all 1,392 units.
+- Seed 20261114.
+
+**Claims, on evaluation pages.**
+
+- **U, a unit matters:** ΔCER ≥ 1.0 point and the lower end of its page-clustered 95 % interval > 0.
+  Tested for the 20 units above.
+- **G, a block's top group matters beyond chance:** ΔCER ≥ 1.0 point, the lower end of the interval > 0, and
+  larger than at least 48 of the 50 random groups of that block.
+- **C, a circuit is specific to its character.** All three must hold:
+  (a) the loss of *c* is ≥ 5 points, with the lower end of its page-clustered 95 % interval > 0;
+  (b) it is larger than the loss of *c* under at least 48 of the 50 random groups of the same size;
+  (c) it is at least twice the loss of all other characters pooled.
+- **Effects below 1 point of CER** (U, G) or below 5 points of a character's accuracy (C) are reported as
+  inconclusive, not as absent.
+
+**Predictions and descriptions (not claims).**
+
+- **Prediction:** mean-ablating a dead `C_0` filter of `docs/family/functional.json` changes nothing.
+  The dead filters are 9 for `xix-blb-v1` and 6 for `hertwig-v2`.
+- **Description:** the Spearman correlation between a unit's selection ΔCER and the relative change of its
+  incoming weights in the last fine-tune (`german-xix-v1` → `german-xix-blb-v1`, `bern-hertwig-v1` →
+  `bern-hertwig-v2`).
+- **Answer to the epic's question:** whether the deleted spaces have a circuit, and in which blocks it lies.
