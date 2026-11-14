@@ -12,14 +12,15 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 13 November 2026"
+!!! note "Status — 14 November 2026"
     **No weight edit has yet done better than a cheap alternative.**
 
     - **Kraken models:** one budgeted session gave a held-out gain whose page
       interval excludes 0: the Fable 5.1 rerun of session 2, −0.57 points
       [−1.15, −0.05]. Its gain is a step of 12.5 % toward the parent model, the
-      same size and place as a short retrain on corrected data (−0.55). Every
-      other session gave no held-out gain.
+      same size and place as a short retrain on corrected data (−0.55). The
+      same retrain on the uncorrected pairs gains nothing (−0.07), so it is the
+      correction that helps. Every other session gave no held-out gain.
     - **Positive control:** the method repairs planted, localised defects, but
       so do a blind programmer and a rule list. That holds with Sonnet 5.5 and
       Fable 5.1 programmers. The one diffuse defect repaired by measuring
@@ -36,6 +37,10 @@ characters, about 4 M parameters) fine-tuned on historical German handwriting.
       be read from the weights. No edit yet.
     - **Layer views on unseen lines:** the probe findings hold; part of the
       block roles do not, and four part-block hypotheses are withdrawn.
+    - **Activation atlas:** no single unit matters much or is selective on its
+      own; characters are read from the later blocks as a whole. The atlas
+      stays descriptive, and neither model has a circuit for the deleted
+      spaces.
     - **Data:** along the way the work found several defects in the project's
       own data.
 

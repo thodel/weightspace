@@ -1,10 +1,10 @@
-# Project state (13 November 2026, CET)
+# Project state (14 November 2026, CET)
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** at the merge of thodel/weightspace#34 (`73c7e1b`, 13 Nov), plus this documentation update. #27, #28, #30, #32, #33, #34, #35 and #36 were merged on 12–13 Nov.
+- **Main:** at `2f9a8e0` (14 Nov, the C4 control on the uncorrected pairs), plus this documentation update. #38, #39 and #40 were merged on 14 Nov; the fact-check's second addendum, the manuscript fixes for its medium and low findings, and the C4 control (R14) went to main directly.
 - **Open pull requests:** none.
-- **Merged on 13 Nov after review:** the TrOCR stage-2 seed-null plan and preregistration (#35), the completed zoo survey with manuscript 6.3/6.4 (#36), and the adapter-track corrections to PLAN, DESIGN and PROTOCOL (#34). Not merged: `claude/c4-retrain`, an 8 Nov copy of the R11 text that `main` already has in a later form.
+- **Merged on 14 Nov after review:** the second Fable attempt on planted adapter p3 (#38; both arms reach the same adapter again), atlas level L3, ablation (#39), and atlas level L1, selectivity (#40; Gate 2 fails for both models).
 - **Running:**
   - Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
 
@@ -32,7 +32,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 | Adapters | sessions on the LoRA adapter `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` of Qwen3.5-4B | `docs/ADAPTER_REPORT.md` (R10), `docs/PHASE5_PLAN.md`, `docs/PHASE5_REPORT.md` | first track, the phase-5 session (Opus 5.5) and its Fable 5.1 replicate (#25, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10b) merged |
 | Epic #3: visualise layers | frame map, layer probes, decision views, α overlay, output-layer geometry, pages for both lineages | `docs/viz/README.md`, `protocol/docs/figures/` | done; checked on unseen practice lines (12 Nov): probe findings hold, block roles partly, part-block hypotheses withdrawn; issue closed |
 | Protocol site | MkDocs Material, journal of every step, results R1-R13, amendments A1-A5 | `protocol/`, `protocol/PUBLISHING.md` | up to date; not published (private repo, Pages not set up) |
-| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; not yet in the text: the adapter Fable replicate (#25), kraken session 2 with Fable (#27), the planted defects with Fable (#28), the epic #3 corrections (#30) |
+| Article | JDMDH manuscript, draft 3, with a second fact-check (10 Nov) and its fixes | `paper/manuscript.md`, `paper/factcheck_draft3.md`, `paper/STATUS.md` | draft 3; R13 and the phase-5 Opus session folded in on 11 Nov; medium and low fact-check findings fixed 14 Nov; not yet in the text: the adapter Fable replicate (#25), kraken session 2 with Fable (#27), the planted defects with Fable (#28), the epic #3 corrections (#30), the C4 control on uncorrected pairs (R14) |
 | Literature | search log, related-work report, reading notes, bib | `docs/SEARCH_LOG.md`, `docs/RELATED_WORK.md`, `docs/related_work/`, `refs/` | done; OpenAlex Q4-Q10 incomplete |
 | Epic #12 | LLM playbook | `docs/epics/` | proposed, not started |
 | Epic #13: activation atlas | L0 viewer and L2 occlusion (`wsp.atlas`); L3 mean ablation (`wsp.atlas_ablate`); L1 selectivity (`wsp.atlas_select`) | `docs/ATLAS_REPORT.md`, `docs/atlas/` | L0 and L2 done and merged (13 Nov, #32); Gate 1 fails for both models (hit share 0.61 and 0.73 < 0.80), so viewers claim activation, not location; conv receptive field 140 px confirmed. L3 done (14 Nov, rule fixed first): no single unit moves CER ≥ 1 point except `hertwig-v2` `C_0 ch 3`; top-10 `C_0` groups silence both models; character circuits hold for 7 of 11 characters in `hertwig-v2` and only `t` in `xix-blb-v1`, almost all in conv blocks; no space circuit in either model; dead-filter prediction holds; fine-tune weight change does not predict importance (ρ ≈ 0). L1 done (14 Nov, rule fixed first): sparse probes code characters from `C_6` (xix) / `C_3` (hertwig) on, BiLSTM forward units carry the previous and reverse the next character; no single unit beats the random network's bar (claim S fails), so **Gate 2 fails for both models** and the atlas stays descriptive (L3 circuits shown as descriptions); seed runs reproduce the units almost exactly but mostly by inheritance from the shared parent. L4 not started (needs Gate 2) |
@@ -45,6 +45,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - Lineage can be read from the weights for fine-tunes that did not move far (43 models).
   - The front end is generic and the recurrent stack is individual.
   - Letters are identified in the BiLSTMs, on training and on unseen lines alike. About two thirds of deleted characters (66–72 %) are decodable at no layer. Which block's fine-tune share does what holds only partly on unseen lines, and the Bern block shares were confounded by the parent's training lines (docs/viz/README.md, 12 Nov).
+  - Activation atlas (epic #13, `docs/ATLAS_REPORT.md`, every level under a rule fixed before its first run): the viewers may show activation, not location (Gate 1 fails). No single unit matters much or is selective on its own; ten first-layer channels together carry the whole reading; probes read characters from the later blocks, and the BiLSTM directions carry the previous and next character. Gate 2 fails for both models, so the atlas stays descriptive and the character circuits of L3 count as descriptions. Neither model has a circuit for the deleted spaces.
 - **Edits on kraken models:**
   - No held-out gain on practice lines from the training side (15 edits).
   - On unseen practice lines there is one small gain for `combined-v1` (−0.19 to −0.39 points). It is a quarter-step interpolation toward a sibling, and its page-clustered intervals include 0.
@@ -93,7 +94,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 8. **Branch hygiene and loose ends.**
-   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Left: `claude/trocr-stage0-9ababb` (a TrOCR stage-2b run script, not merged).
+   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Since then five more branches were merged and can be deleted: `claude/atlas-l1`, `claude/atlas-l3`, `claude/factcheck-addendum2`, `claude/manuscript-medium-fixes`, `claude/planted-fable-p3-attempt2`. Not merged: `claude/trocr-stage0-9ababb` (a TrOCR stage-2b run script).
    - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
@@ -101,11 +102,11 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 **Settled since 8 November**
 
 - The `combined-v1` line count: 5,441 is right. The other figure, 5,243, adds two quantities that are not like-for-like (`paper/factcheck_draft3.md` §12).
-- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20). The Fable replicates are merged (#25, #27, #28). Epic #3 is closed (#30).
+- `phase5` and the controls branch are merged (#21, #22). v3 is through the serving path (#20). The Fable replicates are merged (#25, #27, #28; the second p3 attempt, #38). Epic #3 is closed (#30). Atlas levels L0–L3 are done (#32, #39, #40). The C4 control on the uncorrected pairs is run (R14).
 
 **Not started**
 
-9. Epic #12 (LLM playbook); levels L1, L3 and L4 of epic #13.
+9. Epic #12 (LLM playbook); level L4 of epic #13, which needs a model that passes Gate 2 (none does).
 10. TrOCR stages 2-5 (seed null, planted defects, sessions, retrain comparator). Stage 2 is preregistered (`docs/TROCR_NULLS_PREREG.md`, #35); no run yet, card 0 is held by vLLM.
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).

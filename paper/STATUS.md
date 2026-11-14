@@ -1,6 +1,6 @@
 # Article for JDMDH: status and open items
 
-State: 13 November 2026.
+State: 14 November 2026.
 
 - **Draft:** draft 3 of `manuscript.md`, about 19,100 words, 6 `[TODO]`; build with `./build.sh`. Draft 1 is `manuscript_v1_draft.md`.
 - **Fact-check:** a second-instance fact-check of draft 3 (`factcheck_draft3.md`, 10 November) found five main problems, all fixed in `24d2102`:
@@ -14,6 +14,7 @@ State: 13 November 2026.
   - **The adapter Fable 5.1 replicate** of that session and its three shams. Source: #25, `docs/PHASE5_FABLE_REPORT.md`. Belongs in 9.3.
   - **Kraken session 2 rerun with a Fable 5.1 programmer.** Source: #27, `docs/KRAKEN_S2_FABLE.md`, RESULTS R3. Held-out −0.57 [−1.15, −0.05]: the first session gain whose page interval excludes 0. It is a step of 12.5 % toward the parent, equal to C4 and not better. The serving path gives −2.16, but on the other hand. Text to revise: RQ2 (line ~403, "none of the 15 edits ... improved a model on held-out data" is still true of the original sessions, but the rerun adds a 16th result), the finding at line ~417 ("the only held-out gain, a quarter-step toward a clean sibling") and the conclusion (~459).
   - **The planted defects rerun with a Fable 5.1 programmer.** Source: #28, `docs/CONTROLS_REPORT.md` §11, RESULTS R7. Fable repaired 13 of 22 cells, Sonnet 15. The diffuse k9 repair by measuring does not reproduce (24 % against 83 %), which weakens the 7.6 sentence on the programmer who measures.
+  - **The C4 control on the uncorrected pairs.** Source: RESULTS R14, `docs/C4_UNCORRECTED.md` (§B.4 has the sentence for 7.11). No gain (−0.07 and −0.03 against −0.55 and −0.99), so R11's gain depends on the correction. The "Open controls" item (line ~453) still says this control was not run.
   - **The epic #3 readings on unseen lines.** Source: #30, `docs/viz/README.md`. The probe findings hold, about two thirds of deletions are decodable at no layer (72 % on training lines), and four part-block hypotheses are withdrawn. The Bern block shares were confounded by the parent's training lines. Check 6.x and 8.x for the withdrawn hypotheses.
 Title: *What can be read from, and edited in, the weights of text recognition models? Readings and edits on a family of kraken models, and what they showed about our data*.
 
@@ -86,5 +87,5 @@ Authors; BLB and archival signatures; the 5,441 versus 5,243 line count (trainer
 
 - Second-instance fact-check done (`paper/factcheck_draft3.md`); the three high and most medium findings are fixed in the manuscript (7.7 page intervals, RQ2 retraining sentence, latin v3 in 7.10/abstract/RQ2/conclusion, 7.8 step wording, table cross-references, k11 row, donor-rule wording, Appendix B rows, 43-vs-30 wording).
 - Folded in: R13 (out-of-domain exchange, 7.10) and the phase-5 adapter session (9.3, abstract, conclusion).
-- Still open from the fact-check: "0 of 28 edits" vs 27 in run logs; the low items 14-18 (page count 58 done; "three earlier statements" count, "six" vs "seven" attempts, 3-5 minutes, sd vs range, 9.3 "late layers"); the fact-check did not cover sections 1-6, 7.1-7.5, 8.1, 8.3, 10 and the appendices apart from B.
+- Fact-check items fixed on 14 Nov: the remaining medium findings (`c156b63`) and the low ones (`bca580c`: 27 edits, not 28; "two earlier statements"; six programmer runs; run times; standard deviations; 9.3 layers). Still open: the fact-check did not cover sections 1-6, 7.1-7.5, 8.1, 8.3, 10 and the appendices apart from B.
 - Length is now about 19,100 words (target about 7,000).
