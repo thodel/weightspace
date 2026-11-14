@@ -1,6 +1,9 @@
 """Fable 5.1 rerun of the LLM arms (a), (b) of the adapter planted-defect control (stage A3; arms (a), (b) existed for p3 only).
 
-    PYTHONPATH=. .venv/bin/python scripts/run_planted_adapter_f1.py p3-alpha2 a|b
+    PYTHONPATH=. .venv/bin/python scripts/run_planted_adapter_f1.py p3-alpha2 a|b [q01|q02]
+
+The third argument is the pack folder: q01 = first attempt (11.11.), q02 = second attempt with fresh programmers (same pack,
+title `q02`; the programmers were told not to read q01/).
 
 As scripts/run_planted_adapter.py (same subject, practice pass, budget, keep rule, score set, outcome classes), except: the program
 is the one a Claude Fable 5.1 subagent wrote under runs/planted-adapter-f1/q01/<arm>/ (q01 = p3-alpha2; the pack's title, which
@@ -35,11 +38,11 @@ PROGRAMMER = {"a": _C + "Wrote its program in advance, did not run it.", "b": _C
 SPOOL = Path.home() / "atr-cache/wsp/spool/a3-f1"
 
 
-def main(cid, arm):
+def main(cid, arm, pack="q01"):
     plant = json.loads((P.OUT / "plant.json").read_text())
     subj = P.OUT / cid
     assert cid == "p3-alpha2"
-    arm_dir = REPO / "runs/planted-adapter-f1/q01" / arm
+    arm_dir = REPO / "runs/planted-adapter-f1" / pack / arm
     prog = arm_dir / "program.py"
     hyp_file = arm_dir / ("preregistration_hypotheses.md" if arm == "a" else "hypotheses.md")
     hyps = hyp_file.read_text() if hyp_file.exists() else f"(the rules are in the header of `{prog.relative_to(REPO)}`)"
@@ -48,7 +51,7 @@ def main(cid, arm):
     meta = json.loads((run_dir / "session.json").read_text())
     pre = f"""# Pre-registration — {run_dir.name}
 
-Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({arm}), **Fable 5.1 rerun** of `runs/20261107-planted-adapter-{cid}-{arm}-b{BUDGET[arm]}-1` (Sonnet 5.5). Written before the first pass; the program is `{prog.relative_to(REPO)}`, copied unchanged.
+Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({arm}), **Fable 5.1 rerun** (pack `{pack}`, attempt {1 if pack == 'q01' else 2}) of `runs/20261107-planted-adapter-{cid}-{arm}-b{BUDGET[arm]}-1` (Sonnet 5.5). Written before the first pass; the program is `{prog.relative_to(REPO)}`, copied unchanged.
 
 1. **Subject:** `{cid}`, a corrupted copy of `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` (`plant.json`: {json.dumps(plant[cid])}); tensor digest `{meta['subject_digest']}`. The tensor digest does not cover `lora_alpha` (config), so p3/p5 share the clean adapter's tensor digest; the file digests in `plant.json` differ. Source adapter file digest `{plant['source_digest'][:16]}…`. Donors: siblings `…-page-v1`, `…-blb-page-v1` for statistics only (independent A initialisations).
 2. **Practice set:** `data/practice/kurrent-val-32.jsonl`, 32 pages (every second page of the 64-page practice draw of the registered val side), sha256 `{meta['practice_sha256']}`. Not training data of v2 (docs/PHASE5_PLAN.md §2; audit `data/practice/kurrent-val-64.audit.json`).
@@ -59,7 +62,7 @@ Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({a
 {hyps}
 
 6. **Outcome classes (fixed before any session):** let N be the repeat noise of the clean adapter on the score set (|CER difference of two readings|, at least 3 points) and D = CER(corrupted) − CER(clean) on the score set. D < max(N, 3 points): *null corruption* (below the pass noise). Else *repaired* = CER(final) recovers at least 80 % of D and the paired page interval of final vs corrupted lies below 0; *partly* = 20–80 %; *not repaired* = under 20 %.
-7. **Programmer:** {PROGRAMMER[arm]}
+7. **Programmer:** {PROGRAMMER[arm].replace("q01", pack)}
 """
     (run_dir / "preregistration.md").write_text(pre)
     shutil.copy(prog, run_dir / "program.py")
@@ -81,4 +84,4 @@ Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({a
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:4])

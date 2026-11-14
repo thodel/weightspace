@@ -50,3 +50,7 @@ held-out, on CPU for kraken and on card 0 for p3.
 The positive control holds for a second programmer model. The claim that "only the
 programmer who measures repairs diffuse damage" holds for one model of two, with one attempt
 each. The variance across attempts is still not measured.
+
+## Second p3 attempt (13.11.)
+
+Two more fresh Fable programmers got the p3 pack under a new folder name (`q02`) and were told not to read the first attempt. A watcher ran them on card 0 on 13.11., 20:56–21:17 CET, once the card was free. Both again found the doubled `lora_alpha` and halved every `lora_B`. The programmer with passes then tried a spectral check against the siblings (nothing flagged) and a further ×0.8, which the keep rule refused. Both arms end on the same adapter as attempt 1 and as Sonnet (0.517 on the score set, cached). On p3, at least, the result does not vary across attempts. Runs: `runs/20261113-planted-adapter-p3-alpha2-*-f1-*`.

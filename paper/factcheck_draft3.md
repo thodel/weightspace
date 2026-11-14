@@ -370,3 +370,41 @@ Sources: `docs/PHASE5_REPORT.md`, `docs/PHASE5_FABLE_REPORT.md`, RESULTS R10, R1
 High: none of the original three.
 Medium: N2, N3; finding 6 (abstract, 7.11, conclusion); finding 10; finding 7 (undisclosed doubled-α pack).
 Low: N1; findings 12, 13, 15, 16, 17; the rest of 18; the Table 1 TODO; the stale "not compared with … a sham" sentence in 7.7; the 43-vs-30 source conflict (19).
+
+## Second addendum, 14 November 2026 (CET): re-check against the manuscript on `main` at `0d021e2`
+
+Between `ec2658b` and `0d021e2` four commits touched `paper/manuscript.md` (`f11f1bb`, `b1cd2d7`, `80a96fb`, `2141795`): the introduction (zoo count), 6.3 (one sentence on the 300-line count), 6.4 (zoo survey completed), 7.2 (pointer to 7.9), RQ1 and conclusion item 6. This addendum reads those passages and re-checks the open findings of the first addendum. Nothing was recomputed; the new numbers were compared with `docs/ZOO_SURVEY.md`.
+
+### Change in status
+
+| # | Finding | Status | Evidence |
+|---|---|---|---|
+| 19 | 43 vs 30 models | resolved | 6.4, RQ1 and conclusion item 6 now say all 37 public models were read, the last seven after a refusal on 7 Nov and a second run on 13 Nov. This agrees with `ZOO_SURVEY.md`. The introduction now says 27 of 37 have the standard architecture (`ZOO_SURVEY.md`: 27 of 37, 73 %). |
+
+All other findings (1–18, N1–N3) are unchanged from the first addendum: the text of 7.6, 7.7, 7.8, 7.10, 7.11, 9.2, 9.3, the abstract, the conclusion (apart from item 6) and the Table 1 caption was not touched.
+
+### New and changed passages checked against `docs/ZOO_SURVEY.md`
+
+| Claim in the manuscript | Source | Verdict |
+|---|---|---|
+| 6.4: 14 of 16 documented pairs agree with the weights; the Kurrent base was confirmed by the trainer's job record | T3, summary item 6 | matches |
+| 6.4: blank bias relative to the other biases rises in 14 of 14 documented pairs (7 of 7 public); positive in 45 of 47 models; the two exceptions have a 48-pixel input | T6 | matches |
+| 6.4: rows of special characters grow and lose bias in 13 of 14 pairs; "moved most are the rare ones" in 7 of 14 (3 of 7 public) | Observation 1 | matches |
+| 6.4: ten most frequent letters weakest in 40 of 43 models, median ratio 0.56; exceptions are the printed Arabic-script models | T5 and Observation 1 | matches |
+| 6.4: conv below the LSTMs in 4 of 7 public pairs, below the output rows in 2 of 7; first block least in 12 of 14 | Observation 3 | matches |
+| 6.4: seven independent public pairs from four parents and three architectures | T7 text | matches |
+| 6.3 and 6.4: step at characters absent from a 300-line sample (median bias change −0.3 to −0.75, about zero for characters that occur); absent rows moved more only in the first adaptation from the public parent | T9b | matches |
+| 7.2: single blocks and pairs close to additive, the whole network not | 7.9 text | consistent |
+
+### Remaining small points in the new text
+
+| Point | Where | Severity |
+|---|---|---|
+| "47 models surveyed" is not explained: it is 37 public + 10 in-house files (the six of Table 1 plus four comparators), whereas the "43" elsewhere counts six in-house models. | 6.4 | low |
+| 6.4 "a week later": the first run was on 7 Nov, the second on 13 Nov, six days. | 6.4 | negligible |
+
+### Updated list of what is still open
+
+High: none.
+Medium: N2, N3; finding 6 (abstract, end of 7.11, conclusion); finding 10; finding 7 (doubled `lora_alpha` in the arms (a)/(b) pack not disclosed).
+Low: N1; findings 12, 13, 15, 16, 17; the rest of 18; the Table 1 "[TODO: ask the trainer]" line; the stale "has not been compared with … a sham" sentence in 7.7; the unexplained "47" in 6.4.
