@@ -6,7 +6,6 @@ One page for anyone who opens the repository cold. Details are in the files it n
 - **Open pull requests:** none.
 - **Merged on 13 Nov after review:** the TrOCR stage-2 seed-null plan and preregistration (#35), the completed zoo survey with manuscript 6.3/6.4 (#36), and the adapter-track corrections to PLAN, DESIGN and PROTOCOL (#34). Not merged: `claude/c4-retrain`, an 8 Nov copy of the R11 text that `main` already has in a later form.
 - **Running:**
-  - A watcher from the planted-defect session (`~/atr-cache/wsp/spool/a3-f1/p3-attempt2.sh`) is waiting for card 0. Once card 0 has 18 GB free, it starts a pass server and runs a second Fable attempt on adapter p3 (`q02`). That attempt is not part of #28.
   - Both cards are held by a `vllm serve Qwen3.8-27B` that is not part of this project.
 
 ## What this is
@@ -94,9 +93,8 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 8. **Branch hygiene and loose ends.**
-   - Every remote branch is merged into main, except `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` (one status commit after its merge, folded in here); all can be deleted.
+   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Left: `claude/trocr-stage0-9ababb` (a TrOCR stage-2b run script, not merged).
    - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
-   - Whether the waiting `q02` watcher (see Running) should still run.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
 
