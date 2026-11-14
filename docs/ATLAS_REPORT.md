@@ -1,7 +1,7 @@
 # Activation atlas: report (epic thodel/weightspace#13)
 
 Levels L0 (activation map) and L2 (dependence on the image) first, as the epic orders them; Gate 1 decides
-whether the viewer may claim *where* in a line something happens. L3 (ablation) followed on 14.11.2026; L1 and L4 are not started.
+whether the viewer may claim *where* in a line something happens. L3 (ablation) and L1 (selectivity) followed on 14.11.2026; Gate 2 fails for both models; L4 is not started.
 
 ## Gate 1 rule (fixed 13.11.2026, before any occlusion run)
 
@@ -318,3 +318,287 @@ python -m wsp.atlas_ablate run --model models/kraken/kraken-german-xix-blb-v1.ml
 python -m wsp.atlas_ablate run --model models/kraken/kraken-bern-hertwig-v2.mlmodel --practice data/practice/bern-val.jsonl
 python -m wsp.atlas_ablate report --out docs/atlas
 ```
+
+## L1 rule: selectivity (fixed 14.11.2026, before any selectivity run)
+
+Written and committed before `wsp.atlas_select` was run on any line.
+
+**What L1 may say.** Gate 1 failed, so L1 does not claim *where in the image* a unit looks. Frames are labelled by the forced CTC
+alignment of the reference text (`wsp.layerview.forced_align`). A selectivity claim reads: "the unit is active (or silent)
+on the frames that the alignment gives to *c*", not "the unit responds to *c* in the image". Because the labels come from
+the model's own output, selectivity in `L_16` is partly circular. The controls below test content, not that circularity.
+
+**Models and lines.** Practice lines only; no held-out data.
+
+- `kraken-german-xix-blb-v1` on `blb-val-300` (300 lines, 24 pages).
+- `kraken-bern-hertwig-v2` on the 846 lines of the Schlussredaktion project, from three sets (106 pages):
+  - the 301 lines of `bern-val` that `hertwig-v2` was not trained on;
+  - `schluss-300`;
+  - `schluss-conf-300`;
+  - duplicate keys counted once.
+
+  No Hertwig model and no seed run was trained on this project. The hand differs from the one `hertwig-v2` was trained on.
+- The five seed runs of `docs/SEED_NULL.md` (`~/atr-cache/wsp/seed-null/seed1`–`seed5`, `best_*.mlmodel`) and their parent
+  `cursive_inzigkofen`, on the same 846 lines. The architecture and line transform are identical to those of `hertwig-v2`.
+
+**Frames and units.** The 1,392 units of L3 (`O_18` excluded):
+
+- a conv channel's frame value is its output averaged over the height;
+- a BiLSTM unit's is its output (forward units 0–199, reverse 200–399).
+
+Labels come from the trained model's alignment:
+
+- `xix-blb-v1` for its own lines;
+- `hertwig-v2` for every Bern network (seeds, parent, random), so that all networks of the family are scored on the same frames.
+
+Lines without an alignment are dropped.
+
+**Labels of a frame.**
+
+- *Character* *c*: frames in a CTC run of *c*. Characters with at least 50 runs on the selection pages and on the evaluation pages.
+- *Class* (by letter identity, not glyph shape; in Kurrent the shapes differ from print):
+  - space;
+  - punctuation (Unicode P*);
+  - digit;
+  - uppercase;
+  - ascender letters `b d f h k l t ß ſ`;
+  - descender letters `g j p q y`;
+  - round letters `a c e o`.
+- *Position*:
+  - word-initial and word-final (the first and last letter of a space-separated word; a one-letter word is both);
+  - word-internal;
+  - line-start margin (frames before the first run) and line-end margin (after the last run).
+
+For characters and classes, AUROC compares a label's frames with all other run frames. For positions, it compares them with all
+run and margin frames. Blank frames between runs are not labelled.
+
+**Selectivity.** For a unit and a label, *s* = 2 · |AUROC − 0.5|: 0 is none and 1 is perfect. "On" when AUROC > 0.5, "off" otherwise.
+A unit's *best label* is the label with the largest *s* on the selection pages.
+
+**Selection and evaluation.** The pages are split as in L3: by `sha256("20261114:" + page)`, assigned alternately. Best labels,
+tested units and probe regularisation are chosen on selection pages. Every claim is made on evaluation pages.
+
+**Controls.**
+
+- *Random network:* `wsp.atlas.random_net` (seed 20261113, the L2 control), on the trained model's labels.
+- *Shuffled characters:* within each line, the non-space characters are permuted among the non-space runs (seed 20261114).
+  Spaces and positions stay.
+- *Blank crop:* the line image filled with its median pixel value (the L2 occlusion fill), with the real line's labels.
+  This shows what position in the sequence gives without ink.
+
+**Claim S, a unit is selective.** Tested for the 10 units per block with the largest selection *s*. On evaluation pages, for the
+unit's best label, all of these must hold:
+
+- (a) *s* ≥ 0.5 (AUROC ≥ 0.75 or ≤ 0.25);
+- (b) the lower end of its page-clustered 95 % interval (2,000 resamples) is above the largest evaluation *s* of the random
+  network's 10 tested units in the same block (chosen the same way);
+- (c) that lower end is above the same unit's *s* for the same label on blank crops, and, for character and class labels, also
+  above its *s* with shuffled characters.
+
+If (b) and (c) hold but (a) does not, the result is inconclusive.
+
+**Claim P, a block codes characters (sparse probe).**
+
+- *Probe:* L1-regularised multinomial logistic regression from standardised frame values to the character of the frame.
+  It covers the characters above, uses at most 20,000 training frames from the selection pages (seed 20261114), and has
+  C ∈ {0.01, 0.1, 1}. C is chosen on alternate selection pages, then the probe is refit on all of them.
+- *Blocks:* each of the 7 blocks, and each direction of the three BiLSTMs.
+- *Measure:* balanced accuracy on evaluation pages, with a page-clustered 95 % interval.
+- *Holds when* it is at least 0.10 above the random network's probe of the same block, and the lower end of its interval is
+  above both the random-network probe and the probe trained and tested on shuffled characters.
+
+**Prediction D, the two directions carry different context.** In `L_12`, `L_14` and `L_16`, on the frames of a character run,
+the same probe predicts the previous and the next character (characters above, space included).
+
+- The forward half predicts the previous character better than the reverse half.
+- The reverse half predicts the next character better than the forward half.
+
+It holds per block and target when the page-clustered interval of the paired difference in balanced accuracy is above 0.
+
+**Stability (`hertwig-v2` only).**
+
+- *Profile:* a unit's signed AUROC − 0.5 over all labels, on evaluation pages.
+- *Stability of a block against a seed run:* the median over its units of the Pearson correlation between that unit's profile
+  in `hertwig-v2` and in the seed run.
+- *Null:* the same median with the seed run's units permuted within the block (1,000 permutations, seed 20261114).
+- *Holds for a block* when it is above the null's 99th percentile for every one of the five seed runs.
+
+The seed runs and `hertwig-v2` descend from `cursive_inzigkofen`. The same statistic against the parent is reported, so that
+inheritance can be told from convergence.
+
+**Gate 2.** It passes for a model when P holds in at least one block, S holds for at least one unit, and stability holds in at least
+one block in which S holds.
+
+- `xix-blb-v1` has no seed runs, so condition 3 cannot be met. Its atlas stays descriptive, and its L3 circuit (`t`) is
+  shown as a description, not as a circuit claim.
+- If Gate 2 fails for `hertwig-v2`, the same applies to its seven L3 circuits.
+
+**Unit cards (description).** One card per unit. It shows:
+
+- its best labels with AUROC on evaluation pages (with the interval if it was tested) and the three controls;
+- its mean activation per label;
+- where in the line, in frames, it is active, as a profile over the line, not as a character location;
+- its L3 role, only where an L3 claim holds: claim U (`hertwig-v2` `C_0 ch 3`), or membership of a circuit for which C holds.
+  Otherwise the card says that no single-unit effect of 1 point was found (inconclusive);
+- dead `C_0` filters, marked;
+- for `hertwig-v2`, the unit's profile correlation with each seed run and with the parent.
+
+Every card carries the banner of L0: activation, not location.
+
+**Descriptions reported alongside, not claims.**
+
+- The Spearman correlation between a unit's evaluation *s* and its L3 selection ΔCER.
+- Whether circuit units are selective for their own character.
+- Block by block: where character selectivity first exceeds the random network (the epic's "stroke or character" question).
+
+## L1 result (14.11.2026): Gate 2 fails for both models
+
+`python -m wsp.atlas_select run` for each model, then `python -m wsp.atlas_select report --out docs/atlas`.
+Caches in `~/atr-cache/atlas/<model>/<set>--select/`. Summaries (`selectivity-<model>__<set>.json`), figures
+(`selectivity-units-*`, `selectivity-probes-*`, `selectivity-seeds-*`) and the unit cards (`units-<model>__<set>.html`, one
+card per unit) are in `docs/atlas/`.
+
+**Timing.**
+
+- The rule was committed at 19:17 (cfc76c5).
+- The first activation was extracted at 19:22, in a one-line smoke test; the full extraction started at 19:22.
+- The first summary was written at 19:27.
+
+**A bug in the first analysis, and the re-run.** The first analysis (19:22–19:42) had a bug in the probe. When a
+model's selection pages held more than 20,000 character frames, the training frames and their labels were drawn as two
+separate random samples, so they did not match.
+
+- This affected only `hertwig-v2`. Its probes for claim P and prediction D all sat at exactly chance (1/28).
+- The bug was fixed (`probe` draws one sample) and a test was added.
+- Both models were analysed again. The `xix-blb-v1` summary came out byte-identical, since its selection pages hold fewer
+  frames than the limit.
+- The rule, the lines and the activations did not change.
+
+| model | lines | selection: lines (pages) | evaluation: lines (pages) | frames | labels |
+|---|---|---|---|---|---|
+| `kraken-german-xix-blb-v1` | `blb-val-300` | 133 (12) | 167 (12) | 42,743 | 33 |
+| `kraken-bern-hertwig-v2` | Schlussredaktion, 845 of 846 aligned | 419 (53) | 426 (53) | 120,510 | 38 |
+
+### Claim S: no unit is selective beyond the random network
+
+None of the 70 tested units per model holds; all 140 fail condition (b).
+
+- **The bar.** The random network's tested units reach s = 0.70–0.95 in the conv blocks and 0.98–0.99 in the BiLSTMs. No
+  trained unit's interval clears that bar.
+- **Conditions (a) and (c) are met by most.** 46 (`xix-blb-v1`) and 50 (`hertwig-v2`) of the 70 tested units reach
+  s ≥ 0.5 and beat the blank-crop and shuffle controls. They fail only on (b).
+- **The best tested units are strongly selective.** For example, `L_14 rev 173` in `xix-blb-v1` has s = 0.97 [0.92, 0.99]
+  for `g`, against 0.05 with shuffled characters and 0.02 on blank crops. The random network's bar in `L_14` is 0.98.
+
+**Post hoc, descriptive only (not part of the rule).**
+
+- **The random network's bar comes from the line margins.** A randomly initialised BiLSTM separates the frames before the
+  first character and after the last almost perfectly (s = 0.98). For character labels, its best units reach only
+  0.40–0.67 in `L_12`–`L_16`, against 0.84–0.97 for the trained units.
+- **Positions are reachable without ink.** Many trained line-start units score as high on blank crops as on the line
+  (for example `L_12 fwd 133`: 0.97 on the line, 0.94 on a blank crop), and condition (c) correctly rules them out.
+- **The rule mixed label kinds.** It compares a unit's best label with the random network's best label of *any* kind. A
+  bar matched to the kind of label would have let character units pass in the BiLSTMs.
+- **The shuffle control cannot test spaces.** It leaves spaces in place by design, so a space-selective unit (such as
+  `L_16 fwd 84`, s = 0.96) has the same s under shuffling and fails condition (c) by construction.
+
+Both points are lessons for a new rule, fixed before a new run, not a re-reading of this one.
+
+### Claim P: the blocks code characters
+
+| block | `xix-blb-v1` bal. acc. [95 %] | random | shuffled | P | `hertwig-v2` bal. acc. [95 %] | random | shuffled | P |
+|---|---|---|---|---|---|---|---|---|
+| `C_0` | 0.10 [0.09, 0.11] | 0.09 | 0.06 | no | 0.12 [0.11, 0.13] | 0.16 | 0.05 | no |
+| `C_3` | 0.15 [0.12, 0.18] | 0.10 | 0.07 | no (< 0.10 above random) | 0.29 [0.27, 0.32] | 0.19 | 0.06 | **holds** |
+| `C_6` | 0.32 [0.24, 0.37] | 0.13 | 0.08 | **holds** | 0.48 [0.45, 0.51] | 0.23 | 0.07 | **holds** |
+| `C_9` | 0.46 [0.36, 0.52] | 0.12 | 0.08 | **holds** | 0.57 [0.53, 0.60] | 0.16 | 0.07 | **holds** |
+| `L_12` | 0.66 [0.55, 0.72] | 0.16 | 0.09 | **holds** | 0.59 [0.55, 0.62] | 0.30 | 0.07 | **holds** |
+| `L_14` | 0.83 [0.71, 0.88] | 0.10 | 0.09 | **holds** | 0.74 [0.70, 0.77] | 0.16 | 0.07 | **holds** |
+| `L_16` | 0.91 [0.80, 0.95] | 0.07 | 0.09 | **holds** | 0.76 [0.72, 0.79] | 0.08 | 0.07 | **holds** |
+
+There are 22 classes (`xix-blb-v1`) and 28 (`hertwig-v2`), so chance is 0.05 and 0.04.
+
+- **Character identity becomes readable in the later conv blocks.** It appears above the random network in `C_6`
+  (`xix-blb-v1`) and in `C_3` (`hertwig-v2`), and grows through every BiLSTM.
+- **`C_0` is at the level of a random first layer** in both models. This is the epic's "stroke or character" question:
+  the first convolution is not character-selective; selectivity appears from the second or third conv block on.
+- **The probe uses most units** (`units_used` in the summaries: 31 to all of a block's units from `C_3` on) even with L1 regularisation. The code is
+  distributed, not carried by a few units.
+- **One direction alone reads the current character a little worse than both together.** The reverse half is a little
+  better than the forward half in all six cases (for example `L_14`: 0.77 against 0.70 in `xix-blb-v1`; 0.68 against
+  0.60 in `hertwig-v2`).
+
+### Prediction D: the two directions carry different context; holds in all 12 cases
+
+| block | `xix-blb-v1` previous: fwd − rev | next: rev − fwd | `hertwig-v2` previous: fwd − rev | next: rev − fwd |
+|---|---|---|---|---|
+| `L_12` | +0.17 [+0.13, +0.19] | +0.15 [+0.09, +0.17] | +0.07 [+0.06, +0.09] | +0.08 [+0.07, +0.09] |
+| `L_14` | +0.45 [+0.37, +0.49] | +0.41 [+0.33, +0.44] | +0.30 [+0.27, +0.32] | +0.35 [+0.32, +0.36] |
+| `L_16` | +0.18 [+0.14, +0.21] | +0.22 [+0.17, +0.24] | +0.19 [+0.18, +0.20] | +0.20 [+0.18, +0.21] |
+
+- **On a character's frames, the forward units know the character before it and the reverse units the one after it.**
+- **The asymmetry is largest in `L_14`.** There the right direction reaches 0.54–0.69, the other 0.21–0.25.
+
+### Stability (`hertwig-v2`): holds in every block, mostly inherited
+
+Median per-unit correlation of the label profile with the same unit in another network:
+
+| block | five seed runs | null, 99th percentile (largest) | parent `cursive_inzigkofen` | random network |
+|---|---|---|---|---|
+| `C_0` | 0.98–0.99 | 0.52 | 0.95 | 0.13 |
+| `C_3` | 0.97–0.98 | 0.44 | 0.90 | 0.08 |
+| `C_6` | 0.93–0.97 | 0.42 | 0.80 | 0.07 |
+| `C_9` | 0.99 | 0.26 | 0.92 | 0.11 |
+| `L_12` | 0.96 | 0.07 | 0.87 | −0.02 |
+| `L_14` | 0.96–0.97 | 0.06 | 0.84 | 0.03 |
+| `L_16` | 0.96–0.97 | 0.04 | 0.77 | 0.01 |
+
+- **The seed runs reproduce `hertwig-v2` unit by unit, in every block.**
+- **Most of this is inherited.** The seed runs and `hertwig-v2` were fine-tuned from the same parent, which already
+  correlates 0.77–0.95.
+- **Fine-tuning moves every unit the same way.** Each seed run is closer to `hertwig-v2` than the parent is, most in
+  `L_16` (0.97 against 0.77).
+- **It does not show that independent training finds the same units.** No network here was trained from scratch.
+
+### Gate 2: fails for both models
+
+| model | P (≥ 1 block) | S (≥ 1 unit) | stability in a block where S holds | Gate 2 |
+|---|---|---|---|---|
+| `xix-blb-v1` | yes (`C_6`–`L_16`) | no | not testable (no seed runs) | **fails** |
+| `hertwig-v2` | yes (`C_3`–`L_16`) | no | no (S holds in no block) | **fails** |
+
+- **Both atlases stay descriptive.** The unit cards show selectivity with its controls, but no card claims a unit "is" a
+  character detector.
+- **The L3 circuits become descriptions, not circuit claims.** That is the seven of `hertwig-v2` (`e r s t a h l`) and
+  `t` of `xix-blb-v1`. The L3 ablation results themselves stand; Gate 2 governs only whether the atlas may call them circuits.
+
+### Descriptions
+
+- **Selectivity and ablation are unrelated across units.** The Spearman correlation between a unit's evaluation s and
+  its L3 selection ΔCER is −0.18 (`xix-blb-v1`) and +0.08 (`hertwig-v2`). It is near 0 in every BiLSTM. `C_0` of
+  `xix-blb-v1` is the exception (+0.77, 32 units; the nine dead filters, with s = 0 and ΔCER = 0, contribute to it).
+- **Circuit units are somewhat selective for their own character.** In `hertwig-v2`'s seven holding circuits, the
+  median s of the circuit's units for its own character is 0.21–0.43. Over all units it is 0.19–0.22. The `t` circuit of
+  `xix-blb-v1` has 0.19 against 0.22.
+- **The space circuits are not space-selective units.** Their units have s = 0.42 and 0.50 for the space, against 0.27
+  and 0.31 for all units, while their ablation is non-specific (L3).
+- **Where the BiLSTM units' best labels fall.** Most are characters, but `L_12` and `L_14` hold many position units
+  (136 and 108 in `xix-blb-v1`) that the random network also has.
+
+### What follows
+
+- **The atlas can say, with controls,** that character identity is linearly readable from the third conv block on and
+  that the two BiLSTM directions carry the preceding and following character.
+- **It can also say** that this unit-level picture is reproduced by seed runs from the same parent.
+- **It cannot name single character units under this rule.**
+- **A rule with a label-matched random bar and a space-aware shuffle** would be the next test, fixed before its run.
+- **L4 (Gate 3) needs a model for which Gate 2 passes.** None does yet.
+
+```bash
+python -m wsp.atlas_select run --model models/kraken/kraken-german-xix-blb-v1.mlmodel
+python -m wsp.atlas_select run --model models/kraken/kraken-bern-hertwig-v2.mlmodel
+python -m wsp.atlas_select report --out docs/atlas
+```
+
+Extraction takes about 2 minutes for both models (12 workers × 4 threads). The analysis takes about 20 minutes, most of it
+for the probes (24 jobs).
