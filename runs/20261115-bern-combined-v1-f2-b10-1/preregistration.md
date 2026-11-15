@@ -127,6 +127,60 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
        readable lines (space, `/`), predicted at −0.1 to −0.3 pt each.
    - Passes may stay unspent. If nothing is kept, the frozen model is the unedited subject.
 
+   **Round 1 (15.11.2026, after passes 1–4, before pass 5).**
+   - Results so far: C0 0.1456 reproduced. H1 refused (−0.11 pt, interval contains 0). H2 kept
+     (−0.76 pt; Hertwig 0.2050 → 0.1671, Schlussredaktion 0.1184 → 0.1247). H3 kept (−0.20 pt
+     more). Kept state: 0.75 subject + 0.25 parent, blank bias −0.3; CER 0.1360, collapsed 21.
+   - What the readings add:
+     - The 42 lines with ≥ 50 % errors at C0 still hold 657 of the 1,473 edits; several of
+       them read as fluent text of another line, so they look like image or segmentation
+       faults that no edit removes.
+     - On the other 258 lines H2 took 95 edits off Hertwig (400 → 305) and put 77 on
+       Schlussredaktion (441 → 518). The donors read these lines at 145 (parent, Hertwig) and
+       395 (sibling, Schlussredaktion) against 301 and 515 now.
+     - On those lines space and `/` are deleted and inserted about equally often (72 / 63 and
+       46 / 42), so the single-row bias edits of the round-0 plan are dropped.
+   - The Hertwig gain of H2 is on lines the parent was trained on with correct images; the
+     Schlussredaktion cost is on lines the parent never saw. The next edits ask whether the
+     gain and the cost sit in different blocks, and whether the sibling can buy the cost back.
+
+   **H4 — a further parent step in the front blocks only.**
+   - Edit: `interpolate`, α = 0.25 toward `hertwig-v2`, on `C_0 C_3 C_6 C_9` and `L_12` (14
+     tensors with values); parent share there 0.25 → 0.44.
+   - Prediction: Hertwig −0.5 to −2 pt, Schlussredaktion +0.3 to +1.5 pt, total between −0.4
+     and +0.4 pt; keep chance about 25 %.
+   - If it fails with both hands moving as predicted: gain and cost are not separated by this
+     cut. If Hertwig does not fall: the parent's Hertwig reading does not sit in the front.
+
+   **H5 — the same step in the back blocks only.**
+   - Edit: `interpolate`, α = 0.25 toward `hertwig-v2`, on `L_14`, `L_16` and `O_18` (rows by
+     character; the blank bias and the rows of `½ ƒ ̊` stay), on the state kept after H4.
+   - Prediction: as H4: Hertwig −0.5 to −2 pt, Schlussredaktion +0.3 to +1.5 pt, total
+     between −0.4 and +0.4 pt; keep chance about 25 %.
+   - If H4 and H5 both fail with the same per-hand pattern, the trade between the hands is
+     spread over the network and the whole-network quarter step was the dose to take. If one
+     of them lowers Hertwig without raising Schlussredaktion, the damage is in that half.
+
+   **H6 — a step toward the sibling from the kept state (three-way mix).**
+   - Edit: `interpolate`, α = 0.2 toward `schlussredaktion-v1`, all tensors, rows by character
+     (the blank bias and the row of `ƒ` stay).
+   - Reason: the sibling reads the Schlussredaktion lines the parent step made worse.
+   - Prediction: Schlussredaktion −0.3 to −0.8 pt, Hertwig +0.3 to +1.0 pt, total between
+     −0.3 and +0.2 pt; keep chance about 25 %. H1 gave no Schlussredaktion gain from the
+     sibling at C0, which speaks against it.
+   - If it fails: the sibling cannot repair the cost of the parent step, as it could not
+     improve C0; no further sibling edit.
+
+   **H7 — a second blank dose.**
+   - Edit: `add` −0.3 on `O_18.lin.bias[0]` (−0.6 in total), on the state kept by then.
+   - Reason: after H3 deletions still outnumber insertions on the readable lines (311 / 160).
+   - Prediction: −0.05 to −0.2 pt; deletions down 15–40, insertions up 10–30; collapsed
+     unchanged; keep chance about 40 %.
+   - If it fails: −0.3 was the dose; the blank is left there.
+
+   **Plan:** `program_02.py` runs H4, H5, H6, H7 as passes 5–8, without freeze. Passes 9–10
+   are decided after that: at most a half or second dose of whatever was kept, or nothing.
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

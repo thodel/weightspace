@@ -38,3 +38,52 @@ session on this model. Two things come close and are recorded here:
 - `pack/readings_budget0.md` lists three phase-0 hypotheses for this subject, written before
   any session: blank bias back to the parent's value, output layer from the parent, per-layer
   α between parent and subject. They are proposals with predictions, not results.
+
+## 2026-11-15 08:55 UTC — round 1 (after passes 1–4, before pass 5)
+
+**Model id:** `claude-fable-5-2`, unchanged.
+
+**Results of `program_01.py`** (operator's stdout, `log.jsonl`, `readings/pass_001…004`):
+
+| pass | edit | CER | Hertwig | Schlussred. | collapsed | Δ vs kept (95 % line interval) | decision |
+|---|---|---:|---:|---:|---:|---|---|
+| 1 | C0 | 0.1456 | 0.2050 | 0.1184 | 29 | — | reproduces `c0_c1.md` |
+| 2 | H1 sibling α 0.5 | 0.1445 | 0.2015 | 0.1184 | 23 | −0.0011 [−0.0073, +0.0038] | refused |
+| 3 | H2 parent α 0.25 | 0.1381 | 0.1671 | 0.1247 | 22 | −0.0076 [−0.0147, −0.0015] | kept |
+| 4 | H3 blank −0.3 | 0.1360 | 0.1645 | 0.1230 | 21 | −0.0020 [−0.0037, −0.0004] | kept |
+
+**Against the predictions.**
+- H1: predicted −0.3 to −1.0 pt, got −0.11 pt. Schlussredaktion did not move (predicted −0.3
+  to −1.0 pt). Wrong on the hand it was meant for. The whole change is on the unreadable
+  lines (−32 edits) and collapsed fell by 6; on the other lines Hertwig got worse (+21).
+- H2: total −0.76 pt, inside the predicted range; Hertwig −3.8 pt and Schlussredaktion
+  +0.6 pt, both inside. Line counts: Hertwig 57 better / 7 worse, Schlussredaktion 25 / 72.
+- H3: −0.20 pt, at the lower edge. Deletions fell by 31 and insertions rose by 12 on the
+  readable lines, both below the predicted ranges.
+
+**Readings.**
+- The 42 lines with ≥ 50 % errors at C0: 736 edits at C0, 657 in the kept state. Several
+  hypotheses there are fluent text that is not the reference (e.g. reference `notturfft / das
+  erhöuschen hatt …`, read as `laͤser vnnd zuͦhoͤer …`), on Schlussredaktion lines too. For
+  the operator: these look like line images that do not belong to their text.
+- Readable lines (258): Hertwig 400 → 301 edits, Schlussredaktion 441 → 515. Donors there:
+  parent 145 on Hertwig, sibling 395 on Schlussredaktion.
+- Kept state, readable lines: space 72 deleted / 63 inserted, `/` 46 / 42. The largest
+  substitutions are conventions (`D`→`d` 22, `u`→`v` 16, `i`→`I` 15, `,`→`/` 16). No
+  single-row bias edit is worth a pass; that candidate of the round-0 plan is dropped.
+
+**Caveat on H2.** Its gain is Hertwig lines the parent was trained on with correct images;
+its cost is Schlussredaktion lines the parent never saw. On held-out the gain may be smaller
+and the cost the same.
+
+**Next (`program_02.py`, passes 5–8, no freeze):** H4 parent α 0.25 in `C_*` + `L_12`; H5
+parent α 0.25 in `L_14`, `L_16`, `O_18`; H6 sibling α 0.2 on all tensors; H7 blank −0.3 more.
+The donor steps leave the blank bias as it is. Predictions are in section 5 of
+`preregistration.md` (round 1) and in the hypotheses of the program. `py_compile` passes; not
+executed. Passes 9–10 are decided afterwards.
+
+**Read this round:** the stdout given by the operator, `log.jsonl` (decisions),
+`readings/pass_001…004.jsonl`, the pack's `per_line_edits.json`, the practice list. An `ls` of
+the run folder showed `stdout_program_01.log`, `sandbox_program_01.cmd` and `current.mlmodel`;
+I did not open them. Nothing I read named an edit, a kept decision or a result of an earlier
+session on this model.
