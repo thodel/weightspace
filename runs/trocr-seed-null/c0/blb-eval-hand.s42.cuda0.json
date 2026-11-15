@@ -1,0 +1,97 @@
+{
+ "model": "/home/tobias/atr-cache/trocr/seed-null/s42",
+ "set": "data/heldout/blb-eval-hand.jsonl",
+ "set_sha256": "a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091",
+ "lines": 2272,
+ "device": "cuda:0",
+ "batch": 8,
+ "load_seconds": 3.1,
+ "digest": "cd767e4595ccc274f71e58770d889c72a34003911339428418a26e4ed45c6be2",
+ "cer": 0.20269132988515823,
+ "wer": 0.6117411917820954,
+ "collapsed": 14,
+ "length_ratio": 0.9661874287718067,
+ "char_edits": 23121,
+ "ref_chars": 114070,
+ "tokens_total": 65432,
+ "tokens_max": 83,
+ "at_cap": 0,
+ "top_confusions": [
+  [
+   " ",
+   "",
+   2924
+  ],
+  [
+   "e",
+   "",
+   475
+  ],
+  [
+   "",
+   "e",
+   334
+  ],
+  [
+   "s",
+   "",
+   302
+  ],
+  [
+   "e",
+   "a",
+   253
+  ],
+  [
+   "n",
+   "",
+   251
+  ],
+  [
+   "n",
+   "r",
+   235
+  ],
+  [
+   "a",
+   "e",
+   226
+  ],
+  [
+   "",
+   " ",
+   196
+  ],
+  [
+   "r",
+   "n",
+   195
+  ]
+ ],
+ "generation": {
+  "num_beams": 4,
+  "max_new_tokens": 256,
+  "no_repeat_ngram_size": 3,
+  "length_penalty": 1.0,
+  "early_stopping": true,
+  "do_sample": false,
+  "use_cache": true
+ },
+ "passes": [
+  {
+   "started": "2026-11-14 22:11:15 CET",
+   "seconds": 875.3,
+   "sec_per_line": 0.385,
+   "pred_sha256": "0932a15b94e83d48db30434cea3dc0d58f5dde766e7301e76a9c1169e248bd3d",
+   "peak_gpu_mib": 6353
+  }
+ ],
+ "byte_identical_repeat": null,
+ "roundtrip": null,
+ "versions": {
+  "torch": "2.8.0+cu128",
+  "transformers": "4.57.6",
+  "threads": 24,
+  "cuda_visible": "0"
+ }
+}

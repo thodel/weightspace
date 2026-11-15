@@ -116,3 +116,13 @@ Stop gates: after Gate 0 (cost), after Gate 1 (readings), after Gate 3 (positive
 2. Yes: the stage-2 seeds and the stage-5 retrain go through the trainer. Timing and card allocation still to be agreed per run.
 3. Yes (stage 0, earlier).
 4. Yes: a second architecture family with large models (the Swedish and CATMuS fine-tunes) is wanted at the end, after the Bern chain.
+
+## Status (15.11.2026)
+
+**Gates 0, 1 and 2 passed** (stage 0: `docs/trocr/STAGE0.md`; stage 1: `docs/TROCR_READINGS.md`, R15; stage 2: `docs/TROCR_NULLS.md`, R16; all merged). The seed null ran direct on card 0 with the trainer's own script, not through the trainer's job mechanism (nothing registered or published). Retraining noise on `blb-eval-hand` is about 0.5 CER points over five seeds, magnitude traces are reproducible properties of the recipe, and move directions are not (same-recipe cosine 0.36 in the encoder).
+
+**Next: stage 3 (planted defects), not started** (not yet asked for). The defect set of the mapping table has to be redesigned for this architecture before any run:
+- **The tied embedding.** Input embedding and output projection are one tensor, so "zero a token row" and "bias shift in the output" change both the input and the readout of a token at once; a planted defect there is not comparable with a kraken output-layer defect. The tied embedding is also the part that moves most and varies most between seeds (0.49–0.53 pooled, two groups of direction), so its defects need a floor from the seed null.
+- **No output bias.** The decoder's output projection has no bias (`dec.out.bias` does not exist), so the kraken-style "blank bias" and "bias shift in the output" analogues have no tensor; use a scale on the output layer norm or per-row scales of the tied embedding instead, stated in the preregistration.
+- **Third-party decoders** (`swe`, `stage1`) differ in config (no embedding norm, sinusoidal positions, untied output with 50 M more parameters) and cannot serve as donors for Bern decoder blocks.
+- Pin the generation settings (beam 4, length penalty 1.0, no-repeat-ngram 3) in every preregistration, and read the minimum effect against about 0.5 CER points of retraining noise.
