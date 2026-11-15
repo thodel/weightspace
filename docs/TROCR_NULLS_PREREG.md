@@ -43,3 +43,14 @@ Limits stated in advance: the null is for the 3-epoch recipe from one parent; it
 ## Cost
 
 About 86 min of training per run plus evaluation, six runs in sequence, about 10 hours of card 0 in all. Card 0 is held at 44.5 GB of 46 GB by a vLLM server (2 workers, one on each card, up for 1 day 16 h) at the time of writing, so no run can start until it is released.
+
+## Amendment 14.11.2026 (CET), after the seed-42 repeat and before seed 1
+
+Added after the first run; the text above is unchanged.
+
+1. **The stop limit was mis-based.** The distance limit of 0.044 for the seed-42 repeat was taken as half of 0.088, which is the *weight-matrix* distance of the step `xvi-xvii`→`from-kurrent-v2`, but it was applied to the *all-tensor* distance (which includes embeddings and norms), where that step is 0.162. The two are not comparable. The CER limit (0.6 points) was sound and was met (8.66 % against 8.82 %).
+2. **The stop was honoured.** The repeat finished at 10:58 CET, breached the distance limit as measured (0.162 all tensors, 0.105 weights), and the other runs were held until the planning session decided (`docs/TROCR_NULLS_SEED42.md`).
+3. **The seed-42 repeat counts as a sixth null sample, labelled "same seed".** It shares data, recipe and nominal seed with the recorded `from-kurrent-v2`; seeds 1 to 5 differ in seed. The report shows the same-seed pair separately and does not pool it with the five different-seed pairs when it computes the seed range and standard deviation; pooled values are given beside it.
+4. **The survive criterion is unchanged** (outside the seed range and at least two seed standard deviations from the seed mean). The traces are compared with the different-seed range and, in a second column, with the range including the same-seed repeat.
+5. **Seeds 1 to 5 run on, one at a time on card 0, under the same rules**; they stop only for a real failure (card 0 taken, disk under 3 GB, crash, non-finite loss).
+6. **Sources of non-determinism, known and not tested here:** bf16 arithmetic and non-associative GPU reductions; gradient checkpointing (recomputation in the backward pass); data-loader workers (8, with their own random state for any augmentation); dropout (seeded by `set_seed`, but its stream depends on the order of operations); a different card and driver state from the recorded run; library and kernel selection that can differ between runs. None of these is separated by the repeat. Seeds 1 to 5 give the spread from all of them at once.

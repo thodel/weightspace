@@ -1,0 +1,20 @@
+{
+ "lines": 500,
+ "recorded_job_cer_own_scorer": 0.08822545576183308,
+ "model_cer": 0.0862602441879913,
+ "dist_all": {
+  "cand_to_fkv2": 0.0925870834284585,
+  "cand_to_parent": 0.16680345911248246,
+  "fkv2_to_parent": 0.16240859161641702
+ },
+ "dist_weights": {
+  "cand_to_fkv2": 0.10816259438616915,
+  "cand_to_parent": 0.08781325320245903,
+  "fkv2_to_parent": 0.08788940619274009
+ },
+ "limits": {
+  "cer_abs_diff_from_recorded_8.89": 0.006,
+  "dist_all_max": 0.044
+ },
+ "pass": false
+}
