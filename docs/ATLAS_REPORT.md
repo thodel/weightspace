@@ -2,6 +2,7 @@
 
 Levels L0 (activation map) and L2 (dependence on the image) first, as the epic orders them; Gate 1 decides
 whether the viewer may claim *where* in a line something happens. L3 (ablation) and L1 (selectivity) followed on 14.11.2026; Gate 2 fails for both models; L4 is not started.
+The [closing synthesis](#closing-synthesis-15112026) at the end answers the epic's five questions.
 
 ## Gate 1 rule (fixed 13.11.2026, before any occlusion run)
 
@@ -602,3 +603,97 @@ python -m wsp.atlas_select report --out docs/atlas
 
 Extraction takes about 2 minutes for both models (12 workers × 4 threads). The analysis takes about 20 minutes, most of it
 for the probes (24 jobs).
+
+## Closing synthesis (15.11.2026)
+
+This section draws no new numbers. It collects the results of L0–L3 above, answers the questions of the epic, and states
+what the atlas cannot say. Every level ran under a rule committed before its first run, on practice lines only and on CPU.
+
+### The gates
+
+| gate | rule | `xix-blb-v1` | `hertwig-v2` | consequence |
+|---|---|---|---|---|
+| Gate 1 (L0, L2) | occlusion peak on the character the CTC alignment gives, share ≥ 0.80 | fails, 0.61 | fails, 0.73 | the viewers show activation, not location |
+| Gate 2 (L1, L3) | P in a block, S for a unit, stability where S holds | fails (S; no seed runs) | fails (S) | the atlas is descriptive; no circuit claims |
+| Gate 3 (L4) | L4 only for models that pass Gate 2 | not run | not run | no comparison across models |
+
+Gate 1 fails narrowly: occlusion finds a letter to within one neighbour (0.97 and 0.98), not on the letter itself.
+Gate 2 fails on claim S only. Its bar, the random network's best unit of any label, came from the line margins (see
+the L1 post hoc notes).
+
+### What each part of the network responds to along a line
+
+| block | depends on (L2) | codes characters (L1, P) | single units (L1 S, L3 U) | groups (L3 G, C) | stable across seeds (L1) |
+|---|---|---|---|---|---|
+| `C_0` | 16 px around the frame | no: at the random network's level | one unit matters in `hertwig-v2` (`C_0 ch 3`, +1.3 points); none is selective beyond the bar; dead filters do nothing | the top 10 silence both models | yes, 0.98–0.99 (parent 0.95) |
+| `C_3` | 28 px | `hertwig-v2` only (0.29) | none | no | yes (parent 0.90) |
+| `C_6`, `C_9` | 44 and 76 px | yes (0.32–0.57) | none | `hertwig-v2` yes; most circuit units lie in `C_3`–`C_9` | yes (parent 0.80–0.92) |
+| `L_12` | the whole line in principle; half of the change within ±28–104 px | yes (0.59–0.66) | none; best units often mark positions, as in the random network | inconclusive (< 1 point) | yes, 0.96 (parent 0.87) |
+| `L_14` | as `L_12` | yes (0.74–0.83) | none | inconclusive; in `hertwig-v2` above all random groups | yes (parent 0.84) |
+| `L_16` | slightly wider than `L_12` | yes (0.76–0.91) | none | inconclusive | yes (parent 0.77) |
+
+"Stable" is measured for `hertwig-v2` only, against seed runs fine-tuned from the same parent.
+
+### The epic's questions
+
+1. **Is the convolutional front end character-selective or only stroke-selective, and where does selectivity first
+   appear?** The first convolution is not character-selective: a probe on `C_0` reads characters no better than on a
+   random first layer. Character identity becomes readable above the random network in `C_3` (`hertwig-v2`) or `C_6`
+   (`xix-blb-v1`) and grows through every later block. The atlas did not test stroke features, so it cannot say that
+   `C_0` is stroke-selective, only that it is not character-selective. It is nevertheless where the reading is most
+   fragile: ten of its channels together carry the whole reading.
+2. **Do the BiLSTM units code characters, positions, word boundaries or context, and does one direction carry what the
+   other does not?** Each BiLSTM layer codes the current character (probe up to 0.91), and the code is spread over most
+   units, not carried by a few. Many units in `L_12` and `L_14` mark positions in the line, as units of a random network do.
+   Context is clear: on a character's frames the forward units carry the previous character and the reverse units the
+   next, in all 12 cases, most in `L_14`. Word boundaries were not shown separately. Space-selective units exist (for
+   example `L_16 fwd 84`, s = 0.96), but the shuffle control cannot test them.
+3. **Do the unit cards of one seed run reappear in another, and more than in a random network?** In `hertwig-v2`, yes,
+   unit by unit in every block (median correlation 0.93–0.99 against ≈ 0 for the random network). Most of this is
+   inherited from the shared parent (0.77–0.95). The atlas does not show that independent training finds the same
+   units, since no network here was trained from scratch. `xix-blb-v1` has no seed runs.
+4. **Do the units that matter in ablation coincide with selective units, with large weight changes in fine-tuning, or
+   with the dead filters?** Not with selective units (Spearman −0.18 and +0.08) and not with weight change (+0.01 and
+   −0.02). Circuit units are only somewhat selective for their own character (median s 0.21–0.43 against 0.19–0.22
+   overall). The dead filters do nothing, as predicted: ablating them changes no reading, and their s is 0.
+5. **Does the atlas explain a known failure, such as the deleted spaces and `e` decided upstream of the output layer?**
+   No. Neither model has a space circuit: in `xix-blb-v1`, the Kurrent model of that failure, the best ten units cost
+   the space, `e` and `n` 4.4, 0.6 and 3.7 points, all inconclusive; in `hertwig-v2` the space circuit degrades the whole
+   reading. The deletions are consistent with a mechanism spread over many units or in the BiLSTMs' interaction, which a
+   ten-unit ablation and a single-unit selectivity test do not find.
+
+### What the atlas shows, and where it shows nothing
+
+It can say, with its controls:
+
+- character identity is linearly readable from the second or third conv block on;
+- the BiLSTM directions carry the preceding and following character;
+- trained recurrent blocks look mainly within one to five characters, although they could use the whole line;
+- seed runs from the same parent reproduce the unit-level picture.
+
+It shows nothing for:
+
+- **location:** where in the image a unit looks, at character resolution (Gate 1);
+- **single units:** single character units under the L1 rule (claim S), and single units that matter (one unit in
+  2 × 1,392);
+- **circuits:** circuits as claims (Gate 2); the eight L3 circuits remain descriptions;
+- **spaces:** a mechanism for the deleted spaces;
+- **other models:** anything across models (L4).
+
+### What would change these answers
+
+- **A new selectivity rule:** a random-network bar matched to the kind of label, and a control that moves spaces.
+  It must be fixed before its run, on pages that L1 did not use, or be reported as exploratory, because it is written
+  after the L1 results were seen.
+- **Location at word level:** a finer occlusion window, or a test at the level of words, under a new Gate 1 rule.
+- **Seed runs for `xix-blb-v1`:** this needs training on a GPU, outside the scope of this epic.
+- **Seed runs from scratch:** these would separate convergence from inheritance.
+
+### Deliverables against the epic
+
+| epic deliverable | where |
+|---|---|
+| `wsp/atlas.py`, with selectivity, occlusion and ablation | split into `wsp/atlas.py` (extraction, occlusion, viewer), `wsp/atlas_ablate.py`, `wsp/atlas_select.py`; tests in `tests/` |
+| a static viewer | `docs/atlas/index.html` and one page per model; unit cards `units-*.html`. Built by the `report` commands of `wsp.atlas` and `wsp.atlas_select`, not by a separate `scripts/atlas_build.py` |
+| tables and figures for `xix-blb-v1` and `hertwig-v2`, with five seed runs as the null | `docs/atlas/` and this report |
+| this report, and a short section for the article | this report; Section 6.6 of `paper/manuscript.md` |

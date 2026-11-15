@@ -1,6 +1,6 @@
 # Epic: an activation atlas of a kraken recogniser: which units respond to which part of a line
 
-Proposed 7 November 2026. Status: not started. Owner: Tobias Hodel. Related: docs/MODEL_FAMILY.md (CKA, dead filters, exchange),
+Proposed 7 November 2026. Status: L0–L3 done; Gates 1 and 2 fail, so L4 is not run (see the closing synthesis of docs/ATLAS_REPORT.md, 15 November 2026). Owner: Tobias Hodel. Related: docs/MODEL_FAMILY.md (CKA, dead filters, exchange),
 docs/READINGS.md, docs/SEED_NULL.md (five seed runs), `KrakenSubject.activations` in wsp/kraken_subject.py, docs/epics/EPIC_LLM_PLAYBOOK.md.
 
 ## Question

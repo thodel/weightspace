@@ -10,6 +10,7 @@ State: 14 November 2026.
   - the step wording in 7.8;
   - the Fable numbers, now on `main`.
 - **Folded in on 11 Nov:** R13 (7.10) and the phase-5 adapter session with the Opus programmer (9.3); see the update at the end of this file.
+- **Folded in on 15 Nov:** the activation atlas (epic #13, `docs/ATLAS_REPORT.md`) as Section 6.6. The abstract, RQ1, 9.1 and the conclusion do not mention it yet.
 - **Not yet in the text** (all merged on `main`):
   - **The adapter Fable 5.1 replicate** of that session and its three shams. Source: #25, `docs/PHASE5_FABLE_REPORT.md`. Belongs in 9.3.
   - **Kraken session 2 rerun with a Fable 5.1 programmer.** Source: #27, `docs/KRAKEN_S2_FABLE.md`, RESULTS R3. Held-out −0.57 [−1.15, −0.05]: the first session gain whose page interval excludes 0. It is a step of 12.5 % toward the parent, equal to C4 and not better. The serving path gives −2.16, but on the other hand. Text to revise: RQ2 (line ~403, "none of the 15 edits ... improved a model on held-out data" is still true of the original sessions, but the rerun adds a 16th result), the finding at line ~417 ("the only held-out gain, a quarter-step toward a clean sibling") and the conclusion (~459).
