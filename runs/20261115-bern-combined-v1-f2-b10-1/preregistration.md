@@ -181,6 +181,35 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    **Plan:** `program_02.py` runs H4, H5, H6, H7 as passes 5–8, without freeze. Passes 9–10
    are decided after that: at most a half or second dose of whatever was kept, or nothing.
 
+   **Round 2 (15.11.2026, after passes 5–8, before the freeze).**
+   - Results: all four edits of round 1 were undone. H4 +0.38 pt (interval above 0; reverted
+     for collapsed 21 → 22). H5 +0.23 pt (interval contains 0). H6 −0.13 pt [−0.36, +0.10].
+     H7 −0.16 pt [−0.36, +0.01]. The kept state is still H2 + H3, CER 0.1360, collapsed 21.
+   - What the readings say about each line of edits:
+     - Parent: the second quarter step costs more than it gives in both halves (readable
+       lines: front Hertwig −12, Schlussredaktion +47; back −38 / +72). The first quarter
+       gave −95 / +77. The trade between the hands is spread over the network and gets worse
+       with the dose; 0.25 is at or past the best whole-network dose.
+     - Sibling: −15 edits on the readable Schlussredaktion lines, +3 on Hertwig, 47 lines
+       better and 43 worse. The direction is as predicted and the size is a third of what the
+       rule needs.
+     - Blank: the whole change of H7 (−17 edits) is on the lines that are unreadable at C0;
+       on the 258 readable lines it is −1 / +1. A lower blank makes the model write more on
+       lines whose image does not match the text, and some of that matches by chance.
+   - **No hypothesis for passes 9 and 10; they stay unspent.** The candidates and why each is
+     not run:
+     - H6 and H7 together. Adding their per-line changes to the kept state gives −0.28 pt
+       with a line interval of [−0.62, +0.04] (a sum of two readings, not a measurement), so
+       I predict a refusal. It would also be a third and fourth try at two edits that were
+       refused, and half of its gain would be the blank's gain on unreadable lines.
+     - A larger sibling dose. At twice the dose I expect twice the change and twice the
+       spread, so the same refusal; and H1 (α 0.5 at C0) gave Schlussredaktion nothing.
+     - Taking part of the parent step back in the front blocks. The curvature above says the
+       first quarter was the favourable part, so I predict a change near 0.
+   - A pass that I predict to fail, or whose gain I would not believe, is not worth a
+     decision that could be kept by chance. `program_03.py` runs no pass and freezes the kept
+     state (H2 + H3).
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

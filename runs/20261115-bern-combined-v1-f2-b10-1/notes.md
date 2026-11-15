@@ -87,3 +87,62 @@ executed. Passes 9–10 are decided afterwards.
 the run folder showed `stdout_program_01.log`, `sandbox_program_01.cmd` and `current.mlmodel`;
 I did not open them. Nothing I read named an edit, a kept decision or a result of an earlier
 session on this model.
+
+## 2026-11-15 08:58 UTC — round 2 (after passes 5–8, before the freeze)
+
+**Model id:** `claude-fable-5-2`, unchanged.
+
+**Results of `program_02.py`** (operator's stdout, `log.jsonl`, `readings/pass_005…008`), each
+against the kept state H2 + H3 (CER 0.1360, Hertwig 0.1645, Schlussredaktion 0.1230,
+collapsed 21):
+
+| pass | edit | CER | Hertwig | Schlussred. | collapsed | Δ vs kept (95 % line interval) | decision |
+|---|---|---:|---:|---:|---:|---|---|
+| 5 | H4 parent α 0.25, front | 0.1398 | 0.1624 | 0.1294 | 22 | +0.0038 [+0.0014, +0.0064] | reverted (collapsed up) |
+| 6 | H5 parent α 0.25, back | 0.1383 | 0.1504 | 0.1328 | 21 | +0.0023 [−0.0010, +0.0058] | refused |
+| 7 | H6 sibling α 0.2 | 0.1347 | 0.1645 | 0.1211 | 21 | −0.0013 [−0.0036, +0.0010] | refused |
+| 8 | H7 blank −0.3 more | 0.1345 | 0.1612 | 0.1222 | 18 | −0.0016 [−0.0036, +0.0001] | refused |
+
+**Against the predictions.**
+- H4: total +0.38 pt, at the upper edge of the range. Hertwig −0.2 pt, less than the
+  predicted −0.5 to −2; Schlussredaktion +0.6 pt, inside. The front blocks do not carry much
+  of the parent's Hertwig reading at this dose.
+- H5: total +0.23 pt, inside. Hertwig −1.4 pt, inside; Schlussredaktion +1.0 pt, inside.
+- H4 and H5 together: the cut into front and back does not separate gain from cost. Readable
+  lines: front Hertwig −12 / Schlussredaktion +47, back −38 / +72; the first whole-network
+  quarter gave −95 / +77. The second quarter is worse than the first in both halves.
+- H6: total −0.13 pt, inside. Schlussredaktion −0.2 pt, just short of the predicted −0.3 to
+  −0.8; Hertwig unchanged (predicted +0.3 to +1.0). 47 lines better, 43 worse.
+- H7: total −0.16 pt, inside; deletions −74 by the block table (846 → 772; predicted −15
+  to −40), insertions +20 (174 → 194), inside, substitutions +37 (453 → 490). Collapsed fell to 18, not predicted. Refused by 0.0001 at the upper
+  end of the interval.
+
+**What H7 is made of.** All of its −17 edits are on the 42 lines that are unreadable at C0;
+the 258 readable lines change by −1 (Hertwig) and +1 (Schlussredaktion). The same split for
+the kept H3: −15 on the unreadable lines, −7 on the readable ones. So most of the blank gain,
+the kept one included, comes from the model writing more on lines it cannot read. H3 met the
+rule and stands as kept; for the operator, its gain should not be expected on held-out unless
+held-out has the same kind of lines, and it is the first candidate for the split control.
+
+**Decision: no pass 9 or 10.** Candidates considered and not run:
+- H6 + H7 together: the sum of their per-line changes on the kept state gives −0.28 pt with
+  a line interval of [−0.62, +0.04] (computed from the two readings; not a measurement). The
+  predicted outcome is a refusal; a keep would be a chance result on a combination of two
+  refused edits, half of it on unreadable lines.
+- Sibling at a larger dose: same ratio of change to spread expected; H1 gave nothing.
+- Taking back part of the parent step in the front blocks: predicted near 0.
+
+**`program_03.py`** runs no pass. It checks that the restored state is H2 + H3 (blank bias and
+one conv tensor against 0.75 subject + 0.25 parent), logs a note and calls `s.freeze()`.
+`py_compile` passes; not executed.
+
+**Session in one paragraph.** 8 of 10 passes used, 7 edits, 2 kept. Kept: a quarter step of
+all tensors toward the parent (−0.76 pt) and blank bias −0.3 (−0.20 pt); practice CER 0.1456
+→ 0.1360, collapsed 29 → 21. The parent step moves Hertwig by −3.8 pt on lines the parent was
+trained on and Schlussredaktion by +0.6 pt on lines it never saw. Nothing localised was
+found: no block, row or scalar that removes the Hertwig damage without the Schlussredaktion
+cost.
+
+**Read this round:** the operator's stdout, `log.jsonl` (decisions), `readings/pass_001…008`,
+the practice list. Nothing I read named an edit, a kept decision or a result of an earlier
+session on this model.
