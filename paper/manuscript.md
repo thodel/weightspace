@@ -58,7 +58,7 @@ The models form two families (Table 1). Family 1 concerns the Bern Disputation o
 | `german-xix-v1` | to be confirmed | Kurrent corpora, 15,527 pages | 11.18 % (document-level held-out) |
 | `german-xix-blb-v1` | `german-xix-v1` | four handwriting projects of the Laßberg ground truth | 8.7 % (held-out) |
 
-: The in-house models. Reported values are the trainer's records, copied from the project's model inventory, and were not all measured on comparable sets (Appendix A). The 1,786 lines of the Hertwig project are the training side of the Hertwig jobs; with the 198 lines of its validation side the project has 1,984 lines, and 1,984 and the 3,457 of the Schlussredaktion project add up to the 5,441 of `combined-v1` (counted in the training export of the C4 retraining, Section 7.11). {#tbl:models}
+: The in-house models. Reported values are the trainer's records, copied from the project's model inventory, and were not all measured on comparable sets (Appendix A). The 1,786 lines of the Hertwig project are the training side of the Hertwig jobs; with the 198 lines of its validation side the project has 1,984 lines, and 1,984 and the 3,457 of the Schlussredaktion project add up to the 5,441 of `combined-v1`. The two project counts were made on the training and validation files of the retraining of Section 7.11 (`docs/c4/`), whose Hertwig pages come from the corrected export of 22 October; `combined-v1` itself was trained on the export of 25 October, whose line count was not measured here, so the agreement of the sum with the trainer's total of 5,441 lines is a check and not a count of that export. {#tbl:models}
 
 Every number that Sections 6 to 8 report as a result was measured again in this study, on sets whose composition is documented and audited.
 
