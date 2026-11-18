@@ -1,6 +1,7 @@
 # Renders the public site (site/, Quarto, dhbern layout) and deploys it to GitHub Pages.
 # The protocol pages are generated from protocol/docs during the render (site/scripts/protocol_to_quarto.py),
-# which fails if a page names an internal host or path.
+# which fails if a page names an internal host or path; the atlas is copied from docs/atlas
+# (site/scripts/atlas_to_site.py), with the same check.
 # Runs only while the repository is public; Pages is not available for this private repository.
 name: Site
 
@@ -11,6 +12,7 @@ on:
       - "site/**"
       - "protocol/docs/**"
       - "protocol/mkdocs.yml"
+      - "docs/atlas/**"
       - ".github/workflows/site.yml"
   workflow_dispatch:
 
