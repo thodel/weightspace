@@ -77,3 +77,9 @@ One subject; the practice set is BLB train side while the subject's parent corpo
 ## Baseline results (added 18.11.2026, after the baseline runs; the text above is unchanged)
 
 The two non-LLM arms were run on all 14 planted models at practice level. Table and readings: `docs/trocr/baseline_results.md`. Held-out scoring of the finals follows, one read per frozen model, before any programmer session. Programmer sessions are not started.
+
+## Amendment 18.11.2026 (CET), at the planning session's review; the text above is unchanged
+
+1. **Second family:** the row "(a2) second family" and the cost row name "Claude Fable 5.1 (`claude-fable-5-1`)". The current model is **Fable 5.2 (`claude-fable-5-2`)**; arm (a2) is run with that model. (No arm config for (a2) exists yet; earlier stages' Fable 5.1 replicates are unchanged.)
+2. **Test count:** the repository suite at the stage-3 commit is **132 passed, 3 skipped** (4 of them new, `tests/test_trocr_plant.py`). No other count applies.
+3. **No-op smoke runs:** their model copies, tokenizer files and diffs were removed from the repository (kept: log, summary, session, preregistration, program, notes); a `.gitignore` rule keeps such files out of later TrOCR run folders.

@@ -42,3 +42,10 @@ runs/*/.cache/
 runs/*planted-adapter-p3-alpha2-*/diff.json
 runs/*/*.wsp-work/
 runs/*/work.adapter/
+
+# TrOCR planted/no-op runs: model copies, tokenizer files and bulk diffs stay local
+runs/*trocr*/final.trocr/
+runs/*trocr*/current.trocr/
+runs/*trocr*/work.trocr/
+runs/*trocr*/diff.json
+runs/*trocr*/readings/
