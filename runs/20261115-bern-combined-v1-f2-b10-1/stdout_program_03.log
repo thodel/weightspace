@@ -1,0 +1,6 @@
+budget left: 2
+blank bias +0.6680 (expected +0.6680); max deviation of C_9.co.weight from 0.75 subject + 0.25 parent: 0.00e+00; digest c8f3367dd396dd72
+frozen. used 8 of 10 | edits 7 | kept 2
+baseline CER 0.14562748176193555 | last pass (H7, undone) CER 0.13445378151260504
+final digest c8f3367dd396dd7266edac1010cfd451b37bb31f8818ee65eeb96b5f9a9eb653
+changed tensors: 28

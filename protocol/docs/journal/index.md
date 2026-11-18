@@ -32,3 +32,4 @@ that names the one it corrects.
 | 2026-11-11 | [TrOCR track, stage 0](2026-11-11-d-trocr-stage0.md) | Seven models fetched, tokenizers identical, embedding tied; C0 deterministic, 19.7–26.4 % |
 | 2026-11-11 | [TrOCR track, stage 1: the family as weights](2026-11-11-e-trocr-stage1.md) | Lineage readable for small fine-tunes; decoder moves, encoder hardly; data does not set the direction |
 | 2026-11-11 | [Planted defects with a Fable programmer](2026-11-11-c-planted-fable.md) | Localised defects repaired again, by both arms; the diffuse-noise repair does not reproduce |
+| 2026-11-15 | [Kraken session 2 with a Fable 5.2 programmer](2026-11-15-a-kraken-s2-fable52.md) | Same parent line as Fable 5.1 at twice the step: −0.65 held-out, page interval includes 0 |
