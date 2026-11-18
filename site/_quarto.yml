@@ -1,13 +1,18 @@
 # Public site of the project, in the layout of https://dhbern.github.io/ (DHBern/dhbern.github.io).
 # index.qmd uses the front matter of a dhbern project page, so it can later move to
-# content/projects/agentic-historian/ there. The protocol pages are generated from protocol/docs.
+# content/projects/agentic-historian/ there. The protocol pages are generated from protocol/docs,
+# the atlas (atlas/) is copied from docs/atlas.
 project:
   type: website
   output-dir: _site
   pre-render:
     - python scripts/protocol_to_quarto.py
+    - python scripts/atlas_to_site.py
+  resources:
+    - atlas/**
   render:
     - index.qmd
+    - atlas.qmd
     - protocol/**/*.md
 
 website:
@@ -40,6 +45,8 @@ website:
         href: protocol/journal/index.md
       - text: Results
         href: protocol/results.md
+      - text: Atlas
+        href: atlas.qmd
       - text: DH Bern
         href: https://dhbern.github.io/
   sidebar:
@@ -60,7 +67,7 @@ website:
   page-footer:
     left: '[Digital Humanities, University of Bern](https://www.dh.unibe.ch/)'
     center: '[digitalhumanities@unibe.ch](mailto:digitalhumanities@unibe.ch) · [GitHub](https://github.com/thodel/weightspace)'
-    right: '[Project](/index.qmd) · [Protocol](/protocol/index.md) · [Results](/protocol/results.md)'
+    right: '[Project](/index.qmd) · [Protocol](/protocol/index.md) · [Results](/protocol/results.md) · [Atlas](/atlas.qmd)'
 
 format:
   html:

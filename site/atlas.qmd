@@ -1,0 +1,36 @@
+---
+title: "Activation atlas"
+subtitle: "What two kraken line recognisers compute, frame by frame, with the controls that decide what it means"
+toc: false
+---
+
+The atlas reads the activations of two kraken models: one for nineteenth-century German Kurrent
+(`kraken-german-xix-blb-v1`) and one for the Bern Hertwig hand (`kraken-bern-hertwig-v2`). It asks
+which part of the line each block depends on, what its units and directions encode, and what breaks when they
+are switched off. Each result is shown next to its controls: a randomly initialised network, shuffled
+lines and, for the Bern model, seed runs fine-tuned from the same parent.
+
+The explorer below shows six practice lines per model. A cursor moves along the line; for the frame
+under it the page shows every unit of every block, the five most probable output characters, and
+which part of the line the selected block depends on. Click a block or a unit for its results, each
+with its verdict. The view is kept in the link, so a link opens the same line, frame and unit.
+
+::: {.callout-note title="What the atlas does not show"}
+Both gates of the atlas failed, and the page shows them as banners. **Gate 1:** occlusion places a
+letter to within one neighbour, not on the letter itself, so the explorer shows activation, not
+location; the character row under the line is the CTC alignment, drawn for reading. **Gate 2:** no
+single unit is selective beyond the random network's best unit, so the atlas is descriptive and the
+ablation groups are shown as descriptions, not as circuits.
+:::
+
+[Open the explorer in its own window](atlas/explorer.html){.btn .btn-primary .no-external} &nbsp;
+[Atlas index: receptive fields, unit cards, ablations](atlas/index.html){.no-external}
+
+```{=html}
+<iframe src="atlas/explorer.html" title="Activation atlas explorer" loading="lazy"
+        style="width:100%;height:min(1100px,90vh);border:1px solid var(--bs-border-color);border-radius:6px"></iframe>
+```
+
+The twelve line images are practice lines, not held-out data. The atlas is built from the repository
+with `python -m wsp.atlas` and `python -m wsp.atlas_explore`; the full report is
+[`docs/ATLAS_REPORT.md`](https://github.com/thodel/weightspace/blob/main/docs/ATLAS_REPORT.md).

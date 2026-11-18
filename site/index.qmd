@@ -14,6 +14,8 @@ other-links:
     href: "protocol/index.html"
   - text: "Results"
     href: "protocol/results.html"
+  - text: "Activation atlas"
+    href: "atlas.html"
   - text: "GitHub repository"
     href: "https://github.com/thodel/weightspace"
 ---
@@ -58,5 +60,8 @@ Every session follows a research protocol that was written before the sessions i
   not rewritten; corrections are new entries.
 - **[Results](protocol/results.md):** the numbers, each traceable to a run, a data-set hash and the
   model digests.
+- **[Activation atlas](atlas.qmd):** an interactive explorer of what two kraken models compute along a
+  line, with the controls and the two failed gates that limit what it may claim.
 - **[Repository](https://github.com/thodel/weightspace):** code, run records, reports and figures.
-  Model weights and line images are not in the repository.
+  Model weights are not in the repository; of the line images, only the twelve practice lines shown in
+  the atlas are.
