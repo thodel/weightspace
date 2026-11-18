@@ -1,0 +1,19 @@
+/* Wide tables in the protocol (results, journal) scroll inside the page, not the page itself. */
+.content table {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* Figures are SVG with their own white background; keep them within the text column. */
+.content figure img,
+.content p > img {
+	max-width: 100%;
+	height: auto;
+}
+
+.project-facts {
+	border-left: 3px solid var(--bs-primary);
+	padding: 0.25rem 0 0.25rem 1rem;
+	margin: 1.5rem 0;
+}
