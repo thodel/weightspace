@@ -22,8 +22,8 @@ public. The MkDocs build here remains the strict check of the protocol pages.
       data are not public.
 - [ ] **Dataset defect** (journal, phase 0): confirm the dataset owner was told,
       before it is published.
-- [ ] **Licence**: confirm CC BY 4.0 for text (the `copyright` line in
-      `mkdocs.yml`), and the code licence if the repo goes public.
+- [x] **Licence**: text, figures and run records CC BY 4.0 (`LICENSE-CC-BY-4.0`), code MIT
+      (`LICENSE`); `data/` and third-party models keep their owners' licences (README, *Licence*).
 - [ ] **Authorship / acknowledgements**: names, affiliation, funding, and how
       AI assistance (the programmer models) is credited.
 - [x] `site-url` and `repo-url` are set in `site/_quarto.yml` (`thodel.github.io/weightspace`).

@@ -29,3 +29,13 @@ docs/       MODELS.md (inventory), READINGS.md (per-model readings), RESULTS.md
 models/     local copies of weights (git-ignored)
 data/       practice / held-out line sets (git-ignored)
 ```
+
+## Licence
+
+- **Code** (`wsp/`, `scripts/`, `tests/`, `deploy/`, `site/scripts/`): MIT, see [LICENSE](LICENSE).
+- **Text, figures and run records** (`docs/`, `protocol/`, `paper/`, `site/`, `runs/`): CC BY 4.0,
+  see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
+- **Not covered**: the line transcriptions in `data/` and the models named in the docs keep the
+  licences of their owners; the sources are named in each dataset's `meta.json` and in
+  `docs/MODELS.md`.
+  The site's Switzer font is loaded from Fontshare under its own licence.

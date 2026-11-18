@@ -1,0 +1,35 @@
+budget left at start: 6
+collapsed of the kept state (pass 4): 21 | blank bias now: 0.6679796576499939
+H4 tensors: 14
+
+== H4: CER 0.1398 (1514/10829) Hertwig 0.1624 Schlussred 0.1294 collapsed 22 length_ratio 0.9380 WER 0.3704
+   del/ins/sub: {'del': 860, 'ins': 189, 'sub': 465}
+   vs_kept: {'delta_cer': 0.003786129836549995, 'ci95': [0.0014318954716305843, 0.006404474111491962]}
+   vs_baseline: {'delta_cer': -0.005817711700064648, 'ci95': [-0.013859951082525579, 0.0015090068848439275]}
+   confusions: [(' ', '', 145), ('/', '', 67), ('e', '', 67), ('', ' ', 66), ('i', '', 55), ('n', '', 50), ('', '/', 47), ('r', '', 44), ('t', '', 33), ('a', '', 30)]
+   DECISION H4: reverted (collapsed rose 21 -> 22)
+H5 tensors: 14
+
+== H5: CER 0.1383 (1498/10829) Hertwig 0.1504 Schlussred 0.1328 collapsed 21 length_ratio 0.9428 WER 0.3699
+   del/ins/sub: {'del': 823, 'ins': 204, 'sub': 471}
+   vs_kept: {'delta_cer': 0.002308615753993909, 'ci95': [-0.0010437422905399119, 0.005807303123625165]}
+   vs_baseline: {'delta_cer': -0.0072952257826207345, 'ci95': [-0.015836689857195163, 0.0004646840148698761]}
+   confusions: [(' ', '', 146), ('', ' ', 80), ('e', '', 73), ('/', '', 60), ('i', '', 55), ('', '/', 48), ('n', '', 46), ('r', '', 40), ('D', 'd', 35), ('a', '', 30)]
+   DECISION H5: refused by the keep rule, undone
+H6 tensors: 28
+
+== H6: CER 0.1347 (1459/10829) Hertwig 0.1645 Schlussred 0.1211 collapsed 21 length_ratio 0.9421 WER 0.3542
+   del/ins/sub: {'del': 813, 'ins': 186, 'sub': 460}
+   vs_kept: {'delta_cer': -0.0012928248222365823, 'ci95': [-0.0035786382822536184, 0.0010433462961206286]}
+   vs_baseline: {'delta_cer': -0.010896666358851226, 'ci95': [-0.01847993477670079, -0.004110612855007467]}
+   confusions: [(' ', '', 134), ('', ' ', 70), ('e', '', 63), ('/', '', 59), ('i', '', 52), ('n', '', 50), ('', '/', 46), ('r', '', 39), ('t', '', 34), ('a', '', 30)]
+   DECISION H6: refused by the keep rule, undone
+
+== H7: CER 0.1345 (1456/10829) Hertwig 0.1612 Schlussred 0.1222 collapsed 18 length_ratio 0.9466 WER 0.3572
+   del/ins/sub: {'del': 772, 'ins': 194, 'sub': 490}
+   vs_kept: {'delta_cer': -0.0015698587127158659, 'ci95': [-0.0035601265822785, 9.70779535967442e-05]}
+   vs_baseline: {'delta_cer': -0.01117370024933051, 'ci95': [-0.01875517146271949, -0.004661311117722916]}
+   confusions: [(' ', '', 128), ('', ' ', 71), ('e', '', 61), ('/', '', 57), ('i', '', 52), ('', '/', 47), ('n', '', 43), ('r', '', 37), ('D', 'd', 29), ('t', '', 29)]
+   DECISION H7: refused by the keep rule, undone
+
+kept after program_02: ['H2', 'H3'] | collapsed of kept state: 21 | budget left: 2
