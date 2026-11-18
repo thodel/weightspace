@@ -1,0 +1,22 @@
+# Colours of https://dhbern.github.io/ (_brand.yml there). The Switzer font is loaded from
+# Fontshare in custom-header.html: its licence does not allow the font files in this repository.
+meta:
+  name:
+    full: Digital Humanities University of Bern
+    short: DH Bern
+  link:
+    home: https://www.dh.unibe.ch/
+    docs: https://dhbern.github.io/
+    github: https://github.com/dhbern
+color:
+  foreground: '#222222'
+  background: '#FFFFFF'
+  primary: '#d6002b'
+  secondary: '#707073'
+  tertiary: '#E4E4E4'
+  success: '#0f7d28'
+  info: '#419599'
+  warning: '#EE6331'
+  danger: '#ad0023'
+  light: '#f5f5f5'
+  dark: '#404041'

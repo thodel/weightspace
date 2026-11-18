@@ -1,0 +1,80 @@
+# Public site of the project, in the layout of https://dhbern.github.io/ (DHBern/dhbern.github.io).
+# index.qmd uses the front matter of a dhbern project page, so it can later move to
+# content/projects/agentic-historian/ there. The protocol pages are generated from protocol/docs.
+project:
+  type: website
+  output-dir: _site
+  pre-render:
+    - python scripts/protocol_to_quarto.py
+  render:
+    - index.qmd
+    - protocol/**/*.md
+
+website:
+  title: "Agentic historian"
+  description: "Reading and editing the weights of text-recognition models, with LLM programmers under a preregistered protocol."
+  site-url: https://thodel.github.io/weightspace/
+  repo-url: https://github.com/thodel/weightspace/
+  issue-url: https://github.com/thodel/weightspace/issues/new
+  repo-actions: [issue]
+  open-graph: true
+  page-navigation: true
+  bread-crumbs: false
+  back-to-top-navigation: true
+  search:
+    show-item-context: true
+    type: overlay
+  navbar:
+    title: Digital Humanities
+    logo: https://dhbern.github.io/logo.png
+    logo-href: https://dhbern.github.io/
+    tools:
+      - icon: github
+        url: https://github.com/thodel/weightspace/
+    left:
+      - text: Project
+        href: index.qmd
+      - text: Protocol
+        href: protocol/index.md
+      - text: Journal
+        href: protocol/journal/index.md
+      - text: Results
+        href: protocol/results.md
+      - text: DH Bern
+        href: https://dhbern.github.io/
+  sidebar:
+    - id: protocol
+      title: Protocol
+      style: docked
+      logo: https://dhbern.github.io/logo.png
+      collapse-level: 1
+      contents:
+        - protocol/index.md
+        - protocol/method.md
+        - protocol/amendments.md
+        - section: "Journal"
+          href: protocol/journal/index.md
+          contents: protocol/journal/2026-*.md
+        - protocol/results.md
+        - protocol/figures/index.md
+  page-footer:
+    left: '[Digital Humanities, University of Bern](https://www.dh.unibe.ch/)'
+    center: '[digitalhumanities@unibe.ch](mailto:digitalhumanities@unibe.ch) · [GitHub](https://github.com/thodel/weightspace)'
+    right: '[Project](/index.qmd) · [Protocol](/protocol/index.md) · [Results](/protocol/results.md)'
+
+format:
+  html:
+    toc: true
+    toc-location: right
+    theme:
+      - brand
+      - custom.scss
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+    link-external-icon: true
+    link-external-newwindow: true
+    include-in-header:
+      - custom-header.html
+    page-layout: full
+    license: CC BY 4.0

@@ -1,0 +1,62 @@
+---
+title: "Agentic historian"
+subtitle: "Reading and editing the weights of text-recognition models, with LLM programmers under a preregistered protocol"
+image: protocol/figures/architecture.svg
+author:
+  - Tobias Hodel
+type: "Forschungsprojekt"
+status: ongoing
+tags: [HTR, kraken, Interpretability, LLM agents, Weight-space programming]
+categories:
+- Project
+other-links:
+  - text: "Research protocol"
+    href: "protocol/index.html"
+  - text: "Results"
+    href: "protocol/results.html"
+  - text: "GitHub repository"
+    href: "https://github.com/thodel/weightspace"
+---
+
+Handwritten-text-recognition (HTR) models are routine infrastructure in the digital humanities, yet
+they are handled as black boxes: a file and a character error rate. This project asks what can be
+read from their weights, and whether a language model acting as a programmer can change those
+weights in code, **without gradient descent**, so that the model reads better.
+
+The method follows R. Takehi, J. Teoh, A. Zhang and O. Khattab,
+["Sparks of Weight-Space Programming"](https://rikiyat.github.io/blog/weight-space-programming/)
+(2 November 2026). Here it is applied to a family of kraken line recognisers fine-tuned on historical
+German handwriting, to a LoRA adapter of a vision-language model, and to a family of TrOCR models.
+The programmers were Claude models (Sonnet 5.5, Opus 5.5, Haiku 5.5 and Fable 5.1). Each worked in a
+sandbox with a fixed budget of measurements and a fixed rule for keeping an edit.
+
+::: {.project-facts}
+**Finding so far.** No weight edit has yet done better than a cheap alternative. The one budgeted
+session with a held-out gain whose interval excludes 0 matches a short retrain on corrected data and
+does not beat it. Reading the weights, on the other hand, turned up defects in the project's own data.
+:::
+
+## How the work is done
+
+Every session follows a research protocol that was written before the sessions it governs:
+
+1. **Preregister.** Hypotheses, with predicted direction and size, are written down before the first
+   measurement of a session.
+2. **Held-out once.** The held-out set is out of the programmer's reach and is scored once, after the
+   edit is frozen.
+3. **Intervals, not point estimates.** Every difference carries a page-clustered 95 % interval; a gain
+   whose interval contains 0 is not a gain.
+4. **Report everything.** Refused edits, failed sessions and data defects are results.
+5. **Compare with the cheap alternatives.** An edit is only interesting if it beats averaging,
+   interpolation and a short retrain.
+
+## What is here
+
+- **[Research protocol](protocol/index.md):** the rules, every amendment with its date and reason, and
+  the current status.
+- **[Journal](protocol/journal/index.md):** dated entries in the order the work happened. Entries are
+  not rewritten; corrections are new entries.
+- **[Results](protocol/results.md):** the numbers, each traceable to a run, a data-set hash and the
+  model digests.
+- **[Repository](https://github.com/thodel/weightspace):** code, run records, reports and figures.
+  Model weights and line images are not in the repository.
