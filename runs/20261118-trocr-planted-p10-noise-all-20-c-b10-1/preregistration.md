@@ -1,0 +1,5 @@
+# Pre-registration stub, 20261118-trocr-planted-p10-noise-all-20-c-b10-1
+
+Planted-defect control, TrOCR, arm (c) (docs/TROCR_STAGE3_PREREG.md, committed before this run). Program: `runs/trocr-planted/arms/program_c.py`, copied unchanged (sha256 `df4f107a9b7d3de0dd9c3751b7300d97ad1e33b733fe89ce5b38d13acc8ed33e`).
+Subject: planted `p10-noise-all-20` = diffuse: Gaussian noise on every encoder and decoder weight matrix, each at a fraction of its own norm (defect `t10-noise-all`, size `20%`), tensor digest `9b489cbf08b1caea4b2127425921a238a70273e568ac928500892f8a03fd64a7`, original `3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151`.
+Practice: `data/practice/trocr-blb-train-300-seen.jsonl`, sha256 `e102f7dd7e8fa492ff8c63191e7adf9584d264ac615398630d7708625c91bef4`. Held-out: `data/heldout/blb-eval-hand.jsonl`. Budget 10 passes, min effect 0.005, page-clustered interval, generation settings {"num_beams": 4, "max_new_tokens": 256, "no_repeat_ngram_size": 3, "length_penalty": 1.0, "early_stopping": true, "do_sample": false, "use_cache": true}.

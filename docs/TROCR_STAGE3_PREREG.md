@@ -73,3 +73,7 @@ Programmer sessions need Tobias's go-ahead (tokens; stop gate after Gate 3's des
 ## 6. Limits stated in advance
 
 One subject; the practice set is BLB train side while the subject's parent corpora are unaudited (assumption on `seen_by`); the defects are calibrated on the practice set so their held-out damage can differ (a defect that does not count on held-out is dropped from Gate 3, not tuned); the programmer arms share one practice set with the baselines; two model families; the noise floor of 0.5 points rests on five seeds (`docs/TROCR_NULLS.md`); the tied embedding is both input and readout, so p01, p02 and p11 are not comparable with the kraken output-row defects.
+
+## Baseline results (added 18.11.2026, after the baseline runs; the text above is unchanged)
+
+The two non-LLM arms were run on all 14 planted models at practice level. Table and readings: `docs/trocr/baseline_results.md`. Held-out scoring of the finals follows, one read per frozen model, before any programmer session. Programmer sessions are not started.
