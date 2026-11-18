@@ -1,0 +1,168 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Atlas explorer</title>
+<style>
+:root{--bg:#fff;--fg:#1b1b1b;--muted:#6e6e6e;--grid:#e2e2e2;--panel:#f6f6f4;--C:#0072B2;--L:#E69F00;--O:#009E73;--hi:#D55E00;--alt:#CC79A7;--r0:255,255,255;--r1:0,114,178}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--panel:#1e2128;--C:#56B4E9;--hi:#E8743B;--r0:22,24,29;--r1:86,180,233}}
+:root[data-theme=dark]{--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--panel:#1e2128;--C:#56B4E9;--hi:#E8743B;--r0:22,24,29;--r1:86,180,233}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;margin:0 auto;max-width:1280px;padding:16px}
+h1{font-size:21px;margin:.1em 0 .2em}h2{font-size:14px;margin:0 0 .4em;text-transform:none}
+.muted{color:var(--muted)}code{font-size:12.5px}
+.ctl{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.seg button{font:inherit;border:1px solid var(--grid);background:var(--bg);color:var(--fg);padding:4px 10px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+.ctl label{max-width:100%}#line{max-width:min(460px,calc(100vw - 80px))}
+select,button.play{font:inherit;padding:3px 8px;border:1px solid var(--grid);background:var(--bg);color:var(--fg);border-radius:6px}
+input[type=range]{width:min(420px,100%)}
+.banner{border-left:4px solid var(--hi);background:var(--panel);padding:6px 10px;margin:6px 0;font-size:13px}
+.box{border:1px solid var(--grid);border-radius:8px;padding:10px;margin:10px 0;background:var(--bg)}
+#linewrap{overflow-x:auto;overscroll-behavior-x:contain}
+#linecv{display:block;touch-action:pan-y;cursor:crosshair}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.row{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:6px;margin:3px 0}
+.row .lab{font:12px ui-monospace,monospace;cursor:pointer;padding:2px 4px;border-radius:4px;border:1px solid transparent}
+.row .lab.on{border-color:var(--fg)}
+.row canvas{width:100%;height:24px;display:block;cursor:pointer}
+#out{display:flex;gap:4px;flex-wrap:wrap}
+#out span{font:12px ui-monospace,monospace;padding:2px 6px;border-radius:4px;background:var(--panel);position:relative;overflow:hidden;min-width:52px}
+#out span i{position:absolute;left:0;bottom:0;height:3px;background:var(--O)}
+#info{font-size:13px;background:var(--panel);border-radius:8px;padding:10px;align-self:start}
+#info table{border-collapse:collapse;width:100%}#info td{padding:2px 4px;border-bottom:1px solid var(--grid);vertical-align:top}
+#info td:first-child{color:var(--muted);width:42%}
+.ok{color:var(--O);font-weight:600}.inc{color:var(--muted);font-weight:600}.no{color:var(--hi);font-weight:600}
+#tip{position:fixed;pointer-events:none;background:var(--bg);border:1px solid var(--grid);padding:2px 6px;font-size:12px;display:none;z-index:9;border-radius:4px}
+.legend{font-size:12px;color:var(--muted);margin-top:4px}
+.sw{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin:0 3px 0 8px;border-radius:2px}
+</style></head><body>
+<h1>Atlas explorer</h1>
+<p class=muted style="margin:0">Two kraken recognisers, one text line at a time. Drag along the line (or press play): the network
+below shows every unit's activation at the frame under the cursor (one frame = 8 px of the line), and the orange shading on the line
+shows which part of the image the selected block's frame depends on. Click a block or a unit for its results and controls.
+Epic thodel/weightspace#13; rules and numbers in <code>docs/ATLAS_REPORT.md</code>.</p>
+<div class=ctl>
+ <div class=seg id=models role=group aria-label=model></div>
+ <label>line <select id=line></select></label>
+ <button class=play id=play aria-label="play">▶ play</button>
+ <label>frame <input type=range id=frame min=0 max=1 value=0></label><span id=fr class=muted></span>
+ <label>mark <select id=mark><option value="">nothing</option><option value=dead>dead filters</option><option value=circ>L3 circuit units</option><option value=tested>units tested for claim S</option></select></label>
+</div>
+<div id=banners></div>
+<div class=box><div id=linewrap><canvas id=linecv height=180></canvas></div>
+<div class=legend>Under the image: the reference characters at their CTC runs (orange: deleted, pink: replaced by the model), then
+the symbol the model reads at each frame (green, darker when more probable).<br><span class=sw style="background:var(--hi);opacity:.6"></span>dependence of the selected block's frame on the image (occlusion, scaled per frame)
+<span class=sw style="background:var(--fg)"></span>cursor <span class=sw style="background:var(--C)"></span>selected unit's activation along the line</div>
+<div class=muted id=txt style="font-size:13px;margin-top:4px"></div></div>
+<div class=grid>
+ <div class=box><h2>The network at frame <span id=fr2></span></h2><div id=net></div>
+ <div class=legend>Each cell is one unit, coloured by its activation at this frame relative to its own range over the line
+ (pale: low, dark: high). Recurrent layers: forward units left, reverse units right.</div>
+ <h2 style="margin-top:10px">Output (O_18): most probable symbols at this frame</h2><div id=out></div></div>
+ <div id=info></div>
+</div>
+<div id=tip></div>
+<script>
+const MODELS=__MODELS__,PX=6,IH=90;
+addEventListener('error',e=>{document.getElementById('banners').insertAdjacentHTML('beforeend',`<div class=banner>Script error: ${String(e.message).replace(/</g,'&lt;')} (line ${e.lineno})</div>`)});
+const $=id=>document.getElementById(id),css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const S={m:null,li:0,t:0,b:'L_14',u:null,timer:null},cache={};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function load(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(src);document.head.append(s)})}
+function dec(q){const b=atob(q),a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+const M=()=>window.ATLAS_MODEL[S.m],Ln=()=>cache[S.m+'-'+S.li];
+const BL=['C_0','C_3','C_6','C_9','L_12','L_14','L_16'];
+const uname=(b,u,U)=>b[0]==='C'?`${b} ch ${u}`:(u<U/2?`${b} fwd ${u}`:`${b} rev ${u-U/2}`);
+const lab=l=>{const [k,v]=l.split(':');return k==='char'?(v===' '?'space':`‘${v}’`):k==='class'?`class ${v}`:v.replace('-',' ')};
+const f2=x=>x==null?'–':(+x).toFixed(2),sgn=x=>(x>=0?'+':'')+(+x).toFixed(2),ci=c=>c?` [${f2(c[0])}, ${f2(c[1])}]`:'';
+const yes=(b,t)=>`<span class=${b?'ok':t==='inconclusive'?'inc':'no'}>${t||(b?'holds':'no')}</span>`;
+function shade(v){const a=css('--r0').split(',').map(Number),b=css('--r1').split(',').map(Number);return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*v)).join(',')})`}
+
+async function setModel(m){S.m=m;stop();if(!window.ATLAS_MODEL||!window.ATLAS_MODEL[m])await load(`explore/${m}.js`);
+ [...$('models').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));
+ $('line').innerHTML='';M().lines.forEach((l,i)=>$('line').add(new Option(`${i+1}: ${l.ref.slice(0,48)}`,i)));
+ const g1=M().gate1,g2=M().gate2;
+ $('banners').innerHTML=(g1.passed?'':`<div class=banner><b>Activation, not location.</b> Gate 1 failed for this model (occlusion finds a letter on itself in ${Math.round(g1.share*100)} % of cases, 80 % required). The characters under the line are placed by the CTC alignment so you can read along; the page does not claim a unit looks at them.</div>`)
+ +(g2.passes?'':`<div class=banner><b>Description, not circuits.</b> Gate 2 failed: no single unit is selective beyond the random-network control, so no unit is called a character detector, and the L3 circuits are shown as descriptions.</div>`);
+ S.u=null;await setLine(0)}
+async function setLine(i){S.li=+i;$('line').value=i;const k=S.m+'-'+i;
+ if(!cache[k]){if(!(window.ATLAS_LINE&&window.ATLAS_LINE[k]))await load(`explore/${k}.js`);const L=window.ATLAS_LINE[k];
+  for(const b in L.heat)L.heat[b].a=dec(L.heat[b].q);for(const b in L.dep)L.dep[b].a=dec(L.dep[b].q);
+  L.im=new Image();L.im.src=L.img;await new Promise(r=>{L.im.onload=r;L.im.onerror=r});cache[k]=L}
+ const L=Ln();$('frame').max=L.frames-1;S.t=Math.min(S.t,L.frames-1);if(!S.t)S.t=Math.floor((L.runs[0][0]+L.runs[0][1])/2);
+ $('txt').innerHTML=`reference <code>${esc(L.ref)}</code><br>reading&nbsp;&nbsp; <code>${esc(L.hyp)}</code>`;
+ buildNet();draw()}
+
+function drawLine(){const L=Ln(),cv=$('linecv'),W=L.frames*PX;if(cv.width!==W)cv.width=W;const g=cv.getContext('2d'),sx=W/L.width;
+ g.fillStyle=css('--bg');g.fillRect(0,0,W,cv.height);if(L.im.naturalWidth)g.drawImage(L.im,0,0,W,IH);
+ const d=L.dep[S.b],nw=L.centres.length,row=S.t*nw;g.fillStyle=css('--hi');
+ for(let k=0;k<nw;k++){const v=d.a[row+k]/255;if(v<.04)continue;g.globalAlpha=.6*v;g.fillRect((L.centres[k]-4)*sx,0,8*sx,IH)}g.globalAlpha=1;
+ g.font='13px ui-monospace,monospace';g.textAlign='center';
+ L.ref.split('').forEach((c,i)=>{const [a,b]=L.runs[i],x=(a+b+1)/2*PX,st=L.status[i];g.fillStyle=st==='del'?css('--hi'):st==='sub'?css('--alt'):css('--fg');
+  if(S.t>=a&&S.t<=b){g.fillStyle=css('--grid');g.fillRect(a*PX,IH+2,(b-a+1)*PX,18);g.fillStyle=css('--fg')}g.fillText(c===' '?'␣':c,x,IH+16)});
+ g.font='11px ui-monospace,monospace';
+ for(let t=0;t<L.frames;t++){const [c,p]=L.out[t][0];if(c==='∅')continue;g.globalAlpha=Math.max(.25,p);g.fillStyle=css('--O');g.fillText(c,t*PX+PX/2,IH+34)}g.globalAlpha=1;
+ if(S.u){const [b,u]=S.u,h=L.heat[b],T=L.frames,y0=IH+40,hh=36;g.strokeStyle=css('--C');g.lineWidth=1.5;g.beginPath();
+  for(let t=0;t<T;t++){const y=y0+hh-hh*h.a[u*T+t]/255;t?g.lineTo(t*PX+PX/2,y):g.moveTo(t*PX+PX/2,y)}g.stroke();g.lineWidth=1}
+ g.fillStyle=css('--fg');g.globalAlpha=.85;g.fillRect(S.t*PX+PX/2-1,0,2,cv.height);g.globalAlpha=1;
+ const wrap=$('linewrap'),x=S.t*PX;if(x<wrap.scrollLeft+20||x>wrap.scrollLeft+wrap.clientWidth-20)wrap.scrollLeft=x-wrap.clientWidth/2}
+
+function buildNet(){const net=$('net');net.innerHTML='';const L=Ln();
+ BL.forEach(b=>{const r=document.createElement('div');r.className='row';const l=document.createElement('div');l.className='lab'+(b===S.b?' on':'');l.textContent=b;l.onclick=()=>{S.b=b;S.u=null;buildNet();draw()};
+  const cv=document.createElement('canvas');cv.dataset.b=b;r.append(l,cv);net.append(r);
+  const U=L.heat[b].units,cell=e=>{const w=cv.clientWidth,gap=b[0]==='L'?6:0,cw=(w-gap)/U,x=e.offsetX;let u=Math.floor((x>(w-gap)/2+gap&&gap?x-gap:x)/cw);return Math.max(0,Math.min(U-1,u))};
+  cv.onmousemove=e=>{const u=cell(e),n=uname(b,u,U),h=L.heat[b],v=h.lo[u]+h.a[u*L.frames+S.t]/255*(h.hi[u]-h.lo[u]),c=M().units[n];tip(e,`${n}: ${v.toFixed(3)}${c&&c.top?` · best ${lab(c.best)}`:''}`)};
+  cv.onmouseleave=()=>$('tip').style.display='none';cv.onclick=e=>{S.b=b;S.u=[b,cell(e)];buildNet();draw()}})}
+function drawNet(){const L=Ln(),T=L.frames,mk=$('mark').value,M_=M();
+ document.querySelectorAll('#net canvas').forEach(cv=>{const b=cv.dataset.b,h=L.heat[b],U=h.units,w=cv.clientWidth,H=24,dpr=window.devicePixelRatio||1;
+  cv.width=w*dpr;cv.height=H*dpr;const g=cv.getContext('2d');g.scale(dpr,dpr);const gap=b[0]==='L'?6:0,cw=(w-gap)/U;
+  for(let u=0;u<U;u++){const x=u*cw+(gap&&u>=U/2?gap:0),n=uname(b,u,U),c=M_.units[n]||{};
+   g.fillStyle=c.dead?css('--grid'):shade(h.a[u*T+S.t]/255);g.fillRect(x,6,Math.max(1,cw-(cw>3?1:0)),H-6);
+   const m=mk==='dead'?c.dead:mk==='circ'?(c.circuits||[]).length:mk==='tested'?c.s_claim:false;
+   if(m){g.fillStyle=css('--hi');g.fillRect(x,0,Math.max(1.5,cw-1),4)}
+   if(S.u&&S.u[0]===b&&S.u[1]===u){g.strokeStyle=css('--hi');g.lineWidth=2;g.strokeRect(x-1,5,Math.max(3,cw+1),H-5)}}})
+ $('out').innerHTML=L.out[S.t].map(([c,p])=>`<span title="${p}">${c==='∅'?'blank':c===' '?'␣':esc(c)} ${p.toFixed(2)}<i style="width:${p*100}%"></i></span>`).join('')}
+
+function blockInfo(b){const B=M().blocks[b],r=B.rf,o=[`<h2>Block ${b}</h2><table>`];
+ o.push(`<tr><td>depends on (L2)</td><td>${r.spec?`computed field ${r.spec} px; `:''}measured: changes up to ±${r.extent>1000?'the whole line':r.extent+' px'}; half the change within ±${r.half_width_50} px</td></tr>`);
+ if(B.probe){const p=B.probe;o.push(`<tr><td>codes characters? (L1 probe, P)</td><td>balanced accuracy ${f2(p.bal)}${ci(p.ci95_cluster)} against random network ${f2(p.random)}, shuffled ${f2(p.shuffle)} (chance ${f2(1/p.classes)}) → ${yes(p.holds)}</td></tr>`);
+  if(B.dirs.fwd)o.push(`<tr><td>one direction alone</td><td>forward ${f2(B.dirs.fwd.bal)}, reverse ${f2(B.dirs.rev.bal)}</td></tr>`);
+  for(const [t,d] of Object.entries(B.context||{}))o.push(`<tr><td>${t==='prev'?'previous':'next'} character (D)</td><td>${d.better} half better by ${sgn(d.diff)}${ci(d.ci95_cluster)} → ${yes(d.holds)}</td></tr>`);
+  o.push(`<tr><td>best single unit (L1, S)</td><td>s ${f2(B.sel.model.max)} against the random network's ${f2(B.random_bar)}; ${B.s_tested.length} tested, none holds</td></tr>`);
+  if(B.stability){const v=Object.entries(B.stability),sd=v.filter(([k])=>k.startsWith('seed')).map(([,x])=>x.median_r),nl=Math.max(...v.map(([,x])=>x.null_q99).filter(x=>x!=null));
+   o.push(`<tr><td>stable across seeds</td><td>${f2(Math.min(...sd))}–${f2(Math.max(...sd))} (null ≤ ${f2(nl)}); parent ${f2(B.stability.parent.median_r)}: mostly inherited</td></tr>`)}
+  else o.push(`<tr><td>stable across seeds</td><td class=muted>not testable (no seed runs)</td></tr>`);
+  const G=B.group;if(G)o.push(`<tr><td>ablating its top 10 (L3, G)</td><td>ΔCER ${sgn(G.delta)}${ci(G.ci95_cluster)} points, beats ${G.beats}/50 random groups → ${yes(G.holds,G.holds?'holds':G.delta<1?'inconclusive':'no')}</td></tr>`);
+  if(B.single)o.push(`<tr><td>largest single unit (L3)</td><td>ΔCER ${sgn(B.single.dcer_max)} points</td></tr>`)}
+ else o.push(`<tr><td>output</td><td>one score per symbol and the CTC blank; not part of L1 or L3</td></tr>`);
+ o.push('</table><p class=muted>Click a cell in this row for a single unit.</p>');return o.join('')}
+function unitInfo(b,u){const L=Ln(),n=uname(b,u,L.heat[b].units),c=M().units[n]||{},o=[`<h2>Unit ${n}</h2><table>`];
+ if(c.dead)o.push(`<tr><td>dead filter</td><td>outputs zero on every frame; ablating it changes no reading</td></tr>`);
+ if(c.top)o.push(`<tr><td>best labels (L1, AUROC)</td><td>${c.top.map(([l,a])=>`${esc(lab(l))} ${f2(a)}`).join(', ')}</td></tr>`,
+  `<tr><td>controls for ${esc(lab(c.best))}</td><td>random network ${f2(c.random)}, blank crop ${f2(c.blank)}, shuffled ${f2(c.shuffle)}</td></tr>`);
+ if(c.s_claim)o.push(`<tr><td>claim S</td><td>${yes(false,'fails')} (tested; nothing beats the random-network bar)</td></tr>`);
+ o.push(`<tr><td>ablated alone (L3)</td><td>${c.dcer==null?'–':sgn(c.dcer)+' points CER'}${c.u_claim?' → <span class=ok>holds (claim U)</span>':''}</td></tr>`);
+ if((c.circuits||[]).length)o.push(`<tr><td>in L3 circuit of</td><td>${c.circuits.map(x=>{const C=M().circuits[x];return `${x===' '?'space':'‘'+esc(x)+'’'} (${C.holds?'specific':'not specific'}; description)`}).join(', ')}</td></tr>`);
+ if(c.seeds){const s=Object.entries(c.seeds).filter(([k])=>k.startsWith('seed')).map(([,v])=>v);o.push(`<tr><td>same unit in seed runs</td><td>r ${f2(Math.min(...s))}–${f2(Math.max(...s))}; parent ${f2(c.seeds.parent)}</td></tr>`)}
+ o.push(`</table><p class=muted>Blue line under the image: this unit along the line. <a href="units-${S.m}__${M().sets.selectivity}.html">All unit cards</a>.</p>`);
+ return o.join('')+blockInfo(b)}
+function draw(){const L=Ln();$('frame').value=S.t;$('fr').textContent=`${S.t} / ${L.frames-1}`;$('fr2').textContent=`${S.t} (${S.b} selected)`;
+ drawLine();drawNet();$('info').innerHTML=S.u?unitInfo(...S.u):blockInfo(S.b)}
+function tip(e,s){const t=$('tip');t.textContent=s;t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-260)+'px';t.style.top=(e.clientY+14)+'px'}
+function stop(){clearInterval(S.timer);S.timer=null;$('play').textContent='▶ play'}
+function play(){if(S.timer)return stop();$('play').textContent='❚❚ pause';if(S.t>=Ln().frames-1)S.t=0;S.timer=setInterval(()=>{if(S.t>=Ln().frames-1)return stop();S.t++;draw()},90)}
+const cvs=$('linecv');const seek=e=>{const r=cvs.getBoundingClientRect();S.t=Math.max(0,Math.min(Ln().frames-1,Math.floor((e.clientX-r.left)/PX)));draw()};
+cvs.onpointerdown=e=>{stop();seek(e);cvs.setPointerCapture(e.pointerId);cvs.onpointermove=seek};cvs.onpointerup=()=>cvs.onpointermove=null;
+$('frame').oninput=e=>{stop();S.t=+e.target.value;draw()};$('line').onchange=e=>{stop();setLine(e.target.value)};$('mark').onchange=draw;$('play').onclick=play;
+document.addEventListener('keydown',e=>{if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT')return;if(e.key==='ArrowRight'){S.t=Math.min(Ln().frames-1,S.t+1);draw()}else if(e.key==='ArrowLeft'){S.t=Math.max(0,S.t-1);draw()}else if(e.key===' '){e.preventDefault();play()}});
+addEventListener('resize',()=>Ln()&&drawNet());
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>Ln()&&draw());
+MODELS.forEach(m=>{const b=document.createElement('button');b.dataset.m=m;b.textContent=m.replace('kraken-','');b.onclick=()=>setModel(m);$('models').append(b)});
+// link state: #m=<model>&l=<line>&t=<frame>&b=<block>&u=<unit index>
+const H=new URLSearchParams(location.hash.slice(1));
+const _draw=draw;draw=function(){_draw();const p=new URLSearchParams({m:S.m,l:S.li,t:S.t,b:S.b});if(S.u)p.set('u',S.u[1]);history.replaceState(null,'','#'+p)};
+(async()=>{const m=MODELS.includes(H.get('m'))?H.get('m'):MODELS[0];if(BL.includes(H.get('b')))S.b=H.get('b');
+ if(H.has('t'))S.t=+H.get('t');await setModel(m);if(H.has('l')&&+H.get('l')<M().lines.length&&+H.get('l')>0){await setLine(+H.get('l'))}
+ if(H.has('t'))S.t=Math.min(+H.get('t'),Ln().frames-1);if(H.has('u'))S.u=[S.b,+H.get('u')];buildNet();draw()})()
+ .catch(e=>{$('banners').innerHTML=`<div class=banner>Could not load ${esc(e)}.</div>`});
+</script></body></html>

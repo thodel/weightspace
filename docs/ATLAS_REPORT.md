@@ -132,6 +132,29 @@ python -m wsp.atlas report --out docs/atlas
 
 The four runs take about 6 minutes on 48 CPU cores (12 workers × 4 threads). The random control is seed 20261113.
 
+### Explorer (added 18.11.2026)
+
+`docs/atlas/explorer.html` is an interactive page over all levels, for a static web host. It computes nothing new.
+
+- **What it shows:** a cursor moves along one of the six viewer lines per model (`view_lines`, as above). For the frame
+  under it, the page shows:
+  - every unit of `C_0`–`L_16`;
+  - the five most probable output symbols;
+  - for the selected block, how much blanking each part of the line changes that frame (the L2 occlusion deltas,
+    scaled per frame).
+- **Block and unit panels:** clicking a block or unit shows its L1, L3 and stability results from the committed
+  summaries, each with its control and verdict.
+- **The gates:** both failures are stated on the page. The character row is the CTC alignment, shown for reading only,
+  and the L3 circuits are descriptions.
+- **Images:** the 12 line images in `docs/atlas/img/` are committed. They are practice lines (`blb-val-300` and the
+  parent-unseen `bern-val` lines), not held-out data.
+- **Size:** the data for each line is a separate file in `docs/atlas/explore/`, loaded when the line is shown. About
+  8 MB in total.
+
+```bash
+python -m wsp.atlas_explore --out docs/atlas
+```
+
 ## L3 rule: ablation (fixed 14.11.2026, before any ablation run)
 
 Written and committed before `wsp.atlas_ablate` was run on any line.
