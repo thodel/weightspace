@@ -621,8 +621,9 @@ def render_index(gates: list[dict]) -> str:
     return f"""<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Activation atlas</title><style>{_CSS}</style></head><body>
 <h1>Activation atlas: L0 and L2</h1>
-<p class=muted>Epic thodel/weightspace#13. Rule and readings: docs/ATLAS_REPORT.md. Line images are not in the
-repository; build them locally with <code>python -m wsp.atlas report</code>.</p>
+<p><a href="explorer.html">Atlas explorer</a>: move along a line and see every block, the output, and the results of L1-L3 with their controls.</p>
+<p class=muted>Epic thodel/weightspace#13. Rule and readings: docs/ATLAS_REPORT.md. The images of the six viewer lines per model are in
+<code>img/</code>; they are practice lines, not held-out data.</p>
 <h2>Gate 1: does occlusion find each letter where the CTC alignment puts it?</h2>
 <table><tr><th>model</th><th>practice set</th><th>lines</th><th>hit share [page-clustered 95 %]</th><th>median offset</th><th>Gate 1</th></tr>{rows}</table>
 <picture><source srcset='gate1-dark.svg' media='(prefers-color-scheme: dark)'><img class=fig src='gate1.svg' alt='occlusion peak against CTC centre'></picture>
