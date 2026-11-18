@@ -64,9 +64,15 @@ def _is_adapter(path: str | Path) -> bool:
     return Path(path).is_dir() and (Path(path) / "adapter_config.json").is_file()
 
 
+def _is_trocr(path: str | Path) -> bool:
+    return Path(path).is_dir() and (Path(path) / "config.json").is_file() and (Path(path) / "model.safetensors").is_file()
+
+
 def _ext(subject) -> str:
-    """What a saved state of this subject is called: a CoreML file or a peft directory."""
+    """What a saved state of this subject is called: a CoreML file, a peft directory or a hub-format TrOCR directory."""
     from wsp.lora_subject import LoraSubject
+    if type(subject).__name__ == "TrocrSubject":
+        return ".trocr"
     return ".adapter" if isinstance(subject, LoraSubject) else ".mlmodel"
 
 
@@ -77,6 +83,10 @@ def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, ru
     if p.suffix == ".mlmodel":
         from wsp.kraken_subject import KrakenSubject
         return KrakenSubject(p, device=device)
+    if _is_trocr(p):
+        # the TrOCR family (docs/TROCR_STAGE3_PREREG.md): CPU unless the session says cuda:0 (then each pass asks wsp.card.ready)
+        from wsp.trocr_subject import TrocrSubject
+        return TrocrSubject(p, device=(meta or {}).get("device", "cpu"), batch=(meta or {}).get("batch", 8))
     if _is_adapter(p):
         from wsp.lora_subject import LoraSubject, reference_runner
         fwd = None
@@ -90,8 +100,10 @@ def _subject(path: str | Path, device: str = "cpu", meta: dict | None = None, ru
 
 
 def _file_sha(path: Path) -> str:
-    """sha256 of a file, or of an adapter's weights file."""
-    return sha256_file(path / "adapter_model.safetensors" if path.is_dir() else path)
+    """sha256 of a file, or of an adapter's or a TrOCR directory's weights file."""
+    if path.is_dir():
+        return sha256_file(path / ("model.safetensors" if (path / "model.safetensors").is_file() else "adapter_model.safetensors"))
+    return sha256_file(path)
 
 
 def _unshare_works() -> bool:
@@ -103,8 +115,15 @@ def _unshare_works() -> bool:
 
 def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
     venv_py = Path.home() / "Repo" / "weightspace" / ".venv" / "bin" / "python"
+    cuda = ""
+    sj = Path(run_dir) / "session.json"
+    if sj.exists():                                  # a TrOCR session runs in the TrOCR venv, and on card 0 when it says so
+        m = json.loads(sj.read_text())
+        if m.get("engine") == "trocr":
+            venv_py = Path(m["python"])
+            cuda = "0" if str(m.get("device", "cpu")).startswith("cuda") else ""
     env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={Path.home() / 'atr-cache' / 'tmp'}",
-           "CUDA_VISIBLE_DEVICES=", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
+           f"CUDA_VISIBLE_DEVICES={cuda}", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
     # -I ignores PYTHONPATH; the shim puts this checkout's wsp first so a worktree runs its own harness
     shim = f"import sys,runpy; sys.path.insert(0, {str(REPO)!r}); runpy.run_path({script!r}, run_name='__main__')"
     cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", "-c", shlex.quote(shim)]
@@ -112,7 +131,8 @@ def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
 
 
 def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106,
-        data_root: str | None = None, spool: str | None = None) -> Path:
+        data_root: str | None = None, spool: str | None = None, device: str = "cpu", min_effect: float = 0.0,
+        cluster_rule: bool = False) -> Path:
     subj_path, prac_path = Path(subject), Path(practice)
     s = _subject(subj_path)
     items = load(prac_path)
@@ -126,8 +146,12 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
     meta = {"name": run_dir.name, "subject": str(subj_path.resolve()), "subject_digest": s.digest(),
             "subject_file_sha256": _file_sha(subj_path), "practice": str(prac_path.resolve()),
             "practice_sha256": sha256_file(prac_path), "practice_lines": len(items), "budget": budget, "seed": seed,
+            "min_effect": min_effect, "cluster_rule": cluster_rule,
             "created": datetime.now(timezone.utc).isoformat(), "unshare": _unshare_works(),
             "deviations": [] if _unshare_works() else ["unshare -Un not available: network cut by offline variables only"]}
+    if _is_trocr(subj_path):
+        meta.update({"engine": "trocr", "python": str(Path.home() / "atr-cache" / "trocr" / "venv" / "bin" / "python"), "device": device, "batch": 8,
+                     "generation": s.generation})
     if _is_adapter(subj_path):
         if not data_root:
             raise ValueError("an adapter session needs --data-root (where the practice pages' images resolve)")
@@ -208,7 +232,7 @@ def open_session(run_dir: str | Path = ".", device: str = "cpu") -> RunSession:
         raise RuntimeError("subject digest differs from session.json; the artefact changed")
     items = load(meta["practice"])
     sess = RunSession(s, items, run_dir, budget=meta["budget"], seed=meta["seed"], practice_id=meta["practice_sha256"],
-                      unit=meta.get("unit", "line"))
+                      unit=meta.get("unit", "line"), min_effect=meta.get("min_effect", 0.0), cluster_rule=meta.get("cluster_rule", False))
     replay = run_dir / "replay.json"
     if replay.exists():
         sess._replay = json.loads(replay.read_text())["decisions"]
@@ -295,14 +319,14 @@ def heldout(run_dir: str, set_name: str) -> dict:
         return heldout_adapter(run_dir, set_name)
     summary_path = run_dir / "summary.json"
     summary = json.loads(summary_path.read_text())
-    final = run_dir / "final.mlmodel"
+    final = next((p for p in (run_dir / "final.mlmodel", run_dir / "final.trocr") if p.exists()), run_dir / "final.mlmodel")
     if not final.exists():
-        raise RuntimeError("freeze the session first (no final.mlmodel)")
+        raise RuntimeError("freeze the session first (no final.mlmodel / final.trocr)")
     set_path = HELDOUT / f"{set_name}.jsonl"
     if not set_path.exists():
         raise FileNotFoundError(f"{set_path}: held-out sets are built outside phase 0 (none exist yet)")
     items = load(set_path)
-    s = _subject(final)
+    s = _subject(final, meta=json.loads((run_dir / "session.json").read_text()))     # a TrOCR held-out pass runs where the session ran (card 0 or CPU)
     t = time.time()
     set_sha = sha256_file(set_path)
     # a score is a function of (weights, list): reuse it when the same digest was scored on the same list

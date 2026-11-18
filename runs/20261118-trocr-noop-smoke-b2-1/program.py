@@ -1,0 +1,16 @@
+"""No-op session: baseline pass, a scale-by-1.0 edit, a second pass, the keep rule must refuse (no gain), freeze."""
+from wsp.run import open_session
+s = open_session('.')
+print('parameters', s.subject.describe()['parameters'], 'device', s.subject.device, 'budget left', s.budget_left)
+print('generation', s.subject.generation)
+mask = s.unseen_by('trocr-kurrent-XVI-XVII')
+print('donor rule: lines unseen by the parent donor', sum(mask), 'of', len(mask))
+h = s.hypothesis('no-op: scaling a norm bias by 1.0 changes nothing', 'no change in CER', 'scale')
+m0 = s.measure('baseline')
+s.edit('scale', ['dec.11.norm_ffn.bias'], hypothesis=h, factor=1.0)
+m1 = s.measure('after the no-op', rule_mask=mask)
+print('CER', m0.cer, m1.cer)
+print('keep allowed', s.keep_allowed())
+print('kept', s.keep('no-op'))
+r = s.freeze()
+print('frozen', r['used'], 'passes; keep rule', r['keep_rule'])

@@ -1,0 +1,58 @@
+{
+ "p01-zero-rows-k6": {
+  "defect": "t1-zero-rows",
+  "size": "k6"
+ },
+ "p02-swap-rows": {
+  "defect": "t3-swap-rows",
+  "size": "0-1"
+ },
+ "p03-cross-o5-zero": {
+  "defect": "t4-cross-o-x0.5",
+  "size": "x0.0"
+ },
+ "p04-zero-heads-8": {
+  "defect": "t5-zero-head",
+  "size": "L6h0-7"
+ },
+ "p05-zero-enc6-attn": {
+  "defect": "t8-zero-enc6-attn",
+  "size": "zero"
+ },
+ "p06-enc3-ffn-x0.5": {
+  "defect": "t9-enc3-ffn-x0.5",
+  "size": "x0.5"
+ },
+ "p07-noise-dec8-60": {
+  "defect": "t7-noise-dec8",
+  "size": "60%"
+ },
+ "p08-shift-embnorm": {
+  "defect": "t13-shift-embnorm",
+  "size": "1.0"
+ },
+ "p09-ln11-zero": {
+  "defect": "t6-ln-x0.5",
+  "size": "x0.0"
+ },
+ "p10-noise-all-20": {
+  "defect": "t10-noise-all",
+  "size": "20%"
+ },
+ "p11-noise-embed-50": {
+  "defect": "t12-noise-embed",
+  "size": "50%"
+ },
+ "p12-enc-ffn-all-x0.7": {
+  "defect": "t15-enc-ffn-x0.5",
+  "size": "x0.7"
+ },
+ "p13-cross-o-all-x0.7": {
+  "defect": "t16-cross-o-all-x0.5",
+  "size": "x0.7"
+ },
+ "p14-null": {
+  "defect": "t14-null-out-scale",
+  "size": "x1.0001"
+ }
+}

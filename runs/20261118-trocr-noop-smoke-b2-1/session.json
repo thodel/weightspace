@@ -1,0 +1,29 @@
+{
+  "name": "20261118-trocr-noop-smoke-b2-1",
+  "subject": "/home/tobias/atr-cache/trocr/dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+  "subject_digest": "3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151",
+  "subject_file_sha256": "054474de1f621f61d1284ee4f274c58def0bb887b1a91694081960fb05dbaf3c",
+  "practice": "/tmp/claude-1007/-home-tobias-Repo-weightspace--claude-worktrees-trocr-stage0-9ababb/a9c70032-5b44-4081-b223-c2999dd94ae9/scratchpad/tiny8.jsonl",
+  "practice_sha256": "4ff8bbaa0efb04a9e7397895418123e935850b44621d58dbe99067a08150cfa9",
+  "practice_lines": 8,
+  "budget": 2,
+  "seed": 20261106,
+  "min_effect": 0.005,
+  "cluster_rule": true,
+  "created": "2026-11-18T05:50:11.288514+00:00",
+  "unshare": true,
+  "deviations": [],
+  "engine": "trocr",
+  "python": "/home/tobias/atr-cache/trocr/venv/bin/python",
+  "device": "cpu",
+  "batch": 8,
+  "generation": {
+    "num_beams": 4,
+    "max_new_tokens": 256,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": 1.0,
+    "early_stopping": true,
+    "do_sample": false,
+    "use_cache": true
+  }
+}
