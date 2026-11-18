@@ -35,7 +35,8 @@ data/       practice / held-out line sets (git-ignored)
 - **Code** (`wsp/`, `scripts/`, `tests/`, `deploy/`, `site/scripts/`): MIT, see [LICENSE](LICENSE).
 - **Text, figures and run records** (`docs/`, `protocol/`, `paper/`, `site/`, `runs/`): CC BY 4.0,
   see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
-- **Not covered**: the line transcriptions in `data/` and the models named in the docs keep the
-  licences of their owners; the sources are named in each dataset's `meta.json` and in
+- **Not covered**: the line transcriptions in `data/`, the twelve line images in `docs/atlas/img/`
+  (crops of archival scans: Bern, A_V_1447, and the Kurrent K2911/K2912 manuscripts) and the
+  models named in the docs keep the licences of their owners; the sources are named in each dataset's `meta.json` and in
   `docs/MODELS.md`.
   The site's Switzer font is loaded from Fontshare under its own licence.

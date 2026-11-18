@@ -31,6 +31,6 @@ ablation groups are shown as descriptions, not as circuits.
         style="width:100%;height:min(1100px,90vh);border:1px solid var(--bs-border-color);border-radius:6px"></iframe>
 ```
 
-The twelve line images are practice lines, not held-out data. The atlas is built from the repository
+The twelve line images are practice lines, not held-out data. They are crops of archival scans and keep the licences of their owners; they are not covered by the site's CC BY 4.0. The atlas is built from the repository
 with `python -m wsp.atlas` and `python -m wsp.atlas_explore`; the full report is
 [`docs/ATLAS_REPORT.md`](https://github.com/thodel/weightspace/blob/main/docs/ATLAS_REPORT.md).
