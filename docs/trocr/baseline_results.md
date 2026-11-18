@@ -63,3 +63,8 @@ Readings: held-out agrees with practice level. Arm c (rule list, donor) repairs 
 ## Pilot: arm (a) with donor, Sonnet 5.5, 8 core models (20:30 CET, 18.11.2026)
 Held-out classes (full table: `stage3_classes.md`): repaired p01 (99 %), p03 (97 %), p05 (101 %), p06, p07, p08, p12 (100 %); not repaired p10 (0 %, no edit kept, held-out 22.61 %). No harmful keep. Arm c repaired 3 of these 8 and arm d none. Only arm (a) with donor ran; arms (a) without donor, (b) and (a2) are not run.
 Note: the chain stalled 45 min after p12 (its wait matched its own launcher); no effect on any session.
+
+## Arm (a) without donor, Sonnet 5.5, 8 core models (22:07 CET, 18.11.2026)
+Held-out classes (`stage3_classes.md`, rows `an`): repaired p06 (100 %, 7 passes, 1 kept); not repaired p03, p05, p07, p08, p10, p12 (0 %, no edit kept, model unchanged) and p01 (crashed). No harmful keep.
+**p01 crash (dated note 18.11.2026, 21:54 CET):** the programmer's `try_edit` called `s.revert` after `s.keep` had already undone the rejected edit (`RuntimeError: no edit to decide on`, program.py line 36) after 3 passes. No frozen model, no `summary.json`, no held-out score. Per the planning session's decision the program was not patched and not rerun; the session counts as not repaired (final = corrupted model, nothing kept; marked `an*` in the classes table). The control flow of the p03, p05 and p08 programs was read and cannot raise the same error.
+**Gate 3 (prereg section 4):** with donor, 7 of 8 counted defects repaired by arm (a); without donor, 1 (p06); harmful keeps overall: 0. Gate 3 is met on these counts. Arms (b) and (a2) were not run. Limit: the no-donor rule is enforced by the brief only.

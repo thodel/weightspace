@@ -47,7 +47,11 @@ def sessions():
     """(pid, arm, per_line of final or None if unchanged, kept)"""
     for r in sorted((REPO / "runs").glob("*-trocr-planted-*-b*-1")):
         pid, arm = re.search(r"planted-(.+)-(ad|an|f|b|c|d)-b\d+-1$", r.name).groups()
-        s = json.loads((r / "summary.json").read_text())
+        if not (r / "summary.json").exists():      # crashed session (no frozen model): the final is the corrupted model, nothing kept, counted as not repaired
+            b = json.loads((r / "budget.json").read_text())
+            s = {"used": b["used"], "kept": 0, "final_digest": "crashed", "start_digest": "crashed", "crashed": True}
+        else:
+            s = json.loads((r / "summary.json").read_text())
         yield pid, arm, r, s
 
 
@@ -67,12 +71,12 @@ def main():
             if not h:
                 continue
             fin = h["per_line"]
-        out[f"{pid}|{arm}"] = {**classify(corr, fin, orig), "passes": s["used"], "kept": s["kept"], "changed": s["final_digest"] != s["start_digest"]}
+        out[f"{pid}|{arm}"] = {**classify(corr, fin, orig), "passes": s["used"], "kept": s["kept"], "changed": s["final_digest"] != s["start_digest"], "crashed": bool(s.get("crashed"))}
     (REPO / "docs/trocr/stage3_classes.json").write_text(json.dumps(out, indent=1))
     L = ["| defect | damage (pts) | counts | arm | passes/kept | final CER | recovery | interval of final − corrupted (pages) | class |", "|---|---:|---|---|---|---:|---:|---|---|"]
     for k, v in sorted(out.items()):
         pid, arm = k.split("|")
-        L.append(f"| {pid} | {v['damage_pts']:.2f} | {'yes' if v['counts'] else 'no'} | {arm} | {v['passes']}/{v['kept']} | {v['cer_final']*100:.2f} | "
+        L.append(f"| {pid} | {v['damage_pts']:.2f} | {'yes' if v['counts'] else 'no'} | {arm}{'*' if v.get('crashed') else ''} | {v['passes']}/{v['kept']} | {v['cer_final']*100:.2f} | "
                  f"{'' if v['recovery'] != v['recovery'] else format(v['recovery']*100, '.0f') + ' %'} | [{v['ci95_cluster'][0]*100:+.2f}, {v['ci95_cluster'][1]*100:+.2f}] | {v['class']} |")
     (REPO / "docs/trocr/stage3_classes.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
