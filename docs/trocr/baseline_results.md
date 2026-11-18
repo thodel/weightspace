@@ -59,3 +59,7 @@ Unplanted subject: held-out CER 19.74 %. Every one of the 12 defects scored coun
 | p13-cross-o-all-x0.7 | 9.06 | yes | d | 10/2 | 19.96 | 98 % | [-10.54, -7.01] | repaired |
 
 Readings: held-out agrees with practice level. Arm c (rule list, donor) repairs 7 defects (p01, p02, p03, p04, p05, p08, p09: 97–101 % recovered, interval below 0); arm d (no donor) repairs p13 only (98 %) and partly p04 (51 %), p05 (24 %), p08 (70 %); p12 stays not repaired (16 %). **Neither baseline repairs p06, p07, p10** (diffuse or without signature; damage 2.07, 1.54, 2.87 points), and neither makes a harmful keep. Where a programmer can add something is therefore p06, p07, p10, p12 (and p12/p13-type scale defects without the donor, where arm d reaches only p13).
+
+## Pilot: arm (a) with donor, Sonnet 5.5, 8 core models (20:30 CET, 18.11.2026)
+Held-out classes (full table: `stage3_classes.md`): repaired p01 (99 %), p03 (97 %), p05 (101 %), p06, p07, p08, p12 (100 %); not repaired p10 (0 %, no edit kept, held-out 22.61 %). No harmful keep. Arm c repaired 3 of these 8 and arm d none. Only arm (a) with donor ran; arms (a) without donor, (b) and (a2) are not run.
+Note: the chain stalled 45 min after p12 (its wait matched its own launcher); no effect on any session.
