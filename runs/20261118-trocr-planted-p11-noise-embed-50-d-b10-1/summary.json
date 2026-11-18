@@ -1,0 +1,481 @@
+{
+  "budget": 10,
+  "used": 10,
+  "seed": 20261106,
+  "keep_rule": {
+    "min_effect": 0.005,
+    "resamples": 2000,
+    "interval": "page-clustered",
+    "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"
+  },
+  "practice_lines": 300,
+  "practice_id": "e102f7dd7e8fa492ff8c63191e7adf9584d264ac615398630d7708625c91bef4",
+  "start_digest": "72ac3dc34907bb258d573201ade4e623ba430ca787da28bfc83cda7325786b37",
+  "final_digest": "72ac3dc34907bb258d573201ade4e623ba430ca787da28bfc83cda7325786b37",
+  "edits": 9,
+  "kept": 0,
+  "baseline": {
+    "lines": 300,
+    "cer": 0.2335431724566721,
+    "wer": 0.6397441023590564,
+    "collapsed": 8,
+    "length_ratio": 0.9673583585917463,
+    "char_edits": 3005,
+    "ref_chars": 12867,
+    "confusions": [
+      [
+        " ",
+        "",
+        377
+      ],
+      [
+        "e",
+        "",
+        71
+      ],
+      [
+        "",
+        "e",
+        43
+      ],
+      [
+        "n",
+        "",
+        36
+      ],
+      [
+        "",
+        "r",
+        34
+      ],
+      [
+        "",
+        " ",
+        31
+      ],
+      [
+        "i",
+        "",
+        30
+      ],
+      [
+        "s",
+        "",
+        29
+      ],
+      [
+        "",
+        "n",
+        28
+      ],
+      [
+        "a",
+        "e",
+        28
+      ]
+    ],
+    "extra": {},
+    "blocks": {
+      "ref_chars": 12867,
+      "edits": 3005,
+      "cer": 0.2335431724566721,
+      "blocks": {
+        "Latin lowercase a-z": {
+          "ref": 9258,
+          "correct": 7616,
+          "sub": 1311,
+          "del": 331,
+          "ins": 300,
+          "errors": 1942,
+          "block_cer": 0.20976452797580472,
+          "share_of_cer": 0.15092873241625865,
+          "overlay": false
+        },
+        "Space": {
+          "ref": 2201,
+          "correct": 1683,
+          "sub": 141,
+          "del": 377,
+          "ins": 31,
+          "errors": 549,
+          "block_cer": 0.24943207632894138,
+          "share_of_cer": 0.0426672884122173,
+          "overlay": false
+        },
+        "Latin uppercase A-Z": {
+          "ref": 545,
+          "correct": 372,
+          "sub": 151,
+          "del": 22,
+          "ins": 26,
+          "errors": 199,
+          "block_cer": 0.3651376146788991,
+          "share_of_cer": 0.015465920572005907,
+          "overlay": false
+        },
+        "ASCII punctuation and symbols": {
+          "ref": 450,
+          "correct": 311,
+          "sub": 90,
+          "del": 49,
+          "ins": 26,
+          "errors": 165,
+          "block_cer": 0.36666666666666664,
+          "share_of_cer": 0.012823501981813942,
+          "overlay": false
+        },
+        "Digits 0-9": {
+          "ref": 256,
+          "correct": 205,
+          "sub": 36,
+          "del": 15,
+          "ins": 5,
+          "errors": 56,
+          "block_cer": 0.21875,
+          "share_of_cer": 0.004352218854433823,
+          "overlay": false
+        },
+        "Combining Diacritical Marks": {
+          "ref": 103,
+          "correct": 63,
+          "sub": 23,
+          "del": 17,
+          "ins": 10,
+          "errors": 50,
+          "block_cer": 0.4854368932038835,
+          "share_of_cer": 0.0038859096914587703,
+          "overlay": false
+        },
+        "General Punctuation": {
+          "ref": 17,
+          "correct": 3,
+          "sub": 8,
+          "del": 6,
+          "ins": 3,
+          "errors": 17,
+          "block_cer": 1.0,
+          "share_of_cer": 0.001321209295095982,
+          "overlay": false
+        },
+        "Latin-1 Supplement": {
+          "ref": 26,
+          "correct": 13,
+          "sub": 11,
+          "del": 2,
+          "ins": 0,
+          "errors": 13,
+          "block_cer": 0.5,
+          "share_of_cer": 0.0010103365197792803,
+          "overlay": false
+        },
+        "Supplemental Punctuation": {
+          "ref": 6,
+          "correct": 0,
+          "sub": 3,
+          "del": 3,
+          "ins": 0,
+          "errors": 6,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00046630916297505244,
+          "overlay": false
+        },
+        "MUFI (CERberus list, overlay)": {
+          "ref": 3,
+          "correct": 0,
+          "sub": 1,
+          "del": 2,
+          "ins": 0,
+          "errors": 3,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00023315458148752622,
+          "overlay": true
+        },
+        "Dingbats": {
+          "ref": 0,
+          "correct": 0,
+          "sub": 0,
+          "del": 0,
+          "ins": 2,
+          "errors": 2,
+          "block_cer": null,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Latin Extended-D": {
+          "ref": 2,
+          "correct": 0,
+          "sub": 2,
+          "del": 0,
+          "ins": 0,
+          "errors": 2,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Latin Extended-A": {
+          "ref": 2,
+          "correct": 0,
+          "sub": 0,
+          "del": 2,
+          "ins": 0,
+          "errors": 2,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Spacing Modifier Letters": {
+          "ref": 0,
+          "correct": 0,
+          "sub": 0,
+          "del": 0,
+          "ins": 1,
+          "errors": 1,
+          "block_cer": null,
+          "share_of_cer": 7.771819382917541e-05,
+          "overlay": false
+        },
+        "Geometric Shapes": {
+          "ref": 1,
+          "correct": 0,
+          "sub": 1,
+          "del": 0,
+          "ins": 0,
+          "errors": 1,
+          "block_cer": 1.0,
+          "share_of_cer": 7.771819382917541e-05,
+          "overlay": false
+        }
+      }
+    }
+  },
+  "last_pass": {
+    "lines": 300,
+    "cer": 0.2468329836014611,
+    "wer": 0.652139144342263,
+    "collapsed": 8,
+    "length_ratio": 0.9616072122483873,
+    "char_edits": 3176,
+    "ref_chars": 12867,
+    "confusions": [
+      [
+        " ",
+        "",
+        380
+      ],
+      [
+        "e",
+        "",
+        59
+      ],
+      [
+        "",
+        "e",
+        44
+      ],
+      [
+        "s",
+        "",
+        43
+      ],
+      [
+        "n",
+        "",
+        39
+      ],
+      [
+        "n",
+        "r",
+        33
+      ],
+      [
+        "e",
+        "a",
+        33
+      ],
+      [
+        "i",
+        "",
+        29
+      ],
+      [
+        "",
+        "n",
+        28
+      ],
+      [
+        "o",
+        "",
+        26
+      ]
+    ],
+    "extra": {},
+    "blocks": {
+      "ref_chars": 12867,
+      "edits": 3176,
+      "cer": 0.2468329836014611,
+      "blocks": {
+        "Latin lowercase a-z": {
+          "ref": 9258,
+          "correct": 7486,
+          "sub": 1408,
+          "del": 364,
+          "ins": 296,
+          "errors": 2068,
+          "block_cer": 0.22337437891553252,
+          "share_of_cer": 0.16072122483873474,
+          "overlay": false
+        },
+        "Space": {
+          "ref": 2201,
+          "correct": 1670,
+          "sub": 151,
+          "del": 380,
+          "ins": 25,
+          "errors": 556,
+          "block_cer": 0.2526124488868696,
+          "share_of_cer": 0.04321131576902153,
+          "overlay": false
+        },
+        "Latin uppercase A-Z": {
+          "ref": 545,
+          "correct": 357,
+          "sub": 155,
+          "del": 33,
+          "ins": 24,
+          "errors": 212,
+          "block_cer": 0.3889908256880734,
+          "share_of_cer": 0.016476257091785188,
+          "overlay": false
+        },
+        "ASCII punctuation and symbols": {
+          "ref": 450,
+          "correct": 296,
+          "sub": 100,
+          "del": 54,
+          "ins": 23,
+          "errors": 177,
+          "block_cer": 0.3933333333333333,
+          "share_of_cer": 0.013756120307764047,
+          "overlay": false
+        },
+        "Digits 0-9": {
+          "ref": 256,
+          "correct": 196,
+          "sub": 41,
+          "del": 19,
+          "ins": 4,
+          "errors": 64,
+          "block_cer": 0.25,
+          "share_of_cer": 0.004973964405067226,
+          "overlay": false
+        },
+        "Combining Diacritical Marks": {
+          "ref": 103,
+          "correct": 60,
+          "sub": 25,
+          "del": 18,
+          "ins": 11,
+          "errors": 54,
+          "block_cer": 0.5242718446601942,
+          "share_of_cer": 0.004196782466775472,
+          "overlay": false
+        },
+        "General Punctuation": {
+          "ref": 17,
+          "correct": 3,
+          "sub": 7,
+          "del": 7,
+          "ins": 2,
+          "errors": 16,
+          "block_cer": 0.9411764705882353,
+          "share_of_cer": 0.0012434911012668066,
+          "overlay": false
+        },
+        "Latin-1 Supplement": {
+          "ref": 26,
+          "correct": 12,
+          "sub": 10,
+          "del": 4,
+          "ins": 2,
+          "errors": 16,
+          "block_cer": 0.6153846153846154,
+          "share_of_cer": 0.0012434911012668066,
+          "overlay": false
+        },
+        "Supplemental Punctuation": {
+          "ref": 6,
+          "correct": 0,
+          "sub": 3,
+          "del": 3,
+          "ins": 0,
+          "errors": 6,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00046630916297505244,
+          "overlay": false
+        },
+        "MUFI (CERberus list, overlay)": {
+          "ref": 3,
+          "correct": 0,
+          "sub": 1,
+          "del": 2,
+          "ins": 0,
+          "errors": 3,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00023315458148752622,
+          "overlay": true
+        },
+        "Spacing Modifier Letters": {
+          "ref": 0,
+          "correct": 0,
+          "sub": 0,
+          "del": 0,
+          "ins": 2,
+          "errors": 2,
+          "block_cer": null,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Latin Extended-D": {
+          "ref": 2,
+          "correct": 0,
+          "sub": 2,
+          "del": 0,
+          "ins": 0,
+          "errors": 2,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Latin Extended-A": {
+          "ref": 2,
+          "correct": 0,
+          "sub": 1,
+          "del": 1,
+          "ins": 0,
+          "errors": 2,
+          "block_cer": 1.0,
+          "share_of_cer": 0.00015543638765835082,
+          "overlay": false
+        },
+        "Geometric Shapes": {
+          "ref": 1,
+          "correct": 0,
+          "sub": 1,
+          "del": 0,
+          "ins": 0,
+          "errors": 1,
+          "block_cer": 1.0,
+          "share_of_cer": 7.771819382917541e-05,
+          "overlay": false
+        }
+      }
+    }
+  },
+  "changed_tensors": {},
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "3e563c599022529044726513b6989103f19f7e6497c3d6e3e0f12c0545347c19",
+  "subject": "/home/tobias/atr-cache/wsp/planted-trocr/p11-noise-embed-50",
+  "name": "20261118-trocr-planted-p11-noise-embed-50-d-b10-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261118-trocr-planted-p11-noise-embed-50-d-b10-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261118-trocr-planted-p11-noise-embed-50-d-b10-1 TMPDIR=/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261118-trocr-planted-p11-noise-embed-50-d-b10-1/atr-cache/tmp CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* /home/tobias/atr-cache/trocr/venv/bin/python -I -c 'import sys,runpy; sys.path.insert(0, '\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb'\"'\"'); runpy.run_path('\"'\"'program.py'\"'\"', run_name='\"'\"'__main__'\"'\"')'"
+}

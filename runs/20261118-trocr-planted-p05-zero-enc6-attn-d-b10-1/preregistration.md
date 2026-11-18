@@ -1,0 +1,5 @@
+# Pre-registration stub, 20261118-trocr-planted-p05-zero-enc6-attn-d-b10-1
+
+Planted-defect control, TrOCR, arm (d) (docs/TROCR_STAGE3_PREREG.md, committed before this run). Program: `runs/trocr-planted/arms/program_d.py`, copied unchanged (sha256 `4c14c67eab725622efab4ecb4d168d93672a804666b7dbb15575a71c247c584f`).
+Subject: planted `p05-zero-enc6-attn` = encoder layer 6 attention output projection (weight and bias) set to 0 (defect `t8-zero-enc6-attn`, size `zero`), tensor digest `875ba809c9935636ca3433f3f7fece10d0701cbade4efae6a1500ddcc327bed2`, original `3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151`.
+Practice: `data/practice/trocr-blb-train-300-seen.jsonl`, sha256 `e102f7dd7e8fa492ff8c63191e7adf9584d264ac615398630d7708625c91bef4`. Held-out: `data/heldout/blb-eval-hand.jsonl`. Budget 10 passes, min effect 0.005, page-clustered interval, generation settings {"num_beams": 4, "max_new_tokens": 256, "no_repeat_ngram_size": 3, "length_penalty": 1.0, "early_stopping": true, "do_sample": false, "use_cache": true}.

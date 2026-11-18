@@ -1,0 +1,5 @@
+# Pre-registration stub, 20261118-trocr-planted-p11-noise-embed-50-c-b10-1
+
+Planted-defect control, TrOCR, arm (c) (docs/TROCR_STAGE3_PREREG.md, committed before this run). Program: `runs/trocr-planted/arms/program_c.py`, copied unchanged (sha256 `df4f107a9b7d3de0dd9c3751b7300d97ad1e33b733fe89ce5b38d13acc8ed33e`).
+Subject: planted `p11-noise-embed-50` = diffuse over the vocabulary: Gaussian noise on the tied embedding, a fraction of its norm (defect `t12-noise-embed`, size `50%`), tensor digest `72ac3dc34907bb258d573201ade4e623ba430ca787da28bfc83cda7325786b37`, original `3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151`.
+Practice: `data/practice/trocr-blb-train-300-seen.jsonl`, sha256 `e102f7dd7e8fa492ff8c63191e7adf9584d264ac615398630d7708625c91bef4`. Held-out: `data/heldout/blb-eval-hand.jsonl`. Budget 10 passes, min effect 0.005, page-clustered interval, generation settings {"num_beams": 4, "max_new_tokens": 256, "no_repeat_ngram_size": 3, "length_penalty": 1.0, "early_stopping": true, "do_sample": false, "use_cache": true}.

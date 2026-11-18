@@ -109,13 +109,14 @@ class TrocrSubject(Subject):
     (tests build a tiny random model from a config, no download)."""
 
     def __init__(self, path: str | Path | None = None, device: str = "cpu", batch: int = 8,
-                 generation: dict | None = None, model=None, tokenizer=None, image_processor=None):
+                 generation: dict | None = None, model=None, tokenizer=None, image_processor=None, check_card: bool = True):
         import torch
         from transformers import VisionEncoderDecoderModel
 
         self._torch = torch
         self.path = Path(path) if path else None
         self.device = device
+        self.check_card = check_card         # a pass on a cuda device first asks wsp.card.ready (memory, no trainer job waiting)
         self.batch = batch
         self.generation = {**GENERATION, **(generation or {})}
         if model is None:
@@ -237,6 +238,11 @@ class TrocrSubject(Subject):
         between passes that are compared). ``extra``: tokens generated, ``at_cap`` (no end token within the cap), the
         beam's sequence score."""
         torch = self._torch
+        if self.check_card and str(self.device).startswith("cuda"):
+            from wsp import card
+            ok, why = card.ready()
+            if not ok:
+                raise RuntimeError(f"no pass: {why}")        # refused before the pass: a session does not count it
         g = self.generation
         eos = self.model.generation_config.eos_token_id
         eos = eos if eos is not None else self.model.config.decoder.eos_token_id

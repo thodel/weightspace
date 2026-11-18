@@ -33,6 +33,8 @@ class Session:
     min_effect: float = 0.0             # PROTOCOL §3 (06.11.2026): keep only if the 95 % interval of
                                         # CER(after) − CER(last kept) lies entirely below −min_effect
     rule_resamples: int = 2000          # resamples for that interval (PROTOCOL §5)
+    cluster_rule: bool = False          # TrOCR track (docs/TROCR_STAGE3_PREREG.md): the keep rule reads the page-clustered interval
+                                        # (``ci95_cluster``, pages of ``wsp.metrics.page_of``) instead of the line-level one
     unit: str = "line"                  # "page" for VLM subjects: page edits, page metrics and the cap
                                         # condition (docs/PHASE5_PLAN.md P5.5: at-cap count must not rise)
     _log: list[dict] = field(default_factory=list, init=False)
@@ -165,15 +167,18 @@ class Session:
         self._save_state()
         self._last_lines = lines
         self._measured_since_edit = True
+        from wsp.metrics import page_of
+        cl = [page_of(item["key"]) for item in self.practice] if self.cluster_rule else None
         if rule_mask is not None:
             if len(rule_mask) != len(lines):
                 raise ValueError("rule_mask must have one entry per practice line")
             sel = [i for i, k in enumerate(rule_mask) if k]
             self._vs_kept = bootstrap_delta([self._kept_lines[i] for i in sel], [lines[i] for i in sel],
-                                            resamples=self.rule_resamples, seed=self.seed)
+                                            resamples=self.rule_resamples, seed=self.seed,
+                                            clusters=[cl[i] for i in sel] if cl else None)
             self._vs_kept["rule_lines"] = len(sel)
         else:
-            self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed)
+            self._vs_kept = bootstrap_delta(self._kept_lines, lines, resamples=self.rule_resamples, seed=self.seed, clusters=cl)
         self._event("pass", label=label, metrics=m.as_dict(), digest=self.subject.digest(),
                     vs_baseline=bootstrap_delta(self._baseline_lines, lines, resamples=500, seed=self.seed),
                     vs_kept=self._vs_kept, **({"page": page} if page else {}))
@@ -184,7 +189,7 @@ class Session:
         state, and the 95 % paired interval entirely below −min_effect. Returns (ok, reason)."""
         if not self._measured_since_edit or self._vs_kept is None:
             return False, "no pass since the edit"
-        lo, hi = self._vs_kept["ci95"]
+        lo, hi = self._vs_kept["ci95_cluster"] if self.cluster_rule else self._vs_kept["ci95"]
         if lo > 0:
             return False, "CER rose"
         if hi >= -self.min_effect or self._vs_kept["delta_cer"] >= 0:
@@ -241,6 +246,7 @@ class Session:
         summary = {
             "budget": self.budget, "used": self._used, "seed": self.seed,
             "keep_rule": {"min_effect": self.min_effect, "resamples": self.rule_resamples,
+                          "interval": "page-clustered" if self.cluster_rule else "line level",
                           "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"},
             "practice_lines": len(self.practice), "practice_id": self.practice_id,
             "start_digest": full[0]["digest"], "final_digest": self.subject.digest(),
