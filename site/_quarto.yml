@@ -59,7 +59,7 @@ website:
         - protocol/figures/index.md
   page-footer:
     left: '[Digital Humanities, University of Bern](https://www.dh.unibe.ch/)'
-    center: '[digitalhumanities@unibe.ch](mailto:digitalhumanities@unibe.ch) · [GitHub](https://github.com/thodel/weightspace)'
+    center: '[digitalhumanities@unibe.ch](mailto:digitalhumanities@unibe.ch) · [GitHub](https://github.com/thodel/weightspace) · Text [CC BY 4.0](https://github.com/thodel/weightspace/blob/main/LICENSE-CC-BY-4.0), code [MIT](https://github.com/thodel/weightspace/blob/main/LICENSE)'
     right: '[Project](/index.qmd) · [Protocol](/protocol/index.md) · [Results](/protocol/results.md)'
 
 format:
