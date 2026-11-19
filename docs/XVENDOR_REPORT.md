@@ -14,9 +14,13 @@ one blend of all three models.
 All of both gains lies on the Hertwig pages: −1.76 points for Gemini, −2.13 for GPT. GPT also paid
 +0.67 on Schlussredaktion, with a page interval [+0.18, +1.21] that excludes 0.
 
-Neither page interval lies wholly below 0. Gemini's touches 0, and Fable's excluded it at −0.05. The
-three programmers are indistinguishable from one another: pairwise, every difference is under 0.1
+Neither page interval lies wholly below 0. Gemini's touches 0, and Fable 5.1's excluded it at −0.05.
+The three programmers are indistinguishable from one another: pairwise, every difference is under 0.1
 point. All ten random edits of the same size (C5 shams) made held-out worse.
+
+A third Fable run, with Fable 5.2 as programmer (`runs/20261115-bern-combined-v1-f2-b10-1`,
+`docs/KRAKEN_S2_FABLE52.md`), fits the same picture. It lowered held-out CER by 0.65 points, with a page
+interval of [−1.64, +0.24], by stepping 25 % toward the parent. It was added to §3 and §5 on 19.11.
 
 ## 1. Set-up
 
@@ -96,6 +100,7 @@ are CER points; 2,000 resamples.
 | C0 | 0.1933 | | | |
 | Opus 5.5 (session 2) | 0.1948 | +0.15 [−0.29, +0.60] | −0.30 [−0.82, +0.21] | +0.51 [−0.04, +1.08] |
 | Fable 5.1 | 0.1875 | −0.57 [−1.15, −0.05] | −1.32 [−2.36, −0.60] | +0.02 [−0.41, +0.52] |
+| Fable 5.2 (f2, added 19.11.) | 0.1868 | −0.65 [−1.64, +0.24] | −2.35 [−3.51, −1.40] | +0.69 [+0.19, +1.33] |
 | **Gemini 4 Argon** | **0.1868** | **−0.65 [−1.38, +0.00]** | −1.76 [−2.74, −0.96] | +0.23 [−0.22, +0.76] |
 | **GPT-6.2 Astra** | **0.1876** | **−0.57 [−1.46, +0.24]** | −2.13 [−3.28, −1.21] | **+0.67 [+0.18, +1.21]** |
 
@@ -110,6 +115,9 @@ Pairwise on held-out, page interval:
 | Gemini − Fable | −0.08 [−0.48, +0.29] |
 | GPT − Fable | +0.01 [−0.53, +0.56] |
 | GPT − Gemini | +0.08 [−0.25, +0.44] |
+
+No pairwise intervals against Fable 5.2 were computed. Its held-out CER is 0.1868, the same as
+Gemini's to four places.
 
 Collapsed held-out lines: C0 34; Fable, Gemini and GPT 22–23.
 
@@ -135,21 +143,24 @@ No component split was run:
 - GPT's kept edit is a single blend;
 - Gemini's two kept edits overlap on `O_18`: H4 rewrote the output layer that H2 had set.
 
-## 5. The four programmers compared
+## 5. The five programmers compared
 
-| | Opus 5.5 | Fable 5.1 | Gemini 4 Argon | GPT-6.2 Astra |
-|---|---|---|---|---|
-| passes / edits / kept | 9 / 8 / 1 | 9 / 8 / 3 | 10 / 9 / 2 | 9 / 8 / 1 |
-| kept move | parent's output layer, transplanted | blank −0.40, then 12.5 % toward the parent | `O_18` to the parent–sibling midpoint, then 50/20/30 subject/parent/sibling | 35/30/35 subject/parent/sibling |
-| practice Δ | −0.42 | −0.99 | −1.01 | −0.90 |
-| held-out Δ, page | +0.15 [−0.29, +0.60] | −0.57 [−1.15, −0.05] | −0.65 [−1.38, +0.00] | −0.57 [−1.46, +0.24] |
-| Hertwig / Schlussred. | −0.30 / +0.51 | −1.32 / +0.02 | −1.76 / +0.23 | −2.13 / +0.67 |
+| | Opus 5.5 | Fable 5.1 | Fable 5.2 | Gemini 4 Argon | GPT-6.2 Astra |
+|---|---|---|---|---|---|
+| passes / edits / kept | 9 / 8 / 1 | 9 / 8 / 3 | 8 / 7 / 2 | 10 / 9 / 2 | 9 / 8 / 1 |
+| kept move | parent's output layer, transplanted | blank −0.40, then 12.5 % toward the parent | 25 % toward the parent, then blank −0.30 | `O_18` to the parent–sibling midpoint, then 50/20/30 subject/parent/sibling | 35/30/35 subject/parent/sibling |
+| practice Δ | −0.42 | −0.99 | −0.96 | −1.01 | −0.90 |
+| held-out Δ, page | +0.15 [−0.29, +0.60] | −0.57 [−1.15, −0.05] | −0.65 [−1.64, +0.24] | −0.65 [−1.38, +0.00] | −0.57 [−1.46, +0.24] |
+| Hertwig / Schlussred. | −0.30 / +0.51 | −1.32 / +0.02 | −2.35 / +0.69 | −1.76 / +0.23 | −2.13 / +0.67 |
 
-- **One direction, four programmers.** Every programmer gave the parent, `hertwig-v2`, weight against
+- **One direction, five programmers.** Every programmer gave the parent, `hertwig-v2`, weight against
   the subject. The parent was trained on the correct Hertwig images; the subject learnt Hertwig from
   mismatched images. Whatever they kept, the held-out gain sits on the Hertwig pages.
 - **What differs is how much Schlussredaktion pays.**
-  - Fable kept the subject at 87.5 % and Schlussredaktion was unchanged.
+  - Fable 5.1 kept the subject at 87.5 % and Schlussredaktion was unchanged.
+  - Fable 5.2 kept it at 75 %: Hertwig −2.35, Schlussredaktion +0.69 with a page interval that
+    excludes 0. Its own component split puts the whole held-out effect in the step toward the parent
+    (−0.63); the blank step alone gave +0.01.
   - Gemini kept the subject at 50 %, plus 30 % sibling: Schlussredaktion +0.23, not resolved.
   - GPT kept the subject at only 35 %: the largest Hertwig gain, and a Schlussredaktion loss whose
     page interval excludes 0.
@@ -160,8 +171,10 @@ No component split was run:
   - Both still ended with practice gains of 0.9–1.0 points, larger than their held-out gains of
     0.57–0.65.
 - **Limits.**
-  - One attempt per programmer.
-  - Gemini's page interval reaches 0 and GPT's includes it. Fable's excluded 0, but by 0.05.
+  - One attempt per programmer model. The two Fable runs differ by version as well as by run, so
+    they don't measure run-to-run variation either.
+  - Gemini's page interval reaches 0, and GPT's and Fable 5.2's include it. Fable 5.1's excluded 0,
+    but by 0.05.
   - Pairwise, no two programmers differ by more than 0.1 point on held-out.
   - GPT and Gemini reasoned little or not visibly at their default settings.
 
