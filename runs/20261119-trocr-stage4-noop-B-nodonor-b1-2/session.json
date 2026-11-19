@@ -1,0 +1,32 @@
+{
+  "name": "20261119-trocr-stage4-noop-B-nodonor-b1-2",
+  "subject": "/home/tobias/atr-cache/trocr/dh-unibe__trocr-kurrent",
+  "subject_digest": "2cce260da2c1d4a5705b8f15320f85a19b07fb4f650550f0c78647b4e00309df",
+  "subject_file_sha256": "7752d0843f90ff1933663eabd3182ac0b8f18f5e09edd23de0a3d96e76f42ddf",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/data/practice/trocr-blb-train-1200-seen.jsonl",
+  "practice_sha256": "b6b33a8d0c19b733538655f58f07a40518737174af467e2193b6b96b9deceb73",
+  "practice_lines": 1194,
+  "budget": 1,
+  "seed": 20261106,
+  "min_effect": 0.005,
+  "cluster_rule": true,
+  "created": "2026-11-19T10:45:52.445556+00:00",
+  "unshare": true,
+  "deviations": [],
+  "engine": "trocr",
+  "python": "/home/tobias/atr-cache/trocr/venv/bin/python",
+  "device": "cuda:0",
+  "batch": 8,
+  "generation": {
+    "num_beams": 4,
+    "max_new_tokens": 256,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": 1.0,
+    "early_stopping": true,
+    "do_sample": false,
+    "use_cache": true
+  },
+  "tmpdir": "/home/tobias/atr-cache/tmp/20261119-trocr-stage4-noop-B-nodonor-b1-2",
+  "restrict_files": true,
+  "donors_visible": []
+}
