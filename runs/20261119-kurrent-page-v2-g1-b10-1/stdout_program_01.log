@@ -1,0 +1,3 @@
+Pass 1 (C0): CER=0.451512, truncated_cer=0.256386, length_ratio=1.226370, at_cap=9, loops=12
+Pass 2 (H1): CER=0.373742 (delta=-0.077769, ci95=[-0.17322736151336998, -0.00429926822702098]), truncated_cer=0.241180, length_ratio=1.147640, at_cap=5, loops=10, kept=True
+exit 0
