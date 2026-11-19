@@ -1,0 +1,50 @@
+{
+ "seed": 20261119,
+ "objects": {
+  "discovery": [
+   "K2911,108",
+   "K2911,110",
+   "K2911,124",
+   "K2911,125",
+   "K2911,14",
+   "K2911,17",
+   "K2911,39",
+   "K2911,58",
+   "K2911,79",
+   "K2911,9",
+   "K2912,28",
+   "K2912,31",
+   "K2912,32",
+   "K2912,37",
+   "K2912,70",
+   "K3123,31",
+   "K3535"
+  ],
+  "confirmation": [
+   "K2911,103",
+   "K2911,107",
+   "K2911,26",
+   "K2911,32",
+   "K2911,46",
+   "K2911,51",
+   "K2911,88",
+   "K2912,16",
+   "K2912,35",
+   "K2913,16",
+   "K2913,20",
+   "K2915,3"
+  ]
+ },
+ "lines": {
+  "discovery": 1147,
+  "confirmation": 1125
+ },
+ "n_objects": {
+  "discovery": 17,
+  "confirmation": 12
+ },
+ "source": "data/heldout/blb-eval-hand.jsonl",
+ "source_sha256": "a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091",
+ "n_lines": 2272,
+ "rule": "objects (document ids) in random.Random(seed) shuffled order, each to the half with fewer lines so far (ties to discovery)"
+}

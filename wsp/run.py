@@ -122,17 +122,26 @@ def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
         if m.get("engine") == "trocr":
             venv_py = Path(m["python"])
             cuda = "0" if str(m.get("device", "cpu")).startswith("cuda") else ""
-    env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={Path.home() / 'atr-cache' / 'tmp'}",
+    tmp = Path.home() / "atr-cache" / "tmp"
+    if sj.exists() and json.loads(sj.read_text()).get("tmpdir"):
+        tmp = Path(json.loads(sj.read_text())["tmpdir"])
+    env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={tmp}",
            f"CUDA_VISIBLE_DEVICES={cuda}", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
     # -I ignores PYTHONPATH; the shim puts this checkout's wsp first so a worktree runs its own harness
-    shim = f"import sys,runpy; sys.path.insert(0, {str(REPO)!r}); runpy.run_path({script!r}, run_name='__main__')"
+    lock = ""
+    if (Path(run_dir) / "landlock.json").exists():   # stage 4: a file allow-list (wsp/landlock.py) before the program starts; irreversible from inside
+        lock = f"import json; from wsp import landlock; landlock.restrict(**json.load(open({str(Path(run_dir) / 'landlock.json')!r}))); "
+    shim = f"import sys,runpy; sys.path.insert(0, {str(REPO)!r}); {lock}runpy.run_path({script!r}, run_name='__main__')"
     cmd = env + (["unshare", "-Un"] if _unshare_works() else []) + [str(venv_py), "-I", "-c", shlex.quote(shim)]
     return "cd " + str(run_dir) + " && " + " ".join(cmd)
 
 
 def new(subject: str, practice: str, budget: int, run_id: str | None = None, seed: int = 20261106,
         data_root: str | None = None, spool: str | None = None, device: str = "cpu", min_effect: float = 0.0,
-        cluster_rule: bool = False) -> Path:
+        cluster_rule: bool = False, restrict_files: bool = False, donors: list[str] | None = None) -> Path:
+    """``restrict_files`` (stage 4): the session starts under a Landlock allow-list (``landlock.json`` in the run folder, see ``wsp.landlock.session_paths``):
+    its interpreter, the harness, the subject, the practice list and images, its own folder; ``donors`` are added only for arms that have them.
+    A donor-free session passes ``donors=[]``, so no other model, run folder or held-out line can be opened."""
     subj_path, prac_path = Path(subject), Path(practice)
     s = _subject(subj_path)
     items = load(prac_path)
@@ -158,6 +167,17 @@ def new(subject: str, practice: str, budget: int, run_id: str | None = None, see
         meta.update({"unit": "page", "data_root": str(Path(data_root).resolve())})
         if spool:  # passes through a running wsp.vllm_server (stage A3: planted-defect control)
             meta.update({"engine": "vllm-server (batched, not run-to-run deterministic)", "spool": str(Path(spool).resolve())})
+    if restrict_files:
+        if not _is_trocr(subj_path):
+            raise ValueError("restrict_files is implemented for TrOCR sessions")
+        from wsp import landlock
+        tmpdir = Path.home() / "atr-cache" / "tmp" / run_dir.name      # a private temporary directory: the shared one holds other jobs' files
+        tmpdir.mkdir(parents=True, exist_ok=True)
+        meta["tmpdir"] = str(tmpdir)
+        paths = landlock.session_paths(run_dir, subj_path.resolve(), prac_path.resolve(), Path(meta["python"]), REPO, [Path(d).resolve() for d in donors or []],
+                                       tmp=tmpdir)
+        (run_dir / "landlock.json").write_text(json.dumps(paths, indent=1))
+        meta.update({"restrict_files": True, "donors_visible": [str(Path(d).resolve()) for d in donors or []]})
     (run_dir / "session.json").write_text(json.dumps(meta, indent=2))
     (run_dir / "preregistration.md").write_text(PREREGISTRATION.format(
         name=run_dir.name, subject=subj_path, digest=meta["subject_digest"], file_sha=meta["subject_file_sha256"],
@@ -201,13 +221,13 @@ class RunSession(Session):
         """The harness's keep rule decides (Session.keep); only a kept state is persisted.
         Until 06.11.2026 this wrapper returned None, so a programmer reading the return value
         saw every keep as refused (session 20261106-bern-combined-v1-b10-1, deviations)."""
-        kept = self._replayed("keep", reason) if self._replay is not None else super().keep(reason)
+        kept = self._replayed("keep", reason) if (self._replay is not None and self._last_edit is not None) else super().keep(reason)
         if kept:
             self.subject.save(self.run_dir / f"current{_ext(self.subject)}")
         return kept
 
     def revert(self, reason: str = "") -> None:
-        if self._replay is not None:
+        if self._replay is not None and self._last_edit is not None:
             self._replayed("revert", reason)
         else:
             super().revert(reason)
