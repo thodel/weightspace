@@ -45,7 +45,94 @@ programmer.
      unit is already the page, so the two coincide.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   _To be written by the programmer._
+   **Structural diagnosis from budget-0 reading:**
+   On the 64 practice pages (`docs/baselines/c0-kurrent-val-v2.json`), C0 has CER 0.4515
+   (48,873 edits / 108,243 chars), `truncated_cer` 0.2564, `length_ratio` 1.226, and 9 pages
+   at the 3,072-token cap. Those 9 at-cap pages account for 33,936 of the 48,873 total edits
+   (~19.5 points of CER are text written past the end of the page). Moreover, a paired
+   page-bootstrap simulation over the 64 pages shows that at least 4 of the 9 at-cap pages
+   must stop looping for the 95 % bootstrap interval of ΔCER to clear 0 (`ci95` entirely
+   below 0).
+   In the logit-lens reading (`docs/readings/adapter_kurrent-page-v2.json`) and SVD geometry
+   of the residual-writing modules (`down_proj` and `o_proj`), there is a striking late-layer
+   direction cluster:
+   - `layers.31.self_attn.o_proj` dir 0 ($\sigma = 2.226$) and `layers.31.mlp.down_proj` dir 0
+     ($\sigma = 2.612$) are the two strongest suppressors of `<|im_end|>` across the entire
+     adapter ($z = -3.60$ and $z = -3.32$), while also strongly suppressing `\n` ($z = -5.52$
+     and $-1.95$) and `¬` ($z = -8.06$ and $-0.93$) and promoting out-of-domain tokens.
+   - Geometrically, these two top singular directions in the final layer are strongly aligned
+     ($\cos = +0.516$), and both are anti-aligned ($\cos = -0.483$ and $-0.430$) with
+     `layers.30.mlp.down_proj` dir 0 ($\sigma = 3.705$, $z(\text{<|im\_end|>}) = +2.85$,
+     $z(\text{\\n}) = +2.05$), directly counteracting layer 30's stopping signal right before
+     the final norm and `lm_head`.
+   - Upstream in the late block, `layers.29.mlp.down_proj` dir 0 ($\sigma = 2.802$,
+     $z(\text{<|im\_end|>}) = -1.51$, $z(\text{\\n}) = -4.04$, $z(\neg) = -3.40$,
+     $\cos(\text{L31.o\_proj:0}) = +0.296$) and `layers.27.mlp.down_proj` dir 0
+     ($\sigma = 2.678$, $z(\text{<|im\_end|>}) = -2.80$, $\cos(\text{L31.o\_proj:0}) = +0.165$)
+     belong to the same `<|im_end|>`-suppressing subspace.
+
+   **Plan across the 10-pass budget:**
+   - **Pass 1 (Baseline C0):** Run `s.measure("C0")` on the unedited adapter.
+     - *Prediction:* Reproduces C0 exactly: CER 0.4515, `truncated_cer` 0.2564, 9 pages at cap.
+       If it does not reproduce C0, stop immediately and report the discrepancy.
+   - **Pass 2 — H1 (`project_out`, rank-1 direction removal on both layer-31 residual writers):**
+     Project out dir 0 ($u_0$) from `layers.31.self_attn.o_proj.lora_B.weight` (`axis=1`) and
+     dir 0 ($u_0$) from `layers.31.mlp.down_proj.lora_B.weight` (`axis=1`).
+     - *Predicted direction and magnitude:* CER drops by 0.08 to 0.16 (to ~0.29–0.37),
+       `truncated_cer` stays unchanged within $\pm 0.003$ (~0.256), and pages at the cap drop
+       by 4 to 7 pages (from 9 to 2–5).
+     - *What we conclude if it fails:* If at-cap pages drop by fewer than 4 (so the 95 % CI
+       contains 0) or do not drop at all, removing the two layer-31 `<|im_end|>`-suppressing
+       singular directions alone is either too weak to flip enough pages out of repetition
+       loops or the two modules interact differently individually; we will inspect the per-page
+       readings from Pass 2 (`passes/`) to see whether individual modules or upstream late-layer
+       suppressors (`layers.27` / `layers.29`) are needed.
+   - **Pass 3 — H2 (Conditional on Pass 2; `project_out`, upstream/downstream late-layer
+     `<|im_end|>` suppressors):**
+     - If H1 is **kept**: extend the edit by projecting out `layers.27.mlp.down_proj` dir 0
+       ($\sigma = 2.678, z = -2.80$) and `layers.29.mlp.down_proj` dir 0
+       ($\sigma = 2.802, z = -1.51, z(\text{\\n}) = -4.04$) (`axis=1` on their `lora_B.weight`).
+       *Prediction:* CER drops by a further 0.03 to 0.08 against H1, `truncated_cer` remains
+       within $\pm 0.003$ of baseline, and pages at the cap drop by an additional 1 to 3 pages.
+       *If it fails:* The layer-31 projection already captured the removable late-layer
+       stopping obstacle; upstream rank-1 removals add no statistically significant gain.
+     - If H1 is **refused**: test projecting out `layers.31.self_attn.o_proj` dir 0,
+       `layers.31.mlp.down_proj` dir 0, `layers.29.mlp.down_proj` dir 0, and
+       `layers.27.mlp.down_proj` dir 0 jointly in a single multi-tensor `project_out` edit
+       (or isolating the single strongest module if H1 hurt `truncated_cer`), guided by the
+       Pass 2 per-page readings.
+       *Prediction:* CER drops by 0.09 to 0.18 vs C0, `truncated_cer` stays within $\pm 0.004$,
+       and pages at the cap drop by 4 to 7 pages (from 9 to 2–5).
+       *If it fails:* Rank-1 removal of the top `<|im_end|>`-suppressing singular vectors in
+       layers 27–31 does not resolve the page-end looping symptom.
+   - **Pass 4 — H3 (`project_out`, cross-layer shared `<|im_end|>`-suppression vector or
+     isolated single-module ablations):**
+     - Decide based on Passes 2–3: either project the single shared layer-31
+       `<|im_end|>`-suppressing unit direction $u_{\text{L31}}$ out of all late residual writers
+       (`layers.{27..31}.{mlp.down_proj, self_attn.o_proj}`) simultaneously (`project_out`,
+       `axis=1`), or isolate single-module dir-0 projections (`layers.31.self_attn.o_proj`
+       alone vs `layers.31.mlp.down_proj` alone vs `layers.26.mlp.down_proj` dir 2).
+     - *Prediction:* CER decreases by 0.03 to 0.12 vs the last kept state, `truncated_cer`
+       changes by at most $\pm 0.003$, and at-cap pages decrease by 1 to 5.
+     - *If it fails:* Conclude that further rank-1 direction projections in the late residual
+       stream do not improve stopping beyond the already-kept state (or that the loop is not
+       driven by a single linear residual direction).
+   - **Pass 5 — H4 (`scale`, late-layer residual writer attenuation):**
+     - Test scaling down `lora_B.weight` of layer 31 (or layers 27–31) residual-writing or
+       MLP modules (`scale`, factor $0.5$ or $0.7$), where energy surges in layers 27–30.
+     - *Prediction:* CER drops by 0.04 to 0.10 vs the last kept state, `truncated_cer` stays
+       within $\pm 0.005$, and pages at the cap drop by 2 to 5.
+     - *If it fails:* Whole-module damping in late layers trades off reading accuracy against
+       stopping or does not beat surgical rank-1 projection.
+   - **Passes 6–10 — H5–H9 (Follow-up hypotheses decided from Passes 1–5 results):**
+     - Each follow-up will be registered as a hypothesis with an explicit predicted direction
+       and magnitude for CER, `truncated_cer` and at-cap pages before its pass is run, exploring
+       either: (a) mid/early-layer `<|im_end|>` suppressors (`layers.14.mlp.down_proj` dir 2,
+       $z = -2.67$; `layers.3.mlp.down_proj` dir 0, $z = -2.48$; `layers.8.mlp.down_proj` dir 0,
+       $z = -2.29$), (b) newline/line-break suppressors on pages that loop on punctuation/lines,
+       or (c) early `s.freeze()` if the obstacle has been cleanly removed and remaining at-cap
+       pages are genuine long/dense pages or base-model loops that cannot be improved without
+       degrading `truncated_cer`.
 
 6. **Controls.** If an edit is kept, they run outside the budget on the same 64 pages, with
    the same engine, before the held-out score:

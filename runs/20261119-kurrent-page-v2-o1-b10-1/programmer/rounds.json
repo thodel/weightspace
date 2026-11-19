@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 10,
+  "summary": "Round 0 is ready for the operator. Section 5 preregisters three edits and a conditional plan for the remaining passes. program_01.py measures C0 first and stops on any practice-summary mismatch; otherwise it tests the two layer-31 residual-writing directions and applies the keep rule. notes.md records the UTC timestamp, model ID, operator settings and files consulted. No pass was run.",
+  "ended": "2026-11-19T09:29:31+00:00",
+  "program": "program_01.py",
+  "usage_total": {
+   "input": 194883,
+   "output": 6154,
+   "reasoning": 280,
+   "calls": 10
+  }
+ }
+]

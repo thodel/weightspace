@@ -45,7 +45,11 @@ programmer.
      unit is already the page, so the two coincide.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   _To be written by the programmer._
+   - Pass 1: unedited C0. Expect exact agreement with the archived practice scores; stop on mismatch. All predictions below are absolute differences from the last kept state.
+   - Pass 2, H1 (project_out): remove the first left singular direction from each of layer 31's `self_attn.o_proj` and `mlp.down_proj` B factors in one edit. These last two residual writers both have leading axes with unusually large end-token contrasts. The lens selects axes, not activation signs: whether either disfavors stopping depends on its input. If both carry excess continuation, expect CER −0.055, truncated CER roughly unchanged (within 0.005), and 3 fewer capped pages. A refusal means this pair is not a demonstrated remedy, not that end signals are absent. Shorter output with worse truncated CER suggests premature stopping.
+   - Pass 3, H2 (scale): reduce `self_attn.q_proj` B to 0.65 of current strength at layers 19, 23, 27, 31 only. Late attention may favor generated text over the exhausted image, sustaining repeats even with intact end-token readout. Alter the query update, not keys or values. Expect CER −0.045, truncated CER +0.003 from slightly worse alignment, caps −2. If it fails, late query attenuation at this dose has not separated stopping from reading.
+   - Pass 4, H3 (scale): reduce `mlp.gate_proj` B in layers 24–31 to 0.75. These large late gate updates could maintain transcription features after the last visible line. Expect CER −0.04, truncated CER +0.005, caps −2. Failure argues against this block and dose; update energy alone does not diagnose a loop.
+   - Passes 5–10 reserved for follow-ups, or early freeze. Inspect which capped/loop pages recover, new failures, and whether the CER change survives dropping the single biggest beneficiary descriptively. For a multi-page reduction with a reading penalty, narrow the layer set or soften the dose; for broad improvement without a reading penalty, test a distinct remaining block. Do not chase a lone cap flip. Specify modules, operation, numeric predictions and failure interpretation before each follow-up. Every comparison is to the last kept state under section 4. Freeze if no supported avenue remains, even if nothing was kept.
 
 6. **Controls.** If an edit is kept, they run outside the budget on the same 64 pages, with
    the same engine, before the held-out score:

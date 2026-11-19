@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 16,
+  "summary": "Completed Round 0: analyzed the budget-0 adapter reading and SVD geometry, filled in Section 5 (Hypotheses) of preregistration.md, wrote program_01.py (Pass 1 baseline C0 verification + Pass 2 H1 projecting out dir 0 of layers.31.self_attn.o_proj and dir 0 of layers.31.mlp.down_proj), and recorded a timestamped entry in notes.md.",
+  "ended": "2026-11-19T09:33:02+00:00",
+  "program": "program_01.py",
+  "usage_total": {
+   "input": 822261,
+   "output": 11769,
+   "reasoning": 0,
+   "calls": 16
+  }
+ }
+]
