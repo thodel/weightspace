@@ -116,5 +116,13 @@
       "reason": "Baseline length below minimum 5px"
     }
   ],
-  "selection": "every candidate line in source order (no sampling)"
+  "selection": "every candidate line in source order (no sampling)",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_lassberg-blb-gt",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_lassberg-blb-gt",
+    "visibility": "private",
+    "licence": "MIT (dataset card)",
+    "content": "Laßberg holdings of the Badische Landesbibliothek Karlsruhe (K 2911-K 2915, K 3123 and others), PAGE XML converted from the library's ALTO full text",
+    "related_public": "https://huggingface.co/datasets/dh-unibe/lassberg-letters-htr (CC BY 4.0; a page-level release of the letters, not the copy used here)"
+  }
 }

@@ -18,5 +18,13 @@
     "126495"
   ],
   "skipped": [],
-  "selection": "every candidate line in source order (no sampling)"
+  "selection": "every candidate line in source order (no sampling)",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_newseye-onb",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_newseye-onb",
+    "visibility": "private",
+    "licence": "CC BY 4.0",
+    "upstream": "https://doi.org/10.5281/zenodo.3387369",
+    "upstream_owner": "NewsEye / READ; originals Österreichische Nationalbibliothek"
+  }
 }

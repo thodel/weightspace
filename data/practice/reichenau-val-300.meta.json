@@ -19,5 +19,13 @@
     "1896705"
   ],
   "skipped": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_reichenau-inkunabeln",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_reichenau-inkunabeln",
+    "visibility": "private",
+    "licence": "CC BY-SA 4.0",
+    "upstream": "https://doi.org/10.5281/zenodo.11046062",
+    "upstream_owner": "Badische Landesbibliothek"
+  }
 }

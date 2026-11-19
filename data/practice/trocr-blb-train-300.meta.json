@@ -133,5 +133,13 @@
   ],
   "selection": "random.Random(seed).sample over all candidate lines in source order",
   "derived_from": "blb-train-300 (byte-identical line list, same crops and image hashes)",
-  "note": "The TrOCR track's practice set is the kraken family-2 practice set, unchanged, so that kraken, Qwen-page and TrOCR numbers on these lines are comparable. BLB train side only (lassberg, korrespondenten, unbestimmt, manuskripte; never *_eval). Objects are disjoint from data/heldout/blb-eval-hand (see overlap-trocr-blb-train-300.json). 7 of the 300 crops are taller than wide and 7 references have 1-3 characters (rules that blb-eval-hand excludes); they are kept, as in every earlier use of this list."
+  "note": "The TrOCR track's practice set is the kraken family-2 practice set, unchanged, so that kraken, Qwen-page and TrOCR numbers on these lines are comparable. BLB train side only (lassberg, korrespondenten, unbestimmt, manuskripte; never *_eval). Objects are disjoint from data/heldout/blb-eval-hand (see overlap-trocr-blb-train-300.json). 7 of the 300 crops are taller than wide and 7 references have 1-3 characters (rules that blb-eval-hand excludes); they are kept, as in every earlier use of this list.",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_lassberg-blb-gt",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_lassberg-blb-gt",
+    "visibility": "private",
+    "licence": "MIT (dataset card)",
+    "content": "Laßberg holdings of the Badische Landesbibliothek Karlsruhe (K 2911-K 2915, K 3123 and others), PAGE XML converted from the library's ALTO full text",
+    "related_public": "https://huggingface.co/datasets/dh-unibe/lassberg-letters-htr (CC BY 4.0; a page-level release of the letters, not the copy used here)"
+  }
 }

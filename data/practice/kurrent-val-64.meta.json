@@ -72,5 +72,10 @@
   "ref_chars_median": 1344,
   "ref_chars_median_side": 1252,
   "ref_chars_max": 7760,
-  "sha256": "2cc5278ea215b72d5f2faad9977abcde6dde36bc327876d08643852827d46f9b"
+  "sha256": "2cc5278ea215b72d5f2faad9977abcde6dde36bc327876d08643852827d46f9b",
+  "provenance": {
+    "dataset": "german-kurrent-xvi-xix-v1 evaluation set (validation pages)",
+    "visibility": "not public",
+    "licence": "in-house compilation; not redistributed beyond the lines here"
+  }
 }

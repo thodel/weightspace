@@ -20,5 +20,13 @@
  ],
  "skipped": [],
  "selection": "confirmation set: 700 lines sampled with seed 20261108, minus the 72 that are in reichenau-val-300, first 300 kept (disjoint from reichenau-val-300)",
- "lines": 300
+ "lines": 300,
+ "provenance": {
+  "dataset": "dh-unibe/image-text_reichenau-inkunabeln",
+  "url": "https://huggingface.co/datasets/dh-unibe/image-text_reichenau-inkunabeln",
+  "visibility": "private",
+  "licence": "CC BY-SA 4.0",
+  "upstream": "https://doi.org/10.5281/zenodo.11046062",
+  "upstream_owner": "Badische Landesbibliothek"
+ }
 }

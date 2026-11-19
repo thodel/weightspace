@@ -31,5 +31,13 @@
  ],
  "skipped": [],
  "selection": "confirmation set: 700 lines sampled with seed 20261108, minus the 12 that are in gt-fraktur-300, first 300 kept (disjoint from gt-fraktur-300)",
- "lines": 300
+ "lines": 300,
+ "provenance": {
+  "dataset": "dh-unibe/image-text_gt-fraktur",
+  "url": "https://huggingface.co/datasets/dh-unibe/image-text_gt-fraktur",
+  "visibility": "private",
+  "licence": "CC0-1.0",
+  "upstream": "https://github.com/ubtue/gt-fraktur",
+  "upstream_owner": "Universitätsbibliothek Tübingen"
+ }
 }

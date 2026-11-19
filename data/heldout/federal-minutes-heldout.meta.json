@@ -65,5 +65,13 @@
     "17266",
     "17267",
     "17268"
-  ]
+  ],
+  "provenance": {
+    "dataset": "dh-unibe/image-text_federal-minutes-testset",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_federal-minutes-testset",
+    "visibility": "private",
+    "licence": "CC BY 4.0",
+    "upstream": "https://doi.org/10.5281/zenodo.4746342",
+    "upstream_owner": "Hodel & Schoch (2021), minutes of the Swiss Federal Council 1848-1903"
+  }
 }

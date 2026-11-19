@@ -6,5 +6,10 @@
   "disjoint_from": "kurrent-val-64 (pages)",
   "role": "A3 score set only; never practice; test side untouched",
   "sha256": "6300181905a39a800e7227494ad621236e6b17ed10a2b912ba47cb0c440fa886",
-  "ref_chars_median": 667
+  "ref_chars_median": 667,
+  "provenance": {
+    "dataset": "german-kurrent-xvi-xix-v1 evaluation set (validation pages)",
+    "visibility": "not public",
+    "licence": "in-house compilation; not redistributed beyond the lines here"
+  }
 }

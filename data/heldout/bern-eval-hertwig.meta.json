@@ -8,5 +8,12 @@
   "13922499"
  ],
  "seed": null,
- "selection": "key prefix A_V_1443_Hertwig_test/"
+ "selection": "key prefix A_V_1443_Hertwig_test/",
+ "provenance": {
+  "dataset": "dh-unibe/image-text_bern-disputation-1528",
+  "url": "https://huggingface.co/datasets/dh-unibe/image-text_bern-disputation-1528",
+  "visibility": "private",
+  "licence": "MIT (dataset card)",
+  "content": "Transkribus export of volumes A V 1443 (Hertwig) and A V 1447 (Schlussredaktion), Bern disputation 1528"
+ }
 }

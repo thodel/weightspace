@@ -30,5 +30,11 @@
     "1627770"
   ],
   "skipped": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_rats-und-richtebuecher_xv-xvi",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_rats-und-richtebuecher_xv-xvi",
+    "visibility": "public",
+    "licence": "MIT"
+  }
 }

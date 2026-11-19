@@ -12,5 +12,10 @@
   "candidates": 20535,
   "sha256": "a2f0f40006e7a377b92cef13ad0274ed5fcf91691c545a86f4309767775e061f",
   "documents": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "german-medieval-v1 (in-house compilation of four medieval German corpora)",
+    "visibility": "not public",
+    "licence": "in-house compilation; not redistributed beyond the lines here"
+  }
 }
