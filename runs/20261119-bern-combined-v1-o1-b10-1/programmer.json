@@ -1,0 +1,22 @@
+{
+ "provider": "openai",
+ "model": "gpt-6.2-astra",
+ "label": "GPT-6.2 Astra",
+ "root": "/home/tobias/Repo/weightspace",
+ "readable": [
+  "{run}/pack/*",
+  "data/practice/bern-train-300.jsonl",
+  "data/practice/bern-train-300.meta.json",
+  "wsp/ops.py",
+  "wsp/session.py",
+  "wsp/run.py",
+  "wsp/kraken_subject.py",
+  "wsp/subject.py",
+  "wsp/align.py",
+  "wsp/metrics.py",
+  "wsp/data.py"
+ ],
+ "options": {},
+ "template": "runs/20261111-bern-combined-v1-f1-b10-1",
+ "created": "2026-11-19T07:58:32+00:00"
+}

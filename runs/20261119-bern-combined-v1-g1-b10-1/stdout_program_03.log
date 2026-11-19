@@ -1,0 +1,17 @@
+Reopened session: budget_used=6/10, kept_collapsed=21
+=== Pass 7: H6_layer_graded_3way_blend ===
+  Overall CER: 0.1361 (1474/10829) | WER: 0.3523 | collapsed: 23 (kept_collapsed=21) | len_ratio: 0.9377
+  Hertwig CER: 0.1671 (569/3405, collapsed=8) | Schlussred. CER: 0.1219 (905/7424, collapsed=15)
+  vs_kept:     delta=+0.0006 | line_ci95=[-0.0014, +0.0026] | page_ci95=[-0.0018, +0.0031]
+  vs_baseline: delta=-0.0095 | line_ci95=[-0.0170, -0.0026] | page_ci95=[-0.0189, -0.0011]
+  Top confusions: [(' ', '', 142), ('e', '', 73), ('', ' ', 62), ('/', '', 57), ('n', '', 55), ('i', '', 50), ('', '/', 43), ('r', '', 39)]
+  -> REVERTED (collapsed rose 21 -> 23)
+=== Pass 8: H7_blank_bias_minus_005 ===
+  Overall CER: 0.1352 (1464/10829) | WER: 0.3503 | collapsed: 21 (kept_collapsed=21) | len_ratio: 0.9402
+  Hertwig CER: 0.1639 (558/3405, collapsed=7) | Schlussred. CER: 0.1220 (906/7424, collapsed=14)
+  vs_kept:     delta=-0.0004 | line_ci95=[-0.0008, +0.0000] | page_ci95=[-0.0009, +0.0001]
+  vs_baseline: delta=-0.0104 | line_ci95=[-0.0179, -0.0039] | page_ci95=[-0.0202, -0.0020]
+  Top confusions: [(' ', '', 138), ('e', '', 71), ('', ' ', 63), ('/', '', 57), ('n', '', 55), ('i', '', 50), ('', '/', 46), ('r', '', 37)]
+  -> REFUSED by keep rule (interval contains 0)
+End of program_03.py: budget_used=8/10, budget_left=2
+exit 0

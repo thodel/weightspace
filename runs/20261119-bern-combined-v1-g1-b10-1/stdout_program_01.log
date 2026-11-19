@@ -1,0 +1,29 @@
+=== Pass 1: C0 (baseline) ===
+  Overall CER: 0.1456 (1577/10829) | WER: 0.3464 | collapsed: 29 (kept_collapsed=29) | len_ratio: 0.9180
+  Hertwig CER: 0.2050 (698/3405, collapsed=10) | Schlussred. CER: 0.1184 (879/7424, collapsed=19)
+  vs_kept:     delta=+0.0000 | line_ci95=[+0.0000, +0.0000] | page_ci95=[+0.0000, +0.0000]
+  vs_baseline: delta=+0.0000 | line_ci95=[+0.0000, +0.0000]
+  Top confusions: [(' ', '', 168), ('e', '', 78), ('n', '', 71), ('/', '', 70), ('i', '', 65), ('', ' ', 54), ('r', '', 53), ('t', '', 50)]
+=== Pass 2: H1_blank_bias_parent ===
+  Overall CER: 0.1451 (1571/10829) | WER: 0.3469 | collapsed: 29 (kept_collapsed=29) | len_ratio: 0.9209
+  Hertwig CER: 0.2041 (695/3405, collapsed=10) | Schlussred. CER: 0.1180 (876/7424, collapsed=19)
+  vs_kept:     delta=-0.0006 | line_ci95=[-0.0014, +0.0003] | page_ci95=[-0.0016, +0.0005]
+  vs_baseline: delta=-0.0006 | line_ci95=[-0.0014, +0.0003]
+  Top confusions: [(' ', '', 164), ('e', '', 75), ('n', '', 71), ('/', '', 68), ('i', '', 63), ('', ' ', 54), ('r', '', 52), ('t', '', 46)]
+  -> REFUSED by keep rule (interval contains 0)
+=== Pass 3: H2_O18_parent_sibling_midpoint ===
+  Overall CER: 0.1425 (1543/10829) | WER: 0.3488 | collapsed: 27 (kept_collapsed=29) | len_ratio: 0.9262
+  Hertwig CER: 0.1968 (670/3405, collapsed=9) | Schlussred. CER: 0.1176 (873/7424, collapsed=18)
+  vs_kept:     delta=-0.0031 | line_ci95=[-0.0061, -0.0002] | page_ci95=[-0.0070, +0.0005]
+  vs_baseline: delta=-0.0031 | line_ci95=[-0.0061, -0.0001]
+  Top confusions: [(' ', '', 158), ('e', '', 73), ('/', '', 67), ('n', '', 60), ('i', '', 56), ('', ' ', 54), ('r', '', 46), ('t', '', 46)]
+  -> KEPT (H2 O_18 clean donor midpoint lowered CER); new kept_collapsed=27
+=== Pass 4: H3_full_parent_sibling_midpoint_a050 ===
+  Overall CER: 0.1461 (1582/10829) | WER: 0.3866 | collapsed: 23 (kept_collapsed=27) | len_ratio: 0.9331
+  Hertwig CER: 0.1430 (487/3405, collapsed=7) | Schlussred. CER: 0.1475 (1095/7424, collapsed=16)
+  vs_kept:     delta=+0.0036 | line_ci95=[-0.0063, +0.0124] | page_ci95=[-0.0080, +0.0149]
+  vs_baseline: delta=+0.0005 | line_ci95=[-0.0101, +0.0108]
+  Top confusions: [(' ', '', 164), ('e', '', 74), ('/', '', 73), ('n', '', 53), ('i', '', 52), ('', ' ', 49), ('', '/', 44), ('D', 'd', 43)]
+  -> REFUSED by keep rule (interval contains 0)
+End of program_01.py: budget_used=4/10, budget_left=6
+exit 0

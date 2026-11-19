@@ -231,3 +231,26 @@ def test_gemini_client_over_http():
         assert seen[1][2]["contents"][1]["parts"][1]["thoughtSignature"] == "SIG"
     finally:
         srv.shutdown()
+
+
+def test_openai_responses_client_over_http():
+    srv, seen = _fake_server(lambda path, body: {
+        "id": "resp1", "model": "gpt-6.2-astra-2026", "status": "completed",
+        "output": [{"type": "reasoning", "id": "rs1", "summary": []},
+                   {"type": "function_call", "id": "fc1", "call_id": "call1", "name": "list_dir",
+                    "arguments": "{\"path\": \"wsp\"}"}],
+        "usage": {"input_tokens": 20, "output_tokens": 6, "output_tokens_details": {"reasoning_tokens": 4}}})
+    try:
+        c = P.OpenAIResponses("gpt-6.2-astra", "KEY", f"http://127.0.0.1:{srv.server_port}/v1")
+        conv = c.start("sys"); c.add_user(conv, "go")
+        t = c.send(conv)
+        assert t.calls == [("call1", "list_dir", {"path": "wsp"})] and t.usage == {"input": 20, "output": 6, "reasoning": 4}
+        path, headers, body = seen[0]
+        assert path == "/v1/responses" and body["instructions"] == "sys" and body["input"] == [{"role": "user", "content": "go"}]
+        assert body["tools"][0]["type"] == "function" and body["tools"][0]["name"] == "read_file"
+        c.add_results(conv, [("call1", "list_dir", "ops.py")])
+        c.send(conv)
+        sent = seen[1][2]["input"]
+        assert [i.get("type") for i in sent[1:]] == ["reasoning", "function_call", "function_call_output"]
+    finally:
+        srv.shutdown()

@@ -1,0 +1,17 @@
+Reopened session: budget_used=4/10, kept_collapsed=27
+=== Pass 5: H4_blend_50sub_20par_30sib ===
+  Overall CER: 0.1356 (1468/10829) | WER: 0.3508 | collapsed: 21 (kept_collapsed=27) | len_ratio: 0.9391
+  Hertwig CER: 0.1639 (558/3405, collapsed=7) | Schlussred. CER: 0.1226 (910/7424, collapsed=14)
+  vs_kept:     delta=-0.0069 | line_ci95=[-0.0131, -0.0014] | page_ci95=[-0.0149, +0.0006]
+  vs_baseline: delta=-0.0101 | line_ci95=[-0.0177, -0.0033] | page_ci95=[-0.0198, -0.0017]
+  Top confusions: [(' ', '', 139), ('e', '', 72), ('', ' ', 64), ('/', '', 56), ('n', '', 56), ('i', '', 51), ('', '/', 46), ('r', '', 37)]
+  -> KEPT (H4 three-way blend (50% sub, 20% par, 30% sib) lowered CER); new kept_collapsed=21
+=== Pass 6: H5_clean_donor_merge_a068 ===
+  Overall CER: 0.1405 (1522/10829) | WER: 0.3719 | collapsed: 23 (kept_collapsed=21) | len_ratio: 0.9331
+  Hertwig CER: 0.1706 (581/3405, collapsed=8) | Schlussred. CER: 0.1268 (941/7424, collapsed=15)
+  vs_kept:     delta=+0.0050 | line_ci95=[+0.0014, +0.0083] | page_ci95=[+0.0007, +0.0094]
+  vs_baseline: delta=-0.0051 | line_ci95=[-0.0136, +0.0021] | page_ci95=[-0.0149, +0.0040]
+  Top confusions: [(' ', '', 167), ('e', '', 76), ('/', '', 63), ('n', '', 58), ('i', '', 53), ('', ' ', 50), ('', '/', 42), ('r', '', 38)]
+  -> REVERTED (collapsed rose 21 -> 23)
+End of program_02.py: budget_used=6/10, budget_left=4
+exit 0

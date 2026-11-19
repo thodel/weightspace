@@ -1,0 +1,26 @@
+Reopened session: budget_used=8/10, kept_collapsed=21
+=== Pass 9: H8_uniform_3way_35sub_25par_40sib ===
+  Overall CER: 0.1353 (1465/10829) | WER: 0.3513 | collapsed: 22 (kept_collapsed=21) | len_ratio: 0.9379
+  Hertwig CER: 0.1621 (552/3405, collapsed=7) | Schlussred. CER: 0.1230 (913/7424, collapsed=15)
+  vs_kept:     delta=-0.0003 | line_ci95=[-0.0022, +0.0016] | page_ci95=[-0.0025, +0.0020]
+  vs_baseline: delta=-0.0103 | line_ci95=[-0.0181, -0.0036] | page_ci95=[-0.0202, -0.0014]
+  Top confusions: [(' ', '', 145), ('e', '', 75), ('', ' ', 60), ('/', '', 58), ('n', '', 53), ('i', '', 52), ('', '/', 43), ('r', '', 37)]
+  -> REVERTED (collapsed rose 21 -> 22)
+=== Pass 10: H9_norm_restored_blank_minus_010 ===
+  Overall CER: 0.1346 (1458/10829) | WER: 0.3513 | collapsed: 20 (kept_collapsed=21) | len_ratio: 0.9424
+  Hertwig CER: 0.1636 (557/3405, collapsed=7) | Schlussred. CER: 0.1214 (901/7424, collapsed=13)
+  vs_kept:     delta=-0.0009 | line_ci95=[-0.0019, +0.0001] | page_ci95=[-0.0021, +0.0003]
+  vs_baseline: delta=-0.0110 | line_ci95=[-0.0187, -0.0044] | page_ci95=[-0.0205, -0.0026]
+  Top confusions: [(' ', '', 137), ('e', '', 70), ('', ' ', 65), ('/', '', 54), ('n', '', 53), ('', '/', 49), ('i', '', 49), ('r', '', 35)]
+  -> REFUSED by keep rule (interval contains 0)
+=== Session Frozen ===
+{
+  "name": "20261119-bern-combined-v1-g1-b10-1",
+  "used": 10,
+  "budget": 10,
+  "edits": 9,
+  "kept": 2,
+  "start_digest": "4836a9f494a9a62c2a743a0df0d0a848601a39ccee229964cd89687ddef8016c",
+  "final_digest": "ade4ee993df41340ce6561fd3b6cc1d0dd1e9425642c174d40fb51261b4cf6aa"
+}
+exit 0

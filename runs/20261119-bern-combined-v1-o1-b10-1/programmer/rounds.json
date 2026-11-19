@@ -1,0 +1,72 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 9,
+  "summary": "Round 0 is ready. Section 5 preregisters the baseline check, the first donor blend, and conditional follow-ups. program_01.py stops on a baseline mismatch; otherwise it tests the 35% subject, 30% parent, 35% sibling blend with character-aligned output rows and both keep safeguards. notes.md records the requested model ID, operator settings, and readings. No passes were run.",
+  "ended": "2026-11-19T08:01:10+00:00",
+  "program": "program_01.py",
+  "usage_total": {
+   "input": 146100,
+   "output": 8449,
+   "reasoning": 73,
+   "calls": 9
+  }
+ },
+ {
+  "round": 1,
+  "finished": true,
+  "steps": 4,
+  "summary": "Recorded the kept blend\u2019s trade-off: 166 fewer Hertwig edits, 68 more Schlussredaktion edits, and six fewer collapsed lines. Wrote program_02.py to test a sibling interpolation limited to the final recurrent layer and output head, then a blank-bias reduction against the last kept state. Both passes enforce the collapse guard and paired-bootstrap keep rule.",
+  "ended": "2026-11-19T08:09:08+00:00",
+  "program": "program_02.py",
+  "usage_total": {
+   "input": 262408,
+   "output": 10044,
+   "reasoning": 114,
+   "calls": 13
+  }
+ },
+ {
+  "round": 2,
+  "finished": true,
+  "steps": 6,
+  "summary": "Passes 3 and 4 were reverted because both paired CER intervals crossed zero. Recorded the hand-level trade-off and separator errors in notes.md. Program_03.py tests a 40% parent / 60% sibling blend, then a class-specific bias correction against whichever state is kept. Ready for the operator.",
+  "ended": "2026-11-19T08:16:48+00:00",
+  "program": "program_03.py",
+  "usage_total": {
+   "input": 467141,
+   "output": 11916,
+   "reasoning": 184,
+   "calls": 19
+  }
+ },
+ {
+  "round": 3,
+  "finished": true,
+  "steps": 6,
+  "summary": "Passes 5 and 6 were reverted; pass 2 remains the kept state. Appended the results and line-level analysis to notes.md. Program_04.py tests two explanations for the Schlussredaktion loss: first, whether early features and later context benefit from different donor weights; second, whether restoring the subject\u2019s final recurrent layer and output head helps. Both tests enforce the original keep rules.",
+  "ended": "2026-11-19T08:18:29+00:00",
+  "program": "program_04.py",
+  "usage_total": {
+   "input": 700621,
+   "output": 14486,
+   "reasoning": 353,
+   "calls": 25
+  }
+ },
+ {
+  "round": 4,
+  "finished": true,
+  "steps": 4,
+  "summary": "Recorded why passes 7 and 8 were reverted: both increased pooled CER and collapsed-line count. Program_05.py tests one remaining hypothesis by moving only the convolution stack and first recurrent layer halfway toward the sibling. It applies both keep criteria, then freezes the last kept state after pass 9, leaving one pass unused.",
+  "ended": "2026-11-19T08:19:54+00:00",
+  "program": "program_05.py",
+  "usage_total": {
+   "input": 869993,
+   "output": 16503,
+   "reasoning": 500,
+   "calls": 29
+  }
+ }
+]
