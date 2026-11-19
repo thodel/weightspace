@@ -1,0 +1,29 @@
+{
+  "name": "20261119-trocr-planted-p06-enc3-ffn-x0.5-f-b10-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted-trocr/p06-enc3-ffn-x0.5",
+  "subject_digest": "cfaca90a9d4f64012196994ac5d55049ccff0fff34eae08799c0158c6e74d6c2",
+  "subject_file_sha256": "6c416ed5a54f708ec9964985fff1dcce2f50aa3af7dc538a8c220e93f21a7d3a",
+  "practice": "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/data/practice/trocr-blb-train-300-seen.jsonl",
+  "practice_sha256": "e102f7dd7e8fa492ff8c63191e7adf9584d264ac615398630d7708625c91bef4",
+  "practice_lines": 300,
+  "budget": 10,
+  "seed": 20261106,
+  "min_effect": 0.005,
+  "cluster_rule": true,
+  "created": "2026-11-19T06:14:12.816754+00:00",
+  "unshare": true,
+  "deviations": [],
+  "engine": "trocr",
+  "python": "/home/tobias/atr-cache/trocr/venv/bin/python",
+  "device": "cuda:0",
+  "batch": 8,
+  "generation": {
+    "num_beams": 4,
+    "max_new_tokens": 256,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": 1.0,
+    "early_stopping": true,
+    "do_sample": false,
+    "use_cache": true
+  }
+}
