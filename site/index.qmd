@@ -1,5 +1,5 @@
 ---
-title: "Agentic historian"
+title: "Understanding neural networks: automatic text recognition"
 subtitle: "Reading and editing the weights of text-recognition models, with LLM programmers under a preregistered protocol"
 image: protocol/figures/architecture.svg
 author:
