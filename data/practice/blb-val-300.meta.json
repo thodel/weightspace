@@ -23,5 +23,13 @@
     "K2912,32",
     "K2915,3"
   ],
-  "selection": "whole objects drawn with random.Random(20261107) until 450 hand lines, then 300 lines sampled; the eval side is the trainer's validation set (see script header)"
+  "selection": "whole objects drawn with random.Random(20261107) until 450 hand lines, then 300 lines sampled; the eval side is the trainer's validation set (see script header)",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_lassberg-blb-gt",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_lassberg-blb-gt",
+    "visibility": "private",
+    "licence": "MIT (dataset card)",
+    "content": "Laßberg holdings of the Badische Landesbibliothek Karlsruhe (K 2911-K 2915, K 3123 and others), PAGE XML converted from the library's ALTO full text",
+    "related_public": "https://huggingface.co/datasets/dh-unibe/lassberg-letters-htr (CC BY 4.0; a page-level release of the letters, not the copy used here)"
+  }
 }

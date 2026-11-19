@@ -32,5 +32,11 @@
     "117034"
   ],
   "skipped": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_parzival-part-1",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_parzival-part-1",
+    "visibility": "public",
+    "licence": "MIT"
+  }
 }

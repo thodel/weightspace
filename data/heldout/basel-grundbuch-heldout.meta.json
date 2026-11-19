@@ -266,5 +266,11 @@
     "HGB_1_225_069",
     "HGB_1_227_055"
   ],
-  "pages_kept": 111
+  "pages_kept": 111,
+  "provenance": {
+    "dataset": "dh-unibe/image-text_historisches-grundbuch-basel_xix-xx_train",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_historisches-grundbuch-basel_xix-xx_train",
+    "visibility": "public",
+    "licence": "MIT"
+  }
 }

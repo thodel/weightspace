@@ -74,5 +74,11 @@
     "1194075"
   ],
   "skipped": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_bullinger-autoren",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_bullinger-autoren",
+    "visibility": "public",
+    "licence": "MIT"
+  }
 }

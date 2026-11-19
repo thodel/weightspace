@@ -22,5 +22,12 @@
     "13922579"
   ],
   "skipped": [],
-  "selection": "random.Random(seed).sample over all candidate lines in source order"
+  "selection": "random.Random(seed).sample over all candidate lines in source order",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_bern-disputation-1528",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_bern-disputation-1528",
+    "visibility": "private",
+    "licence": "MIT (dataset card)",
+    "content": "Transkribus export of volumes A V 1443 (Hertwig) and A V 1447 (Schlussredaktion), Bern disputation 1528"
+  }
 }

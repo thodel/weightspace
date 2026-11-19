@@ -24,5 +24,13 @@
   }
  ],
  "selection": "confirmation set: 699 lines sampled with seed 20261108, minus the 49 that are in newseye-onb-val-300, first 300 kept (disjoint from newseye-onb-val-300)",
- "lines": 300
+ "lines": 300,
+ "provenance": {
+  "dataset": "dh-unibe/image-text_newseye-onb",
+  "url": "https://huggingface.co/datasets/dh-unibe/image-text_newseye-onb",
+  "visibility": "private",
+  "licence": "CC BY 4.0",
+  "upstream": "https://doi.org/10.5281/zenodo.3387369",
+  "upstream_owner": "NewsEye / READ; originals Österreichische Nationalbibliothek"
+ }
 }

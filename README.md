@@ -27,7 +27,7 @@ deploy/     asteraix_bootstrap.sh — idempotent setup on asteraix
 runs/       one folder per WSP session: hypotheses, edits, budget, scores
 docs/       MODELS.md (inventory), READINGS.md (per-model readings), RESULTS.md
 models/     local copies of weights (git-ignored)
-data/       practice / held-out line sets (git-ignored)
+data/       practice / held-out line lists and their meta files (crops git-ignored)
 ```
 
 ## Licence
@@ -37,6 +37,7 @@ data/       practice / held-out line sets (git-ignored)
   see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
 - **Not covered**: the line transcriptions in `data/`, the twelve line images in `docs/atlas/img/`
   (crops of archival scans: Bern, A_V_1447, and the Kurrent K2911/K2912 manuscripts) and the
-  models named in the docs keep the licences of their owners; the sources are named in each dataset's `meta.json` and in
-  `docs/MODELS.md`.
+  models named in the docs keep the licences of their owners. Each set's `meta.json` has a
+  `provenance` block naming the dataset, its URL or DOI, whether it is public, and its licence;
+  the models are listed in `docs/MODELS.md`.
   The site's Switzer font is loaded from Fontshare under its own licence.

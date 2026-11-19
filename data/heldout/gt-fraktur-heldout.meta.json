@@ -27,5 +27,13 @@
     "zpk_1838_01_0033"
   ],
   "skipped": [],
-  "selection": "every candidate line in source order (no sampling)"
+  "selection": "every candidate line in source order (no sampling)",
+  "provenance": {
+    "dataset": "dh-unibe/image-text_gt-fraktur",
+    "url": "https://huggingface.co/datasets/dh-unibe/image-text_gt-fraktur",
+    "visibility": "private",
+    "licence": "CC0-1.0",
+    "upstream": "https://github.com/ubtue/gt-fraktur",
+    "upstream_owner": "Universitätsbibliothek Tübingen"
+  }
 }
