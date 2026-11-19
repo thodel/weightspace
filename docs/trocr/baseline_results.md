@@ -26,3 +26,45 @@ Readings (practice level, not held-out):
 - p10 (diffuse noise, +2.8 points) and p11, p07 are not repaired by either arm; these are the cases where a programmer must do better than both baselines.
 
 Run folders under `runs/*-trocr-planted-*` are committed without `diff.json` (up to 1.9 GB each), `readings/`, and the model copies (`final.trocr`, `current.trocr`); these stay local.
+
+## Held-out classes (added 18.11.2026, 11:43 CET; blb-eval-hand, 2,272 lines, each model read once)
+
+Unplanted subject: held-out CER 19.74 %. Every one of the 12 defects scored counts (damage at least 1.5 points); p07 is the smallest (+1.54). Definitions and the script: `scripts/trocr_stage3_classify.py`; data: `docs/trocr/heldout_baselines.json`, `docs/trocr/stage3_classes.json`. Intervals are page-clustered paired bootstraps of final minus corrupted CER (points).
+
+| defect | damage (pts) | counts | arm | passes/kept | final CER | recovery | interval of final − corrupted (pages) | class |
+|---|---:|---|---|---|---:|---:|---|---|
+| p01-zero-rows-k6 | 3.45 | yes | c | 2/1 | 19.76 | 99 % | [-3.80, -3.00] | repaired |
+| p01-zero-rows-k6 | 3.45 | yes | d | 10/0 | 23.19 | 0 % | [+0.00, +0.00] | not repaired |
+| p02-swap-rows | 1.71 | yes | c | 2/1 | 19.74 | 100 % | [-1.91, -1.49] | repaired |
+| p02-swap-rows | 1.71 | yes | d | 10/0 | 21.45 | 0 % | [+0.00, +0.00] | not repaired |
+| p03-cross-o5-zero | 2.07 | yes | c | 3/1 | 19.76 | 99 % | [-2.59, -1.52] | repaired |
+| p03-cross-o5-zero | 2.07 | yes | d | 10/0 | 21.81 | 0 % | [+0.00, +0.00] | not repaired |
+| p04-zero-heads-8 | 2.49 | yes | c | 2/1 | 19.71 | 101 % | [-3.17, -1.93] | repaired |
+| p04-zero-heads-8 | 2.49 | yes | d | 10/1 | 20.96 | 51 % | [-1.81, -0.78] | partly |
+| p05-zero-enc6-attn | 13.42 | yes | c | 3/1 | 20.19 | 97 % | [-14.17, -11.80] | repaired |
+| p05-zero-enc6-attn | 13.42 | yes | d | 10/1 | 29.95 | 24 % | [-3.81, -2.62] | partly |
+| p06-enc3-ffn-x0.5 | 2.07 | yes | c | 2/0 | 21.80 | 0 % | [+0.00, +0.00] | not repaired |
+| p06-enc3-ffn-x0.5 | 2.07 | yes | d | 10/0 | 21.80 | 0 % | [+0.00, +0.00] | not repaired |
+| p07-noise-dec8-60 | 1.54 | yes | c | 6/0 | 21.27 | 0 % | [+0.00, +0.00] | not repaired |
+| p07-noise-dec8-60 | 1.54 | yes | d | 10/0 | 21.27 | 0 % | [+0.00, +0.00] | not repaired |
+| p08-shift-embnorm | 6.87 | yes | c | 2/1 | 19.74 | 100 % | [-8.04, -5.80] | repaired |
+| p08-shift-embnorm | 6.87 | yes | d | 10/2 | 21.82 | 70 % | [-5.96, -3.69] | partly |
+| p09-ln11-zero | 863.38 | yes | c | 2/1 | 19.74 | 100 % | [-972.58, -775.61] | repaired |
+| p09-ln11-zero | 863.38 | yes | d | 10/0 | 883.11 | 0 % | [+0.00, +0.00] | not repaired |
+| p10-noise-all-20 | 2.87 | yes | c | 1/0 | 22.61 | 0 % | [+0.00, +0.00] | not repaired |
+| p10-noise-all-20 | 2.87 | yes | d | 10/0 | 22.61 | 0 % | [+0.00, +0.00] | not repaired |
+| p12-enc-ffn-all-x0.7 | 6.33 | yes | c | 4/0 | 26.07 | 0 % | [+0.00, +0.00] | not repaired |
+| p12-enc-ffn-all-x0.7 | 6.33 | yes | d | 10/1 | 25.06 | 16 % | [-1.50, -0.54] | not repaired |
+| p13-cross-o-all-x0.7 | 9.06 | yes | c | 1/0 | 28.80 | 0 % | [+0.00, +0.00] | not repaired |
+| p13-cross-o-all-x0.7 | 9.06 | yes | d | 10/2 | 19.96 | 98 % | [-10.54, -7.01] | repaired |
+
+Readings: held-out agrees with practice level. Arm c (rule list, donor) repairs 7 defects (p01, p02, p03, p04, p05, p08, p09: 97–101 % recovered, interval below 0); arm d (no donor) repairs p13 only (98 %) and partly p04 (51 %), p05 (24 %), p08 (70 %); p12 stays not repaired (16 %). **Neither baseline repairs p06, p07, p10** (diffuse or without signature; damage 2.07, 1.54, 2.87 points), and neither makes a harmful keep. Where a programmer can add something is therefore p06, p07, p10, p12 (and p12/p13-type scale defects without the donor, where arm d reaches only p13).
+
+## Pilot: arm (a) with donor, Sonnet 5.5, 8 core models (20:30 CET, 18.11.2026)
+Held-out classes (full table: `stage3_classes.md`): repaired p01 (99 %), p03 (97 %), p05 (101 %), p06, p07, p08, p12 (100 %); not repaired p10 (0 %, no edit kept, held-out 22.61 %). No harmful keep. Arm c repaired 3 of these 8 and arm d none. Only arm (a) with donor ran; arms (a) without donor, (b) and (a2) are not run.
+Note: the chain stalled 45 min after p12 (its wait matched its own launcher); no effect on any session.
+
+## Arm (a) without donor, Sonnet 5.5, 8 core models (22:07 CET, 18.11.2026)
+Held-out classes (`stage3_classes.md`, rows `an`): repaired p06 (100 %, 7 passes, 1 kept); not repaired p03, p05, p07, p08, p10, p12 (0 %, no edit kept, model unchanged) and p01 (crashed). No harmful keep.
+**p01 crash (dated note 18.11.2026, 21:54 CET):** the programmer's `try_edit` called `s.revert` after `s.keep` had already undone the rejected edit (`RuntimeError: no edit to decide on`, program.py line 36) after 3 passes. No frozen model, no `summary.json`, no held-out score. Per the planning session's decision the program was not patched and not rerun; the session counts as not repaired (final = corrupted model, nothing kept; marked `an*` in the classes table). The control flow of the p03, p05 and p08 programs was read and cannot raise the same error.
+**Gate 3 (prereg section 4):** with donor, 7 of 8 counted defects repaired by arm (a); without donor, 1 (p06); harmful keeps overall: 0. Gate 3 is met on these counts. Arms (b) and (a2) were not run. Limit: the no-donor rule is enforced by the brief only.

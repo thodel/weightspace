@@ -1,0 +1,11 @@
+# Preregistration, task (a), budget 10, with donor (pack s03)
+Model id: claude-sonnet-5-5 (Sonnet 5.5). Reasoning effort: low. Tools used: Read/Bash on the brief, the pack files and wsp/ops.py signatures only; no program run, no model loaded.
+
+Readings: the diff shows exactly 6 rows of `dec.embed.tokens` exactly zero (norm ratio 0, cosine 0): ids 6 `,`, 4 `.`, 90 `t`, 225 `en`, 364 ` e`, 2432 ` und`. All other tensors move within the healthy range (matrices 0.08-0.23, embedding 0.53 overall); no head outliers; no non-finite values. C0 confusions fit: space/e/./n/, deleted (319, 63, 63, 47, 33), CER 0.2508.
+
+H1 (main). The 6 zeroed rows of the tied embedding are a planted defect (token never readable or writable). Edit: set_rows on `dec.embed.tokens`, ids [6,4,90,225,364,2432], values = donor rows. Prediction: CER falls by 3 to 8 points (0.2508 -> about 0.18-0.22), deletions of `.`, `,`, `e`, `n` and spaces drop. If it fails (change within -0.005): the zeroing is not the cause of the errors; conclude donor rows are a poor fit for this child (embedding moves about 0.5 in healthy children) and try H2.
+H2 (fallback if H1 is not kept). Same rows, donor row scaled by 0.5 plus nothing else (interpolate toward zero would be the same as a scaled row): set_rows with 0.5 * donor rows. Prediction: smaller gain than H1 or equal; if kept and better than none, keep. Conclusion if fails: rows need a child-specific value, leave unrepaired.
+H3 (after H1 kept). Remaining error is the child's natural error, but check: interpolate whole `dec.embed.tokens` (all rows) 0.15 toward donor. Prediction: change within +-0.3 points (no defect expected); expected to be reverted. If it improves by more than 0.5 points, the embedding is partly corrupted: conclude generic drift.
+H4 (after H1 kept, optional). Decoder cross-attention output biases `dec.*.cross.o.bias` have norm ratio 1.05-1.06 (all layers, consistent), not outlier: expected healthy. Probe: interpolate all 12 toward donor alpha 0.5. Prediction: 0 +-0.3 points, revert. Conclusion if gain: bias drift is real; keep.
+H5. Null elsewhere: no other defect (encoder, layer norms, ffn) is visible in the diff; I will not edit them.
+Budget: C0 (1) + H1 (1) + at most H2 (1) + H3 (1) + H4 (1) = 5 passes of 10.

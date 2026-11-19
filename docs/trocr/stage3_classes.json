@@ -1,0 +1,682 @@
+{
+ "p01-zero-rows-k6|ad": {
+  "cer_corrupted": 0.23189269746646796,
+  "cer_final": 0.19760673270798632,
+  "damage_pts": 3.453142807048304,
+  "recovery": 0.992891596851993,
+  "delta": -0.03428596475848164,
+  "ci95_cluster": [
+   -0.03804429288765643,
+   -0.03001827664601256
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p01-zero-rows-k6|an": {
+  "cer_corrupted": 0.23189269746646796,
+  "cer_final": 0.23189269746646796,
+  "damage_pts": 3.453142807048304,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 3,
+  "kept": 0,
+  "changed": false,
+  "crashed": true
+ },
+ "p01-zero-rows-k6|c": {
+  "cer_corrupted": 0.23189269746646796,
+  "cer_final": 0.19760673270798632,
+  "damage_pts": 3.453142807048304,
+  "recovery": 0.992891596851993,
+  "delta": -0.03428596475848164,
+  "ci95_cluster": [
+   -0.03804429288765643,
+   -0.03001827664601256
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p01-zero-rows-k6|d": {
+  "cer_corrupted": 0.23189269746646796,
+  "cer_final": 0.23189269746646796,
+  "damage_pts": 3.453142807048304,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p02-swap-rows|c": {
+  "cer_corrupted": 0.21447356886122557,
+  "cer_final": 0.19744016831769967,
+  "damage_pts": 1.7112299465240648,
+  "recovery": 0.9953893442622941,
+  "delta": -0.017033400543525895,
+  "ci95_cluster": [
+   -0.019075504212407446,
+   -0.014883332444776187
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p02-swap-rows|d": {
+  "cer_corrupted": 0.21447356886122557,
+  "cer_final": 0.21447356886122557,
+  "damage_pts": 1.7112299465240648,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p03-cross-o5-zero|ad": {
+  "cer_corrupted": 0.21805908652581749,
+  "cer_final": 0.1979047953011309,
+  "damage_pts": 2.0697817129832567,
+  "recovery": 0.9737399407030913,
+  "delta": -0.020154291224686594,
+  "ci95_cluster": [
+   -0.025468262226847033,
+   -0.014715279256920066
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 3,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p03-cross-o5-zero|an": {
+  "cer_corrupted": 0.21805908652581749,
+  "cer_final": 0.21805908652581749,
+  "damage_pts": 2.0697817129832567,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 5,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p03-cross-o5-zero|c": {
+  "cer_corrupted": 0.21805908652581749,
+  "cer_final": 0.19757166652055755,
+  "damage_pts": 2.0697817129832567,
+  "recovery": 0.9898348157560356,
+  "delta": -0.020487420005259938,
+  "ci95_cluster": [
+   -0.025888067045490626,
+   -0.015212756885819051
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 3,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p03-cross-o5-zero|d": {
+  "cer_corrupted": 0.21805908652581749,
+  "cer_final": 0.21805908652581749,
+  "damage_pts": 2.0697817129832567,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p04-zero-heads-8|c": {
+  "cer_corrupted": 0.2222319628298413,
+  "cer_final": 0.19708950644341194,
+  "damage_pts": 2.4870693433856395,
+  "recovery": 1.0109270356009867,
+  "delta": -0.025142456386429368,
+  "ci95_cluster": [
+   -0.03173091289406843,
+   -0.019261588396389084
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p04-zero-heads-8|d": {
+  "cer_corrupted": 0.2222319628298413,
+  "cer_final": 0.2095906022617691,
+  "damage_pts": 2.4870693433856395,
+  "recovery": 0.5082833979555864,
+  "delta": -0.012641360568072219,
+  "ci95_cluster": [
+   -0.018058920855975602,
+   -0.007826721930248581
+  ],
+  "class": "partly",
+  "counts": true,
+  "passes": 10,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p05-zero-enc6-attn|ad": {
+  "cer_corrupted": 0.3316034014201806,
+  "cer_final": 0.196274217585693,
+  "damage_pts": 13.424213202419566,
+  "recovery": 1.0080976947691505,
+  "delta": -0.13532918383448758,
+  "ci95_cluster": [
+   -0.147039571022498,
+   -0.12373371924746743
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p05-zero-enc6-attn|an": {
+  "cer_corrupted": 0.3316034014201806,
+  "cer_final": 0.3316034014201806,
+  "damage_pts": 13.424213202419566,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 5,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p05-zero-enc6-attn|c": {
+  "cer_corrupted": 0.3316034014201806,
+  "cer_final": 0.20190234066801088,
+  "damage_pts": 13.424213202419566,
+  "recovery": 0.9661725331417749,
+  "delta": -0.1297010607521697,
+  "ci95_cluster": [
+   -0.14168205885974633,
+   -0.11799348385687286
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 3,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p05-zero-enc6-attn|d": {
+  "cer_corrupted": 0.3316034014201806,
+  "cer_final": 0.2995353730165688,
+  "damage_pts": 13.424213202419566,
+  "recovery": 0.2388819956899364,
+  "delta": -0.03206802840361178,
+  "ci95_cluster": [
+   -0.03809238152369526,
+   -0.026201994273867157
+  ],
+  "class": "partly",
+  "counts": true,
+  "passes": 10,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p06-enc3-ffn-x0.5|ad": {
+  "cer_corrupted": 0.21802402033838872,
+  "cer_final": 0.19736126939598492,
+  "damage_pts": 2.06627509424038,
+  "recovery": 1.0,
+  "delta": -0.0206627509424038,
+  "ci95_cluster": [
+   -0.024546399168731498,
+   -0.01661559351890929
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p06-enc3-ffn-x0.5|an": {
+  "cer_corrupted": 0.21802402033838872,
+  "cer_final": 0.19736126939598492,
+  "damage_pts": 2.06627509424038,
+  "recovery": 1.0,
+  "delta": -0.0206627509424038,
+  "ci95_cluster": [
+   -0.024546399168731498,
+   -0.01661559351890929
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 7,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p06-enc3-ffn-x0.5|c": {
+  "cer_corrupted": 0.21802402033838872,
+  "cer_final": 0.21802402033838872,
+  "damage_pts": 2.06627509424038,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p06-enc3-ffn-x0.5|d": {
+  "cer_corrupted": 0.21802402033838872,
+  "cer_final": 0.21802402033838872,
+  "damage_pts": 2.06627509424038,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p07-noise-dec8-60|ad": {
+  "cer_corrupted": 0.21273779258350137,
+  "cer_final": 0.19734373630227053,
+  "damage_pts": 1.537652318751645,
+  "recovery": 1.001140250855188,
+  "delta": -0.015394056281230833,
+  "ci95_cluster": [
+   -0.019026392558107508,
+   -0.011976307927464735
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p07-noise-dec8-60|an": {
+  "cer_corrupted": 0.21273779258350137,
+  "cer_final": 0.21273779258350137,
+  "damage_pts": 1.537652318751645,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 3,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p07-noise-dec8-60|c": {
+  "cer_corrupted": 0.21273779258350137,
+  "cer_final": 0.21273779258350137,
+  "damage_pts": 1.537652318751645,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 6,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p07-noise-dec8-60|d": {
+  "cer_corrupted": 0.21273779258350137,
+  "cer_final": 0.21273779258350137,
+  "damage_pts": 1.537652318751645,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p08-shift-embnorm|ad": {
+  "cer_corrupted": 0.26602963092837734,
+  "cer_final": 0.19743140177084245,
+  "damage_pts": 6.866836153239242,
+  "recovery": 0.9989786799438275,
+  "delta": -0.06859822915753488,
+  "ci95_cluster": [
+   -0.08042027357430781,
+   -0.057983323038912904
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p08-shift-embnorm|an": {
+  "cer_corrupted": 0.26602963092837734,
+  "cer_final": 0.26602963092837734,
+  "damage_pts": 6.866836153239242,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 6,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p08-shift-embnorm|c": {
+  "cer_corrupted": 0.26602963092837734,
+  "cer_final": 0.19743140177084245,
+  "damage_pts": 6.866836153239242,
+  "recovery": 0.9989786799438275,
+  "delta": -0.06859822915753488,
+  "ci95_cluster": [
+   -0.08042027357430781,
+   -0.057983323038912904
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p08-shift-embnorm|d": {
+  "cer_corrupted": 0.26602963092837734,
+  "cer_final": 0.2181555185412466,
+  "damage_pts": 6.866836153239242,
+  "recovery": 0.6971786033448234,
+  "delta": -0.04787411238713074,
+  "ci95_cluster": [
+   -0.05959645152357218,
+   -0.03686749397979672
+  ],
+  "class": "partly",
+  "counts": true,
+  "passes": 10,
+  "kept": 2,
+  "changed": true,
+  "crashed": false
+ },
+ "p09-ln11-zero|c": {
+  "cer_corrupted": 8.831130007889891,
+  "cer_final": 0.19736126939598492,
+  "damage_pts": 863.3768738493906,
+  "recovery": 1.0,
+  "delta": -8.633768738493906,
+  "ci95_cluster": [
+   -9.725841749331803,
+   -7.7560583166578185
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 2,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p09-ln11-zero|d": {
+  "cer_corrupted": 8.831130007889891,
+  "cer_final": 8.831130007889891,
+  "damage_pts": 863.3768738493906,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p10-noise-all-20|ad": {
+  "cer_corrupted": 0.22606294380643466,
+  "cer_final": 0.22606294380643466,
+  "damage_pts": 2.8701674410449742,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p10-noise-all-20|an": {
+  "cer_corrupted": 0.22606294380643466,
+  "cer_final": 0.22606294380643466,
+  "damage_pts": 2.8701674410449742,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 7,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p10-noise-all-20|c": {
+  "cer_corrupted": 0.22606294380643466,
+  "cer_final": 0.22606294380643466,
+  "damage_pts": 2.8701674410449742,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 1,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p10-noise-all-20|d": {
+  "cer_corrupted": 0.22606294380643466,
+  "cer_final": 0.22606294380643466,
+  "damage_pts": 2.8701674410449742,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p12-enc-ffn-all-x0.7|ad": {
+  "cer_corrupted": 0.26066450425177523,
+  "cer_final": 0.19736126939598492,
+  "damage_pts": 6.330323485579031,
+  "recovery": 1.0,
+  "delta": -0.06330323485579031,
+  "ci95_cluster": [
+   -0.07269136278240762,
+   -0.05383393780715498
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p12-enc-ffn-all-x0.7|an": {
+  "cer_corrupted": 0.26066450425177523,
+  "cer_final": 0.26066450425177523,
+  "damage_pts": 6.330323485579031,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 5,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p12-enc-ffn-all-x0.7|c": {
+  "cer_corrupted": 0.26066450425177523,
+  "cer_final": 0.26066450425177523,
+  "damage_pts": 6.330323485579031,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 4,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p12-enc-ffn-all-x0.7|d": {
+  "cer_corrupted": 0.26066450425177523,
+  "cer_final": 0.2506443411940037,
+  "damage_pts": 6.330323485579031,
+  "recovery": 0.1582883257166596,
+  "delta": -0.010020163057771536,
+  "ci95_cluster": [
+   -0.014989155755482375,
+   -0.005357671435619105
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 1,
+  "changed": true,
+  "crashed": false
+ },
+ "p13-cross-o-all-x0.7|c": {
+  "cer_corrupted": 0.28800736389936005,
+  "cer_final": 0.28800736389936005,
+  "damage_pts": 9.064609450337514,
+  "recovery": 0.0,
+  "delta": 0.0,
+  "ci95_cluster": [
+   0.0,
+   0.0
+  ],
+  "class": "not repaired",
+  "counts": true,
+  "passes": 1,
+  "kept": 0,
+  "changed": false,
+  "crashed": false
+ },
+ "p13-cross-o-all-x0.7|d": {
+  "cer_corrupted": 0.28800736389936005,
+  "cer_final": 0.19959673884456913,
+  "damage_pts": 9.064609450337514,
+  "recovery": 0.975338491295938,
+  "delta": -0.08841062505479091,
+  "ci95_cluster": [
+   -0.10543215443583184,
+   -0.07010262527480113
+  ],
+  "class": "repaired",
+  "counts": true,
+  "passes": 10,
+  "kept": 2,
+  "changed": true,
+  "crashed": false
+ }
+}

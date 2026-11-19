@@ -1,0 +1,10 @@
+{
+ "s03": "p01-zero-rows-k6",
+ "s07": "p03-cross-o5-zero",
+ "s01": "p05-zero-enc6-attn",
+ "s05": "p06-enc3-ffn-x0.5",
+ "s08": "p07-noise-dec8-60",
+ "s02": "p08-shift-embnorm",
+ "s06": "p10-noise-all-20",
+ "s04": "p12-enc-ffn-all-x0.7"
+}
