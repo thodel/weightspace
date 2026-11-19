@@ -48,7 +48,31 @@ written by the programmer.
      the legacy detector that session 2 used.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   _To be written by the programmer._
+   - **Donor provenance and practice-set implications:**
+     - The parent donor `kraken-bern-hertwig-v2` was trained on the clean 22.10 Hertwig training pages (including all 103 Hertwig practice lines; practice CER 0.1137 on Hertwig, 0.2992 on Schlussredaktion, 0.2408 overall).
+     - The sibling donor `kraken-bern-schlussredaktion-v1` was fine-tuned from `hertwig-v2` on the clean 24.10 Schlussredaktion training pages (including all 197 Schlussredaktion practice lines; practice CER 0.2355 on Hertwig, 0.1129 on Schlussredaktion, 0.1514 overall).
+     - The subject `kraken-bern-combined-v1` was fine-tuned from `hertwig-v2` on both hands, but 44 of its 50 Hertwig training pages carried mismatched images from the 25.10 export. As a result, its update vector from the parent ($\Delta_{\text{sub}} = W_{\text{sub}} - W_{\text{par}}$) combines a valid Schlussredaktion adaptation with severe label-noise corruption from mismatched Hertwig pairs (which inflated the CTC blank bias by $+0.118$, depressed character biases, and degraded Hertwig CER from $0.1137$ to $0.2050$). Because the two donors together saw all 300 practice lines cleanly, donor-based edits on this practice set benefit from direct training-set overlap on the practice lines; only the held-out evaluation (`bern-eval`, 545 lines from unseen test pages) tests true generalisation.
+
+   - **Plan for the 10 passes:**
+     - **Pass 1 (C0 baseline):** Run `s.measure("C0")` on the unedited subject. Predicted to reproduce practice CER `0.1456` (Hertwig `0.2050`, Schlussredaktion `0.1184`, collapsed `29`). Stop if it does not match.
+     - **Pass 2 (H1 — CTC blank bias restoration to parent):**
+       - *Edit class and tensors:* `set_rows` on `["O_18.lin.bias"]` (row 0, the CTC blank), setting `O_18.lin.bias[0]` from `+0.9976` back to the parent `hertwig-v2` value `+0.8792` ($\Delta = -0.1184$).
+       - *Prediction:* Lowering the blank bias reduces deletion errors (the top confusions ` →∅`, `e→∅`, `n→∅`, `/→∅`, `i→∅`) across both hands at the cost of some insertions, yielding a net practice CER change of $-0.0020$ to $-0.0060$ (similar relative reduction on both Hertwig and Schlussredaktion) without raising collapsed lines.
+       - *If it fails:* Conclude that the elevated blank bias in `combined-v1` is compensated by output row norms or recurrent representations and that shifting the blank threshold alone either adds as many insertions as deletions saved or does not clear the 95 % bootstrap interval.
+     - **Pass 3 (H2 — Full output-layer character-aligned repair via parent–sibling midpoint):**
+       - *Edit class and tensors:* `transplant` on `["O_18.lin.weight", "O_18.lin.bias"]` using the character-aligned average $0.5 W_{\text{par}} + 0.5 W_{\text{sib}}$ (via `wsp.align.codec_row_map` and `gather_rows`, keeping the subject's `ƒ` row which neither donor has, and using the sibling's rows for `½` and `̊`).
+       - *Prediction:* Undoing the label-noise inflation of rare and umlaut rows and restoring clean classifier weights/biases across all 270 classes will reduce overall practice CER by $-0.0030$ to $-0.0080$ (primarily on Hertwig, $-0.0050$ to $-0.0150$, with Schlussredaktion changing by $0.0000$ to $-0.0030$).
+       - *If it fails:* Conclude that the label-noise degradation on Hertwig lives primarily in the feature extractor and BiLSTM stack (`C_0`–`L_16`) rather than in the linear classifier `O_18`, or that `O_18` is tightly co-adapted to `L_16`'s corrupted features.
+     - **Pass 4 (H3 — Full-network task-vector merge of clean parent and clean sibling, $\alpha = 0.50$):**
+       - *Edit class and tensors:* `transplant` across all 34 tensors (`C_0` through `O_18`, with `O_18` rows aligned by character) to the midpoint of the two clean donors: $W = 0.5 W_{\text{par}} + 0.5 W_{\text{sib}}$ (preserving the subject's `ƒ` row and using the sibling's `½` and `̊` rows).
+       - *Prediction:* Because `sibling` was fine-tuned from `parent` on clean Schlussredaktion data (relative L2 move $0.07$–$0.23$, cosines $>0.97$), the two models lie in a shared linearly connected basin. Replacing the noise-corrupted `combined-v1` weights with the clean midpoint $0.5 W_{\text{par}} + 0.5 W_{\text{sib}}$ is predicted to recover a large fraction of the parent's Hertwig accuracy while retaining most of the sibling's Schlussredaktion adaptation, lowering overall practice CER by $-0.0150$ to $-0.0300$ (Hertwig CER dropping from $\sim 0.205$ to $\sim 0.130\text{--}0.155$, Schlussredaktion CER staying near $\sim 0.120\text{--}0.135$, and collapsed lines dropping from $29$ toward $21\text{--}25$).
+       - *If it fails:* Conclude that a $50/50$ linear average across the conv and BiLSTM layers suffers from internal feature mismatch or under-weights the Schlussredaktion adaptation (which accounts for $68.6\%$ of practice reference characters).
+     - **Passes 5–10 (Follow-ups decided from the results of Passes 1–4, each written as a hypothesis with a prediction before its pass):**
+       - In Round 1 we run Passes 1–3 (`program_01.py`) to test the localised output-layer repairs first and inspect their line-by-line readings.
+       - In Round 2 (`program_02.py`) we will test H3 (the clean donor merge $W_{\text{par}} + \alpha (W_{\text{sib}} - W_{\text{par}})$) and, guided by the per-hand CER and collapsed counts, explore:
+         1. Tuning the donor interpolation weight $\alpha \in [0.4, 0.7]$ (since Schlussredaktion is $68.6\%$ of practice characters, $\alpha \approx 0.55\text{--}0.65$ or layer-wise $\alpha$ with more parent in `L_12` where label-noise divergence is largest and more sibling in `L_16`/`O_18` may perform best).
+         2. Blending the clean donor midpoint with the subject's clean features (`(1-\beta) W_{\text{clean-merge}} + \beta W_{\text{sub}}`) if `combined-v1` learned any useful shared representations not present in the linear span of `parent` and `sibling`.
+         3. Layer-block decomposition (e.g. transplanting `L_12`–`L_16` vs `C_0`–`C_9` vs `O_18`) and fine-tuning `O_18.lin.bias[0]` (blank bias) on top of the best merged state.
 
 6. **Controls** (as in session 2):
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.

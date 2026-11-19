@@ -1,2 +1,3 @@
 # Notes — 20261119-bern-combined-v1-o1-b10-1
 
+2026-11-19 07:59 UTC — Round 0, before any pass. Model id: `gpt-6.2-astra`. Settings: OpenAI API via `wsp.programmer`, provider's default reasoning settings (operator specification). Read this run's PROGRAMMER_BRIEF.md, preregistration.md, notes.md, pack/c0_c1.md and pack/readings_budget0.md, plus wsp/session.py and wsp/ops.py. The parent is better on Hertwig but much worse on Schlussredaktion, which contributes 7424 of 10829 reference characters. The first edit therefore tests partial parent restoration with sibling support, not a parent transplant. Prepared C0 and that comparison for the operator; no program executed or pass used by the programmer.

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 9,
+  "summary": "Round 0 is ready. Section 5 preregisters the baseline check, the first donor blend, and conditional follow-ups. program_01.py stops on a baseline mismatch; otherwise it tests the 35% subject, 30% parent, 35% sibling blend with character-aligned output rows and both keep safeguards. notes.md records the requested model ID, operator settings, and readings. No passes were run.",
+  "ended": "2026-11-19T08:01:10+00:00",
+  "program": "program_01.py",
+  "usage_total": {
+   "input": 146100,
+   "output": 8449,
+   "reasoning": 73,
+   "calls": 9
+  }
+ }
+]
