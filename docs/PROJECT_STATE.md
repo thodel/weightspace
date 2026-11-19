@@ -61,13 +61,14 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - The phase-5 session kept one edit, direction 0 of `layers.31.self_attn.o_proj`. Practice CER fell 45.2 → 34.7 %; on 733 held-out pages the change is +0.24 [−3.5, +3.9].
   - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25, merged).
   - One of three seeded random directions passes the same keep rule on practice, which motivates the proposed amendment A5 (sham noise floor).
-- **TrOCR (stages 0-2):**
+- **TrOCR (stages 0-3):**
   - Seven models share one tokenizer, and input embedding and output projection are one tied tensor.
   - Readings are deterministic. C0 on `blb-eval-hand`: 19.74 % (`from-kurrent-v2`), 19.83 % (parent `XVI-XVII`), 26.41 % (`trocr-kurrent`).
   - Lineage is recoverable for the small fine-tunes, and the ViT pooler is an exact lineage marker.
   - The decoder moves 3-5 times more than the encoder.
   - The same data from two origins moves the weights almost orthogonally.
   - Stage 2 (seed null, six reruns of the recorded recipe on card 0, R16): held-out CER 20.04 % mean over five seeds (sd 0.14; recorded 19.74 %), so edits under about 0.5 points are retraining noise. Magnitude traces (encoder move 0.039, hump, tied-embedding share 0.85, encoder/decoder 0.14) reproduce across seeds; move directions do not (same-recipe cosine 0.36 encoder, 0.19 decoder); a sibling run is farther (0.108) than the parent (0.088).
+  - Stage 3 (planted-defect control, R17, 18-19 Nov): 14 planted models of `from-kurrent-v2`, 12 scored defects all count on held-out (1.54 to 13.42 points). Core eight: Sonnet 5.5 with donor repairs 7, without donor 1 (p06; p01 crashed), blind (no passes) 7, Fable 5.2 7 and one partly (p10 26 %); rule list 4, scale search 0. No harmful keep. Gate 3 met. With the donor most repairs are a lookup of the parent tensor; p10 (noise on every matrix) is repaired by no arm.
 - **Data findings:**
   - the Hertwig export defect (44 of 50 pages; repaired on HF, commit `dda578ea`);
   - a held-out set that was half a printed book (replaced by `blb-eval-hand`);
@@ -78,7 +79,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 
 **Decisions for the user**
 
-1. **TrOCR track:** whether and when to start stage 3 (planted defects; Tobias has not asked for it yet); and the parents' corpora question of `docs/trocr/STAGE0.md` §8, item 4 (Laßberg or BLB material in the Kurrent or XVI-XVII training data?).
+1. **TrOCR track:** stage 3 is done and merged (R17, Gate 3 met). Whether to start stage 4 as drafted in `docs/TROCR_STAGE4_PLAN.md` (its §10 lists the decisions); and the parents' corpora question of `docs/trocr/STAGE0.md` §8, item 4 (Laßberg or BLB material in the Kurrent or XVI-XVII training data?).
 
 2. **Offer `latin_incunabula` v3 for use?** It is registered and disabled. It is the better candidate for editions that keep abbreviations, while v1 has the larger Fraktur gain.
    **And `kraken-bern-combined-wsp-v1`?** The Fable replicate of kraken session 2, registered and disabled. Held-out −0.57 (harness, lines) and −2.16 [−3.32, −1.05] through the serving path. The interpolation part carries the gain on both measures. The hand reversal appears for every edited model, so it belongs to the measurement (`docs/KRAKEN_S2_FABLE.md` §6).
@@ -94,7 +95,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
    - the open fact-check items listed in `paper/STATUS.md` (update of 11 Nov).
 7. **Publishing the protocol:** see the checklist in `protocol/PUBLISHING.md` (repository visibility, licence, `site_url`).
 8. **Branch hygiene and loose ends.**
-   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Since then five more branches were merged and can be deleted: `claude/atlas-l1`, `claude/atlas-l3`, `claude/factcheck-addendum2`, `claude/manuscript-medium-fixes`, `claude/planted-fable-p3-attempt2`. Not merged: `claude/trocr-stage0-9ababb` (a TrOCR stage-2b run script).
+   - All merged remote branches were deleted on 14 Nov, `claude/c4-retrain` (superseded) and `claude/atlas-l0-l2` included. Since then five more branches were merged and can be deleted: `claude/atlas-l1`, `claude/atlas-l3`, `claude/factcheck-addendum2`, `claude/manuscript-medium-fixes`, `claude/planted-fable-p3-attempt2`. `claude/trocr-stage0-9ababb` (TrOCR stages 0-3) is merged but its session may still push; delete it when that session is archived.
    - The pack's `describe.md` prints the no-break space like a plain space; several programmers took it for a planted defect (`docs/CONTROLS_REPORT.md` §11.2). Fix before the next pack is built.
    - On asteraix, keep the worktrees `weightspace-blocks` and `weightspace-family`, which hold git-ignored data, until that data is archived.
    - Remove the other worktrees once their sessions are archived. That includes `weightspace-protocol` and the `.claude/worktrees/*` of finished sessions.
@@ -107,7 +108,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 **Not started**
 
 9. Epic #12 (LLM playbook); level L4 of epic #13, which needs a model that passes Gate 2 (none does).
-10. TrOCR stages 3-5 (planted defects, sessions, retrain comparator). Stages 0-2 are done and merged (R15, R16); stage 3 needs its defect set redesigned for the tied embedding and the missing output bias (`docs/epics/EPIC_TROCR_TRACK.md`, status section).
+10. TrOCR stages 4-5 (sessions on the Bern family, retrain comparator). Stages 0-3 are done and merged (R15, R16, R17); the plan of stage 4 is a draft awaiting Tobias (`docs/TROCR_STAGE4_PLAN.md`).
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 
