@@ -1,43 +1,50 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Atlas explorer</title>
 <style>
-:root{--bg:#fff;--fg:#1b1b1b;--muted:#6e6e6e;--grid:#e2e2e2;--panel:#f6f6f4;--C:#0072B2;--L:#E69F00;--O:#009E73;--hi:#D55E00;--alt:#CC79A7;--r0:255,255,255;--r1:0,114,178}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--panel:#1e2128;--C:#56B4E9;--hi:#E8743B;--r0:22,24,29;--r1:86,180,233}}
-:root[data-theme=dark]{--bg:#16181d;--fg:#e6e6e6;--muted:#a3a3a3;--grid:#33363d;--panel:#1e2128;--C:#56B4E9;--hi:#E8743B;--r0:22,24,29;--r1:86,180,233}
+/* chrome: the site's DH Bern brand (site/_brand.yml); data colours: Okabe-Ito, colour-blind safe */
+:root{--bg:#fff;--fg:#222;--muted:#707073;--grid:#E4E4E4;--panel:#f5f5f5;--pri:#d6002b;--good:#0f7d28;--bad:#ad0023;--C:#0072B2;--L:#E69F00;--O:#009E73;--hi:#D55E00;--alt:#CC79A7;--r0:255,255,255;--r1:0,114,178;
+ --sans:'Switzer',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;--mono:'SFMono-Regular',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1d;--fg:#e8e8e8;--muted:#a9a9ad;--grid:#3a3a3d;--panel:#262628;--pri:#ff4d6a;--good:#5cc777;--bad:#ff6b81;--C:#56B4E9;--hi:#E8743B;--r0:28,28,29;--r1:86,180,233}}
+:root[data-theme=dark]{--bg:#1c1c1d;--fg:#e8e8e8;--muted:#a9a9ad;--grid:#3a3a3d;--panel:#262628;--pri:#ff4d6a;--good:#5cc777;--bad:#ff6b81;--C:#56B4E9;--hi:#E8743B;--r0:28,28,29;--r1:86,180,233}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;margin:0 auto;max-width:1280px;padding:16px}
-h1{font-size:21px;margin:.1em 0 .2em}h2{font-size:14px;margin:0 0 .4em;text-transform:none}
-.muted{color:var(--muted)}code{font-size:12.5px}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans);margin:0 auto;max-width:1280px;padding:16px}
+a{color:var(--pri);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2{font-weight:600;letter-spacing:-.015em;line-height:1.2}h1{font-size:26px;margin:.2em 0 .4em}h2{font-size:15px;margin:0 0 .5em;text-transform:none}
+.muted{color:var(--muted)}code{font:12.5px var(--mono)}
+.intro{max-width:72ch}
 .ctl{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;margin:10px 0}
-.seg button{font:inherit;border:1px solid var(--grid);background:var(--bg);color:var(--fg);padding:4px 10px;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+.seg button{font:inherit;border:1px solid var(--grid);background:var(--bg);color:var(--fg);padding:5px 12px;cursor:pointer}
+.seg button:hover,button.play:hover{border-color:var(--pri);color:var(--pri)}
+:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+.seg button[aria-pressed=true]{background:var(--pri);color:#fff;border-color:var(--pri)}
+.seg button:first-child{border-radius:.375rem 0 0 .375rem}.seg button:last-child{border-radius:0 .375rem .375rem 0}
 .ctl label{max-width:100%}#line{max-width:min(460px,calc(100vw - 80px))}
-select,button.play{font:inherit;padding:3px 8px;border:1px solid var(--grid);background:var(--bg);color:var(--fg);border-radius:6px}
+select,button.play{font:inherit;padding:4px 10px;border:1px solid var(--grid);background:var(--bg);color:var(--fg);border-radius:.375rem}
+input[type=range]{accent-color:var(--pri)}
 input[type=range]{width:min(420px,100%)}
-.banner{border-left:4px solid var(--hi);background:var(--panel);padding:6px 10px;margin:6px 0;font-size:13px}
-.box{border:1px solid var(--grid);border-radius:8px;padding:10px;margin:10px 0;background:var(--bg)}
+.banner{border-left:3px solid var(--pri);background:var(--panel);padding:8px 12px;margin:8px 0;font-size:13.5px;border-radius:0 .375rem .375rem 0}
+.box{border:1px solid var(--grid);border-radius:.375rem;padding:12px;margin:12px 0;background:var(--bg)}
 #linewrap{overflow-x:auto;overscroll-behavior-x:contain}
 #linecv{display:block;touch-action:pan-y;cursor:crosshair}
 .grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px}
 @media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
 .row{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:6px;margin:3px 0}
-.row .lab{font:12px ui-monospace,monospace;cursor:pointer;padding:2px 4px;border-radius:4px;border:1px solid transparent}
+.row .lab{font:12px var(--mono);cursor:pointer;padding:2px 4px;border-radius:4px;border:1px solid transparent}
 .row .lab.on{border-color:var(--fg)}
 .row canvas{width:100%;height:24px;display:block;cursor:pointer}
 #out{display:flex;gap:4px;flex-wrap:wrap}
-#out span{font:12px ui-monospace,monospace;padding:2px 6px;border-radius:4px;background:var(--panel);position:relative;overflow:hidden;min-width:52px}
+#out span{font:12px var(--mono);padding:2px 6px;border-radius:4px;background:var(--panel);position:relative;overflow:hidden;min-width:52px}
 #out span i{position:absolute;left:0;bottom:0;height:3px;background:var(--O)}
-#info{font-size:13px;background:var(--panel);border-radius:8px;padding:10px;align-self:start}
+#info{font-size:13.5px;background:var(--panel);border-radius:.375rem;padding:12px;align-self:start}
 #info table{border-collapse:collapse;width:100%}#info td{padding:2px 4px;border-bottom:1px solid var(--grid);vertical-align:top}
 #info td:first-child{color:var(--muted);width:42%}
-.ok{color:var(--O);font-weight:600}.inc{color:var(--muted);font-weight:600}.no{color:var(--hi);font-weight:600}
+.ok{color:var(--good);font-weight:600}.inc{color:var(--muted);font-weight:600}.no{color:var(--bad);font-weight:600}
 #tip{position:fixed;pointer-events:none;background:var(--bg);border:1px solid var(--grid);padding:2px 6px;font-size:12px;display:none;z-index:9;border-radius:4px}
 .legend{font-size:12px;color:var(--muted);margin-top:4px}
 .sw{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin:0 3px 0 8px;border-radius:2px}
 </style></head><body>
 <h1>Atlas explorer</h1>
-<p class=muted style="margin:0">Two kraken recognisers, one text line at a time. Drag along the line (or press play): the network
+<p class="muted intro" style="margin:0">Two kraken recognisers, one text line at a time. Drag along the line (or press play): the network
 below shows every unit's activation at the frame under the cursor (one frame = 8 px of the line), and the orange shading on the line
 shows which part of the image the selected block's frame depends on. Click a block or a unit for its results and controls.
 Epic thodel/weightspace#13; rules and numbers in <code>docs/ATLAS_REPORT.md</code>.</p>
