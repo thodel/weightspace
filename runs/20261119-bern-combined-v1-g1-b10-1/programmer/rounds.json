@@ -12,5 +12,47 @@
    "reasoning": 0,
    "calls": 18
   }
+ },
+ {
+  "round": 1,
+  "finished": true,
+  "steps": 11,
+  "summary": "Analyzed Passes 1-4 from program_01.py (where Pass 3, H2_O18_parent_sibling_midpoint, was kept at CER 0.1425, collapsed 27), updated notes.md with the Round 1 analysis, and wrote program_02.py to test H4 (three-way blend 0.50*subject + 0.20*parent + 0.30*sibling with 0.40/0.60 O_18) and H5 (pure clean donor interpolation 0.32*parent + 0.68*sibling at the quadratic optimum alpha=0.68).",
+  "ended": "2026-11-19T08:15:01+00:00",
+  "program": "program_02.py",
+  "usage_total": {
+   "input": 2307056,
+   "output": 28787,
+   "reasoning": 0,
+   "calls": 29
+  }
+ },
+ {
+  "round": 2,
+  "finished": true,
+  "steps": 12,
+  "summary": "Analyzed Passes 5-6 from program_02.py (where Pass 5, H4_blend_50sub_20par_30sib, was kept at CER 0.1356, collapsed 21, page-clustered CI vs baseline [-0.0198, -0.0017]), updated notes.md with the Round 2 analysis, and wrote program_03.py to test H6 (layer-graded three-way blend with stronger denoising in L_12) and H7 (trimming CTC blank bias O_18.lin.bias[0] by -0.050 on top of the kept blend).",
+  "ended": "2026-11-19T08:22:07+00:00",
+  "program": "program_03.py",
+  "usage_total": {
+   "input": 4177954,
+   "output": 46514,
+   "reasoning": 0,
+   "calls": 41
+  }
+ },
+ {
+  "round": 3,
+  "finished": true,
+  "steps": 13,
+  "summary": "Analyzed Passes 7-8 from program_03.py (where Pass 7 reverted due to collapsed count rising 21 -> 23, and Pass 8 reduced CER from 0.1356 to 0.1352 with collapsed 21 but was refused as its 95% CI upper bound hit 0.0), appended Round 3 notes to notes.md, and wrote program_04.py to run Passes 9-10 (H8 uniform three-way blend 0.35*subject + 0.25*parent + 0.40*sibling across all weight tensors including O_18.lin.weight with clean donor O_18.lin.bias; and H9 Frobenius/row norm restoration + -0.10 blank bias calibration) and end with s.freeze().",
+  "ended": "2026-11-19T08:29:59+00:00",
+  "program": "program_04.py",
+  "usage_total": {
+   "input": 6652028,
+   "output": 63601,
+   "reasoning": 0,
+   "calls": 54
+  }
  }
 ]
