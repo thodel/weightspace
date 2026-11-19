@@ -16,7 +16,7 @@ project:
     - protocol/**/*.md
 
 website:
-  title: "Agentic historian"
+  title: "Understanding neural networks: automatic text recognition"
   description: "Reading and editing the weights of text-recognition models, with LLM programmers under a preregistered protocol."
   site-url: https://thodel.github.io/weightspace/
   repo-url: https://github.com/thodel/weightspace/
