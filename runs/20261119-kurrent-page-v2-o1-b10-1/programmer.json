@@ -1,0 +1,22 @@
+{
+ "provider": "openai",
+ "model": "gpt-6.2-astra",
+ "label": "GPT-6.2 Astra",
+ "root": "/home/tobias/Repo/weightspace",
+ "readable": [
+  "docs/readings/adapter_kurrent-page-v2.md",
+  "docs/readings/adapter_kurrent-page-v2.json",
+  "docs/baselines/c0-kurrent-val-v2.json",
+  "data/practice/kurrent-val-64.jsonl",
+  "data/practice/kurrent-val-64.meta.json",
+  "wsp/ops.py",
+  "wsp/session.py",
+  "wsp/run.py",
+  "wsp/lora_subject.py",
+  "wsp/pages.py",
+  "wsp/metrics.py"
+ ],
+ "options": {},
+ "template": "runs/20261110-kurrent-page-v2-f1-b10-1",
+ "created": "2026-11-19T09:27:26+00:00"
+}
