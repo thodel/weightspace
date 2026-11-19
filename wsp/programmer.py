@@ -306,8 +306,52 @@ class Turn:
     raw: dict
 
 
+class OpenAIResponses:
+    """The Responses API with function tools: the default for OpenAI, because current GPT models
+    refuse function tools on Chat Completions unless reasoning is switched off. Output items
+    (reasoning, messages, function calls) go back unchanged in the next request."""
+
+    def __init__(self, model: str, key: str, base: str, options: dict | None = None):
+        self.model, self.key, self.base, self.options = model, key, base.rstrip("/"), options or {}
+
+    def start(self, system: str) -> list:
+        return [{"_system": system}]
+
+    def add_user(self, conv: list, text: str) -> None:
+        conv.append({"role": "user", "content": text})
+
+    def send(self, conv: list) -> Turn:
+        body = {"model": self.model, "instructions": conv[0]["_system"], "input": conv[1:],
+                "tools": [{"type": "function", **t} for t in TOOLS], **self.options}
+        r = post_json(f"{self.base}/responses", body, {"Authorization": f"Bearer {self.key}"}, self.key)
+        text, calls = [], []
+        for item in r.get("output", []):
+            conv.append(item)
+            if item.get("type") == "function_call":
+                try:
+                    args = json.loads(item.get("arguments") or "{}")
+                except json.JSONDecodeError:
+                    args = {"_unparsed": item.get("arguments")}
+                calls.append((item["call_id"], item["name"], args))
+            elif item.get("type") == "message":
+                text += [c.get("text", "") for c in item.get("content", []) if c.get("type") == "output_text"]
+        u = r.get("usage", {})
+        return Turn("\n".join(text), calls,
+                    {"input": u.get("input_tokens", 0), "output": u.get("output_tokens", 0),
+                     "reasoning": (u.get("output_tokens_details") or {}).get("reasoning_tokens", 0)},
+                    {"id": r.get("id"), "model": r.get("model"), "finish": r.get("status")})
+
+    def add_results(self, conv: list, results: list[tuple[str, str, str]]) -> None:
+        for cid, _name, out in results:
+            conv.append({"type": "function_call_output", "call_id": cid, "output": out})
+
+    def models(self) -> list[str]:
+        r = get_json(f"{self.base}/models", {"Authorization": f"Bearer {self.key}"}, self.key)
+        return sorted(m["id"] for m in r.get("data", []))
+
+
 class OpenAIChat:
-    """Chat Completions with function tools (api.openai.com or a compatible base URL)."""
+    """Chat Completions with function tools, for compatible servers or older models (options {"api": "chat"})."""
 
     def __init__(self, model: str, key: str, base: str, options: dict | None = None):
         self.model, self.key, self.base, self.options = model, key, base.rstrip("/"), options or {}
@@ -406,7 +450,9 @@ def client(provider: str, model: str | None = None, options: dict | None = None)
     if not model:
         raise KeyError(f"no model for {provider}: pass --model or set {p['model_env']}")
     base = os.environ.get(f"WSP_{provider.upper()}_BASE", p["base"])
-    cls = Gemini if provider == "gemini" else OpenAIChat
+    options = dict(options or {})
+    api = options.pop("api", "responses")  # openai only: "responses" (default) or "chat"
+    cls = Gemini if provider == "gemini" else (OpenAIChat if api == "chat" else OpenAIResponses)
     return cls(model, api_key(provider), base, options)
 
 
