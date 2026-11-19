@@ -12,6 +12,33 @@ Weights live on the research share
 ~16 MB, loaded by the serving engine with `kraken.lib.models.load_any` under
 kraken 7.0.2.
 
+## Public identifiers (checked 19.11.2026)
+
+The research-share path above is internal. Where a model is published, this is the identifier to cite.
+"Same file" means the published weights have the sha256 of the copy used in this project.
+
+| model | published as | public? | licence | note |
+|---|---|---|---|---|
+| `kraken-bern-hertwig-v1` | — | not published | — | weights only on the research share |
+| `kraken-bern-hertwig-v2` | — | not published | — | |
+| `kraken-bern-schlussredaktion-v1` | [`dh-unibe/kraken-bern-schlussredaktion-v1`](https://huggingface.co/dh-unibe/kraken-bern-schlussredaktion-v1) | public | MIT (model card) | same file, sha256 `d26eb02dfaf89f8f…` |
+| `kraken-bern-combined-v1` | — | not published | — | trained on the mismatched 25.10 export (below) |
+| `kraken-german-xix-v1` | [`dh-unibe/kraken-german-xix-v1`](https://huggingface.co/dh-unibe/kraken-german-xix-v1) | public | MIT (model card) | same file, sha256 `7af3d4a0eb1a778c…` |
+| `kraken-german-xix-blb-v1` | `dh-unibe/kraken-german-xix-blb-v1` | private | MIT (model card) | |
+| family 3 checkpoints, collapse probes | — | not published | — | `thodel/kraken-plus-medieval` is public but empty |
+
+Third-party parents (not ours; each fine-tune above is a derivative and has to credit them):
+
+| model | DOI | creators | licence |
+|---|---|---|---|
+| `kraken-cursive_inzigkofen` (parent of family 1) | [10.5281/zenodo.18207767](https://doi.org/10.5281/zenodo.18207767) | Nicole Eichenberger | CC BY 4.0 |
+| CATMuS Medieval (parent of `cursive_inzigkofen`) | [10.5281/zenodo.15030337](https://doi.org/10.5281/zenodo.15030337) | Ariane Pinche, Thibault Clérice, Malamatenia Vlachou-Efstathiou et al. | CC BY 4.0 |
+| `kraken-bohemian_19th` (parent of family 2) | [10.5281/zenodo.11673242](https://doi.org/10.5281/zenodo.11673242) | Daniel Baránek | CC BY 4.0 |
+
+The 37 other third-party models of the model family carry their Zenodo DOIs in `docs/zoo/gateway_zenodo.json`
+(field `zenodo_id`). The datasets the models were trained on are listed with their identifiers in the
+`provenance` block of each `data/*/*.meta.json`.
+
 ## Family 1 — Bern disputation 1528 (medieval/early modern German, hands of the Hertwig volume)
 
 | id | base | trained on | reported CER | notes |

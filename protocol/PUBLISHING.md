@@ -17,8 +17,8 @@ public. The MkDocs build here remains the strict check of the protocol pages.
 - [ ] **Redaction of the repository**, if the repository itself goes public: on `main` (18 Nov),
       748 files contain `/home/tobias` paths, 84 the research-share path `/mnt/wbkolleg…`, 57 the
       server name. No credentials were found in the history.
-- [ ] **Data and model references**: datasets done — each `data/*/*.meta.json` has a `provenance`
-      block (HF id or DOI, public or not, licence). Models still to do in `docs/MODELS.md`.
+- [x] **Data and model references**: each `data/*/*.meta.json` has a `provenance` block (HF id or
+      DOI, public or not, licence); `docs/MODELS.md` § *Public identifiers* does the same for the models.
 - [ ] **Dataset defect** (journal, phase 0): confirm the dataset owner was told,
       before it is published.
 - [x] **Licence**: text, figures and run records CC BY 4.0 (`LICENSE-CC-BY-4.0`), code MIT
