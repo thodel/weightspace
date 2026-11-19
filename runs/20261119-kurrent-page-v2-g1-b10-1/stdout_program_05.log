@@ -1,0 +1,3 @@
+Reconstructed w_im_end from 160 lens directions; targeting 25 net-<|im_end|>-suppressing modules.
+Pass 6 (H5): CER=0.425727 (delta_vs_kept=+0.051985, ci95=[-0.004440353609936665, 0.12964568150930467]), truncated_cer=0.248718, length_ratio=1.200586, at_cap=6, loops=9, kept=False
+exit 0

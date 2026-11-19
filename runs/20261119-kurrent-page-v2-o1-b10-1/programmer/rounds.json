@@ -12,5 +12,47 @@
    "reasoning": 280,
    "calls": 10
   }
+ },
+ {
+  "round": 1,
+  "finished": true,
+  "steps": 6,
+  "summary": "Appended the H1 practice results and page-level sensitivity check to notes.md. Wrote program_02.py for the operator to run the preregistered late-query and late-gate edits as passes 3 and 4, each compared with the last kept state.",
+  "ended": "2026-11-19T12:01:39+00:00",
+  "program": "program_02.py",
+  "usage_total": {
+   "input": 419892,
+   "output": 8085,
+   "reasoning": 304,
+   "calls": 16
+  }
+ },
+ {
+  "round": 2,
+  "finished": true,
+  "steps": 4,
+  "summary": "Recorded the two rejected edits in notes.md. H1 remains the last kept state. Wrote program_03.py for pass 5 to test whether removing two end-token-sensitive directions in layers 26\u201327 further reduces overrun. It also reports which pages gained or lost cap and loop flags. No pass was run by the programmer.",
+  "ended": "2026-11-19T14:21:40+00:00",
+  "program": "program_03.py",
+  "usage_total": {
+   "input": 604716,
+   "output": 10135,
+   "reasoning": 332,
+   "calls": 20
+  }
+ },
+ {
+  "round": 3,
+  "finished": true,
+  "steps": 4,
+  "summary": "Recorded H4\u2019s rejection in notes.md. None of the three follow-ups resolved any of H1\u2019s five remaining capped pages, so the practice search is complete. program_04.py is ready for the operator to freeze H1 without another pass; five passes remain unused.",
+  "ended": "2026-11-19T15:31:11+00:00",
+  "program": "program_04.py",
+  "usage_total": {
+   "input": 815657,
+   "output": 11832,
+   "reasoning": 376,
+   "calls": 24
+  }
  }
 ]

@@ -56,3 +56,64 @@
     - Why? Because `layers.27.mlp.down_proj` dir 0 and `layers.29.mlp.down_proj` dir 0 only have cosine similarities $+0.176$ and $+0.272$ with the layer-31 `<|im_end|>`-suppressing direction $u_{\text{comb}} = \text{norm}(u_{\text{o31},0} + u_{\text{d31},0})$; over 92% of their energy is orthogonal to $u_{\text{comb}}$ and carries useful Kurrent transcription features.
 - **Plan for Round 2 (`program_03.py`, Pass 4 — H3):**
   - Follow pre-registered H3: instead of removing the upstream modules' own dominant singular directions, project out only the exact shared layer-31 `<|im_end|>`-suppressing unit vector $u_{\text{comb}} = \text{norm}(u_{\text{o31},0} + u_{\text{d31},0})$ from the upstream late-layer residual writers `layers.{27,28,29}.mlp.down_proj` and `layers.27.self_attn.o_proj` (`project_out`, `axis=1`). This removes less than 1% of their Frobenius energy (0.46%, 0.19%, 0.25%, 0.97%) while eliminating their contribution along the layer-31 stopping-suppression direction, and leaves layer 30 ($z(\text{<|im\_end|>}) = +2.85$) completely untouched.
+
+## Round 3 — 2026-11-19 14:25:35 UTC
+
+- **Files read:**
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/log.jsonl`
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/passes/pass-004.raw.jsonl`
+- **Results of `program_03.py` (Pass 4 — H3):**
+  - **REFUSED & REVERTED (`rule: refused`, interval contains 0; state restored to H1)**:
+    - CER improved slightly from `0.373742` to `0.372625` (`delta_cer = -0.001118`, ci95 `[-0.032271, +0.029558]`).
+    - `truncated_cer` improved further from `0.241180` to `0.233622` ($-0.007557$), `at_cap` dropped from `5` to `4` (`008291` stopped before cap, $-1,183$ edits), and `loops` dropped from `10` to `8` (`007967`, `008205`, and `007674` were no longer flagged as loops).
+    - However, because `007884` remained at cap and had $+1,178$ more edits inside its loop, the net corpus CER reduction vs H1 was only $-121$ edits (`-0.001118`), whose 95% CI spans 0.
+- **Plan for Round 3 (`program_04.py`, Pass 5 — H4):**
+  - Follow pre-registered H4 (`scale` edit class on layer-31 residual writers): on top of the kept H1 state, scale the remaining `lora_B.weight` of `layers.31.self_attn.o_proj` and `layers.31.mlp.down_proj` by `factor=0.5`, testing whether damping the rest of the final-layer residual update reduces the remaining 5 at-cap pages without hurting `truncated_cer`.
+
+## Round 4 — 2026-11-19 15:36:44 UTC
+
+- **Files read:**
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/log.jsonl`
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/passes/pass-005.raw.jsonl`
+- **Results of `program_04.py` (Pass 5 — H4):**
+  - **REFUSED & REVERTED (`rule: refused`, interval contains 0; state restored to H1)**:
+    - CER rose vs H1 by `+0.022486` to `0.396229` (ci95 `[-0.028721, +0.093737]`), `truncated_cer` degraded from `0.241180` to `0.248312` (`+0.007132`), and `at_cap` stayed at `5` (`008291` stopped before cap, $-729$ edits, while `006781` newly ran to cap with a Dingbat `✳` loop, $+2,355$ edits).
+    - **Conclusion for H4:** Just as pre-registered ("Whole-module damping in late layers trades off reading accuracy against stopping or does not beat surgical rank-1 projection"), scaling the remaining 63 singular directions of `layers.31.self_attn.o_proj` and `layers.31.mlp.down_proj` by 0.5 weakens their positive `<|im_end|>`-promoting directions (`layers.31.mlp.down_proj` dir 1 has $z = +1.90$, `layers.31.self_attn.o_proj` dir 3 has $z = +1.47$) and degrades `truncated_cer`.
+- **Key contrast across Passes 2–5 and design of Pass 6 (H5):**
+  - Every edit that removed non-target feature directions (H2 full rank-1 removal in layers 27 & 29; H4 rank-63 scaling in layer 31) degraded `truncated_cer` and triggered new loops.
+  - Conversely, projecting out a single pure `<|im_end|>`-suppressing residual direction (H1 in layer 31; H3 in layers 27–29) **improved** `truncated_cer` (`0.256386` $\to$ `0.241180` in H1 $\to$ `0.233622` in H3) and reduced `at_cap` (`9` $\to$ `5` $\to$ `4`) and `loops` (`12` $\to$ `10` $\to$ `8`).
+  - Using all 160 top-4 left singular vectors $V \in \mathbb{R}^{160 \times 2560}$ and their exact budget-0 logit-lens scores $z(\text{<|im\_end|>}) \in \mathbb{R}^{160}$ from `docs/readings/adapter_kurrent-page-v2.json`, we reconstructed the minimum-norm least-squares `<|im_end|>` lens direction $w_{\text{im\_end}} \in \mathbb{R}^{2560}$ ($V w = z$).
+  - **Plan for Round 4 (`program_05.py`, Pass 6 — H5):** On top of H1, project out $w_{\text{im\_end}}$ (`axis=1`) from all 25 net-`<|im_end|>`-suppressing residual-writing modules while leaving all 15 net-`<|im_end|>`-promoting modules untouched.
+
+## Round 5 — 2026-11-19 16:38:51 UTC
+
+- **Files read:**
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/log.jsonl`
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/passes/pass-006.raw.jsonl`
+- **Results of `program_05.py` (Pass 6 — H5):**
+  - **REFUSED & REVERTED (`rule: refused`, interval contains 0; state restored to H1)**:
+    - CER rose vs H1 by `+0.051985` to `0.425727` (ci95 `[-0.004440, +0.129646]`), `truncated_cer` degraded from `0.241180` to `0.248718` (`+0.007539`), and `at_cap` rose from `5` to `6`.
+    - **Diagnosis:** The logit-lens vector $w_{\text{im\_end}}$ is defined at the final layer's output (right before the base model's final RMSNorm and `lm_head`). In early and mid layers (layers 1–24), the residual stream undergoes many subsequent Gated-DeltaNet, full-attention, and MLP transformations before reaching the final norm, so projecting out $w_{\text{im\_end}}$ in early/mid layers perturbs intermediate representations (causing `007967` to revert to cap with $+3,516$ edits). Furthermore, in layer 31 itself, `project_out` along $w_{\text{im\_end}}$ also removed the component of `layers.31.mlp.down_proj` dir 1 ($z = +1.90$) and `layers.31.self_attn.o_proj` dir 3 ($z = +1.47$) that *promoted* `<|im_end|>`.
+- **Design of Pass 7 (H6 — `program_06.py`):**
+  - Across all 6 passes so far, only edits to the two final-layer top singular directions (`layers.31.self_attn.o_proj` dir 0, $\sigma = 2.226, z(\text{<|im\_end|>}) = -3.60, z(\text{\\n}) = -5.52, z(\neg) = -8.06$; and `layers.31.mlp.down_proj` dir 0, $\sigma = 2.612, z(\text{<|im\_end|>}) = -3.32, z(\text{\\n}) = -1.95$) operated directly at the final output interface without disturbing upstream representation geometry.
+  - In H1, projecting out those two rank-1 directions changed their singular-value multiplier from $c = +1.0$ to $c = 0.0$. That eliminated 4 of the 9 at-cap pages and improved `truncated_cer` from `0.256386` to `0.241180`.
+  - In H6 we test $c = -0.5$ along those exact two rank-1 singular components (by adding $-0.5 \cdot u_0 (u_0^\top B_{\text{orig}})$ to `lora_B.weight` of `layers.31.self_attn.o_proj` and `layers.31.mlp.down_proj` on top of H1 via the `add` op).
+
+## Round 6 — 2026-11-19 17:40:34 UTC
+
+- **Files read:**
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/log.jsonl`
+  - `runs/20261119-kurrent-page-v2-g1-b10-1/passes/pass-007.raw.jsonl`
+- **Results of `program_06.py` (Pass 7 — H6):**
+  - **REFUSED & REVERTED (`rule: refused`, interval contains 0; state restored to H1)**:
+    - CER rose vs H1 by `+0.047606` to `0.421348` (ci95 `[-0.002526, +0.122595]`), `truncated_cer` rose slightly from `0.241180` to `0.244856`, and `at_cap` rose from `5` to `6`.
+    - Notably, inverting dir 0 of layer-31 `o_proj` and `down_proj` ($c = -0.5$) drastically cut Dingbats (`✳`) insertions from $1,253$ (in H1) down to $225$, but because $-u_0$ suppresses the tokens that $+u_0$ promotes and promotes the tokens that $+u_0$ suppresses, pushing $c$ negative introduced digit/punctuation loop insertions on `006694`, `007884`, and `008205`.
+- **Overall synthesis and decision to freeze (`program_07.py`):**
+  - Across 7 passes (C0 + 6 experimental hypotheses H1–H6), we have mapped out the geometry of the `<|im_end|>`-suppression obstacle in `qwen3.5-4b-german-kurrent-xvi-xix-page-v2`:
+    1. **H1 (`project_out` dir 0 of `layers.31.self_attn.o_proj` and dir 0 of `layers.31.mlp.down_proj`, $c = 0$):** Reduced CER from `0.451512` to `0.373742` ($\Delta\text{CER} = -0.077769$, 2,000-resample paired page-bootstrap 95% CI `[-0.173227, -0.004299]`), **improved** `truncated_cer` from `0.256386` to `0.241180` ($-0.015207$), reduced `length_ratio` from `1.226370` to `1.147640`, reduced `at_cap` pages from `9` to `5`, and reduced `loops` from `12` to `10`.
+    2. **Why $c = 0$ on layer 31 dir 0 (H1) is the exact surgical optimum:**
+       - Along the layer-31 rank-1 coordinate $c$: $c = +1$ is C0 (`CER = 0.4515`, `at_cap = 9`); $c = 0$ is H1 (`CER = 0.3737`, `at_cap = 5`); $c = -0.5$ is H6 (`CER = 0.4213`, `at_cap = 6`). Thus $c = 0$ (orthogonal projection) cleanly removes the obstacle without injecting inverse token bias.
+       - Scaling the remaining 63 directions of layer 31 (H4) hurts `truncated_cer` (`0.2483`) and triggers new loops because `layers.31.mlp.down_proj` dir 1 ($z = +1.90$) and `layers.31.self_attn.o_proj` dir 3 ($z = +1.47$) promote `<|im_end|>`.
+       - Upstream full rank-1 removal in layers 27 & 29 (H2) or whole-network lens projection across layers 1–31 (H5) perturbs intermediate feature representations before they pass through subsequent transformer/DeltaNet blocks.
+       - Upstream shared-direction projection in layers 27–29 (H3) leaves CER within `-0.0011` of H1 (95% CI `[-0.0323, +0.0296]`), confirming that the 4 remaining hard at-cap pages (`006694`, `007884`, `008159`, `011629`) are not driven by the late-layer linear `<|im_end|>`-suppression direction.
+  - Following our pre-registered stopping plan ("early `s.freeze()` if the obstacle has been cleanly removed and remaining at-cap pages are genuine long/dense pages or base-model loops that cannot be improved without degrading `truncated_cer`"), we write `program_07.py` to call `s.freeze()` on the kept H1 state with 3 passes of budget unused.

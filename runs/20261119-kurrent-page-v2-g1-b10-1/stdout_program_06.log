@@ -1,0 +1,2 @@
+Pass 7 (H6): CER=0.421348 (delta_vs_kept=+0.047606, ci95=[-0.002525956665081097, 0.12259493823295692]), truncated_cer=0.244856, length_ratio=1.197592, at_cap=6, loops=9, kept=False
+exit 0
