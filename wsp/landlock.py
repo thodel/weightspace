@@ -115,7 +115,6 @@ def session_paths(run_dir: Path, subject: Path, practice_list: Path, python: Pat
         pass
     imgs = {str(Path(json.loads(l)["image"]).parent) for l in Path(practice_list).read_text().splitlines()[:5000] if l.strip()}
     read += sorted(imgs)
-    read += [str(Path.home() / "atr-cache" / "wsp" / "card-state.json")]   # the card gate (wsp.card.ready) reads the watcher's state file
     read += [str(d) for d in donors]
     write = list(SYSTEM_WRITE) + [str(run_dir)] + ([str(tmp)] if tmp else [])
     return {"read": read, "write": write}

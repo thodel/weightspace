@@ -127,6 +127,8 @@ def sandbox_command(run_dir: Path, script: str = "program.py") -> str:
         tmp = Path(json.loads(sj.read_text())["tmpdir"])
     env = ["env", "-i", f"PATH=/usr/bin:/bin", f"HOME={run_dir}", f"TMPDIR={tmp}",
            f"CUDA_VISIBLE_DEVICES={cuda}", "OMP_NUM_THREADS=4", "MKL_NUM_THREADS=4", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "no_proxy=*"]
+    if (Path(run_dir) / "landlock.json").exists():   # the card gate cannot read the watcher's state file from inside the allow-list (the watcher replaces the file, a Landlock rule keeps the old inode): the runner checks the card before it starts the session
+        env.append("WSP_CARD_GATE=outside")
     # -I ignores PYTHONPATH; the shim puts this checkout's wsp first so a worktree runs its own harness
     lock = ""
     if (Path(run_dir) / "landlock.json").exists():   # stage 4: a file allow-list (wsp/landlock.py) before the program starts; irreversible from inside

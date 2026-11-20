@@ -56,6 +56,15 @@ def discovery_read(run_dir: Path, arm: str):
 
 
 def main(arm, read=True):
+    if BUDGET[arm]:                                   # the card gate runs here, outside the allow-list (amendment 3)
+        from wsp import card
+        import time
+        while True:
+            ok, why = card.ready()
+            if ok:
+                break
+            print("card not ready:", why, flush=True)
+            time.sleep(120)
     adir = ADIR / arm
     prog, hyp = adir / "program.py", adir / "hypotheses.md"
     run_dir = R.new(str(SUBJECT), str(G.PRACTICE), BUDGET[arm], run_id=f"trocr-stage4-A-{arm}", device="cuda:0", min_effect=0.005, cluster_rule=True,
