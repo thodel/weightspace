@@ -1,0 +1,7 @@
+{
+ "weights": [
+  "/home/tobias/atr-cache/trocr/dh-unibe__trocr-kurrent/model.safetensors",
+  "/home/tobias/atr-cache/trocr/microsoft__trocr-base-handwritten/model.safetensors"
+ ],
+ "other": []
+}

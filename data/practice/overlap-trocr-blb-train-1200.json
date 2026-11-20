@@ -1,0 +1,13 @@
+{
+ "practice": "trocr-blb-train-1200",
+ "lines": 1194,
+ "documents": 216,
+ "pages": 759,
+ "heldout_documents_shared": [],
+ "heldout_keys_shared": 0,
+ "heldout_exact_lines_ge20_shared": 0,
+ "stage3_set_keys_shared": 12,
+ "stage3_set_lines": 300,
+ "lines_taller_than_wide_or_ref_under_4_chars_kept": 28,
+ "heldout_sha256": "a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091"
+}

@@ -1,0 +1,28 @@
+{
+ "weights": [
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_adapter_session_opens_in_0/ad/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_directions_match_full_svd0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_remove_direction_kills_it0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_save_roundtrip_hub_format0/out/model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_save_twice_over_a_read_on0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_save_twice_over_a_read_on0/work/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_scale_module_and_save_rou0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-40/test_scale_module_and_save_rou0/out/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_adapter_session_opens_in_0/ad/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_directions_match_full_svd0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_remove_direction_kills_it0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_save_twice_over_a_read_on0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_save_twice_over_a_read_on0/work/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_scale_module_and_save_rou0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-41/test_scale_module_and_save_rou0/out/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_adapter_session_opens_in_0/ad/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_directions_match_full_svd0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_remove_direction_kills_it0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_save_twice_over_a_read_on0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_save_twice_over_a_read_on0/work/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_scale_module_and_save_rou0/adapter_model.safetensors",
+  "/home/tobias/atr-cache/tmp/pytest-of-tobias/pytest-42/test_scale_module_and_save_rou0/out/adapter_model.safetensors",
+  "/home/tobias/atr-cache/trocr/dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2/model.safetensors"
+ ],
+ "other": []
+}

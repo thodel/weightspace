@@ -1,0 +1,26 @@
+{
+  "budget": 0,
+  "used": 0,
+  "seed": 20261106,
+  "keep_rule": {
+    "min_effect": 0.005,
+    "resamples": 2000,
+    "interval": "page-clustered",
+    "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"
+  },
+  "practice_lines": 1194,
+  "practice_id": "b6b33a8d0c19b733538655f58f07a40518737174af467e2193b6b96b9deceb73",
+  "start_digest": "2cce260da2c1d4a5705b8f15320f85a19b07fb4f650550f0c78647b4e00309df",
+  "final_digest": "2cce260da2c1d4a5705b8f15320f85a19b07fb4f650550f0c78647b4e00309df",
+  "edits": 0,
+  "kept": 0,
+  "baseline": null,
+  "last_pass": null,
+  "changed_tensors": {},
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "d007f4050bc716188c4dd8611a53234f645cf51d43f1c7bc05e5fda13a8585f3",
+  "subject": "/home/tobias/atr-cache/trocr/dh-unibe__trocr-kurrent",
+  "name": "20261119-trocr-stage4-noop-B-donor-b0-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261119-trocr-stage4-noop-B-donor-b0-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261119-trocr-stage4-noop-B-donor-b0-1 TMPDIR=/home/tobias/atr-cache/tmp/20261119-trocr-stage4-noop-B-donor-b0-1 CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* /home/tobias/atr-cache/trocr/venv/bin/python -I -c 'import sys,runpy; sys.path.insert(0, '\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb'\"'\"'); import json; from wsp import landlock; landlock.restrict(**json.load(open('\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261119-trocr-stage4-noop-B-donor-b0-1/landlock.json'\"'\"'))); runpy.run_path('\"'\"'program.py'\"'\"', run_name='\"'\"'__main__'\"'\"')'"
+}

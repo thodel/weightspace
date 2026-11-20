@@ -201,6 +201,8 @@ class Session:
     def keep(self, reason: str = "") -> bool:
         """Keep the last edit if the rule allows it; otherwise the edit is undone and a
         ``decision`` with ``kept: false`` and the rule's reason is logged. Returns whether it was kept."""
+        if self._last_edit is None:                 # no pending edit: keep() after keep()/revert(), or before any edit
+            return self._refuse("keep", reason)
         ok, why = self.keep_allowed()
         if not ok:
             if self._pre_edit_tensors:
@@ -222,10 +224,19 @@ class Session:
         self._decide(True, reason, rule="unmeasured (budget 0)")
 
     def revert(self, reason: str = "") -> None:
+        if self._last_edit is None:                 # stage 4 (docs/TROCR_STAGE4_PLAN.md section 7): a refusal that is logged, not a crash.
+            self._refuse("revert", reason)          # keep() that is refused has already undone the edit; reverting it again crashed one session (p01, R17)
+            return
         if self._pre_edit_tensors:
             for n, v in self._pre_edit_tensors.items():
                 self.subject.set_tensor(n, v)
         self._decide(False, reason)
+
+    def _refuse(self, call: str, reason: str) -> bool:
+        """``keep``/``revert`` with no edit waiting for a decision: nothing changes, the refusal is logged, the program goes on (keep returns False)."""
+        self._event("refusal", call=call, reason=reason,
+                    why="no edit is waiting for a decision (it was already kept, refused by the rule, or reverted); nothing was changed")
+        return False
 
     def _decide(self, kept: bool, reason: str, **extra) -> None:
         if self._last_edit is None:
