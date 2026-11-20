@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program for s06(a). The program tests a codec-aligned parent transplant for the zeroed `e` output row, then checks two targeted refinements. It uses at most five passes including baseline. No model was loaded and no passes were run.",
+  "ended": "2026-11-20T10:15:59+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 75000,
+   "output": 1960,
+   "reasoning": 89,
+   "calls": 7
+  }
+ }
+]

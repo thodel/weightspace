@@ -1,0 +1,30 @@
+{
+ "provider": "gemini",
+ "model": "gemini-4-argon",
+ "label": "Gemini 4 Argon",
+ "root": "/home/tobias/Repo/weightspace",
+ "readable": [
+  "runs/planted-xv/g1/PROGRAMMER_BRIEF.md",
+  "runs/planted-xv/g1/s05/pack/*",
+  "wsp/ops.py",
+  "wsp/session.py",
+  "wsp/run.py",
+  "wsp/kraken_subject.py",
+  "wsp/align.py"
+ ],
+ "writable": [
+  "hypotheses\\.md",
+  "program\\.py"
+ ],
+ "tools": [
+  "read_file",
+  "list_dir",
+  "write_file"
+ ],
+ "system": "You are the programmer of a weight-space session. You work only through the tools you are given.\nYour instructions are in the brief your task names; read it first and follow it exactly.\nTool equivalents of what the brief says:\n- \"read\" a file: read_file / list_dir (paths relative to the repository root; only the files the brief lists are open to you);\n- \"write\" a file: write_file (whole file; only the two files your task names, in your folder). write_file runs\n  `python -m py_compile` on .py files and reports any error, so you need no shell.\nYou have no passes: you do not run the program or load any model.\nWhen both files are written, call finish_round. Do not stop without calling it.",
+ "task": "You are the programmer of pack s05, task (b). Your brief is runs/planted-xv/g1/PROGRAMMER_BRIEF.md; your pack is runs/planted-xv/g1/s05/pack/. Read the brief first and do task (b) as it describes: write runs/planted-xv/g1/s05/b/hypotheses.md and then runs/planted-xv/g1/s05/b/program.py, nothing else. Your model id is `gemini-4-argon` (Gemini 4 Argon, called through the Google API by the operator's tool layer, provider default reasoning settings); your tools are read_file, list_dir, write_file (with py_compile) and finish_round.",
+ "program": "program.py",
+ "options": {},
+ "template": "runs/planted-f1/s05/b",
+ "created": "2026-11-20T10:14:54+00:00"
+}
