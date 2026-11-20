@@ -1,0 +1,7 @@
+H2-late-queries {'pages': 64, 'chars': 108243, 'cer': 0.4609905490424323, 'truncated_cer': 0.26875640919043264, 'length_ratio': 1.2155705218813226, 'at_cap': 8, 'loops': 10} {'delta_cer': 0.08724813613813365, 'ci95': [0.0003607236671723246, 0.18791499064640188], 'resamples': 2000, 'seed': 20261106, 'lines': 64}
+pages better/worse/tied 28 24 12 delta CER excluding largest beneficiary 0.0973130963865779
+H2-late-queries kept: False
+H3-late-gates {'pages': 64, 'chars': 108243, 'cer': 0.3897526860859363, 'truncated_cer': 0.24263924687970584, 'length_ratio': 1.1498849810149385, 'at_cap': 5, 'loops': 9} {'delta_cer': 0.016010273181637613, 'ci95': [-0.0039255101266783, 0.04206837065586472], 'resamples': 2000, 'seed': 20261106, 'lines': 64}
+pages better/worse/tied 24 32 8 delta CER excluding largest beneficiary 0.018704940047048067
+H3-late-gates kept: False
+exit 0

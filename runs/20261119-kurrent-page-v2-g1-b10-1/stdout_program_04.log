@@ -1,0 +1,2 @@
+Pass 5 (H4): CER=0.396229 (delta_vs_kept=+0.022486, ci95=[-0.028720697065884926, 0.09373692953000085]), truncated_cer=0.248312, length_ratio=1.169101, at_cap=5, loops=10, kept=False
+exit 0

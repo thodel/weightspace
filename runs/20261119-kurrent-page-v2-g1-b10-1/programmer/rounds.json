@@ -1,0 +1,100 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 16,
+  "summary": "Completed Round 0: analyzed the budget-0 adapter reading and SVD geometry, filled in Section 5 (Hypotheses) of preregistration.md, wrote program_01.py (Pass 1 baseline C0 verification + Pass 2 H1 projecting out dir 0 of layers.31.self_attn.o_proj and dir 0 of layers.31.mlp.down_proj), and recorded a timestamped entry in notes.md.",
+  "ended": "2026-11-19T09:33:02+00:00",
+  "program": "program_01.py",
+  "usage_total": {
+   "input": 822261,
+   "output": 11769,
+   "reasoning": 0,
+   "calls": 16
+  }
+ },
+ {
+  "round": 1,
+  "finished": true,
+  "steps": 9,
+  "summary": "Analyzed Passes 1 and 2 (C0 reproduced exactly; H1 kept with delta_cer = -0.0778, ci95 = [-0.1732, -0.0043], truncated_cer improved from 0.2564 to 0.2412, at_cap reduced from 9 to 5). Appended Round 1 notes to notes.md and wrote program_02.py to test H2 (projecting out dir 0 of layers.27.mlp.down_proj and dir 0 of layers.29.mlp.down_proj on top of H1).",
+  "ended": "2026-11-19T12:01:30+00:00",
+  "program": "program_02.py",
+  "usage_total": {
+   "input": 1595531,
+   "output": 18644,
+   "reasoning": 0,
+   "calls": 25
+  }
+ },
+ {
+  "round": 2,
+  "finished": true,
+  "steps": 8,
+  "summary": "Analyzed Pass 3 (H2 refused and reverted: removing full dir 0 of layers 27 and 29 hurt truncated_cer from 0.2412 to 0.2753 and raised at_cap from 5 to 7). Appended Round 2 notes to notes.md and wrote program_03.py to test H3 (projecting out only the shared layer-31 <|im_end|>-suppressing unit direction u_comb from layers.{27,28,29}.mlp.down_proj and layers.27.self_attn.o_proj on top of H1).",
+  "ended": "2026-11-19T13:15:47+00:00",
+  "program": "program_03.py",
+  "usage_total": {
+   "input": 2420488,
+   "output": 26082,
+   "reasoning": 0,
+   "calls": 33
+  }
+ },
+ {
+  "round": 3,
+  "finished": true,
+  "steps": 11,
+  "summary": "Analyzed Pass 4 (H3 improved truncated_cer to 0.2336 and reduced at_cap to 4 and loops to 8, but delta_cer vs H1 was -0.0011 with ci95 [-0.0323, +0.0296] containing 0, so it was refused and reverted to H1). Appended Round 3 notes to notes.md and wrote program_04.py to test H4 (scaling lora_B.weight of layers.31.self_attn.o_proj and layers.31.mlp.down_proj by 0.5 on top of H1).",
+  "ended": "2026-11-19T14:26:25+00:00",
+  "program": "program_04.py",
+  "usage_total": {
+   "input": 3787478,
+   "output": 36292,
+   "reasoning": 0,
+   "calls": 44
+  }
+ },
+ {
+  "round": 4,
+  "finished": true,
+  "steps": 7,
+  "summary": "Analyzed Pass 5 (H4 refused and reverted: scaling remaining layer-31 o_proj and down_proj by 0.5 degraded truncated_cer from 0.2412 to 0.2483 and raised CER by +0.0225). Appended Round 4 notes to notes.md and wrote program_05.py to test H5 (projecting out the reconstructed logit-lens <|im_end|> direction w_im_end from all 25 net-<|im_end|>-suppressing residual-writing modules across the network on top of H1).",
+  "ended": "2026-11-19T15:37:37+00:00",
+  "program": "program_05.py",
+  "usage_total": {
+   "input": 4804390,
+   "output": 45483,
+   "reasoning": 0,
+   "calls": 51
+  }
+ },
+ {
+  "round": 5,
+  "finished": true,
+  "steps": 8,
+  "summary": "Analyzed Pass 6 (H5 refused and reverted: projecting out w_im_end across early/mid/late layers perturbed upstream representations and raised CER vs H1 by +0.0520). Appended Round 5 notes to notes.md and wrote program_06.py to test H6 (adding -0.5 * u_0 (u_0^T B_orig) to layers.31.self_attn.o_proj and layers.31.mlp.down_proj on top of H1, inverting their rank-1 <|im_end|>-suppressing singular directions at c = -0.5).",
+  "ended": "2026-11-19T16:40:16+00:00",
+  "program": "program_06.py",
+  "usage_total": {
+   "input": 6115396,
+   "output": 55637,
+   "reasoning": 0,
+   "calls": 59
+  }
+ },
+ {
+  "round": 6,
+  "finished": true,
+  "steps": 5,
+  "summary": "Analyzed Pass 7 (H6 refused and reverted: inverting dir 0 of layers.31.self_attn.o_proj and layers.31.mlp.down_proj at c = -0.5 cut Dingbat insertions to 225 but introduced digit/punctuation loop insertions, raising CER vs H1 by +0.0476). Concluded that c = 0 (H1: orthogonal projection of dir 0 of layers.31.self_attn.o_proj and dir 0 of layers.31.mlp.down_proj) is the clean surgical optimum. Appended Round 6 synthesis to notes.md and wrote program_07.py calling s.freeze().",
+  "ended": "2026-11-19T17:41:46+00:00",
+  "program": "program_07.py",
+  "usage_total": {
+   "input": 7016794,
+   "output": 64367,
+   "reasoning": 0,
+   "calls": 64
+  }
+ }
+]

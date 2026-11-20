@@ -1,9 +1,14 @@
 # Cross-vendor programmers: Gemini 4 Argon and GPT-6.2 Astra (dhserver03, 19.11.2026)
 
-Plan: `docs/XVENDOR_PLAN.md`. This report covers **E2**, kraken session 2 on `kraken-bern-combined-v1`.
-E1, the phase-5 adapter, has not run yet.
+Plan: `docs/XVENDOR_PLAN.md`. This report covers **E2**, kraken session 2 on `kraken-bern-combined-v1`
+(§1–5), and **E1**, the phase-5 Kurrent adapter (§6).
 
-**In short:** on kraken session 2, both new programmers did what Fable did. Each moved the whole
+**E1 in short:** Gemini and GPT kept the same single edit and froze on byte-identical adapters. On
+practice it gains 7.8 points; on held-out it is a null (+1.13 points, page interval [−3.0, +5.2]). Two of
+three random directions removed from the same tensors would also have been kept on practice. This
+repeats Fable's phase-5 result with a slightly different edit.
+
+**E2 in short:** on kraken session 2, both new programmers did what Fable did. Each moved the whole
 network toward the parent, and each gained about as much on held-out. Gemini kept two edits, and GPT
 one blend of all three models.
 
@@ -178,8 +183,116 @@ No component split was run:
   - Pairwise, no two programmers differ by more than 0.1 point on held-out.
   - GPT and Gemini reasoned little or not visibly at their default settings.
 
-## 6. What was not done
+## 6. E1: the phase-5 Kurrent adapter (`kurrent-page-v2`)
 
-- E1, the phase-5 adapter on card 0, has not run yet. Plan §2 sets it as the next step.
+### 6.1 Set-up
+
+The same as §1, with these differences:
+- template `runs/20261110-kurrent-page-v2-f1-b10-1`; practice `kurrent-val-64` (64 pages); held-out
+  `kurrent-test` (733 pages); budget 10; the engine is `evaluate_qlora` on card 0;
+- the brief carries the two errata Fable found (plan §3.4), recorded as a deviation in each
+  pre-registration;
+- **deviation:** both sessions ran **in parallel** on card 0, not one after the other as plan §4 says,
+  and the shams ran in parallel with held-out. Card 1 was never used. C0 reproduced to the last digit in
+  both runs (0.4515, 9 pages at the cap) and the two H1 passes were identical, so sharing the card did
+  not touch determinism. It only halved the speed of each job.
+
+| | Gemini 4 Argon (g1) | GPT-6.2 Astra (o1) |
+|---|---:|---:|
+| rounds | 7 | 4 |
+| API calls | 64 | 24 |
+| input / output tokens | 7.02 M / 64.4 k | 0.82 M / 11.8 k |
+| reasoning tokens reported | 0 | 376 |
+| `run_python` reading scripts | 37 | 6 |
+| refused tool calls | 0 | 1: a write to `preregistration.md` outside §5, corrected by the model |
+
+Every call was served as the pinned id. There were no nudges, and every round ended with `finish_round`.
+
+### 6.2 The sessions (practice, 64 pages)
+
+Each row is against the last kept state, with the paired page interval in CER points.
+
+**Gemini 4 Argon** (`runs/20261119-kurrent-page-v2-g1-b10-1`): 7 of 10 passes, 6 edits, 1 kept.
+
+| pass | edit | CER | at cap | Δ vs kept [page 95 %] | decision |
+|---:|---|---:|---:|---|---|
+| 1 | C0 | 0.4515 | 9 | | baseline, reproduced |
+| 2 | H1: direction 0 out of layer-31 `o_proj` and `down_proj` `lora_B` | 0.3737 | 5 | −7.78 [−17.3, −0.4] | **kept** |
+| 3 | H2: direction 0 out of `down_proj` in layers 27 and 29 | 0.4464 | 7 | +7.26 [−3.0, +18.9] | refused |
+| 4 | H3: a shared direction out of layers 27–29 | 0.3726 | 4 | −0.11 [−3.2, +3.0] | refused |
+| 5 | H4: the rest of layer 31's `o_proj`/`down_proj` × 0.5 | 0.3962 | 5 | +2.25 [−2.9, +9.4] | refused |
+| 6 | H5: the logit-lens `<\|im_end\|>` direction out of 25 suppressing writers | 0.4257 | 6 | +5.20 [−0.4, +13.0] | refused |
+| 7 | H6: H1's direction inverted at −0.5 | 0.4213 | 6 | +4.76 [−0.3, +12.3] | refused |
+
+Froze on H1 with three passes unused. The notes argue that the remaining capped pages are not driven by
+the end-token direction.
+
+**GPT-6.2 Astra** (`runs/20261119-kurrent-page-v2-o1-b10-1`): 5 of 10 passes, 4 edits, 1 kept.
+
+| pass | edit | CER | at cap | Δ vs kept [page 95 %] | decision |
+|---:|---|---:|---:|---|---|
+| 1 | C0 | 0.4515 | 9 | | baseline, reproduced |
+| 2 | H1: the same edit as Gemini's H1 | 0.3737 | 5 | −7.78 [−17.3, −0.4] | **kept** |
+| 3 | H2: `q_proj` B × 0.65 in layers 19/23/27/31 | 0.4610 | 9 | +8.72 [0.0, +18.8] | refused |
+| 4 | H3: `gate_proj` B × 0.75 in layers 24–31 | 0.3898 | 6 | +1.60 [−0.4, +4.2] | refused |
+| 5 | H4: H1 extended to layers 26–27 | 0.3986 | 6 | +2.49 [−0.1, +6.6] | refused |
+
+Froze on H1 with five passes unused: "there is no supported reason to vary another layer or dose on the
+same 64 pages".
+
+**One adapter:** both `final.adapter/adapter_model.safetensors` have sha256 `c5cde457…` (digest
+`d9fc39be…`). It is not Fable's adapter (`3f68caa5…`, direction 0 out of `o_proj` only), so held-out was
+scored anew, once, in the Gemini run. The GPT run's `summary.json` reuses those readings (plan §3.3) and
+says so.
+
+### 6.3 Held-out (733 test pages, scored once)
+
+Paired page bootstrap and the document-clustered interval (A4, 70 documents), 2,000 resamples. Script
+`scripts/xv_e1_compare.py`, results `docs/baselines/xv-e1-compare.json`.
+
+| | wsp CER | trainer CER | at cap | Δ vs v2, page [doc] | pages better / worse |
+|---|---:|---:|---:|---|---|
+| v2, unedited (`p5-v2-test`) | 0.4012 | 0.4053 | 44 | | |
+| Fable's H1 (`o_proj` only) | 0.4036 | 0.4079 | 43 | +0.24 [−3.5, +3.9] [−5.0, +6.7] | 225 / 233 |
+| **Gemini/GPT H1** (`o_proj` + `down_proj`) | **0.4125** | 0.4174 | 42 | **+1.13 [−3.0, +5.2] [−4.9, +12.4]** | 256 / 250 |
+
+Gemini/GPT H1 − Fable's H1: +0.90 [−3.4, +5.2], doc [−4.8, +9.7]. Held-out took 8.3 h on card 0, part of it
+shared with the shams.
+
+### 6.4 Controls (C5 sham, practice)
+
+`scripts/xv_e1_sham.py`: for each seed, one seeded random unit direction out of each of the two `B`
+tensors H1 edited. Seeds 20261108/10/11, the seeds of the earlier E1 shams. Results
+`docs/baselines/xv-e1-sham-*.json`.
+
+| practice, 64 pages | CER | at cap | − C0, page [doc] | H1 − it, page |
+|---|---:|---:|---|---|
+| C0 | 0.4515 | 9 | | |
+| H1 | 0.3737 | 5 | −7.78 [−17.3, −0.4] [−16.7, −0.6] | |
+| sham 20261108 | 0.3701 | 6 | **−8.14 [−16.6, −1.2]** [−16.5, −1.2] | +0.37 [−5.0, +3.9] |
+| sham 20261110 | 0.3654 | 6 | **−8.61 [−18.1, −0.1]** [−18.6, −0.2] | +0.84 [−6.5, +7.7] |
+| sham 20261111 | 0.4293 | 8 | −2.22 [−5.9, +0.8] [−5.7, +0.8] | −5.55 [−14.8, +0.9] |
+
+The keep rule would have kept two of the three shams (interval below 0, pages at the cap 9 → 6). H1 does
+not differ from any of them. C1, C3 and the decode comparator do not depend on the edit and are those of
+phase 5 (`docs/baselines/p5-*.json`).
+
+### 6.5 What E1 shows
+
+- **Three vendors, one family of edit.** Opus, Fable, Gemini and GPT all removed the top reading
+  direction from layer 31's writers. Gemini and GPT agreed to the byte; Fable and Opus took `o_proj`
+  alone. The reading decides the edit, for every programmer tried.
+- **The practice gain does not transfer.** On held-out, H1 is +1.13 points (worse, but the interval
+  includes 0); Fable's version was +0.24. Neither moves the 733 test pages.
+- **The shams explain the practice gain.** Removing random directions from the same tensors gains as
+  much on practice. What the keep rule saw on 64 pages was mostly a reshuffle of which pages loop, as the
+  Fable report argued with one tensor.
+- By plan §5, this is the "different kept edit" case: it has its own held-out score and shams, and it
+  lies inside the sham spread on practice and at the null on held-out. It is not a finding for the edit.
+  It strengthens the phase-5 conclusion that on this adapter the 64-page keep rule does not separate a
+  meaningful direction from noise.
+
+## 7. What was not done
+
 - E3, the planted-defect controls, waits for a go-ahead.
 - Nothing was registered, exported or served.
