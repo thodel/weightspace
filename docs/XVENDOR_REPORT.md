@@ -208,7 +208,7 @@ Each row is against the last kept state, with the paired page interval in CER po
 | 3 | H2: direction 0 out of `down_proj` in layers 27 and 29 | 0.4464 | 7 | +7.26 [−3.0, +18.9] | refused |
 | 4 | H3: a shared direction out of layers 27–29 | 0.3726 | 4 | −0.11 [−3.2, +3.0] | refused |
 | 5 | H4: the rest of layer 31's `o_proj`/`down_proj` × 0.5 | 0.3962 | 5 | +2.25 [−2.9, +9.4] | refused |
-| 6 | H5: the logit-lens `<|im_end|>` direction out of 25 suppressing writers | 0.4257 | 6 | +5.20 [−0.4, +13.0] | refused |
+| 6 | H5: the logit-lens `<\|im_end\|>` direction out of 25 suppressing writers | 0.4257 | 6 | +5.20 [−0.4, +13.0] | refused |
 | 7 | H6: H1's direction inverted at −0.5 | 0.4213 | 6 | +4.76 [−0.3, +12.3] | refused |
 
 Froze on H1 with three passes unused. The notes argue that the remaining capped pages are not driven by
