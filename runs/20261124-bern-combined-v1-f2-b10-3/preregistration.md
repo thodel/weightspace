@@ -50,7 +50,79 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - A5 (proposed, not adopted) concerns page-level adapter sessions and does not apply.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   *(to be filled in by the programmer)*
+   Written 24.11.2026 about 17:00 UTC by the programmer (`claude-fable-5-2`), before pass 1.
+
+   **What the pack and the weights say (no forward pass).**
+   - *Where the errors are.* The subject makes 1,577 edits. 736 of them sit in 42 lines that it
+     reads at ≥ 50 % CER, and the parent and the sibling fail on nearly all of the same lines
+     (15 Hertwig lines with 298 edits, 27 Schlussredaktion lines with 438). These are short
+     fragments or lines whose crop does not fit the text; I expect no weight edit to move them.
+     That leaves about 400 Hertwig and 440 Schlussredaktion edits to work on.
+   - *Where a donor is better.* On Hertwig the parent reads 0.114 against the subject's 0.205
+     (311 fewer edits, about −0.029 of total CER if all of it were recovered at no cost). On
+     Schlussredaktion the sibling reads 0.113 against 0.118 (41 edits, −0.004). The per-line
+     oracle over all three models is 0.108 Hertwig / 0.098 Schlussredaktion, i.e. total ≈ 0.101.
+     Both donors were trained on exactly the practice lines they are good at (parent: the 103
+     Hertwig lines; sibling: the 197 Schlussredaktion lines; both with correct images), so a
+     practice gain from moving toward a donor is partly a memorisation gain and will be
+     smaller on held-out. The subject saw the same pages, the Hertwig ones mostly with wrong
+     images.
+   - *Geometry.* Subject and sibling are two fine-tunes of the parent, each with cosine ≥ 0.96
+     to it per tensor. Their task vectors (child − parent) have cosine 0.24–0.48 in the conv
+     stack and `L_12`, 0.42–0.70 in `L_14`, 0.54–0.80 in `L_16`, 0.85 / 0.97 in the output
+     weight / bias. The subject is as far from the sibling as from the parent below `L_16`.
+     The subject is better than the sibling on Hertwig (0.205 against 0.236), so the mismatched
+     pages did not make it worse than a model with no Hertwig fine-tuning: what I see is mostly
+     *forgetting* of the parent's Hertwig reading, not a localised defect.
+   - *Blank.* Blank bias +0.998 (parent +0.879, sibling +0.936). Deletions dominate the
+     confusions, but most deleted characters are in the 42 failed lines; the length ratio of the
+     parent (0.920) equals the subject's (0.918). So the blank bias is not the main obstacle.
+
+   **Hypotheses.** CER changes are on all 300 practice lines unless a hand is named. An edit
+   is kept only by the harness's rule; I also revert when the collapsed count rises.
+
+   - **H1 — partial return to the parent, all tensors.** Edit: `interpolate` with α = 0.30
+     toward `hertwig-v2` on the 28 trained tensors (conv, LSTM, output; output rows placed by
+     character, the rows `½ ƒ ̊` left as they are). Prediction: CER **−0.008** (range −0.003
+     to −0.015); Hertwig −0.030, Schlussredaktion +0.003; collapsed 29 ± 2. If it fails with
+     CER up: the path subject → parent is not flat at 30 %, or Schlussredaktion pays more than
+     Hertwig gains; I then try a smaller step (H2c) and give more weight to block-wise edits.
+   - **H2 — the step size along the same line (one pass, branch on H1).**
+     - H2a, if H1 is kept: a further 2/7 toward the parent (total 50/50). Prediction against
+       the kept state: −0.002 (range −0.008 to +0.006), Hertwig −0.020, Schlussredaktion
+       +0.007; more likely refused than kept. If refused, the optimum is near 0.3.
+     - H2b, if H1 lowered CER but was refused: α = 0.50 from the unedited subject. Prediction
+       −0.010 (range −0.020 to +0.005).
+     - H2c, if H1 raised CER: α = 0.12. Prediction −0.002 (range −0.006 to +0.002), expected
+       refused; then whole-model interpolation toward the parent is closed.
+   - **H3 — where the Hertwig gain sits (block-wise return to the parent).** From the state
+     after H1/H2: `interpolate` toward the parent on a subset of blocks only, with a larger
+     α (0.5–1.0). First candidate: the conv stack plus `L_12` (the blocks where subject and
+     sibling disagree most, so the most hand-specific). Prediction: within ±0.004 of the
+     whole-model step of the same α, more likely worse (blocks co-adapted); kept only if H1
+     failed or if it adds ≥ 0.004. A failure says the forgetting is spread over depth.
+   - **H4 — the sibling for Schlussredaktion.** `interpolate` toward `schlussredaktion-v1`,
+     all tensors (rows by character, `ƒ` untouched), α = 0.2–0.3 from the kept state.
+     Prediction: Schlussredaktion −0.003, Hertwig +0.004, total ±0.002: expected **refused**.
+     The sibling's advantage is 41 edits and it has no Hertwig fine-tuning. I run it because
+     a three-way mixture (subject, parent, sibling) may be flatter than either line.
+   - **H5 — blank bias.** `add` −0.12 to −0.30 on `O_18.lin.bias[0]` (−0.118 is the parent's
+     value). Prediction: −0.001 (range −0.004 to +0.003), fewer deletions, more insertions,
+     interval contains 0: expected refused. Size and sign are set after I have read the
+     deletion/insertion counts outside the failed lines in my own passes.
+   - **H6 — output rows of rare characters back to the parent.** `set_rows` on the rows whose
+     bias fell by > 0.5 (`ö ü ä ſ · § …`). The practice text spells umlauts with combining
+     marks and holds almost none of these characters. Prediction: 0.000 ± 0.001, refused. Run
+     only if passes are left and the readings show such a character missed.
+
+   **Plan for the 10 passes.** Pass 1 C0. Passes 2–3 H1 and H2 (`program_01.py`). Passes 4–6:
+   H3, H4 and H5 in the order the first readings suggest, each written as a hypothesis with a
+   prediction in `notes.md` and in `s.hypothesis` before its pass. Passes 7–10: follow-ups
+   decided from these results (finer α on whichever line worked, a combination of kept
+   directions, H6), or left unspent. Total expectation: a kept gain of 0.005–0.015 on practice
+   with probability about 0.6, all of it on the Hertwig lines; held-out gain, if any, about
+   half of that, since the parent memorised the Hertwig practice lines. With probability about
+   0.4 nothing passes the rule and I freeze the unedited subject.
 
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
@@ -71,7 +143,14 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
      session (`claude -p --model claude-fable-5-2`, tools Read, Write, Edit, Bash; Agent,
      WebFetch and WebSearch disallowed; no fallback model), default reasoning effort. One session
      for the whole run, resumed between rounds.
-     - **Model verification:** *(filled in by the operator before the first pass)*
+     - **Model verification (operator, 24.11.2026 18:01 CET, before the first pass):** session id
+       `017c1f65-a613-48a4-a101-69e49fb38156`, started with `claude -p --model claude-fable-5-2
+       --session-id … --permission-mode acceptEdits --allowedTools Read Write Edit Bash
+       --disallowedTools Agent WebFetch WebSearch`, no `--fallback-model`, resumed between rounds
+       with `--resume`. In its transcript (not committed) every assistant message of round 0 has
+       `message.model = claude-fable-5-2` (21 of 21), and `modelUsage` lists only
+       `claude-fable-5-2`. The programmer gave `claude-fable-5-2` as its own id. Each later round
+       is checked the same way.
      - **Reading:** only `PROGRAMMER_BRIEF.md` in this folder and the files it lists.
      - **Rounds:** it writes `program_NN.py` in rounds; the operator runs each in the sandbox
        (`wsp.run.sandbox_command`, CPU, no network) and returns its stdout.

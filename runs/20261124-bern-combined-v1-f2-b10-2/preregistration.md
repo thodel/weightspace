@@ -50,7 +50,88 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - A5 (proposed, not adopted) concerns page-level adapter sessions and does not apply.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   *(to be filled in by the programmer)*
+   Written 24.11.2026 16:59 UTC by the programmer (`claude-fable-5-2`), before pass 1.
+
+   **What the pack and the weights say (no pass spent).**
+   - 40 of the 300 practice lines have more than half their reference wrong for the subject.
+     They carry 732 of its 1,577 edits; 34 of them fail in the same way for the parent and for
+     the sibling, and 20 have 10 characters or fewer. I take these as lines no weight edit will
+     read. Without them the subject's practice CER is 0.086, so the room for any edit is small.
+   - The parent beats the subject on 81 of the 103 Hertwig lines (0.114 against 0.205) and
+     loses on 174 of the 197 Schlussredaktion lines (0.299 against 0.118). The sibling is close
+     to the subject on Schlussredaktion (0.113 against 0.118; better on 58 lines, worse on 38)
+     and worse on Hertwig (0.236). Reading each hand with its own donor would give 0.113.
+   - The sibling never saw Hertwig and reads it at 0.236; the subject, trained on Hertwig with
+     44 of 50 pages mismatched, reads it at 0.205. So the subject's Hertwig loss looks like
+     drift away from the parent while learning Schlussredaktion, with little help from its
+     Hertwig pages, and not like a localised defect.
+   - Task vectors from the parent (read-only script, rows aligned by character): subject
+     ‖Δ‖ 85.4, sibling 73.5, cosine 0.52 over all tensors. The cosine is lowest in `L_12`
+     (0.24–0.28) and highest in the output layer (weight 0.85, bias 0.97). Subject and sibling
+     are 78.8 apart. All three models lie within one fine-tuning distance of each other.
+   - Blank bias: subject +0.998, sibling +0.936, parent +0.879.
+
+   **What the donors were trained on, and what that means here.** The parent was trained on all
+   103 Hertwig practice lines with correct images; the sibling on all 197 Schlussredaktion
+   practice lines. A gain on Hertwig from the parent, or on Schlussredaktion from the sibling,
+   may therefore be recall of these very lines and need not hold on the held-out pages. The
+   practice set cannot tell the two apart. Every pass is reported per hand; a gain on the hand a
+   donor did *not* train on is the stronger evidence. The keep decision is the harness rule on
+   all 300 lines plus the collapsed rule, with no extra condition of mine.
+
+   **H1 (pass 2). Average with the sibling.**
+   - Edit: `interpolate`, α = 0.5, toward `schlussredaktion-v1`; all 28 non-zero tensors (four
+     conv blocks, three BiLSTMs, `O_18`); output rows aligned by character, the row of `ƒ`
+     (absent in the sibling) unchanged.
+   - Why: two fine-tunes of one parent with correlated task vectors; their average often reads
+     the shared task better than either.
+   - Prediction: practice CER −0.3 points (range −1.0 to +0.5); Schlussredaktion −0.5 to −1.0,
+     Hertwig +0.5 to +1.5; collapsed unchanged within 2. Probability that the rule keeps it:
+     about 0.35.
+   - If it fails: the two fine-tunes are not linearly connected well enough at α = 0.5 (CER up
+     on both hands), or the Hertwig loss outweighs the Schlussredaktion gain (then the sibling
+     is of no use for the subject as a whole-network donor). No second sibling step unless the
+     Schlussredaktion gain alone is clear.
+
+   **H2 (pass 3). A quarter step back toward the parent**, on the last kept state.
+   - Edit: `interpolate`, α = 0.25, toward `hertwig-v2`; same 28 tensors; rows aligned by
+     character, the three new rows `½ ƒ ̊` unchanged.
+   - Why: the drift reading above. Part-way points between a parent and its fine-tune usually
+     keep most of the new task and recover part of the old one.
+   - Prediction: practice CER −0.4 points (range −1.2 to +0.6); Hertwig −2 to −4 points,
+     Schlussredaktion +0.5 to +1.5; collapsed unchanged or lower. Probability of keep: about
+     0.35.
+   - If it fails with Hertwig down and Schlussredaktion up by as much: the trade is linear and
+     no point on this line helps. If Hertwig does not come down: the path is not smooth, and
+     localisation (below) is the only parent edit left to try.
+
+   **H3 (pass 4). Blank bias**, on the last kept state. No donor.
+   - Edit: `add` on `O_18.lin.bias[0]` only. Size by a rule fixed here and computed from the C0
+     readings over the lines with at most half their reference wrong: deletions D, insertions
+     I. If D ≥ 2·I the step is −0.7; if I < D < 2·I it is −0.3; if D ≤ I the edit is skipped
+     and the pass stays unspent.
+   - Prediction: practice CER −0.3 points (range −0.8 to +0.3), both hands alike; deletions
+     down, insertions up, length ratio up by 0.005–0.02; collapsed unchanged. Probability of
+     keep: about 0.4.
+   - If it fails: the deletions are not narrow blank wins; the blank bias is not an obstacle.
+
+   **Plan for all passes.** Pass 1 is C0 (expected 0.1456, 1,577 edits, 29 collapsed; if not
+   reproduced, the program stops without an edit). Passes 2–4 are H1–H3 in `program_01.py`,
+   each on the last kept state and each followed by `measure` and `keep`/`revert`. Passes 5–10
+   are follow-ups decided from these results; each will be written as a hypothesis with a
+   prediction in `notes.md` and in `s.hypothesis` before its pass. The families I expect:
+   - **F1, step size:** a second step of the same kind after a kept mix, or a half step after
+     a refused one whose point estimate was below 0.
+   - **F2, localisation of the parent step:** the same interpolation restricted to the conv
+     stack and `L_12` (where subject and sibling task vectors agree least), or to `L_16` and
+     `O_18`, if H2 shows a trade between the hands.
+   - **F3, blank bias again:** a second step in the direction that helped, or on the new state
+     after a kept mix.
+   - Passes may stay unspent. If nothing is kept, the frozen model is the unedited subject.
+
+   **Overall expectation.** The probability that at least one edit is kept is about 0.6. If
+   edits are kept, I expect a practice CER of 0.135–0.143 at freeze, and on held-out a smaller
+   gain or none, because of the donors' training overlap with the practice set.
 
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
@@ -71,7 +152,14 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
      session (`claude -p --model claude-fable-5-2`, tools Read, Write, Edit, Bash; Agent,
      WebFetch and WebSearch disallowed; no fallback model), default reasoning effort. One session
      for the whole run, resumed between rounds.
-     - **Model verification:** *(filled in by the operator before the first pass)*
+     - **Model verification (operator, 24.11.2026 18:01 CET, before the first pass):** session id
+       `b505bcce-e24b-47e4-8a07-58f89ac8a698`, started with `claude -p --model claude-fable-5-2
+       --session-id … --permission-mode acceptEdits --allowedTools Read Write Edit Bash
+       --disallowedTools Agent WebFetch WebSearch`, no `--fallback-model`, resumed between rounds
+       with `--resume`. In its transcript (not committed) every assistant message of round 0 has
+       `message.model = claude-fable-5-2` (23 of 23), and `modelUsage` lists only
+       `claude-fable-5-2`. The programmer gave `claude-fable-5-2` as its own id. Each later round
+       is checked the same way.
      - **Reading:** only `PROGRAMMER_BRIEF.md` in this folder and the files it lists.
      - **Rounds:** it writes `program_NN.py` in rounds; the operator runs each in the sandbox
        (`wsp.run.sandbox_command`, CPU, no network) and returns its stdout.
