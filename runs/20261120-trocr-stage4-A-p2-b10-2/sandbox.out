@@ -1,0 +1,18 @@
+C0: CER 0.2307, WER 0.6302, collapsed 29; rule lines 1194 of 1194; confusions [(' ', '', 1540), ('e', '', 247), ('r', '', 151), ('n', '', 146), ('s', '', 131), ('n', 'r', 131), ('', 'e', 130), ('i', '', 111), ('e', 'i', 92), ('a', 'e', 91)]
+space direction (per unit b): used word-initial types 1378, used other types 1623; shift of used other tokens mean -0.054 sd 0.238; of used word-initial mean +0.946 sd 0.413; specials [0.004, 0.167, 0.012, 0.17]; largest shift of an unused non-initial token +1.769; |d| 9.5275
+H1 space offset b=1.0 (first): CER 0.2312 (delta +0.0005 vs kept state), WER 0.6294, collapsed 30, kept False; confusions [(' ', '', 1520), ('e', '', 234), ('n', '', 147), ('', 'e', 139), ('r', '', 138), ('s', '', 132), ('n', 'r', 127), ('', ' ', 103), ('a', 'e', 103), ('i', '', 95)]
+H1 space offset b=0.5 (smaller, after 1.0 did not lower CER): CER 0.2324 (delta +0.0017 vs kept state), WER 0.6294, collapsed 31, kept False; confusions [(' ', '', 1544), ('e', '', 232), ('r', '', 155), ('n', '', 153), ('s', '', 138), ('', 'e', 129), ('n', 'r', 123), ('i', '', 111), ('', ' ', 101), ('a', 'e', 94)]
+end-token direction (per unit c): end token -1.009, used tokens mean -0.009 sd 0.039, |d| 1.3021
+H2 end-token offset c=1.0: CER 0.2333 (delta +0.0026 vs kept state), WER 0.6335, collapsed 28, kept False; confusions [(' ', '', 1501), ('e', '', 226), ('', 'e', 149), ('r', '', 148), ('n', '', 138), ('n', 'r', 131), ('s', '', 121), ('', 'r', 106), ('', ' ', 100), ('e', 'i', 100)]
+donor loaded: 478 of 478 tensors have a donor tensor of the same shape
+readout of the final-norm bias, subject: used word-initial +0.482, used other +0.315, end token +1.174
+readout of the final-norm bias, donor: used word-initial +0.535, used other +0.320, end token +1.151
+H3 extrapolation away from the donor a=0.3 (first): CER 0.3128 (delta +0.0821 vs kept state), WER 0.7088, collapsed 68, kept False; confusions [(' ', '', 1641), ('e', '', 472), ('n', '', 275), ('', ',', 242), ('i', '', 231), ('s', '', 228), ('r', '', 225), ('', 'e', 167), ('t', '', 161), ('n', 'r', 139)]
+H3 extrapolation away from the donor a=0.15 (smaller, after 0.3 did not lower CER): CER 0.2595 (delta +0.0288 vs kept state), WER 0.6598, collapsed 43, kept False; confusions [(' ', '', 1508), ('e', '', 295), ('n', '', 175), ('r', '', 167), ('', 'e', 160), ('s', '', 154), ('n', 'r', 128), ('i', '', 123), ('', 'r', 119), ('a', 'e', 118)]
+H4 encoder toward the donor alpha=0.3: CER 0.2149 (delta -0.0158 vs kept state), WER 0.6169, collapsed 31, kept True; confusions [(' ', '', 1571), ('e', '', 249), ('r', '', 153), ('', 'e', 139), ('n', '', 133), ('s', '', 124), ('s', 'ſ', 104), ('n', 'r', 97), ('', ' ', 95), ('', 'r', 88)]
+H5 not run: s_kept False, x_kept False, eos_kept False, best_s None, best_x None, passes left 3
+end: CER of the kept state 0.2149 against C0 0.2307; passes left 3; H1 kept False, H2 kept False, H3 kept False (H3 started from 0.2307)
+{'used': 7, 'edits': 6, 'kept': 1, 'final_digest': 'd668c2680550baa0564cbe75586c4957c9b08ed54e2af37c9df9acdaa1c3b73c'}
+
+--- stderr ---
+`torch_dtype` is deprecated! Use `dtype` instead!

@@ -1,0 +1,11 @@
+
+--- stderr ---
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "program.py", line 68, in <module>
+    attempt("H5 EOS row x0.9", "Weaker EOS readout (and start-token input) against early stops",
+TypeError: attempt() missing 1 required positional argument: 'names'

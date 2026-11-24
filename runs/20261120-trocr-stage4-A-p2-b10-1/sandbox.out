@@ -1,0 +1,72 @@
+C0: CER 0.2307, WER 0.6302, collapsed 29; rule lines 1194 of 1194; confusions [(' ', '', 1540), ('e', '', 247), ('r', '', 151), ('n', '', 146), ('s', '', 131), ('n', 'r', 131), ('', 'e', 130), ('i', '', 111), ('e', 'i', 92), ('a', 'e', 91)]
+space direction (per unit b): used word-initial types 1378, used other types 1623; shift of used other tokens mean -0.054 sd 0.238; of used word-initial mean +0.946 sd 0.413; specials [0.004, 0.167, 0.012, 0.17]; largest shift of an unused non-initial token +1.769; |d| 9.5275
+{'used': 1, 'edits': 1, 'kept': 0, 'final_digest': '3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151'}
+
+--- stderr ---
+ in create_connection
+    raise exceptions[0]
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/socket.py", line 850, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/card.py", line 41, in waiting
+    return _ask(timeout)
+           ^^^^^^^^^^^^^
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/card.py", line 35, in _ask
+    with urllib.request.urlopen(HEALTH, timeout=timeout) as r:   # /health takes ~40 s on asteraix
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1386, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1360, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 101] Network is unreachable>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "program.py", line 306, in <module>
+    main()
+  File "program.py", line 178, in main
+    r = space_trial(1.0, "first")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "program.py", line 170, in space_trial
+    return trial(f"H1 space offset b={b} ({tag})",
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "program.py", line 43, in trial
+    m = s.measure(label, rule_mask=MASK)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/session.py", line 143, in measure
+    preds = self.subject.forward(self.practice)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/trocr_subject.py", line 243, in forward
+    ok, why = card.ready()
+              ^^^^^^^^^^^^
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/card.py", line 70, in ready
+    w = waiting()
+        ^^^^^^^^^
+  File "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp/card.py", line 45, in waiting
+    st = json.loads(STATE.read_text())
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/home/tobias/atr-cache/wsp/card-state.json'

@@ -1,0 +1,4 @@
+2 edits kept of 4
+
+--- stderr ---
+`torch_dtype` is deprecated! Use `dtype` instead!
