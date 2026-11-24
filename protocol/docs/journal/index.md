@@ -33,3 +33,4 @@ that names the one it corrects.
 | 2026-11-11 | [TrOCR track, stage 1: the family as weights](2026-11-11-e-trocr-stage1.md) | Lineage readable for small fine-tunes; decoder moves, encoder hardly; data does not set the direction |
 | 2026-11-11 | [Planted defects with a Fable programmer](2026-11-11-c-planted-fable.md) | Localised defects repaired again, by both arms; the diffuse-noise repair does not reproduce |
 | 2026-11-15 | [Kraken session 2 with a Fable 5.2 programmer](2026-11-15-a-kraken-s2-fable52.md) | Same parent line as Fable 5.1 at twice the step: −0.65 held-out, page interval includes 0 |
+| 2026-11-24 | [Kraken session 2, repeated with one programmer model](2026-11-24-a-kraken-s2-repeats.md) | Four Fable 5.2 runs: same parent step every time, held-out −0.47 to −0.67; model differences not interpretable, 0 of 4 pass A4 |

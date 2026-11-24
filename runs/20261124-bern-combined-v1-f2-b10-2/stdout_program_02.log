@@ -1,0 +1,25 @@
+budget_left at start: 6
+kept state on entry: CER 0.1346 (H 0.1604, S 0.1228); edits by group {'failed@C0 H': 244, 'failed@C0 S': 389, 'ok@C0 H': 302, 'ok@C0 S': 523}; blank bias +0.2680
+
+=== L1 late block (L_16, O_18) back to subject (pass 5) ===
+CER 0.1330  edits 1440/10829  collapsed 18  length_ratio 0.946  WER 0.3518
+per hand: Hertwig 0.1709  Schlussred 0.1156
+edits by group: {'failed@C0 H': 253, 'failed@C0 S': 392, 'ok@C0 H': 329, 'ok@C0 S': 466} | kept state: {'failed@C0 H': 244, 'failed@C0 S': 389, 'ok@C0 H': 302, 'ok@C0 S': 523}
+confusions: [(' ', '', 118), ('', ' ', 70), ('e', '', 60), ('/', '', 57), ('i', '', 51), ('', '/', 47), ('n', '', 41), ('r', '', 41), ('s', '', 31), ('t', '', 30)]
+vs_kept delta -0.0017 ci95 [-0.0045, +0.0013]   vs_baseline delta -0.0127 ci95 [-0.0192, -0.0070]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (0.0106, [0.0065, 0.0152]), 'Schlussred': (-0.0073, [-0.0106, -0.0042])}
+lines better 61 worse 52
+DECISION L1 late block back to subject: refused by the keep rule, undone
+
+=== L2b front block back to subject (pass 6) ===
+CER 0.1351  edits 1463/10829  collapsed 18  length_ratio 0.950  WER 0.3572
+per hand: Hertwig 0.1715  Schlussred 0.1184
+edits by group: {'failed@C0 H': 245, 'failed@C0 S': 391, 'ok@C0 H': 339, 'ok@C0 S': 488} | kept state: {'failed@C0 H': 244, 'failed@C0 S': 389, 'ok@C0 H': 302, 'ok@C0 S': 523}
+confusions: [(' ', '', 118), ('', ' ', 81), ('e', '', 59), ('', '/', 53), ('/', '', 50), ('i', '', 49), ('n', '', 40), ('r', '', 36), ('a', '', 29), ('t', '', 28)]
+vs_kept delta +0.0005 ci95 [-0.0022, +0.0035]   vs_baseline delta -0.0105 ci95 [-0.0182, -0.0042]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (0.0112, [0.0049, 0.0179]), 'Schlussred': (-0.0044, [-0.0072, -0.0015])}
+lines better 55 worse 55
+DECISION L2b front block back to subject: refused by the keep rule, undone
+
+kept in this program: L1 False | L2b front block back to subject False
+blank bias now: 0.2679796814918518 | budget_left: 4
