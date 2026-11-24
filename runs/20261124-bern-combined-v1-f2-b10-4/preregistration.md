@@ -50,7 +50,7 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - A5 (proposed, not adopted) concerns page-level adapter sessions and does not apply.
 5. **Hypotheses** (written by the programmer before the first pass):
 
-   Written 24.11.2026, about 17:00 UTC, by the programmer (`claude-fable-5-2`) before any pass.
+   Written 24.11.2026, about 16:59 UTC, by the programmer (`claude-fable-5-2`) before any pass.
 
    **What the pack and the weights say (no forward pass).**
    - The subject's deficit is on Hertwig. Practice CER per hand: subject 0.2050 / 0.1184
@@ -125,6 +125,44 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
      the harness would keep it.
    - What I will not claim: a practice gain from a step toward a donor is not evidence of a
      held-out gain of the same size, for the reason given above.
+
+   **Round 1 (24.11.2026, 17:04 UTC, after passes 1–4, before pass 5).**
+   - Results so far: C0 0.1456 as predicted. H1 kept (−0.0076, interval −0.0147 to −0.0015;
+     Hertwig 0.2050 → 0.1671, Schlussredaktion 0.1184 → 0.1247), inside the predicted ranges.
+     H2 kept (−0.0017, interval −0.0032 to −0.0002); I had expected its interval to contain 0.
+     H3 refused (−0.0015, interval −0.0045 to +0.0017): Schlussredaktion fell by 0.004 and
+     Hertwig rose by 0.004, as predicted in direction, too small to pass the rule.
+   - Kept state: CER 0.1364, Hertwig 0.1648, Schlussredaktion 0.1234, collapsed 21.
+   - The H1 trade is broad, not a few lines: Hertwig 57 lines better / 7 worse (−129 edits, 22
+     of them in one line), Schlussredaktion 25 better / 72 worse (+47 edits).
+   - In every further step toward the parent the blank bias is left at its kept value, so the
+     step does not undo H2.
+
+   **Hypotheses in `program_02.py` (passes 5–8), each on the state kept so far.**
+   - **F1, pass 5: a further 0.20 of the remaining way to the parent**, all 28 tensors (about
+     0.40 of the way in total).
+     - Prediction: Hertwig −0.010 to −0.020, Schlussredaktion +0.006 to +0.012, total **−0.001**
+       (range −0.007 to +0.005). The first step was front-loaded for Hertwig and the
+       Schlussredaktion cost should grow, so I expect the interval to contain 0 (kept with
+       probability about 0.3).
+     - If it fails: the optimum on the global line is near 0.25. No further global step.
+   - **F2a, pass 6: lower blocks only** (`C_0 C_3 C_6 C_9 L_12`), a further 0.25 toward the
+     parent.
+     - Prediction: total **−0.001** (range −0.006 to +0.005); Hertwig −0.005 to −0.015.
+   - **F2b, pass 7: upper blocks only** (`L_14 L_16 O_18`, blank bias untouched), a further
+     0.25 toward the parent.
+     - Prediction: total **−0.001** (range −0.006 to +0.005).
+     - For F2a and F2b together: if the hands separate by depth, one of the two gives a
+       Hertwig gain at a smaller Schlussredaktion cost than the global step and is kept; I lean
+       slightly to F2a. If both fail (and F1 too), the Hertwig damage is spread over depth in
+       the same proportion as the Schlussredaktion adaptation, and the line toward the parent
+       is exhausted at the kept step.
+   - **F4, pass 8: blank bias a further −0.25.**
+     - Prediction: total **−0.001** (range −0.003 to +0.002); deletions down, insertions up
+       (`∅→space` already rose from 54 to 67). Kept with probability about 0.35.
+     - If it fails: the blank threshold is at its practice optimum near the kept value.
+   - **Passes 9–10** are decided after these four: at most one refinement of whichever class
+     was kept in passes 5–8, or nothing. Then freeze.
 
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.

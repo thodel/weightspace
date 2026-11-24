@@ -133,6 +133,44 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    edits are kept, I expect a practice CER of 0.135–0.143 at freeze, and on held-out a smaller
    gain or none, because of the donors' training overlap with the practice set.
 
+   **Round 1 (written 24.11.2026 17:05 UTC, after passes 1–4 and before pass 5).**
+   - Outcome so far: C0 reproduced (0.1456). H1 refused (−0.11 points, interval contains 0).
+     H2 kept (−0.76 points; Hertwig −3.8, Schlussredaktion +0.6). H3 kept (step −0.7; −0.34
+     points). Kept state: CER 0.1346, collapsed 18.
+   - What the readings add. I split the lines by whether they failed wholesale at C0 (40
+     lines) or not (260). On the 260 readable lines H2 gained 96 edits on Hertwig (402 → 306)
+     and cost 77 on Schlussredaktion (443 → 520), a net of −19; the other 73 edits of its gain
+     came from the 40 failed lines. H3 changed the readable lines by −1 edit in total; its gain
+     of 36 edits came from the failed lines, where a lower blank lets more characters through
+     (one line is read properly afterwards, others only match more by length).
+   - The Schlussredaktion cost of H2 shows as the parent's conventions: `D`→`d` 12 → 27, more
+     `/` and space errors. The parent never saw Schlussredaktion, so this cost is not recall and
+     I expect it on held-out too. The Hertwig gain may be recall of the parent's training lines.
+     So the kept state may do worse on held-out than its practice gain suggests.
+   - **L1 (pass 5). Late block back to the subject.** Edit: `transplant` of the unedited
+     subject's own values into `L_16` and `O_18` (8 tensors); the blank bias keeps its H3 value.
+     The conv stack, `L_12` and `L_14` stay at 0.75 subject + 0.25 parent. Hypothesis: the
+     conventions sit late, the Hertwig gain in the front. Prediction: CER −0.2 points against the
+     kept state (range −0.8 to +0.6); Schlussredaktion −0.3 to −0.8, Hertwig +0.3 to +1.5;
+     collapsed 18 ± 2. Probability of keep: about 0.25. If it fails with Hertwig up as much as
+     Schlussredaktion falls, the two effects are not separated at this cut; if both hands get
+     worse, blocks of different mixes do not fit together.
+   - **L2 (pass 6), branch on L1.**
+     - **L2a, if L1 is kept:** `interpolate` α = 0.2 toward the parent in the conv stack, `L_12`
+       and `L_14` (to 0.40 parent there). Prediction: −0.2 points (range −0.8 to +0.5); Hertwig
+       −1 to −2, Schlussredaktion 0 to +0.6. Probability of keep: about 0.3. If it fails, 0.25
+       is already the useful share in the front.
+     - **L2b, if L1 is not kept:** the mirror. `transplant` of the unedited subject's values
+       into the conv stack and `L_12` (14 tensors); `L_14`, `L_16`, `O_18` keep the parent
+       share. Prediction: −0.1 points (range −0.6 to +0.8); Schlussredaktion −0.2 to −0.6,
+       Hertwig +0.3 to +2. Probability of keep: about 0.2. If it fails as well, the parent step
+       is not localisable at block level with the passes I have, and the whole-network mix stays.
+   - **Not planned:** a second blank-bias step (F3). H3 did nothing on the readable lines, and a
+     further step would be scored mostly on the failed lines. A second whole-network parent step
+     (F1) is not planned either: the Schlussredaktion cost on readable lines already nearly
+     equals the Hertwig gain there.
+   - Passes 7–10: decided after pass 6, written here before they run; they may stay unspent.
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

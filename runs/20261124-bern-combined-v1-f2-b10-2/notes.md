@@ -1,7 +1,7 @@
 # Notes — 20261124-bern-combined-v1-f2-b10-2
 
 
-## Round 0 — 2026-11-24 17:05 UTC (programmer)
+## Round 0 — 2026-11-24 17:00 UTC (programmer; time corrected in round 1, first written as 17:05)
 
 - **Model id:** `claude-fable-5-2` (Claude Fable 5.2), as stated in my system prompt. Headless
   Claude Code session, default reasoning settings as given by the operator; tools used: Read,
@@ -40,3 +40,54 @@
   decision or a result of such a session. `readings_budget0.md` lists phase-0 hypotheses for
   this model (blank bias to the parent's value, output-layer transplant, per-layer α); these
   are written before any session and are not results.
+
+## Round 1 — 2026-11-24 17:05 UTC (programmer, `claude-fable-5-2`)
+
+- **Read:** the operator's stdout of `program_01.py`; `log.jsonl` (decision events) and
+  `readings/pass_001…004.jsonl` of this run, through two read-only scripts (no forward pass).
+- **Results of program_01 (passes 1–4):**
+
+  | pass | edit | CER | Hertwig | Schlussred. | collapsed | vs kept (95 %) | decision |
+  |---|---|---:|---:|---:|---:|---|---|
+  | 1 | C0 | 0.1456 | 0.2050 | 0.1184 | 29 | — | baseline, reproduced |
+  | 2 | H1 sibling average α 0.5 | 0.1445 | 0.2015 | 0.1184 | 23 | −0.0011 [−0.0073, +0.0038] | refused |
+  | 3 | H2 toward parent α 0.25 | 0.1381 | 0.1671 | 0.1247 | 22 | −0.0076 [−0.0147, −0.0015] | kept |
+  | 4 | H3 blank bias −0.7 | 0.1346 | 0.1604 | 0.1228 | 18 | −0.0034 [−0.0067, −0.0006] | kept |
+
+- **Predictions against outcomes:**
+  - H1: predicted −0.3 points with Schlussredaktion down and Hertwig up. Got −0.1; Schluss-
+    redaktion unchanged, Hertwig slightly down. Direction of the per-hand prediction wrong; the
+    average is neutral. The two models are linearly connected (no damage), but averaging gives
+    nothing on the hand both were trained on.
+  - H2: predicted −0.4 (Hertwig −2 to −4, Schlussredaktion +0.5 to +1.5). Got −0.76, Hertwig
+    −3.8, Schlussredaktion +0.63. Inside the predicted ranges.
+  - H3: predicted −0.3, both hands alike, length ratio +0.005 to +0.02. Got −0.34, length
+    ratio +0.018. But see below: the gain is not where I predicted it.
+- **Where the gains sit** (lines split by whether more than half the reference was wrong at C0):
+
+  | pass | failed@C0 H (14 lines, 388 chars) | failed@C0 S (26, 592) | ok@C0 H (89, 3,017) | ok@C0 S (171, 6,832) |
+  |---|---:|---:|---:|---:|
+  | 1 C0 | 296 | 436 | 402 | 443 |
+  | 2 H1 (undone) | 264 | 437 | 422 | 442 |
+  | 3 H2 | 263 | 406 | 306 | 520 |
+  | 4 H3 | 244 | 389 | 302 | 523 |
+
+  - H2 on readable lines: Hertwig −96 edits, Schlussredaktion +77. Net −19 of its −82.
+  - H3 on readable lines: −1 edit. Its −37 come almost entirely from the failed lines. One of
+    them (Hertwig p0027/tr_2_tl_5) is read properly after H2+H3 (28 → 6 edits); others emit more
+    characters that partly match. I had predicted fewer narrow deletions on readable lines; that
+    did not happen (deletions fell, insertions and substitutions rose by as much).
+  - Schlussredaktion cost of H2 by kind: `D`→`d` 12 → 27, `/` deletions and space errors up.
+- **Caveat for the claim.** Both kept edits pass the line-level rule, H3 narrowly. The
+  Schlussredaktion cost of H2 is on a hand the parent never saw, so it should carry to held-out;
+  the Hertwig gain may be recall of the parent's training lines. I expect the held-out gain to
+  be smaller than the practice gain, and it may be nil or negative. The page-clustered interval
+  of H3 may well include 0.
+- **Plan (program_02, passes 5–6):** localisation of the parent step. L1: `L_16` and `O_18`
+  back to the unedited subject's values, blank bias untouched. Then L2a (if L1 kept: front and
+  `L_14` a further 0.2 toward the parent) or L2b (if not: conv stack and `L_12` back to the
+  subject). The unedited subject file is opened read-only as the source of its own values.
+  Predictions are in section 5 (round 1 paragraph) and in `s.hypothesis`. No second blank step
+  and no second whole-network parent step, for the reasons given there. No freeze yet.
+- **Earlier sessions:** nothing read in this round named an edit, a kept decision or a result
+  of an earlier session on this model.

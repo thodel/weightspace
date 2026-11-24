@@ -124,6 +124,36 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    half of that, since the parent memorised the Hertwig practice lines. With probability about
    0.4 nothing passes the rule and I freeze the unedited subject.
 
+   **Round 1 (written 24.11.2026 about 17:10 UTC, after passes 1–3, before pass 4).**
+   Results so far: C0 reproduced (0.1456, 29 collapsed). H1 kept: 0.1381, Δ −0.0076
+   [−0.0150, −0.0009], Hertwig 0.2050 → 0.1621, Schlussredaktion 0.1184 → 0.1270, collapsed
+   22 (prediction −0.008: met; the Schlussredaktion cost was three times what I predicted).
+   H2a (50 %) raised CER by +0.0110 against the kept state (Hertwig 0.1427, Schlussredaktion
+   0.1519) and was reverted. In my readings the Schlussredaktion cost of H1 on its readable
+   lines (+96 edits) is `D→d`, lost and inserted spaces and slashes, dropped `ͤ`, `ß→s`: the
+   parent's transcription habits, not misread letters. The whole-model line is therefore
+   closed near 0.3 (my estimate of the curve is flat between 0.2 and 0.3). Next passes, each
+   against the last kept state:
+   - **H3a (pass 4) — top block back to the subject.** `transplant` of `L_16` and `O_18`
+     from the unedited subject; conv, `L_12`, `L_14` stay at 30 % parent. Prediction: −0.002
+     (range −0.008 to +0.006); Schlussredaktion −0.005, Hertwig +0.005; about as likely
+     refused as kept. If CER rises on both hands, the blocks are co-adapted and a block-wise
+     split costs more than it returns; if only Hertwig rises, the Hertwig gain needs the top.
+   - **H3b (pass 5) — bottom block further to the parent.** `interpolate` on the conv stack
+     and `L_12` only, step 0.25/0.7, so these stand at 55 % parent. Prediction: −0.002 (range
+     −0.008 to +0.008); Hertwig −0.015, Schlussredaktion +0.004; more likely refused. If
+     Schlussredaktion rises as much as in H2a, the cost is not a top-layer convention effect
+     and H3 is closed: the trade between the hands is the same at every depth.
+   - **H5 (pass 6) — blank bias −0.40** (`add` on `O_18.lin.bias[0]`; larger than planned in
+     round 0). Reason: at the kept state the readable lines have 345 deletions against 148
+     insertions, and the lines every model fails on are read as sparse fragments, where a
+     deletion that becomes a wrong character costs nothing. Prediction: −0.003 (range −0.008
+     to +0.003), deletions −40 to −80, insertions +20 to +50, collapsed not up. If CER rises,
+     the blank margin is not the obstacle and I do not try another size unless deletions fell
+     by more than insertions rose.
+   - Passes 7–10: decided from these (a second size of whichever of H3a/H3b/H5 moved in the
+     right direction, or H4 with the sibling), each with a prediction before its pass.
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.
