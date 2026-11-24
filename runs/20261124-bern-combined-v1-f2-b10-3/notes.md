@@ -84,3 +84,31 @@
   −0.35). No freeze; passes 9–10 are decided after these. Compiled only.
 - **Read this round:** the operator's message, `readings/pass_001,002,004–006.jsonl`, the pack's
   `per_line_edits.json`, the practice list. Nothing else.
+
+## 2026-11-24T17:10Z — round 3 (after passes 7–8, 2 left and left unspent)
+
+- **Results** (stdout of `program_03.py`), each against the kept state (H1 + H5, 0.1359, 20 collapsed):
+  - H4, + 0.25 × (sibling − unedited subject), all tensors: 0.1346, Δ −0.0013 [−0.0041, +0.0014];
+    Hertwig 0.1533, Schlussredaktion 0.1261; collapsed 19. **Refused** (interval contains 0).
+  - H5b, blank bias a further −0.35: 0.1350, Δ −0.0009 [−0.0032, +0.0009]; Hertwig 0.1562,
+    Schlussredaktion 0.1253; collapsed 17. **Refused.**
+- **Against my predictions:** H4 total as predicted (−0.0015), per hand reversed: I expected the
+  sibling to help Schlussredaktion and cost Hertwig; it lowered Hertwig by 0.005 and left
+  Schlussredaktion where it was. So what the average removed was more likely something the
+  subject fitted on its mismatched Hertwig pages than a lack of Schlussredaktion training. That is
+  a reading of one refused pass, not a finding. H5b as predicted: the return of the blank bias
+  falls off after the first step.
+- **Decision:** freeze now, 8 of 10 passes used. Round 2 fixed the use of passes 9–10 (a second
+  step of an edit kept in passes 7–8 only). Neither was kept. Combining the two refused edits or
+  enlarging H4 would be a choice made after seeing their point estimates, so I leave it.
+- **Frozen state:** H1 (all 28 trained tensors 30 % toward `hertwig-v2`, output rows by character,
+  rows `½ ƒ ̊` untouched) + H5 (blank bias −0.40, now +0.562). Practice 0.1456 → 0.1359; Hertwig
+  0.2050 → 0.1586; Schlussredaktion 0.1184 → 0.1255 (worse); collapsed 29 → 20.
+- **Session tally:** 7 edits, 2 kept (H1, H5), 3 reverted by me for a higher collapsed count (H2a,
+  H3a, H3b; the rule would have refused all three as well), 2 refused by the rule (H4, H5b).
+- **Caveats for whoever reads the held-out number:** the kept gain is all on Hertwig and comes
+  from a donor trained on those very lines; Schlussredaktion got worse on practice. My written
+  expectation for held-out is in preregistration §5, round 3.
+- **Wrote:** round-3 paragraph in preregistration §5; `program_04.py` = no pass, `s.freeze()`.
+  Compiled only.
+- **Read this round:** the operator's message only.

@@ -176,6 +176,30 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - Passes 9–10: only as a second step of an edit kept in passes 7–8 (same direction,
      smaller size), with its prediction written before the pass; otherwise unspent.
 
+   **Round 3 (written 24.11.2026, 2026-11-24T17:10Z, after passes 7–8; no further pass).**
+   Results, each against the kept state (H1 + H5, CER 0.1359): H4 (+ 0.25 × (sibling −
+   subject)) Δ −0.0013 [−0.0041, +0.0014], Hertwig 0.1586 → 0.1533, Schlussredaktion 0.1255 →
+   0.1261, collapsed 19: **refused** (interval contains 0). The total was as predicted
+   (−0.0015); per hand it was the reverse of my prediction: the sibling helped Hertwig and
+   did nothing for Schlussredaktion. H5b (blank bias a further −0.35) Δ −0.0009 [−0.0032,
+   +0.0009], collapsed 17: **refused**, as predicted (−0.001).
+   - **No hypothesis for passes 9–10; they stay unspent.** In round 2 I wrote that these
+     passes are spent only on a second step of an edit kept in passes 7–8, that a refused H4
+     closes the donor directions and that a refused H5b leaves the blank edit at −0.40. Both
+     were refused, so I hold to that. A pass that applied H4 and H5b together, or H4 at a
+     larger size, would be a new attempt at two edits the rule has just refused, chosen after
+     seeing that their point estimates were negative; I do not run it.
+   - `program_04.py` does no pass and freezes the kept state: H1 (all trained tensors 30 %
+     toward `hertwig-v2`) + H5 (blank bias −0.40). Practice CER 0.1456 → 0.1359 (−0.0097,
+     line-level interval against C0 not computed by me; the two kept steps were −0.0076
+     [−0.0150, −0.0009] and −0.0021 [−0.0040, −0.0004]), collapsed 29 → 20.
+   - **What I expect on held-out** (written before it is scored): the H1 step was measured on
+     lines the parent was trained on, so its Hertwig gain is partly the parent's memory of
+     those lines; its Schlussredaktion cost (the parent's spelling habits) should carry over
+     in full. I expect a held-out change between −0.006 and +0.003, centre about −0.002, and I
+     do not expect the page-clustered interval to exclude 0. The blank-bias step should carry
+     over at about its practice size (−0.002).
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.
