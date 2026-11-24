@@ -1,0 +1,55 @@
+budget left: 6
+blank bias of the restored state: 0.7179796695709229 (expected about 0.718)
+[F1] CER 0.1418  Hertwig 0.1507  Schlussred. 0.1378  collapsed 23  length ratio 0.939  edits 1536
+[F1] vs kept: delta +0.0054  ci95 [0.0018096961615391982, 0.009330406147091103]
+[F1] confusions: [(' ', '', 156), ('', ' ', 80), ('e', '', 75), ('/', '', 70), ('i', '', 54), ('', '/', 48), ('n', '', 47), ('r', '', 40), ('D', 'd', 31), ('t', '', 31)]
+[F1]   Latin lowercase a-z: sub 299 del 519 ins 62
+[F1]   Space: sub 14 del 156 ins 80
+[F1]   ASCII punctuation and symbols: sub 38 del 107 ins 48
+[F1]   Latin uppercase A-Z: sub 77 del 25 ins 2
+[F1]   Combining Diacritical Marks: sub 30 del 41 ins 9
+[F1]   Latin-1 Supplement: sub 11 del 6 ins 0
+[F1]   Digits 0-9: sub 2 del 6 ins 0
+[F1]   General Punctuation: sub 2 del 2 ins 0
+[F1]   MUFI (CERberus list, overlay): sub 0 del 1 ins 0
+[F1] REVERTED (collapsed rose)
+[F2a] CER 0.1396  Hertwig 0.1624  Schlussred. 0.1292  collapsed 22  length ratio 0.937  edits 1512
+[F2a] vs kept: delta +0.0032  ci95 [0.0008337193144974664, 0.0058395558108367]
+[F2a] confusions: [(' ', '', 148), ('e', '', 69), ('', ' ', 68), ('/', '', 66), ('i', '', 55), ('n', '', 51), ('', '/', 46), ('r', '', 44), ('t', '', 33), ('D', 'd', 29)]
+[F2a]   Latin lowercase a-z: sub 292 del 530 ins 62
+[F2a]   Space: sub 13 del 148 ins 68
+[F2a]   ASCII punctuation and symbols: sub 35 del 108 ins 47
+[F2a]   Latin uppercase A-Z: sub 72 del 27 ins 3
+[F2a]   Combining Diacritical Marks: sub 27 del 42 ins 10
+[F2a]   Latin-1 Supplement: sub 10 del 5 ins 0
+[F2a]   Digits 0-9: sub 0 del 9 ins 0
+[F2a]   General Punctuation: sub 2 del 2 ins 0
+[F2a]   MUFI (CERberus list, overlay): sub 0 del 1 ins 1
+[F2a] REVERTED (collapsed rose)
+[F2b] CER 0.1385  Hertwig 0.1510  Schlussred. 0.1328  collapsed 21  length ratio 0.942  edits 1500
+[F2b] vs kept: delta +0.0021  ci95 [-0.0011000091667430767, 0.005538120731031937]
+[F2b] confusions: [(' ', '', 147), ('', ' ', 79), ('e', '', 73), ('/', '', 61), ('i', '', 55), ('', '/', 48), ('n', '', 47), ('r', '', 40), ('D', 'd', 35), ('a', '', 30)]
+[F2b]   Latin lowercase a-z: sub 295 del 505 ins 63
+[F2b]   Space: sub 11 del 147 ins 79
+[F2b]   ASCII punctuation and symbols: sub 40 del 96 ins 49
+[F2b]   Latin uppercase A-Z: sub 80 del 23 ins 2
+[F2b]   Combining Diacritical Marks: sub 28 del 43 ins 10
+[F2b]   Latin-1 Supplement: sub 11 del 6 ins 0
+[F2b]   Digits 0-9: sub 1 del 7 ins 0
+[F2b]   General Punctuation: sub 2 del 2 ins 0
+[F2b]   MUFI (CERberus list, overlay): sub 0 del 1 ins 1
+[F2b] kept = False
+[F4] CER 0.1353  Hertwig 0.1624  Schlussred. 0.1228  collapsed 21  length ratio 0.944  edits 1465
+[F4] vs kept: delta -0.0011  ci95 [-0.002892060826569648, 0.00046637440537264374]
+[F4] confusions: [(' ', '', 134), ('', ' ', 71), ('e', '', 62), ('/', '', 58), ('i', '', 52), ('', '/', 47), ('n', '', 45), ('r', '', 38), ('t', '', 29), ('D', 'd', 28)]
+[F4]   Latin lowercase a-z: sub 307 del 495 ins 59
+[F4]   Space: sub 18 del 134 ins 71
+[F4]   ASCII punctuation and symbols: sub 44 del 93 ins 49
+[F4]   Latin uppercase A-Z: sub 72 del 25 ins 3
+[F4]   Combining Diacritical Marks: sub 26 del 36 ins 8
+[F4]   Latin-1 Supplement: sub 10 del 3 ins 0
+[F4]   Digits 0-9: sub 0 del 8 ins 0
+[F4]   General Punctuation: sub 1 del 3 ins 0
+[F4]   MUFI (CERberus list, overlay): sub 0 del 1 ins 0
+[F4] kept = False
+SUMMARY program_02: F1 kept=False  F2a kept=False  F2b kept=False  F4 kept=False  kept collapsed=21  blank bias=0.718  budget left=2
