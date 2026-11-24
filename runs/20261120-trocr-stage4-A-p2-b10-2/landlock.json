@@ -1,0 +1,25 @@
+{
+ "read": [
+  "/usr",
+  "/lib",
+  "/lib64",
+  "/bin",
+  "/sbin",
+  "/etc",
+  "/proc",
+  "/sys",
+  "/home/tobias/atr-cache/trocr/venv",
+  "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/wsp",
+  "/home/tobias/atr-cache/trocr/dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+  "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/data/practice/trocr-blb-train-1200-seen.jsonl",
+  "/home/tobias/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu",
+  "/home/tobias/atr-cache/wsp/practice/trocr-blb-train-1200",
+  "/home/tobias/atr-cache/trocr/dh-unibe__trocr-kurrent-XVI-XVII"
+ ],
+ "write": [
+  "/dev",
+  "/proc",
+  "/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261120-trocr-stage4-A-p2-b10-2",
+  "/home/tobias/atr-cache/tmp/20261120-trocr-stage4-A-p2-b10-2"
+ ]
+}
