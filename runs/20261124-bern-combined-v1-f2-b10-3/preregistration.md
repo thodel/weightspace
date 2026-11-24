@@ -154,6 +154,28 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - Passes 7–10: decided from these (a second size of whichever of H3a/H3b/H5 moved in the
      right direction, or H4 with the sibling), each with a prediction before its pass.
 
+   **Round 2 (written 24.11.2026, 2026-11-24T17:08Z, after passes 4–6, before pass 7).**
+   Results: H3a (top block back to the subject) Δ +0.0004 [−0.0028, +0.0036], Hertwig +0.015,
+   Schlussredaktion −0.006, collapsed 24: reverted. H3b (conv + `L_12` to 55 % parent)
+   Δ +0.0064 [+0.0030, +0.0099], Hertwig −0.008, Schlussredaktion +0.013, collapsed 25:
+   reverted. Both predictions (−0.002) failed in direction; per hand the signs were as
+   predicted. Conclusion as pre-stated: the trade between the hands is the same at both ends
+   of the network, H3 is closed. H5 (blank bias −0.40) Δ −0.0021 [−0.0040, −0.0004],
+   collapsed 20: **kept** (predicted −0.003; deletions −86, insertions +20, substitutions
+   +44). Kept state: CER 0.1359, Hertwig 0.1586, Schlussredaktion 0.1255. Next passes:
+   - **H4 (pass 7) — the sibling in place of part of the subject.** `add` of
+     0.25 × (sibling − unedited subject) on all trained tensors (output rows by character,
+     `ƒ` untouched); the state becomes 0.45 subject + 0.30 parent + 0.25 sibling. The sibling
+     was trained on the 197 Schlussredaktion practice lines with clean data and not tuned on
+     Hertwig. Prediction: −0.0015 (range −0.006 to +0.004); Schlussredaktion −0.004, Hertwig
+     +0.004; more likely refused. If refused, the three models offer no mixture better than
+     the H1 point under this rule, and the donor directions are closed.
+   - **H5b (pass 8) — blank bias a further −0.35.** Prediction: −0.001 (range −0.004 to
+     +0.002); deletions −40 to −70, insertions plus substitutions +30 to +70; more likely
+     refused. If refused, the blank edit stays at −0.40.
+   - Passes 9–10: only as a second step of an edit kept in passes 7–8 (same direction,
+     smaller size), with its prediction written before the pass; otherwise unspent.
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

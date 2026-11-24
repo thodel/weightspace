@@ -164,6 +164,42 @@ Sections 1–4 and 6–7 were written by the operator; section 5 is written by t
    - **Passes 9–10** are decided after these four: at most one refinement of whichever class
      was kept in passes 5–8, or nothing. Then freeze.
 
+   **Round 2 (24.11.2026, 17:08 UTC, after passes 5–8; no further pass is planned).**
+   - Results: all four edits of round 1 were undone.
+     - F1 (all tensors a further 0.20 toward the parent): +0.0054 (interval +0.0018 to
+       +0.0093), Hertwig 0.1648 → 0.1507, Schlussredaktion 0.1234 → 0.1378, collapsed 21 → 23.
+       Predicted −0.001 (range −0.007 to +0.005): the result lies just above my range. The
+       Hertwig gain was as predicted; the Schlussredaktion cost (+0.014) was larger than my
+       range (+0.006 to +0.012).
+     - F2a (lower blocks): +0.0032 (+0.0008 to +0.0058), Hertwig 0.1624, Schlussredaktion
+       0.1292, collapsed 22. My lean to F2a was wrong: almost no Hertwig gain there.
+     - F2b (upper blocks): +0.0021 (−0.0011 to +0.0055), Hertwig 0.1510, Schlussredaktion
+       0.1328, collapsed 21. The whole Hertwig gain of the global step sits in `L_14 L_16
+       O_18`, but so does most of the Schlussredaktion cost (among it `D→d`, a difference of
+       convention between the hands, not of reading).
+     - F4 (blank a further −0.25): −0.0011 (−0.0029 to +0.0005), as predicted; refused.
+     - F1 and F2a were reverted by my collapsed check; the harness's rule would have refused
+       both as well (CER rose, interval above 0).
+   - Conclusions, as written before the passes: the optimum on the global line toward the
+     parent is near the kept step of 0.25; the hands do not separate by depth in a way that an
+     edit of whole blocks can use; the blank threshold is at its practice optimum near the kept
+     value.
+   - **Passes 9 and 10 stay unspent.** The round-1 plan allowed "at most one refinement of
+     whichever class was kept in passes 5–8, or nothing", and nothing was kept. A new edit
+     chosen now (for instance an upper-block step combined with a sibling step, or a smaller
+     step between two refused ones) would be picked after seeing eight passes on the same 300
+     lines, with effects of the size of the interval's width; I do not run it.
+   - **`program_03.py` freezes the kept state**: H1 (all 28 trained tensors 0.25 toward
+     `hertwig-v2`) and H2 (blank bias −0.25). Practice CER 0.1364 against 0.1456 (−0.0092),
+     Hertwig 0.1648 against 0.2050, Schlussredaktion 0.1234 against 0.1184, collapsed 21
+     against 29.
+   - **Prediction for held-out** (scored once by the operator): a gain smaller than on
+     practice, **−0.003** (range −0.010 to +0.004), because the parent was trained on the
+     Hertwig practice lines and not on the held-out pages, while the Schlussredaktion cost
+     should carry over in full. I expect the page-clustered interval on held-out to contain 0
+     more likely than not. H2 alone is predicted at about −0.001 on held-out and not
+     separable from 0.
+
 6. **Controls:**
    - **C0:** pass 1 here, and `docs/baselines/bern-train-300.json` / `heldout-bern-eval.json`.
      Practice CER 0.1456, held-out 0.1933.

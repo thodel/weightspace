@@ -71,3 +71,52 @@
   touches 0 at line level; clustered by page it may contain 0.
 - **Earlier sessions:** nothing read in this round named an edit, a kept decision or a result
   of an earlier session on this model.
+
+## 2026-11-24T17:08Z — round 2 (after passes 5–8; freeze without a further pass)
+
+- **Programmer:** `claude-fable-5-2`, same session, same settings.
+- **Results of `program_02.py`** (stdout from the operator; decisions and digests checked in
+  `log.jsonl`). All four against the kept state of pass 3 (CER 0.1364, Hertwig 0.1648,
+  Schlussredaktion 0.1234, collapsed 21):
+
+  | pass | edit | CER | Hertwig | Schlussred. | collapsed | Δ vs kept (95 % interval) | decision |
+  |---|---|---:|---:|---:|---:|---|---|
+  | 5 | F1: all tensors a further 0.20 toward the parent | 0.1418 | 0.1507 | 0.1378 | 23 | +0.0054 (+0.0018, +0.0093) | reverted (collapsed rose; CER rose too) |
+  | 6 | F2a: `C_* L_12` a further 0.25 | 0.1396 | 0.1624 | 0.1292 | 22 | +0.0032 (+0.0008, +0.0058) | reverted (collapsed rose; CER rose too) |
+  | 7 | F2b: `L_14 L_16 O_18` a further 0.25 | 0.1385 | 0.1510 | 0.1328 | 21 | +0.0021 (−0.0011, +0.0055) | refused by the rule |
+  | 8 | F4: blank bias a further −0.25 | 0.1353 | 0.1624 | 0.1228 | 21 | −0.0011 (−0.0029, +0.0005) | refused by the rule |
+
+  After every decision the digest is back at `9667acb5dd9d`, the state kept after pass 3.
+- **Against the predictions.**
+  - F1: predicted −0.001 (range −0.007 to +0.005), got +0.0054, just outside the range. I had
+    the Hertwig gain right (−0.014) and the Schlussredaktion cost too low (+0.014 against a
+    predicted +0.006 to +0.012). The cost is steeply convex: +0.006 for the first 0.25, +0.014
+    for the next 0.15 of the way.
+  - F2a / F2b: predicted that one of them might be kept, with a lean to F2a. Neither was, and
+    the lean was wrong. Per-line counts against pass 3 (inline script on `readings/`):
+    F2a Hertwig −8 edits (24 lines better, 13 worse), Schlussredaktion +43; F2b Hertwig −47
+    (36 better, 6 worse), Schlussredaktion +70; F1 Hertwig −48, Schlussredaktion +107. So the
+    upper blocks carry all of the Hertwig gain of the global step and about two thirds of its
+    Schlussredaktion cost; the lower blocks carry cost and almost no gain. `D→d` enters the
+    top-10 confusions in passes 5–7 (28–35 times): toward the parent the model writes
+    Hertwig's lower-case convention on Schlussredaktion lines.
+  - F4: predicted −0.001 with the interval containing 0; got exactly that.
+- **Decision: no pass 9 or 10.** My round-1 plan allowed a refinement only of a class kept in
+  passes 5–8, and nothing was kept. The candidates I can think of now (upper blocks with a
+  smaller step, or with a sibling step added to pay back Schlussredaktion; blank −0.12) are
+  all chosen after eight looks at the same 300 lines and would move CER by about the width of
+  the interval. I leave the two passes unspent.
+- **Wrote:** the round-2 paragraph of section 5, and `program_03.py` (syntax checked with
+  `compile()`, not executed): it opens the session, prints the restored blank bias and digest,
+  logs a note and calls `s.freeze()`. No pass.
+- **What is frozen:** H1 (all 28 trained tensors 0.25 toward `hertwig-v2`, output rows by
+  character, rows of `½ ƒ ̊` untouched) and H2 (blank bias −0.25, so +0.998 → +0.718 after
+  both). Practice 0.1364 against 0.1456 (−0.0092); Hertwig −0.040, Schlussredaktion +0.005;
+  collapsed 29 → 21.
+- **What I do not claim.** The gain is on training-side lines and in the direction of a donor
+  trained on a third of them. My held-out prediction is −0.003 (range −0.010 to +0.004), with
+  the page-clustered interval more likely containing 0 than not. H2's practice interval
+  (upper end −0.0002) is too close to 0 to stand on its own. H3 and F4 had negative point
+  estimates and were refused; I make nothing of them.
+- **Earlier sessions:** nothing read in this round named an edit, a kept decision or a result
+  of an earlier session on this model.

@@ -91,3 +91,38 @@
   and no second whole-network parent step, for the reasons given there. No freeze yet.
 - **Earlier sessions:** nothing read in this round named an edit, a kept decision or a result
   of an earlier session on this model.
+
+## Round 2 — 2026-11-24 17:08 UTC (programmer, `claude-fable-5-2`)
+
+- **Read:** the operator's stdout of `program_02.py` only. No new script was run on the
+  readings this round; the group counts come from the program's own output.
+- **Results of program_02 (passes 5–6), against the kept state of pass 4 (CER 0.1346):**
+
+  | pass | edit | CER | Hertwig | Schlussred. | collapsed | vs kept (95 %) | decision |
+  |---|---|---:|---:|---:|---:|---|---|
+  | 5 | L1: `L_16`, `O_18` back to subject | 0.1330 | 0.1709 | 0.1156 | 18 | −0.0017 [−0.0045, +0.0013] | refused |
+  | 6 | L2b: conv stack, `L_12` back to subject | 0.1351 | 0.1715 | 0.1184 | 18 | +0.0005 [−0.0022, +0.0035] | refused |
+
+- **Predictions against outcomes:**
+  - L1: predicted −0.2 (Schlussredaktion −0.3 to −0.8, Hertwig +0.3 to +1.5). Got −0.17,
+    −0.73, +1.06. As predicted, and as predicted not enough for the rule (I gave it 0.25).
+  - L2b: predicted −0.1 (Schlussredaktion −0.2 to −0.6, Hertwig +0.3 to +2). Got +0.05, −0.44,
+    +1.12. Inside the ranges; refused.
+  - Neither cut separates the Hertwig gain from the Schlussredaktion cost. Both blocks carry
+    both, in different proportions.
+- **Reading across passes 1, 4, 5, 6** (readable lines only; table in section 5, round 2): the
+  parent share buys Hertwig cheaply in the front and middle (73 edits for 23) and dearly in the
+  late block (27 for 57). This is a post-hoc reading of four passes on the same 300 lines.
+- **Plan (program_03, the last program):** M1 = late block at the subject plus front and
+  middle at 0.45 parent, as one edit; M2 = front and middle at 0.60 parent, only if M1 is kept;
+  then `s.freeze()`. Passes 9–10 stay unspent, and pass 8 too if M1 is refused. The program
+  checks the restored state (CER of the kept pass, blank bias, and that `L_12` is
+  0.75 subject + 0.25 parent) and stops without freezing if it is not the kept one.
+- **What gets frozen if M1 is refused:** H2 + H3, i.e. 0.75 subject + 0.25 parent in all
+  tensors (rows aligned by character, the three new rows unchanged) and the blank bias at
+  +0.268. Practice CER 0.1346 against 0.1456, collapsed 18 against 29.
+- **For the operator's controls:** the kept diff has parts of different kind (the parent mix
+  and the single blank-bias entry; with M1 also a block-wise mix), so the split control applies.
+  The blank step earned its practice gain on the 40 lines that fail wholesale at C0.
+- **Earlier sessions:** nothing read in this round named an edit, a kept decision or a result
+  of an earlier session on this model.

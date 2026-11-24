@@ -56,3 +56,31 @@
   Compiled only.
 - **Read this round:** the operator's message, `readings/pass_001–003.jsonl`, the pack's
   `per_line_edits.json`, the practice list. Nothing else.
+
+## 2026-11-24T17:08Z — round 2 (after passes 4–6, 4 left)
+
+- **Results** (stdout of `program_02.py`, `readings/pass_004..006`), each against the kept H1 state:
+  - H3a, `L_16` + `O_18` back to the unedited subject: 0.1384, Δ +0.0004 [−0.0028, +0.0036];
+    Hertwig 0.1768, Schlussredaktion 0.1208; collapsed 24. Reverted (collapsed up; the rule would
+    have refused it too).
+  - H3b, conv + `L_12` to 55 % parent: 0.1444, Δ +0.0064 [+0.0030, +0.0099]; Hertwig 0.1542,
+    Schlussredaktion 0.1400; collapsed 25. Reverted.
+  - H5, blank bias −0.40 (now +0.562): 0.1359, Δ −0.0021 [−0.0040, −0.0004]; Hertwig 0.1586,
+    Schlussredaktion 0.1255; collapsed 20. **Kept.**
+- **Against my predictions:** H3a and H3b both predicted −0.002 and came out at or above 0. The
+  per-hand signs were right, the sizes were not: giving the top back to the subject cost Hertwig
+  three times what I expected, and the bottom alone carried most of the Schlussredaktion cost of
+  the 50 % step. So the idea "conventions sit in the top, letter shapes in the bottom" is wrong
+  for this model: each block trades one hand against the other. H5 was inside its range.
+- **Breakdown of H5** (readable / failed lines, del-ins-sub): Hertwig readable 135-26-129 →
+  105-33-146, failed 231-1-30 → 219-2-35; Schlussredaktion readable 210-122-205 → 190-133-211,
+  failed 325-20-61 → 300-21-77. 34 lines better, 22 worse. The gain is spread over both hands
+  and over readable and failed lines; no single line carries it (largest −4).
+- **Observation:** practice line 252 (Schlussredaktion) is read at the kept state as a fluent
+  sentence that has nothing to do with its reference: the crop and the text do not belong
+  together. Some of the 42 failed lines are such pairs and no edit should be expected to fix them.
+- **Wrote:** round-2 paragraph in preregistration §5; `program_03.py` = H4 (pass 7:
+  + 0.25 × (sibling − unedited subject), all tensors) and H5b (pass 8: blank bias a further
+  −0.35). No freeze; passes 9–10 are decided after these. Compiled only.
+- **Read this round:** the operator's message, `readings/pass_001,002,004–006.jsonl`, the pack's
+  `per_line_edits.json`, the practice list. Nothing else.
