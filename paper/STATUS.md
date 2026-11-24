@@ -1,6 +1,6 @@
 # Article for JDMDH: status and open items
 
-State: 14 November 2026.
+State: 24 November 2026.
 
 - **Draft:** draft 3 of `manuscript.md`, about 19,100 words, 6 `[TODO]`; build with `./build.sh`. Draft 1 is `manuscript_v1_draft.md`.
 - **Fact-check:** a second-instance fact-check of draft 3 (`factcheck_draft3.md`, 10 November) found five main problems, all fixed in `24d2102`:
@@ -13,7 +13,7 @@ State: 14 November 2026.
 - **Folded in on 15 Nov:** the activation atlas (epic #13, `docs/ATLAS_REPORT.md`) as Section 6.6. The abstract, RQ1, 9.1 and the conclusion do not mention it yet.
 - **Not yet in the text** (all merged on `main`):
   - **The adapter Fable 5.1 replicate** of that session and its three shams. Source: #25, `docs/PHASE5_FABLE_REPORT.md`. Belongs in 9.3.
-  - **Kraken session 2 rerun with a Fable 5.1 programmer.** Source: #27, `docs/KRAKEN_S2_FABLE.md`, RESULTS R3. Held-out −0.57 [−1.15, −0.05]: the first session gain whose page interval excludes 0. It is a step of 12.5 % toward the parent, equal to C4 and not better. The serving path gives −2.16, but on the other hand. Text to revise: RQ2 (line ~403, "none of the 15 edits ... improved a model on held-out data" is still true of the original sessions, but the rerun adds a 16th result), the finding at line ~417 ("the only held-out gain, a quarter-step toward a clean sibling") and the conclusion (~459).
+  - **Kraken session 2 rerun with a Fable 5.1 programmer.** Source: #27, `docs/KRAKEN_S2_FABLE.md`, RESULTS R3. Held-out −0.57 [−1.15, −0.05]: the only session gain whose page interval excludes 0, and only by 0.05. Three later reruns (Fable 5.2 #44, Gemini 4 Argon and GPT-6.2 Astra #53; `docs/XVENDOR_REPORT.md`) found the same step toward the parent and −0.57 to −0.65 on held-out, with page intervals that reach or include 0. The text should report a direction every programmer finds, not a single gain. It is a step of 12.5 % toward the parent, equal to C4 and not better. The serving path gives −2.16, but on the other hand. Text to revise: RQ2 (line ~403, "none of the 15 edits ... improved a model on held-out data" is still true of the original sessions, but the rerun adds a 16th result), the finding at line ~417 ("the only held-out gain, a quarter-step toward a clean sibling") and the conclusion (~459).
   - **The planted defects rerun with a Fable 5.1 programmer.** Source: #28, `docs/CONTROLS_REPORT.md` §11, RESULTS R7. Fable repaired 13 of 22 cells, Sonnet 15. The diffuse k9 repair by measuring does not reproduce (24 % against 83 %), which weakens the 7.6 sentence on the programmer who measures.
   - **The C4 control on the uncorrected pairs.** Source: RESULTS R14, `docs/C4_UNCORRECTED.md` (§B.4 has the sentence for 7.11). No gain (−0.07 and −0.03 against −0.55 and −0.99), so R11's gain depends on the correction. The "Open controls" item (line ~453) still says this control was not run.
   - **The epic #3 readings on unseen lines.** Source: #30, `docs/viz/README.md`. The probe findings hold, about two thirds of deletions are decodable at no layer (72 % on training lines), and four part-block hypotheses are withdrawn. The Bern block shares were confounded by the parent's training lines. Check 6.x and 8.x for the withdrawn hypotheses.
