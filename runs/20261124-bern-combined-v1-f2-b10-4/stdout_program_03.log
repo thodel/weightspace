@@ -1,0 +1,7 @@
+budget left: 2
+blank bias of the restored state: 0.7179796695709229 (expected about 0.718)
+digest of the restored state: 9667acb5dd9d (expected 9667acb5dd9d, the state kept after pass 3)
+frozen: used 8 of 10 | edits 7 | kept 2
+start digest 4836a9f494a9 final digest 9667acb5dd9d
+baseline CER 0.1456 | last pass CER (pass 8, F4, undone) 0.1353
+changed tensors: 28

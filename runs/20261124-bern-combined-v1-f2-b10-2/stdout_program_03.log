@@ -1,0 +1,19 @@
+budget_left at start: 4
+kept state on entry: CER 0.1346 (H 0.1604, S 0.1228); edits by group {'failed@C0 H': 244, 'failed@C0 S': 389, 'ok@C0 H': 302, 'ok@C0 S': 523}; blank bias +0.2680
+state check: max |T - (0.75 subject + 0.25 parent)| on L_12.layer.weight_ih_l0 = 0.00e+00
+
+=== M1 late block = subject, front+middle 0.45 parent (pass 7) ===
+CER 0.1385  edits 1500/10829  collapsed 19  length_ratio 0.945  WER 0.3665
+per hand: Hertwig 0.1606  Schlussred 0.1284
+edits by group: {'failed@C0 H': 254, 'failed@C0 S': 388, 'ok@C0 H': 293, 'ok@C0 S': 565} | kept state: {'failed@C0 H': 244, 'failed@C0 S': 389, 'ok@C0 H': 302, 'ok@C0 S': 523}
+confusions: [(' ', '', 132), ('', ' ', 69), ('/', '', 65), ('e', '', 62), ('i', '', 53), ('', '/', 49), ('n', '', 44), ('r', '', 43), ('t', '', 31), ('d', '', 27)]
+vs_kept delta +0.0039 ci95 [+0.0005, +0.0074]   vs_baseline delta -0.0071 ci95 [-0.0159, +0.0009]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (0.0003, [-0.0058, 0.0067]), 'Schlussred': (0.0055, [0.0011, 0.0094])}
+lines better 59 worse 75
+DECISION M1 late=subject, front+mid 0.45 parent: reverted (collapsed rose 18 -> 19)
+
+M2 not run (M1 not kept).
+
+final state: M1 False, M2 None; parent share in the front ~0.25; late block differs from subject: True; blank bias +0.2680; kept CER 0.1346 (H 0.1604, S 0.1228); collapsed 18; passes unspent 3
+frozen. used 7 of 10 | edits 6 | kept 2 | final digest b13c4b419ecb02b5
+changed tensors: 28
