@@ -6,6 +6,7 @@
 The 'edit' of a session is its net change, final state minus the subject, on the tensors that differ. Five shams (seed 20261119, wsp.stage4.sham_deltas):
 same tensors, i.i.d. Gaussian, same Frobenius norm per tensor. Margins: the net change at 0.5 and 2 times its size."""
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -16,20 +17,22 @@ from wsp import data, metrics, stage4
 from wsp.trocr_subject import TrocrSubject
 
 REPO = G.REPO
-OUT = REPO / "docs/trocr/stage4_A_followup.jsonl"
+SUBJ = os.environ.get("STAGE4_SUBJECT", "A")
+PAIR = {"A": "A<-D", "B": "B<-I"}[SUBJ]
+OUT = REPO / f"docs/trocr/stage4_{SUBJ}_followup.jsonl"
 SEED = 20261119
 
 
 def main(runs):
     prac = data.load(str(G.PRACTICE))
     pcl = [metrics.page_of(r["key"]) for r in prac]
-    pbase = [tuple(x) for x in next(r["edits"] for r in DS.jl(G.OUT) if r["kind"] == "baseline" and r["pair"] == "A<-D")]
+    pbase = [tuple(x) for x in next(r["edits"] for r in DS.jl(G.OUT) if r["kind"] == "baseline" and r["pair"] == PAIR)]
     split = json.loads(DS.SPLIT.read_text())
     disc = set(split["objects"]["discovery"])
     drows = [r for r in data.load(str(DS.HELD)) if r["doc"] in disc]
     dcl = [metrics.page_of(r["key"]) for r in drows]
-    dbase = [tuple(x) for x in next(r["edits"] for r in DS.jl(DS.DISC) if r["subject"] == "A" and r["what"] == "baseline")]
-    sub = TrocrSubject(G.MODELS["A"], device="cuda:0", batch=8)
+    dbase = [tuple(x) for x in next(r["edits"] for r in DS.jl(DS.DISC) if r["subject"] == SUBJ and r["what"] == "baseline")]
+    sub = TrocrSubject(G.MODELS[SUBJ], device="cuda:0", batch=8)
     orig = {n: v.copy() for n, v in sub.tensors().items()}
     done = {(r["run"], r["what"]) for r in DS.jl(OUT)}
 

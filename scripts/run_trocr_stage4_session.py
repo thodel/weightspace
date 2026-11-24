@@ -8,6 +8,7 @@ The program and hypotheses are those the programmer wrote under runs/trocr-stage
 (donor files only in the arms that have the donor). The discovery read (17 objects of blb-eval-hand, never the confirmation half) is outside the sandbox,
 once per frozen digest; a frozen model equal to the subject needs no read (delta 0)."""
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -21,14 +22,15 @@ from wsp.data import sha256_file
 from wsp.trocr_subject import TrocrSubject
 
 REPO = G.REPO
-ADIR = REPO / "runs/trocr-stage4/A"
-SUBJECT, DONOR = G.MODELS["A"], G.MODELS["D"]
+SUBJ = os.environ.get("STAGE4_SUBJECT", "A")                # "A" (from-kurrent-v2, donor XVI-XVII) or "B" (trocr-kurrent, donor IAM base)
+ADIR = REPO / f"runs/trocr-stage4/{SUBJ}"
+SUBJECT, DONOR = G.MODELS[SUBJ], G.MODELS[{"A": "D", "B": "I"}[SUBJ]]
 BUDGET = {"p1": 10, "p2": 10, "p3s": 10, "p3f": 10, "b": 0, "r": 10}
 DONOR_ARMS = {"p1", "p2", "b", "r"}
 WHO = {"p1": "Claude Sonnet 5.5 (`claude-sonnet-5-5`), arm P1, with the donor", "p2": "Claude Fable 5.2 (`claude-fable-5-2`), arm P2, with the donor",
        "p3s": "Claude Sonnet 5.5, arm P3, donor absent", "p3f": "Claude Fable 5.2, arm P3, donor absent",
        "b": "Claude Sonnet 5.5, arm B, blind (budget 0), with the donor", "r": "arm R, replay, with the donor"}
-DISC_OUT = REPO / "docs/trocr/stage4_A_sessions.jsonl"
+DISC_OUT = REPO / f"docs/trocr/stage4_{SUBJ}_sessions.jsonl"
 
 
 def discovery_read(run_dir: Path, arm: str):
@@ -39,7 +41,7 @@ def discovery_read(run_dir: Path, arm: str):
     rows = [r for r in data.load(str(DS.HELD)) if r["doc"] in disc]
     assert len(rows) == split["lines"]["discovery"]
     clusters = [metrics.page_of(r["key"]) for r in rows]
-    base = next(r for r in DS.jl(DS.DISC) if r["subject"] == "A" and r["what"] == "baseline")
+    base = next(r for r in DS.jl(DS.DISC) if r["subject"] == SUBJ and r["what"] == "baseline")
     bedits = [tuple(x) for x in base["edits"]]
     sub = TrocrSubject(final if final.is_dir() else SUBJECT, device="cuda:0", batch=8)
     same = sub.digest() == TrocrSubject(SUBJECT, device="cpu", check_card=False).digest()
@@ -67,15 +69,15 @@ def main(arm, read=True):
             time.sleep(120)
     adir = ADIR / arm
     prog, hyp = adir / "program.py", adir / "hypotheses.md"
-    run_dir = R.new(str(SUBJECT), str(G.PRACTICE), BUDGET[arm], run_id=f"trocr-stage4-A-{arm}", device="cuda:0", min_effect=0.005, cluster_rule=True,
+    run_dir = R.new(str(SUBJECT), str(G.PRACTICE), BUDGET[arm], run_id=f"trocr-stage4-{SUBJ}-{arm}", device="cuda:0", min_effect=0.005, cluster_rule=True,
                     restrict_files=True, donors=[str(DONOR)] if arm in DONOR_ARMS else [])
     meta = json.loads((run_dir / "session.json").read_text())
     shutil.copyfile(prog, run_dir / "program.py")
     (run_dir / "preregistration.md").write_text(f"""# Pre-registration, {run_dir.name}
 
-TrOCR stage 4 (docs/TROCR_STAGE4_PREREG.md), subject A `from-kurrent-v2`, programmer {WHO[arm]}. The programmer was a fresh subagent with the tools Read, Write
-and Bash (`py_compile` only); it read only its pack (`runs/trocr-stage4/A/{'pack' if arm in DONOR_ARMS else 'pack_nodonor'}/`) and `runs/trocr-stage4/PROGRAMMER_BRIEF.md`.
-Program `runs/trocr-stage4/A/{arm}/program.py`, copied unchanged (sha256 `{sha256_file(prog)}`); hypotheses below as written, before any pass.
+TrOCR stage 4 (docs/TROCR_STAGE4_PREREG.md), subject {SUBJ} (`{Path(SUBJECT).name}`), programmer {WHO[arm]}. The programmer was a fresh subagent with the tools Read, Write
+and Bash (`py_compile` only); it read only its pack (`runs/trocr-stage4/{SUBJ}/{'pack' if arm in DONOR_ARMS else 'pack_nodonor'}/`) and `runs/trocr-stage4/PROGRAMMER_BRIEF.md`.
+Program `runs/trocr-stage4/{SUBJ}/{arm}/program.py`, copied unchanged (sha256 `{sha256_file(prog)}`); hypotheses below as written, before any pass.
 Subject digest `{meta['subject_digest']}`. Practice `data/practice/trocr-blb-train-1200-seen.jsonl`, sha256 `{meta['practice_sha256']}`. Budget {BUDGET[arm]}, min effect 0.005,
 page-clustered interval, generation settings {json.dumps(meta['generation'])}. Landlock allow-list: `landlock.json`; donor files {'visible' if arm in DONOR_ARMS else 'absent'}.
 

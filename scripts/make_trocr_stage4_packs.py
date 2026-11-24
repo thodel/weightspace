@@ -7,6 +7,7 @@ pack/           describe.md (the model alone), c0_practice.md (its reading of th
 pack_nodonor/   describe.md and c0_practice.md only
 No held-out number is in a pack."""
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -16,9 +17,14 @@ from wsp.trocr_subject import TrocrSubject, component
 
 REPO = Path(__file__).resolve().parent.parent
 AC = Path.home() / "atr-cache/trocr"
-SUBJ, DONOR = AC / "dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2", AC / "dh-unibe__trocr-kurrent-XVI-XVII"
-DEST = REPO / "runs/trocr-stage4/A"
-C0RUN = REPO / "runs/20261119-trocr-stage4-noop-A-nodonor-b1-3"
+WHICH = os.environ.get("STAGE4_SUBJECT", "A")
+SUBJ, DONOR = {"A": (AC / "dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2", AC / "dh-unibe__trocr-kurrent-XVI-XVII"),
+               "B": (AC / "dh-unibe__trocr-kurrent", AC / "microsoft__trocr-base-handwritten")}[WHICH]
+DONOR_NAME = DONOR.name.split("__")[-1]
+STEP = {"A": "The recorded step of this family moves weight matrices by about 0.07 to 0.24, layer-norm vectors by 0.007 to 0.13 and the tied embedding by about 0.5.",
+        "B": "The donor is the general English handwriting model (IAM) from which this model was fine-tuned on German Kurrent; the step is large (mean relative distance about 0.23), and the donor cannot read this hand."}
+DEST = REPO / f"runs/trocr-stage4/{WHICH}"
+C0RUN = REPO / {"A": "runs/20261119-trocr-stage4-noop-A-nodonor-b1-3", "B": "runs/20261119-trocr-stage4-noop-B-nodonor-b1-2"}[WHICH]
 
 
 def c0_md():
@@ -31,13 +37,12 @@ def c0_md():
 
 
 def diff_md(T, P, tok):
-    L = ["# The model against its donor `trocr-kurrent-XVI-XVII`: magnitudes only", "",
+    L = ["# The model against its donor `" + DONOR_NAME + "`: magnitudes only", "",
          "Relative distance = ‖a−b‖ / mean(‖a‖,‖b‖); norm ratio = ‖subject‖/‖donor‖. No direction reading is given (directions of moves do not reproduce across "
-         "retrained models). The recorded step of this family moves weight matrices by about 0.07 to 0.24, layer-norm vectors by 0.007 to 0.13 and the tied "
-         "embedding by about 0.5.", "",
+         "retrained models). " + STEP[WHICH], "",
          "## Where the move is (share of the squared distance ‖a−b‖², by component)", "", "| component | share | tensors |", "|---|---:|---:|"]
     sq, cnt = {}, {}
-    for n in T:
+    for n in [n for n in T if not n.startswith("enc.pooler")]:
         d = float(np.sum((T[n].astype(np.float64) - P[n].astype(np.float64)) ** 2))
         c = component(n)
         sq[c] = sq.get(c, 0) + d
@@ -46,7 +51,7 @@ def diff_md(T, P, tok):
     for c in sorted(sq, key=lambda c: -sq[c]):
         L.append(f"| {c} | {sq[c] / tot:.4f} | {cnt[c]} |")
     L += ["", "## Per tensor", "", "| tensor | rel. distance | norm ratio |", "|---|---:|---:|"]
-    for n in sorted(T):
+    for n in sorted(n for n in T if not n.startswith("enc.pooler")):
         a, b = T[n].astype(np.float64), P[n].astype(np.float64)
         na, nb = np.linalg.norm(a), np.linalg.norm(b)
         L.append(f"| `{n}` | {np.linalg.norm(a - b) / max((na + nb) / 2, 1e-12):.4f} | {na / max(nb, 1e-12):.4f} |")
