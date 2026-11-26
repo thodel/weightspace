@@ -1,0 +1,150 @@
+{
+ "min_line_chars": 20,
+ "pattern": "K ?(?:29|31)\\d\\d[ ,\\-]\\s?\\d+|La(?:ss|ß)berg|Badische Landesbibliothek|\\bBLB\\b",
+ "sets": {
+  "practice": {
+   "lines": 38474,
+   "documents": 291,
+   "lines_ge_minlen": 31715
+  },
+  "heldout": {
+   "lines": 2272,
+   "documents": 29,
+   "lines_ge_minlen": 2007
+  }
+ },
+ "jobs": {
+  "from-kurrent-v2": {
+   "job": "20261026T064540Z-trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+   "datasets": 20,
+   "hf_repos": [
+    "dh-unibe/image-text_zh-regierungsratsprotokolle",
+    "dh-unibe/image-text_kurrent-xix",
+    "dh-unibe/image-text_rats-und-richtebuecher_xv-xvi",
+    "dh-unibe/image-text_koenigsfelden-charters-post-1500",
+    "dh-unibe/image-text_bullinger-autoren",
+    "dh-unibe/image-text_aaeb-xiv-xvii",
+    "dh-unibe/image-text_historisches-grundbuch-basel_xix-xx_train",
+    "dh-unibe/image-text_german-20th-century",
+    "dh-unibe/image-text_parlamentsdienste-protokolle",
+    "dh-unibe/image-text_nr-sr-vereinigte-bundesversammlung-xix",
+    "dh-unibe/image-text_koenigsfelden-charters-part-2",
+    "dh-unibe/image-text_koenigsfelden-adhr-colmar",
+    "dh-unibe/image-text_aaeb-xiv-xvii-part-2",
+    "dh-unibe/image-text_sg-missiven",
+    "dh-unibe/image-text_reichsanzeiger-gt",
+    "dh-unibe/image-text_gt-fraktur",
+    "dh-unibe/image-text_fibeln",
+    "dh-unibe/image-text_dtgt",
+    "dh-unibe/image-text_dach-gt",
+    "dh-unibe/image-text_weisthuemer"
+   ],
+   "dataset_level_hits": [],
+   "train_samples": 53008,
+   "pages": 1681,
+   "distinct_lines": 79918,
+   "page_xml_metadata_hits": [],
+   "practice_exact_line_matches": {
+    "count": 0,
+    "keys": []
+   },
+   "heldout_exact_line_matches": {
+    "count": 0,
+    "keys": []
+   }
+  },
+  "v2": {
+   "job": "20261026T071211Z-trocr-german-kurrent-xvi-xix-v2",
+   "datasets": 20,
+   "hf_repos": [
+    "dh-unibe/image-text_zh-regierungsratsprotokolle",
+    "dh-unibe/image-text_kurrent-xix",
+    "dh-unibe/image-text_rats-und-richtebuecher_xv-xvi",
+    "dh-unibe/image-text_koenigsfelden-charters-post-1500",
+    "dh-unibe/image-text_bullinger-autoren",
+    "dh-unibe/image-text_aaeb-xiv-xvii",
+    "dh-unibe/image-text_historisches-grundbuch-basel_xix-xx_train",
+    "dh-unibe/image-text_german-20th-century",
+    "dh-unibe/image-text_parlamentsdienste-protokolle",
+    "dh-unibe/image-text_nr-sr-vereinigte-bundesversammlung-xix",
+    "dh-unibe/image-text_koenigsfelden-charters-part-2",
+    "dh-unibe/image-text_koenigsfelden-adhr-colmar",
+    "dh-unibe/image-text_aaeb-xiv-xvii-part-2",
+    "dh-unibe/image-text_sg-missiven",
+    "dh-unibe/image-text_reichsanzeiger-gt",
+    "dh-unibe/image-text_gt-fraktur",
+    "dh-unibe/image-text_fibeln",
+    "dh-unibe/image-text_dtgt",
+    "dh-unibe/image-text_dach-gt",
+    "dh-unibe/image-text_weisthuemer"
+   ],
+   "dataset_level_hits": [],
+   "train_samples": 53008,
+   "pages": 1681,
+   "distinct_lines": 79918,
+   "page_xml_metadata_hits": [],
+   "practice_exact_line_matches": {
+    "count": 0,
+    "keys": []
+   },
+   "heldout_exact_line_matches": {
+    "count": 0,
+    "keys": []
+   }
+  },
+  "full-v1": {
+   "job": "20261027T051612Z-trocr-german-kurrent-xvi-xix-full-v1",
+   "datasets": 20,
+   "hf_repos": [
+    "dh-unibe/image-text_zh-regierungsratsprotokolle",
+    "dh-unibe/image-text_kurrent-xix",
+    "dh-unibe/image-text_rats-und-richtebuecher_xv-xvi",
+    "dh-unibe/image-text_koenigsfelden-charters-post-1500",
+    "dh-unibe/image-text_bullinger-autoren",
+    "dh-unibe/image-text_aaeb-xiv-xvii",
+    "dh-unibe/image-text_historisches-grundbuch-basel_xix-xx_train",
+    "dh-unibe/image-text_german-20th-century",
+    "dh-unibe/image-text_parlamentsdienste-protokolle",
+    "dh-unibe/image-text_nr-sr-vereinigte-bundesversammlung-xix",
+    "dh-unibe/image-text_koenigsfelden-charters-part-2",
+    "dh-unibe/image-text_koenigsfelden-adhr-colmar",
+    "dh-unibe/image-text_aaeb-xiv-xvii-part-2",
+    "dh-unibe/image-text_sg-missiven",
+    "dh-unibe/image-text_reichsanzeiger-gt",
+    "dh-unibe/image-text_gt-fraktur",
+    "dh-unibe/image-text_fibeln",
+    "dh-unibe/image-text_dtgt",
+    "dh-unibe/image-text_dach-gt",
+    "dh-unibe/image-text_weisthuemer"
+   ],
+   "dataset_level_hits": [],
+   "train_samples": 473549,
+   "pages": 16633,
+   "distinct_lines": 542340,
+   "page_xml_metadata_hits": [
+    {
+     "page": "018314_litrdsch_1875_0006.xml",
+     "match": "Laßberg",
+     "in_transcribed_text": true,
+     "context": "     <TextEquiv>                     <Unicode>Freiherrn von Laßberg zu Eppishauſen und auf</Unicode>       "
+    }
+   ],
+   "practice_exact_line_matches": {
+    "count": 1,
+    "keys": [
+     "unbestimmt/K3123-25_0001/r1l2"
+    ]
+   },
+   "heldout_exact_line_matches": {
+    "count": 0,
+    "keys": []
+   }
+  }
+ },
+ "not_auditable": [
+  "dh-unibe/trocr-kurrent (292,997 lines, 'Kurrent dataset', many small collections)",
+  "dh-unibe/trocr-kurrent-XVI-XVII (about 1.58 M words)",
+  "microsoft/trocr-base-handwritten (IAM, English)"
+ ],
+ "clean": false
+}
