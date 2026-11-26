@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 8,
+  "summary": "Wrote the preregistration first, then program.py. The program tests whether excess drift in the four L_14 weight matrices explains recognition errors, comparing gate-wise denoising with parent interpolation. It also tests the C_3 bias and conditionally probes deletion-heavy output biases. No model was loaded and no practice pass was run.",
+  "ended": "2026-11-20T10:36:35+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 97765,
+   "output": 3656,
+   "reasoning": 592,
+   "calls": 8
+  }
+ }
+]

@@ -1,0 +1,13 @@
+Model: `gpt-6.2-astra` (GPT-6.2 Astra, OpenAI API); reasoning: provider default. Tools: read_file, list_dir, write_file (py_compile), finish_round. No model execution during programming.
+
+The second convolution (`C_3`) has zero weights and bias: it cannot transmit any image dependence. This accounts for 300 empty predictions and CER 1 without invoking a defective blank row. The listed parent diff was unavailable; I do not assume the donor is the parent. Predictions below are absolute CER differences against the last kept state, not cumulative, and conditional on the proposed interface being better than the incumbent. Keep only paired-rule improvements; inspect collapse and the confusion profile to guard against a return to deletion-only output.
+
+- H1 — Direct block transplant: donor C3 weight+bias unblocks the signal; expect ΔCER −0.03 to −0.25 and fewer collapsed lines. Failure means a live layer in an unrelated channel basis is not enough, not that the zeros are harmless.
+- H2 — Reindexed transplant: align C3 input channels by C0 filter cosine and its outputs by the consuming C6 kernels; expect −0.01 to −0.12. Failure suggests hard channel correspondence is poor.
+- H3 — Projected transplant: approximate donor C0 activations with a linear mixture of subject channels using an analytic rectified-filter Gram matrix, keeping the H2 output alignment; expect −0.01 to −0.10. Failure argues against the Gaussian-patch approximation or the output match.
+- H4 — Prefix transplant: transfer donor C0+C3 together, aligned on the C6 side only; expect −0.02 to −0.15. Failure localizes the likely mismatch downstream of C3 rather than within the donor prefix.
+- H5 — Longer prefix transplant: include C6, reindexing its outputs to the subject C9 inputs; expect −0.02 to −0.15. Failure means moving the interface one pool later is not demonstrably better.
+- H6 — CNN transplant: test the coherent donor visual stack through C9 (original channel order); expect −0.02 to −0.20. Failure suggests that shape compatibility does not preserve the interface to the first recurrent layer.
+- H7 — Reindexed CNN transplant: match C9 output channels by their gate/height signatures in the consuming L12 input kernels; expect −0.01 to −0.12. Failure means these signatures are insufficient for a better interface.
+- H8 — Interface gain calibration on the best retained repair: try 0.65× the terminal repaired convolution's affine parameters; expect −0.005 to −0.05 if donor responses saturate the subject. Failure rejects attenuation at that interface.
+- H9 — Opposite gain probe (only if H8 not retained): 1.5× instead; expect −0.005 to −0.05 if underdrive dominates. Failure leaves no support for either gain correction.

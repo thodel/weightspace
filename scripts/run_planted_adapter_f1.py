@@ -38,20 +38,22 @@ PROGRAMMER = {"a": _C + "Wrote its program in advance, did not run it.", "b": _C
 SPOOL = Path.home() / "atr-cache/wsp/spool/a3-f1"
 
 
-def main(cid, arm, pack="q01"):
+def main(cid, arm, pack="q01", arm_root=None, tag="f1", who="Fable 5.1", programmer=None, spool=None):
+    """Defaults: the Fable rerun. scripts/run_planted_adapter_xv.py passes another programmer's folder, tag, text and spool."""
+    programmer, spool = programmer or PROGRAMMER, Path(spool) if spool else SPOOL
     plant = json.loads((P.OUT / "plant.json").read_text())
     subj = P.OUT / cid
     assert cid == "p3-alpha2"
-    arm_dir = REPO / "runs/planted-adapter-f1" / pack / arm
+    arm_dir = (arm_root or REPO / "runs/planted-adapter-f1" / pack) / arm
     prog = arm_dir / "program.py"
     hyp_file = arm_dir / ("preregistration_hypotheses.md" if arm == "a" else "hypotheses.md")
     hyps = hyp_file.read_text() if hyp_file.exists() else f"(the rules are in the header of `{prog.relative_to(REPO)}`)"
-    run_dir = R.new(str(subj), str(PRACTICE), BUDGET[arm], run_id=f"planted-adapter-{cid}-{arm}-f1", data_root=SIDE,
-                    spool=str(SPOOL))
+    run_dir = R.new(str(subj), str(PRACTICE), BUDGET[arm], run_id=f"planted-adapter-{cid}-{arm}-{tag}", data_root=SIDE,
+                    spool=str(spool))
     meta = json.loads((run_dir / "session.json").read_text())
     pre = f"""# Pre-registration — {run_dir.name}
 
-Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({arm}), **Fable 5.1 rerun** (pack `{pack}`, attempt {1 if pack == 'q01' else 2}) of `runs/20261107-planted-adapter-{cid}-{arm}-b{BUDGET[arm]}-1` (Sonnet 5.5). Written before the first pass; the program is `{prog.relative_to(REPO)}`, copied unchanged.
+Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({arm}), **{who} rerun** (pack `{pack}`, attempt {1 if pack == 'q01' else 2}) of `runs/20261107-planted-adapter-{cid}-{arm}-b{BUDGET[arm]}-1` (Sonnet 5.5). Written before the first pass; the program is `{prog.relative_to(REPO)}`, copied unchanged.
 
 1. **Subject:** `{cid}`, a corrupted copy of `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` (`plant.json`: {json.dumps(plant[cid])}); tensor digest `{meta['subject_digest']}`. The tensor digest does not cover `lora_alpha` (config), so p3/p5 share the clean adapter's tensor digest; the file digests in `plant.json` differ. Source adapter file digest `{plant['source_digest'][:16]}…`. Donors: siblings `…-page-v1`, `…-blb-page-v1` for statistics only (independent A initialisations).
 2. **Practice set:** `data/practice/kurrent-val-32.jsonl`, 32 pages (every second page of the 64-page practice draw of the registered val side), sha256 `{meta['practice_sha256']}`. Not training data of v2 (docs/PHASE5_PLAN.md §2; audit `data/practice/kurrent-val-64.audit.json`).
@@ -62,7 +64,7 @@ Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({a
 {hyps}
 
 6. **Outcome classes (fixed before any session):** let N be the repeat noise of the clean adapter on the score set (|CER difference of two readings|, at least 3 points) and D = CER(corrupted) − CER(clean) on the score set. D < max(N, 3 points): *null corruption* (below the pass noise). Else *repaired* = CER(final) recovers at least 80 % of D and the paired page interval of final vs corrupted lies below 0; *partly* = 20–80 %; *not repaired* = under 20 %.
-7. **Programmer:** {PROGRAMMER[arm].replace("q01", pack)}
+7. **Programmer:** {programmer[arm].replace("q01", pack) if tag == "f1" else programmer[arm]}
 """
     (run_dir / "preregistration.md").write_text(pre)
     shutil.copy(prog, run_dir / "program.py")
@@ -74,7 +76,7 @@ Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm ({a
     if not final.exists():
         print("NO final.adapter: the program did not freeze", flush=True)
         return run_dir
-    res = P.score(final, SCORESET, spool=SPOOL)
+    res = P.score(final, SCORESET, spool=spool)
     summary = json.loads((run_dir / "summary.json").read_text())
     summary["heldout"] = {"set": SCORESET.stem, "metrics": res["metrics"], "per_page": res["per_page"], "keys": res["keys"],
                           "final_digest": res["digest"], "engine": "vllm batched (not repeatable)"}

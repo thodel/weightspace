@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/s14/a/preregistration_hypotheses.md and runs/planted-xv/g1/s14/a/program.py for pack s14 task (a) (budget 10). The pack readings show normal weight norms, high cosine similarities against the parent across all layers, and a healthy baseline CER of 0.0650 with mild deletion bias (length ratio 0.979), consistent with an uncorrupted control model. The program runs a full row/channel anomaly scan against the parent donor, tests any detected row repairs as well as preregistered CTC blank/character bias calibrations, C_3.co.bias transplant, L_16 outlier interpolation, and mild backbone parent interpolation, enforcing both strict CER/collapse checks and the harness keep rule before freezing.",
+  "ended": "2026-11-20T10:55:22+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 124451,
+   "output": 5062,
+   "reasoning": 6250,
+   "calls": 6
+  }
+ }
+]

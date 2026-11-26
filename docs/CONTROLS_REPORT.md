@@ -323,3 +323,11 @@ Cell: held-out CER % · recovered share of the damage · class (classes as §2, 
 - Held-out scores reuse the cache when the final digest equals an earlier one (`scored_from_cache`), as in §1.
 - p3 second attempt (13.11.): the watcher waited from 12.11. 08:13 CET for card 0 (held by a Qwen3.8-27B server outside this project) and started at 20:53 CET on 13.11. The pass server's earlier `done/` entries were moved to `done-attempt1/` before it started. No failures; both runs are the first launch.
 - `diff.json` committed as `diff.json.gz` when under 5 MB, otherwise omitted with `DIFF_OMITTED.txt` (6 runs).
+
+## 12. The same arms with Gemini 4 Argon and GPT-6.2 Astra as programmers (20. and 26.11.2026)
+
+Experiment E3 of `docs/XVENDOR_PLAN.md`; set-up, results and reading in `docs/XVENDOR_REPORT.md` §7, data
+`docs/controls/planted_xv.{json,md}`. The 30 cells of §11 again, each written by a fresh Gemini 4 Argon or
+GPT-6.2 Astra conversation. Arm (a), kraken: GPT 8 repaired, 3 partly; Gemini 5 and 2, with four cells
+shipping nothing (three empty conversations at the output cap, one program that raised). Adapter p3: all
+four cells reach the adapter `f5adb9da…`.

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/q01/a/preregistration_hypotheses.md and runs/planted-xv/g1/q01/a/program.py for pack q01 task (a) (budget 6). Diagnosed global lora_alpha over-scaling (lora_alpha=256, scale=4.0 vs siblings' lora_alpha=128, scale=2.0, yielding ~1.79x ||\u0394W|| ratio across all 128 modules and 29/32 pages looping to the token cap with CER 2.5029). The program measures C0, tests H1 (global 0.5x scaling of all lora_B to restore effective lora_alpha=128), H2 (per-module ||\u0394W|| norm matching to the sibling median), H3 (global 0.45x scaling relative to C0), and H4 (0.90x targeted damping on high-sigma1/low-effective-rank modules), enforcing s.keep() after each pass and ending with s.freeze().",
+  "ended": "2026-11-26T14:58:46+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 158991,
+   "output": 3391,
+   "reasoning": 4233,
+   "calls": 6
+  }
+ }
+]

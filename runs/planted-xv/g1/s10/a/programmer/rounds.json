@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": false,
+  "steps": 5,
+  "summary": "",
+  "ended": "2026-11-20T10:53:08+00:00",
+  "program": null,
+  "usage_total": {
+   "input": 82440,
+   "output": 281,
+   "reasoning": 65666,
+   "calls": 5
+  }
+ }
+]

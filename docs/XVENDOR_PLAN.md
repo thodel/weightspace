@@ -258,6 +258,31 @@ message to the programmer, apart from the one allowed nudge.
 5. **One attempt per vendor**, as for Fable. A second attempt, `g2`/`o2`, only if the first is
    inconclusive because of a nudge or a tool failure.
 
+### 7.1 E3 set-up (decided 20.11.2026, before any E3 cell was scored beyond the shakedown)
+
+- **Go-ahead:** the user, 20.11.2026 ("Yes, start E3").
+- **Cells:** `scripts/xv_planted_prepare.py` builds `runs/planted-xv/<tag>/`: the Fable rerun's briefs
+  (title, paths and model-id line changed), its 14 packs and the adapter pack `q01`, copied unchanged with
+  the same opaque labels. Each of the 30 cells is a fresh conversation, as each Fable cell was a fresh
+  subagent: one round with a fixed task, tools `read_file`, `list_dir` and `write_file` (py_compile), no
+  `run_python`. The tool layer lets a cell read only its brief, its own pack and the API files, and write
+  only its two files (`wsp/programmer.py`, `programmer.json` keys `writable`, `tools`, `system`, `task`).
+- **Runner:** `scripts/run_planted_xv.py` is `scripts/run_planted_f1.py` with the programmer's folder, tag
+  and texts passed in. Run ids `planted-<cid>-<arm>-<tag>`.
+- **A program that does not freeze** (an exception, or no `s.freeze()`) ships nothing: the cell is classed
+  **failed (program error)** and counts as not repaired. It is not rerun and not repaired by the operator.
+  Arm (a) programs are written in advance and never run by the programmer, so an error is part of what
+  the arm measures. (The shakedown cell `s06/a` for Gemini is the first such case: it read
+  `m.confusions` entries as dicts; they are tuples.)
+- **Adapter cells `q01`:** they need the vLLM pass server on card 0 (`scripts/run_planted_adapter_f1.py`);
+  they run after the 28 kraken cells, only when `wsp.card.ready` allows.
+- **Added 26.11.2026, before the remaining cells were run:** three Gemini cells (`s08/a`, `s10/a`, `s10/b`)
+  ended with no program: both replies, the one nudge included, stopped at `MAX_TOKENS` after 32,765
+  reasoning tokens. Like a program that does not freeze, they ship nothing; they are classed **failed (no
+  program)**, count as not repaired and are not rerun. The adapter cells run through
+  `scripts/run_planted_adapter_xv.py` (the Fable adapter runner with the cell folder, tag, programmer text
+  and spool passed in) on the spool `~/atr-cache/wsp/spool/a3-xv`.
+
 ## 8. What was prepared (15.11.2026)
 
 - `wsp/programmer.py`:

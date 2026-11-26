@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program for s12(a). The primary test swaps the child\u2019s e/n output weights and biases; two conditional bias checks address residual deletions. The program uses at most four passes including baseline. No model was loaded or run.",
+  "ended": "2026-11-20T10:36:46+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 70338,
+   "output": 1907,
+   "reasoning": 175,
+   "calls": 7
+  }
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Completed task (b) for pack s05: diagnosed an exact 0.5x scaling defect on all non-zero tensors of BiLSTM block L_16 (whose norms/RMS are half of L_14 and parent while cosines are 0.947-0.999 and rel L2 against parent is sqrt(1.25 - cos) = 0.505-0.550), causing signal attenuation into O_18 and severe CTC under-emission (CER 0.1993, 24 collapsed lines, length ratio 0.828). Wrote runs/planted-xv/g1/s05/b/hypotheses.md and runs/planted-xv/g1/s05/b/program.py to scale L_16 tensors by 2.0, keep_unmeasured, and freeze.",
+  "ended": "2026-11-20T10:37:29+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 116942,
+   "output": 3080,
+   "reasoning": 0,
+   "calls": 6
+  }
+ }
+]

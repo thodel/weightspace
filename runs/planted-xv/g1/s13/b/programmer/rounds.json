@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 5,
+  "summary": "Identified a single planted defect in s13: row 'n' of O_18.lin.weight is negated (cosine -0.991 vs parent, rel L2 2.042, norm 7.96 -> 8.33, causing 7,667 spurious 'n' insertions and CER 0.7456). Wrote runs/planted-xv/g1/s13/b/hypotheses.md and runs/planted-xv/g1/s13/b/program.py to negate row cm['n'] of O_18.lin.weight via set_rows and keep_unmeasured.",
+  "ended": "2026-11-20T10:53:07+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 57867,
+   "output": 1330,
+   "reasoning": 2168,
+   "calls": 5
+  }
+ }
+]

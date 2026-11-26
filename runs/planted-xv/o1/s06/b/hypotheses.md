@@ -1,0 +1,4 @@
+Model: `gpt-6.2-astra` (GPT-6.2 Astra, OpenAI API via operator tool layer).
+Settings: provider default reasoning effort; tools used: read_file (including parallel reads), write_file (with py_compile), finish_round. Budget: zero passes.
+
+The lowercase `e` classifier has lost its input-dependent score: its weight norm fell from 7.64 to 0.00 while its bias changed by only −0.142. The practice alignment shows 910 deleted `e`s and 376 substitutions of `e` among the top confusions. Together these account for about ten CER percentage points. Restore only the `e` row of `O_18.lin.weight` from the parent, looking up `e` separately in each codec. Retain the child's bias and all other parameters. I predict an absolute CER reduction of 8–11 percentage points from 16.23%, mostly through fewer `e` deletions and substitutions; the donor row may not recover every `e` on this hand.

@@ -254,3 +254,26 @@ def test_openai_responses_client_over_http():
         assert [i.get("type") for i in sent[1:]] == ["reasoning", "function_call", "function_call_output"]
     finally:
         srv.shutdown()
+
+
+def test_one_shot_cell_config(tmp_path):
+    """E3 (planted cells): the folder's programmer.json narrows the files, the tools, the system text and the task."""
+    root, run = make_repo(tmp_path)
+    rel = run.relative_to(root)
+    cfg = json.loads((run / "programmer.json").read_text())
+    cfg.update(writable=[r"hypotheses\.md", r"program\.py"], tools=["read_file", "list_dir", "write_file"],
+               system="SYS planted", task="TASK write program.py", program="program.py")
+    (run / "programmer.json").write_text(json.dumps(cfg))
+    ws = P.Workspace.load(run)
+    assert ws.write_file(f"{rel}/program_01.py", "x = 1\n").startswith("refused")
+    assert ws.write_file(f"{rel}/notes.md", "x").startswith("refused")
+    llm = Scripted([[("write_file", {"path": f"{rel}/hypotheses.md", "content": "H1\n"}),
+                     ("write_file", {"path": f"{rel}/program.py", "content": "print(1)\n"})],
+                    [("finish_round", {"summary": "done"})]])
+    llm.tools = list(P.TOOLS)
+    r = P.run_round(run, "gemini", 0, llm=llm)
+    assert r["finished"] and r["program"] == "program.py"
+    assert {t["name"] for t in llm.tools} == {"read_file", "list_dir", "write_file", "finish_round"}
+    assert "hypotheses.md, program.py" in next(t for t in llm.tools if t["name"] == "write_file")["description"]
+    conv = json.loads((run / "programmer" / "conversation.json").read_text())
+    assert conv[0]["content"] == "SYS planted" and llm.seen[0] == "TASK write program.py"

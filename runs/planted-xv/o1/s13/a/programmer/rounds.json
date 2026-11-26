@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program for s13(a). The program tests a sign reversal of the `n` output weight row, leaving its bias and all other weights unchanged. It uses two measurement passes and requires a significant CER improvement to keep the repair. No model was loaded or run.",
+  "ended": "2026-11-20T10:37:03+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 65969,
+   "output": 1053,
+   "reasoning": 55,
+   "calls": 7
+  }
+ }
+]

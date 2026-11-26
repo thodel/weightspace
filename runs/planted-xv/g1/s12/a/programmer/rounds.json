@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Identified a row swap between characters 'e' and 'n' in the output classifier O_18 (evidenced by low parent-to-child cosine 0.356/0.361, inverted norms 7.64->8.33 and 7.96->7.57, and 1,364 e->n plus 837 n->e confusions at C0). Wrote runs/planted-xv/g1/s12/a/preregistration_hypotheses.md and runs/planted-xv/g1/s12/a/program.py to swap the 'e' and 'n' rows back in O_18.lin.weight and O_18.lin.bias (H1), test whether O_18.lin.bias was included in the planted swap (H2), or fall back to transplanting parent rows if H1 fails.",
+  "ended": "2026-11-20T10:51:19+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 122201,
+   "output": 3206,
+   "reasoning": 6159,
+   "calls": 6
+  }
+ }
+]

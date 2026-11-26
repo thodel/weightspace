@@ -165,6 +165,7 @@ class Workspace:
     run_dir: Path              # absolute
     readable: list[str]        # glob patterns, relative to root
     python: Path
+    writable: list[str] = field(default_factory=lambda: list(WRITABLE))  # file-name regexes in run_dir
 
     @classmethod
     def load(cls, run_dir: Path) -> "Workspace":
@@ -173,7 +174,8 @@ class Workspace:
         root = Path(cfg.get("root", REPO)).resolve()
         rel = run_dir.relative_to(root).as_posix()
         readable = [p.replace("{run}", rel) for p in cfg["readable"]] + [f"{rel}/*"]
-        return cls(root, run_dir, readable, Path(cfg.get("python", root / ".venv/bin/python")))
+        return cls(root, run_dir, readable, Path(cfg.get("python", root / ".venv/bin/python")),
+                   list(cfg.get("writable", WRITABLE)))
 
     def _resolve(self, path: str) -> tuple[Path, str]:
         p = (self.root / path).resolve() if not os.path.isabs(path) else Path(path).resolve()
@@ -237,8 +239,10 @@ class Workspace:
             p, rel = self._resolve(path)
         except PermissionError as e:
             return f"refused: {e}"
-        if p.parent != self.run_dir or not any(re.fullmatch(w, p.name) for w in WRITABLE):
-            return f"refused: you may write only preregistration.md, program_NN.py and notes.md in {self.run_dir.name}"
+        if p.parent != self.run_dir or not any(re.fullmatch(w, p.name) for w in self.writable):
+            if self.writable == WRITABLE:
+                return f"refused: you may write only preregistration.md, program_NN.py and notes.md in {self.run_dir.name}"
+            return f"refused: you may write only {', '.join(w.replace(chr(92), '') for w in self.writable)} in {self.run_dir.relative_to(self.root).as_posix()}"
         if p.name == "preregistration.md" and p.exists():
             old, new = outside_section5(p.read_text()), outside_section5(content)
             if old != new:
@@ -311,8 +315,11 @@ class OpenAIResponses:
     refuse function tools on Chat Completions unless reasoning is switched off. Output items
     (reasoning, messages, function calls) go back unchanged in the next request."""
 
+    tools = None  # set per instance below; run_round may narrow it (programmer.json "tools")
+
     def __init__(self, model: str, key: str, base: str, options: dict | None = None):
         self.model, self.key, self.base, self.options = model, key, base.rstrip("/"), options or {}
+        self.tools = list(TOOLS)
 
     def start(self, system: str) -> list:
         return [{"_system": system}]
@@ -322,7 +329,7 @@ class OpenAIResponses:
 
     def send(self, conv: list) -> Turn:
         body = {"model": self.model, "instructions": conv[0]["_system"], "input": conv[1:],
-                "tools": [{"type": "function", **t} for t in TOOLS], **self.options}
+                "tools": [{"type": "function", **t} for t in self.tools], **self.options}
         r = post_json(f"{self.base}/responses", body, {"Authorization": f"Bearer {self.key}"}, self.key)
         text, calls = [], []
         for item in r.get("output", []):
@@ -353,8 +360,11 @@ class OpenAIResponses:
 class OpenAIChat:
     """Chat Completions with function tools, for compatible servers or older models (options {"api": "chat"})."""
 
+    tools = None  # set per instance below; run_round may narrow it (programmer.json "tools")
+
     def __init__(self, model: str, key: str, base: str, options: dict | None = None):
         self.model, self.key, self.base, self.options = model, key, base.rstrip("/"), options or {}
+        self.tools = list(TOOLS)
 
     def start(self, system: str) -> list:
         return [{"role": "system", "content": system}]
@@ -364,7 +374,7 @@ class OpenAIChat:
 
     def send(self, conv: list) -> Turn:
         body = {"model": self.model, "messages": conv,
-                "tools": [{"type": "function", "function": t} for t in TOOLS], **self.options}
+                "tools": [{"type": "function", "function": t} for t in self.tools], **self.options}
         r = post_json(f"{self.base}/chat/completions", body, {"Authorization": f"Bearer {self.key}"}, self.key)
         msg = r["choices"][0]["message"]
         conv.append({k: v for k, v in msg.items() if v is not None and k not in ("refusal", "annotations")})
@@ -394,8 +404,11 @@ class Gemini:
     """generateContent with function declarations. The model's content goes back unchanged, thought
     signatures included, as the API requires for multi-turn function calling."""
 
+    tools = None  # set per instance below; run_round may narrow it (programmer.json "tools")
+
     def __init__(self, model: str, key: str, base: str, options: dict | None = None):
         self.model, self.key, self.base, self.options = model, key, base.rstrip("/"), options or {}
+        self.tools = list(TOOLS)
         self.system = ""
 
     def start(self, system: str) -> list:
@@ -409,7 +422,7 @@ class Gemini:
         system = conv[0].get("_system", self.system)
         body = {"systemInstruction": {"parts": [{"text": system}]},
                 "contents": conv[1:],
-                "tools": [{"functionDeclarations": TOOLS}], **self.options}
+                "tools": [{"functionDeclarations": self.tools}], **self.options}
         url = f"{self.base}/models/{self.model}:generateContent"
         r = post_json(url, body, {"x-goog-api-key": self.key}, self.key)
         cand = (r.get("candidates") or [{}])[0]
@@ -513,9 +526,18 @@ def run_round(run_dir: Path, provider: str, n: int, stdout_file: Path | None = N
     done_rounds = json.loads((rec.folder / "rounds.json").read_text()) if (rec.folder / "rounds.json").exists() else []
     if n != len(done_rounds):
         raise ValueError(f"round {n} requested, but {len(done_rounds)} rounds are recorded; next is {len(done_rounds)}")
-    conv = json.loads(conv_file.read_text()) if conv_file.exists() else llm.start(SYSTEM)
+    if cfg.get("tools"):
+        llm.tools = [t for t in TOOLS if t["name"] in set(cfg["tools"]) | {"finish_round"}]
+    if cfg.get("writable"):  # say in the tool's own description what may be written
+        llm.tools = [dict(t, description="Write a whole file in your folder. Allowed file names: "
+                          + ", ".join(w.replace("\\", "") for w in cfg["writable"]) + ". Path relative to the repository root.")
+                     if t["name"] == "write_file" else t for t in llm.tools]
+    conv = json.loads(conv_file.read_text()) if conv_file.exists() else llm.start(cfg.get("system", SYSTEM))
     run_rel = ws.run_dir.relative_to(ws.root).as_posix()
-    prompt = round_prompt(run_rel, n, stdout_file.read_text() if stdout_file else None, cfg["model"])
+    if n == 0 and cfg.get("task"):
+        prompt = cfg["task"]
+    else:
+        prompt = round_prompt(run_rel, n, stdout_file.read_text() if stdout_file else None, cfg["model"])
     llm.add_user(conv, prompt)
     rec.log(round=n, role="operator", text=prompt)
     finished, summary, steps, nudged = False, "", 0, False
@@ -545,7 +567,7 @@ def run_round(run_dir: Path, provider: str, n: int, stdout_file: Path | None = N
         conv_file.write_text(json.dumps(conv, ensure_ascii=False))
         if finished:
             break
-    expected = ws.run_dir / f"program_{n + 1:02d}.py"
+    expected = ws.run_dir / cfg.get("program", f"program_{n + 1:02d}.py")
     record = {"round": n, "finished": finished, "steps": steps, "summary": summary, "ended": now(),
               "program": expected.name if expected.exists() else None, "usage_total": rec.usage}
     done_rounds.append(record)

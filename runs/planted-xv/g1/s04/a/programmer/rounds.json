@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote preregistration_hypotheses.md and program.py for pack s04, task (a). Diagnosis indicates s04 is likely an uncorrupted (healthy) control model (C0 CER 0.0727, smooth parent-to-child drift across all conv, BiLSTM, and aligned output tensors); program.py runs a granular parent-vs-subject slice/row/bias scan and tests H1 (outlier row repair if detected), H2 (CTC blank bias reduction), H3 (space character bias calibration), and H4 (gentle L_16 parent interpolation), keeping an edit only if collapsed lines do not increase, CER improves by >= 0.0005, and the harness's 95% paired bootstrap CI rule passes.",
+  "ended": "2026-11-20T10:39:32+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 158316,
+   "output": 4918,
+   "reasoning": 19228,
+   "calls": 6
+  }
+ }
+]

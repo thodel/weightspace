@@ -123,7 +123,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 13. Closed 24.11: kraken session 2 run-to-run variation and step size. Repeats (docs/S2_REPEATS.md): four Fable 5.2 runs all found the parent step, held-out −0.47 to −0.67 (range 0.20 > 0.085 across the four parent-step programmers), so model differences are not interpretable; 0 of 4 pass A4. Fixed-size sweep (docs/S2_PARENT_SWEEP.md): the parent step alone at α 0.10–0.30 gives −0.49 to −0.70 (lowest at 0.20, range 0.21), practice is flat and keeps every α, and the page interval lies below 0 only at α 0.10 and 0.15. Step size accounts for the spread; practice cannot choose it.
-14. E3 of the cross-vendor plan (planted defects with Gemini and GPT): waits for a go-ahead (`docs/XVENDOR_PLAN.md`).
+14. Done 26.11: E3 of the cross-vendor plan (`docs/XVENDOR_REPORT.md` §7). On the 14 kraken planted defects GPT-6.2 Astra matches Sonnet and Fable (arm (a): 8 repaired, 3 partly), Gemini 4 Argon trails (5 and 2), losing four cells to empty or crashing programs (three hit the default output cap on reasoning). With the parent donor all four programmers repair the same defects; with an unrelated donor GPT repaired or partly repaired 5 of 6 cells, Sonnet 2, Fable 3, Gemini 1 (one attempt each). All four adapter p3 cells reach the same adapter as Sonnet and Fable. Open: a `g2` Gemini attempt with a larger output cap, only if wanted.
 
 ## Rules that apply here
 

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Completed task (a) for pack s06: identified that the output weight row for character 'e' in O_18.lin.weight was zeroed out (norm 0.00 vs parent norm 7.64, causing 910 'e -> \u2205' deletions and ~376 'e -> vowel/consonant' substitutions). Wrote runs/planted-xv/g1/s06/a/preregistration_hypotheses.md and runs/planted-xv/g1/s06/a/program.py to transplant and calibrate the 'e' output row from the parent donor and test secondary output-bias / conv-bias hypotheses within the 10-pass budget.",
+  "ended": "2026-11-20T10:18:10+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 118796,
+   "output": 5110,
+   "reasoning": 0,
+   "calls": 6
+  }
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote hypotheses.md and program.py for s13(b). The program negates only the child\u2019s `n` output weight row, based on its \u22120.991 parent cosine and 7,667 spurious `n` insertions. No model was loaded or evaluated.",
+  "ended": "2026-11-20T10:37:03+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 35951,
+   "output": 810,
+   "reasoning": 35,
+   "calls": 6
+  }
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote the preregistration and program for s10(a). The program tests the anomalous C3 bias first, then conditionally tests localized weight repairs and blank calibration within the ten-pass budget. No model was loaded or program run.",
+  "ended": "2026-11-20T10:36:05+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 62537,
+   "output": 3205,
+   "reasoning": 652,
+   "calls": 6
+  }
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote the preregistration and program for q01(a). The program tests halving every B matrix to correct the doubled effective gain. Only if that repair is rejected does it test a 0.56 factor based on sibling norms. It uses at most three passes including C0. No model was loaded and no passes were run.",
+  "ended": "2026-11-26T14:48:56+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 56573,
+   "output": 1050,
+   "reasoning": 35,
+   "calls": 6
+  }
+ }
+]

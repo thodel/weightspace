@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Diagnosed s04 as a healthy control with no planted defect (all tensor norms/biases in describe.md, parent-to-child cosines/diffs in diff_parent_to_subject.md, and practice CER 0.0727 and confusion profile in c0_practice.md are completely normal). Wrote runs/planted-xv/g1/s04/b/hypotheses.md and runs/planted-xv/g1/s04/b/program.py (no-op freeze).",
+  "ended": "2026-11-20T10:36:00+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 119242,
+   "output": 1401,
+   "reasoning": 2438,
+   "calls": 6
+  }
+ }
+]

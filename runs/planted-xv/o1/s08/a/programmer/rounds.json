@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program for s08(a). The program tests repairs confined to the anomalous `e` output row and its bias, using at most 10 passes and the paired CER keep rule. Syntax compilation reported no error; no model was loaded or evaluated.",
+  "ended": "2026-11-20T10:35:15+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 59747,
+   "output": 3719,
+   "reasoning": 875,
+   "calls": 7
+  }
+ }
+]

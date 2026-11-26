@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program.py for s07 task (a). The program tests whether restoring gain in the final BiLSTM reduces deletions, then conditionally tests blank and space bias adjustments. It uses at most nine passes including baseline. No model was loaded or run.",
+  "ended": "2026-11-20T10:34:19+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 61450,
+   "output": 2447,
+   "reasoning": 529,
+   "calls": 7
+  }
+ }
+]

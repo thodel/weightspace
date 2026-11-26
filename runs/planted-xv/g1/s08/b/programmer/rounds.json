@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 5,
+  "summary": "Diagnosed the planted defect in pack s08 as a zeroed output weight row for character 'e' (O_18.lin.weight norm 0.00, causing 910 'e' deletions and 376 'e' substitutions). Because the only allowed donor (kraken-bern-hertwig-v2) comes from an unrelated lineage with an orthogonal L_16 feature space (cosine ~ 0.000), donor row transplantation is invalid, and at budget 0 any blind bias shift or heuristic weight synthesis without a measurement pass risks severe CTC over-emission. Wrote runs/planted-xv/g1/s08/b/hypotheses.md and runs/planted-xv/g1/s08/b/program.py to log the diagnosis and freeze cleanly without unverified edits.",
+  "ended": "2026-11-20T10:40:30+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 84725,
+   "output": 2965,
+   "reasoning": 0,
+   "calls": 5
+  }
+ }
+]

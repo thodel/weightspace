@@ -1,0 +1,15 @@
+Model: `gemini-4-argon` (Gemini 4 Argon, called through the Google API by the operator's tool layer)
+Settings: provider default reasoning settings
+Tools used: `read_file`, `list_dir`, `write_file` (with `py_compile`), `finish_round`
+
+# Hypotheses — s01 Task (b) (budget 0, blind programmer)
+
+## Diagnosis from pack readings
+- **`describe.md`**: `C_3.co.weight` (`[32, 32, 3, 13]`, 39,936 parameters) and `C_3.co.bias` (`[32]`) are completely zeroed out (`L2 = 0.00`, `rms = 0.0000`, `abs max = 0.000`). Every other tensor in the network (`C_0`, `C_6`, `C_9`, `L_12`, `L_14`, `L_16`, `O_18`) has normal weight and bias statistics (`O_18.lin.weight` L2 264.33, blank row norm 4.637, blank bias +1.232; non-blank row norms 14.812 ± 4.069, biases -1.921 ± 2.010).
+- **`c0_practice.md`**: Baseline C0 has `CER = 1.0000`, `WER = 1.0000`, `300/300` collapsed lines, and `length ratio = 0.000` (12,867 deletions). Because `C_3` is a non-residual convolutional layer (`Cr3,13,32`), zeroing both `C_3.co.weight` and `C_3.co.bias` forces the activation tensor entering `C_6` to be identically zero for all inputs, eliminating all visual signal and causing the CTC output layer to emit `<blank>` on every frame.
+- **`diff_donor_to_subject.md`**: The only available donor (`kraken-bern-hertwig-v2.mlmodel`) is from an unrelated training lineage (cosine similarities with the subject are ~0.09 on `C_0.co.weight`, ~0.06 on `C_6.co.weight`, ~0.03 on `C_9.co.weight`, and ~0.00 on `L_12`–`L_16` weights). Thus, donor `C_3` filters are not aligned with the subject's internal channel basis.
+
+## H1 — Transplant `C_3.co.weight` and `C_3.co.bias` from the donor to restore non-zero signal flow through `C_3`
+- **Hypothesis**: The sole defect in the subject model is the complete zeroing of block `C_3` (`C_3.co.weight` and `C_3.co.bias`), which blocks all spatial feature propagation from `C_0` to `C_6` and yields `CER = 1.0000` (100% blank collapse). Leaving `C_3` at zero guarantees `CER = 1.0000`. Although `kraken-bern-hertwig-v2.mlmodel` is from a different lineage and its `C_3` channels are not basis-aligned with the subject's `C_0` and `C_6`, the downstream BiLSTMs (`L_12`, `L_14`, `L_16`) bound all hidden activations in `(-1, 1)^400` and `O_18` retains a strong blank bias (`+1.232` vs mean `-1.921`), preventing runaway insertions (`length ratio > 1`). Transplanting `C_3.co.weight` and `C_3.co.bias` from the donor restores non-zero convolutional signal flow with downside bounded near `CER = 1.0000` and potential partial CER reduction if low-level stroke/spacing activations transfer.
+- **Edit**: `transplant` on `["C_3.co.weight", "C_3.co.bias"]` using `per_tensor` donor arrays from `KrakenSubject("/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel")`, committed via `s.keep_unmeasured(...)`.
+- **Predicted effect**: CER change of `0.00` to `-0.15` from `1.0000` (bounded at or slightly below `1.0000`; substantial recovery is limited by cross-lineage channel mismatch between donor `C_3` and subject `C_0`/`C_6`).

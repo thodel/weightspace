@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote hypotheses.md and program.py for s01(b). The blind repair targets only the zeroed C_3 kernel and bias, using channel-matched donor filters. The program compiled; it was not run, and no CER improvement was measured.",
+  "ended": "2026-11-20T10:32:00+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 52786,
+   "output": 1740,
+   "reasoning": 233,
+   "calls": 7
+  }
+ }
+]

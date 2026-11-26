@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/s03/b/hypotheses.md and runs/planted-xv/g1/s03/b/program.py diagnosing the planted +2.0 offset on the CTC blank bias (O_18.lin.bias[0] = +3.232, delta +2.113 vs parent, causing 14 collapsed lines, 0.941 length ratio, and pure deletion top-10 confusions) and subtracting 2.0 from O_18.lin.bias[0] in budget-0 mode.",
+  "ended": "2026-11-20T10:34:35+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 113265,
+   "output": 1742,
+   "reasoning": 3048,
+   "calls": 6
+  }
+ }
+]

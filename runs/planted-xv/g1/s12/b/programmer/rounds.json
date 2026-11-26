@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Identified a planted output-layer row swap between characters 'e' and 'n' in O_18.lin.weight and O_18.lin.bias (evidenced by symmetric low cosines 0.356/0.361 and swapped norms against the parent model in diff_parent_to_subject.md, and 1,364 e->n + 837 n->e confusions in c0_practice.md). Wrote runs/planted-xv/g1/s12/b/hypotheses.md and runs/planted-xv/g1/s12/b/program.py to swap the 'e' and 'n' rows back under budget 0.",
+  "ended": "2026-11-20T10:52:50+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 122652,
+   "output": 1828,
+   "reasoning": 3068,
+   "calls": 6
+  }
+ }
+]

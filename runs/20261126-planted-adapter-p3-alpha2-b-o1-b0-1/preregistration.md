@@ -1,0 +1,22 @@
+# Pre-registration — 20261126-planted-adapter-p3-alpha2-b-o1-b0-1
+
+Planted-defect control on an adapter (docs/ADAPTER_REPORT.md, stage A3), arm (b), **GPT-6.2 Astra rerun** (pack `q01`, attempt 1) of `runs/20261107-planted-adapter-p3-alpha2-b-b0-1` (Sonnet 5.5). Written before the first pass; the program is `runs/planted-xv/o1/q01/b/program.py`, copied unchanged.
+
+1. **Subject:** `p3-alpha2`, a corrupted copy of `qwen3.5-4b-german-kurrent-xvi-xix-page-v2` (`plant.json`: {"module": "all (config)", "lora_alpha": 256, "digest": "b08cc2e90f19a89471c77ac2a4ae2125bebdbb6ac682fa5a8cd910e9689926f0"}); tensor digest `fb4f55ee7386abc7292e29bbf2a24f502fc4079cb4732934cbead229b300504c`. The tensor digest does not cover `lora_alpha` (config), so p3/p5 share the clean adapter's tensor digest; the file digests in `plant.json` differ. Source adapter file digest `f921f0c2a56976b1…`. Donors: siblings `…-page-v1`, `…-blb-page-v1` for statistics only (independent A initialisations).
+2. **Practice set:** `data/practice/kurrent-val-32.jsonl`, 32 pages (every second page of the 64-page practice draw of the registered val side), sha256 `3d1311f00140575ecd44c81aaba7979011fc8cd963f157dfbe3644bdbaecf31d`. Not training data of v2 (docs/PHASE5_PLAN.md §2; audit `data/practice/kurrent-val-64.audit.json`).
+3. **Score set:** `data/practice/kurrent-val-holdout-64.jsonl`, 64 val pages disjoint from the 64 practice pages, sha256 `6300181905a39a800e7227494ad621236e6b17ed10a2b912ba47cb0c440fa886`; the test side stays closed. Not a true held-out set (same documents/hands as the practice draw for 56 of 60 documents), a positive-control score set.
+4. **Budget:** 0 passes (pass 1 = C0). Keep rule: PROTOCOL.md §3 on pages (paired page interval below 0, pages at the cap not up). Passes: vLLM batched, greedy, cap 3,072, **not repeatable run to run** (A0): the keep rule sees that noise.
+5. **Hypotheses (predicted direction and magnitude):**
+
+Model ID: `gpt-6.2-astra` (GPT-6.2 Astra, OpenAI API via the operator's tool layer).
+Settings: provider-default reasoning; tools used: read_file, write_file (automatic py_compile), finish_round. Budget: zero passes.
+
+**Hypothesis: the adapter is being applied at twice its intended strength.** At rank 64, q01's alpha of 256 gives a multiplier of 4, versus 2 for both same-recipe siblings. The norm ratios cluster near 1.8 across attention and MLP layers, with no isolated module driving the excess. C0's 28 looping pages out of 32 are consistent with a gain error affecting the whole decoder.
+
+**Edit:** Multiply every LoRA B by 0.5 and leave every A unchanged. This makes each update exactly what q01 would produce at alpha 128, preserving its learned directions and relative module strengths. The resulting total update norm (117.50 versus 127.35 and 135.65 for the siblings) does not need to match either independent run exactly; there is no clear evidence for a second, local correction.
+
+**Prediction (unmeasured):** Practice CER should fall from 2.50 to below 0.50 (a drop of more than 2.0 absolute), with fewer than 10 pages reaching the cap instead of 29. The direction is more certain than the magnitude because individual looping pages can dominate CER.
+
+
+6. **Outcome classes (fixed before any session):** let N be the repeat noise of the clean adapter on the score set (|CER difference of two readings|, at least 3 points) and D = CER(corrupted) − CER(clean) on the score set. D < max(N, 3 points): *null corruption* (below the pass noise). Else *repaired* = CER(final) recovers at least 80 % of D and the paired page interval of final vs corrupted lies below 0; *partly* = 20–80 %; *not repaired* = under 20 %.
+7. **Programmer:** GPT-6.2 Astra (`gpt-6.2-astra`), called through the OpenAI API by `wsp.programmer` (docs/XVENDOR_PLAN.md), one fresh conversation per run, provider default reasoning settings, tools read_file/list_dir/write_file (py_compile) only; read only `runs/planted-xv/o1/PROGRAMMER_BRIEF_ADAPTER.md`, its pack (`runs/planted-xv/o1/q01/pack/*`) and the API files; not told which defect was planted; never shown the Sonnet or Fable runs, their programs or results (5 API calls, 33740 input / 699 output tokens). Budget 0. Operator: a Claude Opus 5.5 (claude-opus-5-5) session; it knows the defects and the Sonnet and Fable results, set up the runs and does the held-out scoring and the write-up; it wrote no hypothesis and no edit and passed nothing of this to the programmers.
