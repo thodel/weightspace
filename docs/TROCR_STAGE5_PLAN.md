@@ -21,7 +21,7 @@ The answers fix what the article can claim: if retraining or sibling averaging g
 | Recorded recipe: parent `trocr-kurrent-XVI-XVII`, 3 epochs, batch 8, lr 5e-5 cosine, warmup 0.1, bf16, 20,181 steps, 86 min on card 0 | `docs/TROCR_NULLS_PREREG.md` |
 | The practice set (1,194 lines, 759 pages, 216 documents) is drawn from the BLB train side, disjoint by object from the held-out set; the audit finds no BLB dataset among A's training datasets | `docs/trocr/audit_trained_overlap_1200.json` |
 | The kraken C4 (R11, R14) trained 5 fixed epochs at 1e-5 (primary) and 5e-5 (secondary), seeds 1–3, with no choice made on the held-out set | `docs/C4_RETRAIN.md` |
-| The confirmation half (12 objects, 1,125 lines) has never been read | R18 |
+| The confirmation half (12 objects, 1,125 lines) was read once, for subject B only (edit −2.06, arm I α 0.3 −7.36 [−9.19, −5.47], five shams ≤ +0.36); subject A's half is unread | R18 (corrected 26.11.2026), `docs/trocr/stage4_B_confirmation.md` |
 
 ## 2. Arms
 
@@ -32,7 +32,7 @@ Per subject A (`from-kurrent-v2`) and B (`trocr-kurrent`), every arm read the sa
 | **C4-small** | continued training of the subject on the **practice set** (all 1,194 lines, labels as in the practice set), 5 fixed epochs (750 steps), lr 1e-5 (primary) and 5e-5 (secondary), seeds 1–3, the trainer's own script; the same data the programmers' keep rule saw | A, B |
 | **C4-big** (optional, decision 3) | the same with the BLB train side as training data (38,724 candidate lines, disjoint from the held-out set by object, to be re-audited), 1 epoch, lr 1e-5, seeds 1–3: what a data person would do with all the material | A, B |
 | **Sibling average** | average of the recorded `from-kurrent-v2` with the stage-2 reruns (seeds 1–5 and the seed-42 repeat), uniform weights, all subsets of 2 and the average of all 7; compared with arm I at equal mixing weight | A only (B has no siblings) |
-| **Arm I replay** | arm I at the α chosen on practice, read once on the **confirmation half** | A, B |
+| **Arm I replay** | arm I at the α chosen on practice, read once on the **confirmation half** | A only (B's replay was read in stage 4, amendment 6: −7.36, replicates) |
 | **Ceiling comparators for B** (CPU only) | interpolation of B toward `from-kurrent-v2` and toward `XVI-XVII`, α grid as arm I, practice then discovery; excluded from stage 4 by amendment 2 | B |
 | **Sham floor** | five shams per C4 final (same tensors, same Frobenius norm of the net change, as stage 4) | A, B |
 
@@ -43,7 +43,7 @@ Selection discipline as in stage 4: lr and epoch count are fixed before any read
 - Minimum effect 0.5 points (R16), page-clustered paired interval entirely below −0.005 as in stage 4.
 - Each comparator is classed against arm I: **beats** (paired interval below 0), **matches** (interval contains 0 and the comparator's own Δ is itself below −0.5), **below** (interval above 0), **harms** (interval above +0.005 against the subject). Same wording as the "below arm I" class that section 7 of the stage-4 preregistration has not defined; the stage-5 preregistration defines it.
 - What each outcome means, written now: C4 or the sibling average **matches or beats** arm I, then the stage-4 gain is a weight-averaging or data effect that a plain retrain or a seed average reaches, and the article reports it as that. Both **below**: interpolation with a related model reaches something the subject's own recipe does not, and the donor is worth a second look (stage 6, not stage 5).
-- Arm I on the confirmation half: if its Δ there has an interval above −0.5, the stage-4 baseline does not hold on unread lines and R18 gets a correction.
+- Arm I on the confirmation half: if its Δ there has an interval above −0.5, the stage-4 baseline does not hold on unread lines and R18 gets a correction. For B this was already read and holds (−7.36 [−9.19, −5.47]); the test is open for A only.
 
 ## 4. Harness work
 
@@ -71,7 +71,7 @@ Total, with C4-big and without regenerating siblings: about **6 to 7 h** of card
 - **Leak through the practice set.** Practice and held-out are disjoint by object and audited; C4 trains on the practice labels, which the programmers' keep rule also used, so the comparison is fair, but a C4 gain says nothing about lines outside the BLB hand.
 - **Sibling checkpoints missing** (section 5).
 - **B has no same-recipe siblings**, so the sibling comparison is A only; B's story rests on C4 and the ceiling comparators.
-- **The confirmation half has 12 objects**; its intervals are wide. Reading arm I there tests replication, not a small difference.
+- **The confirmation half has 12 objects**; its intervals are wide. Reading arm I there tests replication, not a small difference. B's half is already read (stage 4, amendment 6), so another model of B read there would be a second use of a half that has seen two models; the preregistration has to count that.
 
 ## 7. Decisions for Tobias
 
