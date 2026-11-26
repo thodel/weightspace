@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/s13/a/preregistration_hypotheses.md and runs/planted-xv/g1/s13/a/program.py to diagnose and repair the sign-flipped output weight row for character 'n' in O_18.lin.weight (cosine -0.991 and rel L2 2.042 vs parent, causing 7,667 '\u2205 -> n' insertions at C0), with conditional fallback hypotheses H2 and H3 if CER or 'n' confusions remain elevated after H1.",
+  "ended": "2026-11-20T10:55:27+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 139593,
+   "output": 3326,
+   "reasoning": 9200,
+   "calls": 6
+  }
+ }
+]

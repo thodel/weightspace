@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Completed task (a) for pack s02: analyzed pack readings (which show smooth, high-cosine adaptation from parent across all blocks and shared output rows, indicating a healthy/no-defect model with mild deletion bias on the practice set), wrote runs/planted-xv/g1/s02/a/preregistration_hypotheses.md with six hypotheses (H1-H6) covering output blank/space bias calibration, weak high-frequency character row scaling, C_3.co.bias parent transplant, shared O_18 parent interpolation, and L_14 parent interpolation, and wrote runs/planted-xv/g1/s02/a/program.py (7 passes out of budget 10, guarded by collapsed-line and CER checks plus s.keep()).",
+  "ended": "2026-11-20T10:34:34+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 135814,
+   "output": 4152,
+   "reasoning": 13530,
+   "calls": 6
+  }
+ }
+]

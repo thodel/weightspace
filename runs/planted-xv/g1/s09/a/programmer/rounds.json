@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Completed task (a) for pack s09: diagnosed the planted zeroing of `C_3.co.weight` and `C_3.co.bias` (L2 = 0.00, rel L2 = 1.0000 vs parent) causing 100% blank collapse (CER 1.0000), wrote `runs/planted-xv/g1/s09/a/preregistration_hypotheses.md` and `runs/planted-xv/g1/s09/a/program.py` to transplant `C_3` from the parent model and test secondary scale/interface/outlier refinements within the 10-pass budget.",
+  "ended": "2026-11-20T10:41:48+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 118413,
+   "output": 4033,
+   "reasoning": 0,
+   "calls": 6
+  }
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote the hypotheses and zero-pass repair program. It checks the anomalous C_3 bias and shared weight channels against the parent, edits only when a structural check fires, and leaves the output layer untouched. The program was not run.",
+  "ended": "2026-11-20T10:35:56+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 38742,
+   "output": 2442,
+   "reasoning": 744,
+   "calls": 6
+  }
+ }
+]

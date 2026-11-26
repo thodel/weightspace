@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote runs/planted-xv/g1/s07/a/preregistration_hypotheses.md and runs/planted-xv/g1/s07/a/program.py for pack s07, task (a). All 34 tensors in describe.md have normal norms and ranges, while C0 shows CER 0.1993, 24 collapsed lines, length ratio 0.828, and all top-10 confusions are deletions, with blank bias at +1.232 (+0.353 above the donor) and weak frequent-character output rows. The 10-pass program measures C0 and tests 9 branching hypotheses targeting CTC blank dominance, blank direction projection, weak deleted-character row norms/biases, and high-cosine L_16 hidden bias interpolation, guarded by collapsed-line checks and the paired 95% CI keep rule.",
+  "ended": "2026-11-20T10:40:25+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 160671,
+   "output": 5725,
+   "reasoning": 7910,
+   "calls": 7
+  }
+ }
+]

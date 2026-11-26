@@ -1,0 +1,16 @@
+{
+  "name": "20261126-planted-k1-zero-row-e-b-o1-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k1-zero-row-e.mlmodel",
+  "subject_digest": "f15cb502574f8562a2c7f8fcd819163ba2d17150ceac5f78d7e2e793fe47a7a8",
+  "subject_file_sha256": "560e51f8525f14df97da88e09a174a29187993a5adc74bfdce368345bc13ad3c",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "min_effect": 0.0,
+  "cluster_rule": false,
+  "created": "2026-11-26T14:49:44.437867+00:00",
+  "unshare": true,
+  "deviations": []
+}

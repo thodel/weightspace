@@ -1,0 +1,8 @@
+Model: `gpt-6.2-astra` (GPT-6.2 Astra via the OpenAI API).
+Settings: provider-default reasoning effort; read_file, write_file (with py_compile), finish_round. No model runs or evaluation passes.
+
+**H1 — additive noise in the middle BiLSTM's weight matrices.** Relative to the parent, the two directions of L_14 have input-weight displacements of 0.74–0.75 and recurrent-weight displacements of 0.55–0.56 (relative L2). At L_12 and L_16 the corresponding ranges are 0.29–0.33 and 0.20–0.22. Despite the different scales of input and recurrent weights, the excess is consistent with about 0.15 RMS of added noise in all four matrices. The L_14 biases show no corresponding displacement. The distributed deletions fit degraded sequence features better than a single switched output label.
+
+**Blind edit:** Denoise only those four matrices in parent-relative coordinates. Use the neighboring layers' actual parent-relative updates as a scale reference for legitimate adaptation, separately by gate and matrix type. Shrink the noisy residual toward the parent, retaining a larger fraction of coherent row/column patterns and singular components that stand above the noise. Skip gate blocks without substantial excess energy. This avoids restoring the parent's entire middle layer and discarding useful changes learned for this hand.
+
+**Prediction:** CER down by roughly 2–5 absolute percentage points from 12.0%, with fewer common-letter and space deletions. This magnitude is uncertain: genuine middle-layer adaptation indistinguishable from noise cannot be recovered exactly. No output, blank-bias, or convolution edit: the blank bias moved just +0.113, and the C_3 bias's large relative delta is on a tiny absolute scale.

@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the s14 task (a) preregistration and program, in order. The program tests output scaling, C_3 bias restoration, and blank/space calibration within ten passes including baseline. Compilation reported no error; no model was loaded or measured.",
+  "ended": "2026-11-20T10:37:52+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 86531,
+   "output": 2744,
+   "reasoning": 515,
+   "calls": 7
+  }
+ }
+]

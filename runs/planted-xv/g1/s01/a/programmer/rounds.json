@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Diagnosed that C_3.co.weight ([32, 32, 3, 13]) and C_3.co.bias ([32]) are identically zero in describe.md (L2=0.00, rms=0.0000, abs max=0.000), blocking feature propagation before C_6 and causing 300/300 collapsed lines (CER=1.0000). Wrote runs/planted-xv/g1/s01/a/preregistration_hypotheses.md and runs/planted-xv/g1/s01/a/program.py to test transplanting C_3 from the donor kraken-bern-hertwig-v2, testing C_3 bias zeroing, joint C_0+C_3 transplant, C_3 weight scaling, and CTC blank bias calibration within the 10-pass budget.",
+  "ended": "2026-11-20T10:32:46+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 135482,
+   "output": 4949,
+   "reasoning": 0,
+   "calls": 7
+  }
+ }
+]

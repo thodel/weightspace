@@ -276,6 +276,12 @@ message to the programmer, apart from the one allowed nudge.
   `m.confusions` entries as dicts; they are tuples.)
 - **Adapter cells `q01`:** they need the vLLM pass server on card 0 (`scripts/run_planted_adapter_f1.py`);
   they run after the 28 kraken cells, only when `wsp.card.ready` allows.
+- **Added 26.11.2026, before the remaining cells were run:** three Gemini cells (`s08/a`, `s10/a`, `s10/b`)
+  ended with no program: both replies, the one nudge included, stopped at `MAX_TOKENS` after 32,765
+  reasoning tokens. Like a program that does not freeze, they ship nothing; they are classed **failed (no
+  program)**, count as not repaired and are not rerun. The adapter cells run through
+  `scripts/run_planted_adapter_xv.py` (the Fable adapter runner with the cell folder, tag, programmer text
+  and spool passed in) on the spool `~/atr-cache/wsp/spool/a3-xv`.
 
 ## 8. What was prepared (15.11.2026)
 

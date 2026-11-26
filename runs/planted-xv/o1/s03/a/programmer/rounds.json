@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Wrote the preregistration and program for s03 task (a). The program tests blank-bias reduction, targeted C_3 bias repair, and conditional space-bias correction in at most eight passes including baseline. No model was loaded and no passes were run.",
+  "ended": "2026-11-20T10:32:34+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 71718,
+   "output": 2402,
+   "reasoning": 178,
+   "calls": 7
+  }
+ }
+]

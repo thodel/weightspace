@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Diagnosed zeroed C_3 block (C_3.co.weight and C_3.co.bias at L2=0.00 causing 100% blank collapse, CER=1.0000 on all 300 lines) and wrote runs/planted-xv/g1/s01/b/hypotheses.md and runs/planted-xv/g1/s01/b/program.py to transplant C_3.co.weight and C_3.co.bias from the available donor at budget 0.",
+  "ended": "2026-11-20T10:36:12+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 181390,
+   "output": 2347,
+   "reasoning": 20231,
+   "calls": 7
+  }
+ }
+]

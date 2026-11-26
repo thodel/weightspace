@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote hypotheses.md and program.py for task (b). The program swaps only the child\u2019s e/n output weights and biases. The predicted CER reduction is about 17 percentage points; no model was run or measured.",
+  "ended": "2026-11-20T10:36:36+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 35997,
+   "output": 852,
+   "reasoning": 0,
+   "calls": 6
+  }
+ }
+]

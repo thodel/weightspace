@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Completed task (b) for pack s11: diagnosed additive isotropic Gaussian noise (sigma ~ 0.15) isolated to the four weight matrices of BiLSTM block L_14 (weight_ih_l0, weight_hh_l0, weight_ih_l0_reverse, weight_hh_l0_reverse), and wrote hypotheses.md and program.py to transplant the four clean L_14 weight tensors from the parent donor (kraken-german-xix-v1) via keep_unmeasured at budget 0.",
+  "ended": "2026-11-20T10:51:36+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 172904,
+   "output": 2843,
+   "reasoning": 20885,
+   "calls": 6
+  }
+ }
+]

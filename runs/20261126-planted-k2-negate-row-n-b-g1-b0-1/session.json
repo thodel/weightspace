@@ -1,0 +1,16 @@
+{
+  "name": "20261126-planted-k2-negate-row-n-b-g1-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k2-negate-row-n.mlmodel",
+  "subject_digest": "2daff3da912c8f98552bdde696a9c565cfc6eff847652c81a836d5735660d372",
+  "subject_file_sha256": "df3b7f92a0e392169f348393a5fdd0c8db10016ef7dad6edd6d6ed02ef347286",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "min_effect": 0.0,
+  "cluster_rule": false,
+  "created": "2026-11-26T15:08:33.201825+00:00",
+  "unshare": true,
+  "deviations": []
+}

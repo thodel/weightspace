@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/s05/a/preregistration_hypotheses.md and runs/planted-xv/g1/s05/a/program.py. Diagnosed a 0.5x scaling defect on all six non-zero tensors of BiLSTM block L_16 (high cosines 0.947-0.999 with parent matching healthy layers, L2 norms halved, rel L2 ~0.505-0.550, causing CTC blank dominance and character deletions), repaired in H1 by scaling L_16 by factor=2.0 with conditional fallback hypotheses H2-H4 if CER remains above 0.075.",
+  "ended": "2026-11-20T10:38:14+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 136522,
+   "output": 3327,
+   "reasoning": 9483,
+   "calls": 6
+  }
+ }
+]

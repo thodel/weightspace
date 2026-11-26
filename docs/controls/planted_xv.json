@@ -1,0 +1,1944 @@
+{
+ "original_heldout_cer": 0.09553782764968878,
+ "kraken": {
+  "k1-zero-row-e": {
+   "slot": "s06",
+   "what": "output row of `e` (weights and bias) set to 0",
+   "heldout_cer": 0.19655474708512316,
+   "damage_pts": 10.101691943543438,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k1-zero-row-e-a-f1-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 3,
+     "final_digest": "46c5555c79123c4c67e124236257b72ef8f212aa2f4f9177246c950b8bd17180",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09560796002454633,
+     "delta_vs_corrupted_pts": -10.094678706057683,
+     "delta_ci95_pts": [
+      -10.264190887840162,
+      -9.919394492835066
+     ],
+     "delta_ci95_pages_pts": [
+      -10.531585220500595,
+      -9.655979246850574
+     ],
+     "recovered_fraction": 0.9993057363533802,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261120-planted-k1-zero-row-e-a-g1-b10-1",
+     "class": "failed (program error)",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261120-planted-k1-zero-row-e-a-o1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 2,
+     "final_digest": "9d60c9f8cf2d9c09baa33f34d84a5835c05cde7b8acdbe6352a4b2aaad7f2de7",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09587095643026212,
+     "delta_vs_corrupted_pts": -10.068379065486104,
+     "delta_ci95_pts": [
+      -10.23886646688954,
+      -9.888287581466258
+     ],
+     "delta_ci95_pages_pts": [
+      -10.494986639858197,
+      -9.632954127266036
+     ],
+     "recovered_fraction": 0.9967022476785559,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k1-zero-row-e-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "553700fafd9b328375defc639d4402fc607ff9b2664768aaf9705c7189225d87",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09755413342684317,
+     "delta_vs_corrupted_pts": -9.900061365827998,
+     "delta_ci95_pts": [
+      -10.068518551221148,
+      -9.711793141428533
+     ],
+     "delta_ci95_pages_pts": [
+      -10.36814080870276,
+      -9.432177712305606
+     ],
+     "recovered_fraction": 0.9800399201596806,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k1-zero-row-e-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "d840fc856af00b11b27342b24a96d16b7518f762fa9bfdddc81b0f3ef85bf137",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09724730428684142,
+     "delta_vs_corrupted_pts": -9.930744279828174,
+     "delta_ci95_pts": [
+      -10.096119991549891,
+      -9.746379724671472
+     ],
+     "delta_ci95_pages_pts": [
+      -10.393309551543389,
+      -9.468420296833159
+     ],
+     "recovered_fraction": 0.9830773236136422,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k1-zero-row-e-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "553700fafd9b328375defc639d4402fc607ff9b2664768aaf9705c7189225d87",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09755413342684317,
+     "delta_vs_corrupted_pts": -9.900061365827998,
+     "delta_ci95_pts": [
+      -10.068518551221148,
+      -9.711793141428533
+     ],
+     "delta_ci95_pages_pts": [
+      -10.36814080870276,
+      -9.432177712305606
+     ],
+     "recovered_fraction": 0.9800399201596806,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k2-negate-row-n": {
+   "slot": "s13",
+   "what": "output row of `n` (weights and bias) negated",
+   "heldout_cer": 0.7024020338388709,
+   "damage_pts": 60.68642061891821,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k2-negate-row-n-a-f1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k2-negate-row-n-a-g1-b10-1",
+     "passes": 2,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k2-negate-row-n-a-o1-b10-1",
+     "passes": 2,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k2-negate-row-n-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k2-negate-row-n-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k2-negate-row-n-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "0a309cdf518e9d6b15219e3a53f9019408465490a8a9f10e79c5e7bfc0af887d",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09552906110283159,
+     "delta_vs_corrupted_pts": -60.68729727360393,
+     "delta_ci95_pts": [
+      -61.47922998986829,
+      -59.882127313010656
+     ],
+     "delta_ci95_pages_pts": [
+      -63.92983052287305,
+      -57.22847848916134
+     ],
+     "recovered_fraction": 1.0000144456482485,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k3-swap-rows-e-n": {
+   "slot": "s12",
+   "what": "output rows of `e` and `n` swapped (weights and bias)",
+   "heldout_cer": 0.2775751731393004,
+   "damage_pts": 18.203734548961165,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k3-swap-rows-e-n-a-f1-b10-1",
+     "passes": 6,
+     "edits": 5,
+     "kept": 1,
+     "final_digest": "08105f518888e546bcc2adec6cebe9e6f07e9df23157abfdcad80c907a5566d6",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09570439203997545,
+     "delta_vs_corrupted_pts": -18.187078109932497,
+     "delta_ci95_pts": [
+      -18.455558801915945,
+      -17.909134468789475
+     ],
+     "delta_ci95_pages_pts": [
+      -18.885729748683197,
+      -17.424553901817287
+     ],
+     "recovered_fraction": 0.9990849987960511,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k3-swap-rows-e-n-a-g1-b10-1",
+     "passes": 3,
+     "edits": 2,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -18.203734548961165,
+     "delta_ci95_pts": [
+      -18.470052711437766,
+      -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k3-swap-rows-e-n-a-o1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -18.203734548961165,
+     "delta_ci95_pts": [
+      -18.470052711437766,
+      -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k3-swap-rows-e-n-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -18.203734548961165,
+     "delta_ci95_pts": [
+      -18.470052711437766,
+      -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k3-swap-rows-e-n-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -18.203734548961165,
+     "delta_ci95_pts": [
+      -18.470052711437766,
+      -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k3-swap-rows-e-n-b-o1-b0-1",
+     "passes": 0,
+     "edits": 2,
+     "kept": 2,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -18.203734548961165,
+     "delta_ci95_pts": [
+      -18.470052711437766,
+      -17.925348365513795
+     ],
+     "delta_ci95_pages_pts": [
+      -18.916050004963836,
+      -17.438813766376008
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k4-blank-bias-plus2": {
+   "slot": "s03",
+   "what": "blank bias +2.0",
+   "heldout_cer": 0.10852985009204874,
+   "damage_pts": 1.299202244235996,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k4-blank-bias-plus2-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "final_digest": "929f7a4b35b579de9706f4f1407e44a0c6e8a77453de2b8addb2f17829bc2dea",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09532743052511616,
+     "delta_vs_corrupted_pts": -1.3202419566932577,
+     "delta_ci95_pts": [
+      -1.4753892516323461,
+      -1.1703931611978384
+     ],
+     "delta_ci95_pages_pts": [
+      -1.881915253418369,
+      -0.895297174951798
+     ],
+     "recovered_fraction": 1.0161943319838047,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k4-blank-bias-plus2-a-g1-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 1,
+     "final_digest": "f6add16f13febccb44eb4e351610601e626aef27aca171835f1c55f050255fe7",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -1.299202244235996,
+     "delta_ci95_pts": [
+      -1.4521158905207416,
+      -1.1548380850108717
+     ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k4-blank-bias-plus2-a-o1-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 1,
+     "final_digest": "f6add16f13febccb44eb4e351610601e626aef27aca171835f1c55f050255fe7",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -1.299202244235996,
+     "delta_ci95_pts": [
+      -1.4521158905207416,
+      -1.1548380850108717
+     ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k4-blank-bias-plus2-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "7d6a5f2f7bc96da203d9681ed6b088a9b616c0ded03e19d26a4960e6141a0ec1",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10855614973262032,
+     "delta_vs_corrupted_pts": 0.002629964057157541,
+     "delta_ci95_pts": [
+      -0.013070984157967369,
+      0.01841184670822449
+     ],
+     "delta_ci95_pages_pts": [
+      -0.019731311016935038,
+      0.024946780202234065
+     ],
+     "recovered_fraction": -0.0020242914979754427,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k4-blank-bias-plus2-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f6add16f13febccb44eb4e351610601e626aef27aca171835f1c55f050255fe7",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -1.299202244235996,
+     "delta_ci95_pts": [
+      -1.4521158905207416,
+      -1.1548380850108717
+     ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k4-blank-bias-plus2-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f6add16f13febccb44eb4e351610601e626aef27aca171835f1c55f050255fe7",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -1.299202244235996,
+     "delta_ci95_pts": [
+      -1.4521158905207416,
+      -1.1548380850108717
+     ],
+     "delta_ci95_pages_pts": [
+      -1.852790150718807,
+      -0.8833875532280683
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k5-output-weight-x2": {
+   "slot": "s14",
+   "what": "output layer weight matrix x2 (bias unchanged)",
+   "heldout_cer": 0.09525729815025862,
+   "damage_pts": -0.028052949943016547,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k5-output-weight-x2-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 0,
+     "final_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k5-output-weight-x2-a-g1-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 0,
+     "final_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k5-output-weight-x2-a-o1-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 0,
+     "final_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k5-output-weight-x2-b-f1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k5-output-weight-x2-b-g1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "2985c3e3f813d9b43bc0dfc951852ac29bb071c03729a7ce67a3a03235ab5fbe",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k5-output-weight-x2-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "47edb392059744037b2aa3d3d2ad157f7d02fe9c6024a00fe7dea1995e36dc50",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09525729815025862,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": -0.0,
+     "class": "null corruption",
+     "repaired": false
+    }
+   }
+  },
+  "k6-lstm16-x0.5": {
+   "slot": "s05",
+   "what": "last BiLSTM block (L_16, all weights and biases) x0.5",
+   "heldout_cer": 0.2117121066012098,
+   "damage_pts": 11.617427895152101,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k6-lstm16-x0.5-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k6-lstm16-x0.5-a-g1-b10-1",
+     "passes": 2,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k6-lstm16-x0.5-a-o1-b10-1",
+     "passes": 2,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k6-lstm16-x0.5-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "b289dd0c917abf452d2d85527776cf4aa534d65da647b7d4e512bec7cce6b9b4",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.0953975628999737,
+     "delta_vs_corrupted_pts": -11.63145437012361,
+     "delta_ci95_pts": [
+      -12.047751636992192,
+      -11.247382590487586
+     ],
+     "delta_ci95_pages_pts": [
+      -13.359471729261244,
+      -10.077425073210577
+     ],
+     "recovered_fraction": 1.001207364926049,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k6-lstm16-x0.5-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k6-lstm16-x0.5-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k7-noise-lstm14": {
+   "slot": "s02",
+   "what": "Gaussian noise on the weights of BiLSTM L_14, norm 25 % of the block's",
+   "heldout_cer": 0.10041202770228806,
+   "damage_pts": 0.4874200052599281,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k7-noise-lstm14-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 0,
+     "final_digest": "8caee20d9b623c22c56b655dafd5d95e8aa89e7703c7220073c79443973801bc",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.10041202770228806,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k7-noise-lstm14-a-g1-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 1,
+     "final_digest": "322c3e5992b0098871bc7a9e4c01b653ea1d5a6e218738b224d24cbe95f9e7ec",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.1003681949680021,
+     "delta_vs_corrupted_pts": -0.004383273428595902,
+     "delta_ci95_pts": [
+      -0.017395085888237405,
+      0.009024293397827399
+     ],
+     "delta_ci95_pages_pts": [
+      -0.02204663303820298,
+      0.013550709294939123
+     ],
+     "recovered_fraction": 0.008992805755394505,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k7-noise-lstm14-a-o1-b10-1",
+     "passes": 6,
+     "edits": 5,
+     "kept": 1,
+     "final_digest": "c922a2a9d9a1a7dbf5650a0d87406c34d8c5c6d9c1961730881053d2b83aea9a",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10076268957657579,
+     "delta_vs_corrupted_pts": 0.035066187428772766,
+     "delta_ci95_pts": [
+      -0.007941480115417066,
+      0.07565659113016598
+     ],
+     "delta_ci95_pages_pts": [
+      -0.029190312250487738,
+      0.1028076496169733
+     ],
+     "recovered_fraction": -0.07194244604316744,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k7-noise-lstm14-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "79fadd38932d0f3d2af60c8d9c6b59cecd4edfe42acc43ffc70eae9ef8aa332d",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10044709388971684,
+     "delta_vs_corrupted_pts": 0.0035066187428781093,
+     "delta_ci95_pts": [
+      -0.007956996852565013,
+      0.014944529423141506
+     ],
+     "delta_ci95_pages_pts": [
+      -0.011516348785911568,
+      0.020721094073766766
+     ],
+     "recovered_fraction": -0.007194244604318452,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k7-noise-lstm14-b-g1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "8caee20d9b623c22c56b655dafd5d95e8aa89e7703c7220073c79443973801bc",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.10041202770228806,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k7-noise-lstm14-b-o1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "8caee20d9b623c22c56b655dafd5d95e8aa89e7703c7220073c79443973801bc",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.10041202770228806,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    }
+   }
+  },
+  "k9-noise-all-10pct": {
+   "slot": "s10",
+   "what": "diffuse: Gaussian noise on every weight tensor, 10 % of each tensor's norm",
+   "heldout_cer": 0.6379854475322171,
+   "damage_pts": 54.24476198825283,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k9-noise-all-10pct-a-f1-b10-1",
+     "passes": 6,
+     "edits": 5,
+     "kept": 3,
+     "final_digest": "a572d065f0699024de3c1cf351a1ae26d750b4da9955a6e272eeddde05a44874",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.5098535986674849,
+     "delta_vs_corrupted_pts": -12.813184886473216,
+     "delta_ci95_pts": [
+      -13.540174333304567,
+      -12.111288557124656
+     ],
+     "delta_ci95_pages_pts": [
+      -15.704036588494441,
+      -9.984667678005016
+     ],
+     "recovered_fraction": 0.23621054672980263,
+     "class": "partly",
+     "repaired": false
+    },
+    "a-gemini": {
+     "class": "failed (no program)",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k9-noise-all-10pct-a-o1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 3,
+     "final_digest": "33e4675b2b5530f7a1e4eb8d1dde02cd91dd4b5531ed3041852d5840e130c562",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10881914613833611,
+     "delta_vs_corrupted_pts": -52.9166301393881,
+     "delta_ci95_pts": [
+      -54.62782999192382,
+      -51.241558531858125
+     ],
+     "delta_ci95_pages_pts": [
+      -61.55700188956541,
+      -44.82486460005987
+     ],
+     "recovered_fraction": 0.9755159429190168,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k9-noise-all-10pct-b-f1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "fce9af3f1f4418c4fae94ad695de17f982c7f128c3e84f7de67108e4fd545690",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.6379854475322171,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gemini": {
+     "class": "failed (no program)",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k9-noise-all-10pct-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "1005e132c622568b0ef53459fe45da00ebff4a0d35fbcb5652128a5c1f1b5dc9",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.6379854475322171,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    }
+   }
+  },
+  "k10-noise-lstm14-60pct": {
+   "slot": "s11",
+   "what": "Gaussian noise on the weights of BiLSTM L_14, norm 60 % of the block's",
+   "heldout_cer": 0.13490838958534232,
+   "damage_pts": 3.937056193565354,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k10-noise-lstm14-60pct-a-f1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "final_digest": "ed06501510304216aca817c2038a69a0e15bc3f7171c739b1ff0cd1f837071d6",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10879284649776454,
+     "delta_vs_corrupted_pts": -2.6115543087577784,
+     "delta_ci95_pts": [
+      -2.841935014590484,
+      -2.3921180193367975
+     ],
+     "delta_ci95_pages_pts": [
+      -3.221131798587544,
+      -2.0232685134622326
+     ],
+     "recovered_fraction": 0.6633266533066129,
+     "class": "partly",
+     "repaired": false
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k10-noise-lstm14-60pct-a-g1-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 4,
+     "final_digest": "adda04198170b9b70b5d5c891f2b28d33d8b9ee5cf8f40d20f933f9784aa4fb1",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10938020513719646,
+     "delta_vs_corrupted_pts": -2.5528184448145863,
+     "delta_ci95_pts": [
+      -2.7863213799915103,
+      -2.324313870281483
+     ],
+     "delta_ci95_pages_pts": [
+      -3.1655824128827463,
+      -1.9604331883687223
+     ],
+     "recovered_fraction": 0.648407926965041,
+     "class": "partly",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k10-noise-lstm14-60pct-a-o1-b10-1",
+     "passes": 7,
+     "edits": 6,
+     "kept": 1,
+     "final_digest": "f80a2d1c9cf8ab727db7b695162280b65945dec7bc46575903d2a83cac54a691",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10849478390461997,
+     "delta_vs_corrupted_pts": -2.6413605680722347,
+     "delta_ci95_pts": [
+      -2.8710607242046993,
+      -2.4211815930264335
+     ],
+     "delta_ci95_pages_pts": [
+      -3.238863011063814,
+      -2.0565328495800577
+     ],
+     "recovered_fraction": 0.6708973502560673,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k10-noise-lstm14-60pct-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "214544a03ce2032c2b62ee64e7ee5356a3e8a98b2d73acc261d7be64bbf42693",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10838081879547647,
+     "delta_vs_corrupted_pts": -2.6527570789865855,
+     "delta_ci95_pts": [
+      -2.881345506629994,
+      -2.433221777379292
+     ],
+     "delta_ci95_pages_pts": [
+      -3.246845909125247,
+      -2.0658688055620935
+     ],
+     "recovered_fraction": 0.673792028501447,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k10-noise-lstm14-60pct-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "fce9389d153f7505ce95fdb5f424038f44ff802fe8cf3db2479e48de77ddcc2d",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.1144297361269396,
+     "delta_vs_corrupted_pts": -2.047865345840272,
+     "delta_ci95_pts": [
+      -2.2884974056624623,
+      -1.8094560966939204
+     ],
+     "delta_ci95_pages_pts": [
+      -2.680726931330471,
+      -1.4188514303763973
+     ],
+     "recovered_fraction": 0.5201514139389888,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k10-noise-lstm14-60pct-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "6e247c64da668bf104bfbc5567ab70d261bfb360db9b967f59f94db061009d2b",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.10881914613833611,
+     "delta_vs_corrupted_pts": -2.608924344700621,
+     "delta_ci95_pts": [
+      -2.8379323142785613,
+      -2.383568517861624
+     ],
+     "delta_ci95_pages_pts": [
+      -3.2452696464707707,
+      -2.00049648607699
+     ],
+     "recovered_fraction": 0.6626586506346023,
+     "class": "partly",
+     "repaired": false
+    }
+   }
+  },
+  "k11-lstm-all-x0.9": {
+   "slot": "s04",
+   "what": "diffuse: all three BiLSTM blocks (weights and biases) x0.9",
+   "heldout_cer": 0.09868501797142105,
+   "damage_pts": 0.3147190321732274,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k11-lstm-all-x0.9-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "final_digest": "650bcf0bc575f23c8d6d25d8b39edb781a4b63fde363067e3a6b2576f2a7342c",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09668624528798106,
+     "delta_vs_corrupted_pts": -0.1998772683439995,
+     "delta_ci95_pts": [
+      -0.26268308214816294,
+      -0.13824103885910904
+     ],
+     "delta_ci95_pages_pts": [
+      -0.36264226735103766,
+      -0.07134102840836293
+     ],
+     "recovered_fraction": 0.6350974930362114,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k11-lstm-all-x0.9-a-g1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 0,
+     "final_digest": "b126e5d8410e8d8d4f17074561f6f94d07f8d67f05c7d686c5f3c9a9ad2a85fd",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09868501797142105,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k11-lstm-all-x0.9-a-o1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "final_digest": "ea9c17f1963665e670994968e2fcf0e816ec4663c267b6f84df8983f4774b70f",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09716840536512668,
+     "delta_vs_corrupted_pts": -0.15166126062943763,
+     "delta_ci95_pts": [
+      -0.24160106831599693,
+      -0.07148282178438964
+     ],
+     "delta_ci95_pages_pts": [
+      -0.34258925351604713,
+      0.02256643558636584
+     ],
+     "recovered_fraction": 0.4818941504178253,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k11-lstm-all-x0.9-b-f1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "b126e5d8410e8d8d4f17074561f6f94d07f8d67f05c7d686c5f3c9a9ad2a85fd",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09868501797142105,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k11-lstm-all-x0.9-b-g1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "b126e5d8410e8d8d4f17074561f6f94d07f8d67f05c7d686c5f3c9a9ad2a85fd",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09868501797142105,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k11-lstm-all-x0.9-b-o1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "b126e5d8410e8d8d4f17074561f6f94d07f8d67f05c7d686c5f3c9a9ad2a85fd",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09868501797142105,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "null corruption",
+     "repaired": false
+    }
+   }
+  },
+  "k8-zero-conv-c3": {
+   "slot": "s09",
+   "what": "conv block C_3 (weights and bias) set to 0",
+   "heldout_cer": 1.0,
+   "damage_pts": 90.44621723503113,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k8-zero-conv-c3-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k8-zero-conv-c3-a-g1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k8-zero-conv-c3-a-o1-b10-1",
+     "passes": 4,
+     "edits": 3,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k8-zero-conv-c3-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k8-zero-conv-c3-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k8-zero-conv-c3-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "cd6ba988a4a4a6a39e28746f208b5a727549a66710f27453bbb9f1c295929b70",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09770316472341545,
+     "delta_vs_corrupted_pts": -90.22968352765845,
+     "delta_ci95_pts": [
+      -90.77055049324684,
+      -89.64228093610672
+     ],
+     "delta_ci95_pages_pts": [
+      -92.22867280748304,
+      -87.75382936430603
+     ],
+     "recovered_fraction": 0.9976059395960144,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k1-zero-row-e-u": {
+   "slot": "s08",
+   "what": "output row of `e` (weights and bias) set to 0 [unrelated donor]",
+   "heldout_cer": 0.19655474708512316,
+   "damage_pts": 10.101691943543438,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k1-zero-row-e-u-a-f1-b10-1",
+     "passes": 5,
+     "edits": 4,
+     "kept": 0,
+     "final_digest": "f15cb502574f8562a2c7f8fcd819163ba2d17150ceac5f78d7e2e793fe47a7a8",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.19655474708512316,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "a-gemini": {
+     "class": "failed (no program)",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k1-zero-row-e-u-a-o1-b10-1",
+     "passes": 10,
+     "edits": 9,
+     "kept": 3,
+     "final_digest": "cf305157668eb6ac2a6ee8d99e6fd8deecc1451839e3415f5a9c6f4459ab421f",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.12852634347330585,
+     "delta_vs_corrupted_pts": -6.8028403611817305,
+     "delta_ci95_pts": [
+      -6.980471047539487,
+      -6.612992440538382
+     ],
+     "delta_ci95_pages_pts": [
+      -7.263335441703564,
+      -6.299528833250073
+     ],
+     "recovered_fraction": 0.6734357372212098,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k1-zero-row-e-u-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "754fcd89109898c00f8b122d9ce1e01ad9cf154c16cec0aed16791ab56eb8efb",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.15276584553344438,
+     "delta_vs_corrupted_pts": -4.378890155167878,
+     "delta_ci95_pts": [
+      -4.517256132344552,
+      -4.232196737069771
+     ],
+     "delta_ci95_pages_pts": [
+      -4.82364288879813,
+      -3.9489236177757125
+     ],
+     "recovered_fraction": 0.4334808643582399,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k1-zero-row-e-u-b-g1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "f15cb502574f8562a2c7f8fcd819163ba2d17150ceac5f78d7e2e793fe47a7a8",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.19655474708512316,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k1-zero-row-e-u-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "e9899c3ab5adec1601a52b68b9a520a148d10740db0d2bf1ab4cbea0b9386be5",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.11321995266064697,
+     "delta_vs_corrupted_pts": -8.333479442447619,
+     "delta_ci95_pts": [
+      -8.493794508430355,
+      -8.160776331028673
+     ],
+     "delta_ci95_pages_pts": [
+      -8.753397733450424,
+      -7.909620005664738
+     ],
+     "recovered_fraction": 0.824958778095982,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k6-lstm16-x0.5-u": {
+   "slot": "s07",
+   "what": "last BiLSTM block (L_16, all weights and biases) x0.5 [unrelated donor]",
+   "heldout_cer": 0.2117121066012098,
+   "damage_pts": 11.617427895152101,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k6-lstm16-x0.5-u-a-f1-b10-1",
+     "passes": 6,
+     "edits": 5,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k6-lstm16-x0.5-u-a-g1-b10-1",
+     "passes": 10,
+     "edits": 9,
+     "kept": 4,
+     "final_digest": "2baeba8ab21d5c14d30879c39419a3c719595003d3dd78f1a1f0da37561dd105",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.1605417725957745,
+     "delta_vs_corrupted_pts": -5.117033400543527,
+     "delta_ci95_pts": [
+      -5.33503871444023,
+      -4.9189600014140025
+     ],
+     "delta_ci95_pages_pts": [
+      -5.856328734253149,
+      -4.398671467247203
+     ],
+     "recovered_fraction": 0.4404618170842138,
+     "class": "partly",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k6-lstm16-x0.5-u-a-o1-b10-1",
+     "passes": 9,
+     "edits": 8,
+     "kept": 1,
+     "final_digest": "b69d0349e3e2e7c1d3d52e2539d0ff59adbaf671a650cd82887527f44192082b",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.09524853160340142,
+     "delta_vs_corrupted_pts": -11.646357499780837,
+     "delta_ci95_pts": [
+      -12.077055849010781,
+      -11.259583789704273
+     ],
+     "delta_ci95_pages_pts": [
+      -13.424994527430606,
+      -10.069851264209499
+     ],
+     "recovered_fraction": 1.0024901901599759,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-fable": {
+     "run": "20261111-planted-k6-lstm16-x0.5-u-b-f1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k6-lstm16-x0.5-u-b-g1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "a339a718a392342d8f0c47c62505ed6b3f9c3f008b0ba5480471f534d1de55f1",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 0.2117121066012098,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k6-lstm16-x0.5-u-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd",
+     "unchanged": false,
+     "scored_from_cache": true,
+     "heldout_cer": 0.09553782764968878,
+     "delta_vs_corrupted_pts": -11.617427895152101,
+     "delta_ci95_pts": [
+      -12.038965758706578,
+      -11.238791677548534
+     ],
+     "delta_ci95_pages_pts": [
+      -13.356612488767677,
+      -10.072639994913612
+     ],
+     "recovered_fraction": 1.0,
+     "class": "repaired",
+     "repaired": true
+    }
+   }
+  },
+  "k8-zero-conv-c3-u": {
+   "slot": "s01",
+   "what": "conv block C_3 (weights and bias) set to 0 [unrelated donor]",
+   "heldout_cer": 1.0,
+   "damage_pts": 90.44621723503113,
+   "arms": {
+    "a-fable": {
+     "run": "20261111-planted-k8-zero-conv-c3-u-a-f1-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 4,
+     "final_digest": "d2efe7a5758079e1f3efdaefe798df6b036abc3cee3cb653ff49f40e489d3279",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.8606645042517752,
+     "delta_vs_corrupted_pts": -13.933549574822479,
+     "delta_ci95_pts": [
+      -14.303056579232598,
+      -13.554138760473212
+     ],
+     "delta_ci95_pages_pts": [
+      -15.175854815829382,
+      -12.753855228785705
+     ],
+     "recovered_fraction": 0.15405342534796265,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "a-gemini": {
+     "run": "20261126-planted-k8-zero-conv-c3-u-a-g1-b10-1",
+     "passes": 8,
+     "edits": 7,
+     "kept": 4,
+     "final_digest": "ed2d18a2c4c223a8770e35caa7dc947b429e87dc35f6c002e14259c2914d2d2c",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.8992197773297098,
+     "delta_vs_corrupted_pts": -10.078022267029018,
+     "delta_ci95_pts": [
+      -10.505029003246236,
+      -9.64946863966497
+     ],
+     "delta_ci95_pages_pts": [
+      -11.428867564369439,
+      -8.835096881683391
+     ],
+     "recovered_fraction": 0.11142558058387936,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "a-gpt": {
+     "run": "20261126-planted-k8-zero-conv-c3-u-a-o1-b10-1",
+     "passes": 9,
+     "edits": 8,
+     "kept": 4,
+     "final_digest": "9f74ad415444c2ebe4831b38d16c233fa68363069c8410d6055f6be5a9de0a0c",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.6028228280880161,
+     "delta_vs_corrupted_pts": -39.71771719119839,
+     "delta_ci95_pts": [
+      -40.37222683068886,
+      -39.04121752410718
+     ],
+     "delta_ci95_pages_pts": [
+      -42.65668679032243,
+      -36.98653980041773
+     ],
+     "recovered_fraction": 0.4391307719148606,
+     "class": "partly",
+     "repaired": false
+    },
+    "b-fable": {
+     "run": "20261111-planted-k8-zero-conv-c3-u-b-f1-b0-1",
+     "passes": 0,
+     "edits": 0,
+     "kept": 0,
+     "final_digest": "df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db",
+     "unchanged": true,
+     "scored_from_cache": true,
+     "heldout_cer": 1.0,
+     "delta_vs_corrupted_pts": 0.0,
+     "delta_ci95_pts": [
+      0.0,
+      0.0
+     ],
+     "delta_ci95_pages_pts": [
+      0.0,
+      0.0
+     ],
+     "recovered_fraction": 0.0,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gemini": {
+     "run": "20261126-planted-k8-zero-conv-c3-u-b-g1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "8e041f2ee42a7307ff6e5f8c1bc210a7f1a8563ca449796e144c02c780e267fd",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.9945121416673972,
+     "delta_vs_corrupted_pts": -0.5487858332602791,
+     "delta_ci95_pts": [
+      -0.6011988402909951,
+      -0.49827788170708764
+     ],
+     "delta_ci95_pages_pts": [
+      -0.6480984323126604,
+      -0.4565938270555181
+     ],
+     "recovered_fraction": 0.006067537704028228,
+     "class": "not repaired",
+     "repaired": false
+    },
+    "b-gpt": {
+     "run": "20261126-planted-k8-zero-conv-c3-u-b-o1-b0-1",
+     "passes": 0,
+     "edits": 1,
+     "kept": 1,
+     "final_digest": "d3db99db1111c1b9e7e05fd5f55e8f916eb6164841611f454cf69bc533bd0eb5",
+     "unchanged": false,
+     "scored_from_cache": false,
+     "heldout_cer": 0.9774612080301569,
+     "delta_vs_corrupted_pts": -2.2538791969843097,
+     "delta_ci95_pts": [
+      -2.4365991525651443,
+      -2.086476281219951
+     ],
+     "delta_ci95_pages_pts": [
+      -2.803848790751551,
+      -1.7636166377081097
+     ],
+     "recovered_fraction": 0.02491955181638431,
+     "class": "not repaired",
+     "repaired": false
+    }
+   }
+  }
+ },
+ "tally": {
+  "a-fable": {
+   "repaired": 7,
+   "partly": 2,
+   "not repaired": 2,
+   "null corruption": 3,
+   "failed (program error)": 0,
+   "failed (no program)": 0
+  },
+  "a-gemini": {
+   "repaired": 5,
+   "partly": 2,
+   "not repaired": 1,
+   "null corruption": 3,
+   "failed (program error)": 1,
+   "failed (no program)": 2
+  },
+  "a-gpt": {
+   "repaired": 8,
+   "partly": 3,
+   "not repaired": 0,
+   "null corruption": 3,
+   "failed (program error)": 0,
+   "failed (no program)": 0
+  },
+  "b-fable": {
+   "repaired": 6,
+   "partly": 2,
+   "not repaired": 3,
+   "null corruption": 3,
+   "failed (program error)": 0,
+   "failed (no program)": 0
+  },
+  "b-gemini": {
+   "repaired": 6,
+   "partly": 1,
+   "not repaired": 3,
+   "null corruption": 3,
+   "failed (program error)": 0,
+   "failed (no program)": 1
+  },
+  "b-gpt": {
+   "repaired": 8,
+   "partly": 1,
+   "not repaired": 2,
+   "null corruption": 3,
+   "failed (program error)": 0,
+   "failed (no program)": 0
+  }
+ }
+}

@@ -1,0 +1,29 @@
+# Pre-registration — 20261126-planted-k8-zero-conv-c3-u-a-o1-b10-1
+
+Planted-defect control (docs/BRIEF_ARTICLE_EXPERIMENTS.md item 2), arm (a), **GPT-6.2 Astra rerun** of `runs/20261107-planted-k8-zero-conv-c3-u-a-b10-1` (Sonnet 5.5). Written before the first pass; the program is `runs/planted-xv/o1/s01/a/program.py`, copied unchanged.
+
+1. **Subject:** `k8-zero-conv-c3.mlmodel` (a corrupted copy of `kraken-german-xix-blb-v1`: conv block C_3 (weights and bias) set to 0; `runs/planted/plant.json`) — tensor digest `df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db`, file sha256 `80df9c7b020b643618164105826e3d7ee088addaad390b2e24232a5e6aa4ebd4`; the uncorrupted model has tensor digest `f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd`.
+   Donor: `kraken-bern-hertwig-v2`, **an unrelated donor** (other lineage, trained on Bern 1528 data, never on BLB); the parent is not available to this arm.
+2. **Practice set:** `data/practice/blb-train-300.jsonl`, 300 lines, sha256 `4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b`. Source: the four BLB train projects (train side). **These are the subject's own training lines** (the review's second objection); the validation-based sets are item 3 of the same report.
+3. **Held-out set:** `data/heldout/blb-eval-hand.jsonl`, 2272 lines, 29 objects, sha256 `a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091`; audit `data/heldout/overlap-blb-eval-hand.json` (0 shared documents with any practice set).
+4. **Budget:** 10 passes (pass 1 = C0 baseline). Keep rule: PROTOCOL.md §3, paired 95 % interval below 0, `min_effect` 0. 
+5. **Hypotheses (predicted direction and magnitude):**
+
+Model: `gpt-6.2-astra` (GPT-6.2 Astra, OpenAI API); reasoning: provider default. Tools: read_file, list_dir, write_file (py_compile), finish_round. No model execution during programming.
+
+The second convolution (`C_3`) has zero weights and bias: it cannot transmit any image dependence. This accounts for 300 empty predictions and CER 1 without invoking a defective blank row. The listed parent diff was unavailable; I do not assume the donor is the parent. Predictions below are absolute CER differences against the last kept state, not cumulative, and conditional on the proposed interface being better than the incumbent. Keep only paired-rule improvements; inspect collapse and the confusion profile to guard against a return to deletion-only output.
+
+- H1 — Direct block transplant: donor C3 weight+bias unblocks the signal; expect ΔCER −0.03 to −0.25 and fewer collapsed lines. Failure means a live layer in an unrelated channel basis is not enough, not that the zeros are harmless.
+- H2 — Reindexed transplant: align C3 input channels by C0 filter cosine and its outputs by the consuming C6 kernels; expect −0.01 to −0.12. Failure suggests hard channel correspondence is poor.
+- H3 — Projected transplant: approximate donor C0 activations with a linear mixture of subject channels using an analytic rectified-filter Gram matrix, keeping the H2 output alignment; expect −0.01 to −0.10. Failure argues against the Gaussian-patch approximation or the output match.
+- H4 — Prefix transplant: transfer donor C0+C3 together, aligned on the C6 side only; expect −0.02 to −0.15. Failure localizes the likely mismatch downstream of C3 rather than within the donor prefix.
+- H5 — Longer prefix transplant: include C6, reindexing its outputs to the subject C9 inputs; expect −0.02 to −0.15. Failure means moving the interface one pool later is not demonstrably better.
+- H6 — CNN transplant: test the coherent donor visual stack through C9 (original channel order); expect −0.02 to −0.20. Failure suggests that shape compatibility does not preserve the interface to the first recurrent layer.
+- H7 — Reindexed CNN transplant: match C9 output channels by their gate/height signatures in the consuming L12 input kernels; expect −0.01 to −0.12. Failure means these signatures are insufficient for a better interface.
+- H8 — Interface gain calibration on the best retained repair: try 0.65× the terminal repaired convolution's affine parameters; expect −0.005 to −0.05 if donor responses saturate the subject. Failure rejects attenuation at that interface.
+- H9 — Opposite gain probe (only if H8 not retained): 1.5× instead; expect −0.005 to −0.05 if underdrive dominates. Failure leaves no support for either gain correction.
+
+
+6. **Controls:** the other three arms on the same model; C0 on the corrupted model and the uncorrupted model on both sets (`docs/CONTROLS_REPORT.md`). The corrupted model's CER before the session is the baseline of this session.
+7. **Programmer:** GPT-6.2 Astra (`gpt-6.2-astra`), called through the OpenAI API by `wsp.programmer` (docs/XVENDOR_PLAN.md), one fresh conversation per run, provider default reasoning settings, tools read_file/list_dir/write_file (py_compile) only; read only `runs/planted-xv/o1/PROGRAMMER_BRIEF_UNRELATED.md`, its pack (`runs/planted-xv/o1/s01/pack/*`) and the API files; not told which defect was planted; never shown the Sonnet or Fable runs, their programs or results (7 API calls, 65193 input / 3639 output tokens). Wrote its program in advance, did not run it. Operator: a Claude Opus 5.5 (claude-opus-5-5) session; it knows the defects and the Sonnet and Fable results, set up the runs and does the held-out scoring and the write-up; it wrote no hypothesis and no edit and passed nothing of this to the programmers.
+8. **Outcome classes (fixed before any session):** repaired = held-out CER of the frozen model recovers at least 80 % of the corruption's held-out damage (CER_corrupted − CER_original) and the paired interval of final vs corrupted lies below 0; partly = 20–80 %; not repaired = under 20 % or CER above the corrupted model's. A corruption with damage under 0.5 points on held-out is a *null corruption* (nothing to repair; any change is reported as a harm or neutral).

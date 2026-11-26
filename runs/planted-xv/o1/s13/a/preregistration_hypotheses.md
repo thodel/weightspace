@@ -1,0 +1,4 @@
+Model: `gpt-6.2-astra` (GPT-6.2 Astra via the operator's OpenAI API tool layer).
+Settings: provider-default reasoning; read_file, write_file (automatic py_compile), finish_round; no model execution during programming.
+
+H1 — Single-row sign reversal (`set_rows`, output weight only): the child’s `n` detector has cosine −0.991 to its parent at nearly the same norm (8.33 vs 7.96), and 7,667 of the 9,593 edits are inserted `n`s. Negate the child’s `n` weight vector, preserving its hand-specific adaptation, bias and all other classes. Predict CER down by 0.60–0.72 absolute from 0.7456, with far fewer inserted `n`s and fewer collapsed lines. If there is no significant improvement, the sign error alone does not explain the failure; if the gain is significant but smaller than predicted, it explains only part of it. Stop rather than tune unrelated tensors.

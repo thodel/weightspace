@@ -1,0 +1,20 @@
+{
+  "name": "20261126-planted-adapter-p3-alpha2-b-o1-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted-adapter/p3-alpha2",
+  "subject_digest": "fb4f55ee7386abc7292e29bbf2a24f502fc4079cb4732934cbead229b300504c",
+  "subject_file_sha256": "10aae8ef908dd74843d68631d56c0a61b52749a3ac968b6f7528f998526cebb9",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/kurrent-val-32.jsonl",
+  "practice_sha256": "3d1311f00140575ecd44c81aaba7979011fc8cd963f157dfbe3644bdbaecf31d",
+  "practice_lines": 32,
+  "budget": 0,
+  "seed": 20261106,
+  "min_effect": 0.0,
+  "cluster_rule": false,
+  "created": "2026-11-26T15:42:53.057138+00:00",
+  "unshare": true,
+  "deviations": [],
+  "unit": "page",
+  "data_root": "/mnt/wbkolleg_dh_1/Textrecognition_Training/eval_sets/german-kurrent-xvi-xix-v1/vlm-pages-val",
+  "engine": "vllm-server (batched, not run-to-run deterministic)",
+  "spool": "/home/tobias/atr-cache/wsp/spool/a3-xv"
+}

@@ -1,7 +1,16 @@
 # Cross-vendor programmers: Gemini 4 Argon and GPT-6.2 Astra (dhserver03, 19.11.2026)
 
 Plan: `docs/XVENDOR_PLAN.md`. This report covers **E2**, kraken session 2 on `kraken-bern-combined-v1`
-(§1–5), and **E1**, the phase-5 Kurrent adapter (§6).
+(§1–5), **E1**, the phase-5 Kurrent adapter (§6), and **E3**, the planted-defect controls (§7, added
+26.11.2026).
+
+**E3 in short:** on the 14 kraken planted defects and the adapter defect, GPT did as well as Sonnet and
+Fable, and Gemini somewhat worse: it shipped nothing in four of its 30 cells and only partly
+repaired the one unrelated-donor defect the others repaired. Where the parent is the donor, all four programmers repaired
+the same defects with the same one-tensor edits. Where an unrelated donor stands in, GPT repaired or
+partly repaired five of six cells, against two for Sonnet, three for Fable and one for Gemini; that is one
+attempt per cell. All four adapter cells reached
+the adapter Sonnet and Fable reached.
 
 **E1 in short:** Gemini and GPT kept the same single edit and froze on byte-identical adapters. On
 practice it gains 7.8 points; on held-out it is a null (+1.13 points, page interval [−3.0, +5.2]). Two of
@@ -292,7 +301,95 @@ phase 5 (`docs/baselines/p5-*.json`).
   It strengthens the phase-5 conclusion that on this adapter the 64-page keep rule does not separate a
   meaningful direction from noise.
 
-## 7. What was not done
+## 7. E3: the planted-defect controls (26.11.2026)
 
-- E3, the planted-defect controls, waits for a go-ahead.
+### 7.1 Set-up
+
+As the Fable rerun (`docs/CONTROLS_REPORT.md` §9c and the 11.11. section), with the programmer swapped; the
+decisions of plan §7.1 were fixed on 20.11., before any cell was scored except the shakedown `s06/a`.
+
+- **Cells:** 30 per vendor: the 14 kraken corruptions (k1–k11 and the three unrelated-donor `-u` variants)
+  in arms (a), the programmer with 10 passes, and (b), the blind programmer with budget 0, plus adapter
+  p3 (`lora_alpha` doubled), pack `q01`, arms (a) with 6 passes and (b). Same subjects, packs (copied
+  unchanged under the same opaque labels), practice sets, budgets, keep rule, held-out sets and outcome
+  classes as the Sonnet and Fable runs.
+- **Programmers:** Gemini 4 Argon (`gemini-4-argon`, tag `g1`) and GPT-6.2 Astra (`gpt-6.2-astra`, `o1`),
+  each cell a fresh conversation through `wsp.programmer`, one round, tools `read_file`, `list_dir` and
+  `write_file` (with py_compile), provider default reasoning settings. Readable: the brief, the cell's own
+  pack and the API files; writable: the arm's two files. Every reply was served as the pinned id (Gemini
+  177 calls, GPT 194). No read was refused. Arm (a) programs were written in advance and never run by the
+  programmer, as for Sonnet and Fable.
+- **Classes added by plan §7.1:** a program that does not freeze ships nothing and is **failed (program
+  error)**; a conversation that ends without writing a program is **failed (no program)**. Both count as
+  not repaired, and neither cell is rerun.
+- **Runs:** the 28 kraken cells per vendor on CPU (20.11. for `s06/a`, 26.11. for the rest; six at a time,
+  four threads each), held-out `blb-eval-hand` once per frozen model. The adapter cells on card 0 only,
+  26.11. 16:27–17:09 CET, through a vLLM pass server holding 0.35 of the card while 39 GB were free; card 1
+  not used. Run folders `runs/202611{20,26}-planted-*-{g1,o1}-b*-1` (60).
+- **Code:** `scripts/run_planted_xv.py`, `scripts/run_planted_adapter_xv.py` (the Fable adapter runner,
+  now taking the cell folder, tag, programmer text and spool as arguments), `scripts/aggregate_planted_xv.py`;
+  data `docs/controls/planted_xv.{json,md}`.
+
+### 7.2 Results
+
+Classes per arm on the 14 kraken corruptions (Fable 5.1 = the 11.11. rerun; held-out CER, recovered share
+and class per cell in `docs/controls/planted_xv.md`):
+
+| arm | programmer | repaired | partly | not repaired | null corruption | failed (program error) | failed (no program) |
+|---|---|---:|---:|---:|---:|---:|---:|
+| (a) | Sonnet 5.5 | 8 | 1 | 2 | 3 | 0 | 0 |
+| (a) | Fable 5.1 | 7 | 2 | 2 | 3 | 0 | 0 |
+| (a) | Gemini 4 Argon | 5 | 2 | 1 | 3 | 1 | 2 |
+| (a) | GPT-6.2 Astra | 8 | 3 | 0 | 3 | 0 | 0 |
+| (b) | Sonnet 5.5 | 7 | 1 | 3 | 3 | 0 | 0 |
+| (b) | Fable 5.1 | 6 | 2 | 3 | 3 | 0 | 0 |
+| (b) | Gemini 4 Argon | 6 | 1 | 3 | 3 | 0 | 1 |
+| (b) | GPT-6.2 Astra | 8 | 1 | 2 | 3 | 0 | 0 |
+
+Split by donor (11 corruptions with damage, per arm):
+
+| | Sonnet (a) / (b) | Fable (a) / (b) | Gemini (a) / (b) | GPT (a) / (b) |
+|---|---|---|---|---|
+| parent donor, 8 defects: repaired + partly | 8 / 7 | 8 / 6 | 6 / 7 | 8 / 7 |
+| unrelated donor, 3 defects: repaired + partly | 1 / 1 | 1 / 2 | 1 / 0 | 3 / 2 |
+
+**Adapter p3 (score set, 64 val pages; clean 0.507, corrupted 3.764):** all four cells halve every
+`lora_B` and freeze on the adapter `f5adb9da…`, byte-identical to the Sonnet and both Fable attempts:
+0.517 · 100 % · repaired in each. GPT (a) 2/1/1, Gemini (a) 5/4/1 (the further edits refused), both (b)
+0/1/1.
+
+### 7.3 What E3 shows
+
+- **With the parent as donor, the programmer barely matters.** All four repair the same row, sign, swap,
+  bias, scale and zeroed-layer defects, most with the same one-tensor restore. The blind arm matches the
+  arm with passes, as before: the donor does the work. The only parent-donor cell where they part is k9
+  (10 % noise on every tensor): GPT (a) repaired it (98 %), Sonnet (a) 83 %, Fable (a) 24 %, and Gemini
+  shipped nothing in either arm.
+- **With an unrelated donor, GPT did better on this one attempt.** It repaired k6-u in both arms (as Sonnet
+  and Fable did), k1-u in (b) (82 %), partly repaired k1-u in (a) (67 %) and k8-u in (a) (44 %). Sonnet
+  and Fable reached 1 % and 15 % on k8-u (a). One attempt per cell, and the repeats of kraken session 2 showed
+  that one model's attempts can differ as much as two models' do (`docs/S2_REPEATS.md`), so this is a
+  lead, not a ranking.
+- **Gemini lost cells to its harness, not to its edits.** In three cells (s08/a = k1-u (a), s10/a and
+  s10/b = k9) both of its replies used the whole default output budget on reasoning (finish `MAX_TOKENS`,
+  32,765 reasoning tokens, no text, no tool call), the one allowed nudge included, so no program was
+  written. In the shakedown cell `s06/a` its program read `m.confusions` entries as dicts (they are
+  tuples) and raised before freezing. Where Gemini shipped a program on a parent-donor defect, it repaired
+  what the others repaired; with the unrelated donor it did worst, reaching 44 % on k6-u (a), which every
+  other programmer repaired.
+  A second Gemini attempt with a larger output cap would be a new arm (`g2`, plan §7 item 5), not a rerun.
+- **Null corruptions stay null for everyone** (k5, k7, k11): no programmer harmed them beyond the class
+  bound; GPT (a) on k11 recovered 48 % of a 0.31-point damage, inside the null.
+
+### 7.4 Limits
+
+- One attempt per cell and vendor; differences of one or two cells per arm are within what repeats of the
+  same model produce.
+- The packs show the diff to the parent, where almost every lineage defect is visible; the parent-donor
+  cells test reading a diff, not diagnosis without a reference.
+- Gemini's three empty cells depend on the client's output cap (the provider default); they say nothing
+  about what Gemini would have written.
+
+## 8. What was not done
+
 - Nothing was registered, exported or served.

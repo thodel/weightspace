@@ -1,0 +1,31 @@
+# Pre-registration — 20261126-planted-k8-zero-conv-c3-u-b-g1-b0-1
+
+Planted-defect control (docs/BRIEF_ARTICLE_EXPERIMENTS.md item 2), arm (b), **Gemini 4 Argon rerun** of `runs/20261107-planted-k8-zero-conv-c3-u-b-b0-1` (Sonnet 5.5). Written before the first pass; the program is `runs/planted-xv/g1/s01/b/program.py`, copied unchanged.
+
+1. **Subject:** `k8-zero-conv-c3.mlmodel` (a corrupted copy of `kraken-german-xix-blb-v1`: conv block C_3 (weights and bias) set to 0; `runs/planted/plant.json`) — tensor digest `df5577f17d54eec6a967ac38de6e09b18aefd467b1b80041c119ece5631304db`, file sha256 `80df9c7b020b643618164105826e3d7ee088addaad390b2e24232a5e6aa4ebd4`; the uncorrupted model has tensor digest `f35e075ad6d3e7286d9611b20e04a46f167a39e18f4f7b26ed2c73d3e33947dd`.
+   Donor: `kraken-bern-hertwig-v2`, **an unrelated donor** (other lineage, trained on Bern 1528 data, never on BLB); the parent is not available to this arm.
+2. **Practice set:** `data/practice/blb-train-300.jsonl`, 300 lines, sha256 `4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b`. Source: the four BLB train projects (train side). **These are the subject's own training lines** (the review's second objection); the validation-based sets are item 3 of the same report.
+3. **Held-out set:** `data/heldout/blb-eval-hand.jsonl`, 2272 lines, 29 objects, sha256 `a784ae084058c22bb3afb18165c0bcbc6f41ce3b13f5f22ea9fb277acb9f5091`; audit `data/heldout/overlap-blb-eval-hand.json` (0 shared documents with any practice set).
+4. **Budget:** 0 passes (pass 1 = C0 baseline). Keep rule: PROTOCOL.md §3, paired 95 % interval below 0, `min_effect` 0. Budget 0: edits are accepted unmeasured (`keep_unmeasured`).
+5. **Hypotheses (predicted direction and magnitude):**
+
+Model: `gemini-4-argon` (Gemini 4 Argon, called through the Google API by the operator's tool layer)
+Settings: provider default reasoning settings
+Tools used: `read_file`, `list_dir`, `write_file` (with `py_compile`), `finish_round`
+
+# Hypotheses — s01 Task (b) (budget 0, blind programmer)
+
+## Diagnosis from pack readings
+- **`describe.md`**: `C_3.co.weight` (`[32, 32, 3, 13]`, 39,936 parameters) and `C_3.co.bias` (`[32]`) are completely zeroed out (`L2 = 0.00`, `rms = 0.0000`, `abs max = 0.000`). Every other tensor in the network (`C_0`, `C_6`, `C_9`, `L_12`, `L_14`, `L_16`, `O_18`) has normal weight and bias statistics (`O_18.lin.weight` L2 264.33, blank row norm 4.637, blank bias +1.232; non-blank row norms 14.812 ± 4.069, biases -1.921 ± 2.010).
+- **`c0_practice.md`**: Baseline C0 has `CER = 1.0000`, `WER = 1.0000`, `300/300` collapsed lines, and `length ratio = 0.000` (12,867 deletions). Because `C_3` is a non-residual convolutional layer (`Cr3,13,32`), zeroing both `C_3.co.weight` and `C_3.co.bias` forces the activation tensor entering `C_6` to be identically zero for all inputs, eliminating all visual signal and causing the CTC output layer to emit `<blank>` on every frame.
+- **`diff_donor_to_subject.md`**: The only available donor (`kraken-bern-hertwig-v2.mlmodel`) is from an unrelated training lineage (cosine similarities with the subject are ~0.09 on `C_0.co.weight`, ~0.06 on `C_6.co.weight`, ~0.03 on `C_9.co.weight`, and ~0.00 on `L_12`–`L_16` weights). Thus, donor `C_3` filters are not aligned with the subject's internal channel basis.
+
+## H1 — Transplant `C_3.co.weight` and `C_3.co.bias` from the donor to restore non-zero signal flow through `C_3`
+- **Hypothesis**: The sole defect in the subject model is the complete zeroing of block `C_3` (`C_3.co.weight` and `C_3.co.bias`), which blocks all spatial feature propagation from `C_0` to `C_6` and yields `CER = 1.0000` (100% blank collapse). Leaving `C_3` at zero guarantees `CER = 1.0000`. Although `kraken-bern-hertwig-v2.mlmodel` is from a different lineage and its `C_3` channels are not basis-aligned with the subject's `C_0` and `C_6`, the downstream BiLSTMs (`L_12`, `L_14`, `L_16`) bound all hidden activations in `(-1, 1)^400` and `O_18` retains a strong blank bias (`+1.232` vs mean `-1.921`), preventing runaway insertions (`length ratio > 1`). Transplanting `C_3.co.weight` and `C_3.co.bias` from the donor restores non-zero convolutional signal flow with downside bounded near `CER = 1.0000` and potential partial CER reduction if low-level stroke/spacing activations transfer.
+- **Edit**: `transplant` on `["C_3.co.weight", "C_3.co.bias"]` using `per_tensor` donor arrays from `KrakenSubject("/home/tobias/Repo/weightspace/models/kraken/kraken-bern-hertwig-v2.mlmodel")`, committed via `s.keep_unmeasured(...)`.
+- **Predicted effect**: CER change of `0.00` to `-0.15` from `1.0000` (bounded at or slightly below `1.0000`; substantial recovery is limited by cross-lineage channel mismatch between donor `C_3` and subject `C_0`/`C_6`).
+
+
+6. **Controls:** the other three arms on the same model; C0 on the corrupted model and the uncorrupted model on both sets (`docs/CONTROLS_REPORT.md`). The corrupted model's CER before the session is the baseline of this session.
+7. **Programmer:** Gemini 4 Argon (`gemini-4-argon`), called through the Google API by `wsp.programmer` (docs/XVENDOR_PLAN.md), one fresh conversation per run, provider default reasoning settings, tools read_file/list_dir/write_file (py_compile) only; read only `runs/planted-xv/g1/PROGRAMMER_BRIEF_UNRELATED.md`, its pack (`runs/planted-xv/g1/s01/pack/*`) and the API files; not told which defect was planted; never shown the Sonnet or Fable runs, their programs or results (7 API calls, 181390 input / 2347 output tokens). Budget 0. Operator: a Claude Opus 5.5 (claude-opus-5-5) session; it knows the defects and the Sonnet and Fable results, set up the runs and does the held-out scoring and the write-up; it wrote no hypothesis and no edit and passed nothing of this to the programmers.
+8. **Outcome classes (fixed before any session):** repaired = held-out CER of the frozen model recovers at least 80 % of the corruption's held-out damage (CER_corrupted − CER_original) and the paired interval of final vs corrupted lies below 0; partly = 20–80 %; not repaired = under 20 % or CER above the corrupted model's. A corruption with damage under 0.5 points on held-out is a *null corruption* (nothing to repair; any change is reported as a harm or neutral).

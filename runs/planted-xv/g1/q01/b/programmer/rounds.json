@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 5,
+  "summary": "Wrote runs/planted-xv/g1/q01/b/hypotheses.md and runs/planted-xv/g1/q01/b/program.py for task (b) (budget 0). Diagnosed a uniform 2x global scale defect (lora_alpha = 256, scale = 4.0 vs siblings' lora_alpha = 128, scale = 2.0, producing 1.60-1.85 norm ratios across all 128 modules with normal effective ranks and causing 29/32 pages to loop to the token cap). The repair scales all 128 lora_B.weight tensors by factor=0.5 and freezes the session.",
+  "ended": "2026-11-26T14:52:38+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 101523,
+   "output": 2049,
+   "reasoning": 0,
+   "calls": 5
+  }
+ }
+]

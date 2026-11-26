@@ -1,0 +1,16 @@
+{
+  "name": "20261126-planted-k10-noise-lstm14-60pct-b-g1-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k10-noise-lstm14-60pct.mlmodel",
+  "subject_digest": "930c5c2b0279e885f4e87954711d76aaee3e9d07128fc217156821da237eb2fc",
+  "subject_file_sha256": "c55386f265d20e1ba0952391b63ff5e071a8277ec4544cbe9b0a86e9453f2bad",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "min_effect": 0.0,
+  "cluster_rule": false,
+  "created": "2026-11-26T15:07:34.087299+00:00",
+  "unshare": true,
+  "deviations": []
+}

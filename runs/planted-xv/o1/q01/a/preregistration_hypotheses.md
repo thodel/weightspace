@@ -1,0 +1,6 @@
+Model: `gpt-6.2-astra` (GPT-6.2 Astra, OpenAI API); provider default reasoning settings. Tools: read_file, write_file (automatic py_compile), finish_round. No model loaded or passes run during programming.
+
+- H1 — Global gain error (`scale`, all 128 B matrices ×0.5, A unchanged): alpha is 256 versus 128 in both siblings at the same rank; module norm ratios are elevated across every layer and projection, not concentrated in an outlier. Restoring effective alpha 128 should reduce CER by 1.3–2.3 absolute CER units versus fresh C0 (1.0 = 100 percentage points), with 15–28 fewer pages at cap. If kept, stop: the remaining norm differences are consistent with different training runs. If not, exact gain restoration is not behaviorally established.
+- H2 — Only if H1 is not retained, test global norm matching (`scale`, all B ×0.56 from C0): mean sibling total norm 131.50 divided by 234.99 is about 0.56, so halving may have attenuated the learned update too far. Predict CER down 1.0–2.2 absolute units and 10–25 fewer pages at cap versus C0. If not retained, neither supported gain estimate has demonstrated a repair; freeze C0 rather than probe individual modules without evidence.
+
+Decision: require a finite, lower measured CER and the harness's paired-CER and cap-count keep rule. Predicted ranges are effect estimates, not acceptance thresholds.

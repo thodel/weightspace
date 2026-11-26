@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 7,
+  "summary": "Diagnosed a single planted defect in pack s06: the output-layer row for character 'e' in O_18.lin.weight is completely zeroed out (norm 0.00 vs parent norm 7.64, cos 0.000), causing at least 1,286 'e' deletion/substitution errors out of 2,088 total character edits on C0 practice (CER 0.1623). Wrote runs/planted-xv/g1/s06/b/hypotheses.md and runs/planted-xv/g1/s06/b/program.py to transplant the aligned 'e' row of O_18.lin.weight and O_18.lin.bias from the parent model (kraken-german-xix-v1) via set_rows and keep_unmeasured.",
+  "ended": "2026-11-20T10:37:22+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 124137,
+   "output": 2020,
+   "reasoning": 0,
+   "calls": 7
+  }
+ }
+]

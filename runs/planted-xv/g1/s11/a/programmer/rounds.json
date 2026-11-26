@@ -1,0 +1,16 @@
+[
+ {
+  "round": 0,
+  "finished": true,
+  "steps": 6,
+  "summary": "Wrote runs/planted-xv/g1/s11/a/preregistration_hypotheses.md and runs/planted-xv/g1/s11/a/program.py. The pack analysis identified isotropic additive noise (per-element RMS sigma ~ 0.14) planted on the four weight matrices of the middle BiLSTM layer L_14 (L_14.layer.weight_ih_l0, weight_hh_l0, weight_ih_l0_reverse, weight_hh_l0_reverse), which explains their anomalous parent-to-subject relative L2 (0.740-0.752 on ih, 0.548-0.557 on hh), lowered cosine similarity (0.786-0.874), and inflated L2 norms (+21% on ih, +13% on hh) while L_14 biases remained virtually unchanged (rel L2 0.032, cos 0.9995). The program measures C0 and tests 7 pre-registered hypotheses (8 passes total out of budget 10): transplanting the 4 corrupted L_14 weight tensors from the parent donor (H1), testing L_14 bias transplant (H2), testing 90/10 and 85/15 parent/subject L_14 weight interpolations (H3, H4), norm-ratio scaling from healthy BiLSTMs L_12/L_16 (H5), C_3.co.bias parent transplant (H6), and CTC blank bias adjustment (H7).",
+  "ended": "2026-11-20T10:46:21+00:00",
+  "program": "program.py",
+  "usage_total": {
+   "input": 147373,
+   "output": 5691,
+   "reasoning": 18028,
+   "calls": 6
+  }
+ }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "20261126-planted-k4-blank-bias-plus2-b-o1-b0-1",
+  "subject": "/home/tobias/atr-cache/wsp/planted/k4-blank-bias-plus2.mlmodel",
+  "subject_digest": "339161afc6ffa62ee51b2d9e5ce3dd0bbd0c3f3cd7939c6300bfa46500dc993b",
+  "subject_file_sha256": "2727c5266842c02e67e61b779bf0d900f981af6137e12447ed7f279c833c268c",
+  "practice": "/home/tobias/Repo/weightspace/data/practice/blb-train-300.jsonl",
+  "practice_sha256": "4a803b49ab336144225623d091f24dbf4359df2087d29580b8790b9e09d88a5b",
+  "practice_lines": 300,
+  "budget": 0,
+  "seed": 20261106,
+  "min_effect": 0.0,
+  "cluster_rule": false,
+  "created": "2026-11-26T14:47:33.504306+00:00",
+  "unshare": true,
+  "deviations": []
+}
