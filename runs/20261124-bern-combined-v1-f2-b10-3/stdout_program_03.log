@@ -1,0 +1,16 @@
+budget left at start: 4 ; digest 3b7157f6af63
+rows aligned with the sibling: 269 ; subject-only: ['ƒ']
+[H4] CER 0.1346 (Hertwig 0.1533 / 522 edits, Schlussred. 0.1261 / 936 edits) edits 1458 collapsed 19 length_ratio 0.944
+    vs_kept delta -0.0013 ci95 [-0.0041, +0.0014]; vs_baseline delta -0.0110
+    blocks: {'Latin lowercase a-z': (291, 497, 61), 'Space': (15, 140, 70), 'ASCII punctuation and symbols': (36, 98, 53), 'Latin uppercase A-Z': (75, 22, 2), 'Combining Diacritical Marks': (27, 35, 10), 'Latin-1 Supplement': (9, 6, 0), 'Digits 0-9': (1, 6, 0), 'General Punctuation': (2, 2, 0), 'MUFI (CERberus list, overlay)': (0, 1, 0)} (sub, del, ins)
+    confusions: [(' ', '', 140), ('e', '', 71), ('', ' ', 70), ('/', '', 62), ('i', '', 52), ('', '/', 50), ('n', '', 46), ('r', '', 40), ('D', 'd', 30), ('t', '', 28)]
+    H4: REFUSED by the keep rule
+[H5b] CER 0.1350 (Hertwig 0.1562 / 532 edits, Schlussred. 0.1253 / 930 edits) edits 1462 collapsed 17 length_ratio 0.950
+    vs_kept delta -0.0009 ci95 [-0.0032, +0.0009]; vs_baseline delta -0.0106
+    blocks: {'Latin lowercase a-z': (325, 465, 67), 'Space': (17, 123, 78), 'ASCII punctuation and symbols': (41, 95, 52), 'Latin uppercase A-Z': (75, 23, 3), 'Combining Diacritical Marks': (28, 32, 12), 'Latin-1 Supplement': (11, 3, 0), 'Digits 0-9': (2, 6, 0), 'General Punctuation': (2, 2, 0), 'MUFI (CERberus list, overlay)': (0, 1, 0)} (sub, del, ins)
+    confusions: [(' ', '', 123), ('', ' ', 78), ('/', '', 61), ('e', '', 59), ('', '/', 52), ('i', '', 50), ('n', '', 41), ('r', '', 36), ('D', 'd', 29), ('t', '', 29)]
+    H5b: REFUSED by the keep rule
+decisions: H4 False H5b False
+budget left: 2 ; kept collapsed: 20
+blank bias now: 0.5620589256286621
+digest: 3b7157f6af63391b08e0f198b51ec5809158faebaa7d89bcac96702fc14df6c5

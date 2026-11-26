@@ -1,0 +1,16 @@
+C0 CER 0.2822 WER 0.5684 collapsed 34 length ratio 0.9576521144643032
+H1 extrapolate 0.10 all but embeddings CER 0.3119 WER 0.5958 collapsed 42 length ratio 0.9405996679363219 delta +0.0297
+H1b extrapolate 0.20 encoder only CER 0.3350 WER 0.6146 collapsed 38 length ratio 0.9270045902920208 delta +0.0528
+H2 cross.o x1.15 CER 0.2726 WER 0.5645 collapsed 29 length ratio 0.9670280300810626 delta -0.0096
+H2b cross.o x1.15 CER 0.2703 WER 0.5707 collapsed 27 length ratio 0.9735911710127942 delta -0.0023
+H3 cross.q x1.15 CER 0.2732 WER 0.5698 collapsed 28 length ratio 0.9731028420744213 delta +0.0006
+H3b cross.q x0.87 CER 0.2733 WER 0.5621 collapsed 26 length ratio 0.9652505127453853 delta +0.0007
+H4 eos row -1.5 nats along the final bias CER 0.2740 WER 0.5706 collapsed 21 length ratio 0.9755249536087508 delta +0.0014
+frozen: {'used': 8, 'edits': 7, 'kept': 1, 'final_digest': '0210d81cd430a08180b9a6e7639a0a949a6a5cb17048b7651eef1fcaa490597e'}
+
+--- stderr ---
+`torch_dtype` is deprecated! Use `dtype` instead!
+Some weights of VisionEncoderDecoderModel were not initialized from the model checkpoint at /home/tobias/atr-cache/trocr/microsoft__trocr-base-handwritten and are newly initialized: ['encoder.pooler.dense.bias', 'encoder.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/tobias/atr-cache/trocr/venv/lib/python3.12/site-packages/transformers/modeling_utils.py:3918: UserWarning: Moving the following attributes in the config to the generation config: {'max_length': 128, 'early_stopping': True, 'num_beams': 4, 'length_penalty': 2.0}. You are seeing this warning because you've set generation parameters in the model config, as opposed to in the generation config.
+  warnings.warn(

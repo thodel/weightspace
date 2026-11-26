@@ -66,6 +66,11 @@ The Fable edit is a held-out gain whose page interval excludes 0. It lies wholly
 Hertwig pages: −1.32 points, with Schlussredaktion unchanged. That is the size and place of the
 C4 retrain on corrected data (R11 arm A: −0.54 to −0.56 all, −1.30 Hertwig).
 
+*Note of 24.11.2026:* three later reruns of the same session (Fable 5.2, `docs/KRAKEN_S2_FABLE52.md`;
+Gemini 4 Argon and GPT-6.2 Astra, `docs/XVENDOR_REPORT.md`) took the same direction and gained
+−0.57 to −0.65 points, but their page intervals reach or include 0. This run's interval is the only
+one of five that lies below 0, so read it as one draw of a shared effect, not as a result of its own.
+
 ## 4. Controls
 
 `runs/…-f1-b10-1/controls.json`, `scripts/sham_combined_f1.py`, CPU. Each control is scored

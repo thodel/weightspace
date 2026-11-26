@@ -1,0 +1,45 @@
+budget_left at start: 10
+
+=== C0 (pass 1) ===
+CER 0.1456  edits 1577/10829  collapsed 29  length_ratio 0.918  WER 0.3464
+per hand: {'Hertwig': 0.205, 'Schlussred': 0.1184}
+confusions: [(' ', '', 168), ('e', '', 78), ('n', '', 71), ('/', '', 70), ('i', '', 65), ('', ' ', 54), ('r', '', 53), ('t', '', 50), ('s', '', 42), ('', '/', 37)]
+vs_kept delta +0.0000 ci95 [+0.0000, +0.0000]   vs_baseline delta +0.0000 ci95 [+0.0000, +0.0000]
+
+C0: 40 lines with more than half the reference wrong; in the other lines: deletions 365, insertions 147, substitutions 333
+
+sibling rows aligned by character: 269 of 270
+
+=== H1 sibling average alpha 0.5 (pass 2) ===
+CER 0.1445  edits 1565/10829  collapsed 23  length_ratio 0.926  WER 0.3552
+per hand: {'Hertwig': 0.2015, 'Schlussred': 0.1184}
+confusions: [(' ', '', 168), ('e', '', 80), ('n', '', 65), ('/', '', 61), ('', ' ', 59), ('i', '', 59), ('r', '', 46), ('', '/', 40), ('s', '', 36), ('t', '', 36)]
+vs_kept delta -0.0011 ci95 [-0.0073, +0.0038]   vs_baseline delta -0.0011 ci95 [-0.0071, +0.0038]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (-0.0035, [-0.0219, 0.0123]), 'Schlussred': (0.0, [-0.0035, 0.0034])}
+lines better 63, worse 73
+DECISION H1 sibling average a=0.5: refused by the keep rule, undone
+
+parent rows aligned by character: 267 of 270
+
+=== H2 toward parent alpha 0.25 (pass 3) ===
+CER 0.1381  edits 1495/10829  collapsed 22  length_ratio 0.931  WER 0.3552
+per hand: {'Hertwig': 0.1671, 'Schlussred': 0.1247}
+confusions: [(' ', '', 162), ('e', '', 75), ('/', '', 70), ('', ' ', 63), ('n', '', 57), ('i', '', 54), ('r', '', 42), ('', '/', 41), ('t', '', 33), ('d', '', 29)]
+vs_kept delta -0.0076 ci95 [-0.0147, -0.0015]   vs_baseline delta -0.0076 ci95 [-0.0140, -0.0016]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (-0.0379, [-0.0555, -0.0242]), 'Schlussred': (0.0063, [-0.0004, 0.0121])}
+lines better 82, worse 79
+DECISION H2 toward parent a=0.25: KEPT
+
+H3 rule: deletions 365, insertions 147 outside failed lines -> blank-bias step -0.7
+
+=== H3 blank bias -0.7 (pass 4) ===
+CER 0.1346  edits 1458/10829  collapsed 18  length_ratio 0.949  WER 0.3586
+per hand: {'Hertwig': 0.1604, 'Schlussred': 0.1228}
+confusions: [(' ', '', 122), ('', ' ', 74), ('e', '', 56), ('/', '', 55), ('i', '', 51), ('', '/', 50), ('n', '', 42), ('r', '', 38), ('D', 'd', 29), ('t', '', 27)]
+vs_kept delta -0.0034 ci95 [-0.0067, -0.0006]   vs_baseline delta -0.0110 ci95 [-0.0187, -0.0045]
+per-hand delta vs kept (delta, ci95): {'Hertwig': (-0.0068, [-0.0147, -0.0003]), 'Schlussred': (-0.0019, [-0.0051, 0.0008])}
+lines better 42, worse 33
+DECISION H3 blank bias -0.7: KEPT
+
+kept so far: H1 False | H2 True | H3 True
+blank bias now: 0.2679796814918518 | budget_left: 6

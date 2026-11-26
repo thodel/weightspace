@@ -1,0 +1,26 @@
+{
+  "budget": 0,
+  "used": 0,
+  "seed": 20261106,
+  "keep_rule": {
+    "min_effect": 0.005,
+    "resamples": 2000,
+    "interval": "page-clustered",
+    "rule": "95 % paired interval of CER(after) - CER(last kept) below -min_effect"
+  },
+  "practice_lines": 1194,
+  "practice_id": "b6b33a8d0c19b733538655f58f07a40518737174af467e2193b6b96b9deceb73",
+  "start_digest": "3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151",
+  "final_digest": "3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151",
+  "edits": 0,
+  "kept": 0,
+  "baseline": null,
+  "last_pass": null,
+  "changed_tensors": {},
+  "heldout": null,
+  "deviations": [],
+  "final_file_sha256": "054474de1f621f61d1284ee4f274c58def0bb887b1a91694081960fb05dbaf3c",
+  "subject": "/home/tobias/atr-cache/trocr/dh-unibe__trocr-german-kurrent-xvi-xix-from-kurrent-v2",
+  "name": "20261120-trocr-stage4-A-b-b0-1",
+  "sandbox": "cd /home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261120-trocr-stage4-A-b-b0-1 && env -i PATH=/usr/bin:/bin HOME=/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261120-trocr-stage4-A-b-b0-1 TMPDIR=/home/tobias/atr-cache/tmp/20261120-trocr-stage4-A-b-b0-1 CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 no_proxy=* /home/tobias/atr-cache/trocr/venv/bin/python -I -c 'import sys,runpy; sys.path.insert(0, '\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb'\"'\"'); import json; from wsp import landlock; landlock.restrict(**json.load(open('\"'\"'/home/tobias/Repo/weightspace/.claude/worktrees/trocr-stage0-9ababb/runs/20261120-trocr-stage4-A-b-b0-1/landlock.json'\"'\"'))); runpy.run_path('\"'\"'program.py'\"'\"', run_name='\"'\"'__main__'\"'\"')'"
+}

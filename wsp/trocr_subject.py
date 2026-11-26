@@ -9,6 +9,7 @@ is the second readout: one deterministic forward pass over the reference text wi
 """
 from __future__ import annotations
 
+import os
 import re
 import shutil
 from pathlib import Path
@@ -238,7 +239,7 @@ class TrocrSubject(Subject):
         between passes that are compared). ``extra``: tokens generated, ``at_cap`` (no end token within the cap), the
         beam's sequence score."""
         torch = self._torch
-        if self.check_card and str(self.device).startswith("cuda"):
+        if self.check_card and str(self.device).startswith("cuda") and os.environ.get("WSP_CARD_GATE") != "outside":
             from wsp import card
             ok, why = card.ready()
             if not ok:

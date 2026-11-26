@@ -12,23 +12,26 @@ transfers it to a different architecture: kraken line recognisers (VGSL
 convolution stack → three bidirectional LSTMs → CTC output over ~100–300
 characters, about 4 M parameters) fine-tuned on historical German handwriting.
 
-!!! note "Status — 14 November 2026"
+!!! note "Status — 24 November 2026"
     **No weight edit has yet done better than a cheap alternative.**
 
-    - **Kraken models:** one budgeted session gave a held-out gain whose page
-      interval excludes 0: the Fable 5.1 rerun of session 2, −0.57 points
-      [−1.15, −0.05]. Its gain is a step of 12.5 % toward the parent model, the
-      same size and place as a short retrain on corrected data (−0.55). The
-      same retrain on the uncorrected pairs gains nothing (−0.07), so it is the
-      correction that helps. Every other session gave no held-out gain.
+    - **Kraken models:** session 2 was run by five programmer models (Opus
+      5.5, Fable 5.1 and 5.2, Gemini 4 Argon, GPT-6.2 Astra). The four that
+      gained all stepped toward the parent model and gained −0.57 to −0.65
+      points on held-out, but only one page interval of the five lies below 0
+      (Fable 5.1, [−1.15, −0.05]). The step is the same size and place as a
+      short retrain on corrected data (−0.55). The same retrain on the
+      uncorrected pairs gains nothing (−0.07), so it is the correction that
+      helps. Every other session gave no held-out gain.
     - **Positive control:** the method repairs planted, localised defects, but
       so do a blind programmer and a rule list. That holds with Sonnet 5.5 and
       Fable 5.1 programmers. The one diffuse defect repaired by measuring
       was repaired by one of the two models only.
-    - **Vision-language adapter:** two sessions with different programmer models
-      (Opus 5.5, Fable 5.1) independently kept the same edit. It gave a large
-      practice gain from pages that stop looping, and none on 733 held-out
-      pages. One random direction passed the same keep rule.
+    - **Vision-language adapter:** four programmer models (Opus 5.5, Fable 5.1,
+      Gemini 4 Argon, GPT-6.2 Astra) independently kept the same kind of edit.
+      It gave a large practice gain from pages that stop looping, and none on
+      733 held-out pages. Random directions of the same size passed the same
+      keep rule.
     - **Block exchange between related models does help** on material the
       model was not trained for. One candidate (`latin_incunabula` v3) reads
       held-out Fraktur 1.7 points better while keeping its abbreviations.

@@ -1,0 +1,4 @@
+{'used': 1, 'edits': 1, 'kept': 0, 'final_digest': '3027fea2a05614552c3f0c3a7d8999c9a34a25b1d24315eb7fcfd6c2eaac0151'}
+
+--- stderr ---
+`torch_dtype` is deprecated! Use `dtype` instead!
