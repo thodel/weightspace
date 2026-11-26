@@ -1,4 +1,6 @@
-# TrOCR stage 5: the comparators, plan (draft)
+# TrOCR stage 5: the comparators, plan
+
+> **Done 26.11.2026 on the discovery half; results in R19 (`docs/RESULTS.md`) and `docs/trocr/stage5_results.md`. The confirmation read was not run.** The text below is the plan as approved, kept unchanged.
 
 Draft of 24.11.2026 (CET) for Tobias. Nothing in it runs until he has read it and given a go-ahead; the preregistration (`docs/TROCR_STAGE5_PREREG.md`) is written after his answers and before any run. Inputs: R16 (seed null), R17 (Gate 3), R18 (stage 4, Gate 4 not met); epic `docs/epics/EPIC_TROCR_TRACK.md` (stage 5: "C4 and the average of siblings, the same way as R11"); `docs/C4_RETRAIN.md` (the kraken C4 this copies).
 

@@ -2,12 +2,12 @@
 
 One page for anyone who opens the repository cold. Details are in the files it names.
 
-- **Main:** at `3f75d8f` (24 Nov, TrOCR stage 4 results), plus the documentation updates after it.
+- **Main:** TrOCR stage 5 merged on 26 Nov (after `2c2db73`), plus the documentation updates after it.
 - **Open pull requests:** none.
 - **Merged since 14 Nov:**
   - kraken session 2 rerun with a Fable 5.2 programmer (#44);
   - cross-vendor replicates, E1 and E2, with Gemini 4 Argon and GPT-6.2 Astra as programmers (plan #43; runs and report #53, #54, #55; `docs/XVENDOR_REPORT.md`);
-  - TrOCR stage 3, the planted-defect control (R17), and stage 4 with its preregistration, harness and results (R18, `3f75d8f`);
+  - TrOCR stage 3, the planted-defect control (R17), and stage 4 with its preregistration, harness and results (R18, `3f75d8f`), and stage 5 with its preregistration, harness and discovery-half results (R19);
   - the atlas synthesis and manuscript Section 6.6 (#42), the atlas explorer (#45, #48);
   - the public Quarto site (#46, #52), licences (#47, #49), dataset provenance (#50) and public model identifiers (#51).
 - **Running:** nothing of this project.
@@ -71,7 +71,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - A Fable 5.1 programmer, blind to that session, kept the same edit: a byte-identical adapter and byte-identical held-out readings (#25, merged).
   - Gemini 4 Argon and GPT-6.2 Astra both kept the same top reading direction, removed from layer 31's writers, and froze on byte-identical adapters (#55). Practice −7.8 points; held-out +1.13 [−3.0, +5.2], a null.
   - Random directions of the same size pass the keep rule on practice: one of three for the Fable shams, two of three for the E1 shams. This motivates the proposed amendment A5 (sham noise floor).
-- **TrOCR (stages 0-4):**
+- **TrOCR (stages 0-5):**
   - Seven models share one tokenizer, and input embedding and output projection are one tied tensor.
   - Readings are deterministic. C0 on `blb-eval-hand`: 19.74 % (`from-kurrent-v2`), 19.83 % (parent `XVI-XVII`), 26.41 % (`trocr-kurrent`).
   - Lineage is recoverable for the small fine-tunes, and the ViT pooler is an exact lineage marker.
@@ -80,6 +80,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
   - Stage 2 (seed null, six reruns of the recorded recipe on card 0, R16): held-out CER 20.04 % mean over five seeds (sd 0.14; recorded 19.74 %), so edits under about 0.5 points are retraining noise. Magnitude traces (encoder move 0.039, hump, tied-embedding share 0.85, encoder/decoder 0.14) reproduce across seeds; move directions do not (same-recipe cosine 0.36 encoder, 0.19 decoder); a sibling run is farther (0.108) than the parent (0.088).
   - Stage 3 (planted-defect control, R17, 18-19 Nov): 14 planted models of `from-kurrent-v2`, 12 scored defects all count on held-out (1.54 to 13.42 points). Core eight: Sonnet 5.5 with donor repairs 7, without donor 1 (p06; p01 crashed), blind (no passes) 7, Fable 5.2 7 and one partly (p10 26 %); rule list 4, scale search 0. No harmful keep. Gate 3 met. With the donor most repairs are a lookup of the parent tensor; p10 (noise on every matrix) is repaired by no arm.
   - Stage 4 (programmer sessions on healthy models, R18, 20-24 Nov): on A and B a single global interpolation toward the donor (arm I: A −4.09, B −3.36 CER points on the discovery half) beats every exchange cell and every programmer result. Programmer gains on A are all pulls toward the donor (best −3.73, P1); with the donor absent or blind nothing is kept; on B one donor-free edit (cross-attention output ×1.15, found by three sessions) gives −0.70. Gate 4 not met on either subject. The confirmation half was read once, for B only (PR #59, amendment 6): the `cross.o` edit −2.06 [−2.86, −1.31], arm I −7.36 [−9.19, −5.47], edit still below arm I; subject A's confirmation half is unread.
+  - Stage 5 (comparators, R19, 26 Nov): continued training on the practice lines beats arm I on both subjects (C4-small A −5.45, B −5.53 against −4.09, −3.36; C4-big −9.38, −11.28); the six-sibling average on A is below arm I (−2.40); B ceiling comparators −9.4, −9.2; shams null. Discovery half only; the confirmation half was not read for stage 5.
 - **Data findings:**
   - the Hertwig export defect (44 of 50 pages; repaired on HF, commit `dda578ea`);
   - a held-out set that was half a printed book (replaced by `blb-eval-hand`);
@@ -119,7 +120,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 **Not started**
 
 9. Epic #12 (LLM playbook); level L4 of epic #13, which needs a model that passes Gate 2 (none does).
-10. TrOCR stage 5 (retrain comparator or sibling average, about 15 GPU hours, needs the trainer's OK) and stage 6 (write-up, `docs/TROCR_REPORT.md`). Stages 0-4 are done and merged (R15 to R18).
+10. TrOCR stage 6 (write-up, `docs/TROCR_REPORT.md`). Stages 0-5 are done and merged (R15 to R19). Open for Tobias: the confirmation read for stage 5 (A: arm I and `c4big-A-lr1e-5-s3`; B: a second use of its half), and what the article says now that retraining beats interpolation. The 21 stage-5 finals (1.3 GB each) are in `~/atr-cache/trocr/stage5/` on asteraix until that is decided.
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
 13. Closed 24.11: kraken session 2 run-to-run variation and step size. Repeats (docs/S2_REPEATS.md): four Fable 5.2 runs all found the parent step, held-out −0.47 to −0.67 (range 0.20 > 0.085 across the four parent-step programmers), so model differences are not interpretable; 0 of 4 pass A4. Fixed-size sweep (docs/S2_PARENT_SWEEP.md): the parent step alone at α 0.10–0.30 gives −0.49 to −0.70 (lowest at 0.20, range 0.21), practice is flat and keeps every α, and the page interval lies below 0 only at α 0.10 and 0.15. Step size accounts for the spread; practice cannot choose it.
