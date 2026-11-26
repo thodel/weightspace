@@ -74,5 +74,6 @@ nav:
       - "2026-11-11 · Planted defects with a Fable programmer": journal/2026-11-11-c-planted-fable.md
       - "2026-11-15 · Kraken session 2 with a Fable 5.2 programmer": journal/2026-11-15-a-kraken-s2-fable52.md
       - "2026-11-24 · Kraken session 2, repeated with one programmer model": journal/2026-11-24-a-kraken-s2-repeats.md
+      - "2026-11-24 · Kraken session 2: the parent step at fixed sizes": journal/2026-11-24-b-kraken-s2-parent-sweep.md
   - Results: results.md
   - Figures: figures/README.md

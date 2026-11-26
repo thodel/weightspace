@@ -210,6 +210,5 @@ Each control is scored against C0 (`runs/…-b10-{2,3,4}/controls.json`,
 
 - **C4** (trainer), the **serving path** (nothing was registered) and **C1/C6** (unchanged, from
   `docs/baselines/` and the phase-0 readings).
-- The parent step at fixed sizes with no programmer (α 0.1–0.3), which is the other half of
-  open item 13. The runs here suggest it would be the more informative next measurement: three of
-  four repeats chose exactly the same α.
+- The parent step at fixed sizes with no programmer (α 0.1–0.3) was done afterwards, in
+  docs/S2_PARENT_SWEEP.md: the held-out Δ ranges over 0.21 with α, as much as the four runs here.

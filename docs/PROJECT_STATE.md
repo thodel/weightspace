@@ -122,7 +122,7 @@ Planning happens on h1, which has no GPU and no kraken; runs happen on asteraix.
 10. TrOCR stage 5 (retrain comparator or sibling average, about 15 GPU hours, needs the trainer's OK) and stage 6 (write-up, `docs/TROCR_REPORT.md`). Stages 0-4 are done and merged (R15 to R18).
 11. Literature: OpenAlex Q4-Q10.
 12. A next adapter session designed under A5 (larger practice set, sham noise floor, teacher-forced stop margin).
-13. The parent step of kraken session 2 at fixed sizes (α 0.1–0.3) with no programmer. The repeat runs are done (24.11, docs/S2_REPEATS.md, R3): four Fable 5.2 runs all found the parent step, with held-out Δ −0.47 to −0.67 (range 0.20, more than the 0.085 across the four parent-step programmers), so differences between those models are not interpretable; 0 of 4 pass A4. Three of four chose α 0.25, so the fixed-size sweep is the measurement still open.
+13. Closed 24.11: kraken session 2 run-to-run variation and step size. Repeats (docs/S2_REPEATS.md): four Fable 5.2 runs all found the parent step, held-out −0.47 to −0.67 (range 0.20 > 0.085 across the four parent-step programmers), so model differences are not interpretable; 0 of 4 pass A4. Fixed-size sweep (docs/S2_PARENT_SWEEP.md): the parent step alone at α 0.10–0.30 gives −0.49 to −0.70 (lowest at 0.20, range 0.21), practice is flat and keeps every α, and the page interval lies below 0 only at α 0.10 and 0.15. Step size accounts for the spread; practice cannot choose it.
 14. E3 of the cross-vendor plan (planted defects with Gemini and GPT): waits for a go-ahead (`docs/XVENDOR_PLAN.md`).
 
 ## Rules that apply here
